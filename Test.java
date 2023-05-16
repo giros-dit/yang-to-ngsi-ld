@@ -19,7 +19,7 @@ public class Test {
                     System.out.println(splitted[1] + " is of type " + splitted[0]);
                 }
                 line = reader.readLine();
-        }
+            }
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
