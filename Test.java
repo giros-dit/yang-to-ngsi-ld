@@ -2,11 +2,14 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class Test {
 
-    private void parseYangFile(String path) {
+    private Map<String, String> parseYangFile(String path) {
         BufferedReader reader;
+        Map<String, String> yangNodeTypes = new LinkedHashMap<String, String>();
 
         try {
             reader = new BufferedReader(new FileReader(path));
@@ -17,6 +20,8 @@ public class Test {
                 if (splitted.length == 3 && splitted[2].equals("{") 
                 && splitted[0].matches("container|leaf|leaf-list|list")) {
                     System.out.println(splitted[1] + " is of type " + splitted[0]);
+                    yangNodeTypes.put(splitted[1], splitted[0]);
+                    System.out.println("Added to map\n");
                 }
                 line = reader.readLine();
             }
@@ -28,11 +33,12 @@ public class Test {
             e.printStackTrace();
         }
         
+        return yangNodeTypes;
     } 
 
     public static void main(String[] args) {
         Test test = new Test();
-        test.parseYangFile("yang/ietf-interfaces.yang");
+        Map<String, String> yangNodeTypes = test.parseYangFile("yang/ietf-interfaces.yang");
     }
     
 }
