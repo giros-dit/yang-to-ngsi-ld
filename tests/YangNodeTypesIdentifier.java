@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class Test {
+public class YangNodeTypesIdentifier {
 
     private Map<String, String> parseYangFile(String path) {
         BufferedReader reader;
@@ -37,8 +37,8 @@ public class Test {
     } 
 
     public static void main(String[] args) {
-        Test test = new Test();
-        Map<String, String> yangNodeTypes = test.parseYangFile("yang/ietf-interfaces.yang");
+        YangNodeTypesIdentifier yangNodeTypesIdentifier = new YangNodeTypesIdentifier();
+        Map<String, String> yangNodeTypes = yangNodeTypesIdentifier.parseYangFile("../yang/ietf-interfaces.yang");
     }
     
 }
