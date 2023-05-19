@@ -12,6 +12,7 @@ import optparse
 import sys
 import re
 import pdb
+import json
 
 from pyang import plugin
 from pyang import statements
@@ -45,32 +46,26 @@ TO-DO
 """)
           
 def emit_ngsi_ld_context(ctx, modules, fd):
-    printed_header = False
-
-    def print_header(module):
-        nonlocal printed_header
-        if not printed_header:
-            bstr = ""
-            b = module.search_one('belongs-to')
-            if b is not None:
-                bstr = " (belongs-to %s)" % b.arg
-            fd.write("%s: %s%s\n" % (module.keyword, module.arg, bstr))
-            printed_header = True
     
-    pdb.set_trace()
+    def print_structure(element, fd):
+        if element is not None:
+            fd.write(element.arg + ' is of type ' + element.keyword)
+            if (element.keyword == 'leaf' or element.keyword == 'leaf-list'):
+                fd.write(' and data type is ' + element.search_one('type').arg + '\n')
+            else:
+                if (element.keyword == 'module'):
+                    fd.write(' with URN: ' + element.search_one('namespace').arg + '\n\n')
+                else:
+                    fd.write('\n')
+                subelements = element.i_children
+                if subelements is not None:
+                    for subelement in subelements:
+                        print_structure(subelement, fd)
+            
+    
+    # pdb.set_trace()
     
     for module in modules:
-        if printed_header:
-            fd.write("\n")
-        childrens = [children for children in module.i_children
-                     if children.keyword in statements.data_definition_keywords]
-        if len(childrens) > 0:
-            print_header(module)
-            for children in childrens:
-                fd.write(str(children) + "\n")
-                grandsons = [grandson for grandson in children.i_children
-                             if grandson.keyword in statements.data_definition_keywords]
-                if len(grandsons) > 0:
-                    for grandson in grandsons:
-                        fd.write(str(grandson) + "\n")
+        print_structure(module, fd)
+    
 
