@@ -1,21 +1,34 @@
 {
     "@context": {
         "ietf-interfaces": "urn:ietf:params:xml:ns:yang:ietf-interfaces/",
-        "refPlatform": "ietf-interfaces:refPlatform",
         "Interface": "ietf-interfaces:interfaces/interface",
         "name": "ietf-interfaces:interfaces/interface/name",
-        "typeInterface": "ietf-interfaces:interfaces/interface/type",
+        "description": "ietf-interfaces:interfaces/interface/name",
         "enabled": "ietf-interfaces:interfaces/interface/enabled",
         "linkUpDownTrapEnable": "ietf-interfaces:interfaces/interface/link-up-down-trap-enable",
         "adminStatus": "ietf-interfaces:interfaces/interface/admin-status",
         "operStatus": "ietf-interfaces:interfaces/interface/oper-status",
         "lastChange": "ietf-interfaces:interfaces/interface/last-change",
         "ifIndex": "ietf-interfaces:interfaces/interface/if-index",
+        "physAddress": "ietf-interfaces:interfaces/interface/phys-address",
         "speed": "ietf-interfaces:interfaces/interface/speed",
+        "refHigherLayerIf": "ietf-interfaces:interfaces/interface/higher-layer-if",
+        "refLowerLayerIf": "ietf-interfaces:interfaces/interface/lower-state-ref",
         "Statistics": "ietf-interfaces:interfaces/interface/statistics",
-        "refInterface": "ietf-interfaces:refInterface",
+        "refInterface": "ietf-interfaces:ref-interface",
         "discontinuityTime": "ietf-interfaces:interfaces/interface/statistics/discontinuity-time",
         "inOctets": "ietf-interfaces:interfaces/interface/statistics/in-octets",
-        "inUnicastPkts": "ietf-interfaces:interfaces/interface/statistics/in-unicast-pkts"
+        "inUnicastPkts": "ietf-interfaces:interfaces/interface/statistics/in-unicast-pkts",
+        "inBroadcastPkts": "ietf-interfaces:interfaces/interface/statistics/in-broadcast-pkts",
+        "inMulticastPkts": "ietf-interfaces:interfaces/interface/statistics/in-multicast-pkts",
+        "inDiscards": "ietf-interfaces:interfaces/interface/statistics/in-discards",
+        "inErrors": "ietf-interfaces:interfaces/interface/statistics/in-errors",
+        "inUnknownProtos": "ietf-interfaces:interfaces/interface/statistics/in-unknown-protos",
+        "outOctets": "ietf-interfaces:interfaces/interface/statistics/out-octets",
+        "outUnicastPkts": "ietf-interfaces:interfaces/interface/statistics/out-unicast-pkts",
+        "outBroadcastPkts": "ietf-interfaces:interfaces/interface/statistics/out-broadcast-pkts",
+        "outMulticastPkts": "ietf-interfaces:interfaces/interface/statistics/out-multicast-pkts",
+        "outDiscards": "ietf-interfaces:interfaces/interface/statistics/out-discards",
+        "outErrors": "ietf-interfaces:interfaces/interface/statistics/out-errors"
     }
 }
