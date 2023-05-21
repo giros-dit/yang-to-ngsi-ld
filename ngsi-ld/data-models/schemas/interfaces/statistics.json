@@ -1,0 +1,377 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "1.0",
+    "title": "Statistics",
+    "description": "Entity that represents a collection of interface-related statistics of a model-based network device supporting the ietf-intefaces@2018-02-20.yang YANG module.",
+    "type": "object",
+    "additionalProperties": false,
+    "allOf": [
+        {
+            "$ref": "../entity.json#/definitions/Entity"
+        },
+        {
+            "properties": {
+                "type": {
+                    "description": "NGSI-LD Entity identifier. It has to be Statistics.",
+                    "type": "string",
+                    "enum": [
+                        "Statistics"
+                    ],
+                    "default": "Statistics"
+                },
+                "isPartOf": {
+                    "$ref": "#/definitions/IsPartOf"
+                },
+                "discontinuityTime": {
+                    "$ref": "#/definitions/DiscontinuityTime"
+                },
+                "inOctets": {
+                    "$ref": "#/definitions/InOctets"
+                },
+                "inUnicastPkts": {
+                    "$ref": "#/definitions/InUnicastPkts"
+                },
+                "inBroadcastPkts": {
+                    "$ref": "#/definitions/InBroadcastPkts"
+                },
+                "inMulticastPkts": {
+                    "$ref": "#/definitions/InMulticastPkts"
+                },
+                "inDiscards": {
+                    "$ref": "#/definitions/InDiscards"
+                },
+                "inErrors": {
+                    "$ref": "#/definitions/InErrors"
+                },
+                "inUnknownProtos": {
+                    "$ref": "#/definitions/InUnknownProtos"
+                },
+                "outOctets": {
+                    "$ref": "#/definitions/OutOctets"
+                },
+                "outUnicastPkts": {
+                    "$ref": "#/definitions/OutUnicastPkts"
+                },
+                "outBroadcastPkts": {
+                    "$ref": "#/definitions/OutBroadcastPkts"
+                },
+                "outMulticastPkts": {
+                    "$ref": "#/definitions/OutMulticastPkts"
+                },
+                "outDiscards": {
+                    "$ref": "#/definitions/OutDiscards"
+                },
+                "outErrors": {
+                    "$ref": "#/definitions/OutErrors"
+                }
+            },
+            "required": [
+                "type",
+                "discontinuityTime"
+            ]
+        }
+    ],
+    "definitions": {
+        "IsPartOf": {
+            "description": "Relationship. A hierarchical relationship to denote tje statistics of an interface.",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../entity.json#/definitions/Relationship"
+                },
+                {
+                    "properties": {
+                        "object": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "object"
+                    ]
+                }
+            ],
+            "additionalProperties": false
+        },
+        "DiscontinuityTime": {
+            "description": "Property. The time on the most recent occasion at which any one or more of this interface's counters suffered a discontinuity.  If no such discontinuities have occurred since the last re-initialization of the local management subsystem, then this node contains the time the local management subsystem re-initialized itself.",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../entity.json#/definitions/Property"
+                },
+                {
+                    "properties": {
+                        "value": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ]
+                }
+            ],
+            "additionalProperties": false
+        },
+        "InOctets": {
+            "description": "Property. The total number of octets received on the interface, including framing characters.",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../entity.json#/definitions/Property"
+                },
+                {
+                    "properties": {
+                        "value": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ]
+                }
+            ],
+            "additionalProperties": false
+        },
+        "InUnicastPkts": {
+            "description": "The number of packets, delivered by this sub-layer to a higher (sub-)layer, that were not addressed to a multicast or broadcast address at this sub-layer.",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../entity.json#/definitions/Property"
+                },
+                {
+                    "properties": {
+                        "value": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ]
+                }
+            ],
+            "additionalProperties": false
+        },
+        "InBroadcastPkts": {
+            "description": "The number of packets, delivered by this sub-layer to a higher (sub-)layer, that were addressed to a broadcast address at this sub-layer",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../entity.json#/definitions/Property"
+                },
+                {
+                    "properties": {
+                        "value": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ]
+                }
+            ],
+            "additionalProperties": false
+        },
+        "InMulticastPkts": {
+            "description": "The number of packets, delivered by this sub-layer to a higher (sub-)layer, that were addressed to a multicast address at this sub-layer. For a MAC-layer protocol, this includes both Group and Functional addresses.",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../entity.json#/definitions/Property"
+                },
+                {
+                    "properties": {
+                        "value": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ]
+                }
+            ],
+            "additionalProperties": false
+        },
+        "InDiscards": {
+            "description": "The number of inbound packets that were chosen to be discarded even though no errors had been detected to prevent their being deliverable to a higher-layer protocol.  One possible reason for discarding such a packet could be to free up buffer space.",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../entity.json#/definitions/Property"
+                },
+                {
+                    "properties": {
+                        "value": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ]
+                }
+            ],
+            "additionalProperties": false
+        },
+        "InErrors": {
+            "description": "For packet-oriented interfaces, the number of inbound packets that contained errors preventing them from being deliverable to a higher-layer protocol.  For character- oriented or fixed-length interfaces, the number of inbound transmission units that contained errors preventing them from being deliverable to a higher-layer protocol.",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../entity.json#/definitions/Property"
+                },
+                {
+                    "properties": {
+                        "value": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ]
+                }
+            ],
+            "additionalProperties": false
+        },
+        "InUnknownProtos": {
+            "description": "For packet-oriented interfaces, the number of packets received via the interface that were discarded because of an unknown or unsupported protocol.  For character-oriented or fixed-length interfaces that support protocol multiplexing, the number of transmission units received via the interface that were discarded because of an unknown or unsupported protocol. For any interface that does not support protocol multiplexing, this counter is not present.",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../entity.json#/definitions/Property"
+                },
+                {
+                    "properties": {
+                        "value": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ]
+                }
+            ],
+            "additionalProperties": false
+        },
+        "OutOctets": {
+            "description": "Property. The total number of octets transmitted out of the interface, including framing characters.",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../entity.json#/definitions/Property"
+                },
+                {
+                    "properties": {
+                        "value": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ]
+                }
+            ],
+            "additionalProperties": false
+        },
+        "OutUnicastPkts": {
+            "description": "The total number of packets that higher-level protocols requested be transmitted and that were not addressed to a multicast or broadcast address at this sub-layer, including those that were discarded or not sent.",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../entity.json#/definitions/Property"
+                },
+                {
+                    "properties": {
+                        "value": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ]
+                }
+            ],
+            "additionalProperties": false
+        },
+        "OutBroadcastPkts": {
+            "description": "The total number of packets that higher-level protocols requested be transmitted and that were addressed to a broadcast address at this sub-layer, including those that were discarded or not sent.",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../entity.json#/definitions/Property"
+                },
+                {
+                    "properties": {
+                        "value": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ]
+                }
+            ],
+            "additionalProperties": false
+        },
+        "OutMulticastPkts": {
+            "description": "The total number of packets that higher-level protocols requested be transmitted and that were addressed to a multicast address at this sub-layer, including those that were discarded or not sent.  For a MAC-layer protocol, this includes both Group and Functional addresses.",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../entity.json#/definitions/Property"
+                },
+                {
+                    "properties": {
+                        "value": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ]
+                }
+            ],
+            "additionalProperties": false
+        },
+        "OutDiscards": {
+            "description": "The number of outbound packets that were chosen to be discarded even though no errors had been detected to prevent their being transmitted.  One possible reason for discarding such a packet could be to free up buffer space.",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../entity.json#/definitions/Property"
+                },
+                {
+                    "properties": {
+                        "value": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ]
+                }
+            ],
+            "additionalProperties": false
+        },
+        "OutErrors": {
+            "description": "For packet-oriented interfaces, the number of outbound packets that could not be transmitted because of errors. For character-oriented or fixed-length interfaces, the number of outbound transmission units that could not be transmitted because of errors.",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../entity.json#/definitions/Property"
+                },
+                {
+                    "properties": {
+                        "value": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ]
+                }
+            ],
+            "additionalProperties": false
+        }
+    }
+}

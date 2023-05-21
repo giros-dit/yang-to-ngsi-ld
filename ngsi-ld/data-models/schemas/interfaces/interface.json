@@ -1,0 +1,342 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$schemaVersion": "1.0",
+    "title": "Interface",
+    "description": "Entity that represents the interface of a model-based network device supporting the ietf-intefaces@2018-02-20.yang YANG module.",
+    "type": "object",
+    "additionalProperties": false,
+    "allOf": [
+        {
+            "$ref": "../entity.json#/definitions/Entity"
+        },
+        {
+            "properties": {
+                "type": {
+                    "description": "NGSI-LD Entity identifier. It has to be Interface.",
+                    "type": "string",
+                    "enum": [
+                        "Interface"
+                    ],
+                    "default": "Interface"
+                },
+                "name": {
+                    "$ref": "#/definitions/Name"
+                },
+                "description": {
+                    "$ref": "#/definitions/Description"
+                },
+                "enabled": {
+                    "$ref": "#/definitions/Enabled"
+                },
+                "linkUpDownTrapEnable": {
+                    "$ref": "#/definitions/LinkUpDownTrapEnable"
+                },
+                "adminStatus": {
+                    "$ref": "#/definitions/AdminStatus"
+                },
+                "operStatus": {
+                    "$ref": "#/definitions/OperStatus"
+                },
+                "lastChange": {
+                    "$ref": "#/definitions/LastChange"
+                },
+                "ifIndex": {
+                    "$ref": "#/definitions/IfIndex"
+                },
+                "physAddress": {
+                    "$ref": "#/definitions/PhysAddress"
+                },
+                "speed": {
+                    "$ref": "#/definitions/Speed"
+                },
+                "higherLayerIf": {
+                    "$ref": "#/definitions/HigherLayerIf"
+                },
+                "lowerLayerIf": {
+                    "$ref": "#/definitions/LowerLayerIf"
+                }
+            },
+            "required": [
+                "type",
+                "name",
+                "adminStatus",
+                "operStatus",
+                "index"
+            ]
+        }
+    ],
+    "definitions": {
+        "Name": {
+            "description": "Property. The name of the interface.",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../entity.json#/definitions/Property"
+                },
+                {
+                    "properties": {
+                        "value": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ]
+                }
+            ],
+            "additionalProperties": false
+        },
+        "Description": {
+            "description": "Property. Description of the interface.",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../entity.json#/definitions/Property"
+                },
+                {
+                    "properties": {
+                        "value": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ]
+                }
+            ],
+            "additionalProperties": false
+        },
+        "Enabled": {
+            "description": "Property. The configured, desired state of the interface.",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../entity.json#/definitions/Property"
+                },
+                {
+                    "properties": {
+                        "value": {
+                            "type": "boolean"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ]
+                }
+            ],
+            "additionalProperties": false
+        },
+        "LinkUpDownTrapEnable": {
+            "description": "Property. Controls whether linkUp/linkDown SNMP notifications should be generated for this interface.",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../entity.json#/definitions/Property"
+                },
+                {
+                    "properties": {
+                        "value": {
+                            "$ref": "#/definitions/LinkUpDownTrapEnableOptions"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ]
+                }
+            ],
+            "additionalProperties": false
+        },
+        "LinkUpDownTrapEnableOptions": {
+            "description": "Options for linkUp/linkDown SNMP notifications.",
+            "type": "string",
+            "enum": [
+                "enabled",
+                "disabled"
+            ]
+        },
+        "AdminStatus": {
+            "description": "Property. The desired state of the interface.",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../entity.json#/definitions/Property"
+                },
+                {
+                    "properties": {
+                        "value": {
+                            "$ref": "#/definitions/AdminStatusOptions"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ]
+                }
+            ],
+            "additionalProperties": false
+        },
+        "AdminStatusOptions": {
+            "description": "Options for the admin state of the interface.",
+            "type": "string",
+            "enum": [
+                "up",
+                "down",
+                "testing"
+            ]
+        },
+        "OperStatus": {
+            "description": "Property. The current operational state of the interface.",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../entity.json#/definitions/Property"
+                },
+                {
+                    "properties": {
+                        "value": {
+                            "$ref": "#/definitions/OperStatusOptions"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ]
+                }
+            ],
+            "additionalProperties": false
+        },
+        "OperStatusOptions": {
+            "description": "Options for the operational state of the interface.",
+            "type": "string",
+            "enum": [
+                "up",
+                "down",
+                "testing",
+                "unknown",
+                "dormant",
+                "not-present",
+                "lower-layer-down"
+            ]
+        },
+        "LastChange": {
+            "description": "Property. The time the interface entered its current operational state.",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../entity.json#/definitions/Property"
+                },
+                {
+                    "properties": {
+                        "value": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ]
+                }
+            ],
+            "additionalProperties": false
+        },
+        "IfIndex": {
+            "description": "Property. The ifIndex value for the ifEntry represented by this interface.",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../entity.json#/definitions/Property"
+                },
+                {
+                    "properties": {
+                        "value": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ]
+                }
+            ],
+            "additionalProperties": false
+        },
+        "PhysAddress": {
+            "description": "Property. The interface's address at its protocol sub-layer.",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../entity.json#/definitions/Property"
+                },
+                {
+                    "properties": {
+                        "value": {
+                            "type": "string",
+                            "pattern": "([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ]
+                }
+            ],
+            "additionalProperties": false
+        },
+        "Speed": {
+            "description": "Property. An estimate of the interface's current bandwidth in bits per second.",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../entity.json#/definitions/Property"
+                },
+                {
+                    "properties": {
+                        "value": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ]
+                }
+            ],
+            "additionalProperties": false
+        },
+        "HigherLayerIf": {
+            "description": "Relationship. A list of references to interfaces layered on top of this interface.",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../entity.json#/definitions/Relationship"
+                },
+                {
+                    "properties": {
+                        "object": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "object"
+                    ]
+                }
+            ],
+            "additionalProperties": false
+        },
+        "LowerLayerIf": {
+            "description": "Relationship. A list of references to interfaces layered underneath of this interface.",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../entity.json#/definitions/Relationship"
+                },
+                {
+                    "properties": {
+                        "object": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "object"
+                    ]
+                }
+            ],
+            "additionalProperties": false
+        }
+    }
+}
