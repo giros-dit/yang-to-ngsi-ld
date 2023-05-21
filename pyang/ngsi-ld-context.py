@@ -60,7 +60,10 @@ def emit_ngsi_ld_context(ctx, modules, fd):
                 subelements = element.i_children
                 if subelements is not None:
                     for subelement in subelements:
-                        print_structure(subelement, fd)
+                        #print_structure(subelement, fd)
+                        status = subelement.search_one('status')
+                        if (status is None) or (status.arg != 'deprecated'):
+                            print_structure(subelement, fd)
             
     
     # pdb.set_trace()

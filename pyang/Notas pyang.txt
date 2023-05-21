@@ -3,3 +3,5 @@ import pdb; pdb.set_trace() en el punto donde se quiera hacer una traza
 search_one('type') -> tipo de dato: string, etc...
 
 dir() para obtener métodos
+
+cp ngsi-ld-context.py ~/.local/lib/python3.9/site-packages/pyang/plugins/ngsi-ld-context.py 
