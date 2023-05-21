@@ -8,11 +8,11 @@ In this repository, we provide JSON schemas arranged per domain. For example, th
 
 The structure of the repository is arranged into the following main folders:
 
-- `schemas`: Contains JSON schemas for each domain, e.g., [IETF Interfaces JSON schema](schemas/interfaces/interface.json)
-- `examples`: Contains examples of JSON-LD payloads for each domain, e.g., [IETF Interfaces example](examples/interfaces/interface/example-normalized.json)
-- `context`: Contains JSON-LD context vocabulary for each domain, e.g., [IETF Interfaces Context](context/interfaces/context.jsonld)
-- `bindings`: Contains Python class bindings (using [`pydantic`](https://docs.pydantic.dev/latest/) library) for each domain, e.g., [Interface class](bindings/interfaces/interface.py)
-- `tests`: Contains Python unit tests that allow to validate example JSON-LD payloads against the respective class bindings, e.g., [IETF Interfaces tests](tests/interfaces.py)
+- `schemas`: Contains JSON schemas for each domain, e.g., [IETF Interfaces JSON schema](schemas/interfaces/interface.json).
+- `examples`: Contains examples of JSON-LD payloads for each domain, e.g., [IETF Interfaces example](examples/interfaces/interface/example-normalized.json).
+- `context`: Contains JSON-LD context vocabulary for each domain, e.g., [IETF Interfaces Context](context/interfaces/context.jsonld).
+- `bindings`: Contains Python class bindings (using [`pydantic`](https://docs.pydantic.dev/latest/) library) for each domain, e.g., [Interface class](bindings/interfaces/interface.py).
+- `tests`: Contains Python unit tests that allow to validate example JSON-LD payloads against the respective class bindings, e.g., [IETF Interfaces tests](tests/interfaces.py).
 
 ## NGSI-LD Core (meta model)
 
