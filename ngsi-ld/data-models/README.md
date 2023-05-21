@@ -2,7 +2,7 @@
 
 The NGSI-LD protocol encodes data using the JSON-LD format. For this reason, data models associated with NGSI-LD entities can be formally specified using JSON schema.
 
-In this repository, we provide JSON schemas arranged per domain. For example, the [interfaces](schemas/interfaces/) folder, contains data models derived from the NGSI-LD information model that captures context information related to the interfaces of a model-based network device supporting the [_ietf-intefaces@2018-02-20.yang_ YANG module](../../yang/modules/ietf-interfaces%402018-02-20.yang) as depicted [here](../information-models/interfaces-ngsi-ld-schema-if-reduced.png).
+In this repository, we provide JSON schemas arranged per domain. For example, the [interfaces](schemas/interfaces/) folder, contains data models derived from the NGSI-LD information model that captures context information related to the interfaces of a model-based network device supporting the [_ietf-intefaces_ YANG module](../../yang/modules/ietf-interfaces%402018-02-20.yang) as depicted [here](../information-models/interfaces-ngsi-ld-schema-if-reduced.png).
 
 ## Repository structure
 
@@ -24,7 +24,7 @@ In addition,[common.json](schemas/common.json), [geometry.json](schemas/geometry
 
 ## How to generate Python bindings from JSON schema
 
-Once we have defined JSON schemas for data models, we want to parse and validate NGSI-LD payloads that follow the specified data models in programatic way. To this end, we must generate class bindings in the selected progamming language. In the case of the SDA, most of the internal components are developed using Python language, so we have to find a tool able to produce Python class bindings from JSON schemas. The [datamode-code-generator](https://koxudaxi.github.io/datamodel-code-generator/) is a tool that generates pydantic models from OpenAPI and JSON schema specifications.
+Once we have defined JSON schemas for data models, we want to parse and validate NGSI-LD payloads that follow the specified data models in programatic way. To this end, we must generate class bindings in the selected progamming language. In the case of the SDA, most of the internal components are developed using Python language, so we have to find a tool able to produce Python class bindings from JSON schemas. The [datamode-code-generator](https://koxudaxi.github.io/datamodel-code-generator/) is a tool that generates `pydantic` models from OpenAPI and JSON schema specifications.
 
 ### Poetry installation and configuration
 
