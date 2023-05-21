@@ -67,13 +67,14 @@
             },
             "required": [
                 "type",
+                "isPartOf",
                 "discontinuityTime"
             ]
         }
     ],
     "definitions": {
         "IsPartOf": {
-            "description": "Relationship. A hierarchical relationship to denote tje statistics of an interface.",
+            "description": "Relationship. A hierarchical relationship to denote the statistics of an interface.",
             "type": "object",
             "allOf": [
                 {

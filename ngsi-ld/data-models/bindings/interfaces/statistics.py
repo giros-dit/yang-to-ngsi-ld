@@ -13,7 +13,7 @@ from ..entity import Entity, Property, Relationship
 
 class IsPartOf(Relationship):
     """
-    Relationship. A hierarchical relationship to denote tje statistics of an interface.
+    Relationship. A hierarchical relationship to denote the statistics of an interface.
     """
 
     class Config:
@@ -220,7 +220,7 @@ class Statistics(Entity):
         'Statistics',
         description='NGSI-LD Entity identifier. It has to be Statistics.',
     )
-    is_part_of: Optional[IsPartOf] = Field(None, alias='isPartOf')
+    is_part_of: IsPartOf = Field(..., alias='isPartOf')
     discontinuity_time: DiscontinuityTime = Field(
         ..., alias='discontinuityTime'
     )
