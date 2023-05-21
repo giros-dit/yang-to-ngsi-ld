@@ -4,4 +4,4 @@ search_one('type') -> tipo de dato: string, etc...
 
 dir() para obtener métodos
 
-cp ngsi-ld-context.py ~/.local/lib/python3.9/site-packages/pyang/plugins/ngsi-ld-context.py 
+cp ngsi-ld-context.py ~/.local/lib/<python_version>/site-packages/pyang/plugins/ngsi-ld-context.py 
