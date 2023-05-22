@@ -60,10 +60,6 @@ def emit_ngsi_ld_context(ctx, modules, fd):
                 subelements = element.i_children
                 if subelements is not None:
                     for subelement in subelements:
-<<<<<<< Updated upstream:yang/pyang/ngsi-ld-context.py
-                        #print_structure(subelement, fd)
-=======
->>>>>>> Stashed changes:pyang/ngsi-ld-context.py
                         status = subelement.search_one('status')
                         if (status is None) or (status.arg != 'deprecated'):
                             print_structure(subelement, fd)
@@ -73,5 +69,3 @@ def emit_ngsi_ld_context(ctx, modules, fd):
     
     for module in modules:
         print_structure(module, fd)
-    
-
