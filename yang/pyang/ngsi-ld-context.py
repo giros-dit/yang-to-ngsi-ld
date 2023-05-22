@@ -1,7 +1,8 @@
 """
 pyang plugin -- NGSI-LD Context generator.
 
-Generates a .jsonld file with the NGSI-LD Context associated with a YANG module file.
+Generates the NGSI-LD Context associated with a YANG module file following the defined guidelines and conventions.
+It can output the result in the command line or save it in a .jsonld file.
 
 Version: 0.0.2.
 
@@ -30,9 +31,11 @@ class NgsiLdContextPlugin(plugin.PyangPlugin):
         fmts['ngsi-ld-context'] = self
 
     def setup_ctx(self, ctx):
+        """
         if ctx.opts.help:
             print_help()
             sys.exit(0)
+        """
 
     def setup_fmt(self, ctx):
         ctx.implicit_errors = False
@@ -46,6 +49,18 @@ def print_help():
         """)
           
 def emit_ngsi_ld_context(ctx, modules, fd):
+
+    # Use PDB to debug the code:
+    # pdb.set_trace()
+
+    json_ld = {}
+    json_ld['@context'] = []
+    ngsi_ld_context = {}
+    ngsi_ld_core_context_uri = "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.6.jsonld"
+
+    def generate_context(element, fd):
+        if (element is not None) and (element.keyword in statements.data_definition_keywords):
+            return None
     
     def print_structure(element, fd):
         if (element is not None) and (element.keyword in statements.data_definition_keywords):
@@ -53,19 +68,19 @@ def emit_ngsi_ld_context(ctx, modules, fd):
             if (element.keyword == 'leaf' or element.keyword == 'leaf-list'):
                 fd.write(' and data type is ' + element.search_one('type').arg + '\n')
             else:
-                if (element.keyword == 'module'):
-                    fd.write(' with URN: ' + element.search_one('namespace').arg + '\n\n')
-                else:
-                    fd.write('\n')
+                fd.write('\n')
                 subelements = element.i_children
                 if subelements is not None:
                     for subelement in subelements:
                         status = subelement.search_one('status')
                         if (status is None) or (status.arg != 'deprecated'):
                             print_structure(subelement, fd)
-            
     
-    # pdb.set_trace()
-    
+    # Print YANG module structure:
     for module in modules:
-        print_structure(module, fd)
+        fd.write(module.arg + ' is of type ' + module.keyword + ' with URN: ' + module.search_one('namespace').arg + '\n\n')
+        elements = module.i_children
+        if (elements is not None):
+            for element in elements:
+                print_structure(element, fd)
+        fd.write('\n\n')
