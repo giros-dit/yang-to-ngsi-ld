@@ -12,6 +12,9 @@
             "type": "string",
             "pattern": "^((\\d|[a-zA-Z]|_)+(:(\\d|[a-zA-Z]|_)+)?(#\\d+)?)$|^(@context)$"
         },
+        "unitCode": {
+            "type": "string"
+        },      
         "observedAt": {
             "type": "string",
             "format": "date-time"

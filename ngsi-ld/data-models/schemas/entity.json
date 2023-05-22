@@ -57,6 +57,9 @@
                         }
                     ]
                 },
+                "unitCode": {
+                    "$ref": "./common.json#/definitions/unitCode"
+                },
                 "observedAt": {
                     "$ref": "./common.json#/definitions/observedAt"
                 },

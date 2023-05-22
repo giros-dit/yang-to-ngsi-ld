@@ -37,6 +37,14 @@ class PropertyNames(BaseModel):
     __root__: StrictStr
 
 
+class UnitCode(BaseModel):
+    class Config:
+        validate_assignment = True
+        allow_population_by_field_name = True
+
+    __root__: StrictStr
+
+
 class ObservedAt(BaseModel):
     class Config:
         validate_assignment = True

@@ -44,6 +44,7 @@ class Property(BaseModel):
 
     type: Optional[Literal['Property']] = 'Property'
     value: Union[StrictStr, StrictFloat, StrictBool, List, Dict[str, Any]]
+    unit_code: Optional[common.UnitCode] = Field(None, alias='unitCode')
     observed_at: Optional[common.ObservedAt] = Field(None, alias='observedAt')
     created_at: Optional[common.CreatedAt] = Field(None, alias='createdAt')
     modified_at: Optional[common.ModifiedAt] = Field(None, alias='modifiedAt')
