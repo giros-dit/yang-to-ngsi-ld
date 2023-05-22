@@ -3,7 +3,7 @@ pyang plugin -- NGSI-LD Context generator.
 
 Generates a .jsonld file with the NGSI-LD Context associated with a YANG module file.
 
-Version: 0.0.1.
+Version: 0.0.2.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 """
@@ -30,9 +30,9 @@ class NgsiLdContextPlugin(plugin.PyangPlugin):
         fmts['ngsi-ld-context'] = self
 
     def setup_ctx(self, ctx):
-        """
-        Do nothing for now
-        """
+        if ctx.opts.help:
+            print_help()
+            sys.exit(0)
 
     def setup_fmt(self, ctx):
         ctx.implicit_errors = False
@@ -42,13 +42,13 @@ class NgsiLdContextPlugin(plugin.PyangPlugin):
 
 def print_help():
     print("""
-TO-DO
-""")
+            TO-DO
+        """)
           
 def emit_ngsi_ld_context(ctx, modules, fd):
     
     def print_structure(element, fd):
-        if element is not None:
+        if (element is not None) and (element.keyword in statements.data_definition_keywords):
             fd.write(element.arg + ' is of type ' + element.keyword)
             if (element.keyword == 'leaf' or element.keyword == 'leaf-list'):
                 fd.write(' and data type is ' + element.search_one('type').arg + '\n')
@@ -60,7 +60,10 @@ def emit_ngsi_ld_context(ctx, modules, fd):
                 subelements = element.i_children
                 if subelements is not None:
                     for subelement in subelements:
+<<<<<<< Updated upstream:yang/pyang/ngsi-ld-context.py
                         #print_structure(subelement, fd)
+=======
+>>>>>>> Stashed changes:pyang/ngsi-ld-context.py
                         status = subelement.search_one('status')
                         if (status is None) or (status.arg != 'deprecated'):
                             print_structure(subelement, fd)
