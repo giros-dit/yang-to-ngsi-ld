@@ -42,3 +42,5 @@ IndexError: list assignment index out of range
 >>> context['array'].append(context_array)
 >>> print(context)
 {'hola': 'texto', 'array': [{'hola1': 'hola1', 'hola2': 'hola2'}]}
+
+Si un container de YANG sólo tiene una lista, se obvia el container en la representación del contexto (enclosing container).
