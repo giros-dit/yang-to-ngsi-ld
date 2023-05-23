@@ -57,10 +57,26 @@ def emit_ngsi_ld_context(ctx, modules, fd):
     json_ld['@context'] = []
     ngsi_ld_context = {}
     ngsi_ld_core_context_uri = "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.6.jsonld"
+    isPartOf_uri = "https://smartdatamodels.org/isPartOf"
 
-    def generate_context(element, fd):
+    def generate_context(element, xpath, ngsi_ld_context):
         if (element is not None) and (element.keyword in statements.data_definition_keywords):
-            return None
+            if (element.keyword == 'container') and (len(element.i_children) == 1) and (element.i_children[0].keyword == 'list'):
+                status = element.search_one('status')
+                if (status is None) or (status.arg != 'deprecated'):
+                    subelements = element.i_children
+                    if (subelements is not None):
+                        for subelement in subelements:
+                            generate_context(subelement, xpath + ':' + element.arg, ngsi_ld_context)
+            else:
+                status = element.search_one('status')
+                if (status is None) or (status.arg != 'deprecated'):
+                    ngsi_ld_context[str(element.arg)] = xpath + '/' + str(element.arg)
+                    if (element.keyword not in ['leaf', 'leaf-list']):
+                        children = element.i_children
+                        if (children is not None):
+                            for child in children:
+                                generate_context(child, xpath + '/' + element.arg, ngsi_ld_context)
     
     def print_structure(element, fd):
         if (element is not None) and (element.keyword in statements.data_definition_keywords):
@@ -76,11 +92,27 @@ def emit_ngsi_ld_context(ctx, modules, fd):
                         if (status is None) or (status.arg != 'deprecated'):
                             print_structure(subelement, fd)
     
-    # Print YANG module structure:
+    # Generate NGSI-LD Context:
     for module in modules:
-        fd.write(module.arg + ' is of type ' + module.keyword + ' with URN: ' + module.search_one('namespace').arg + '\n\n')
+        name = str(module.arg)
+        urn = str(module.search_one('namespace').arg)
+        ngsi_ld_context[name] = urn + '/'
+        splitted_urn = urn.split(":")
+        xpath = splitted_urn[-1]
         elements = module.i_children
         if (elements is not None):
             for element in elements:
-                print_structure(element, fd)
-        fd.write('\n\n')
+                generate_context(element, xpath, ngsi_ld_context)
+        json_ld['@context'].append(ngsi_ld_context)
+        json_ld['@context'].append(ngsi_ld_core_context_uri)
+        json_ld['@context'].append(isPartOf_uri)
+        fd.write(json.dumps(json_ld, indent=4) + '\n')
+
+    # Print YANG module structure:
+    # for module in modules:
+    #    fd.write(module.arg + ' is of type ' + module.keyword + ' with URN: ' + module.search_one('namespace').arg + '\n\n')
+    #    elements = module.i_children
+    #    if (elements is not None):
+    #        for element in elements:
+    #            print_structure(element, fd)
+    #    fd.write('\n\n')
