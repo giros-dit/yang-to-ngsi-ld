@@ -4,7 +4,7 @@ pyang plugin -- NGSI-LD Context generator.
 Generates the NGSI-LD Context associated with a YANG module file following the defined guidelines and conventions.
 It can output the result in the command line or save it in a .jsonld file.
 
-Version: 0.0.2.
+Version: 0.1.0.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 """
@@ -59,6 +59,27 @@ def emit_ngsi_ld_context(ctx, modules, fd):
     ngsi_ld_core_context_uri = "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.6.jsonld"
     isPartOf_uri = "https://smartdatamodels.org/isPartOf"
 
+    def to_camel_case(keyword: str, element_name: str) -> str:
+        if (keyword is None) or (element_name is None):
+            return element_name
+        else:
+            if (keyword == 'module'):
+                return element_name
+            if (keyword == 'container') or (keyword == 'list'):
+                return element_name.capitalize()
+            if (keyword == 'leaf') or (keyword == 'leaf-list'):
+                if ('-' in element_name):
+                    splitted_element_name = element_name.split('-')
+                    camelizedName = ''
+                    for index, element_name_part in enumerate(splitted_element_name):
+                        if (index == 0):
+                            camelizedName = camelizedName + element_name_part
+                        if (index >= 1):
+                            camelizedName = camelizedName + element_name_part.capitalize()
+                    return camelizedName
+                else:
+                    return element_name
+                
     def generate_context(element, xpath, ngsi_ld_context):
         if (element is not None) and (element.keyword in statements.data_definition_keywords):
             if (element.keyword == 'container') and (len(element.i_children) == 1) and (element.i_children[0].keyword == 'list'):
@@ -71,12 +92,12 @@ def emit_ngsi_ld_context(ctx, modules, fd):
             else:
                 status = element.search_one('status')
                 if (status is None) or (status.arg != 'deprecated'):
-                    ngsi_ld_context[str(element.arg)] = xpath + '/' + str(element.arg)
+                    ngsi_ld_context[to_camel_case(str(element.keyword), str(element.arg))] = xpath + '/' + str(element.arg)
                     if (element.keyword not in ['leaf', 'leaf-list']):
-                        children = element.i_children
-                        if (children is not None):
-                            for child in children:
-                                generate_context(child, xpath + '/' + element.arg, ngsi_ld_context)
+                        subelements = element.i_children
+                        if (subelements is not None):
+                            for subelement in subelements:
+                                generate_context(subelement, xpath + '/' + element.arg, ngsi_ld_context)
     
     def print_structure(element, fd):
         if (element is not None) and (element.keyword in statements.data_definition_keywords):
@@ -96,7 +117,7 @@ def emit_ngsi_ld_context(ctx, modules, fd):
     for module in modules:
         name = str(module.arg)
         urn = str(module.search_one('namespace').arg)
-        ngsi_ld_context[name] = urn + '/'
+        ngsi_ld_context[to_camel_case(str(module.keyword), name)] = urn + '/'
         splitted_urn = urn.split(":")
         xpath = splitted_urn[-1]
         elements = module.i_children
