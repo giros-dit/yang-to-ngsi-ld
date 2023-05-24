@@ -4,7 +4,7 @@ pyang plugin -- NGSI-LD Context generator.
 Generates the NGSI-LD Context associated with a YANG module file following the defined guidelines and conventions.
 It can output the result in the command line or save it in a .jsonld file.
 
-Version: 0.1.0.
+Version: 0.1.5.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 """
@@ -32,6 +32,7 @@ class NgsiLdContextPlugin(plugin.PyangPlugin):
 
     def setup_ctx(self, ctx):
         """
+        Do nothing for now.
         if ctx.opts.help:
             print_help()
             sys.exit(0)
@@ -55,9 +56,8 @@ def emit_ngsi_ld_context(ctx, modules, fd):
 
     json_ld = {}
     json_ld['@context'] = []
-    ngsi_ld_context = {}
     ngsi_ld_core_context_uri = "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.6.jsonld"
-    isPartOf_uri = "https://smartdatamodels.org/isPartOf"
+    is_part_of_uri = "https://smartdatamodels.org/isPartOf"
 
     def to_camel_case(keyword: str, element_name: str) -> str:
         if (keyword is None) or (element_name is None):
@@ -68,17 +68,7 @@ def emit_ngsi_ld_context(ctx, modules, fd):
             if (keyword == 'container') or (keyword == 'list'):
                 return element_name.capitalize()
             if (keyword == 'leaf') or (keyword == 'leaf-list'):
-                if ('-' in element_name):
-                    splitted_element_name = element_name.split('-')
-                    camelizedName = ''
-                    for index, element_name_part in enumerate(splitted_element_name):
-                        if (index == 0):
-                            camelizedName = camelizedName + element_name_part
-                        if (index >= 1):
-                            camelizedName = camelizedName + element_name_part.capitalize()
-                    return camelizedName
-                else:
-                    return element_name
+                return re.sub(r"(-)(\w)", lambda m: m.group(2).upper(), element_name)
                 
     def generate_context(element, xpath, ngsi_ld_context):
         if (element is not None) and (element.keyword in statements.data_definition_keywords):
@@ -116,8 +106,10 @@ def emit_ngsi_ld_context(ctx, modules, fd):
     # Generate NGSI-LD Context:
     for module in modules:
         name = str(module.arg)
+        keyword = str(module.keyword)
         urn = str(module.search_one('namespace').arg)
-        ngsi_ld_context[to_camel_case(str(module.keyword), name)] = urn + '/'
+        ngsi_ld_context = {}
+        ngsi_ld_context[to_camel_case(keyword, name)] = urn + '/'
         splitted_urn = urn.split(":")
         xpath = splitted_urn[-1]
         elements = module.i_children
@@ -126,7 +118,7 @@ def emit_ngsi_ld_context(ctx, modules, fd):
                 generate_context(element, xpath, ngsi_ld_context)
         json_ld['@context'].append(ngsi_ld_context)
         json_ld['@context'].append(ngsi_ld_core_context_uri)
-        json_ld['@context'].append(isPartOf_uri)
+        json_ld['@context'].append(is_part_of_uri)
         fd.write(json.dumps(json_ld, indent=4) + '\n')
 
     # Print YANG module structure:
