@@ -32,6 +32,7 @@ class NgsiLdContextPlugin(plugin.PyangPlugin):
 
     def setup_ctx(self, ctx):
         """
+        Setups plugin's context.
         Do nothing for now.
         if ctx.opts.help:
             print_help()
@@ -45,11 +46,18 @@ class NgsiLdContextPlugin(plugin.PyangPlugin):
         emit_ngsi_ld_context(ctx, modules, fd)
 
 def print_help():
+    """
+    Prints plugin's help information.
+    """
     print("""
             TO-DO
         """)
           
 def emit_ngsi_ld_context(ctx, modules, fd):
+    """
+    Processes a YANG module and generates the corresponding NGSI-LD context in JSON format.
+    It outputs the result in the command line.
+    """
 
     # Use PDB to debug the code:
     # pdb.set_trace()
@@ -60,6 +68,10 @@ def emit_ngsi_ld_context(ctx, modules, fd):
     is_part_of_uri = "https://smartdatamodels.org/isPartOf"
 
     def to_camel_case(keyword: str, element_name: str) -> str:
+        """
+        Auxiliary function.
+        Returns the CamelCase representation of element_name according to the YANG to NGSI-LD translation conventions.
+        """
         if (keyword is None) or (element_name is None):
             return element_name
         else:
@@ -71,6 +83,10 @@ def emit_ngsi_ld_context(ctx, modules, fd):
                 return re.sub(r"(-)(\w)", lambda m: m.group(2).upper(), element_name)
                 
     def generate_context(element, xpath, ngsi_ld_context):
+        """
+        Auxiliary function.
+        Recursively generates the NGSI-LD context given a YANG data node and the X-Path.
+        """
         if (element is not None) and (element.keyword in statements.data_definition_keywords):
             if (element.keyword == 'container') and (len(element.i_children) == 1) and (element.i_children[0].keyword == 'list'):
                 status = element.search_one('status')
@@ -90,6 +106,10 @@ def emit_ngsi_ld_context(ctx, modules, fd):
                                 generate_context(subelement, xpath + '/' + element.arg, ngsi_ld_context)
     
     def print_structure(element, fd):
+        """
+        Auxiliary function.
+        Recursively prints a verbose representation of a YANG module.
+        """
         if (element is not None) and (element.keyword in statements.data_definition_keywords):
             fd.write(element.arg + ' is of type ' + element.keyword)
             if (element.keyword == 'leaf' or element.keyword == 'leaf-list'):
