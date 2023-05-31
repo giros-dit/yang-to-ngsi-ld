@@ -174,4 +174,3 @@ def emit_ngsi_ld_context(ctx, modules, fd):
             for element in elements:
                 if (element is not None) and (element.keyword in statements.data_definition_keywords):
                     generate_context(element, module_name, module_urn, xpath, None)
-        
