@@ -1,8 +1,8 @@
 """
 pyang plugin -- NGSI-LD Context generator.
 
-Generates the NGSI-LD Context associated with a YANG module file following the defined guidelines and conventions.
-TO-DO: It can output the result in the command line or save it in a .jsonld file.
+Generates the NGSI-LD Contexts associated with a YANG module file following the defined guidelines and conventions.
+It outputs the results into an individual .jsonld file for every NGSI-LD Entity.
 
 Version: 0.2.0.
 
