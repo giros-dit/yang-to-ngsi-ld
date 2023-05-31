@@ -44,3 +44,10 @@ IndexError: list assignment index out of range
 {'hola': 'texto', 'array': [{'hola1': 'hola1', 'hola2': 'hola2'}]}
 
 Si un container de YANG sólo tiene una lista, se obvia el container en la representación del contexto (enclosing container).
+
+Método con propia variable de contexto ngsi_ld_context = {}
+json_ld sería diccionario de diccionarios, con cada Entity nueva en un diccionario.
+
+generate_context -> generate_context_file que crea nuevo ngsi_ld_context y añade un nuevo json_ld["@context"]
+
+Por cada Entity hacer un fichero por separado.
