@@ -2,9 +2,9 @@
 pyang plugin -- NGSI-LD Context generator.
 
 Generates the NGSI-LD Context associated with a YANG module file following the defined guidelines and conventions.
-It can output the result in the command line or save it in a .jsonld file.
+TO-DO: It can output the result in the command line or save it in a .jsonld file.
 
-Version: 0.1.5.
+Version: 0.2.0.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 """
@@ -34,6 +34,7 @@ class NgsiLdContextPlugin(plugin.PyangPlugin):
         """
         Setups plugin's context.
         Do nothing for now.
+        Code from tree plugin:
         if ctx.opts.help:
             print_help()
             sys.exit(0)
@@ -57,15 +58,15 @@ def emit_ngsi_ld_context(ctx, modules, fd):
     """
     Processes a YANG module and generates the corresponding NGSI-LD context in JSON format.
     It outputs the result in the command line.
+    Use PDB to debug the code with pdb.set_trace().
     """
 
-    # Use PDB to debug the code:
-    # pdb.set_trace()
+    # CONSTANTS:
 
-    json_ld = {}
-    json_ld['@context'] = []
-    ngsi_ld_core_context_uri = "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.6.jsonld"
-    is_part_of_uri = "https://smartdatamodels.org/isPartOf"
+    NGSI_LD_CORE_CONTEXT_URI = "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.6.jsonld/"
+    IS_PART_OF_URI = "https://smartdatamodels.org/isPartOf"
+
+    # AUXILIARY FUNCTIONS: 
 
     def to_camel_case(keyword: str, element_name: str) -> str:
         """
@@ -81,71 +82,68 @@ def emit_ngsi_ld_context(ctx, modules, fd):
                 return element_name.capitalize()
             if (keyword == 'leaf') or (keyword == 'leaf-list'):
                 return re.sub(r"(-)(\w)", lambda m: m.group(2).upper(), element_name)
-                
-    def generate_context(element, xpath, ngsi_ld_context):
-        """
-        Auxiliary function.
-        Recursively generates the NGSI-LD context given a YANG data node and the X-Path.
-        """
-        if (element is not None) and (element.keyword in statements.data_definition_keywords):
-            if (element.keyword == 'container') and (len(element.i_children) == 1) and (element.i_children[0].keyword == 'list'):
-                status = element.search_one('status')
-                if (status is None) or (status.arg != 'deprecated'):
-                    subelements = element.i_children
-                    if (subelements is not None):
-                        for subelement in subelements:
-                            generate_context(subelement, xpath + ':' + element.arg, ngsi_ld_context)
-            else:
-                status = element.search_one('status')
-                if (status is None) or (status.arg != 'deprecated'):
-                    ngsi_ld_context[to_camel_case(str(element.keyword), str(element.arg))] = xpath + '/' + str(element.arg)
-                    if (element.keyword not in ['leaf', 'leaf-list']):
-                        subelements = element.i_children
-                        if (subelements is not None):
-                            for subelement in subelements:
-                                generate_context(subelement, xpath + '/' + element.arg, ngsi_ld_context)
     
-    def print_structure(element, fd):
+    def is_enclosing_container(element):
         """
         Auxiliary function.
-        Recursively prints a verbose representation of a YANG module.
+        Checks if an element is an "enclosing container":
+        - It is a container AND
+        - It only has one child AND
+        - This child is a list.
         """
-        if (element is not None) and (element.keyword in statements.data_definition_keywords):
-            fd.write(element.arg + ' is of type ' + element.keyword)
-            if (element.keyword == 'leaf' or element.keyword == 'leaf-list'):
-                fd.write(' and data type is ' + element.search_one('type').arg + '\n')
-            else:
-                fd.write('\n')
-                subelements = element.i_children
-                if subelements is not None:
-                    for subelement in subelements:
-                        status = subelement.search_one('status')
-                        if (status is None) or (status.arg != 'deprecated'):
-                            print_structure(subelement, fd)
+        result = False
+        if (element.keyword == 'container') and (len(element.i_children) == 1) and (element.i_children[0].keyword == 'list'):
+            result = True
+        return result
+    
+    def is_deprecated(element):
+        """
+        Auxiliary function.
+        Checks if an element is deprecated.
+        """
+        result = False
+        status = element.search_one('status')
+        if (status is not None) and (status.arg == 'deprecated'):
+            result = True
+        return result
+
+    def is_entity(element):
+        """
+        Auxiliary function.
+        Check if an element matches the YANG to NGSI-LD translation convention for an Entity.
+        """
+        result = False
+        if (element.keyword in ['container', 'list']):
+            result = True
+        return result
+                
+    def generate_context(element, module_urn, xpath):
+        """
+        Auxiliary function.
+        Recursively generates the NGSI-LD context given a YANG data node (element) and the X-Path.
+        """
+        if (is_enclosing_container(element) == True) and (is_deprecated(element) == False):
+            subelements = element.i_children
+            if (subelements is not None):
+                for subelement in subelements:
+                    if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
+                        generate_context(element, module_urn, xpath)
+        else:
+            if (is_entity(element) == True) and (is_deprecated(element) == False):
+                """
+                SEGUIR
+                """
+
     
     # Generate NGSI-LD Context:
     for module in modules:
-        name = str(module.arg)
-        keyword = str(module.keyword)
-        urn = str(module.search_one('namespace').arg)
-        ngsi_ld_context = {}
-        ngsi_ld_context[to_camel_case(keyword, name)] = urn + '/'
-        splitted_urn = urn.split(":")
-        xpath = splitted_urn[-1]
+        module_name = str(module.arg)
+        module_keyword = str(module.keyword)
+        module_urn = str(module.search_one('namespace').arg)
+        xpath = module_urn.split(":")[-1]
         elements = module.i_children
         if (elements is not None):
             for element in elements:
-                generate_context(element, xpath, ngsi_ld_context)
-        json_ld['@context'].append(ngsi_ld_context)
-        json_ld['@context'].append(ngsi_ld_core_context_uri)
-        json_ld['@context'].append(is_part_of_uri)
-        fd.write(json.dumps(json_ld, indent=4) + '\n')
-
-    # Print YANG module structure:
-    # for module in modules:
-    #    fd.write(module.arg + ' is of type ' + module.keyword + ' with URN: ' + module.search_one('namespace').arg + '\n\n')
-    #    elements = module.i_children
-    #    if (elements is not None):
-    #        for element in elements:
-    #            print_structure(element, fd)
-    #    fd.write('\n\n')
+                if (element is not None) and (element.keyword in statements.data_definition_keywords):
+                    generate_context(element, module_urn, xpath)
+        
