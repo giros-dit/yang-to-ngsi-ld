@@ -14,6 +14,7 @@ import sys
 import re
 import pdb
 import json
+import os
 
 from pyang import plugin
 from pyang import statements
@@ -152,7 +153,13 @@ def emit_ngsi_ld_context(ctx, modules, fd):
                 json_ld["@context"].append(ngsi_ld_context)
                 json_ld["@context"].append(NGSI_LD_CORE_CONTEXT_URI)
                 json_ld["@context"].append(IS_PART_OF_URI)
-                fd.write(json.dumps(json_ld, indent=4) + '\n')
+                # Help: https://stackoverflow.com/questions/12517451/automatically-creating-directories-with-file-output 
+                filename = "jsonld/" + module_name + "_" + to_camel_case(str(element.keyword), str(element.arg)) + ".jsonld"
+                os.makedirs(os.path.dirname(filename), exist_ok=True)
+                file = open(filename, "w")
+                file.write(json.dumps(json_ld, indent=4) + '\n')
+                fd.write("NGSI-LD Context written to " + file.name + "\n")
+                # fd.write(json.dumps(json_ld, indent=4) + '\n')
         elif (is_property(element) == True) and (is_deprecated(element) == False):
             ngsi_ld_context[to_camel_case(str(element.keyword), str(element.arg))] = xpath + '/' + str(element.arg)   
     
