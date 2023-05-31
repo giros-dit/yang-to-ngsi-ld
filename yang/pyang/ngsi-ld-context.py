@@ -142,10 +142,10 @@ def emit_ngsi_ld_context(ctx, modules, fd):
         fd.write(json.dumps(json_ld, indent=4) + '\n')
 
     # Print YANG module structure:
-    # for module in modules:
-    #    fd.write(module.arg + ' is of type ' + module.keyword + ' with URN: ' + module.search_one('namespace').arg + '\n\n')
-    #    elements = module.i_children
-    #    if (elements is not None):
-    #        for element in elements:
-    #            print_structure(element, fd)
-    #    fd.write('\n\n')
+    """ for module in modules:
+        fd.write(module.arg + ' is of type ' + module.keyword + ' with URN: ' + module.search_one('namespace').arg + '\n\n')
+        elements = module.i_children
+        if (elements is not None):
+            for element in elements:
+                print_structure(element, fd)
+        fd.write('\n\n') """
