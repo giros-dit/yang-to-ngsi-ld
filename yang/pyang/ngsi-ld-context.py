@@ -154,8 +154,7 @@ def emit_ngsi_ld_context(ctx, modules, fd):
                 json_ld["@context"].append(IS_PART_OF_URI)
                 fd.write(json.dumps(json_ld, indent=4) + '\n')
         elif (is_property(element) == True) and (is_deprecated(element) == False):
-            ngsi_ld_context[to_camel_case(str(element.keyword), str(element.arg))] = xpath + '/' + str(element.arg)
-            
+            ngsi_ld_context[to_camel_case(str(element.keyword), str(element.arg))] = xpath + '/' + str(element.arg)   
     
     # Generate NGSI-LD Context:
     for module in modules:
