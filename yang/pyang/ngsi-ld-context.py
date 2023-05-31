@@ -110,14 +110,24 @@ def emit_ngsi_ld_context(ctx, modules, fd):
     def is_entity(element):
         """
         Auxiliary function.
-        Check if an element matches the YANG to NGSI-LD translation convention for an Entity.
+        Checks if an element matches the YANG to NGSI-LD translation convention for an Entity.
         """
         result = False
         if (element.keyword in ['container', 'list']):
             result = True
         return result
+    
+    def is_property(element):
+        """
+        Auxiliary function.
+        Checks if an element matches the YANG to NGSI-LD translation convention for a Property.
+        """
+        result = False
+        if (element.keyword in ['leaf-list', 'leaf']):
+            result = True
+        return result
                 
-    def generate_context(element, module_urn, xpath):
+    def generate_context(element, module_name, module_urn, xpath, ngsi_ld_context):
         """
         Auxiliary function.
         Recursively generates the NGSI-LD context given a YANG data node (element) and the X-Path.
@@ -127,13 +137,25 @@ def emit_ngsi_ld_context(ctx, modules, fd):
             if (subelements is not None):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                        generate_context(element, module_urn, xpath)
-        else:
-            if (is_entity(element) == True) and (is_deprecated(element) == False):
-                """
-                SEGUIR
-                """
-
+                        generate_context(subelement, module_name, module_urn, xpath + ':' + element.arg, None)
+        elif (is_entity(element) == True) and (is_deprecated(element) == False):
+                json_ld = {}
+                json_ld["@context"] = []
+                ngsi_ld_context = {}
+                ngsi_ld_context[module_name] = module_urn + '/'
+                ngsi_ld_context[to_camel_case(str(element.keyword), str(element.arg))] = xpath + '/' + str(element.arg)
+                subelements = element.i_children
+                if (subelements is not None):
+                    for subelement in subelements:
+                        if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
+                            generate_context(subelement, module_name, module_urn, xpath + ":" + element.arg, ngsi_ld_context)
+                json_ld["@context"].append(ngsi_ld_context)
+                json_ld["@context"].append(NGSI_LD_CORE_CONTEXT_URI)
+                json_ld["@context"].append(IS_PART_OF_URI)
+                fd.write(json.dumps(json_ld, indent=4) + '\n')
+        elif (is_property(element) == True) and (is_deprecated(element) == False):
+            ngsi_ld_context[to_camel_case(str(element.keyword), str(element.arg))] = xpath + '/' + str(element.arg)
+            
     
     # Generate NGSI-LD Context:
     for module in modules:
@@ -145,5 +167,5 @@ def emit_ngsi_ld_context(ctx, modules, fd):
         if (elements is not None):
             for element in elements:
                 if (element is not None) and (element.keyword in statements.data_definition_keywords):
-                    generate_context(element, module_urn, xpath)
+                    generate_context(element, module_name, module_urn, xpath, None)
         
