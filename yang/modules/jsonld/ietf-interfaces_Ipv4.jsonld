@@ -1,0 +1,13 @@
+{
+    "@context": [
+        {
+            "ietf-interfaces": "urn:ietf:params:xml:ns:yang:ietf-interfaces/",
+            "Ipv4": "ietf-interfaces:interfaces:interface/ipv4",
+            "enabled": "ietf-interfaces:interfaces:interface:ipv4/enabled",
+            "forwarding": "ietf-interfaces:interfaces:interface:ipv4/forwarding",
+            "mtu": "ietf-interfaces:interfaces:interface:ipv4/mtu"
+        },
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.6.jsonld/",
+        "https://smartdatamodels.org/isPartOf"
+    ]
+}
