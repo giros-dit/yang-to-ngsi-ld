@@ -1,10 +1,10 @@
 """
 pyang plugin -- NGSI-LD Context generator.
 
-Generates the NGSI-LD Contexts associated with a YANG module file following the defined guidelines and conventions.
-It outputs the results into an individual .jsonld file for every NGSI-LD Entity.
+Generates the NGSI-LD context(s) associated with a YANG module file following the defined guidelines and conventions.
+The results are written to individual .jsonld files: one for every NGSI-LD Entity.
 
-Version: 0.2.0.
+Version: 0.2.1.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 """
@@ -57,10 +57,10 @@ def print_help():
           
 def emit_ngsi_ld_context(ctx, modules, fd):
     """
-    Processes a YANG module and generates the corresponding NGSI-LD context in JSON format.
-    It outputs the result in the command line.
-    Use PDB to debug the code with pdb.set_trace().
+    Processes a YANG module and generates the corresponding NGSI-LD context(s) in JSON format.
     """
+
+    # Use PDB to debug the code with pdb.set_trace().
 
     # CONSTANTS:
 
@@ -131,7 +131,7 @@ def emit_ngsi_ld_context(ctx, modules, fd):
     def generate_context(element, module_name, module_urn, xpath, ngsi_ld_context):
         """
         Auxiliary function.
-        Recursively generates the NGSI-LD context given a YANG data node (element) and the X-Path.
+        Recursively generates the NGSI-LD context(s) given a YANG data node (element) and the X-Path.
         """
         if (is_enclosing_container(element) == True) and (is_deprecated(element) == False):
             subelements = element.i_children
@@ -150,11 +150,11 @@ def emit_ngsi_ld_context(ctx, modules, fd):
                     for subelement in subelements:
                         if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
                             generate_context(subelement, module_name, module_urn, xpath + ":" + element.arg, ngsi_ld_context)
+                ngsi_ld_context["isPartOf"] = IS_PART_OF_URI
                 json_ld["@context"].append(ngsi_ld_context)
                 json_ld["@context"].append(NGSI_LD_CORE_CONTEXT_URI)
-                json_ld["@context"].append(IS_PART_OF_URI)
-                # Help: https://stackoverflow.com/questions/12517451/automatically-creating-directories-with-file-output 
-                filename = "jsonld/" + module_name + "_" + to_camel_case(str(element.keyword), str(element.arg)) + ".jsonld"
+                # Help: https://stackoverflow.com/questions/12517451/automatically-creating-directories-with-file-output
+                filename = "jsonld/" + xpath.replace(":", "_") + "_" + str(element.arg) + ".jsonld"
                 os.makedirs(os.path.dirname(filename), exist_ok=True)
                 file = open(filename, "w")
                 file.write(json.dumps(json_ld, indent=4) + '\n')
