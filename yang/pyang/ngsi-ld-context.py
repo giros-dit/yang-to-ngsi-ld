@@ -148,7 +148,7 @@ def emit_ngsi_ld_context(ctx, modules, fd):
                 json_ld["@context"] = []
                 ngsi_ld_context = {}
                 ngsi_ld_context[module_name] = module_urn + '/'
-                ngsi_ld_context[to_camel_case(str(element.keyword), str(element.arg))] = xpath + name + '/'
+                ngsi_ld_context[to_camel_case(str(element.keyword), str(element.arg))] = xpath + name 
                 subelements = element.i_children
                 if (subelements is not None):
                     for subelement in subelements:
