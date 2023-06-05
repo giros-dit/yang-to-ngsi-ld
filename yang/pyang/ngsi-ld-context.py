@@ -4,7 +4,7 @@ pyang plugin -- NGSI-LD Context generator.
 Generates the NGSI-LD context(s) associated with a YANG module file following the defined guidelines and conventions.
 The results are written to individual .jsonld files: one for every NGSI-LD Entity.
 
-Version: 0.2.2.
+Version: 0.2.3.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 """
@@ -128,7 +128,7 @@ def emit_ngsi_ld_context(ctx, modules, fd):
             result = True
         return result
                 
-    def generate_context(element, module_name, module_prefix, module_urn, xpath, ngsi_ld_context):
+    def generate_context(element, module_name, module_urn, xpath, ngsi_ld_context):
         """
         Auxiliary function.
         Recursively generates the NGSI-LD context(s) given a YANG data node (element) and the X-Path.
@@ -142,7 +142,7 @@ def emit_ngsi_ld_context(ctx, modules, fd):
             if (subelements is not None):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                        generate_context(subelement, module_name, module_prefix, module_urn, xpath + name + "/", None)
+                        generate_context(subelement, module_name, module_urn, xpath + name + "/", None)
         elif (is_entity(element) == True) and (is_deprecated(element) == False):
                 json_ld = {}
                 json_ld["@context"] = []
@@ -153,7 +153,7 @@ def emit_ngsi_ld_context(ctx, modules, fd):
                 if (subelements is not None):
                     for subelement in subelements:
                         if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                            generate_context(subelement, module_name, module_prefix, module_urn, xpath + name + '/', ngsi_ld_context)
+                            generate_context(subelement, module_name, module_urn, xpath + name + '/', ngsi_ld_context)
                 ngsi_ld_context["isPartOf"] = IS_PART_OF_URI
                 json_ld["@context"].append(ngsi_ld_context)
                 json_ld["@context"].append(NGSI_LD_CORE_CONTEXT_URI)
@@ -169,11 +169,10 @@ def emit_ngsi_ld_context(ctx, modules, fd):
     # Generate NGSI-LD Context:
     for module in modules:
         module_name = str(module.arg)
-        module_prefix = str(module.i_prefix)
         module_urn = str(module.search_one('namespace').arg)
         xpath = module_urn.split(":")[-1] + ":"
         elements = module.i_children
         if (elements is not None):
             for element in elements:
                 if (element is not None) and (element.keyword in statements.data_definition_keywords):
-                    generate_context(element, module_name, module_prefix, module_urn, xpath, None)
+                    generate_context(element, module_name, module_urn, xpath, None)
