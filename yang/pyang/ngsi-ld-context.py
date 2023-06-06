@@ -4,7 +4,7 @@ pyang plugin -- NGSI-LD Context generator.
 Generates the NGSI-LD context(s) associated with a YANG module file following the defined guidelines and conventions.
 The results are written to individual .jsonld files: one for every NGSI-LD Entity.
 
-Version: 0.2.3.
+Version: 0.2.4.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 """
@@ -170,7 +170,7 @@ def emit_ngsi_ld_context(ctx, modules, fd):
     for module in modules:
         module_name = str(module.arg)
         module_urn = str(module.search_one('namespace').arg)
-        xpath = module_urn.split(":")[-1] + ":"
+        xpath = module_name + ":"
         elements = module.i_children
         if (elements is not None):
             for element in elements:
