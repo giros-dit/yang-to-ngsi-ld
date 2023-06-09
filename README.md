@@ -1,5 +1,10 @@
 # YANG to NGSI-LD
-Repository with source code, artifacts and documentation about YANG to NGSI-LD conversion/parsing.
+Repository with source code, artifacts and documentation about YANG to NGSI-LD translation.
+
+![](resources/images/YANG-to-NGSI-LD-translation.drawio.png)
+
+## Developed _pyang_ plugins:
+- [ngsi-ld-context.py](yang/pyang/ngsi-ld-context.py): generates NGSI-LD context files given one or several YANG modules.
 
 ## Documentation and links
 - pyang: https://github.com/mbj4668/pyang
