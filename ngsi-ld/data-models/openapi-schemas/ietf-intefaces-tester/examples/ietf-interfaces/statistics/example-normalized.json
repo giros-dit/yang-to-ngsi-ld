@@ -1,0 +1,64 @@
+{
+    "id": "urn:ngsi-ld:Statistics:HL-4-2-1_GigabitEthernet0/3/7",
+    "type": "Statistics",
+    "isPartOf": {
+        "type": "Relationship",
+        "object": "Urn:ngsi-ld:Interface:HL-4-2-1_GigabitEthernet0/3/7"
+    },
+    "discontinuityTime": {
+        "type": "Property",
+        "value": "2022-07-13T17:22:06Z"
+    },
+    "inOctets": {
+        "type": "Property",
+        "value": 30547004
+    },
+    "inUnicastPkts": {
+        "type": "Property",
+        "value": 40919
+    },
+    "inBroadcastPkts": {
+        "type": "Property",
+        "value": 35163
+    },
+    "inMulticastPkts": {
+        "type": "Property",
+        "value": 891
+    },
+    "inDiscards": {
+        "type": "Property",
+        "value": 0
+    },
+    "inErrors": {
+        "type": "Property",
+        "value": 0
+    },
+    "inUnknownProtos": {
+        "type": "Property",
+        "value": 0
+    },
+    "outOctets": {
+        "type": "Property",
+        "value": 28448416
+    },
+    "outUnicastPkts": {
+        "type": "Property",
+        "value": 40983
+    },
+    "outBroadcastPkts": {
+        "type": "Property",
+        "value": 8819
+    },
+    "outMulticastPkts": {
+        "type": "Property",
+        "value": 896
+    },
+    "outDiscards": {
+        "type": "Property",
+        "value": 0
+    },
+    "outErrors": {
+        "type": "Property",
+        "value": 0
+    }
+}
