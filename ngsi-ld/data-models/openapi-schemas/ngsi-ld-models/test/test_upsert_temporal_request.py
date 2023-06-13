@@ -39,7 +39,7 @@ class TestUpsertTemporalRequest(unittest.TestCase):
         if include_optional :
             return UpsertTemporalRequest(
                 id = '', 
-                type = '', 
+                type = None, 
                 scope = None, 
                 location = None, 
                 observation_space = None, 
@@ -49,7 +49,7 @@ class TestUpsertTemporalRequest(unittest.TestCase):
         else :
             return UpsertTemporalRequest(
                 id = '',
-                type = '',
+                type = None,
                 context = None,
         )
         """

@@ -39,7 +39,7 @@ class TestAppendAttrsTemporalRequest(unittest.TestCase):
         if include_optional :
             return AppendAttrsTemporalRequest(
                 id = '', 
-                type = '', 
+                type = None, 
                 scope = None, 
                 location = None, 
                 observation_space = None, 

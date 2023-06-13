@@ -6,7 +6,7 @@ Fragment of NGSI-LD Entity (see 5.4).
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Entity id.  | [optional] 
-**type** | **str** | Entity Type(s). Both short hand string(s) (type name) or URI(s) are allowed.  | [optional] 
+**type** | [**EntityCommonType**](EntityCommonType.md) |  | [optional] 
 **scope** | [**EntityCommonScope**](EntityCommonScope.md) |  | [optional] 
 
 ## Example

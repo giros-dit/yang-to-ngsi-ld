@@ -1,13 +1,13 @@
 {
-    "id": "urn:ngsi-ld:Interface:HL-4-2-1_GigabitEthernet0/3/7",
+    "id": "urn:ngsi-ld:Interface:GigabitEthernet0.3.7",
     "type": "Interface",
     "name": {
         "type": "Property",
-        "value": "GigabitEthernet0/3/7"
+        "value": "GigabitEthernet0.3.7"
     },
     "description": {
         "type": "Property",
-        "value": "GigabitEthernet0/3/7 interface"
+        "value": "GigabitEthernet0.3.7 interface"
     },
     "enabled": {
         "type": "Property",
@@ -43,6 +43,6 @@
     },
     "higherLayerIf": {
         "type": "Relationship",
-        "object": "urn:ngsi-ld:Interface:HL-4-2-1_GigabitEthernet0/3/7.123"
+        "object": "urn:ngsi-ld:Interface:GigabitEthernet0.3.7.123"
     }
 }

@@ -21,6 +21,7 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 from ngsi_ld_models.models.entity_common_scope import EntityCommonScope
+from ngsi_ld_models.models.entity_common_type import EntityCommonType
 from ngsi_ld_models.models.geo_property_input import GeoPropertyInput
 from ngsi_ld_models.models.ld_context import LdContext
 
@@ -29,7 +30,7 @@ class CreateEntityRequest(BaseModel):
     CreateEntityRequest
     """
     id: StrictStr = Field(..., description="Entity id. ")
-    type: StrictStr = Field(..., description="Entity Type(s). Both short hand string(s) (type name) or URI(s) are allowed. ")
+    type: EntityCommonType = Field(...)
     scope: Optional[EntityCommonScope] = None
     location: Optional[GeoPropertyInput] = None
     observation_space: Optional[GeoPropertyInput] = Field(None, alias="observationSpace")
@@ -63,6 +64,9 @@ class CreateEntityRequest(BaseModel):
                             "additional_properties"
                           },
                           exclude_none=True)
+        # override the default output from pydantic by calling `to_dict()` of type
+        if self.type:
+            _dict['type'] = self.type.to_dict()
         # override the default output from pydantic by calling `to_dict()` of scope
         if self.scope:
             _dict['scope'] = self.scope.to_dict()
@@ -96,7 +100,7 @@ class CreateEntityRequest(BaseModel):
 
         _obj = CreateEntityRequest.parse_obj({
             "id": obj.get("id"),
-            "type": obj.get("type"),
+            "type": EntityCommonType.from_dict(obj.get("type")) if obj.get("type") is not None else None,
             "scope": EntityCommonScope.from_dict(obj.get("scope")) if obj.get("scope") is not None else None,
             "location": GeoPropertyInput.from_dict(obj.get("location")) if obj.get("location") is not None else None,
             "observation_space": GeoPropertyInput.from_dict(obj.get("observationSpace")) if obj.get("observationSpace") is not None else None,

@@ -1,0 +1,34 @@
+version: "3.5"
+services:
+  context-catalog:
+    image: halverneus/static-file-server
+    hostname: context-catalog
+    container_name: context-catalog
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./docker/context-catalog:/web
+  orion:
+    image: fiware/orion-ld
+    hostname: orion
+    container_name: fiware-orion
+    expose:
+      - "1026"
+    ports:
+      - "1026:1026"
+    depends_on:
+      - mongo-db
+    command: -dbhost mongo-db -logLevel DEBUG
+  mongo-db:
+    image: mongo:3.6
+    hostname: mongo-db
+    container_name: db-mongo
+    ports:
+      - "27017:27017" 
+    networks:
+      - default
+    command: --nojournal
+    volumes:
+      - mongo-db:/data
+volumes:
+  mongo-db: ~

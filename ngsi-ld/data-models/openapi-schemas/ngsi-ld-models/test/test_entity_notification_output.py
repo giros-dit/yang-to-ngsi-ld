@@ -39,7 +39,7 @@ class TestEntityNotificationOutput(unittest.TestCase):
         if include_optional :
             return EntityNotificationOutput(
                 id = '', 
-                type = '', 
+                type = None, 
                 scope = None, 
                 location = None, 
                 observation_space = None, 

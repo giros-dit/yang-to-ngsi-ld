@@ -39,7 +39,7 @@ class TestEntityTemporalInput(unittest.TestCase):
         if include_optional :
             return EntityTemporalInput(
                 id = '', 
-                type = '', 
+                type = None, 
                 scope = None, 
                 location = None, 
                 observation_space = None, 
@@ -48,7 +48,7 @@ class TestEntityTemporalInput(unittest.TestCase):
         else :
             return EntityTemporalInput(
                 id = '',
-                type = '',
+                type = None,
         )
         """
 

@@ -16,11 +16,11 @@ import unittest
 import datetime
 
 import ngsi_ld_models
-from ngsi_ld_models.models.higher_layer_if_all_of import HigherLayerIfAllOf  # noqa: E501
+from ngsi_ld_models.models.entity_common_type import EntityCommonType  # noqa: E501
 from ngsi_ld_models.rest import ApiException
 
-class TestHigherLayerIfAllOf(unittest.TestCase):
-    """HigherLayerIfAllOf unit test stubs"""
+class TestEntityCommonType(unittest.TestCase):
+    """EntityCommonType unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,25 +29,23 @@ class TestHigherLayerIfAllOf(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test HigherLayerIfAllOf
+        """Test EntityCommonType
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `HigherLayerIfAllOf`
+        # uncomment below to create an instance of `EntityCommonType`
         """
-        model = ngsi_ld_models.models.higher_layer_if_all_of.HigherLayerIfAllOf()  # noqa: E501
+        model = ngsi_ld_models.models.entity_common_type.EntityCommonType()  # noqa: E501
         if include_optional :
-            return HigherLayerIfAllOf(
-                object = ''
+            return EntityCommonType(
             )
         else :
-            return HigherLayerIfAllOf(
-                object = '',
+            return EntityCommonType(
         )
         """
 
-    def testHigherLayerIfAllOf(self):
-        """Test HigherLayerIfAllOf"""
+    def testEntityCommonType(self):
+        """Test EntityCommonType"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

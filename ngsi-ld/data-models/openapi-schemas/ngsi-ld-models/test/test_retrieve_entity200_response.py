@@ -40,7 +40,7 @@ class TestRetrieveEntity200Response(unittest.TestCase):
             return RetrieveEntity200Response(
                 context = None, 
                 id = '', 
-                type = '', 
+                type = None, 
                 scope = None, 
                 location = None, 
                 observation_space = None, 
@@ -53,7 +53,7 @@ class TestRetrieveEntity200Response(unittest.TestCase):
             return RetrieveEntity200Response(
                 context = None,
                 id = '',
-                type = '',
+                type = None,
         )
         """
 

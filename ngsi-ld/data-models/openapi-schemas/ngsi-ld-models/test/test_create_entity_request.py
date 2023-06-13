@@ -39,7 +39,7 @@ class TestCreateEntityRequest(unittest.TestCase):
         if include_optional :
             return CreateEntityRequest(
                 id = '', 
-                type = '', 
+                type = None, 
                 scope = None, 
                 location = None, 
                 observation_space = None, 
@@ -49,7 +49,7 @@ class TestCreateEntityRequest(unittest.TestCase):
         else :
             return CreateEntityRequest(
                 id = '',
-                type = '',
+                type = None,
                 context = None,
         )
         """

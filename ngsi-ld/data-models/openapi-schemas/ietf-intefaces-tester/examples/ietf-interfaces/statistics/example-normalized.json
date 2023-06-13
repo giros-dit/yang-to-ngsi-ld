@@ -1,9 +1,9 @@
 {
-    "id": "urn:ngsi-ld:Statistics:HL-4-2-1_GigabitEthernet0/3/7",
+    "id": "urn:ngsi-ld:Statistics:GigabitEthernet0.3.7",
     "type": "Statistics",
     "isPartOf": {
         "type": "Relationship",
-        "object": "Urn:ngsi-ld:Interface:HL-4-2-1_GigabitEthernet0/3/7"
+        "object": "urn:ngsi-ld:Interface:GigabitEthernet0.3.7"
     },
     "discontinuityTime": {
         "type": "Property",

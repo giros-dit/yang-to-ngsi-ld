@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **context** | [**LdContext**](LdContext.md) |  | 
 **id** | **str** | Entity id.  | 
-**type** | **str** | Entity Type(s). Both short hand string(s) (type name) or URI(s) are allowed.  | 
+**type** | [**EntityCommonType**](EntityCommonType.md) |  | 
 **scope** | [**EntityCommonScope**](EntityCommonScope.md) |  | [optional] 
 **location** | [**GeoPropertyOutput**](GeoPropertyOutput.md) |  | [optional] 
 **observation_space** | [**GeoPropertyOutput**](GeoPropertyOutput.md) |  | [optional] 

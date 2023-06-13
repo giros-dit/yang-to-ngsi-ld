@@ -39,7 +39,7 @@ class TestEntityCommon(unittest.TestCase):
         if include_optional :
             return EntityCommon(
                 id = '', 
-                type = '', 
+                type = None, 
                 scope = None
             )
         else :

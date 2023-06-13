@@ -39,7 +39,7 @@ class TestEntityTemporalFragmentInput(unittest.TestCase):
         if include_optional :
             return EntityTemporalFragmentInput(
                 id = '', 
-                type = '', 
+                type = None, 
                 scope = None, 
                 location = None, 
                 observation_space = None, 

@@ -39,7 +39,7 @@ class TestEntityFragmentInput(unittest.TestCase):
         if include_optional :
             return EntityFragmentInput(
                 id = '', 
-                type = '', 
+                type = None, 
                 scope = None, 
                 location = None, 
                 observation_space = None, 
