@@ -1,4 +1,4 @@
-# NGSI-LD data models and NGSI-LD client tester for *ietf-intefaces@2018-02-20* YANG model
+# NGSI-LD data models and NGSI-LD client tester for *ietf-interfaces@2018-02-20* YANG model
 
 Tester for the [`Python-based NGSI-LD API client`](https://github.com/giros-dit/python-ngsi-ld-client/tree/1.6.1) compliant with the [NGSI-LD API OpenAPI specification](https://forge.etsi.org/rep/cim/NGSI-LD/-/tree/1.6.1).
 
