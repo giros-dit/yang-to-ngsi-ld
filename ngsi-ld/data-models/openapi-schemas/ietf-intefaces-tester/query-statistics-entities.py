@@ -5,9 +5,11 @@ import json
 import yaml
 
 import ngsi_ld_client
-from ngsi_ld_models.models.interface import Interface
+
+from ngsi_ld_models.models.statistics import Statistics
 from ngsi_ld_client.models.entity_output import EntityOutput
 
+from fastapi import FastAPI, Request, status
 from ngsi_ld_client.api_client import ApiClient as NGSILDClient
 from ngsi_ld_client.configuration import Configuration as NGSILDConfiguration
 from ngsi_ld_client.exceptions import ApiException
@@ -47,10 +49,11 @@ ngsi_ld.set_default_header(
 api_instance = ngsi_ld_client.ContextInformationConsumptionApi(ngsi_ld)
 
 try:
-    # Retrieve NGSI-LD Entity by id: GET /entities/{entityId}
-    api_response = api_instance.retrieve_entity(entity_id='urn:ngsi-ld:Interface:GigabitEthernet0.3.7')
-    logger.info(api_response.to_dict())
-    # logger.info(EntityOutput.from_dict(api_response.to_dict()).to_dict())
+    # Query NGSI-LD entities of type Statistics: GET /entities
+    api_response = api_instance.query_entity(type='Statistics')
+    statistics_entities = api_response
+    for statistics_entity in statistics_entities:
+        logger.info(statistics_entity.to_dict())
 except Exception as e:
-    logger.exception("Exception when calling ContextInformationConsumptionApi->retrieve_entity: %s\n" % e)
+    logger.exception("Exception when calling ContextInformationConsumptionApi->query_entity: %s\n" % e)
 

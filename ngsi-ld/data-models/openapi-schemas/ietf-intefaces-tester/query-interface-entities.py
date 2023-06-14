@@ -23,10 +23,10 @@ logging.config.dictConfig(config)
 logger = logging.getLogger(__name__)
 
 # NGSI-LD Context Broker
-BROKER_URI = os.getenv("BROKER_URI", "http://localhost:1026/v2")
+BROKER_URI = os.getenv("BROKER_URI", "http://localhost:1026/ngsi-ld/v1")
 # Context Catalog
 CONTEXT_CATALOG_URI = os.getenv("CONTEXT_CATALOG_URI",
-                                "http://localhost:8080/context.jsonld")
+                                "http://context-catalog:8080/context.jsonld")
 
 
 # Init NGSI-LD Client
@@ -49,7 +49,7 @@ ngsi_ld.set_default_header(
 api_instance = ngsi_ld_client.ContextInformationConsumptionApi(ngsi_ld)
 
 try:
-    # Query NGSI-LD entities of type Sensor: GET /entities
+    # Query NGSI-LD entities of type Interface: GET /entities
     api_response = api_instance.query_entity(type='Interface')
     interface_entities = api_response
     for interface_entity in interface_entities:

@@ -24,10 +24,10 @@ logging.config.dictConfig(config)
 logger = logging.getLogger(__name__)
 
 # NGSI-LD Context Broker
-BROKER_URI = os.getenv("BROKER_URI", "http://localhost:1026/v2")
+BROKER_URI = os.getenv("BROKER_URI", "http://localhost:1026/ngsi-ld/v1")
 # Context Catalog
 CONTEXT_CATALOG_URI = os.getenv("CONTEXT_CATALOG_URI",
-                                "http://localhost:8080/context.jsonld")
+                                "http://context-catalog:8080/context.jsonld")
 
 # Init NGSI-LD Client
 configuration = NGSILDConfiguration(host=BROKER_URI)
@@ -58,8 +58,7 @@ interface = Interface(
     lastChange={"type": "Property", "value": "2022-10-20T16:47:16Z"},
     ifIndex={"type": "Property", "value": 18},
     physAddress={"type": "Property", "value": "3C:15:FB:E7:04:77"},
-    speed={"type": "Property", "value": 1000000000},
-    higherLayerIf={"type": "Relationship", "object": "urn:ngsi-ld:Interface:GigabitEthernet0.3.7.123"}
+    speed={"type": "Property", "value": 1000000000}
 )
 
 api_instance = ngsi_ld_client.ContextInformationProvisionApi(ngsi_ld)

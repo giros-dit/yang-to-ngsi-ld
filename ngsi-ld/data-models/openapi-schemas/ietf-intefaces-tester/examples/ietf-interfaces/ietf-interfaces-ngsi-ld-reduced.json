@@ -52,7 +52,7 @@
     "type": "Statistics",
     "isPartOf": {
       "type": "Relationship",
-      "object": "urn:ngsi-ld:Interface:GigabitEthernet0.3.7"
+      "object": "Urn:ngsi-ld:Interface:GigabitEthernet0.3.7"
     },
     "discontinuityTime": {
         "type": "Property",

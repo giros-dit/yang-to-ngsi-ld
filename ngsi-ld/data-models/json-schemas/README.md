@@ -2,7 +2,7 @@
 
 The NGSI-LD protocol encodes data using the JSON-LD format. For this reason, data models associated with NGSI-LD entities can be formally specified using JSON schema.
 
-In this repository, we provide JSON schemas arranged per domain. For example, the [schemas/interfaces](schemas/interfaces/) folder, contains data models derived from the NGSI-LD information model that captures context information related to the interfaces of a model-based network device supporting the [_ietf-interfaces_ YANG module](../../yang/modules/ietf-interfaces%402018-02-20.yang) as depicted [here](../information-models/interfaces-ngsi-ld-schema-if-reduced.png).
+In this repository, we provide JSON schemas arranged per domain. For example, the [schemas/interfaces](schemas/interfaces/) folder, contains data models derived from the NGSI-LD information model that captures context information related to the interfaces of a model-based network device supporting the [_ietf-interfaces_ YANG module](../../../yang/modules/ietf-interfaces%402018-02-20.yang) as depicted [here](../../information-models/interfaces-ngsi-ld-schema-if-reduced.png).
 
 ## Repository structure
 
@@ -46,12 +46,15 @@ This repository includes a [`poetry`](https://python-poetry.org) manifest that c
     ```bash
     $ poetry env use 3.9
     ```
+    > **Note:**
+    >
+    > If you work with [Visual Studio Code (VSC)](https://code.visualstudio.com/) IDE, it is recommendable to open the `/json-schemas` folder in an independent workspace so that the virtual environment can select the correct Python interpreter and thus recognize the source code well. In VSC you can specify the correct Python interpreter by using the [**Python: Select Interpreter** command](https://code.visualstudio.com/docs/python/environments#_working-with-python-interpreters) from the **Command Palette** (`Ctrl+Shift+P`).
 6. Setup the virtual environment with poetry:
     ```bash
     $ poetry shell
     $ poetry install
     ```
-The virtual environment is now prepared and activated to be used.
+    The virtual environment is now prepared and activated to be used.
 
 ### Code generation
 

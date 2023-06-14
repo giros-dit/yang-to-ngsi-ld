@@ -26,7 +26,7 @@ class LowerLayerIf(BaseModel):
     NGSI-LD Relationship Type. A list of references to interfaces layered underneath of this interface.
     """
     type: StrictStr = Field(..., description="Node type. ")
-    object: StrictStr = Field(..., description="Relationship's target object. ")
+    object: StrictStr = Field(...)
     observed_at: Optional[datetime] = Field(None, alias="observedAt", description="Is defined as the temporal Property at which a certain Property or Relationship became valid or was observed. For example, a temperature Value was measured by the sensor at this point in time. ")
     dataset_id: Optional[StrictStr] = Field(None, alias="datasetId", description="It allows identifying a set or group of target relationship objects. ")
     created_at: Optional[datetime] = Field(None, alias="createdAt", description="Is defined as the temporal Property at which the Entity, Property or Relationship was entered into an NGSI-LD system. ")

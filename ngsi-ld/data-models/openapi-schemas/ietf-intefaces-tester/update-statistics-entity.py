@@ -5,7 +5,7 @@ import json
 import yaml
 
 import ngsi_ld_client
-from ngsi_ld_models.models.interface_all_of import InterfaceAllOf
+from ngsi_ld_models.models.statistics_all_of import StatisticsAllOf
 
 from ngsi_ld_client.models.entity_input import EntityInput
 from ngsi_ld_client.models.entity_output import EntityOutput
@@ -54,31 +54,35 @@ ngsi_ld.set_default_header(
     header_value="application/json"
 )
 
-sensor = InterfaceAllOf(
+sensor = StatisticsAllOf(
     type=None,
-    name={"type":"Property", "value": "GigabitEthernet0.3.7"},
-    description={"type": "Property", "value": "GigabitEthernet0.3.7 interface"},
-    enabled={"type": "Property", "value": True},
-    linkUpDownTrapEnable={"type": "Property", "value": "enabled"},
-    adminStatus={"type": "Property", "value": "up"},
-    operStatus={"type": "Property", "value": "up"},
-    lastChange={"type": "Property", "value": "2022-10-20T16:48:16Z"},
-    ifIndex={"type": "Property", "value": 18},
-    physAddress={"type": "Property", "value": "3C:15:FB:E7:04:77"},
-    speed={"type": "Property", "value": 1000000000}
+    discontinuityTime={"type": "Property", "value": "2022-07-13T17:22:16Z"},
+    inOctets={"type": "Property", "value": 30547024},
+    inUnicastPkts={"type": "Property", "value": 40929},
+    inBroadcastPkts={"type": "Property", "value": 35183},
+    inMulticastPkts={"type": "Property", "value": 991},
+    inDiscards={"type": "Property", "value": 0},
+    inErrors={"type": "Property", "value": 0},
+    inUnknownProtos={"type": "Property", "value": 0},
+    outOctets={"type": "Property", "value": 28448426},
+    outUnicastPkts={"type": "Property", "value": 40993},
+    outBroadcastPkts={"type": "Property", "value": 8829},
+    outMulticastPkts={"type": "Property", "value": 996},
+    outDiscards={"type": "Property", "value": 0},
+    outErrors={"type": "Property", "value": 0}
 )
 
 api_instance = ngsi_ld_client.ContextInformationProvisionApi(ngsi_ld)
 
 entity_input = sensor.to_dict()
 
-logger.info("Interface object representation: %s\n" % entity_input)
+logger.info("Statistics object representation: %s\n" % entity_input)
 
 logger.info("EntityFragmentInput object representation: %s\n" % EntityFragmentInput.from_dict(entity_input))
 
 try:
     # Update NGSI-LD Entity by id: PATCH /entities/{entityId}/attrs
-    api_instance.update_entity(entity_id='urn:ngsi-ld:Interface:GigabitEthernet0.3.7', entity_fragment_input=EntityFragmentInput.from_dict(entity_input))
+    api_instance.update_entity(entity_id='urn:ngsi-ld:Statistics:GigabitEthernet0.3.7', entity_fragment_input=EntityFragmentInput.from_dict(entity_input))
 except Exception as e:
     logger.exception("Exception when calling ContextInformationProvisionApi->update_entity: %s\n" % e)
 

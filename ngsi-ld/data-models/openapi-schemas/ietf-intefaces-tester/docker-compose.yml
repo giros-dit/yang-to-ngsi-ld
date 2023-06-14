@@ -4,6 +4,8 @@ services:
     image: halverneus/static-file-server
     hostname: context-catalog
     container_name: context-catalog
+    expose:
+      - "8080"
     ports:
       - "8080:8080"
     volumes:

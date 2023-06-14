@@ -5,7 +5,7 @@ import json
 import yaml
 
 import ngsi_ld_client
-from ngsi_ld_models.models.interface import Interface
+from ngsi_ld_models.models.statistics import Statistics
 from ngsi_ld_client.models.entity_output import EntityOutput
 
 from ngsi_ld_client.api_client import ApiClient as NGSILDClient
@@ -48,7 +48,7 @@ api_instance = ngsi_ld_client.ContextInformationConsumptionApi(ngsi_ld)
 
 try:
     # Retrieve NGSI-LD Entity by id: GET /entities/{entityId}
-    api_response = api_instance.retrieve_entity(entity_id='urn:ngsi-ld:Interface:GigabitEthernet0.3.7')
+    api_response = api_instance.retrieve_entity(entity_id='urn:ngsi-ld:Statistics:GigabitEthernet0.3.7')
     logger.info(api_response.to_dict())
     # logger.info(EntityOutput.from_dict(api_response.to_dict()).to_dict())
 except Exception as e:

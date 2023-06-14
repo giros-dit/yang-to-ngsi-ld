@@ -6,7 +6,7 @@ NGSI-LD Relationship Type. A list of references to interfaces layered on top of 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **str** | Node type.  | 
-**object** | **str** | Relationship&#39;s target object.  | 
+**object** | **str** |  | 
 **observed_at** | **datetime** | Is defined as the temporal Property at which a certain Property or Relationship became valid or was observed. For example, a temperature Value was measured by the sensor at this point in time.  | [optional] 
 **dataset_id** | **str** | It allows identifying a set or group of target relationship objects.  | [optional] 
 **created_at** | **datetime** | Is defined as the temporal Property at which the Entity, Property or Relationship was entered into an NGSI-LD system.  | [optional] 

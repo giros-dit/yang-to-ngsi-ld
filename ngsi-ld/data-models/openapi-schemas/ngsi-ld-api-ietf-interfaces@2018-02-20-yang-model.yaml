@@ -3196,9 +3196,15 @@ components:
               $ref: '#/components/schemas/GeoProperty.Input'
         - type: object
           additionalProperties:
-            allOf:
+            oneOf:
               - $ref: '#/components/schemas/Property.Input'
+              - type: array
+                items:
+                  $ref: '#/components/schemas/Property.Input'
               - $ref: '#/components/schemas/Relationship.Input'
+              - type: array
+                items:
+                  $ref: '#/components/schemas/Relationship.Input'
     Entity.Input:
       description: |
         5.2.4 NGSI-LD Entity.
@@ -5287,12 +5293,24 @@ components:
       allOf:
         - $ref: '#/components/schemas/Relationship.Input'
         - $ref: '#/components/schemas/Relationship.Output' 
+        - type: object
+          properties:
+            object:
+              type: string
+          required:
+            - object
     LowerLayerIf:
       description: NGSI-LD Relationship Type. A list of references to interfaces layered underneath of this interface.
       additionalProperties: false
       allOf:
         - $ref: '#/components/schemas/Relationship.Input'
         - $ref: '#/components/schemas/Relationship.Output'
+        - type: object
+          properties:
+            object:
+              type: string
+          required:
+            - object
     IsPartOf:
       description: |
         NGSI-LD Relationship Type. A hierarchical relationship to denote the statistics
@@ -5300,6 +5318,12 @@ components:
       allOf:
         - $ref: '#/components/schemas/Relationship.Input'
         - $ref: '#/components/schemas/Relationship.Output'
+        - type: object
+          properties:
+            object:
+              type: string
+          required:
+            - object
       additionalProperties: false
     DiscontinuityTime:
       description: |
