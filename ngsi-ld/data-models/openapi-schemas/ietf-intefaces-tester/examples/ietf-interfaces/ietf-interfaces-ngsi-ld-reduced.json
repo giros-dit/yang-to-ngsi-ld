@@ -1,0 +1,226 @@
+[
+  {
+    "id": "urn:ngsi-ld:Interface:GigabitEthernet0.3.7",
+    "type": "Interface",
+    "name": {
+      "type": "Property",
+      "value": "GigabitEthernet0.3.7"
+    },
+    "description": {
+      "type": "Property",
+      "value": "GigabitEthernet0.3.7 interface"
+    },
+    "enabled": {
+      "type": "Property",
+      "value": true
+    },
+    "linkUpDownTrapEnable": {
+      "type": "Property",
+      "value": "enabled"
+    },  
+    "adminStatus": {
+      "type": "Property",
+      "value": "up"
+    },  
+    "operStatus": {
+        "type": "Property",
+        "value": "down"
+    }, 
+    "lastChange": {
+        "type": "Property",
+        "value": "2022-10-20T16:47:16Z"
+    },
+    "ifIndex": {
+        "type": "Property",
+        "value": 18
+    }, 
+    "physAddress": {
+        "type": "Property",
+        "value": "3C:15:FB:E7:04:77"
+    }, 
+    "speed": {
+        "type": "Property",
+        "value": 1000000000
+    },
+    "higherLayerIf": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:Interface:GigabitEthernet0.3.7.123"
+    }
+  },
+  {
+    "id": "urn:ngsi-ld:Statistics:GigabitEthernet0.3.7",
+    "type": "Statistics",
+    "isPartOf": {
+      "type": "Relationship",
+      "object": "Urn:ngsi-ld:Interface:GigabitEthernet0.3.7"
+    },
+    "discontinuityTime": {
+        "type": "Property",
+        "value": "2022-07-13T17:22:06Z"
+    }, 
+    "inOctets": {
+        "type": "Property",
+        "value": 30547004
+    }, 
+    "inUnicastPkts": {
+        "type": "Property",
+        "value": 40919
+    }, 
+    "inBroadcastPkts": {
+        "type": "Property",
+        "value": 35163
+    },     
+    "inMulticastPkts": {
+        "type": "Property",
+        "value": 891
+    },
+    "inDiscards": {
+        "type": "Property",
+        "value": 0
+    },
+    "inErrors": {
+        "type": "Property",
+        "value": 0
+    },
+    "inUnknownProtos": {
+        "type": "Property",
+        "value": 0
+    },
+    "outOctets": {
+        "type": "Property",
+        "value": 28448416
+    }, 
+    "outUnicastPkts": {
+        "type": "Property",
+        "value": 40983
+    }, 
+    "outBroadcastPkts": {
+        "type": "Property",
+        "value": 8819
+    },     
+    "outMulticastPkts": {
+        "type": "Property",
+        "value": 896
+    },
+    "outDiscards": {
+        "type": "Property",
+        "value": 0
+    },
+    "outErrors": {
+        "type": "Property",
+        "value": 0
+    }
+  },
+  {
+    "id": "urn:ngsi-ld:Interface:GigabitEthernet0.3.7.123",
+    "type": "Interface",
+    "name": {
+      "type": "Property",
+      "value": "GigabitEthernet0.3.7.123"
+    },
+    "description": {
+      "type": "Property",
+      "value": "GigabitEthernet0.3.7.123 interface"
+    },
+    "enabled": {
+      "type": "Property",
+      "value": true
+    },
+    "linkUpDownTrapEnable": {
+      "type": "Property",
+      "value": "enabled"
+    },  
+    "adminStatus": {
+      "type": "Property",
+      "value": "up"
+    },  
+    "operStatus": {
+        "type": "Property",
+        "value": "down"
+    }, 
+    "lastChange": {
+        "type": "Property",
+        "value": "2022-10-20T16:47:16Z"
+    },
+    "ifIndex": {
+        "type": "Property",
+        "value": 61
+    }, 
+    "physAddress": {
+        "type": "Property",
+        "value": "3C:15:FB:E7:04:77"
+    }, 
+    "speed": {
+        "type": "Property",
+        "value": 1000000000
+    },
+    "lowerLayerIf": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:Interface:GigabitEthernet0.3.7"
+    }
+  },
+  {
+    "id": "urn:ngsi-ld:Statistics:GigabitEthernet0.3.7.123",
+    "type": "Statistics",
+    "isPartOf": {
+      "type": "Relationship",
+      "object": "urn:ngsi-ld:Interface:GigabitEthernet0.3.7.123"
+    },
+    "discontinuityTime": {
+        "type": "Property",
+        "value": "2022-07-13T17:22:06Z"
+    }, 
+    "inOctets": {
+        "type": "Property",
+        "value": 0
+    }, 
+    "inUnicastPkts": {
+        "type": "Property",
+        "value": 0
+    }, 
+    "inBroadcastPkts": {
+        "type": "Property",
+        "value": 0
+    },     
+    "inMulticastPkts": {
+        "type": "Property",
+        "value": 0
+    },
+    "inDiscards": {
+        "type": "Property",
+        "value": 0
+    },
+    "inErrors": {
+        "type": "Property",
+        "value": 0
+    },
+    "inUnknownProtos": {
+        "type": "Property",
+        "value": 0
+    },
+    "outOctets": {
+        "type": "Property",
+        "value": 0
+    }, 
+    "outUnicastPkts": {
+        "type": "Property",
+        "value": 0
+    }, 
+    "outBroadcastPkts": {
+        "type": "Property",
+        "value": 0
+    },     
+    "outMulticastPkts": {
+        "type": "Property",
+        "value": 0
+    },
+    "outDiscards": {
+        "type": "Property",
+        "value": 0
+    },
+    "outErrors": {
+        "type": "Property",
+        "value": 0
+    }
+  }
+]
