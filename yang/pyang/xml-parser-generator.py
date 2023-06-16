@@ -150,35 +150,14 @@ def emit_python_code(ctx, modules, fd):
         else:
             name = element.i_module.i_prefix + ':' + str(element.arg)
         if (is_enclosing_container(element) == True) and (is_deprecated(element) == False):
-            subelements = element.i_children
-            if (subelements is not None):
-                for subelement in subelements:
-                    if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                        generate_xml_parser(subelement, module_name, module_urn, xpath + name + "/", None)
+            # Code...
         elif (is_entity(element) == True) and (is_deprecated(element) == False):
-                json_ld = {}
-                json_ld["@context"] = []
-                ngsi_ld_context = {}
-                ngsi_ld_context[module_name] = module_urn + '/'
-                ngsi_ld_context[to_camel_case(str(element.keyword), str(element.arg))] = xpath + name 
-                subelements = element.i_children
-                if (subelements is not None):
-                    for subelement in subelements:
-                        if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                            generate_xml_parser(subelement, module_name, module_urn, xpath + name + '/', ngsi_ld_context)
-                ngsi_ld_context["isPartOf"] = IS_PART_OF_URI
-                json_ld["@context"].append(ngsi_ld_context)
-                json_ld["@context"].append(NGSI_LD_CORE_CONTEXT_URI)
-                # Help: https://stackoverflow.com/questions/12517451/automatically-creating-directories-with-file-output
-                filename = "jsonld/" + xpath.replace("/", "_").replace(":", "_") + str(element.arg) + ".jsonld"
-                os.makedirs(os.path.dirname(filename), exist_ok=True)
-                file = open(filename, "w")
-                file.write(json.dumps(json_ld, indent=4) + '\n')
-                fd.write("NGSI-LD Context written to " + file.name + "\n")
+            # Code...
         elif (is_property(element) == True) and (is_deprecated(element) == False):
-            ngsi_ld_context[to_camel_case(str(element.keyword), str(element.arg))] = xpath + name
+            # Code...
     
-    # Generate NGSI-LD Context:
+    # Generate XML parser Python code:
+    fd.write(PYTHON_FILE_HEADER)
     for module in modules:
         module_name = str(module.arg)
         module_urn = str(module.search_one('namespace').arg)
