@@ -22,9 +22,9 @@ from pyang import statements
 from pyang import util
 
 def pyang_plugin_init():
-    plugin.register_plugin(NgsiLdContextPlugin())
+    plugin.register_plugin(XmlParserGeneratorPlugin())
 
-class NgsiLdContextPlugin(plugin.PyangPlugin):
+class XmlParserGeneratorPlugin(plugin.PyangPlugin):
     def __init__(self):
         plugin.PyangPlugin.__init__(self, 'xml-parser-generator')
 
@@ -58,15 +58,26 @@ def print_help():
           
 def emit_python_code(ctx, modules, fd):
     """
-    Processes a YANG module and generates the corresponding NGSI-LD context(s) in JSON format.
+    Processes a YANG module and generates the corresponding XML parser code for data modeled from that YANG module.
     """
 
     # Use PDB to debug the code with pdb.set_trace().
 
     # CONSTANTS:
 
-    NGSI_LD_CORE_CONTEXT_URI = "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.6.jsonld/"
-    IS_PART_OF_URI = "https://smartdatamodels.org/isPartOf"
+    PYTHON_FILE_HEADER = '''
+    import sys\n
+    import xml.etree.ElementTree as et\n
+    import subprocess\n
+    import pdb\n
+    \n
+    xml_file = sys.argv[1]\n
+    \n
+    tree = et.parse(xml_file)\n
+    \n
+    root = tree.getroot()\n
+    \n
+    '''
 
     # AUXILIARY FUNCTIONS: 
 
@@ -132,7 +143,7 @@ def emit_python_code(ctx, modules, fd):
     def generate_xml_parser(element, module_name, module_urn, xpath, ngsi_ld_context):
         """
         Auxiliary function.
-        Recursively generates the NGSI-LD context(s) given a YANG data node (element) and the X-Path.
+        Recursively generates the XML parser code.
         """
         if element.i_module.i_modulename == module.i_modulename:
             name = str(element.arg)
