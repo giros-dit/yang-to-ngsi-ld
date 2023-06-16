@@ -5,6 +5,7 @@ Repository with source code, artifacts and documentation about YANG to NGSI-LD t
 
 ## Developed _pyang_ plugins:
 - [ngsi-ld-context.py](yang/pyang/ngsi-ld-context.py): generates NGSI-LD context files given one or several YANG modules.
+- [xml-parser-generator.py](yang/pyang/xml-parser-generator.py): generates a XML parser given one or several YANG modules.
 
 ## Documentation and links
 - pyang: https://github.com/mbj4668/pyang
