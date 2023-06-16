@@ -58,7 +58,7 @@ def print_help():
           
 def emit_python_code(ctx, modules, fd):
     """
-    Processes a YANG module and generates the corresponding XML parser code for data modeled from that YANG module.
+    Processes YANG modules and generates the corresponding XML parser code for data modeled with those YANG modules.
     """
 
     # Use PDB to debug the code with pdb.set_trace().
