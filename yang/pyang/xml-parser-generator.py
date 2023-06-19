@@ -66,17 +66,17 @@ def emit_python_code(ctx, modules, fd):
     # CONSTANTS:
 
     PYTHON_FILE_HEADER = '''
-    import sys\n
-    import xml.etree.ElementTree as et\n
-    import subprocess\n
-    import pdb\n
-    \n
-    xml_file = sys.argv[1]\n
-    \n
-    tree = et.parse(xml_file)\n
-    \n
-    root = tree.getroot()\n
-    \n
+    import sys
+    import xml.etree.ElementTree as et
+    import subprocess
+    import pdb
+    
+    xml_file = sys.argv[1]
+    
+    tree = et.parse(xml_file)
+    
+    root = tree.getroot()
+
     '''
 
     # AUXILIARY FUNCTIONS: 
@@ -140,7 +140,7 @@ def emit_python_code(ctx, modules, fd):
             result = True
         return result
                 
-    def generate_xml_parser(element, module_name, module_urn, xpath, ngsi_ld_context):
+    def generate_xml_parser(element, module_namespace):
         """
         Auxiliary function.
         Recursively generates the XML parser code.
@@ -150,20 +150,29 @@ def emit_python_code(ctx, modules, fd):
         else:
             name = element.i_module.i_prefix + ':' + str(element.arg)
         if (is_enclosing_container(element) == True) and (is_deprecated(element) == False):
-            # Code...
+            subelements = element.i_children
+            if (subelements is not None):
+                for subelement in subelements:
+                    if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
+                        generate_xml_parser(subelement, module_namespace)
         elif (is_entity(element) == True) and (is_deprecated(element) == False):
-            # Code...
+            subelements = element.i_children
+            if (subelements is not None):
+                for subelement in subelements:
+                    if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
+                        generate_xml_parser(subelement, module_namespace)
         elif (is_property(element) == True) and (is_deprecated(element) == False):
-            # Code...
+            element_keyword = str(element.keyword)
+            element_arg = str(element.arg)
+            fd.write(to_camel_case(element_keyword, element_arg) + " " + "=" + " " + "root.findall(\".//{"+module_namespace+"}"+str(element.arg)+"\")\n\n")
+            fd.write("print("+to_camel_case(element_keyword, element_arg)+"[0].text)\n\n")
     
     # Generate XML parser Python code:
     fd.write(PYTHON_FILE_HEADER)
     for module in modules:
-        module_name = str(module.arg)
-        module_urn = str(module.search_one('namespace').arg)
-        xpath = module_name + ":"
+        module_namespace = str(module.search_one('namespace').arg + "\n")
         elements = module.i_children
         if (elements is not None):
             for element in elements:
                 if (element is not None) and (element.keyword in statements.data_definition_keywords):
-                    generate_xml_parser(element, module_name, module_urn, xpath, None)
+                    generate_xml_parser(element, module_namespace)
