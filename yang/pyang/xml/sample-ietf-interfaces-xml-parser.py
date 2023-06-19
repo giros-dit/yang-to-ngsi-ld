@@ -116,12 +116,19 @@ def get_data_recursively(element, json_buffer):
         for child in element:
             get_data_recursively(child, json_buffer)
         if (element_tag == INTERFACE_ENTITY_DEFINITION):
+            print(json_buffer)
+            '''
             interface = Interface.__pydantic_model__.parse_raw(json_buffer)
             create_entity(interface)
+            '''
         elif (element_tag == STATISTICS_ENTITY_DEFINITION):
+            print(json_buffer)
+            '''
             statistics = Statistics.__pydantic_model__.parse_raw(json_buffer)
             create_entity(statistics)
+            '''
     if (is_property(element_len) == True):
+        element_tag = element_tag.split("}")[1]
         json_buffer[to_camel_case(element_tag, element_len)] = element_text
 
 tree = et.parse('sample-ietf-interfaces-reduced1.xml')
