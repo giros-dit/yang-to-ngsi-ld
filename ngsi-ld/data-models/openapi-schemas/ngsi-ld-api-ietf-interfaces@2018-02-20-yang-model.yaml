@@ -3023,7 +3023,7 @@ components:
                   '@context':
                     $ref:  '#/components/schemas/LdContext'
     SubscriptionFragment:
-      required: true
+      required: trueprint("\n")
       content:
         application/json:
           schema:
