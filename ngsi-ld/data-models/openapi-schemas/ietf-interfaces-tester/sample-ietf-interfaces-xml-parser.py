@@ -1,7 +1,8 @@
 '''
 XML Parser based on the ElementTree XML library.
-Sample for ietf-interfaces with interface + statistics (reduced version).
+Sample for ietf-interfaces with interface + statistics.
 Reference documentation: https://docs.python.org/3/library/xml.etree.elementtree.html
+Version 0.2.0
 '''
 
 import xml.etree.ElementTree as et
@@ -229,44 +230,55 @@ def get_data_recursively(element, parent_element_tag, dict_buffer):
             statistics_id_seq = statistics_id_seq + 1
     if (is_property(element_len) == True):
         element_tag = to_camel_case(element_tag.split("}")[1], element_len)
-        if (element_tag != "type"): # The 'type' tag in the XML file does not work as of now, it must be 'Interface' before creating the NGSI-LD Entity.
-            dict_buffer[element_tag] = {}
-            dict_buffer[element_tag]["type"] = "Property"
-            dict_buffer[element_tag]["value"] = check_and_return_property_value(parent_element_tag, element_tag, element_text)
+        if (element_tag != "type"): # The 'type' tag value in the XML file does not work as of now, it must be 'Interface' before creating the NGSI-LD Entity.
+            if (element_tag == 'lowerLayerIf'): # This is identified as a Property though is a Relationship - must be addressed. 
+                dict_buffer[element_tag] = {}
+                dict_buffer[element_tag]["type"] = "Relationship"
+                dict_buffer[element_tag]["object"] = "urn:ngsi-ld:Interface:" + str(interface_id_seq - 1)
+            elif (element_tag == 'higherLayerIf'): # This is identified as a Property though is a Relationship - must be addressed.
+                dict_buffer[element_tag] = {}
+                dict_buffer[element_tag]["type"] = "Relationship"
+                dict_buffer[element_tag]["object"] = "urn:ngsi-ld:Interface:" + str(interface_id_seq + 1)
+            else:
+                dict_buffer[element_tag] = {}
+                dict_buffer[element_tag]["type"] = "Property"
+                dict_buffer[element_tag]["value"] = check_and_return_property_value(parent_element_tag, element_tag, element_text)
 
-tree = et.parse('sample-ietf-interfaces-reduced1.xml')
+tree = et.parse('sample-ietf-interfaces.xml')
 
 root = tree.getroot()
 
 for child in root:
     get_data_recursively(child, None, None)
 
-    # Print Interface dictionary buffers:
-    print("## -- INTERFACE DICTIONARY BUFFERS -- ##\n")
-    for interface_dict_buffer in interface_dict_buffers:
-        print(interface_dict_buffer)
-        print("\n")
+# Print Interface dictionary buffers:
+print("## -- INTERFACE DICTIONARY BUFFERS -- ##\n")
+for interface_dict_buffer in interface_dict_buffers:
+    print(interface_dict_buffer)
+    print("\n")
     
+print("## -- ##\n")
+
+# Print Statistics dictionary buffers:
+print("## -- STATISTICS DICTIONARY BUFFERS -- ##\n")
+for statistics_dict_buffer in statistics_dict_buffers:
+    print(statistics_dict_buffer)
     print("\n")
 
-    # Print Statistics dictionary buffers:
-    print("## -- STATISTICS DICTIONARY BUFFERS -- ##\n")
-    for statistics_dict_buffer in statistics_dict_buffers:
-        print(statistics_dict_buffer)
-        print("\n")
+print("## -- ##\n")
 
-    # Create Interface NGSI-LD Entities:
-    print("## -- CREATING INTERFACE NGSI-LD ENTITIES -- ##\n")
-    for interface_dict_buffer in interface_dict_buffers:
-        interface = Interface.from_dict(interface_dict_buffer)
-        create_ngsi_ld_entity(interface)
-        print("\n")
+# Create Interface NGSI-LD Entities:
+print("## -- CREATING INTERFACE NGSI-LD ENTITIES -- ##\n")
+for interface_dict_buffer in interface_dict_buffers:
+    interface = Interface.from_dict(interface_dict_buffer)
+    create_ngsi_ld_entity(interface)
+    print("\n")
     
-    # Create Statistics NGSI-LD Entities:
-    print("## -- CREATING STATISTICS NGSI-LD ENTITIES -- ##\n")
-    for statistics_dict_buffer in statistics_dict_buffers:
-        statistics = Statistics.from_dict(statistics_dict_buffer)
-        create_ngsi_ld_entity(statistics)
-        print("\n")
+# Create Statistics NGSI-LD Entities:
+print("## -- CREATING STATISTICS NGSI-LD ENTITIES -- ##\n")
+for statistics_dict_buffer in statistics_dict_buffers:
+    statistics = Statistics.from_dict(statistics_dict_buffer)
+    create_ngsi_ld_entity(statistics)
+    print("\n")
 
 # pdb.set_trace()
