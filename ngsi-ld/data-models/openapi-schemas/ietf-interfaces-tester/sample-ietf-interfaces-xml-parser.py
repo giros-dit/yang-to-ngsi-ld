@@ -1,8 +1,9 @@
 '''
 XML Parser based on the ElementTree XML library.
 Sample for ietf-interfaces with interface + statistics.
+It doesn't parse neither IPv4 or IPv6 information.
 Reference documentation: https://docs.python.org/3/library/xml.etree.elementtree.html
-Version 0.2.0
+Version 0.2.5
 '''
 
 import xml.etree.ElementTree as et
@@ -99,13 +100,6 @@ STATISTICS_PROPERTY_TYPES = {
 }
 
 ## -- END CONSTANTS -- ##
-
-## -- BEGIN IDENTIFICATION SEQUENCES -- ##
-
-interface_id_seq = 0
-statistics_id_seq = 0
-
-## -- END IDENTIFICATION SEQUENCES -- ##
 
 ## -- BEGIN DICTIONARY BUFFER LISTS -- ##
 
@@ -206,40 +200,42 @@ def get_data_recursively(element, parent_element_tag, dict_buffer):
     element_len = len(element)
     if (is_entity(element_len) == True):
         if (element_tag == INTERFACE_ENTITY_DEFINITION):
-            global interface_id_seq
             interface_dict_buffer = {}
-            interface_dict_buffer["id"] = "urn:ngsi-ld:Interface:" + str(interface_id_seq)
+            interface_dict_buffer["id"] = ""
             interface_dict_buffer["type"] = "Interface"
             parent_element_tag = element_tag
             for child in element:
                 get_data_recursively(child, parent_element_tag, interface_dict_buffer)
             interface_dict_buffers.append(interface_dict_buffer)
-            interface_id_seq = interface_id_seq + 1
         if (element_tag == STATISTICS_ENTITY_DEFINITION):
-            global statistics_id_seq
             statistics_dict_buffer = {}
-            statistics_dict_buffer["id"] = "urn:ngsi-ld:Statistics:" +  str(statistics_id_seq)
+            # As 'Statistics' is a child of 'Interface', dict_buffer is interface_dict_buffer.
+            statistics_dict_buffer["id"] = "urn:ngsi-ld:Statistics:" + dict_buffer["name"]["value"]
             statistics_dict_buffer["type"] = "Statistics"
             statistics_dict_buffer["isPartOf"] = {}
             statistics_dict_buffer["isPartOf"]["type"] = "Relationship"
-            statistics_dict_buffer["isPartOf"]["object"] = "urn:ngsi-ld:Interface:" + str(statistics_id_seq)
+            statistics_dict_buffer["isPartOf"]["object"] = "urn:ngsi-ld:Interface:" + dict_buffer["name"]["value"]
             parent_element_tag = element_tag
             for child in element:
                 get_data_recursively(child, parent_element_tag, statistics_dict_buffer)
             statistics_dict_buffers.append(statistics_dict_buffer)
-            statistics_id_seq = statistics_id_seq + 1
     if (is_property(element_len) == True):
         element_tag = to_camel_case(element_tag.split("}")[1], element_len)
-        if (element_tag != "type"): # The 'type' tag value in the XML file does not work as of now, it must be 'Interface' before creating the NGSI-LD Entity.
-            if (element_tag == 'lowerLayerIf'): # This is identified as a Property though is a Relationship - must be addressed. 
-                dict_buffer[element_tag] = {}
-                dict_buffer[element_tag]["type"] = "Relationship"
-                dict_buffer[element_tag]["object"] = "urn:ngsi-ld:Interface:" + str(interface_id_seq - 1)
-            elif (element_tag == 'higherLayerIf'): # This is identified as a Property though is a Relationship - must be addressed.
-                dict_buffer[element_tag] = {}
-                dict_buffer[element_tag]["type"] = "Relationship"
-                dict_buffer[element_tag]["object"] = "urn:ngsi-ld:Interface:" + str(interface_id_seq + 1)
-            else:
+        if (element_tag == 'name'): # Element tag 'name' is only present in '<interface>'.
+            dict_buffer["id"] = "urn:ngsi-ld:Interface:" + element.text
+            dict_buffer[element_tag] = {}
+            dict_buffer[element_tag]["type"] = "Property"
+            dict_buffer[element_tag]["value"] = check_and_return_property_value(parent_element_tag, element_tag, element_text)
+        elif (element_tag == 'lowerLayerIf'): # This is identified as a Property though is a Relationship - must be addressed. 
+            dict_buffer[element_tag] = {}
+            dict_buffer[element_tag]["type"] = "Relationship"
+            dict_buffer[element_tag]["object"] = "urn:ngsi-ld:Interface:" + element_text
+        elif (element_tag == 'higherLayerIf'): # This is identified as a Property though is a Relationship - must be addressed.
+            dict_buffer[element_tag] = {}
+            dict_buffer[element_tag]["type"] = "Relationship"
+            dict_buffer[element_tag]["object"] = "urn:ngsi-ld:Interface:" + element_text
+        else:
+            if (element_tag != "type"):
                 dict_buffer[element_tag] = {}
                 dict_buffer[element_tag]["type"] = "Property"
                 dict_buffer[element_tag]["value"] = check_and_return_property_value(parent_element_tag, element_tag, element_text)
