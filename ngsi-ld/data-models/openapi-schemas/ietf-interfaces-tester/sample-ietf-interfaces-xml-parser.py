@@ -1,9 +1,11 @@
 '''
 XML Parser based on the ElementTree XML library.
 Sample for ietf-interfaces with interface + statistics.
-It doesn't parse neither IPv4 or IPv6 information.
+It doesn't parse IPv4/IPv6 information.
 Reference documentation: https://docs.python.org/3/library/xml.etree.elementtree.html
-Version 0.2.5
+
+Author: Networking and Virtualization Research Group (GIROS-DIT UPM).
+Version: 0.2.6
 '''
 
 import xml.etree.ElementTree as et
@@ -11,6 +13,7 @@ import logging
 import logging.config
 import yaml
 import os
+import time
 import re
 import subprocess
 import pdb
@@ -240,12 +243,22 @@ def get_data_recursively(element, parent_element_tag, dict_buffer):
                 dict_buffer[element_tag]["type"] = "Property"
                 dict_buffer[element_tag]["value"] = check_and_return_property_value(parent_element_tag, element_tag, element_text)
 
+# Help with performance measurements: https://erickmccollum.com/2021/10/31/three-ways-to-measure-python-performance.html
+
+start_time = time.perf_counter()
+
 tree = et.parse('sample-ietf-interfaces.xml')
 
 root = tree.getroot()
 
 for child in root:
     get_data_recursively(child, None, None)
+
+end_time = time.perf_counter()
+
+execution_time = end_time - start_time
+
+print(f"EXECUTION TIME: {execution_time}\n")
 
 # Print Interface dictionary buffers:
 print("## -- INTERFACE DICTIONARY BUFFERS -- ##\n")
@@ -263,6 +276,7 @@ for statistics_dict_buffer in statistics_dict_buffers:
 
 print("## -- ##\n")
 
+'''
 # Create Interface NGSI-LD Entities:
 print("## -- CREATING INTERFACE NGSI-LD ENTITIES -- ##\n")
 for interface_dict_buffer in interface_dict_buffers:
@@ -276,5 +290,6 @@ for statistics_dict_buffer in statistics_dict_buffers:
     statistics = Statistics.from_dict(statistics_dict_buffer)
     create_ngsi_ld_entity(statistics)
     print("\n")
+'''
 
 # pdb.set_trace()
