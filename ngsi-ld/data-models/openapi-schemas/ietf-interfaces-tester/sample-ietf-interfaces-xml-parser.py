@@ -5,7 +5,7 @@ It doesn't parse IPv4/IPv6 information.
 Reference documentation: https://docs.python.org/3/library/xml.etree.elementtree.html
 
 Author: Networking and Virtualization Research Group (GIROS-DIT UPM).
-Version: 0.2.6
+Version: 0.2.7
 '''
 
 import xml.etree.ElementTree as et
@@ -37,7 +37,7 @@ logger = logging.getLogger(__name__)
 
 ## -- END LOGGING CONFIGURATION -- ##
 
-## -- BEGIN CONSTANTS -- ##
+## -- BEGIN CONSTANTS DECLARATION -- ##
 
 # Entity definitions:
 INTERFACE_ENTITY_DEFINITION = "{urn:ietf:params:xml:ns:yang:ietf-interfaces}interface"
@@ -102,14 +102,24 @@ STATISTICS_PROPERTY_TYPES = {
     "outErrors": "Integer"
 }
 
-## -- END CONSTANTS -- ##
+## -- END CONSTANTS DECLARATION -- ##
 
-## -- BEGIN DICTIONARY BUFFER LISTS -- ##
+## -- BEGIN DICTIONARY BUFFER LISTS DECLARATION -- ##
 
 interface_dict_buffers = []
 statistics_dict_buffers = []
 
-## -- END DICTIONARY BUFFER LISTS -- ##
+## -- END DICTIONARY BUFFER LISTS DECLARATION -- ##
+
+## -- BEGIN PERFORMANCE MEASUREMENT (EXECUTION TIMES) LISTS DECLARATION -- #
+
+parsing_exec_times = []
+interface_entity_creation_exec_times = []
+statistics_entity_creation_exec_times = []
+
+## -- END PERFORMANCE MEASUREMENT (EXECUTION TIMES) LISTS DECLARATION -- #
+
+## -- BEGIN FUNCTIONS DECLARATION -- ##
 
 def check_and_return_property_value(entity_def: str, element_tag: str, element_text: str):
     if (entity_def == INTERFACE_ENTITY_DEFINITION):
@@ -243,23 +253,95 @@ def get_data_recursively(element, parent_element_tag, dict_buffer):
                 dict_buffer[element_tag]["type"] = "Property"
                 dict_buffer[element_tag]["value"] = check_and_return_property_value(parent_element_tag, element_tag, element_text)
 
+## -- END FUNCTIONS DECLARATION -- #
+
+## -- BEGIN MAIN CODE -- ##
+
 # Help with performance measurements: https://erickmccollum.com/2021/10/31/three-ways-to-measure-python-performance.html
 
-start_time = time.perf_counter()
+# Performance measurements over 1000 iterations of XML parsing (from file reading to data saving into dictionary buffers):
 
-tree = et.parse('sample-ietf-interfaces.xml')
+for i in range(1, 1001):
+    iteration_start_time = time.perf_counter_ns()
 
-root = tree.getroot()
+    tree = et.parse('sample-ietf-interfaces.xml')
+    root = tree.getroot()
+    for child in root:
+        get_data_recursively(child, None, None)
+    
+    iteration_stop_time = time.perf_counter_ns()
 
-for child in root:
-    get_data_recursively(child, None, None)
+    iteration_exec_time = iteration_stop_time - iteration_start_time
 
-end_time = time.perf_counter()
+    print(f"ITERATION #{i} EXECUTION TIME: {iteration_exec_time} ns | {iteration_exec_time/1e3} µs | {iteration_exec_time/1e6} ms\n")
+    
+    parsing_exec_times.append(iteration_exec_time)
 
-execution_time = end_time - start_time
+print(f"XML PARSING EXECUTION TIMES - SUMMARY (OVER {len(parsing_exec_times)} ITERATIONS)")
+parsing_mean_exec_time = sum(parsing_exec_times)/len(parsing_exec_times)
+parsing_min_exec_time = min(parsing_exec_times)
+parsing_max_exec_time = max(parsing_exec_times)
+print(f"MEAN VALUE: {parsing_mean_exec_time} ns | {parsing_mean_exec_time/1e3} µs | {parsing_mean_exec_time/1e6} ms")
+print(f"MIN VALUE: {parsing_min_exec_time} ns | {parsing_min_exec_time/1e3} µs | {parsing_min_exec_time/1e6} ms")
+print(f"MAX VALUE: {parsing_max_exec_time} ns | {parsing_max_exec_time/1e3} µs | {parsing_max_exec_time/1e6} ms")
 
-print(f"EXECUTION TIME: {execution_time}\n")
+# Performance measurements for NGSI-LD entities creation:
 
+# Interfaces:
+
+interface_seq = 1
+for interface_dict_buffer in interface_dict_buffers:
+    interface_entity_creation_start_time = time.perf_counter_ns()
+
+    interface_dict_buffer["id"] = interface_dict_buffer["id"] + ":" + str(interface_seq)
+    interface = Interface.from_dict(interface_dict_buffer)
+    create_ngsi_ld_entity(interface)
+
+    interface_entity_creation_stop_time = time.perf_counter_ns()
+
+    interface_entity_creation_exec_time = interface_entity_creation_stop_time - interface_entity_creation_start_time
+
+    print(f"NGSI-LD INTERFACE ENTITY #{interface_seq} CREATION TIME: {interface_entity_creation_exec_time} ns | {interface_entity_creation_exec_time/1e3} µs | {interface_entity_creation_exec_time/1e6} ms\n")
+
+    interface_entity_creation_exec_times.append(interface_entity_creation_exec_time)
+    interface_seq+=1
+
+print(f"NGSI-LD INTERFACE ENTITIES CREATION EXECUTION TIMES - SUMMARY (OVER {len(interface_dict_buffers)} DICTIONARY BUFFERS)")
+interface_entity_creation_mean_exec_time = sum(interface_entity_creation_exec_times)/len(interface_entity_creation_exec_times)
+interface_entity_creation_min_exec_time = min(interface_entity_creation_exec_times)
+interface_entity_creation_max_exec_time = max(interface_entity_creation_exec_times)
+print(f"MEAN VALUE: {interface_entity_creation_mean_exec_time} ns | {interface_entity_creation_mean_exec_time/1e3} µs | {interface_entity_creation_mean_exec_time/1e6} ms")
+print(f"MIN VALUE: {interface_entity_creation_min_exec_time} ns | {interface_entity_creation_min_exec_time/1e3} µs | {interface_entity_creation_min_exec_time/1e6} ms")
+print(f"MAX VALUE: {interface_entity_creation_max_exec_time} ns | {interface_entity_creation_max_exec_time/1e3} µs | {interface_entity_creation_max_exec_time/1e6} ms")
+
+# Statistics:
+
+statistics_seq = 1
+for statistics_dict_buffer in statistics_dict_buffers:
+    statistics_entity_creation_start_time = time.perf_counter_ns()
+
+    statistics_dict_buffer["id"] = statistics_dict_buffer["id"] + ":" + str(statistics_seq)
+    statistics = Statistics.from_dict(statistics_dict_buffer)
+    create_ngsi_ld_entity(statistics)
+
+    statistics_entity_creation_stop_time = time.perf_counter_ns()
+
+    statistics_entity_creation_exec_time = statistics_entity_creation_stop_time - statistics_entity_creation_start_time
+
+    print(f"NGSI-LD STATISTICS ENTITY #{statistics_seq} CREATION TIME: {statistics_entity_creation_exec_time} ns | {statistics_entity_creation_exec_time/1e3} µs | {statistics_entity_creation_exec_time/1e6} ms\n")
+
+    statistics_entity_creation_exec_times.append(statistics_entity_creation_exec_time)
+    statistics_seq+=1
+
+print(f"NGSI-LD STATISTICS ENTITIES CREATION EXECUTION TIMES - SUMMARY (OVER {len(statistics_dict_buffers)} DICTIONARY BUFFERS)")
+statistics_entity_creation_mean_exec_time = sum(statistics_entity_creation_exec_times)/len(statistics_entity_creation_exec_times)
+statistics_entity_creation_min_exec_time = min(statistics_entity_creation_exec_times)
+statistics_entity_creation_max_exec_time = max(statistics_entity_creation_exec_times)
+print(f"MEAN VALUE: {statistics_entity_creation_mean_exec_time} ns | {statistics_entity_creation_mean_exec_time/1e3} µs | {statistics_entity_creation_mean_exec_time/1e6} ms")
+print(f"MIN VALUE: {statistics_entity_creation_min_exec_time} ns | {statistics_entity_creation_min_exec_time/1e3} µs | {statistics_entity_creation_min_exec_time/1e6} ms")
+print(f"MAX VALUE: {statistics_entity_creation_max_exec_time} ns | {statistics_entity_creation_max_exec_time/1e3} µs | {statistics_entity_creation_max_exec_time/1e6} ms")
+
+'''
 # Print Interface dictionary buffers:
 print("## -- INTERFACE DICTIONARY BUFFERS -- ##\n")
 for interface_dict_buffer in interface_dict_buffers:
@@ -276,7 +358,6 @@ for statistics_dict_buffer in statistics_dict_buffers:
 
 print("## -- ##\n")
 
-'''
 # Create Interface NGSI-LD Entities:
 print("## -- CREATING INTERFACE NGSI-LD ENTITIES -- ##\n")
 for interface_dict_buffer in interface_dict_buffers:
@@ -293,3 +374,5 @@ for statistics_dict_buffer in statistics_dict_buffers:
 '''
 
 # pdb.set_trace()
+
+## -- END MAIN CODE -- ##
