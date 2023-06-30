@@ -4,7 +4,7 @@ pyang plugin -- NGSI-LD Context generator.
 Generates the NGSI-LD context(s) associated with a YANG module file following the defined guidelines and conventions.
 The results are written to individual .jsonld files: one for every NGSI-LD Entity.
 
-Version: 0.2.4.
+Version: 0.2.6.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 """
@@ -124,7 +124,17 @@ def emit_ngsi_ld_context(ctx, modules, fd):
         Checks if an element matches the YANG to NGSI-LD translation convention for a Property.
         """
         result = False
-        if (element.keyword in ['leaf-list', 'leaf']):
+        if (element.keyword in ['leaf-list', 'leaf']) and ('ref' not in str(element.search_one('type'))):
+            result = True
+        return result
+    
+    def is_relationship(element):
+        """
+        Auxiliary function.
+        Checks if an element matches the YANG to NGSI-LD translation convention for a Relationship.
+        """
+        result = False
+        if (element.keyword in ['leaf-list', 'leaf']) and ('ref' in str(element.search_one('type'))):
             result = True
         return result
                 
@@ -158,12 +168,14 @@ def emit_ngsi_ld_context(ctx, modules, fd):
                 json_ld["@context"].append(ngsi_ld_context)
                 json_ld["@context"].append(NGSI_LD_CORE_CONTEXT_URI)
                 # Help: https://stackoverflow.com/questions/12517451/automatically-creating-directories-with-file-output
-                filename = "jsonld/" + xpath.replace("/", "_").replace(":", "_") + str(element.arg) + ".jsonld"
+                filename = "ngsi-ld-context/" + xpath.replace("/", "_").replace(":", "_") + str(element.arg) + ".jsonld"
                 os.makedirs(os.path.dirname(filename), exist_ok=True)
                 file = open(filename, "w")
                 file.write(json.dumps(json_ld, indent=4) + '\n')
                 fd.write("NGSI-LD Context written to " + file.name + "\n")
         elif (is_property(element) == True) and (is_deprecated(element) == False):
+            ngsi_ld_context[to_camel_case(str(element.keyword), str(element.arg))] = xpath + name
+        elif (is_relationship(element) == True) and (is_deprecated(element) == False):
             ngsi_ld_context[to_camel_case(str(element.keyword), str(element.arg))] = xpath + name
     
     # Generate NGSI-LD Context:

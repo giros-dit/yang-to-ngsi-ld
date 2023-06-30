@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates a XML parser (in a "
 is able to read network telemetry from a device in XML format and is also capable of creating instances of 
 Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 0.0.1.
+Version: 0.0.2.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 """
@@ -65,18 +65,32 @@ def emit_python_code(ctx, modules, fd):
 
     # CONSTANTS:
 
-    PYTHON_FILE_HEADER = '''
-    import sys
-    import xml.etree.ElementTree as et
-    import subprocess
-    import pdb
-    
-    xml_file = sys.argv[1]
-    
-    tree = et.parse(xml_file)
-    
-    root = tree.getroot()
+    INDENTATION_LEVEL = '    '
 
+    BASE_IMPORT_STATEMENTS = '''
+        import sys
+        import xml.etree.ElementTree as et
+        import logging
+        import logging.config
+        import yaml
+        import os
+        import time
+        import re
+        import subprocess
+        import pdb
+
+        import ngsi_ld_client
+        from fastapi import FastAPI, Request, status
+        from ngsi_ld_client.api_client import ApiClient as NGSILDClient
+        from ngsi_ld_client.configuration import Configuration as NGSILDConfiguration
+        from ngsi_ld_client.exceptions import ApiException
+    '''
+
+    XML_PARSER_BASE_OPERATIONS = '''
+        xml_file = sys.argv[1]
+    
+        tree = et.parse(xml_file)
+        root = tree.getroot()
     '''
 
     # AUXILIARY FUNCTIONS: 
@@ -136,7 +150,17 @@ def emit_python_code(ctx, modules, fd):
         Checks if an element matches the YANG to NGSI-LD translation convention for a Property.
         """
         result = False
-        if (element.keyword in ['leaf-list', 'leaf']):
+        if (element.keyword in ['leaf-list', 'leaf']) and ('ref' not in str(element.search_one('type'))):
+            result = True
+        return result
+    
+    def is_relationship(element):
+        """
+        Auxiliary function.
+        Checks if an element matches the YANG to NGSI-LD translation convention for a Relationship.
+        """
+        result = False
+        if (element.keyword in ['leaf-list', 'leaf']) and ('ref' in str(element.search_one('type'))):
             result = True
         return result
                 
@@ -145,6 +169,7 @@ def emit_python_code(ctx, modules, fd):
         Auxiliary function.
         Recursively generates the XML parser code.
         """
+
         if element.i_module.i_modulename == module.i_modulename:
             name = str(element.arg)
         else:
@@ -156,6 +181,7 @@ def emit_python_code(ctx, modules, fd):
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
                         generate_xml_parser(subelement, module_namespace)
         elif (is_entity(element) == True) and (is_deprecated(element) == False):
+            fd.write('\n' + 'from ngsi_ld_models.models.' + str(element.arg) + " import " + str(element.arg).capitalize())
             subelements = element.i_children
             if (subelements is not None):
                 for subelement in subelements:
@@ -164,13 +190,20 @@ def emit_python_code(ctx, modules, fd):
         elif (is_property(element) == True) and (is_deprecated(element) == False):
             element_keyword = str(element.keyword)
             element_arg = str(element.arg)
-            fd.write(to_camel_case(element_keyword, element_arg) + " " + "=" + " " + "root.findall(\".//{"+module_namespace+"}"+str(element.arg)+"\")\n\n")
-            fd.write("print("+to_camel_case(element_keyword, element_arg)+"[0].text)\n\n")
+            fd.write('\n' + to_camel_case(element_keyword, element_arg) + " " + "=" + " " + "root.findall(\".//{"+module_namespace+"}"+str(element.arg)+"\")")
+            fd.write('\n' + "print("+to_camel_case(element_keyword, element_arg)+"[0].text)")
+        elif (is_relationship(element) == True) and (is_deprecated(element) == False):
+            element_keyword = str(element.keyword)
+            element_arg = str(element.arg)
+            fd.write('\n' + to_camel_case(element_keyword, element_arg) + " " + "=" + " " + "root.findall(\".//{"+module_namespace+"}"+str(element.arg)+"\")")
+            fd.write('\n' + "print("+to_camel_case(element_keyword, element_arg)+"[0].text)")
     
     # Generate XML parser Python code:
-    fd.write(PYTHON_FILE_HEADER)
+    fd.write(BASE_IMPORT_STATEMENTS)
+    fd.write(XML_PARSER_BASE_OPERATIONS)
+
     for module in modules:
-        module_namespace = str(module.search_one('namespace').arg + "\n")
+        module_namespace = str(module.search_one('namespace').arg)
         elements = module.i_children
         if (elements is not None):
             for element in elements:
