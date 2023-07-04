@@ -1,9 +1,10 @@
 """
 pyang plugin -- XML Parser Generator.
 
-Given one or several YANG modules, it dynamically generates a XML parser (in a ".py" Python script file) that 
-is able to read network telemetry from a device in XML format and is also capable of creating instances of 
-Pydantic classes from the NGSI-LD-backed OpenAPI generation.
+Given one or several YANG modules, it dynamically generates the code of an XML parser
+(in a ".py" Python script file) that is able to read network telemetry from a device
+in XML format and is also capable of creating instances of Pydantic classes from the
+NGSI-LD-backed OpenAPI generation.
 
 Version: 0.0.3.
 
@@ -162,7 +163,7 @@ def emit_python_code(ctx, modules, fd):
             result = True
         return result
                 
-    def generate_xml_parser(element, module_namespace, parent_element_arg, is_parent_an_entity: bool):
+    def generate_xml_parser(element, module_namespace, parent_element_arg, depth_level):
         """
         Auxiliary function.
         Recursively generates the XML parser code.
@@ -177,22 +178,29 @@ def emit_python_code(ctx, modules, fd):
             if (subelements is not None):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                        generate_xml_parser(subelement, module_namespace, None, None)
+                        generate_xml_parser(subelement, module_namespace, None, 0)
         elif (is_entity(element) == True) and (is_deprecated(element) == False):
-            fd.write('\n' + 'from ngsi_ld_models.models.' + str(element.arg) + " import " + str(element.arg).capitalize())
-            fd.write('\n' + str(element.arg) + '_dict_buffers = []')
-            fd.write('\n' + 'for ' + str(element.arg) + ' in root.findall(\".//{' + module_namespace + '}' + str(element.arg) + '\"):')
+            if (parent_element_arg is None): # 1st level Entity.
+                depth_level += 1
+                fd.write('\n' + 'from ngsi_ld_models.models.' + str(element.arg) + " import " + str(element.arg).capitalize())
+                fd.write('\n' + str(element.arg) + '_dict_buffers = []')
+                fd.write('\n' + 'for ' + str(element.arg) + ' in root.findall(\".//{' + module_namespace + '}' + str(element.arg) + '\"):')
+            else: # 2nd level Entity.
+                depth_level += 1
+                fd.write('\n' + INDENTATION_LEVEL + 'from ngsi_ld_models.models.' + str(element.arg) + " import " + str(element.arg).capitalize())
+                fd.write('\n' + INDENTATION_LEVEL + str(element.arg) + '_dict_buffers = []')
+                fd.write('\n' + INDENTATION_LEVEL + 'for ' + str(element.arg) + ' in ' + str(parent_element_arg) + '.findall(\".//{' + module_namespace + '}' + str(element.arg) + '\"):')
             subelements = element.i_children
             if (subelements is not None):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                        generate_xml_parser(subelement, module_namespace, element.arg, True)
+                        generate_xml_parser(subelement, module_namespace, element.arg, depth_level)
         elif (is_property(element) == True) and (is_deprecated(element) == False):
             element_keyword = str(element.keyword)
             element_arg = str(element.arg)
             camelized_keyword = to_camel_case(element_keyword, element_arg)
-            fd.write('\n' + INDENTATION_LEVEL + camelized_keyword + " " + "=" + " " + str(parent_element_arg) + ".find(\".//{"+module_namespace+"}"+str(element.arg)+"\")")
-            fd.write('\n' + INDENTATION_LEVEL + 'if ' + camelized_keyword + ' is not None: print(' + to_camel_case(element_keyword, element_arg) + '.text)')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + camelized_keyword + " " + "=" + " " + str(parent_element_arg) + ".find(\".//{"+module_namespace+"}"+str(element.arg)+"\")")
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + 'if ' + camelized_keyword + ' is not None: print(' + to_camel_case(element_keyword, element_arg) + '.text)')
             
             # Keep old code just in case
             #fd.write('\n' + to_camel_case(element_keyword, element_arg) + " " + "=" + " " + "root.findall(\".//{"+module_namespace+"}"+str(element.arg)+"\")")
@@ -202,8 +210,8 @@ def emit_python_code(ctx, modules, fd):
             element_keyword = str(element.keyword)
             element_arg = str(element.arg)
             camelized_keyword = to_camel_case(element_keyword, element_arg)
-            fd.write('\n' + INDENTATION_LEVEL + to_camel_case(element_keyword, element_arg) + " " + "=" + " " + str(parent_element_arg) + ".find(\".//{"+module_namespace+"}"+str(element.arg)+"\")")
-            fd.write('\n' + INDENTATION_LEVEL + 'if ' + camelized_keyword + ' is not None: print(' + to_camel_case(element_keyword, element_arg) + '.text)')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + camelized_keyword + " " + "=" + " " + str(parent_element_arg) + ".find(\".//{"+module_namespace+"}"+str(element.arg)+"\")")
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + 'if ' + camelized_keyword + ' is not None: print(' + to_camel_case(element_keyword, element_arg) + '.text)')
             
             # Keep old code just in case
             #fd.write('\n' + to_camel_case(element_keyword, element_arg) + " " + "=" + " " + "root.findall(\".//{"+module_namespace+"}"+str(element.arg)+"\")")
@@ -227,4 +235,4 @@ def emit_python_code(ctx, modules, fd):
         if (elements is not None):
             for element in elements:
                 if (element is not None) and (element.keyword in statements.data_definition_keywords):
-                    generate_xml_parser(element, module_namespace, None, None)
+                    generate_xml_parser(element, module_namespace, None, 0)
