@@ -67,31 +67,29 @@ def emit_python_code(ctx, modules, fd):
 
     INDENTATION_LEVEL = '    '
 
-    BASE_IMPORT_STATEMENTS = '''
-        import sys
-        import xml.etree.ElementTree as et
-        import logging
-        import logging.config
-        import yaml
-        import os
-        import time
-        import re
-        import subprocess
-        import pdb
+    BASE_IMPORT_STATEMENTS = [
+        "import sys",
+        "import xml.etree.ElementTree as et",
+        "import logging",
+        "import logging.config",
+        "import yaml",
+        "import os",
+        "import time",
+        "import re",
+        "import subprocess",
+        "import pdb",
+        "import ngsi_ld_client",
+        "from fastapi import FastAPI, Request, status",
+        "from ngsi_ld_client.api_client import ApiClient as NGSILDClient",
+        "from ngsi_ld_client.configuration import Configuration as NGSILDConfiguration",
+        "from ngsi_ld_client.exceptions import ApiException"
+    ]
 
-        import ngsi_ld_client
-        from fastapi import FastAPI, Request, status
-        from ngsi_ld_client.api_client import ApiClient as NGSILDClient
-        from ngsi_ld_client.configuration import Configuration as NGSILDConfiguration
-        from ngsi_ld_client.exceptions import ApiException
-    '''
-
-    XML_PARSER_BASE_OPERATIONS = '''
-        xml_file = sys.argv[1]
-    
-        tree = et.parse(xml_file)
-        root = tree.getroot()
-    '''
+    XML_PARSER_BASE_OPERATIONS = [
+        "xml_file = sys.argv[1]",    
+        "tree = et.parse(xml_file)",
+        "root = tree.getroot()"
+    ]
 
     # AUXILIARY FUNCTIONS: 
 
@@ -182,6 +180,7 @@ def emit_python_code(ctx, modules, fd):
                         generate_xml_parser(subelement, module_namespace)
         elif (is_entity(element) == True) and (is_deprecated(element) == False):
             fd.write('\n' + 'from ngsi_ld_models.models.' + str(element.arg) + " import " + str(element.arg).capitalize())
+            fd.write('\n' + str(element.arg) + '_dict_buffers = []')
             subelements = element.i_children
             if (subelements is not None):
                 for subelement in subelements:
@@ -191,16 +190,25 @@ def emit_python_code(ctx, modules, fd):
             element_keyword = str(element.keyword)
             element_arg = str(element.arg)
             fd.write('\n' + to_camel_case(element_keyword, element_arg) + " " + "=" + " " + "root.findall(\".//{"+module_namespace+"}"+str(element.arg)+"\")")
-            fd.write('\n' + "print("+to_camel_case(element_keyword, element_arg)+"[0].text)")
+            fd.write('\n' + 'for entry in ' + to_camel_case(element_keyword, element_arg) + ':')
+            fd.write('\n' + INDENTATION_LEVEL + 'print(entry.text)')
         elif (is_relationship(element) == True) and (is_deprecated(element) == False):
             element_keyword = str(element.keyword)
             element_arg = str(element.arg)
             fd.write('\n' + to_camel_case(element_keyword, element_arg) + " " + "=" + " " + "root.findall(\".//{"+module_namespace+"}"+str(element.arg)+"\")")
-            fd.write('\n' + "print("+to_camel_case(element_keyword, element_arg)+"[0].text)")
+            fd.write('\n' + 'for entry in ' + to_camel_case(element_keyword, element_arg) + ':')
+            fd.write('\n' + INDENTATION_LEVEL + 'print(entry.text)')
     
     # Generate XML parser Python code:
-    fd.write(BASE_IMPORT_STATEMENTS)
-    fd.write(XML_PARSER_BASE_OPERATIONS)
+    for import_statement in BASE_IMPORT_STATEMENTS:
+        fd.write(import_statement)
+        fd.write("\n")
+
+    fd.write("\n")
+
+    for line in XML_PARSER_BASE_OPERATIONS:
+        fd.write(line)
+        fd.write("\n")
 
     for module in modules:
         module_namespace = str(module.search_one('namespace').arg)
