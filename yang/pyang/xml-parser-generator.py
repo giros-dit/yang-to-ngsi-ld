@@ -94,20 +94,20 @@ def emit_python_code(ctx, modules, fd):
 
     # AUXILIARY FUNCTIONS: 
 
-    def to_camel_case(keyword: str, element_name: str) -> str:
+    def to_camel_case(element_keyword: str, element_arg: str) -> str:
         """
         Auxiliary function.
         Returns the CamelCase representation of element_name according to the YANG to NGSI-LD translation conventions.
         """
-        if (keyword is None) or (element_name is None):
-            return element_name
+        if (element_keyword is None) or (element_arg is None):
+            return element_arg
         else:
-            if (keyword == 'module'):
-                return element_name
-            if (keyword == 'container') or (keyword == 'list'):
-                return element_name.capitalize()
-            if (keyword == 'leaf') or (keyword == 'leaf-list'):
-                return re.sub(r"(-)(\w)", lambda m: m.group(2).upper(), element_name)
+            if (element_keyword == 'module'):
+                return element_arg
+            if (element_keyword == 'container') or (element_keyword == 'list'):
+                return element_arg.capitalize()
+            if (element_keyword == 'leaf') or (element_keyword == 'leaf-list'):
+                return re.sub(r"(-)(\w)", lambda m: m.group(2).upper(), element_arg)
     
     def is_enclosing_container(element):
         """
@@ -169,6 +169,7 @@ def emit_python_code(ctx, modules, fd):
         Recursively generates the XML parser code.
         """
 
+        camelized_element_name = to_camel_case(str(element.keyword), str(element.arg))
         if element.i_module.i_modulename == module.i_modulename:
             name = str(element.arg)
         else:
@@ -181,37 +182,41 @@ def emit_python_code(ctx, modules, fd):
                         generate_xml_parser(subelement, module_namespace, None, 0)
         elif (is_entity(element) == True) and (is_deprecated(element) == False):
             if (parent_element_arg is None): # 1st level Entity.
-                depth_level += 1
-                fd.write('\n' + 'from ngsi_ld_models.models.' + str(element.arg) + " import " + str(element.arg).capitalize())
+                fd.write('\n' + 'from ngsi_ld_models.models.' + str(element.arg) + " import " + camelized_element_name)
                 fd.write('\n' + str(element.arg) + '_dict_buffers = []')
                 fd.write('\n' + 'for ' + str(element.arg) + ' in root.findall(\".//{' + module_namespace + '}' + str(element.arg) + '\"):')
-            else: # 2nd level Entity.
                 depth_level += 1
-                fd.write('\n' + INDENTATION_LEVEL + 'from ngsi_ld_models.models.' + str(element.arg) + " import " + str(element.arg).capitalize())
-                fd.write('\n' + INDENTATION_LEVEL + str(element.arg) + '_dict_buffers = []')
-                fd.write('\n' + INDENTATION_LEVEL + 'for ' + str(element.arg) + ' in ' + str(parent_element_arg) + '.findall(\".//{' + module_namespace + '}' + str(element.arg) + '\"):')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer = {}')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"id\"] = \"urn:ngsi-ld:' + camelized_element_name + ':\"')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"type\"] = \"' + camelized_element_name + '\"')
+            else: # 2nd level Entity onwards.
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + 'from ngsi_ld_models.models.' + str(element.arg) + " import " + str(element.arg).capitalize())
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffers = []')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + 'for ' + str(element.arg) + ' in ' + str(parent_element_arg) + '.findall(\".//{' + module_namespace + '}' + str(element.arg) + '\"):')
+                depth_level += 1
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer = {}')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"id\"] = \"urn:ngsi-ld:' + camelized_element_name + ':\" + ' + str(parent_element_arg) + '_dict_buffer[\"name\"][\"value\"]')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"type\"] = \"' + camelized_element_name + '\"')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"isPartOf\"] = {}')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"isPartOf\"][\"type\"] = \"Relationship\"')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"isPartOf\"][\"object\"] = \"urn:ngsi-ld:' + str(parent_element_arg).capitalize() + ':\" + ' + str(parent_element_arg) + '_dict_buffer[\"name\"][\"value\"]')
             subelements = element.i_children
             if (subelements is not None):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
                         generate_xml_parser(subelement, module_namespace, element.arg, depth_level)
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffers.append(' + str(element.arg) + '_dict_buffer)')
         elif (is_property(element) == True) and (is_deprecated(element) == False):
-            element_keyword = str(element.keyword)
-            element_arg = str(element.arg)
-            camelized_keyword = to_camel_case(element_keyword, element_arg)
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + camelized_keyword + " " + "=" + " " + str(parent_element_arg) + ".find(\".//{"+module_namespace+"}"+str(element.arg)+"\")")
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + 'if ' + camelized_keyword + ' is not None: print(' + to_camel_case(element_keyword, element_arg) + '.text)')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + camelized_element_name + " " + "=" + " " + str(parent_element_arg) + ".find(\".//{"+module_namespace+"}"+str(element.arg)+"\")")
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + 'if ' + camelized_element_name + ' is not None: print(' + camelized_element_name + '.text)')
             
             # Keep old code just in case
             #fd.write('\n' + to_camel_case(element_keyword, element_arg) + " " + "=" + " " + "root.findall(\".//{"+module_namespace+"}"+str(element.arg)+"\")")
             #fd.write('\n' + 'for entry in ' + to_camel_case(element_keyword, element_arg) + ':')
             #fd.write('\n' + INDENTATION_LEVEL + 'print(entry.text)')
         elif (is_relationship(element) == True) and (is_deprecated(element) == False):
-            element_keyword = str(element.keyword)
-            element_arg = str(element.arg)
-            camelized_keyword = to_camel_case(element_keyword, element_arg)
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + camelized_keyword + " " + "=" + " " + str(parent_element_arg) + ".find(\".//{"+module_namespace+"}"+str(element.arg)+"\")")
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + 'if ' + camelized_keyword + ' is not None: print(' + to_camel_case(element_keyword, element_arg) + '.text)')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + camelized_element_name + " " + "=" + " " + str(parent_element_arg) + ".find(\".//{"+module_namespace+"}"+str(element.arg)+"\")")
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + 'if ' + camelized_element_name + ' is not None: print(' + camelized_element_name + '.text)')
             
             # Keep old code just in case
             #fd.write('\n' + to_camel_case(element_keyword, element_arg) + " " + "=" + " " + "root.findall(\".//{"+module_namespace+"}"+str(element.arg)+"\")")
@@ -236,3 +241,5 @@ def emit_python_code(ctx, modules, fd):
             for element in elements:
                 if (element is not None) and (element.keyword in statements.data_definition_keywords):
                     generate_xml_parser(element, module_namespace, None, 0)
+    
+    fd.write("\n")
