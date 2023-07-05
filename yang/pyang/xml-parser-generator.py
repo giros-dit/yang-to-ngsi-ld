@@ -66,6 +66,43 @@ def emit_python_code(ctx, modules, fd):
 
     # CONSTANTS:
 
+    # NOTE: From ietf-yang-types@2023-01-23.yang.
+    # If there are several conversion steps, the value is always the final type. 
+    IETF_YANG_TYPES = {
+        "yang:counter32": "uint32",
+        "yang:zero-based-counter32": "uint32",
+        "yang:counter64": "uint64",
+        "yang:zero-based-counter64": "uint64",
+        "yang:gauge32": "uint32",
+        "yang:gauge64": "uint64",
+        "yang:object-identifier": "string",
+        "yang:object-identifier-128": "string",
+        "yang:date-and-time": "string",
+        "yang:date-with-zone-offset": "string",
+        "yang:date-no-zone": "string",
+        "yang:time-with-zone-offset": "string",
+        "yang:time-no-zone": "string",
+        "yang:hours32": "int32",
+        "yang:minutes32": "int32",
+        "yang:seconds32": "int32",
+        "yang:centiseconds32": "int32",
+        "yang:miliseconds32": "int32",
+        "yang:microseconds32": "int32",
+        "yang:microseconds64": "int64",
+        "yang:nanoseconds32": "int32",
+        "yang:nanoseconds64": "int64",
+        "yang:timeticks": "uint32",
+        "yang:timestamp": "uint32",
+        "yang:phys-address": "string",
+        "yang:mac-address": "string",
+        "yang:xpath1.0": "string",
+        "yang:hex-string": "string",
+        "yang:uuid": "string",
+        "yang:dotted-quad": "string",
+        "yang:language-tag": "string",
+        "yang:yang-identifier": "string"
+    } 
+
     INDENTATION_LEVEL = '    '
 
     BASE_IMPORT_STATEMENTS = [
@@ -108,6 +145,9 @@ def emit_python_code(ctx, modules, fd):
                 return element_arg.capitalize()
             if (element_keyword == 'leaf') or (element_keyword == 'leaf-list'):
                 return re.sub(r"(-)(\w)", lambda m: m.group(2).upper(), element_arg)
+    
+    def yang_to_ngsi_ld_types_conversion(element_name: str, element_type: str) -> str:
+        return None
     
     def is_enclosing_container(element):
         """
