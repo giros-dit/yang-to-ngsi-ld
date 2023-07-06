@@ -67,8 +67,8 @@ def emit_python_code(ctx, modules, fd):
     # CONSTANTS:
 
     # NOTE: From ietf-yang-types@2023-01-23.yang.
-    # If there are several conversion steps, the value is always the final type. 
-    IETF_YANG_TYPES = {
+    # If there are several conversion steps, the value is always the final type.
+    IETF_YANG_TYPES_TO_PRIMITIVE_YANG_TYPES = {
         "yang:counter32": "uint32",
         "yang:zero-based-counter32": "uint32",
         "yang:counter64": "uint64",
@@ -101,7 +101,27 @@ def emit_python_code(ctx, modules, fd):
         "yang:dotted-quad": "string",
         "yang:language-tag": "string",
         "yang:yang-identifier": "string"
-    } 
+    }
+
+    # NOTE: NGSI-LD types are Python "types" (given this particular implementation).
+    PRIMITIVE_YANG_TYPES_TO_NGSI_LD_TYPES = {
+        "int8": "Integer",
+        "int16": "Integer",
+        "int32": "Integer",
+        "int64": "Integer",
+        "uint8": "Integer",
+        "uint16": "Integer",
+        "uint32": "Integer",
+        "uint64": "Integer",
+        "decimal64": "Integer",
+        "string": "String",
+        "boolean": "Boolean",
+        "enum": "String",
+        "enumeration": "String",
+        "bit": "List(String)",
+        "binary": "String",
+        "empty": "String"
+    }
 
     INDENTATION_LEVEL = '    '
 
@@ -146,8 +166,29 @@ def emit_python_code(ctx, modules, fd):
             if (element_keyword == 'leaf') or (element_keyword == 'leaf-list'):
                 return re.sub(r"(-)(\w)", lambda m: m.group(2).upper(), element_arg)
     
-    def yang_to_ngsi_ld_types_conversion(element_name: str, element_type: str) -> str:
-        return None
+    def yang_to_ngsi_ld_types_conversion(element_type: str) -> str:
+        '''
+        Auxiliary function.
+        Returns the NGSI-LD type (in Python implementation) given the YANG type of an element/node in a YANG module.
+        '''
+        if (element_type in IETF_YANG_TYPES_TO_PRIMITIVE_YANG_TYPES):
+            primitive_yang_type = IETF_YANG_TYPES_TO_PRIMITIVE_YANG_TYPES[element_type]
+            return PRIMITIVE_YANG_TYPES_TO_NGSI_LD_TYPES[primitive_yang_type]
+        else:
+            return PRIMITIVE_YANG_TYPES_TO_NGSI_LD_TYPES[element_type]
+    
+    def element_text_type_formatting(ngsi_ld_type: str, element_text: str) -> str:
+        '''
+        Auxiliary function.
+        Returns a String with the Python code that implements the correct formatting for the value/text of an element in
+        an XML file given the NGSI-LD type of that particular element.
+        '''
+        if (ngsi_ld_type == "String"):
+            return element_text
+        elif (ngsi_ld_type == "Integer"):
+            return 'int(' + element_text + ')'
+        elif (ngsi_ld_type == "Boolean"):
+            return element_text + '.capitalize()'
     
     def is_enclosing_container(element):
         """
@@ -161,7 +202,7 @@ def emit_python_code(ctx, modules, fd):
         if (element.keyword == 'container') and (len(element.i_children) == 1) and (element.i_children[0].keyword == 'list'):
             result = True
         return result
-    
+
     def is_deprecated(element):
         """
         Auxiliary function.
@@ -172,7 +213,7 @@ def emit_python_code(ctx, modules, fd):
         if (status is not None) and (status.arg == 'deprecated'):
             result = True
         return result
-
+    
     def is_entity(element):
         """
         Auxiliary function.
@@ -209,7 +250,7 @@ def emit_python_code(ctx, modules, fd):
         Recursively generates the XML parser code.
         """
 
-        camelized_element_name = to_camel_case(str(element.keyword), str(element.arg))
+        camelized_element_arg = to_camel_case(str(element.keyword), str(element.arg))
         if element.i_module.i_modulename == module.i_modulename:
             name = str(element.arg)
         else:
@@ -222,21 +263,21 @@ def emit_python_code(ctx, modules, fd):
                         generate_xml_parser(subelement, module_namespace, None, 0)
         elif (is_entity(element) == True) and (is_deprecated(element) == False):
             if (parent_element_arg is None): # 1st level Entity.
-                fd.write('\n' + 'from ngsi_ld_models.models.' + str(element.arg) + " import " + camelized_element_name)
+                fd.write('\n' + 'from ngsi_ld_models.models.' + str(element.arg) + " import " + camelized_element_arg)
                 fd.write('\n' + str(element.arg) + '_dict_buffers = []')
                 fd.write('\n' + 'for ' + str(element.arg) + ' in root.findall(\".//{' + module_namespace + '}' + str(element.arg) + '\"):')
                 depth_level += 1
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer = {}')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"id\"] = \"urn:ngsi-ld:' + camelized_element_name + ':\"')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"type\"] = \"' + camelized_element_name + '\"')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"id\"] = \"urn:ngsi-ld:' + camelized_element_arg + ':\"')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"type\"] = \"' + camelized_element_arg + '\"')
             else: # 2nd level Entity onwards.
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + 'from ngsi_ld_models.models.' + str(element.arg) + " import " + str(element.arg).capitalize())
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffers = []')
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + 'for ' + str(element.arg) + ' in ' + str(parent_element_arg) + '.findall(\".//{' + module_namespace + '}' + str(element.arg) + '\"):')
                 depth_level += 1
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer = {}')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"id\"] = \"urn:ngsi-ld:' + camelized_element_name + ':\" + ' + str(parent_element_arg) + '_dict_buffer[\"name\"][\"value\"]')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"type\"] = \"' + camelized_element_name + '\"')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"id\"] = \"urn:ngsi-ld:' + camelized_element_arg + ':\" + ' + str(parent_element_arg) + '_dict_buffer[\"name\"][\"value\"]')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"type\"] = \"' + camelized_element_arg + '\"')
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"isPartOf\"] = {}')
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"isPartOf\"][\"type\"] = \"Relationship\"')
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"isPartOf\"][\"object\"] = \"urn:ngsi-ld:' + str(parent_element_arg).capitalize() + ':\" + ' + str(parent_element_arg) + '_dict_buffer[\"name\"][\"value\"]')
@@ -247,21 +288,24 @@ def emit_python_code(ctx, modules, fd):
                         generate_xml_parser(subelement, module_namespace, element.arg, depth_level)
             fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffers.append(' + str(element.arg) + '_dict_buffer)')
         elif (is_property(element) == True) and (is_deprecated(element) == False):
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + camelized_element_name + " " + "=" + " " + str(parent_element_arg) + ".find(\".//{"+module_namespace+"}"+str(element.arg)+"\")")
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + 'if ' + camelized_element_name + ' is not None: print(' + camelized_element_name + '.text)')
-            
-            # Keep old code just in case
-            #fd.write('\n' + to_camel_case(element_keyword, element_arg) + " " + "=" + " " + "root.findall(\".//{"+module_namespace+"}"+str(element.arg)+"\")")
-            #fd.write('\n' + 'for entry in ' + to_camel_case(element_keyword, element_arg) + ':')
-            #fd.write('\n' + INDENTATION_LEVEL + 'print(entry.text)')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + camelized_element_arg + " " + "=" + " " + str(parent_element_arg) + ".find(\".//{"+module_namespace+"}"+str(element.arg)+"\")")
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + 'if ' + camelized_element_arg + ' is not None:')
+            ngsi_ld_type = yang_to_ngsi_ld_types_conversion(str(element.search_one('type')).replace("type ", ""))
+            text_format = element_text_type_formatting(ngsi_ld_type, 'element_text')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + 'element_text = ' + camelized_element_arg + '.text')
+            if (str(element.arg) == 'name'):
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + str(parent_element_arg) + '_dict_buffer[\"id\"] = ' + str(parent_element_arg) + '_dict_buffer[\"id\"] + ' + text_format)
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + str(parent_element_arg) + '_dict_buffer[\"' + camelized_element_arg + '\"] = {}')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + str(parent_element_arg) + '_dict_buffer[\"' + camelized_element_arg + '\"][\"type\"] = \"Property\"')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + str(parent_element_arg) + '_dict_buffer[\"' + camelized_element_arg + '\"][\"value\"] = ' + text_format)
         elif (is_relationship(element) == True) and (is_deprecated(element) == False):
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + camelized_element_name + " " + "=" + " " + str(parent_element_arg) + ".find(\".//{"+module_namespace+"}"+str(element.arg)+"\")")
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + 'if ' + camelized_element_name + ' is not None: print(' + camelized_element_name + '.text)')
-            
-            # Keep old code just in case
-            #fd.write('\n' + to_camel_case(element_keyword, element_arg) + " " + "=" + " " + "root.findall(\".//{"+module_namespace+"}"+str(element.arg)+"\")")
-            #fd.write('\n' + 'for entry in ' + to_camel_case(element_keyword, element_arg) + ':')
-            #fd.write('\n' + INDENTATION_LEVEL + 'print(entry.text)')
+            if (str(element.arg) != 'type'):
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + camelized_element_arg + " " + "=" + " " + str(parent_element_arg) + ".find(\".//{"+module_namespace+"}"+str(element.arg)+"\")")
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + 'if ' + camelized_element_arg + ' is not None:')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + 'element_text = ' + camelized_element_arg + '.text')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + str(parent_element_arg) + '_dict_buffer[\"' + camelized_element_arg + '\"] = {}')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + str(parent_element_arg) + '_dict_buffer[\"' + camelized_element_arg + '\"][\"type\"] = \"Relationship\"')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + str(parent_element_arg) + '_dict_buffer[\"' + camelized_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + str(parent_element_arg).capitalize() + ':\" + element_text')
     
     # Generate XML parser Python code:
     for import_statement in BASE_IMPORT_STATEMENTS:

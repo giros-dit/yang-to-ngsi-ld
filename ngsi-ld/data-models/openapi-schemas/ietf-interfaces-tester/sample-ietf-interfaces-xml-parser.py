@@ -257,6 +257,7 @@ def get_data_recursively(element, parent_element_tag, dict_buffer):
 
 ## -- BEGIN MAIN CODE -- ##
 
+'''
 # Help with performance measurements: https://erickmccollum.com/2021/10/31/three-ways-to-measure-python-performance.html
 
 # Performance measurements over 1000 iterations of XML parsing (from file reading to data saving into dictionary buffers):
@@ -340,8 +341,13 @@ statistics_entity_creation_max_exec_time = max(statistics_entity_creation_exec_t
 print(f"MEAN VALUE: {statistics_entity_creation_mean_exec_time} ns | {statistics_entity_creation_mean_exec_time/1e3} µs | {statistics_entity_creation_mean_exec_time/1e6} ms")
 print(f"MIN VALUE: {statistics_entity_creation_min_exec_time} ns | {statistics_entity_creation_min_exec_time/1e3} µs | {statistics_entity_creation_min_exec_time/1e6} ms")
 print(f"MAX VALUE: {statistics_entity_creation_max_exec_time} ns | {statistics_entity_creation_max_exec_time/1e3} µs | {statistics_entity_creation_max_exec_time/1e6} ms")
-
 '''
+
+tree = et.parse('sample-ietf-interfaces.xml')
+root = tree.getroot()
+for child in root:
+    get_data_recursively(child, None, None)
+
 # Print Interface dictionary buffers:
 print("## -- INTERFACE DICTIONARY BUFFERS -- ##\n")
 for interface_dict_buffer in interface_dict_buffers:
@@ -358,6 +364,7 @@ for statistics_dict_buffer in statistics_dict_buffers:
 
 print("## -- ##\n")
 
+'''
 # Create Interface NGSI-LD Entities:
 print("## -- CREATING INTERFACE NGSI-LD ENTITIES -- ##\n")
 for interface_dict_buffer in interface_dict_buffers:
