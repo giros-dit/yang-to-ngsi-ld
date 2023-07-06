@@ -245,6 +245,15 @@ def emit_python_code(ctx, modules, fd):
         return result
     
     def generate_entity_import_statements_and_dict_buffers(element):
+        '''
+        Auxiliary function.
+        Recursively generates import statements and dictionary buffer lists
+        for identified NGSI-LD Entities within the YANG module.
+        A dictionary buffer stores a valid representation of a NGSI-LD Entity with 
+        its properties and relationships.
+        Dictionary buffer lists store dictionary buffers of different NGSI-LD Entities
+        of the same type.
+        '''
         camelized_element_arg = to_camel_case(str(element.keyword), str(element.arg))
         if (is_enclosing_container(element) == True) and (is_deprecated(element) == False):
             subelements = element.i_children
@@ -252,21 +261,21 @@ def emit_python_code(ctx, modules, fd):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
                         generate_entity_import_statements_and_dict_buffers(subelement)
-        elif (is_entity(element) == True) and (is_deprecated(element == False)):
+        elif (is_entity(element) == True) and (is_deprecated(element) == False):
             fd.write('\n' + 'from ngsi_ld_models.models.' + str(element.arg) + " import " + camelized_element_arg)
             fd.write('\n' + str(element.arg) + '_dict_buffers = []')
+            fd.write('\n')
             subelements = element.i_children
             if (subelements is not None):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
                         generate_entity_import_statements_and_dict_buffers(subelement)
-                
-    def generate_xml_parser(element, module_namespace, parent_element_arg, depth_level):
+
+    def generate_parser_code(element, module_namespace, parent_element_arg, depth_level):
         """
         Auxiliary function.
         Recursively generates the XML parser code.
         """
-
         camelized_element_arg = to_camel_case(str(element.keyword), str(element.arg))
         if element.i_module.i_modulename == module.i_modulename:
             name = str(element.arg)
@@ -277,7 +286,7 @@ def emit_python_code(ctx, modules, fd):
             if (subelements is not None):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                        generate_xml_parser(subelement, module_namespace, None, 0)
+                        generate_parser_code(subelement, module_namespace, None, 0)
         elif (is_entity(element) == True) and (is_deprecated(element) == False):
             if (parent_element_arg is None): # 1st level Entity.
                 fd.write('\n' + 'for ' + str(element.arg) + ' in root.findall(\".//{' + module_namespace + '}' + str(element.arg) + '\"):')
@@ -298,7 +307,7 @@ def emit_python_code(ctx, modules, fd):
             if (subelements is not None):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                        generate_xml_parser(subelement, module_namespace, element.arg, depth_level)
+                        generate_parser_code(subelement, module_namespace, element.arg, depth_level)
             fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffers.append(' + str(element.arg) + '_dict_buffer)')
         elif (is_property(element) == True) and (is_deprecated(element) == False):
             fd.write('\n' + INDENTATION_LEVEL * depth_level + camelized_element_arg + " " + "=" + " " + str(parent_element_arg) + ".find(\".//{"+module_namespace+"}"+str(element.arg)+"\")")
@@ -338,6 +347,6 @@ def emit_python_code(ctx, modules, fd):
             for element in elements:
                 if (element is not None) and (element.keyword in statements.data_definition_keywords):
                     generate_entity_import_statements_and_dict_buffers(element)
-                    generate_xml_parser(element, module_namespace, None, 0)
+                    generate_parser_code(element, module_namespace, None, 0)
     
     fd.write("\n")
