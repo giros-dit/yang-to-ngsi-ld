@@ -42,6 +42,12 @@ logger = logging.getLogger(__name__)
 # Entity definitions:
 INTERFACE_ENTITY_DEFINITION = "{urn:ietf:params:xml:ns:yang:ietf-interfaces}interface"
 STATISTICS_ENTITY_DEFINITION = "{urn:ietf:params:xml:ns:yang:ietf-interfaces}statistics"
+IPV4_ENTITY_DEFINITION = "{urn:ietf:params:xml:ns:yang:ietf-ip}ipv4"
+IPV6_ENTITY_DEFINITION = "{urn:ietf:params:xml:ns:yang:ietf-ip}ipv6"
+IPV6_ENTITY_DEFINITION = "{urn:ietf:params:xml:ns:yang:ietf-ip}ipv6"
+NEIGHBOR_ENTITY_DEFINITION = "{urn:ietf:params:xml:ns:yang:ietf-ip}neighbor"
+ADDRESS_ENTITY_DEFINITION = "{urn:ietf:params:xml:ns:yang:ietf-ip}address"
+AUTOCONF_ENTITY_DEFINITION = "{urn:ietf:params:xml:ns:yang:ietf-ip}autoconf"
 
 # NGSI-LD Context Broker:
 BROKER_URI = os.getenv("BROKER_URI", "http://localhost:1026/ngsi-ld/v1")
@@ -102,6 +108,68 @@ STATISTICS_PROPERTY_TYPES = {
     "outErrors": "Integer"
 }
 
+IPV4_PROPERTY_TYPES = {
+}
+
+IPV6_PROPERTY_TYPES = {
+}
+
+NEIGHBOR_PROPERTY_TYPES = {
+}
+
+ADDRESS_PROPERTY_TYPES = {
+}
+
+entity_infos = {}
+
+entity_infos[INTERFACE_ENTITY_DEFINITION] = {}
+entity_infos[INTERFACE_ENTITY_DEFINITION]["hasPartOf"] = False
+entity_infos[INTERFACE_ENTITY_DEFINITION]["type"] = "Interface"
+entity_infos[INTERFACE_ENTITY_DEFINITION]["idPrefix"] = "urn:ngsi-ld:Interface:"
+entity_infos[INTERFACE_ENTITY_DEFINITION]["idTag"] = "name"
+entity_infos[INTERFACE_ENTITY_DEFINITION]["buffers"] = []
+entity_infos[INTERFACE_ENTITY_DEFINITION]["property_types"] = INTERFACE_PROPERTY_TYPES
+
+entity_infos[STATISTICS_ENTITY_DEFINITION] = {}
+entity_infos[STATISTICS_ENTITY_DEFINITION]["hasPartOf"] = True
+entity_infos[STATISTICS_ENTITY_DEFINITION]["type"] = "Statistics"
+entity_infos[STATISTICS_ENTITY_DEFINITION]["idPrefix"] = "urn:ngsi-ld:Statistics:"
+entity_infos[STATISTICS_ENTITY_DEFINITION]["idTag"] = ""
+entity_infos[STATISTICS_ENTITY_DEFINITION]["buffers"] = []
+entity_infos[STATISTICS_ENTITY_DEFINITION]["property_types"] = STATISTICS_PROPERTY_TYPES
+
+entity_infos[IPV4_ENTITY_DEFINITION] = {}
+entity_infos[IPV4_ENTITY_DEFINITION]["hasPartOf"] = True
+entity_infos[IPV4_ENTITY_DEFINITION]["type"] = "Ipv4"
+entity_infos[IPV4_ENTITY_DEFINITION]["idPrefix"] = "urn:ngsi-ld:Ipv4:"
+entity_infos[IPV4_ENTITY_DEFINITION]["idTag"] = ""
+entity_infos[IPV4_ENTITY_DEFINITION]["buffers"] = []
+entity_infos[IPV4_ENTITY_DEFINITION]["property_types"] = IPV4_PROPERTY_TYPES
+
+entity_infos[IPV6_ENTITY_DEFINITION] = {}
+entity_infos[IPV6_ENTITY_DEFINITION]["hasPartOf"] = True
+entity_infos[IPV6_ENTITY_DEFINITION]["type"] = "Ipv6"
+entity_infos[IPV6_ENTITY_DEFINITION]["idPrefix"] = "urn:ngsi-ld:Ipv6:"
+entity_infos[IPV6_ENTITY_DEFINITION]["idTag"] = ""
+entity_infos[IPV6_ENTITY_DEFINITION]["buffers"] = []
+entity_infos[IPV6_ENTITY_DEFINITION]["property_types"] = IPV6_PROPERTY_TYPES
+
+entity_infos[NEIGHBOR_ENTITY_DEFINITION] = {}
+entity_infos[NEIGHBOR_ENTITY_DEFINITION]["hasPartOf"] = True
+entity_infos[NEIGHBOR_ENTITY_DEFINITION]["type"] = "Neighbor"
+entity_infos[NEIGHBOR_ENTITY_DEFINITION]["idPrefix"] = "urn:ngsi-ld:Neighbor:"
+entity_infos[NEIGHBOR_ENTITY_DEFINITION]["idTag"] = "ip"
+entity_infos[NEIGHBOR_ENTITY_DEFINITION]["buffers"] = []
+entity_infos[NEIGHBOR_ENTITY_DEFINITION]["property_types"] = NEIGHBOR_PROPERTY_TYPES
+
+entity_infos[ADDRESS_ENTITY_DEFINITION] = {}
+entity_infos[ADDRESS_ENTITY_DEFINITION]["hasPartOf"] = True
+entity_infos[ADDRESS_ENTITY_DEFINITION]["type"] = "Address"
+entity_infos[ADDRESS_ENTITY_DEFINITION]["idPrefix"] = "urn:ngsi-ld:Address:"
+entity_infos[ADDRESS_ENTITY_DEFINITION]["idTag"] = "ip"
+entity_infos[ADDRESS_ENTITY_DEFINITION]["buffers"] = []
+entity_infos[ADDRESS_ENTITY_DEFINITION]["property_types"] = ADDRESS_PROPERTY_TYPES
+
 ## -- END CONSTANTS DECLARATION -- ##
 
 ## -- BEGIN DICTIONARY BUFFER LISTS DECLARATION -- ##
@@ -121,6 +189,7 @@ statistics_entity_creation_exec_times = []
 
 ## -- BEGIN FUNCTIONS DECLARATION -- ##
 
+'''
 def check_and_return_property_value(entity_def: str, element_tag: str, element_text: str):
     if (entity_def == INTERFACE_ENTITY_DEFINITION):
         property_type = INTERFACE_PROPERTY_TYPES[element_tag] # element_tag must be previously splitted to remove the namespace.
@@ -144,6 +213,18 @@ def check_and_return_property_value(entity_def: str, element_tag: str, element_t
                 return True
             else:
                 return False
+'''
+
+def property_value(element_tag: str, element_text: str, property_types):
+    if (not element_tag in property_types.keys()):
+        return None
+    property_type = property_types[element_tag]
+    if (property_type == "String"):
+        return element_text
+    elif (property_type == "Integer"):
+        return int(element_text)
+    elif (property_type == "Boolean"):
+        return (element_text == "true")
 
 def create_ngsi_ld_entity(entity):
     # Init NGSI-LD Client
@@ -208,66 +289,57 @@ def print_data_recursively(element):
         print_data_recursively(child)
 
 
-entity_infos = {}
-
-ROOT_PREFIX =  "urn:ngsi-ld:Interface:" 
-entity_infos[INTERFACE_ENTITY_DEFINITION] = {}
-entity_infos[INTERFACE_ENTITY_DEFINITION]["hasPartOf"] = False
-entity_infos[INTERFACE_ENTITY_DEFINITION]["type"] = "Interface"
-entity_infos[INTERFACE_ENTITY_DEFINITION]["idPrefix"] = ""
-entity_infos[INTERFACE_ENTITY_DEFINITION]["isPartOfPrefix"] = ""
-entity_infos[INTERFACE_ENTITY_DEFINITION]["buffers"] = []
-
-entity_infos[STATISTICS_ENTITY_DEFINITION] = {}
-entity_infos[STATISTICS_ENTITY_DEFINITION]["hasPartOf"] = True
-entity_infos[STATISTICS_ENTITY_DEFINITION]["type"] = "Statistics"
-entity_infos[STATISTICS_ENTITY_DEFINITION]["idPrefix"] = "urn:ngsi-ld:Statistics:"
-entity_infos[STATISTICS_ENTITY_DEFINITION]["isPartOfPrefix"] = ROOT_PREFIX
-entity_infos[STATISTICS_ENTITY_DEFINITION]["buffers"] = []
+entity_count= 0
 
 def get_data_recursively(element, parent_element_tag, dict_buffer):
     element_tag = str(element.tag)
     element_text = str(element.text)
     element_len = len(element)
+    global entity_count 
 
     if (element_tag in entity_infos.keys()):
         entity_info = entity_infos[element_tag]
         new_dict_buffer = {} 
+        entity_count += 1
+        new_dict_buffer["id"] = entity_info["idPrefix"]+str(entity_count)
         if (not entity_info["hasPartOf"]):
-            new_dict_buffer["id"] = ""
             new_dict_buffer["type"] = entity_info["type"]
             for child in element:
                 get_data_recursively(child, element_tag, new_dict_buffer)
             entity_info["buffers"].append(new_dict_buffer)
         else:
-            new_dict_buffer["id"] = entity_info["idPrefix"] + dict_buffer["name"]["value"]
             new_dict_buffer["type"] = entity_info["type"]
             new_dict_buffer["isPartOf"] = {}
             new_dict_buffer["isPartOf"]["type"] = "Relationship"
-            new_dict_buffer["isPartOf"]["object"] = entity_info["isPartOfPrefix"] + dict_buffer["name"]["value"]
+            new_dict_buffer["isPartOf"]["object"] = dict_buffer["id"]
             for child in element:
                 get_data_recursively(child, element_tag, new_dict_buffer)
             entity_info["buffers"].append(new_dict_buffer)
-    if (is_property(element_len) == True):
+    '''
+    else:
+        print(element_tag)
+        print("\n")
+    '''
+
+    if (is_property(element_len)):
         element_tag = to_camel_case(element_tag.split("}")[1], element_len)
         if (element_tag == 'name'): # Element tag 'name' is only present in '<interface>'.
-            dict_buffer["id"] = "urn:ngsi-ld:Interface:" + element.text
             dict_buffer[element_tag] = {}
             dict_buffer[element_tag]["type"] = "Property"
-            dict_buffer[element_tag]["value"] = check_and_return_property_value(parent_element_tag, element_tag, element_text)
+            dict_buffer[element_tag]["value"] = property_value (element_tag, element_text, entity_infos[parent_element_tag]["property_types"])
         elif (element_tag == 'lowerLayerIf'): # This is identified as a Property though is a Relationship - must be addressed. 
             dict_buffer[element_tag] = {}
             dict_buffer[element_tag]["type"] = "Relationship"
-            dict_buffer[element_tag]["object"] = ROOT_PREFIX + element_text
+            dict_buffer[element_tag]["object"] = entity_infos[parent_element_tag]["idPrefix"] + element_text
         elif (element_tag == 'higherLayerIf'): # This is identified as a Property though is a Relationship - must be addressed.
             dict_buffer[element_tag] = {}
             dict_buffer[element_tag]["type"] = "Relationship"
-            dict_buffer[element_tag]["object"] = ROOT_PREFIX + element_text
+            dict_buffer[element_tag]["object"] = entity_infos[parent_element_tag]["idPrefix"] + element_text
         else:
             if (element_tag != "type"):
                 dict_buffer[element_tag] = {}
                 dict_buffer[element_tag]["type"] = "Property"
-                dict_buffer[element_tag]["value"] = check_and_return_property_value(parent_element_tag, element_tag, element_text)
+                dict_buffer[element_tag]["value"] = property_value (element_tag, element_text, entity_infos[parent_element_tag]["property_types"])
 
 ## -- END FUNCTIONS DECLARATION -- #
 
@@ -303,22 +375,15 @@ print(f"MEAN VALUE: {parsing_mean_exec_time} ns | {parsing_mean_exec_time/1e3} �
 print(f"MIN VALUE: {parsing_min_exec_time} ns | {parsing_min_exec_time/1e3} µs | {parsing_min_exec_time/1e6} ms")
 print(f"MAX VALUE: {parsing_max_exec_time} ns | {parsing_max_exec_time/1e3} µs | {parsing_max_exec_time/1e6} ms")
 
-# Print Interface dictionary buffers:
+# Print dictionary buffers:
 print("\n")
-print("## -- INTERFACE DICTIONARY BUFFERS -- ##\n")
-for interface_dict_buffer in entity_infos[INTERFACE_ENTITY_DEFINITION]["buffers"]:
-    print(interface_dict_buffer)
-    print("\n")
-    
-print("## -- ##\n")
-
-# Print Statistics dictionary buffers:
-print("## -- STATISTICS DICTIONARY BUFFERS -- ##\n")
-for statistics_dict_buffer in entity_infos[STATISTICS_ENTITY_DEFINITION]["buffers"]:
-    print(statistics_dict_buffer)
-    print("\n")
-
-print("## -- ##\n")
+print("## --  DICTIONARY BUFFERS -- ##\n")
+for key in entity_infos.keys():
+    print(f"## -- {key} DICTIONARY BUFFERS -- ##\n")
+    for dict_buffer in entity_infos[key]["buffers"]:
+        print(dict_buffer)
+        print("\n")
+    print("## -- ##\n")
 
 quit()
 
