@@ -20,6 +20,7 @@ root = tree.getroot()
 
 from ngsi_ld_models.models.interface import Interface
 interface_dict_buffers = []
+# statistics_dict_buffers = []
 for interface in root.findall(".//{urn:ietf:params:xml:ns:yang:ietf-interfaces}interface"):
     interface_dict_buffer = {}
     interface_dict_buffer["id"] = "urn:ngsi-ld:Interface:"
@@ -102,7 +103,6 @@ for interface in root.findall(".//{urn:ietf:params:xml:ns:yang:ietf-interfaces}i
     for statistics in interface.findall(".//{urn:ietf:params:xml:ns:yang:ietf-interfaces}statistics"):
         statistics_dict_buffer = {}
         statistics_dict_buffer["id"] = "urn:ngsi-ld:Statistics:" + interface_dict_buffer["name"]["value"]
-        print(statistics_dict_buffer["id"])
         statistics_dict_buffer["type"] = "Statistics"
         statistics_dict_buffer["isPartOf"] = {}
         statistics_dict_buffer["isPartOf"]["type"] = "Relationship"
@@ -191,11 +191,9 @@ for interface in root.findall(".//{urn:ietf:params:xml:ns:yang:ietf-interfaces}i
             statistics_dict_buffer["outErrors"] = {}
             statistics_dict_buffer["outErrors"]["type"] = "Property"
             statistics_dict_buffer["outErrors"]["value"] = int(element_text)
-            print(statistics_dict_buffer)
         statistics_dict_buffers.append(statistics_dict_buffer)
     interface_dict_buffers.append(interface_dict_buffer)
 
-'''
 for interface_dict_buffer in interface_dict_buffers:
     print(interface_dict_buffer)
     print('\n')
@@ -205,4 +203,3 @@ print ('\n')
 for statistics_dict_buffer in statistics_dict_buffers:
     print(statistics_dict_buffer)
     print('\n')
-'''

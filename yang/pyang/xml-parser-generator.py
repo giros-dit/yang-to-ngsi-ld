@@ -6,7 +6,7 @@ Given one or several YANG modules, it dynamically generates the code of an XML p
 in XML format and is also capable of creating instances of Pydantic classes from the
 NGSI-LD-backed OpenAPI generation.
 
-Version: 0.0.3.
+Version: 0.0.5.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 """
@@ -243,6 +243,23 @@ def emit_python_code(ctx, modules, fd):
         if (element.keyword in ['leaf-list', 'leaf']) and ('ref' in str(element.search_one('type'))):
             result = True
         return result
+    
+    def generate_entity_import_statements_and_dict_buffers(element):
+        camelized_element_arg = to_camel_case(str(element.keyword), str(element.arg))
+        if (is_enclosing_container(element) == True) and (is_deprecated(element) == False):
+            subelements = element.i_children
+            if (subelements is not None):
+                for subelement in subelements:
+                    if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
+                        generate_entity_import_statements_and_dict_buffers(subelement)
+        elif (is_entity(element) == True) and (is_deprecated(element == False)):
+            fd.write('\n' + 'from ngsi_ld_models.models.' + str(element.arg) + " import " + camelized_element_arg)
+            fd.write('\n' + str(element.arg) + '_dict_buffers = []')
+            subelements = element.i_children
+            if (subelements is not None):
+                for subelement in subelements:
+                    if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
+                        generate_entity_import_statements_and_dict_buffers(subelement)
                 
     def generate_xml_parser(element, module_namespace, parent_element_arg, depth_level):
         """
@@ -263,16 +280,12 @@ def emit_python_code(ctx, modules, fd):
                         generate_xml_parser(subelement, module_namespace, None, 0)
         elif (is_entity(element) == True) and (is_deprecated(element) == False):
             if (parent_element_arg is None): # 1st level Entity.
-                fd.write('\n' + 'from ngsi_ld_models.models.' + str(element.arg) + " import " + camelized_element_arg)
-                fd.write('\n' + str(element.arg) + '_dict_buffers = []')
                 fd.write('\n' + 'for ' + str(element.arg) + ' in root.findall(\".//{' + module_namespace + '}' + str(element.arg) + '\"):')
                 depth_level += 1
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer = {}')
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"id\"] = \"urn:ngsi-ld:' + camelized_element_arg + ':\"')
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"type\"] = \"' + camelized_element_arg + '\"')
             else: # 2nd level Entity onwards.
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + 'from ngsi_ld_models.models.' + str(element.arg) + " import " + str(element.arg).capitalize())
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffers = []')
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + 'for ' + str(element.arg) + ' in ' + str(parent_element_arg) + '.findall(\".//{' + module_namespace + '}' + str(element.arg) + '\"):')
                 depth_level += 1
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer = {}')
@@ -324,6 +337,7 @@ def emit_python_code(ctx, modules, fd):
         if (elements is not None):
             for element in elements:
                 if (element is not None) and (element.keyword in statements.data_definition_keywords):
+                    generate_entity_import_statements_and_dict_buffers(element)
                     generate_xml_parser(element, module_namespace, None, 0)
     
     fd.write("\n")
