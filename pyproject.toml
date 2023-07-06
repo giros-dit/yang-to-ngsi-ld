@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "yang-to-ngsi-ld-tests"
+version = "0.1.0"
+description = ""
+authors = ["Luis Bellido Triana <luis.bellido@upm.es>"]
+readme = "README.md"
+packages = [{include = "yang_to_ngsi_ld_tests"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+flake8 = "^6.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

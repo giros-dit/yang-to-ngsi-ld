@@ -145,3 +145,5 @@ cython_debug/
 #
 yang/modules/*/
 
+# poetry
+poetry.lock
