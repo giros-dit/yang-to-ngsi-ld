@@ -109,6 +109,9 @@ STATISTICS_PROPERTY_TYPES = {
 }
 
 IPV4_PROPERTY_TYPES = {
+    'enabled': "Boolean", 
+    'forwarding': "Boolean", 
+    'mtu': "Integer"
 }
 
 IPV6_PROPERTY_TYPES = {
