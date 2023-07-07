@@ -128,7 +128,7 @@ def emit_python_code(ctx, modules, fd):
         "inet:email-address": "string"
     }
 
-    # NOTE: from ietf-ip@2018-02-22.yang 
+    # NOTE: from ietf-ip@2018-02-22.yang.
     IETF_IP_TYPES_TO_BASE_YANG_TYPES = {
         "ip-address-origin": "enumeration",
         "neighbor-origin": "enumeration"
@@ -335,11 +335,11 @@ def emit_python_code(ctx, modules, fd):
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + 'for ' + str(element.arg) + ' in ' + str(parent_element_arg) + '.findall(\".//{' + module_namespace + '}' + str(element.arg) + '\"):')
                 depth_level += 1
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer = {}')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"id\"] = \"urn:ngsi-ld:' + camelized_element_arg + ':\" + ' + str(parent_element_arg) + '_dict_buffer[\"name\"][\"value\"]')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"id\"] = \"urn:ngsi-ld:' + camelized_element_arg + ':\" + ' + str(parent_element_arg) + '_dict_buffer[\"id\"].split(\":\")[-1]')
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"type\"] = \"' + camelized_element_arg + '\"')
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"isPartOf\"] = {}')
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"isPartOf\"][\"type\"] = \"Relationship\"')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"isPartOf\"][\"object\"] = \"urn:ngsi-ld:' + str(parent_element_arg).capitalize() + ':\" + ' + str(parent_element_arg) + '_dict_buffer[\"name\"][\"value\"]')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"isPartOf\"][\"object\"] = ' + str(parent_element_arg) + '_dict_buffer[\"id\"]')
             subelements = element.i_children
             if (subelements is not None):
                 for subelement in subelements:
