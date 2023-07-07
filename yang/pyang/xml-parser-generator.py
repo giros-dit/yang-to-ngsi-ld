@@ -126,7 +126,13 @@ def emit_python_code(ctx, modules, fd):
         "inet:host": "union",
         "inet:uri": "string",
         "inet:email-address": "string"
-    } 
+    }
+
+    # NOTE: from ietf-ip@2018-02-22.yang 
+    IETF_IP_TYPES_TO_BASE_YANG_TYPES = {
+        "ip-address-origin": "enumeration",
+        "neighbor-origin": "enumeration"
+    }
 
     # NOTE: NGSI-LD types are Python "types" (given this particular implementation).
     BASE_YANG_TYPES_TO_NGSI_LD_TYPES = {
@@ -201,6 +207,9 @@ def emit_python_code(ctx, modules, fd):
             return BASE_YANG_TYPES_TO_NGSI_LD_TYPES[base_yang_type]
         elif (IETF_INET_TYPES_TO_BASE_YANG_TYPES.get(element_type) is not None):
             base_yang_type = IETF_INET_TYPES_TO_BASE_YANG_TYPES[element_type]
+            return BASE_YANG_TYPES_TO_NGSI_LD_TYPES[base_yang_type]
+        elif (IETF_IP_TYPES_TO_BASE_YANG_TYPES.get(element_type) is not None):
+            base_yang_type = IETF_IP_TYPES_TO_BASE_YANG_TYPES[element_type]
             return BASE_YANG_TYPES_TO_NGSI_LD_TYPES[base_yang_type]
         else:
             return BASE_YANG_TYPES_TO_NGSI_LD_TYPES[element_type]
@@ -370,7 +379,6 @@ def emit_python_code(ctx, modules, fd):
 
     for module in modules:
         module_namespace = str(module.search_one('namespace').arg)
-        print(module_namespace)
         elements = module.i_children
         if (elements is not None):
             for element in elements:
