@@ -2,9 +2,8 @@
 pyang plugin -- XML Parser Generator.
 
 Given one or several YANG modules, it dynamically generates the code of an XML parser
-(in a ".py" Python script file) that is able to read network telemetry from a device
-in XML format and is also capable of creating instances of Pydantic classes from the
-NGSI-LD-backed OpenAPI generation.
+that is able to read YANG-modeled data in XML format and is also capable of creating
+instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
 Version: 0.0.5.
 
@@ -66,9 +65,9 @@ def emit_python_code(ctx, modules, fd):
 
     # CONSTANTS:
 
-    # NOTE: From ietf-yang-types@2023-01-23.yang.
+    # NOTE: from ietf-yang-types@2023-01-23.yang.
     # If there are several conversion steps, the value is always the final type.
-    IETF_YANG_TYPES_TO_PRIMITIVE_YANG_TYPES = {
+    IETF_YANG_TYPES_TO_BASE_YANG_TYPES = {
         "yang:counter32": "uint32",
         "yang:zero-based-counter32": "uint32",
         "yang:counter64": "uint64",
@@ -103,8 +102,34 @@ def emit_python_code(ctx, modules, fd):
         "yang:yang-identifier": "string"
     }
 
+    # NOTE: from ietf-inet-types@2021-02-22.yang.
+    IETF_INET_TYPES_TO_BASE_YANG_TYPES = {
+        "inet:ip-version": "enumeration",
+        "inet:dscp": "uint8",
+        "inet:ipv6-flow-label": "uint32",
+        "inet:port-number": "uint16",
+        "inet:as-number": "uint32",
+        "inet:ip-address": "union",
+        "inet:ipv4-address": "string",
+        "inet:ipv6-address": "string",
+        "inet:ip-address-no-zone": "union",
+        "inet:ipv4-address-no-zone": "string",
+        "inet:ipv6-address-no-zone": "string",
+        "inet:ip-prefix": "union",
+        "inet:ipv4-prefix": "string",
+        "inet:ipv6-prefix": "string",
+        "inet:ip-address-and-prefix": "union",
+        "inet:ipv4-address-and-prefix": "string",
+        "inet:ipv6-address-and-prefix": "string",
+        "inet:domain-name": "string",
+        "inet:host-name": "string",
+        "inet:host": "union",
+        "inet:uri": "string",
+        "inet:email-address": "string"
+    } 
+
     # NOTE: NGSI-LD types are Python "types" (given this particular implementation).
-    PRIMITIVE_YANG_TYPES_TO_NGSI_LD_TYPES = {
+    BASE_YANG_TYPES_TO_NGSI_LD_TYPES = {
         "int8": "Integer",
         "int16": "Integer",
         "int32": "Integer",
@@ -116,11 +141,11 @@ def emit_python_code(ctx, modules, fd):
         "decimal64": "Integer",
         "string": "String",
         "boolean": "Boolean",
-        "enum": "String",
         "enumeration": "String",
         "bit": "List(String)",
         "binary": "String",
-        "empty": "String"
+        "empty": "String",
+        "union": "String"
     }
 
     INDENTATION_LEVEL = '    '
@@ -171,11 +196,14 @@ def emit_python_code(ctx, modules, fd):
         Auxiliary function.
         Returns the NGSI-LD type (in Python implementation) given the YANG type of an element/node in a YANG module.
         '''
-        if (element_type in IETF_YANG_TYPES_TO_PRIMITIVE_YANG_TYPES):
-            primitive_yang_type = IETF_YANG_TYPES_TO_PRIMITIVE_YANG_TYPES[element_type]
-            return PRIMITIVE_YANG_TYPES_TO_NGSI_LD_TYPES[primitive_yang_type]
+        if (IETF_YANG_TYPES_TO_BASE_YANG_TYPES.get(element_type) is not None):
+            base_yang_type = IETF_YANG_TYPES_TO_BASE_YANG_TYPES[element_type]
+            return BASE_YANG_TYPES_TO_NGSI_LD_TYPES[base_yang_type]
+        elif (IETF_INET_TYPES_TO_BASE_YANG_TYPES.get(element_type) is not None):
+            base_yang_type = IETF_INET_TYPES_TO_BASE_YANG_TYPES[element_type]
+            return BASE_YANG_TYPES_TO_NGSI_LD_TYPES[base_yang_type]
         else:
-            return PRIMITIVE_YANG_TYPES_TO_NGSI_LD_TYPES[element_type]
+            return BASE_YANG_TYPES_TO_NGSI_LD_TYPES[element_type]
     
     def element_text_type_formatting(ngsi_ld_type: str, element_text: str) -> str:
         '''
@@ -342,6 +370,7 @@ def emit_python_code(ctx, modules, fd):
 
     for module in modules:
         module_namespace = str(module.search_one('namespace').arg)
+        print(module_namespace)
         elements = module.i_children
         if (elements is not None):
             for element in elements:
