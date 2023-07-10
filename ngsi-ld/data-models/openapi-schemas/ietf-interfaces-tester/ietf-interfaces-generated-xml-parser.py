@@ -216,7 +216,8 @@ print(f"XML PARSING EXECUTION TIMES - SUMMARY (OVER {len(parsing_exec_times)} IT
 parsing_mean_exec_time = sum(parsing_exec_times)/len(parsing_exec_times)
 parsing_min_exec_time = min(parsing_exec_times)
 parsing_max_exec_time = max(parsing_exec_times)
+parsing_total_exec_time = sum(parsing_exec_times)
 print(f"MEAN VALUE: {parsing_mean_exec_time} ns | {parsing_mean_exec_time/1e3} µs | {parsing_mean_exec_time/1e6} ms")
 print(f"MIN VALUE: {parsing_min_exec_time} ns | {parsing_min_exec_time/1e3} µs | {parsing_min_exec_time/1e6} ms")
 print(f"MAX VALUE: {parsing_max_exec_time} ns | {parsing_max_exec_time/1e3} µs | {parsing_max_exec_time/1e6} ms")
-
+print(f"TOTAL EXECUTION TIME: {parsing_total_exec_time} ns | {parsing_total_exec_time/1e3} µs | {parsing_total_exec_time/1e6} ms")
