@@ -28,10 +28,10 @@ parsing_exec_times = []
 EXEC_TIMES = 1000
 
 for i in range (0, EXEC_TIMES):
+    start_time = time.perf_counter_ns()
+
     tree = et.parse(xml_file)
     root = tree.getroot()
-
-    start_time = time.perf_counter_ns()
 
     for interface in root.findall(".//{urn:ietf:params:xml:ns:yang:ietf-interfaces}interface"):
         interface_dict_buffer = {}
