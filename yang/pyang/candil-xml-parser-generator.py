@@ -148,7 +148,7 @@ def emit_python_code(ctx, modules, fd):
         "string": "String",
         "boolean": "Boolean",
         "enumeration": "String",
-        "bit": "String",
+        "bit": "String[]",
         "binary": "String",
         "empty": "String",
         "union": "String"
