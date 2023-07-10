@@ -2,7 +2,7 @@
 pyang plugin -- CANDIL XML Parser Generator.
 
 Given one or several YANG modules, it dynamically generates the code of an XML parser
-that is able to read YANG-modeled data in XML format and is also capable of creating
+that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
 Version: 0.0.6.
@@ -22,43 +22,52 @@ from pyang import statements
 from pyang import util
 
 def pyang_plugin_init():
-    plugin.register_plugin(XmlParserGeneratorPlugin())
+    plugin.register_plugin(CandilXmlParserGeneratorPlugin())
 
-class XmlParserGeneratorPlugin(plugin.PyangPlugin):
+class CandilXmlParserGeneratorPlugin(plugin.PyangPlugin):
     def __init__(self):
-        plugin.PyangPlugin.__init__(self, 'xml-parser-generator')
+        plugin.PyangPlugin.__init__(self, 'candil-xml-parser-generator')
 
     def add_output_format(self, fmts):
         self.multiple_modules = True
-        fmts['xml-parser-generator'] = self
+        fmts['candil-xml-parser-generator'] = self
+    
+    def add_opts(self, optparser):
+        optlist = [
+            optparse.make_option("--xml_parser_generator_help", dest="print_help", action="store_true", help="Prints help and usage")
+        ]
+        g = optparser.add_option_group("Execution options")
+        g.add_options(optlist)
 
     def setup_ctx(self, ctx):
-        """
-        Setups plugin's context.
-        Do nothing for now.
-        Code from tree plugin:
-        if ctx.opts.help:
+        if ctx.opts.print_help:
             print_help()
             sys.exit(0)
-        """
 
     def setup_fmt(self, ctx):
         ctx.implicit_errors = False
 
     def emit(self, ctx, modules, fd):
-        emit_python_code(ctx, modules, fd)
+        generate_python_xml_parser_code(ctx, modules, fd)
 
 def print_help():
     """
     Prints plugin's help information.
     """
     print("""
-            TO-DO
-        """)
+Pyang plugin - CANDIL XML Parser Generator (candil-xml-parser-generator).
+Given one or several YANG modules, this plugin generates the Python code of an XML parser
+that is able to read data modeled by these YANG modules and is also able to generate
+the data structures of the identified NGSI-LD Entities. These data structures are valid
+according to the OpenAPI generation.
+
+Usage:
+pyang -f candil-xml-parser-generator <base_module.yang> [augmenting_module_1.yang] [augmenting_module_2.yang] ...
+    """)
           
-def emit_python_code(ctx, modules, fd):
+def generate_python_xml_parser_code(ctx, modules, fd):
     """
-    Processes YANG modules and generates the corresponding XML parser code for data modeled with those YANG modules.
+    Processes YANG modules and generates the corresponding Python XML parser code for data modeled by these YANG modules.
     """
 
     # Use PDB to debug the code with pdb.set_trace().

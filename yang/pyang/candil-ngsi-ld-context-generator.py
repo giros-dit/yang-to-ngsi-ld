@@ -1,10 +1,10 @@
 """
 pyang plugin -- CANDIL NGSI-LD Context Generator.
 
-Generates the NGSI-LD context(s) associated with a YANG module file following the defined guidelines and conventions.
+Generates the NGSI-LD context files associated with a YANG module file following the defined guidelines and conventions.
 The results are written to individual .jsonld files: one for every NGSI-LD Entity.
 
-Version: 0.2.6.
+Version: 0.2.7.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 """
@@ -21,43 +21,52 @@ from pyang import statements
 from pyang import util
 
 def pyang_plugin_init():
-    plugin.register_plugin(NgsiLdContextPlugin())
+    plugin.register_plugin(CandilNgsiLdContextGeneratorPlugin())
 
-class NgsiLdContextPlugin(plugin.PyangPlugin):
+class CandilNgsiLdContextGeneratorPlugin(plugin.PyangPlugin):
     def __init__(self):
-        plugin.PyangPlugin.__init__(self, 'ngsi-ld-context')
+        plugin.PyangPlugin.__init__(self, 'candil-ngsi-ld-context-generator')
 
     def add_output_format(self, fmts):
         self.multiple_modules = True
-        fmts['ngsi-ld-context'] = self
+        fmts['candil-ngsi-ld-context-generator'] = self
+    
+    def add_opts(self, optparser):
+        optlist = [
+            optparse.make_option("--ngsi_ld_context_generator_help", dest="print_help", action="store_true", help="Prints help and usage")
+        ]
+        g = optparser.add_option_group("Execution options")
+        g.add_options(optlist)
 
     def setup_ctx(self, ctx):
-        """
-        Setups plugin's context.
-        Do nothing for now.
-        Code from tree plugin:
-        if ctx.opts.help:
+        if ctx.opts.print_help:
             print_help()
             sys.exit(0)
-        """
 
     def setup_fmt(self, ctx):
         ctx.implicit_errors = False
 
     def emit(self, ctx, modules, fd):
-        emit_ngsi_ld_context(ctx, modules, fd)
+        generate_ngsi_ld_context(ctx, modules, fd)
 
 def print_help():
     """
-    Prints plugin's help information.
+    Prints plugin's help and usage information.
     """
     print("""
-            TO-DO
-        """)
+Pyang plugin - CANDIL NGSI-LD Context Generator (candil-ngsi-ld-context-generator).
+This plugin generates the NGSI-LD Context files associated with one or several YANG modules
+(for augments) following the defined translation guidelines and conventions.
+The resulting files are written in a specific subdirectory. Each identified NGSI-LD Entity
+has its independent context file.
+
+Usage:
+pyang -f candil-ngsi-ld-context-generator <base_module.yang> [augmenting_module_1.yang] [augmenting_module_2.yang] ...
+    """)
           
-def emit_ngsi_ld_context(ctx, modules, fd):
+def generate_ngsi_ld_context(ctx, modules, fd):
     """
-    Processes a YANG module and generates the corresponding NGSI-LD context(s) in JSON format.
+    Processes a YANG module and generates the corresponding NGSI-LD context files in JSON-LD format.
     """
 
     # Use PDB to debug the code with pdb.set_trace().
