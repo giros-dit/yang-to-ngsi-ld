@@ -1,5 +1,5 @@
 """
-pyang plugin -- NGSI-LD Context generator.
+pyang plugin -- CANDIL NGSI-LD Context Generator.
 
 Generates the NGSI-LD context(s) associated with a YANG module file following the defined guidelines and conventions.
 The results are written to individual .jsonld files: one for every NGSI-LD Entity.

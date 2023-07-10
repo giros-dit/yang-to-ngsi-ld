@@ -1,5 +1,5 @@
 """
-pyang plugin -- XML Parser Generator.
+pyang plugin -- CANDIL XML Parser Generator.
 
 Given one or several YANG modules, it dynamically generates the code of an XML parser
 that is able to read YANG-modeled data in XML format and is also capable of creating
@@ -148,7 +148,7 @@ def emit_python_code(ctx, modules, fd):
         "string": "String",
         "boolean": "Boolean",
         "enumeration": "String",
-        "bit": "List(String)",
+        "bit": "String",
         "binary": "String",
         "empty": "String",
         "union": "String"
