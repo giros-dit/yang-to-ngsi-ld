@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an XML p
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 0.0.6.
+Version: 0.0.7.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 """
@@ -290,7 +290,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             result = True
         return result
     
-    def generate_entity_import_statements_and_dict_buffers(element):
+    def generate_entity_import_statements_and_dict_buffers(element, entity_path: str):
         '''
         Auxiliary function.
         Recursively generates import statements and dictionary buffer lists
@@ -301,57 +301,67 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         of the same type.
         '''
         camelized_element_arg = to_camel_case(str(element.keyword), str(element.arg))
+        current_path = ''
+        if (entity_path is None):
+            current_path = str(element.arg) + '_'
+        else:
+            current_path = entity_path + str(element.arg) + '_'
         if (is_enclosing_container(element) == True) and (is_deprecated(element) == False):
             subelements = element.i_children
             if (subelements is not None):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                        generate_entity_import_statements_and_dict_buffers(subelement)
+                        generate_entity_import_statements_and_dict_buffers(subelement, None)
         elif (is_entity(element) == True) and (is_deprecated(element) == False):
             fd.write('\n' + 'from ngsi_ld_models.models.' + str(element.arg) + " import " + camelized_element_arg)
-            fd.write('\n' + str(element.arg) + '_dict_buffers = []')
+            fd.write('\n' + current_path + 'dict_buffers = []')
             fd.write('\n')
             subelements = element.i_children
             if (subelements is not None):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                        generate_entity_import_statements_and_dict_buffers(subelement)
+                        generate_entity_import_statements_and_dict_buffers(subelement, current_path)
 
-    def generate_parser_code(element, parent_element_arg, depth_level):
+    def generate_parser_code(element, parent_element_arg, entity_path: str, depth_level: int):
         """
         Auxiliary function.
         Recursively generates the XML parser code.
         """
         camelized_element_arg = to_camel_case(str(element.keyword), str(element.arg))
         element_namespace = str(element.i_module.search_one('namespace').arg)
+        current_path = ''
+        if (entity_path is None):
+            current_path = str(element.arg) + '_'
+        else:
+            current_path = entity_path + str(element.arg) + '_'
         if (is_enclosing_container(element) == True) and (is_deprecated(element) == False):
             subelements = element.i_children
             if (subelements is not None):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                        generate_parser_code(subelement, None, 0)
+                        generate_parser_code(subelement, None, None, 0)
         elif (is_entity(element) == True) and (is_deprecated(element) == False):
             if (parent_element_arg is None): # 1st level Entity.
                 fd.write('\n' + 'for ' + str(element.arg) + ' in root.findall(\".//{' + element_namespace + '}' + str(element.arg) + '\"):')
                 depth_level += 1
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer = {}')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"id\"] = \"urn:ngsi-ld:' + camelized_element_arg + ':\"')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"type\"] = \"' + camelized_element_arg + '\"')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + current_path + 'dict_buffer = {}')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + current_path + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + camelized_element_arg + ':\"')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + current_path + 'dict_buffer[\"type\"] = \"' + camelized_element_arg + '\"')
             else: # 2nd level Entity onwards.
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + 'for ' + str(element.arg) + ' in ' + str(parent_element_arg) + '.findall(\".//{' + element_namespace + '}' + str(element.arg) + '\"):')
                 depth_level += 1
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer = {}')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"id\"] = \"urn:ngsi-ld:' + camelized_element_arg + ':\" + ' + str(parent_element_arg) + '_dict_buffer[\"id\"].split(\":\")[-1]')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"type\"] = \"' + camelized_element_arg + '\"')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"isPartOf\"] = {}')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"isPartOf\"][\"type\"] = \"Relationship\"')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffer[\"isPartOf\"][\"object\"] = ' + str(parent_element_arg) + '_dict_buffer[\"id\"]')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + current_path + 'dict_buffer = {}')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + current_path + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + camelized_element_arg + ':\" + ' + current_path.replace(str(element.arg) + '_', '') + 'dict_buffer[\"id\"].split(\":\")[-1]')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + current_path + 'dict_buffer[\"type\"] = \"' + camelized_element_arg + '\"')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + current_path + 'dict_buffer[\"isPartOf\"] = {}')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + current_path + 'dict_buffer[\"isPartOf\"][\"type\"] = \"Relationship\"')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + current_path + 'dict_buffer[\"isPartOf\"][\"object\"] = ' + current_path.replace(str(element.arg) + '_', '') + 'dict_buffer[\"id\"]')
             subelements = element.i_children
             if (subelements is not None):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                        generate_parser_code(subelement, element.arg, depth_level)
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + str(element.arg) + '_dict_buffers.append(' + str(element.arg) + '_dict_buffer)')
+                        generate_parser_code(subelement, element.arg, current_path, depth_level)
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + current_path + 'dict_buffers.append(' + current_path + 'dict_buffer)')
         elif (is_property(element) == True) and (is_deprecated(element) == False):
             fd.write('\n' + INDENTATION_LEVEL * depth_level + camelized_element_arg + " " + "=" + " " + str(parent_element_arg) + ".find(\".//{" + element_namespace + "}" + str(element.arg) + "\")")
             fd.write('\n' + INDENTATION_LEVEL * depth_level + 'if ' + camelized_element_arg + ' is not None:')
@@ -359,18 +369,18 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             text_format = element_text_type_formatting(ngsi_ld_type, 'element_text')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + 'element_text = ' + camelized_element_arg + '.text')
             if (str(element.arg) == 'name'):
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + str(parent_element_arg) + '_dict_buffer[\"id\"] = ' + str(parent_element_arg) + '_dict_buffer[\"id\"] + ' + text_format)
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + str(parent_element_arg) + '_dict_buffer[\"' + camelized_element_arg + '\"] = {}')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + str(parent_element_arg) + '_dict_buffer[\"' + camelized_element_arg + '\"][\"type\"] = \"Property\"')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + str(parent_element_arg) + '_dict_buffer[\"' + camelized_element_arg + '\"][\"value\"] = ' + text_format)
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + current_path.replace(str(element.arg) + '_', '') + 'dict_buffer[\"id\"] = ' + current_path.replace(str(element.arg) + '_', '') + 'dict_buffer[\"id\"] + ' + text_format)
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + current_path.replace(str(element.arg) + '_', '') + 'dict_buffer[\"' + camelized_element_arg + '\"] = {}')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + current_path.replace(str(element.arg) + '_', '') + 'dict_buffer[\"' + camelized_element_arg + '\"][\"type\"] = \"Property\"')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + current_path.replace(str(element.arg) + '_', '') + 'dict_buffer[\"' + camelized_element_arg + '\"][\"value\"] = ' + text_format)
         elif (is_relationship(element) == True) and (is_deprecated(element) == False):
             if (str(element.arg) != 'type'):
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + camelized_element_arg + " " + "=" + " " + str(parent_element_arg) + ".find(\".//{" + element_namespace + "}" + str(element.arg) + "\")")
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + 'if ' + camelized_element_arg + ' is not None:')
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + 'element_text = ' + camelized_element_arg + '.text')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + str(parent_element_arg) + '_dict_buffer[\"' + camelized_element_arg + '\"] = {}')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + str(parent_element_arg) + '_dict_buffer[\"' + camelized_element_arg + '\"][\"type\"] = \"Relationship\"')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + str(parent_element_arg) + '_dict_buffer[\"' + camelized_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + str(parent_element_arg).capitalize() + ':\" + element_text')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + current_path.replace(str(element.arg) + '_', '') + 'dict_buffer[\"' + camelized_element_arg + '\"] = {}')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + current_path.replace(str(element.arg) + '_', '') + 'dict_buffer[\"' + camelized_element_arg + '\"][\"type\"] = \"Relationship\"')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + current_path.replace(str(element.arg) + '_', '') + 'dict_buffer[\"' + camelized_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + str(parent_element_arg).capitalize() + ':\" + element_text')
     
     # Generate XML parser Python code:
     for import_statement in BASE_IMPORT_STATEMENTS:
@@ -388,7 +398,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         if (elements is not None):
             for element in elements:
                 if (element is not None) and (element.keyword in statements.data_definition_keywords):
-                    generate_entity_import_statements_and_dict_buffers(element)
-                    generate_parser_code(element, None, 0)
+                    generate_entity_import_statements_and_dict_buffers(element, None)
+                    generate_parser_code(element, None, None, 0)
     
     fd.write("\n")
