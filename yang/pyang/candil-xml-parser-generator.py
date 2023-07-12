@@ -143,6 +143,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         "neighbor-origin": "enumeration"
     }
 
+    # NOTE: from netflow-v9.yang and netflow-v9-agg.yang.
     NETFLOW_V9_TYPES_TO_BASE_YANG_TYPES = {
         "net-v9:prefix-length-ipv4": "uint8",
         "net-v9:prefix-length-ipv6": "uint8",
@@ -158,7 +159,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         "per-decimal": "decimal64"
     }
 
-    # NOTE: NGSI-LD types are Python "types" (given this particular implementation).
+    # NOTE: NGSI-LD types are Python "types" (as per this particular implementation).
     BASE_YANG_TYPES_TO_NGSI_LD_TYPES = {
         "int8": "Integer",
         "int16": "Integer",
