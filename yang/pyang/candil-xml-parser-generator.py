@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an XML p
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 0.0.7.
+Version: 0.0.8.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 """
@@ -143,6 +143,21 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         "neighbor-origin": "enumeration"
     }
 
+    NETFLOW_V9_TYPES_TO_BASE_YANG_TYPES = {
+        "net-v9:prefix-length-ipv4": "uint8",
+        "net-v9:prefix-length-ipv6": "uint8",
+        "net-v9:protocol-type": "enumeration",
+        "net-v9:engine-type": "enumeration",
+        "net-v9:top-label-type": "enumeration",
+        "net-v9:forwarding-status-type": "enumeration",
+        "net-v9:igmp-type": "enumeration",
+        "net-v9:sampling-mode-type": "enumeration",
+        "net-v9:ip-version-type": "enumeration",
+        "net-v9:direction-type": "enumeration",
+        "net-v9:tcp-flags-type": "bits",
+        "per-decimal": "decimal64"
+    }
+
     # NOTE: NGSI-LD types are Python "types" (given this particular implementation).
     BASE_YANG_TYPES_TO_NGSI_LD_TYPES = {
         "int8": "Integer",
@@ -157,7 +172,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         "string": "String",
         "boolean": "Boolean",
         "enumeration": "String",
-        "bit": "String[]",
+        "bits": "String[]",
         "binary": "String",
         "empty": "String",
         "union": "String"
@@ -211,17 +226,18 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         Auxiliary function.
         Returns the NGSI-LD type (in Python implementation) given the YANG type of an element/node in a YANG module.
         '''
+        base_yang_type = ''
         if (IETF_YANG_TYPES_TO_BASE_YANG_TYPES.get(element_type) is not None):
             base_yang_type = IETF_YANG_TYPES_TO_BASE_YANG_TYPES[element_type]
-            return BASE_YANG_TYPES_TO_NGSI_LD_TYPES[base_yang_type]
         elif (IETF_INET_TYPES_TO_BASE_YANG_TYPES.get(element_type) is not None):
             base_yang_type = IETF_INET_TYPES_TO_BASE_YANG_TYPES[element_type]
-            return BASE_YANG_TYPES_TO_NGSI_LD_TYPES[base_yang_type]
         elif (IETF_IP_TYPES_TO_BASE_YANG_TYPES.get(element_type) is not None):
             base_yang_type = IETF_IP_TYPES_TO_BASE_YANG_TYPES[element_type]
-            return BASE_YANG_TYPES_TO_NGSI_LD_TYPES[base_yang_type]
+        elif (NETFLOW_V9_TYPES_TO_BASE_YANG_TYPES.get(element_type) is not None):
+            base_yang_type = NETFLOW_V9_TYPES_TO_BASE_YANG_TYPES[element_type]
         else:
-            return BASE_YANG_TYPES_TO_NGSI_LD_TYPES[element_type]
+            base_yang_type = element_type
+        return BASE_YANG_TYPES_TO_NGSI_LD_TYPES[base_yang_type]
     
     def element_text_type_formatting(ngsi_ld_type: str, element_text: str) -> str:
         '''
@@ -231,6 +247,8 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         '''
         if (ngsi_ld_type == "String"):
             return element_text
+        elif (ngsi_ld_type == "String[]"):
+            return 'list(' + element_text + ')'
         elif (ngsi_ld_type == "Integer"):
             return 'int(' + element_text + ')'
         elif (ngsi_ld_type == "Boolean"):
