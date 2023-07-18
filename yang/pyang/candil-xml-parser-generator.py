@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an XML p
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 0.1.0.
+Version: 0.1.1.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -34,7 +34,9 @@ class CandilXmlParserGeneratorPlugin(plugin.PyangPlugin):
     
     def add_opts(self, optparser):
         optlist = [
-            optparse.make_option('--candil-xmlpgen-help', dest='print_help', action='store_true', help='Prints help and usage')
+            optparse.make_option('--candil-xmlpgen-help', dest='print_help', action='store_true', help='Prints help and usage.'),
+            optparse.make_option('--candil-xmlpgen-output-directory', dest='output_directory', action='store', 
+                                 help='Defines output directory for the generated Python code. If the directory does not exist, it is created. It must end with slash \"/\".')
         ]
         g = optparser.add_option_group('CANDIL XML Parser Generator - Execution options')
         g.add_options(optlist)
@@ -60,9 +62,12 @@ Given one or several YANG modules, this plugin generates the Python code of an X
 that is able to read data modeled by these YANG modules and is also able to generate
 the data structures of the identified NGSI-LD Entities. These data structures are valid
 according to the OpenAPI generation.
+The invocation must receive the path to the directory where to store the generated source code.
+This path must end with slash \"/\". If the given directory does not exist, it is automatically created.
+The filename for the generated source code is also automatically generated based on the names of the YANG modules.
 
 Usage:
-pyang -f candil-xml-parser-generator <base_module.yang> [augmenting_module_1.yang] [augmenting_module_2.yang] ...
+pyang -f candil-xml-parser-generator --candil-xmlpgen-output-directory=<path_to_dir> <base_module.yang> [augmenting_module_1.yang] [augmenting_module_2.yang] ... [augmenting_module_N.yang]
     ''')
           
 def generate_python_xml_parser_code(ctx, modules, fd):
@@ -72,9 +77,9 @@ def generate_python_xml_parser_code(ctx, modules, fd):
 
     # Use PDB to debug the code with pdb.set_trace().
 
-    # Override "fd" parameter to output generated code to a file.
-    # Python code is written into the xml-parsers directory.
-    filename = 'xml-parsers/'
+    # Override "fd" parameter to output the generated code to a file.
+    # Its final filename is automatically generated based on the names of the YANG module(s).
+    filename = ctx.opts.output_directory
     module_count = len(modules)
     i = 0
     for module in modules:
