@@ -36,7 +36,7 @@ class CandilXmlParserGeneratorPlugin(plugin.PyangPlugin):
         optlist = [
             optparse.make_option('--candil-xmlpgen-help', dest='print_help', action='store_true', help='Prints help and usage')
         ]
-        g = optparser.add_option_group('Execution options')
+        g = optparser.add_option_group('CANDIL XML Parser Generator - Execution options')
         g.add_options(optlist)
 
     def setup_ctx(self, ctx):
