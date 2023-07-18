@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an XML p
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 0.0.8.
+Version: 0.1.0.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -71,6 +71,20 @@ def generate_python_xml_parser_code(ctx, modules, fd):
     '''
 
     # Use PDB to debug the code with pdb.set_trace().
+
+    # Override "fd" parameter to output generated code to a file.
+    # Python code is written into the xml-parsers directory.
+    filename = 'xml-parsers/'
+    module_count = len(modules)
+    i = 0
+    for module in modules:
+        filename += str(module.i_modulename)
+        i += 1
+        if (i < module_count):
+            filename += '_'
+    filename += '.py'
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    fd = open(filename, 'w')
 
     # CONSTANTS:
 
@@ -421,3 +435,5 @@ def generate_python_xml_parser_code(ctx, modules, fd):
                     generate_parser_code(element, None, None, 0)
     
     fd.write('\n')
+
+    fd.close()
