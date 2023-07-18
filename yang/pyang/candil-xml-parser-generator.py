@@ -34,7 +34,7 @@ class CandilXmlParserGeneratorPlugin(plugin.PyangPlugin):
     
     def add_opts(self, optparser):
         optlist = [
-            optparse.make_option('--candil-xmlpgen-help', dest='print_help', action='store_true', help='Prints help and usage.'),
+            optparse.make_option('--candil-xmlpgen-help', dest='print_xmlpgen_help', action='store_true', help='Prints help and usage.'),
             optparse.make_option('--candil-xmlpgen-output-directory', dest='output_directory', action='store', 
                                  help='Defines output directory for the generated Python code. If the directory does not exist, it is created. It must end with slash \"/\".')
         ]
@@ -42,8 +42,8 @@ class CandilXmlParserGeneratorPlugin(plugin.PyangPlugin):
         g.add_options(optlist)
 
     def setup_ctx(self, ctx):
-        if ctx.opts.print_help:
-            print_help()
+        if ctx.opts.print_xmlpgen_help:
+            print_xmlpgen_help()
             sys.exit(0)
 
     def setup_fmt(self, ctx):
@@ -52,7 +52,7 @@ class CandilXmlParserGeneratorPlugin(plugin.PyangPlugin):
     def emit(self, ctx, modules, fd):
         generate_python_xml_parser_code(ctx, modules, fd)
 
-def print_help():
+def print_xmlpgen_help():
     '''
     Prints plugin's help information.
     '''

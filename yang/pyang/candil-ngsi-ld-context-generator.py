@@ -33,14 +33,14 @@ class CandilNgsiLdContextGeneratorPlugin(plugin.PyangPlugin):
     
     def add_opts(self, optparser):
         optlist = [
-            optparse.make_option('--candil-ngsi-ld-ctxgen-help', dest='print_help', action='store_true', help='Prints help and usage.')
+            optparse.make_option('--candil-ngsi-ld-ctxgen-help', dest='print_ngsild_ctxgen_help', action='store_true', help='Prints help and usage.')
         ]
         g = optparser.add_option_group('CANDIL NGSI-LD Context Generator - Execution options')
         g.add_options(optlist)
 
     def setup_ctx(self, ctx):
-        if ctx.opts.print_help:
-            print_help()
+        if ctx.opts.print_ngsild_ctxgen_help:
+            print_ngsild_ctxgen_help()
             sys.exit(0)
 
     def setup_fmt(self, ctx):
@@ -49,7 +49,7 @@ class CandilNgsiLdContextGeneratorPlugin(plugin.PyangPlugin):
     def emit(self, ctx, modules, fd):
         generate_ngsi_ld_context(ctx, modules, fd)
 
-def print_help():
+def print_ngsild_ctxgen_help():
     '''
     Prints plugin's help and usage information.
     '''
@@ -61,7 +61,7 @@ The resulting files are written in a specific subdirectory. Each identified NGSI
 has its independent context file.
 
 Usage:
-pyang -f candil-ngsi-ld-context-generator <base_module.yang> [augmenting_module_1.yang] [augmenting_module_2.yang] ...
+pyang -f candil-ngsi-ld-context-generator <base_module.yang> [augmenting_module_1.yang] [augmenting_module_2.yang] ... [augmenting_module_N.yang]
     ''')
           
 def generate_ngsi_ld_context(ctx, modules, fd):
