@@ -11,15 +11,7 @@ import pdb
 
 from confluent_kafka import Consumer, Producer
 
-interface_dict_buffers = []
-interface_statistics_dict_buffers = []
-interface_ipv4_dict_buffers = []
-interface_ipv4_address_dict_buffers = []
-interface_ipv4_neighbor_dict_buffers = []
-interface_ipv6_dict_buffers = []
-interface_ipv6_address_dict_buffers = []
-interface_ipv6_neighbor_dict_buffers = []
-interface_ipv6_autoconf_dict_buffers = []
+dict_buffers = []
 
 consumer = Consumer({
     'bootstrap.servers': 'localhost:9092',
@@ -220,7 +212,7 @@ while True:
                 interface_statistics_dict_buffer["outErrors"] = {}
                 interface_statistics_dict_buffer["outErrors"]["type"] = "Property"
                 interface_statistics_dict_buffer["outErrors"]["value"] = int(element_text)
-            interface_statistics_dict_buffers.append(interface_statistics_dict_buffer)
+            dict_buffers.append(interface_statistics_dict_buffer)
         for ipv4 in interface.findall(".//{urn:ietf:params:xml:ns:yang:ietf-ip}ipv4"):
             interface_ipv4_dict_buffer = {}
             interface_ipv4_dict_buffer["id"] = "urn:ngsi-ld:Ipv4:" + interface_dict_buffer["id"].split(":")[-1]
@@ -265,7 +257,7 @@ while True:
                     interface_ipv4_address_dict_buffer["origin"] = {}
                     interface_ipv4_address_dict_buffer["origin"]["type"] = "Property"
                     interface_ipv4_address_dict_buffer["origin"]["value"] = element_text
-                interface_ipv4_address_dict_buffers.append(interface_ipv4_address_dict_buffer)
+                dict_buffers.append(interface_ipv4_address_dict_buffer)
             for neighbor in ipv4.findall(".//{urn:ietf:params:xml:ns:yang:ietf-ip}neighbor"):
                 interface_ipv4_neighbor_dict_buffer = {}
                 interface_ipv4_neighbor_dict_buffer["id"] = "urn:ngsi-ld:Neighbor:" + interface_ipv4_dict_buffer["id"].split(":")[-1]
@@ -291,8 +283,8 @@ while True:
                     interface_ipv4_neighbor_dict_buffer["origin"] = {}
                     interface_ipv4_neighbor_dict_buffer["origin"]["type"] = "Property"
                     interface_ipv4_neighbor_dict_buffer["origin"]["value"] = element_text
-                interface_ipv4_neighbor_dict_buffers.append(interface_ipv4_neighbor_dict_buffer)
-            interface_ipv4_dict_buffers.append(interface_ipv4_dict_buffer)
+                dict_buffers.append(interface_ipv4_neighbor_dict_buffer)
+            dict_buffers.append(interface_ipv4_dict_buffer)
         for ipv6 in interface.findall(".//{urn:ietf:params:xml:ns:yang:ietf-ip}ipv6"):
             interface_ipv6_dict_buffer = {}
             interface_ipv6_dict_buffer["id"] = "urn:ngsi-ld:Ipv6:" + interface_dict_buffer["id"].split(":")[-1]
@@ -349,7 +341,7 @@ while True:
                     interface_ipv6_address_dict_buffer["status"] = {}
                     interface_ipv6_address_dict_buffer["status"]["type"] = "Property"
                     interface_ipv6_address_dict_buffer["status"]["value"] = element_text
-                interface_ipv6_address_dict_buffers.append(interface_ipv6_address_dict_buffer)
+                dict_buffers.append(interface_ipv6_address_dict_buffer)
             for neighbor in ipv6.findall(".//{urn:ietf:params:xml:ns:yang:ietf-ip}neighbor"):
                 interface_ipv6_neighbor_dict_buffer = {}
                 interface_ipv6_neighbor_dict_buffer["id"] = "urn:ngsi-ld:Neighbor:" + interface_ipv6_dict_buffer["id"].split(":")[-1]
@@ -387,7 +379,7 @@ while True:
                     interface_ipv6_neighbor_dict_buffer["state"] = {}
                     interface_ipv6_neighbor_dict_buffer["state"]["type"] = "Property"
                     interface_ipv6_neighbor_dict_buffer["state"]["value"] = element_text
-                interface_ipv6_neighbor_dict_buffers.append(interface_ipv6_neighbor_dict_buffer)
+                dict_buffers.append(interface_ipv6_neighbor_dict_buffer)
             dupAddrDetectTransmits = ipv6.find(".//{urn:ietf:params:xml:ns:yang:ietf-ip}dup-addr-detect-transmits")
             if dupAddrDetectTransmits is not None:
                 element_text = dupAddrDetectTransmits.text
@@ -425,52 +417,12 @@ while True:
                     interface_ipv6_autoconf_dict_buffer["temporaryPreferredLifetime"] = {}
                     interface_ipv6_autoconf_dict_buffer["temporaryPreferredLifetime"]["type"] = "Property"
                     interface_ipv6_autoconf_dict_buffer["temporaryPreferredLifetime"]["value"] = int(element_text)
-                interface_ipv6_autoconf_dict_buffers.append(interface_ipv6_autoconf_dict_buffer)
-            interface_ipv6_dict_buffers.append(interface_ipv6_dict_buffer)
-        interface_dict_buffers.append(interface_dict_buffer)
-    
-    for interface_dict_buffer in interface_dict_buffers:
-        producer.poll(0)
-        producer.produce('dictionary-buffers', str(interface_dict_buffer).encode('utf-8'), callback=delivery_report)
-    producer.flush()
+                dict_buffers.append(interface_ipv6_autoconf_dict_buffer)
+            dict_buffers.append(interface_ipv6_dict_buffer)
+        dict_buffers.append(interface_dict_buffer)
 
-    for interface_statistics_dict_buffer in interface_statistics_dict_buffers:
-        producer.poll(0)
-        producer.produce('dictionary-buffers', str(interface_statistics_dict_buffer).encode('utf-8'), callback=delivery_report)
+    producer.poll(0)
+    producer.produce('dictionary-buffers', str(dict_buffers[::-1]).encode('utf-8'), callback=delivery_report)
     producer.flush()
-
-    for interface_ipv4_dict_buffer in interface_ipv4_dict_buffers:
-        producer.poll(0)
-        producer.produce('dictionary-buffers', str(interface_ipv4_dict_buffer).encode('utf-8'), callback=delivery_report)
-    producer.flush()
-
-    for interface_ipv4_address_dict_buffer in interface_ipv4_address_dict_buffers:
-        producer.poll(0)
-        producer.produce('dictionary-buffers', str(interface_ipv4_address_dict_buffer).encode('utf-8'), callback=delivery_report)
-    producer.flush()
-
-    for interface_ipv4_neighbor_dict_buffer in interface_ipv4_neighbor_dict_buffers:
-        producer.poll(0)
-        producer.produce('dictionary-buffers', str(interface_ipv4_neighbor_dict_buffer).encode('utf-8'), callback=delivery_report)
-    producer.flush()
-
-    for interface_ipv6_dict_buffer in interface_ipv6_dict_buffers:
-        producer.poll(0)
-        producer.produce('dictionary-buffers', str(interface_ipv6_dict_buffer).encode('utf-8'), callback=delivery_report)
-    producer.flush()
-
-    for interface_ipv6_address_dict_buffer in interface_ipv6_address_dict_buffers:
-        producer.poll(0)
-        producer.produce('dictionary-buffers', str(interface_ipv6_address_dict_buffer).encode('utf-8'), callback=delivery_report)
-    producer.flush()
-
-    for interface_ipv6_neighbor_dict_buffer in interface_ipv6_neighbor_dict_buffers:
-        producer.poll(0)
-        producer.produce('dictionary-buffers', str(interface_ipv6_neighbor_dict_buffer).encode('utf-8'), callback=delivery_report)
-    producer.flush()
-
-    for interface_ipv6_autoconf_dict_buffer in interface_ipv6_autoconf_dict_buffers:
-        producer.poll(0)
-        producer.produce('dictionary-buffers', str(interface_ipv6_autoconf_dict_buffer).encode('utf-8'), callback=delivery_report)
-    producer.flush()
+    dict_buffers.clear()
 

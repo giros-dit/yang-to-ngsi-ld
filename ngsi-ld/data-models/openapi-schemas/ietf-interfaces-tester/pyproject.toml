@@ -10,6 +10,7 @@ ngsi-ld-models = ">=1.0.0"
 fastapi = {extras = ["all"], version = "^0.95.2"}
 ngsi_ld_client = { git = "https://github.com/giros-dit/python-ngsi-ld-client.git", branch = "1.6.1" }
 pyyaml = "^6.0"
+confluent-kafka = "^2.2.0"
 
 
 [tool.poetry.dev-dependencies]
