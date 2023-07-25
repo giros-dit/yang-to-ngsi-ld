@@ -87,8 +87,6 @@ while True:
 
     dict_buffers = eval(message.value().decode('utf-8'))
 
-    print(len(dict_buffers))
-
     for dict_buffer in dict_buffers:
         type = dict_buffer['type']
         if type == 'Interface':
