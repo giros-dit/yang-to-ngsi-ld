@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an XML p
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 0.1.1.
+Version: 0.1.2.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -279,13 +279,27 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         Auxiliary function.
         Checks if an element is an "enclosing container":
         - It is a container AND
-        - It only has one child AND
-        - This child is a list.
+        - It has one child or more AND
+        - Their type is container OR list.
         '''
         result = False
-        if (element.keyword == 'container') and (len(element.i_children) == 1) and (element.i_children[0].keyword == 'list'):
-            result = True
-        return result
+        individual_results = []
+        true_counter = 0
+        if (element.keyword != 'container'):
+            return False
+        else:
+            if (element.keyword == 'container') and (len(element.i_children) >= 1):
+                for subelement in element.i_children:
+                    if (subelement.keyword == 'container') or (subelement.keyword == 'list'):
+                        individual_results.append(True)
+                    else:
+                        individual_results.append(False)
+            for individual_result in individual_results:
+                if individual_result is True:
+                    true_counter += 1
+            if (len(element.i_children) == true_counter):
+                result = True
+            return result
 
     def is_deprecated(element):
         '''
