@@ -1,16 +1,9 @@
 import sys
 import xml.etree.ElementTree as et
-import yaml
-import os
-import time
-import re
-import subprocess
-import pdb
 
 xml_file = sys.argv[1]
 tree = et.parse(xml_file)
 root = tree.getroot()
-
 dict_buffers = []
 
 for collector_goflow2 in root.findall(".//{http://data-aggregator.com/ns/netflow}collector-goflow2"):

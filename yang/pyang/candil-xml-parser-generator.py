@@ -11,15 +11,12 @@ Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://
 '''
 
 import optparse
-import sys
-import re
 import pdb
-import json
-import os
+import re
+import sys
 
 from pyang import plugin
 from pyang import statements
-from pyang import util
 
 def pyang_plugin_init():
     plugin.register_plugin(CandilXmlParserGeneratorPlugin())
@@ -182,16 +179,11 @@ def generate_python_xml_parser_code(ctx, modules, fd):
     INDENTATION_LEVEL = '    '
 
     BASE_IMPORT_STATEMENTS = [
-        'import sys',
-        'import xml.etree.ElementTree as et',
         'import logging',
         'import logging.config',
+        'import sys',
+        'import xml.etree.ElementTree as et',
         'import yaml',
-        'import os',
-        'import time',
-        'import re',
-        'import subprocess',
-        'import pdb',
         'import ngsi_ld_client',
         'from fastapi import FastAPI, Request, status',
         'from ngsi_ld_client.api_client import ApiClient as NGSILDClient',

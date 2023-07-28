@@ -9,16 +9,15 @@ Version: 0.3.0.
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
 
-import optparse
-import sys
-import re
-import pdb
 import json
 import os
+import optparse
+import pdb
+import re
+import sys
 
 from pyang import plugin
 from pyang import statements
-from pyang import util
 
 def pyang_plugin_init():
     plugin.register_plugin(CandilNgsiLdContextGeneratorPlugin())
