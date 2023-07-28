@@ -4,7 +4,7 @@ pyang plugin -- CANDIL NGSI-LD Context Generator.
 Generates the NGSI-LD context files associated with a YANG module file following the defined guidelines and conventions.
 The results are written to individual .jsonld files: one for every NGSI-LD Entity.
 
-Version: 0.2.9.
+Version: 0.3.0.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -33,14 +33,14 @@ class CandilNgsiLdContextGeneratorPlugin(plugin.PyangPlugin):
     
     def add_opts(self, optparser):
         optlist = [
-            optparse.make_option('--candil-ngsi-ld-ctxgen-help', dest='print_ngsild_ctxgen_help', action='store_true', help='Prints help and usage.')
+            optparse.make_option('--candil-ngsi-ld-ctxg-help', dest='print_ngsild_ctxg_help', action='store_true', help='Prints help and usage.')
         ]
         g = optparser.add_option_group('CANDIL NGSI-LD Context Generator - Execution options')
         g.add_options(optlist)
 
     def setup_ctx(self, ctx):
-        if ctx.opts.print_ngsild_ctxgen_help:
-            print_ngsild_ctxgen_help()
+        if ctx.opts.print_ngsild_ctxg_help:
+            print_ngsild_ctxg_help()
             sys.exit(0)
 
     def setup_fmt(self, ctx):
@@ -49,7 +49,7 @@ class CandilNgsiLdContextGeneratorPlugin(plugin.PyangPlugin):
     def emit(self, ctx, modules, fd):
         generate_ngsi_ld_context(ctx, modules, fd)
 
-def print_ngsild_ctxgen_help():
+def print_ngsild_ctxg_help():
     '''
     Prints plugin's help and usage information.
     '''
@@ -78,7 +78,7 @@ def generate_ngsi_ld_context(ctx, modules, fd):
 
     # AUXILIARY FUNCTIONS: 
 
-    def to_camel_case(keyword: str, element_name: str) -> str:
+    def to_camelcase(keyword: str, element_name: str) -> str:
         '''
         Auxiliary function.
         Returns the CamelCase representation of element_name according to the YANG to NGSI-LD translation conventions.
@@ -184,7 +184,7 @@ def generate_ngsi_ld_context(ctx, modules, fd):
                 json_ld["@context"] = []
                 ngsi_ld_context = {}
                 ngsi_ld_context[module_name] = module_urn + '/'
-                ngsi_ld_context[to_camel_case(str(element.keyword), str(element.arg))] = xpath + name 
+                ngsi_ld_context[to_camelcase(str(element.keyword), str(element.arg))] = xpath + name 
                 subelements = element.i_children
                 if (subelements is not None):
                     for subelement in subelements:
@@ -200,9 +200,9 @@ def generate_ngsi_ld_context(ctx, modules, fd):
                 file.write(json.dumps(json_ld, indent=4) + '\n')
                 fd.write('NGSI-LD Context written to ' + file.name + '\n')
         elif (is_property(element) == True) and (is_deprecated(element) == False):
-            ngsi_ld_context[to_camel_case(str(element.keyword), str(element.arg))] = xpath + name
+            ngsi_ld_context[to_camelcase(str(element.keyword), str(element.arg))] = xpath + name
         elif (is_relationship(element) == True) and (is_deprecated(element) == False):
-            ngsi_ld_context[to_camel_case(str(element.keyword), str(element.arg))] = xpath + name
+            ngsi_ld_context[to_camelcase(str(element.keyword), str(element.arg))] = xpath + name
     
     # Generate NGSI-LD Context:
     for module in modules:

@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an XML p
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 0.1.6.
+Version: 0.1.7.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -34,16 +34,14 @@ class CandilXmlParserGeneratorPlugin(plugin.PyangPlugin):
     
     def add_opts(self, optparser):
         optlist = [
-            optparse.make_option('--candil-xmlpgen-help', dest='print_xmlpgen_help', action='store_true', help='Prints help and usage.'),
-            optparse.make_option('--candil-xmlpgen-output-directory', dest='output_directory', action='store', 
-                                 help='Defines output directory for the generated Python code. If the directory does not exist, it is created. It must end with slash \"/\".')
+            optparse.make_option('--candil-xmlpg-help', dest='print_xmlpg_help', action='store_true', help='Prints help and usage.')
         ]
         g = optparser.add_option_group('CANDIL XML Parser Generator - Execution options')
         g.add_options(optlist)
 
     def setup_ctx(self, ctx):
-        if ctx.opts.print_xmlpgen_help:
-            print_xmlpgen_help()
+        if ctx.opts.print_xmlpg_help:
+            print_xmlpg_help()
             sys.exit(0)
 
     def setup_fmt(self, ctx):
@@ -52,7 +50,7 @@ class CandilXmlParserGeneratorPlugin(plugin.PyangPlugin):
     def emit(self, ctx, modules, fd):
         generate_python_xml_parser_code(ctx, modules, fd)
 
-def print_xmlpgen_help():
+def print_xmlpg_help():
     '''
     Prints plugin's help information.
     '''
@@ -62,12 +60,9 @@ Given one or several YANG modules, this plugin generates the Python code of an X
 that is able to read data modeled by these YANG modules and is also able to generate
 the data structures of the identified NGSI-LD Entities. These data structures are valid
 according to the OpenAPI generation.
-The invocation must receive the path to the directory where to store the generated source code.
-This path must end with slash \"/\". If the given directory does not exist, it is automatically created.
-The filename for the generated source code is also automatically generated based on the names of the YANG modules.
 
 Usage:
-pyang -f candil-xml-parser-generator --candil-xmlpgen-output-directory=<path_to_dir> <base_module.yang> [augmenting_module_1.yang] [augmenting_module_2.yang] ... [augmenting_module_N.yang]
+pyang -f candil-xml-parser-generator <base_module.yang> [augmenting_module_1.yang] [augmenting_module_2.yang] ... [augmenting_module_N.yang] > <output_file.py>
     ''')
           
 def generate_python_xml_parser_code(ctx, modules, fd):
@@ -76,20 +71,6 @@ def generate_python_xml_parser_code(ctx, modules, fd):
     '''
 
     # Use PDB to debug the code with pdb.set_trace().
-
-    # Override "fd" parameter to output the generated code to a file.
-    # Its final filename is automatically generated based on the names of the YANG module(s).
-    filename = ctx.opts.output_directory
-    module_count = len(modules)
-    i = 0
-    for module in modules:
-        filename += str(module.i_modulename)
-        i += 1
-        if (i < module_count):
-            filename += '_'
-    filename += '.py'
-    os.makedirs(os.path.dirname(filename), exist_ok=True)
-    fd = open(filename, 'w')
 
     # CONSTANTS:
 
@@ -218,7 +199,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         'from ngsi_ld_client.exceptions import ApiException'
     ]
 
-    XML_PARSER_BASE_OPERATIONS = [
+    BASE_INSTRUCTIONS = [
         'xml_file = sys.argv[1]',    
         'tree = et.parse(xml_file)',
         'root = tree.getroot()',
@@ -227,7 +208,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
 
     # AUXILIARY FUNCTIONS: 
 
-    def to_camel_case(element_keyword: str, element_arg: str) -> str:
+    def to_camelcase(element_keyword: str, element_arg: str) -> str:
         '''
         Auxiliary function.
         Returns the CamelCase representation of element_name according to the YANG to NGSI-LD translation conventions.
@@ -351,7 +332,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         Auxiliary function.
         Recursively generates import statements for identified NGSI-LD Entities within the YANG module.
         '''
-        camelcase_element_arg = to_camel_case(str(element.keyword), str(element.arg))
+        camelcase_element_arg = to_camelcase(str(element.keyword), str(element.arg))
         element_module_name = str(element.i_module.i_modulename)
         current_path = ''
         if (entity_path is None):
@@ -377,7 +358,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         Auxiliary function.
         Recursively generates the XML parser code.
         '''
-        camelcase_element_arg = to_camel_case(str(element.keyword), str(element.arg))
+        camelcase_element_arg = to_camelcase(str(element.keyword), str(element.arg))
         element_namespace = str(element.i_module.search_one('namespace').arg)
         current_path = ''
         if (entity_path is None):
@@ -443,7 +424,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
 
     # Generate base instructions for the XML parser (read XML file, obtain its tree, get its root tag/element and
     # define the dictionary buffer list):
-    for line in XML_PARSER_BASE_OPERATIONS:
+    for line in BASE_INSTRUCTIONS:
         fd.write(line)
         fd.write('\n')
 
