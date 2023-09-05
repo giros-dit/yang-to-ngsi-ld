@@ -77,7 +77,7 @@ consumer = Consumer({
 consumer.subscribe(['dictionary-buffers'])
 
 while True:
-    message = consumer.poll(1.0)
+    message = consumer.poll()
 
     if message is None:
         continue
