@@ -32,7 +32,7 @@ def delivery_report(err, msg):
 consumer.subscribe(['interfaces-state-subscriptions'])
 
 while True:
-    message = consumer.poll(1.0)
+    message = consumer.poll()
 
     if message is None:
         continue
@@ -421,7 +421,7 @@ while True:
             dict_buffers.append(interface_ipv6_dict_buffer)
         dict_buffers.append(interface_dict_buffer)
 
-    producer.poll(0)
+    producer.poll()
     producer.produce('dictionary-buffers', str(dict_buffers[::-1]).encode('utf-8'), callback=delivery_report)
     producer.flush()
     dict_buffers.clear()
