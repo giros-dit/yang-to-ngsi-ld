@@ -1,7 +1,7 @@
 # YANG to NGSI-LD (for CANDIL)
 Repository with source code, artifacts and documentation about YANG to NGSI-LD translation.
 
-![](resources/images/YANG-to-NGSI-LD-translation.drawio.png)
+![](resources/images/YANG-to-NGSI-LD-translation.png)
 
 ## Developed _pyang_ plugins:
 - [candil-ngsi-ld-context-generator.py](yang/pyang/candil-ngsi-ld-context-generator.py): given one or several YANG modules, it generates the corresponding NGSI-LD context files in ```.jsonld``` format.
