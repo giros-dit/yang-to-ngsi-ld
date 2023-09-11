@@ -249,7 +249,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         elif (ngsi_ld_type == 'Integer'):
             return 'int(' + element_text + ')'
         elif (ngsi_ld_type == 'Boolean'):
-            return element_text + '.capitalize()'
+            return 'eval(' + element_text + '.capitalize())'
     
     def is_enclosing_container(element):
         '''
