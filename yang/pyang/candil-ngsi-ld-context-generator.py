@@ -4,7 +4,7 @@ pyang plugin -- CANDIL NGSI-LD Context Generator.
 Generates the NGSI-LD context files associated with a YANG module file following the defined guidelines and conventions.
 The results are written to individual .jsonld files: one for every NGSI-LD Entity.
 
-Version: 0.3.0.
+Version: 0.3.1.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -101,24 +101,18 @@ def generate_ngsi_ld_context(ctx, modules, fd):
         Checks if an element is an "enclosing container":
         - It is a container AND
         - It has one child or more AND
-        - Their type is container OR list.
+        - Each of one of them is either a container or a list.
         '''
         result = False
-        individual_results = []
-        true_counter = 0
+        individual_results = 0
         if (element.keyword != 'container'):
             return False
         else:
-            if (element.keyword == 'container') and (len(element.i_children) >= 1):
+            if (len(element.i_children) >= 1):
                 for subelement in element.i_children:
-                    if (subelement.keyword == 'container') or (subelement.keyword == 'list'):
-                        individual_results.append(True)
-                    else:
-                        individual_results.append(False)
-            for individual_result in individual_results:
-                if individual_result is True:
-                    true_counter += 1
-            if (len(element.i_children) == true_counter):
+                    if (subelement.keyword in ['container', 'list']):
+                        individual_results += 1
+            if (len(element.i_children) == individual_results):
                 result = True
             return result
     
