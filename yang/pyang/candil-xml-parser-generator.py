@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an XML p
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 0.2.0.
+Version: 0.2.1.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -166,7 +166,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         'uint16': 'Integer',
         'uint32': 'Integer',
         'uint64': 'Integer',
-        'decimal64': 'Integer',
+        'decimal64': 'Number',
         'string': 'String',
         'boolean': 'Boolean',
         'enumeration': 'String',
@@ -248,6 +248,8 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             return 'list(' + element_text + ')'
         elif (ngsi_ld_type == 'Integer'):
             return 'int(' + element_text + ')'
+        elif (ngsi_ld_type == 'Number'):
+            return 'float(' + element_text + ')'
         elif (ngsi_ld_type == 'Boolean'):
             return 'eval(' + element_text + '.capitalize())'
     
