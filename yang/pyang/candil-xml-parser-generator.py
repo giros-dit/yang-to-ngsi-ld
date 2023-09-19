@@ -383,8 +383,6 @@ def generate_python_xml_parser_code(ctx, modules, fd):
     for line in BASE_INSTRUCTIONS:
         fd.write(line)
         fd.write('\n')
-                
-    fd.write('\n')
 
     # Generate XML parser code (element data retrieval and transformation to generate dictionary buffers):
     for module in modules:
