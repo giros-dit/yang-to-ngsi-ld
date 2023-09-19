@@ -33,7 +33,22 @@ IndexError: list assignment index out of range
 >>> print(context)
 {'hola': 'texto', 'array': []}
 >>> context['array'][1] = 'texto_en_array'
-Traceback (most recent call last):
+Traceback (most recent ca# Generate NGSI-LD Entity import statements:
+    entity_import_statements = []
+    for module in modules:
+        elements = module.i_children
+        if (elements is not None):
+            for element in elements:
+                if (element is not None) and (element.keyword in statements.data_definition_keywords):
+                    generate_entity_import_statements(element, None, entity_import_statements)
+    classes = []
+    for entity_import_statement in entity_import_statements:
+            classes.append(entity_import_statement.split(' ')[-1])
+    for entity_import_statement in entity_import_statements:
+            if (classes.count(entity_import_statement.split(' ')[-1]) > 1):
+                fd.write('\n' + entity_import_statement + ' as ' + entity_import_statement.split(' ')[1].split('.')[-2].capitalize() + '_' + entity_import_statement.split(' ')[-1])
+            else:
+                fd.write('\n' + entity_import_statement)ll last):
   File "<stdin>", line 1, in <module>
 IndexError: list assignment index out of range
 >>> context_array = {}
@@ -51,3 +66,50 @@ json_ld sería diccionario de diccionarios, con cada Entity nueva en un dicciona
 generate_context -> generate_context_file que crea nuevo ngsi_ld_context y añade un nuevo json_ld["@context"]
 
 Por cada Entity hacer un fichero por separado.
+
+### CÓDIGO PARA GENERAR SENTENCIAS DE IMPORTACIÓN DE ENTIDADES NGSI-LD ###
+
+    def generate_entity_import_statements(element, entity_path: str, entity_import_statements: list):
+        '''
+        Auxiliary function.
+        Recursively generates import statements for identified NGSI-LD Entities within the YANG module.
+        '''
+        camelcase_element_arg = to_camelcase(str(element.keyword), str(element.arg))
+        element_module_name = str(element.i_module.i_modulename)
+        current_path = ''
+        if (entity_path is None):
+            current_path = str(element.arg).replace('-', '_') + '.'
+        else:
+            current_path = entity_path + str(element.arg).replace('-', '_') + '.'
+        if (is_enclosing_container(element) == True) and (is_deprecated(element) == False):
+            subelements = element.i_children
+            if (subelements is not None):
+                for subelement in subelements:
+                    if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
+                        generate_entity_import_statements(subelement, None, entity_import_statements)
+        elif (is_entity(element) == True) and (is_deprecated(element) == False):
+            entity_import_statements.append('from ngsi_ld_models.models.' + element_module_name.replace('-', '_') + '.' + current_path[:-1] + ' import ' + camelcase_element_arg)
+            subelements = element.i_children
+            if (subelements is not None):
+                for subelement in subelements:
+                    if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
+                        generate_entity_import_statements(subelement, current_path, entity_import_statements)
+
+    # Generate NGSI-LD Entity import statements:
+    entity_import_statements = []
+    for module in modules:
+        elements = module.i_children
+        if (elements is not None):
+            for element in elements:
+                if (element is not None) and (element.keyword in statements.data_definition_keywords):
+                    generate_entity_import_statements(element, None, entity_import_statements)
+    classes = []
+    for entity_import_statement in entity_import_statements:
+            classes.append(entity_import_statement.split(' ')[-1])
+    for entity_import_statement in entity_import_statements:
+            if (classes.count(entity_import_statement.split(' ')[-1]) > 1):
+                fd.write('\n' + entity_import_statement + ' as ' + entity_import_statement.split(' ')[1].split('.')[-2].capitalize() + '_' + entity_import_statement.split(' ')[-1])
+            else:
+                fd.write('\n' + entity_import_statement)
+
+### - ###

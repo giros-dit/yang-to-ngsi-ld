@@ -71,6 +71,91 @@ def generate_python_xml_parser_code(ctx, modules, fd):
 
     # CONSTANTS:
 
+    # NOTE: from ietf-yang-types@2023-01-23.yang.
+    # If there are several conversion steps, the value is always the final type.
+    IETF_YANG_TYPES_TO_BASE_YANG_TYPES = {
+        'yang:counter32': 'uint32',
+        'yang:zero-based-counter32': 'uint32',
+        'yang:counter64': 'uint64',
+        'yang:zero-based-counter64': 'uint64',
+        'yang:gauge32': 'uint32',
+        'yang:gauge64': 'uint64',
+        'yang:object-identifier': 'string',
+        'yang:object-identifier-128': 'string',
+        'yang:date-and-time': 'string',
+        'yang:date-with-zone-offset': 'string',
+        'yang:date-no-zone': 'string',
+        'yang:time-with-zone-offset': 'string',
+        'yang:time-no-zone': 'string',
+        'yang:hours32': 'int32',
+        'yang:minutes32': 'int32',
+        'yang:seconds32': 'int32',
+        'yang:centiseconds32': 'int32',
+        'yang:miliseconds32': 'int32',
+        'yang:microseconds32': 'int32',
+        'yang:microseconds64': 'int64',
+        'yang:nanoseconds32': 'int32',
+        'yang:nanoseconds64': 'int64',
+        'yang:timeticks': 'uint32',
+        'yang:timestamp': 'uint32',
+        'yang:phys-address': 'string',
+        'yang:mac-address': 'string',
+        'yang:xpath1.0': 'string',
+        'yang:hex-string': 'string',
+        'yang:uuid': 'string',
+        'yang:dotted-quad': 'string',
+        'yang:language-tag': 'string',
+        'yang:yang-identifier': 'string'
+    }
+
+    # NOTE: from ietf-inet-types@2021-02-22.yang.
+    IETF_INET_TYPES_TO_BASE_YANG_TYPES = {
+        'inet:ip-version': 'enumeration',
+        'inet:dscp': 'uint8',
+        'inet:ipv6-flow-label': 'uint32',
+        'inet:port-number': 'uint16',
+        'inet:as-number': 'uint32',
+        'inet:ip-address': 'union',
+        'inet:ipv4-address': 'string',
+        'inet:ipv6-address': 'string',
+        'inet:ip-address-no-zone': 'union',
+        'inet:ipv4-address-no-zone': 'string',
+        'inet:ipv6-address-no-zone': 'string',
+        'inet:ip-prefix': 'union',
+        'inet:ipv4-prefix': 'string',
+        'inet:ipv6-prefix': 'string',
+        'inet:ip-address-and-prefix': 'union',
+        'inet:ipv4-address-and-prefix': 'string',
+        'inet:ipv6-address-and-prefix': 'string',
+        'inet:domain-name': 'string',
+        'inet:host-name': 'string',
+        'inet:host': 'union',
+        'inet:uri': 'string',
+        'inet:email-address': 'string'
+    }
+
+    # NOTE: from ietf-ip@2018-02-22.yang.
+    IETF_IP_TYPES_TO_BASE_YANG_TYPES = {
+        'ip-address-origin': 'enumeration',
+        'neighbor-origin': 'enumeration'
+    }
+
+    # NOTE: from netflow-v9.yang and netflow-v9-agg.yang.
+    NETFLOW_V9_TYPES_TO_BASE_YANG_TYPES = {
+        'net-v9:prefix-length-ipv4': 'uint8',
+        'net-v9:prefix-length-ipv6': 'uint8',
+        'net-v9:protocol-type': 'enumeration',
+        'net-v9:engine-type': 'enumeration',
+        'net-v9:top-label-type': 'enumeration',
+        'net-v9:forwarding-status-type': 'enumeration',
+        'net-v9:igmp-type': 'enumeration',
+        'net-v9:sampling-mode-type': 'enumeration',
+        'net-v9:ip-version-type': 'enumeration',
+        'net-v9:direction-type': 'enumeration',
+        'net-v9:tcp-flags-type': 'bits',
+        'per-decimal': 'decimal64'
+    }
+
     # NOTE: NGSI-LD types are Python "types" (as per this particular implementation).
     BASE_YANG_TYPES_TO_NGSI_LD_TYPES = {
         'int8': 'Integer',
