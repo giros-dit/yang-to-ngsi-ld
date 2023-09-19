@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an XML p
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 0.2.1.
+Version: 0.2.2.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -71,91 +71,6 @@ def generate_python_xml_parser_code(ctx, modules, fd):
 
     # CONSTANTS:
 
-    # NOTE: from ietf-yang-types@2023-01-23.yang.
-    # If there are several conversion steps, the value is always the final type.
-    IETF_YANG_TYPES_TO_BASE_YANG_TYPES = {
-        'yang:counter32': 'uint32',
-        'yang:zero-based-counter32': 'uint32',
-        'yang:counter64': 'uint64',
-        'yang:zero-based-counter64': 'uint64',
-        'yang:gauge32': 'uint32',
-        'yang:gauge64': 'uint64',
-        'yang:object-identifier': 'string',
-        'yang:object-identifier-128': 'string',
-        'yang:date-and-time': 'string',
-        'yang:date-with-zone-offset': 'string',
-        'yang:date-no-zone': 'string',
-        'yang:time-with-zone-offset': 'string',
-        'yang:time-no-zone': 'string',
-        'yang:hours32': 'int32',
-        'yang:minutes32': 'int32',
-        'yang:seconds32': 'int32',
-        'yang:centiseconds32': 'int32',
-        'yang:miliseconds32': 'int32',
-        'yang:microseconds32': 'int32',
-        'yang:microseconds64': 'int64',
-        'yang:nanoseconds32': 'int32',
-        'yang:nanoseconds64': 'int64',
-        'yang:timeticks': 'uint32',
-        'yang:timestamp': 'uint32',
-        'yang:phys-address': 'string',
-        'yang:mac-address': 'string',
-        'yang:xpath1.0': 'string',
-        'yang:hex-string': 'string',
-        'yang:uuid': 'string',
-        'yang:dotted-quad': 'string',
-        'yang:language-tag': 'string',
-        'yang:yang-identifier': 'string'
-    }
-
-    # NOTE: from ietf-inet-types@2021-02-22.yang.
-    IETF_INET_TYPES_TO_BASE_YANG_TYPES = {
-        'inet:ip-version': 'enumeration',
-        'inet:dscp': 'uint8',
-        'inet:ipv6-flow-label': 'uint32',
-        'inet:port-number': 'uint16',
-        'inet:as-number': 'uint32',
-        'inet:ip-address': 'union',
-        'inet:ipv4-address': 'string',
-        'inet:ipv6-address': 'string',
-        'inet:ip-address-no-zone': 'union',
-        'inet:ipv4-address-no-zone': 'string',
-        'inet:ipv6-address-no-zone': 'string',
-        'inet:ip-prefix': 'union',
-        'inet:ipv4-prefix': 'string',
-        'inet:ipv6-prefix': 'string',
-        'inet:ip-address-and-prefix': 'union',
-        'inet:ipv4-address-and-prefix': 'string',
-        'inet:ipv6-address-and-prefix': 'string',
-        'inet:domain-name': 'string',
-        'inet:host-name': 'string',
-        'inet:host': 'union',
-        'inet:uri': 'string',
-        'inet:email-address': 'string'
-    }
-
-    # NOTE: from ietf-ip@2018-02-22.yang.
-    IETF_IP_TYPES_TO_BASE_YANG_TYPES = {
-        'ip-address-origin': 'enumeration',
-        'neighbor-origin': 'enumeration'
-    }
-
-    # NOTE: from netflow-v9.yang and netflow-v9-agg.yang.
-    NETFLOW_V9_TYPES_TO_BASE_YANG_TYPES = {
-        'net-v9:prefix-length-ipv4': 'uint8',
-        'net-v9:prefix-length-ipv6': 'uint8',
-        'net-v9:protocol-type': 'enumeration',
-        'net-v9:engine-type': 'enumeration',
-        'net-v9:top-label-type': 'enumeration',
-        'net-v9:forwarding-status-type': 'enumeration',
-        'net-v9:igmp-type': 'enumeration',
-        'net-v9:sampling-mode-type': 'enumeration',
-        'net-v9:ip-version-type': 'enumeration',
-        'net-v9:direction-type': 'enumeration',
-        'net-v9:tcp-flags-type': 'bits',
-        'per-decimal': 'decimal64'
-    }
-
     # NOTE: NGSI-LD types are Python "types" (as per this particular implementation).
     BASE_YANG_TYPES_TO_NGSI_LD_TYPES = {
         'int8': 'Integer',
@@ -179,16 +94,8 @@ def generate_python_xml_parser_code(ctx, modules, fd):
     INDENTATION_LEVEL = '    '
 
     BASE_IMPORT_STATEMENTS = [
-        'import logging',
-        'import logging.config',
         'import sys',
-        'import xml.etree.ElementTree as et',
-        'import yaml',
-        'import ngsi_ld_client',
-        'from fastapi import FastAPI, Request, status',
-        'from ngsi_ld_client.api_client import ApiClient as NGSILDClient',
-        'from ngsi_ld_client.configuration import Configuration as NGSILDConfiguration',
-        'from ngsi_ld_client.exceptions import ApiException'
+        'import xml.etree.ElementTree as et'
     ]
 
     BASE_INSTRUCTIONS = [
@@ -314,32 +221,6 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         if (element.keyword in ['leaf-list', 'leaf']) and ('ref' in str(element.search_one('type'))):
             result = True
         return result
-    
-    def generate_entity_import_statements(element, entity_path: str, entity_import_statements: list):
-        '''
-        Auxiliary function.
-        Recursively generates import statements for identified NGSI-LD Entities within the YANG module.
-        '''
-        camelcase_element_arg = to_camelcase(str(element.keyword), str(element.arg))
-        element_module_name = str(element.i_module.i_modulename)
-        current_path = ''
-        if (entity_path is None):
-            current_path = str(element.arg).replace('-', '_') + '.'
-        else:
-            current_path = entity_path + str(element.arg).replace('-', '_') + '.'
-        if (is_enclosing_container(element) == True) and (is_deprecated(element) == False):
-            subelements = element.i_children
-            if (subelements is not None):
-                for subelement in subelements:
-                    if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                        generate_entity_import_statements(subelement, None, entity_import_statements)
-        elif (is_entity(element) == True) and (is_deprecated(element) == False):
-            entity_import_statements.append('from ngsi_ld_models.models.' + element_module_name.replace('-', '_') + '.' + current_path[:-1] + ' import ' + camelcase_element_arg)
-            subelements = element.i_children
-            if (subelements is not None):
-                for subelement in subelements:
-                    if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                        generate_entity_import_statements(subelement, current_path, entity_import_statements)
 
     def generate_parser_code(element, parent_element_arg, entity_path: str, depth_level: int):
         '''
@@ -417,23 +298,6 @@ def generate_python_xml_parser_code(ctx, modules, fd):
     for line in BASE_INSTRUCTIONS:
         fd.write(line)
         fd.write('\n')
-
-    # Generate NGSI-LD Entity import statements:
-    entity_import_statements = []
-    for module in modules:
-        elements = module.i_children
-        if (elements is not None):
-            for element in elements:
-                if (element is not None) and (element.keyword in statements.data_definition_keywords):
-                    generate_entity_import_statements(element, None, entity_import_statements)
-    classes = []
-    for entity_import_statement in entity_import_statements:
-            classes.append(entity_import_statement.split(' ')[-1])
-    for entity_import_statement in entity_import_statements:
-            if (classes.count(entity_import_statement.split(' ')[-1]) > 1):
-                fd.write('\n' + entity_import_statement + ' as ' + entity_import_statement.split(' ')[1].split('.')[-2].capitalize() + '_' + entity_import_statement.split(' ')[-1])
-            else:
-                fd.write('\n' + entity_import_statement)
                 
     fd.write('\n')
 
