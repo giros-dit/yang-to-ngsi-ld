@@ -31,7 +31,7 @@ class CandilXmlParserGeneratorPlugin(plugin.PyangPlugin):
     
     def add_opts(self, optparser):
         optlist = [
-            optparse.make_option('--candil-xmlpg-help', dest='print_xmlpg_help', action='store_true', help='Prints help and usage.')
+            optparse.make_option('--candil-xml-parser-generator-help', dest='print_xmlpg_help', action='store_true', help='Prints help and usage.')
         ]
         g = optparser.add_option_group('CANDIL XML Parser Generator - Execution options')
         g.add_options(optlist)
@@ -203,9 +203,6 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             if (element_keyword == 'module'):
                 return element_arg
             if (element_keyword == 'container') or (element_keyword == 'list'):
-                # Original convention:
-                # return element_arg.capitalize()
-                # Proposed convention:
                 return re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element_arg.capitalize())
             if (element_keyword == 'leaf') or (element_keyword == 'leaf-list'):
                 return re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element_arg)
@@ -383,6 +380,8 @@ def generate_python_xml_parser_code(ctx, modules, fd):
     for line in BASE_INSTRUCTIONS:
         fd.write(line)
         fd.write('\n')
+    
+    fd.write('\n')
 
     # Generate XML parser code (element data retrieval and transformation to generate dictionary buffers):
     for module in modules:

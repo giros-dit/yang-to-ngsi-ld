@@ -32,7 +32,7 @@ class CandilNgsiLdContextGeneratorPlugin(plugin.PyangPlugin):
     
     def add_opts(self, optparser):
         optlist = [
-            optparse.make_option('--candil-ngsi-ld-ctxg-help', dest='print_ngsild_ctxg_help', action='store_true', help='Prints help and usage.')
+            optparse.make_option('--candil-ngsi-ld-context-generator-help', dest='print_ngsild_ctxg_help', action='store_true', help='Prints help and usage.')
         ]
         g = optparser.add_option_group('CANDIL NGSI-LD Context Generator - Execution options')
         g.add_options(optlist)
