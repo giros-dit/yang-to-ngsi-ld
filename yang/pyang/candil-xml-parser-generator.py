@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an XML p
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 0.1.9.
+Version: 0.2.2.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -31,7 +31,7 @@ class CandilXmlParserGeneratorPlugin(plugin.PyangPlugin):
     
     def add_opts(self, optparser):
         optlist = [
-            optparse.make_option('--candil-xmlpg-help', dest='print_xmlpg_help', action='store_true', help='Prints help and usage.')
+            optparse.make_option('--candil-xml-parser-generator-help', dest='print_xmlpg_help', action='store_true', help='Prints help and usage.')
         ]
         g = optparser.add_option_group('CANDIL XML Parser Generator - Execution options')
         g.add_options(optlist)
@@ -166,7 +166,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         'uint16': 'Integer',
         'uint32': 'Integer',
         'uint64': 'Integer',
-        'decimal64': 'Integer',
+        'decimal64': 'Number',
         'string': 'String',
         'boolean': 'Boolean',
         'enumeration': 'String',
@@ -179,16 +179,8 @@ def generate_python_xml_parser_code(ctx, modules, fd):
     INDENTATION_LEVEL = '    '
 
     BASE_IMPORT_STATEMENTS = [
-        'import logging',
-        'import logging.config',
         'import sys',
-        'import xml.etree.ElementTree as et',
-        'import yaml',
-        'import ngsi_ld_client',
-        'from fastapi import FastAPI, Request, status',
-        'from ngsi_ld_client.api_client import ApiClient as NGSILDClient',
-        'from ngsi_ld_client.configuration import Configuration as NGSILDConfiguration',
-        'from ngsi_ld_client.exceptions import ApiException'
+        'import xml.etree.ElementTree as et'
     ]
 
     BASE_INSTRUCTIONS = [
@@ -211,9 +203,6 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             if (element_keyword == 'module'):
                 return element_arg
             if (element_keyword == 'container') or (element_keyword == 'list'):
-                # Original convention:
-                # return element_arg.capitalize()
-                # Proposed convention:
                 return re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element_arg.capitalize())
             if (element_keyword == 'leaf') or (element_keyword == 'leaf-list'):
                 return re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element_arg)
@@ -248,6 +237,8 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             return 'list(' + element_text + ')'
         elif (ngsi_ld_type == 'Integer'):
             return 'int(' + element_text + ')'
+        elif (ngsi_ld_type == 'Number'):
+            return 'float(' + element_text + ')'
         elif (ngsi_ld_type == 'Boolean'):
             return 'eval(' + element_text + '.capitalize())'
     
@@ -266,7 +257,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         else:
             if (len(element.i_children) >= 1):
                 for subelement in element.i_children:
-                    if (subelement.keyword == 'container') or (subelement.keyword == 'list'):
+                    if (subelement.keyword in ['container', 'list']):
                         individual_results += 1
             if (len(element.i_children) == individual_results):
                 result = True
@@ -312,32 +303,6 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         if (element.keyword in ['leaf-list', 'leaf']) and ('ref' in str(element.search_one('type'))):
             result = True
         return result
-    
-    def generate_entity_import_statements(element, entity_path: str, entity_import_statements: list):
-        '''
-        Auxiliary function.
-        Recursively generates import statements for identified NGSI-LD Entities within the YANG module.
-        '''
-        camelcase_element_arg = to_camelcase(str(element.keyword), str(element.arg))
-        element_module_name = str(element.i_module.i_modulename)
-        current_path = ''
-        if (entity_path is None):
-            current_path = str(element.arg).replace('-', '_') + '.'
-        else:
-            current_path = entity_path + str(element.arg).replace('-', '_') + '.'
-        if (is_enclosing_container(element) == True) and (is_deprecated(element) == False):
-            subelements = element.i_children
-            if (subelements is not None):
-                for subelement in subelements:
-                    if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                        generate_entity_import_statements(subelement, None, entity_import_statements)
-        elif (is_entity(element) == True) and (is_deprecated(element) == False):
-            entity_import_statements.append('from ngsi_ld_models.models.' + element_module_name.replace('-', '_') + '.' + current_path[:-1] + ' import ' + camelcase_element_arg)
-            subelements = element.i_children
-            if (subelements is not None):
-                for subelement in subelements:
-                    if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                        generate_entity_import_statements(subelement, current_path, entity_import_statements)
 
     def generate_parser_code(element, parent_element_arg, entity_path: str, depth_level: int):
         '''
@@ -415,24 +380,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
     for line in BASE_INSTRUCTIONS:
         fd.write(line)
         fd.write('\n')
-
-    # Generate NGSI-LD Entity import statements:
-    entity_import_statements = []
-    for module in modules:
-        elements = module.i_children
-        if (elements is not None):
-            for element in elements:
-                if (element is not None) and (element.keyword in statements.data_definition_keywords):
-                    generate_entity_import_statements(element, None, entity_import_statements)
-    classes = []
-    for entity_import_statement in entity_import_statements:
-            classes.append(entity_import_statement.split(' ')[-1])
-    for entity_import_statement in entity_import_statements:
-            if (classes.count(entity_import_statement.split(' ')[-1]) > 1):
-                fd.write('\n' + entity_import_statement + ' as ' + entity_import_statement.split(' ')[1].split('.')[-2].capitalize() + '_' + entity_import_statement.split(' ')[-1])
-            else:
-                fd.write('\n' + entity_import_statement)
-                
+    
     fd.write('\n')
 
     # Generate XML parser code (element data retrieval and transformation to generate dictionary buffers):
