@@ -4,7 +4,7 @@ from kafka import KafkaConsumer, KafkaProducer
 
 dict_buffers = []
 
-consumer = KafkaConsumer('interfaces_state_subscriptions', bootstrap_servers=['localhost:9092'])
+consumer = KafkaConsumer('interfaces-state-subscriptions', bootstrap_servers=['localhost:9092'])
 
 producer = KafkaProducer(bootstrap_servers=['localhost:9092'])
 
@@ -442,8 +442,7 @@ while True:
                 dict_buffers.append(interface_ipv6_dict_buffer)
             dict_buffers.append(interface_dict_buffer)
 
-        print(dict_buffers)
-        producer.send('dictionary_buffers', value=str(dict_buffers[::-1]).encode('utf-8'))
+        producer.send('dictionary-buffers', value=str(dict_buffers[::-1]).encode('utf-8'))
         producer.flush()
         dict_buffers.clear()
 
