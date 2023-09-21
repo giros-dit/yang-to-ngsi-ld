@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an XML p
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 0.2.2.
+Version: 0.3.0.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -31,14 +31,19 @@ class CandilXmlParserGeneratorPlugin(plugin.PyangPlugin):
     
     def add_opts(self, optparser):
         optlist = [
-            optparse.make_option('--candil-xml-parser-generator-help', dest='print_xmlpg_help', action='store_true', help='Prints help and usage.')
+            optparse.make_option('--candil-xml-parser-generator-help', dest='print_help', action='store_true', help='Prints help and usage.'),
+            optparse.make_option('--candil-xml-parser-generator-input-mode', dest='input_mode', action='store', help='Defines reading mode for input XML data.'),
+            optparse.make_option('--candil-xml-parser-generator-output-mode', dest='output_mode', action='store', help='Defines writing mode for output dictionary buffers.'),
+            optparse.make_option('--candil-xml-parser-generator-kafka-server', dest='kafka_server', action='store', help='Defines the Kafka server to use (in socket format).'),
+            optparse.make_option('--candil-xml-parser-generator-kafka-input-topic', dest='kafka_input_topic', action='store', help='Defines Kafka\'s input topic to use for reading XML data.'),
+            optparse.make_option('--candil-xml-parser-generator-kafka-output-topic', dest='kafka_output_topic', action='store', help='Defines Kafka\'s output topic to use for writing dictionary buffers.')
         ]
         g = optparser.add_option_group('CANDIL XML Parser Generator - Execution options')
         g.add_options(optlist)
 
     def setup_ctx(self, ctx):
-        if ctx.opts.print_xmlpg_help:
-            print_xmlpg_help()
+        if ctx.opts.print_help:
+            print_help()
             sys.exit(0)
 
     def setup_fmt(self, ctx):
@@ -47,7 +52,7 @@ class CandilXmlParserGeneratorPlugin(plugin.PyangPlugin):
     def emit(self, ctx, modules, fd):
         generate_python_xml_parser_code(ctx, modules, fd)
 
-def print_xmlpg_help():
+def print_help():
     '''
     Prints plugin's help information.
     '''
@@ -70,6 +75,14 @@ def generate_python_xml_parser_code(ctx, modules, fd):
     # Use PDB to debug the code with pdb.set_trace().
 
     # CONSTANTS:
+
+    # Reading modes for input XML data.
+    INPUT_MODE_FILE = "file" # -> Input XML data filepath is specified as an invocation argument.
+    INPUT_MODE_KAFKA = "kafka" # -> Input XML data is read from a Kafka topic.
+    
+    # Writing modes for output dictionary buffers.
+    OUTPUT_MODE_STDOUT = "stdout" # -> Output dictionary buffers are written to stdout (terminal). Can be redirected to a file.
+    OUTPUT_MODE_KAFKA = "kafka" # -> Output dictionary buffers are written to a Kafka topic.
 
     # NOTE: from ietf-yang-types@2023-01-23.yang.
     # If there are several conversion steps, the value is always the final type.
@@ -178,17 +191,40 @@ def generate_python_xml_parser_code(ctx, modules, fd):
 
     INDENTATION_LEVEL = '    '
 
-    BASE_IMPORT_STATEMENTS = [
-        'import sys',
-        'import xml.etree.ElementTree as et'
+    IMPORT_STATEMENTS = [
+        'import sys\n',
+        'import xml.etree.ElementTree as et\n',
+        'from kafka import KafkaConsumer, KafkaProducer'
     ]
 
-    BASE_INSTRUCTIONS = [
-        'xml_file = sys.argv[1]',    
-        'tree = et.parse(xml_file)',
-        'root = tree.getroot()',
+    READING_INSTRUCTIONS_FILE = [
+        'xml = sys.argv[1]\n',
+        'tree = et.parse(xml)\n',
+        'root = tree.getroot()\n',
         'dict_buffers = []'
     ]
+
+    if (ctx.opts.kafka_server is not None) and (ctx.opts.kafka_input_topic is not None):
+        READING_INSTRUCTIONS_KAFKA = [
+            'dict_buffers = []\n',
+            'consumer = KafkaConsumer(\'' + ctx.opts.kafka_input_topic + '\', bootstrap_servers=[\'' + ctx.opts.kafka_server + '\'])\n',
+            'while True:\n',
+            INDENTATION_LEVEL + 'for message in consumer:\n',
+            2 * INDENTATION_LEVEL + 'xml = str(message.value.decode(\'utf-8\'))\n',
+            2 * INDENTATION_LEVEL + 'root = et.fromstring(xml)'
+        ]
+
+    WRITING_INSTRUCTIONS_STDOUT = [
+        'print(dict_buffers[::-1])'
+    ]
+
+    if (ctx.opts.kafka_server is not None) and (ctx.opts.kafka_output_topic is not None):
+        WRITING_INSTRUCTIONS_KAFKA = [
+            2 * INDENTATION_LEVEL + 'producer = KafkaProducer([\'' + ctx.opts.kafka_server + '\'])\n',
+            2 * INDENTATION_LEVEL + 'producer.send(\'' + ctx.opts.kafka_output_topic + '\', value=str(dict_buffers[::-1]).encode(\'utf-8\'))\n',
+            2 * INDENTATION_LEVEL + 'producer.flush()\n',
+            2 * INDENTATION_LEVEL + 'dict_buffers.clear()'
+        ]
 
     # AUXILIARY FUNCTIONS: 
 
@@ -321,10 +357,10 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             if (subelements is not None):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                        generate_parser_code(subelement, None, None, 0)
+                        generate_parser_code(subelement, None, None, depth_level)
         elif (is_entity(element) == True) and (is_deprecated(element) == False):
             if (parent_element_arg is None): # 1st level Entity.
-                fd.write('\n' + 'for ' + str(element.arg).replace('-', '_') + ' in root.findall(\".//{' + element_namespace + '}' + str(element.arg) + '\"):')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + 'for ' + str(element.arg).replace('-', '_') + ' in root.findall(\".//{' + element_namespace + '}' + str(element.arg) + '\"):')
                 depth_level += 1
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + current_path.replace('-', '_') + 'dict_buffer = {}')
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + camelcase_element_arg + ':\"')
@@ -369,27 +405,43 @@ def generate_python_xml_parser_code(ctx, modules, fd):
     # -- Generate XML parser Python code --
 
     # Generate base import statements (standard Python libraries and such):
-    for import_statement in BASE_IMPORT_STATEMENTS:
+    for import_statement in IMPORT_STATEMENTS:
         fd.write(import_statement)
-        fd.write('\n')
 
-    fd.write('\n')
+    fd.write('\n\n')
 
-    # Generate base instructions for the XML parser (read XML file, obtain its tree, get its root tag/element and
-    # define the dictionary buffer list):
-    for line in BASE_INSTRUCTIONS:
-        fd.write(line)
-        fd.write('\n')
+    # Generate reading instructions for the XML parser (depending on the input mode):
+    if (ctx.opts.input_mode is not None) and (ctx.opts.input_mode == INPUT_MODE_FILE):
+        for line in READING_INSTRUCTIONS_FILE:
+            fd.write(line)
+    if (ctx.opts.input_mode is not None) and (ctx.opts.input_mode == INPUT_MODE_KAFKA):
+        for line in READING_INSTRUCTIONS_KAFKA:
+            fd.write(line)
     
     fd.write('\n')
 
     # Generate XML parser code (element data retrieval and transformation to generate dictionary buffers):
+    depth_level = 0
     for module in modules:
         elements = module.i_children
         if (elements is not None):
+            if (ctx.opts.input_mode is not None) and (ctx.opts.input_mode == INPUT_MODE_FILE):
+                depth_level = 0
+            if (ctx.opts.input_mode is not None) and (ctx.opts.input_mode == INPUT_MODE_KAFKA):
+                depth_level = 2
             for element in elements:
                 if (element is not None) and (element.keyword in statements.data_definition_keywords):
-                    generate_parser_code(element, None, None, 0)
+                    generate_parser_code(element, None, None, depth_level)
+    
+    fd.write('\n\n')
+
+    # Generate writing instructions for the XML parser (depending on the output mode):
+    if (ctx.opts.output_mode is not None) and (ctx.opts.output_mode == OUTPUT_MODE_STDOUT):
+        for line in WRITING_INSTRUCTIONS_STDOUT:
+            fd.write(line)
+    if (ctx.opts.output_mode is not None) and (ctx.opts.output_mode == OUTPUT_MODE_KAFKA):
+        for line in WRITING_INSTRUCTIONS_KAFKA:
+            fd.write(line)
     
     fd.write('\n')
 
