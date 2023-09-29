@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an XML p
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 0.3.0.
+Version: 0.3.1.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -169,6 +169,18 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         'per-decimal': 'decimal64'
     }
 
+    # NOTE: from ietf-network.yang. 
+    IETF_NETWORK_TYPES_TO_BASE_YANG_TYPES = {
+        "node-id": "string",
+        "network-id": "string"
+    } 
+
+    # NOTE: from ietf-network-topology.yang. 
+    IETF_NETWORK_TOPOLOGY_TYPES_TO_BASE_YANG_TYPES = {
+        "link-id": "string",
+        "tp-id": "string"
+    }
+
     # NOTE: NGSI-LD types are Python "types" (as per this particular implementation).
     BASE_YANG_TYPES_TO_NGSI_LD_TYPES = {
         'int8': 'Integer',
@@ -257,6 +269,10 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             base_yang_type = IETF_IP_TYPES_TO_BASE_YANG_TYPES[element_type]
         elif (NETFLOW_V9_TYPES_TO_BASE_YANG_TYPES.get(element_type) is not None):
             base_yang_type = NETFLOW_V9_TYPES_TO_BASE_YANG_TYPES[element_type]
+        elif (IETF_NETWORK_TYPES_TO_BASE_YANG_TYPES.get(element_type) is not None):
+            base_yang_type = IETF_NETWORK_TYPES_TO_BASE_YANG_TYPES[element_type]
+        elif (IETF_NETWORK_TOPOLOGY_TYPES_TO_BASE_YANG_TYPES.get(element_type) is not None):
+            base_yang_type = IETF_NETWORK_TOPOLOGY_TYPES_TO_BASE_YANG_TYPES[element_type]
         else:
             base_yang_type = element_type
         return BASE_YANG_TYPES_TO_NGSI_LD_TYPES[base_yang_type]
