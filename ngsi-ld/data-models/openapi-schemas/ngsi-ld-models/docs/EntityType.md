@@ -1,14 +1,10 @@
 # EntityType
 
-5.2.25 This type represents the data needed to define the elements of the detailed entity type list representation as mandated by clause 4.5.11. 
+Entity Type(s). Both short hand string(s) (type name) or URI(s) are allowed. 
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | Fully Qualified Name (FQN) of the entity type being described.  | 
-**type** | **str** | JSON-LD @type.  | 
-**type_name** | **str** | Name of the entity type, short name if contained in @context.  | 
-**attribute_names** | **List[str]** | List containing the names of attributes that instances of the entity type can have.  | 
 
 ## Example
 

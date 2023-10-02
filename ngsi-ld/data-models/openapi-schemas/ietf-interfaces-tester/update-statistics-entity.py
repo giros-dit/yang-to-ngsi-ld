@@ -5,18 +5,9 @@ import json
 import yaml
 
 import ngsi_ld_client
-from ngsi_ld_models.models.statistics_all_of import StatisticsAllOf
+from ngsi_ld_models.models.statistics import Statistics
+from ngsi_ld_client.models.entity import Entity
 
-from ngsi_ld_client.models.entity_input import EntityInput
-from ngsi_ld_client.models.entity_output import EntityOutput
-
-from ngsi_ld_client.models.property_input import PropertyInput
-from ngsi_ld_client.models.property_fragment_input import PropertyFragmentInput
-
-from ngsi_ld_client.models.relationship_input import RelationshipInput
-
-from ngsi_ld_client.models.entity_fragment_input import EntityFragmentInput
-from fastapi import FastAPI, Request, status
 from ngsi_ld_client.api_client import ApiClient as NGSILDClient
 from ngsi_ld_client.configuration import Configuration as NGSILDConfiguration
 from ngsi_ld_client.exceptions import ApiException
@@ -54,8 +45,9 @@ ngsi_ld.set_default_header(
     header_value="application/json"
 )
 
-sensor = StatisticsAllOf(
-    type=None,
+statistics = Statistics(
+    type="Statistics",
+    isPartOf={"type": "Relationship", "object": "urn:ngsi-ld:Interface:GigabitEthernet0.3.7"},
     discontinuityTime={"type": "Property", "value": "2022-07-13T17:22:16Z"},
     inOctets={"type": "Property", "value": 30547024},
     inUnicastPkts={"type": "Property", "value": 40929},
@@ -74,15 +66,15 @@ sensor = StatisticsAllOf(
 
 api_instance = ngsi_ld_client.ContextInformationProvisionApi(ngsi_ld)
 
-entity_input = sensor.to_dict()
+entity_input = statistics.to_dict()
 
 logger.info("Statistics object representation: %s\n" % entity_input)
 
-logger.info("EntityFragmentInput object representation: %s\n" % EntityFragmentInput.from_dict(entity_input))
+logger.info("Entity object representation: %s\n" % Entity.from_dict(entity_input))
 
 try:
     # Update NGSI-LD Entity by id: PATCH /entities/{entityId}/attrs
-    api_instance.update_entity(entity_id='urn:ngsi-ld:Statistics:GigabitEthernet0.3.7', entity_fragment_input=EntityFragmentInput.from_dict(entity_input))
+    api_instance.update_entity(entity_id='urn:ngsi-ld:Statistics:GigabitEthernet0.3.7', entity=Entity.from_dict(entity_input))
 except Exception as e:
     logger.exception("Exception when calling ContextInformationProvisionApi->update_entity: %s\n" % e)
 

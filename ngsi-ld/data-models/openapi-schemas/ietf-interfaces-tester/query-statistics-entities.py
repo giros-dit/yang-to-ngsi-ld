@@ -7,9 +7,8 @@ import yaml
 import ngsi_ld_client
 
 from ngsi_ld_models.models.statistics import Statistics
-from ngsi_ld_client.models.entity_output import EntityOutput
+from ngsi_ld_client.models.entity import Entity
 
-from fastapi import FastAPI, Request, status
 from ngsi_ld_client.api_client import ApiClient as NGSILDClient
 from ngsi_ld_client.configuration import Configuration as NGSILDConfiguration
 from ngsi_ld_client.exceptions import ApiException

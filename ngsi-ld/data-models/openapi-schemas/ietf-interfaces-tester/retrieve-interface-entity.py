@@ -6,7 +6,7 @@ import yaml
 
 import ngsi_ld_client
 from ngsi_ld_models.models.interface import Interface
-from ngsi_ld_client.models.entity_output import EntityOutput
+from ngsi_ld_client.models.entity import Entity
 
 from ngsi_ld_client.api_client import ApiClient as NGSILDClient
 from ngsi_ld_client.configuration import Configuration as NGSILDConfiguration
@@ -50,7 +50,7 @@ try:
     # Retrieve NGSI-LD Entity by id: GET /entities/{entityId}
     api_response = api_instance.retrieve_entity(entity_id='urn:ngsi-ld:Interface:GigabitEthernet0.3.7')
     logger.info(api_response.to_dict())
-    # logger.info(EntityOutput.from_dict(api_response.to_dict()).to_dict())
+    # logger.info(Entity.from_dict(api_response.to_dict()).to_dict())
 except Exception as e:
     logger.exception("Exception when calling ContextInformationConsumptionApi->retrieve_entity: %s\n" % e)
 

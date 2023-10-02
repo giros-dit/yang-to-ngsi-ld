@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **timerel** | **str** | Allowed values: \&quot;before\&quot;, \&quot;after\&quot; and \&quot;between\&quot;.  | 
 **time_at** | **datetime** | It shall be a DateTime.  | 
 **end_time_at** | **datetime** | It shall be a DateTime. Cardinality shall be 1 if timerel is equal to \&quot;between\&quot;.  | [optional] 
-**timeproperty** | **str** | Allowed values: \&quot;observedAt\&quot;, \&quot;createdAt\&quot;, \&quot;modifiedAt\&quot; and \&quot;deletedAt\&quot;. If not specified, the default is \&quot;observedAt\&quot;. (See clause 4.8).  | [optional] [default to 'observedAt']
+**timeproperty** | **str** | Allowed values: \&quot;observedAt\&quot;, \&quot;createdAt\&quot;, \&quot;modifiedAt\&quot; and \&quot;deletedAt\&quot;. If not specified, the default is \&quot;observedAt\&quot;. (See clause 4.8).  | [optional] 
 
 ## Example
 

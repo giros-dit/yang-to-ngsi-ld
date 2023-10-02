@@ -8,9 +8,9 @@ import pdb
 import ngsi_ld_client
 from ngsi_ld_models.models.interface import Interface
 from ngsi_ld_models.models.statistics import Statistics
-from ngsi_ld_client.models.entity_input import EntityInput
+from ngsi_ld_client.models.entity import Entity
+from ngsi_ld_client.models.query_entity200_response_inner import QueryEntity200ResponseInner
 
-from fastapi import FastAPI, Request, status
 from ngsi_ld_client.api_client import ApiClient as NGSILDClient
 from ngsi_ld_client.configuration import Configuration as NGSILDConfiguration
 from ngsi_ld_client.exceptions import ApiException
@@ -126,37 +126,37 @@ interface_entity_input = interface.to_dict()
 
 logger.info("Interface object representation: %s\n" % interface_entity_input)
 
-logger.info("EntityInput object representation for Interface object: %s\n" % EntityInput.from_dict(interface_entity_input))
+logger.info("Entity object representation for Interface object: %s\n" % Entity.from_dict(interface_entity_input))
 
-entities_input.append(EntityInput.from_dict(interface_entity_input))
+entities_input.append(QueryEntity200ResponseInner.from_dict(interface_entity_input))
 
 interface_statistics_entity_input = interface_statistics.to_dict()
 
 logger.info("Statistics object representation: %s\n" % interface_statistics_entity_input)
 
-logger.info("EntityInput object representation for Statistics object: %s\n" % EntityInput.from_dict(interface_statistics_entity_input))
+logger.info("Entity object representation for Statistics object: %s\n" % Entity.from_dict(interface_statistics_entity_input))
 
-entities_input.append(EntityInput.from_dict(interface_statistics_entity_input))
+entities_input.append(QueryEntity200ResponseInner.from_dict(interface_statistics_entity_input))
 
 subinterface_entity_input = subinterface.to_dict()
 
 logger.info("Interface object representation: %s\n" % subinterface_entity_input)
 
-logger.info("EntityInput object representation for Interface object: %s\n" % EntityInput.from_dict(subinterface_entity_input))
+logger.info("Entity object representation for Interface object: %s\n" % Entity.from_dict(subinterface_entity_input))
 
-entities_input.append(EntityInput.from_dict(subinterface_entity_input))
+entities_input.append(QueryEntity200ResponseInner.from_dict(subinterface_entity_input))
 
 subinterface_statistics_entity_input = subinterface_statistics.to_dict()
 
 logger.info("Statistics object representation: %s\n" % subinterface_statistics_entity_input)
 
-logger.info("EntityInput object representation for Statistics object: %s\n" % EntityInput.from_dict(subinterface_statistics_entity_input))
+logger.info("Entity object representation for Statistics object: %s\n" % Entity.from_dict(subinterface_statistics_entity_input))
 
-entities_input.append(EntityInput.from_dict(subinterface_statistics_entity_input))
+entities_input.append(QueryEntity200ResponseInner.from_dict(subinterface_statistics_entity_input))
 
 try:
     # Create NGSI-LD entities of type Interface and Sensor: POST /entityOperations/upsert
-    api_instance.upsert_batch(entity_input=entities_input)
+    api_instance.upsert_batch(query_entity200_response_inner=entities_input)
 except Exception as e:
     logger.exception("Exception when calling ContextInformationProvisionApi->upsert_batch: %s\n" % e)
 

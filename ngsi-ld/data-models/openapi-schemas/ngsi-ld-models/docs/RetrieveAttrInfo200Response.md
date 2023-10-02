@@ -4,13 +4,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**context** | [**LdContext**](LdContext.md) |  | 
 **id** | **str** | Full URI of attribute name.  | 
 **type** | **str** | JSON-LD @type.  | 
 **attribute_name** | **str** | Name of the attribute, short name if contained in @context.  | 
 **attribute_count** | **float** | Number of attribute instances with this attribute name.  | [optional] 
 **attribute_types** | **List[str]** | List of attribute types (e.g. Property, Relationship, GeoProperty) for which entity instances exist, which contain an attribute with this name.  | [optional] 
 **type_names** | **List[str]** | List of entity type names for which entity instances exist containing attributes that have the respective name.  | [optional] 
+**context** | [**LdContext**](LdContext.md) |  | 
 
 ## Example
 

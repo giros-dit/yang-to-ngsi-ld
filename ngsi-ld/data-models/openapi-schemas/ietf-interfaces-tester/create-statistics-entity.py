@@ -8,9 +8,9 @@ import pdb
 import ngsi_ld_client
 
 from ngsi_ld_models.models.statistics import Statistics
-from ngsi_ld_client.models.entity_input import EntityInput
+from ngsi_ld_client.models.entity import Entity
+from ngsi_ld_client.models.query_entity200_response_inner import QueryEntity200ResponseInner
 
-from fastapi import FastAPI, Request, status
 from ngsi_ld_client.api_client import ApiClient as NGSILDClient
 from ngsi_ld_client.configuration import Configuration as NGSILDConfiguration
 from ngsi_ld_client.exceptions import ApiException
@@ -72,11 +72,15 @@ entity_input = statistics.to_dict()
 
 logger.info("Statistics object representation: %s\n" % entity_input)
 
-logger.info("EntityInput object representation: %s\n" % EntityInput.from_dict(entity_input))
+logger.info("Entity object representation: %s\n" % Entity.from_dict(entity_input))
+
+logger.info("QueryEntity200ResponseInner object representation: %s\n" % QueryEntity200ResponseInner.from_dict(entity_input))
+
+query_entity_input = QueryEntity200ResponseInner.from_dict(entity_input)
 
 try:
     # Create NGSI-LD entity of type Sensor: POST /entities
-    api_instance.create_entity(entity_input=EntityInput.from_dict(entity_input))
+    api_instance.create_entity(query_entity200_response_inner=query_entity_input.from_dict(entity_input))
 except Exception as e:
     logger.exception("Exception when calling ContextInformationProvisionApi->create_entity: %s\n" % e)
 
