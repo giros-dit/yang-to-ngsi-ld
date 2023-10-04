@@ -6,11 +6,19 @@ import pdb
 import yaml
 
 import ngsi_ld_client
+
 from ngsi_ld_models.models.interface import Interface
 from ngsi_ld_models.models.statistics import Statistics
-from ngsi_ld_client.models.entity_input import EntityInput
+from ngsi_ld_models.models.ipv4 import Ipv4
+from ngsi_ld_models.models.ipv4_address import Ipv4Address
+from ngsi_ld_models.models.ipv4_neighbor import Ipv4Neighbor
+from ngsi_ld_models.models.ipv6 import Ipv6
+from ngsi_ld_models.models.ipv6_address import Ipv6Address
+from ngsi_ld_models.models.ipv6_autoconf import Ipv6Autoconf
+from ngsi_ld_models.models.ipv6_neighbor import Ipv6Neighbor
+from ngsi_ld_client.models.entity import Entity
+from ngsi_ld_client.models.query_entity200_response_inner import QueryEntity200ResponseInner
 
-from fastapi import FastAPI, Request, status
 from ngsi_ld_client.api_client import ApiClient as NGSILDClient
 from ngsi_ld_client.configuration import Configuration as NGSILDConfiguration
 from ngsi_ld_client.exceptions import ApiException
@@ -56,9 +64,14 @@ def create_ngsi_ld_entity(entity):
 
     entity_input = entity.to_dict()
 
+    logger.info("Entity object representation: %s\n" % Entity.from_dict(entity_input))
+    logger.info("QueryEntity200ResponseInner object representation: %s\n" % QueryEntity200ResponseInner.from_dict(entity_input))
+
+    query_entity_input = QueryEntity200ResponseInner.from_dict(entity_input)
+
     try:
         # Create NGSI-LD entity of type Sensor: POST /entities
-        api_instance.create_entity(entity_input=EntityInput.from_dict(entity_input))
+        api_instance.create_entity(query_entity200_response_inner=query_entity_input)
     except Exception as e:
         logger.exception("Exception when calling ContextInformationProvisionApi->create_entity: %s\n" % e)
 
@@ -80,3 +93,24 @@ for dict_buffer in dict_buffers:
     if type == 'Statistics':
         statistics = Statistics.from_dict(dict_buffer)
         create_ngsi_ld_entity(statistics)
+    if type == 'Ipv4':
+        ipv4 = Ipv4.from_dict(dict_buffer)
+        create_ngsi_ld_entity(ipv4)
+    if type == 'Ipv4Address':
+        ipv4Address = Ipv4Address.from_dict(dict_buffer)
+        create_ngsi_ld_entity(ipv4Address)
+    if type == 'Ipv4Neighbor':
+        ipv4Neighbor = Ipv4Neighbor.from_dict(dict_buffer)
+        create_ngsi_ld_entity(ipv4Neighbor)
+    if type == 'Ipv6':
+        ipv6 = Ipv6.from_dict(dict_buffer)
+        create_ngsi_ld_entity(ipv6)
+    if type == 'Ipv6Address':
+        ipv6Address = Ipv6Address.from_dict(dict_buffer)
+        create_ngsi_ld_entity(ipv6Address)
+    if type == 'Ipv6Autoconf':
+        ipv6Autoconf = Ipv6Autoconf.from_dict(dict_buffer)
+        create_ngsi_ld_entity(ipv6Autoconf)
+    if type == 'Ipv6Neighbor':
+        ipv6Neighbor = Ipv6Neighbor.from_dict(dict_buffer)
+        create_ngsi_ld_entity(ipv6Neighbor)
