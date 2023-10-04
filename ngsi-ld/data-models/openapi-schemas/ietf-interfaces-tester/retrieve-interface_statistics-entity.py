@@ -5,7 +5,8 @@ import json
 import yaml
 
 import ngsi_ld_client
-from ngsi_ld_models.models.statistics import Statistics
+from ngsi_ld_models.models.interface_statistics import InterfaceStatistics
+from ngsi_ld_client.models.entity import Entity
 
 from ngsi_ld_client.api_client import ApiClient as NGSILDClient
 from ngsi_ld_client.configuration import Configuration as NGSILDConfiguration
@@ -43,11 +44,13 @@ ngsi_ld.set_default_header(
     header_value="application/json"
 )
 
-api_instance = ngsi_ld_client.ContextInformationProvisionApi(ngsi_ld)
+api_instance = ngsi_ld_client.ContextInformationConsumptionApi(ngsi_ld)
 
 try:
-    # Delete NGSI-LD Entity by id: DELETE /entities/{entityId}
-    api_instance.delete_entity(entity_id='urn:ngsi-ld:Statistics:GigabitEthernet0.3.7')
+    # Retrieve NGSI-LD Entity by id: GET /entities/{entityId}
+    api_response = api_instance.retrieve_entity(entity_id='urn:ngsi-ld:InterfaceStatistics:GigabitEthernet0.3.7')
+    logger.info(api_response.to_dict())
+    # logger.info(Entity.from_dict(api_response.to_dict()).to_dict())
 except Exception as e:
-    logger.exception("Exception when calling ContextInformationProvisionApi->delete_entity: %s\n" % e)
+    logger.exception("Exception when calling ContextInformationConsumptionApi->retrieve_entity: %s\n" % e)
 

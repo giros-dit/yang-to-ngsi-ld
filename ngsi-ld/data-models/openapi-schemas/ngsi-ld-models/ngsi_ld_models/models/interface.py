@@ -28,6 +28,7 @@ from ngsi_ld_models.models.geo_property import GeoProperty
 from ngsi_ld_models.models.higher_layer_if import HigherLayerIf
 from ngsi_ld_models.models.if_index import IfIndex
 from ngsi_ld_models.models.interface_enabled import InterfaceEnabled
+from ngsi_ld_models.models.is_part_of import IsPartOf
 from ngsi_ld_models.models.last_change import LastChange
 from ngsi_ld_models.models.link_up_down_trap_enable import LinkUpDownTrapEnable
 from ngsi_ld_models.models.lower_layer_if import LowerLayerIf
@@ -66,8 +67,9 @@ class Interface(BaseModel):
     speed: Optional[Speed] = None
     higher_layer_if: Optional[HigherLayerIf] = Field(default=None, alias="higherLayerIf")
     lower_layer_if: Optional[LowerLayerIf] = Field(default=None, alias="lowerLayerIf")
+    is_part_of: Optional[IsPartOf] = Field(default=None, alias="isPartOf")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["id", "type", "scope", "location", "observationSpace", "operationSpace", "createdAt", "modifiedAt", "deletedAt", "name", "description", "enabled", "linkUpDownTrapEnable", "adminStatus", "operStatus", "lastChange", "ifIndex", "physAddress", "speed", "higherLayerIf", "lowerLayerIf"]
+    __properties: ClassVar[List[str]] = ["id", "type", "scope", "location", "observationSpace", "operationSpace", "createdAt", "modifiedAt", "deletedAt", "name", "description", "enabled", "linkUpDownTrapEnable", "adminStatus", "operStatus", "lastChange", "ifIndex", "physAddress", "speed", "higherLayerIf", "lowerLayerIf", "isPartOf"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -154,6 +156,9 @@ class Interface(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of lower_layer_if
         if self.lower_layer_if:
             _dict['lowerLayerIf'] = self.lower_layer_if.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of is_part_of
+        if self.is_part_of:
+            _dict['isPartOf'] = self.is_part_of.to_dict()
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -191,7 +196,8 @@ class Interface(BaseModel):
             "physAddress": PhysAddress.from_dict(obj.get("physAddress")) if obj.get("physAddress") is not None else None,
             "speed": Speed.from_dict(obj.get("speed")) if obj.get("speed") is not None else None,
             "higherLayerIf": HigherLayerIf.from_dict(obj.get("higherLayerIf")) if obj.get("higherLayerIf") is not None else None,
-            "lowerLayerIf": LowerLayerIf.from_dict(obj.get("lowerLayerIf")) if obj.get("lowerLayerIf") is not None else None
+            "lowerLayerIf": LowerLayerIf.from_dict(obj.get("lowerLayerIf")) if obj.get("lowerLayerIf") is not None else None,
+            "isPartOf": IsPartOf.from_dict(obj.get("isPartOf")) if obj.get("isPartOf") is not None else None
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

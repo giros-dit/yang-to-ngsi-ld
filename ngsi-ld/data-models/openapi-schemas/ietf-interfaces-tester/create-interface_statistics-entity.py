@@ -7,7 +7,7 @@ import pdb
 
 import ngsi_ld_client
 
-from ngsi_ld_models.models.statistics import Statistics
+from ngsi_ld_models.models.interface_statistics import InterfaceStatistics
 from ngsi_ld_client.models.entity import Entity
 from ngsi_ld_client.models.query_entity200_response_inner import QueryEntity200ResponseInner
 
@@ -46,9 +46,9 @@ ngsi_ld.set_default_header(
     header_value="application/json"
 )
 
-statistics = Statistics(
-    id="urn:ngsi-ld:Statistics:GigabitEthernet0.3.7",
-    type="Statistics",
+statistics = InterfaceStatistics(
+    id="urn:ngsi-ld:InterfaceStatistics:GigabitEthernet0.3.7",
+    type="InterfaceStatistics",
     isPartOf={"type": "Relationship", "object": "urn:ngsi-ld:Interface:GigabitEthernet0.3.7"},
     discontinuityTime={"type": "Property", "value": "2022-07-13T17:22:06Z"},
     inOctets={"type": "Property", "value": 30547004},

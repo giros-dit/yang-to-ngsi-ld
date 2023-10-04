@@ -15,10 +15,10 @@
 import unittest
 import datetime
 
-from ngsi_ld_models.models.interface import Interface  # noqa: E501
+from ngsi_ld_models.models.destination import Destination  # noqa: E501
 
-class TestInterface(unittest.TestCase):
-    """Interface unit test stubs"""
+class TestDestination(unittest.TestCase):
+    """Destination unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,18 +26,18 @@ class TestInterface(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> Interface:
-        """Test Interface
+    def make_instance(self, include_optional) -> Destination:
+        """Test Destination
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `Interface`
+        # uncomment below to create an instance of `Destination`
         """
-        model = Interface()  # noqa: E501
+        model = Destination()  # noqa: E501
         if include_optional:
-            return Interface(
+            return Destination(
                 id = '',
-                type = 'Interface',
+                type = 'Destination',
                 scope = None,
                 location = {
                     'key' : null
@@ -51,31 +51,20 @@ class TestInterface(unittest.TestCase):
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 modified_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 deleted_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                name = None,
-                description = None,
-                enabled = None,
-                link_up_down_trap_enable = None,
-                admin_status = None,
-                oper_status = None,
-                last_change = None,
-                if_index = None,
-                phys_address = None,
-                speed = None,
-                higher_layer_if = None,
-                lower_layer_if = None,
+                dest_node = None,
+                dest_tp = None,
                 is_part_of = None
             )
         else:
-            return Interface(
-                type = 'Interface',
-                admin_status = None,
-                oper_status = None,
-                if_index = None,
+            return Destination(
+                dest_node = None,
+                dest_tp = None,
+                is_part_of = None,
         )
         """
 
-    def testInterface(self):
-        """Test Interface"""
+    def testDestination(self):
+        """Test Destination"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

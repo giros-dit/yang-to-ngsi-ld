@@ -44,12 +44,12 @@ try:
 except ImportError:
     from typing_extensions import Self
 
-class Statistics(BaseModel):
+class InterfaceStatistics(BaseModel):
     """
     NGSI-LD Entity Type that represents a collection of interface-related statistics  of a YANG model-based network device.   # noqa: E501
     """
     id: Optional[StrictStr] = Field(default=None, description="Entity id. ")
-    type: StrictStr = Field(description="NGSI-LD Entity identifier. It has to be Statistics.")
+    type: StrictStr = Field(description="NGSI-LD Entity identifier. It has to be InterfaceStatistics.")
     scope: Optional[EntityScope] = None
     location: Optional[GeoProperty] = None
     observation_space: Optional[GeoProperty] = Field(default=None, alias="observationSpace")
@@ -78,8 +78,8 @@ class Statistics(BaseModel):
     @field_validator('type')
     def type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in ('Statistics'):
-            raise ValueError("must be one of enum values ('Statistics')")
+        if value not in ('InterfaceStatistics'):
+            raise ValueError("must be one of enum values ('InterfaceStatistics')")
         return value
 
     model_config = {
@@ -99,7 +99,7 @@ class Statistics(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
-        """Create an instance of Statistics from a JSON string"""
+        """Create an instance of InterfaceStatistics from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
@@ -178,7 +178,7 @@ class Statistics(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: dict) -> Self:
-        """Create an instance of Statistics from a dict"""
+        """Create an instance of InterfaceStatistics from a dict"""
         if obj is None:
             return None
 
@@ -187,7 +187,7 @@ class Statistics(BaseModel):
 
         _obj = cls.model_validate({
             "id": obj.get("id"),
-            "type": obj.get("type") if obj.get("type") is not None else 'Statistics',
+            "type": obj.get("type") if obj.get("type") is not None else 'InterfaceStatistics',
             "scope": EntityScope.from_dict(obj.get("scope")) if obj.get("scope") is not None else None,
             "location": GeoProperty.from_dict(obj.get("location")) if obj.get("location") is not None else None,
             "observationSpace": GeoProperty.from_dict(obj.get("observationSpace")) if obj.get("observationSpace") is not None else None,

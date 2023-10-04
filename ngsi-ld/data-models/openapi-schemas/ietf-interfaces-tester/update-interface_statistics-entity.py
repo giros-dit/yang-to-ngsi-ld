@@ -5,7 +5,7 @@ import json
 import yaml
 
 import ngsi_ld_client
-from ngsi_ld_models.models.statistics import Statistics
+from ngsi_ld_models.models.interface_statistics import InterfaceStatistics
 from ngsi_ld_client.models.entity import Entity
 
 from ngsi_ld_client.api_client import ApiClient as NGSILDClient
@@ -45,8 +45,8 @@ ngsi_ld.set_default_header(
     header_value="application/json"
 )
 
-statistics = Statistics(
-    type="Statistics",
+statistics = InterfaceStatistics(
+    type="InterfaceStatistics",
     isPartOf={"type": "Relationship", "object": "urn:ngsi-ld:Interface:GigabitEthernet0.3.7"},
     discontinuityTime={"type": "Property", "value": "2022-07-13T17:22:16Z"},
     inOctets={"type": "Property", "value": 30547024},
@@ -74,7 +74,7 @@ logger.info("Entity object representation: %s\n" % Entity.from_dict(entity_input
 
 try:
     # Update NGSI-LD Entity by id: PATCH /entities/{entityId}/attrs
-    api_instance.update_entity(entity_id='urn:ngsi-ld:Statistics:GigabitEthernet0.3.7', entity=Entity.from_dict(entity_input))
+    api_instance.update_entity(entity_id='urn:ngsi-ld:InterfaceStatistics:GigabitEthernet0.3.7', entity=Entity.from_dict(entity_input))
 except Exception as e:
     logger.exception("Exception when calling ContextInformationProvisionApi->update_entity: %s\n" % e)
 

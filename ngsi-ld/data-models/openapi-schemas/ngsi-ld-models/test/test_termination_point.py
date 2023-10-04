@@ -15,10 +15,10 @@
 import unittest
 import datetime
 
-from ngsi_ld_models.models.statistics import Statistics  # noqa: E501
+from ngsi_ld_models.models.termination_point import TerminationPoint  # noqa: E501
 
-class TestStatistics(unittest.TestCase):
-    """Statistics unit test stubs"""
+class TestTerminationPoint(unittest.TestCase):
+    """TerminationPoint unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,18 +26,18 @@ class TestStatistics(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> Statistics:
-        """Test Statistics
+    def make_instance(self, include_optional) -> TerminationPoint:
+        """Test TerminationPoint
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `Statistics`
+        # uncomment below to create an instance of `TerminationPoint`
         """
-        model = Statistics()  # noqa: E501
+        model = TerminationPoint()  # noqa: E501
         if include_optional:
-            return Statistics(
+            return TerminationPoint(
                 id = '',
-                type = 'Statistics',
+                type = 'TerminationPoint',
                 scope = None,
                 location = {
                     'key' : null
@@ -51,32 +51,18 @@ class TestStatistics(unittest.TestCase):
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 modified_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 deleted_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                is_part_of = None,
-                discontinuity_time = None,
-                in_octets = None,
-                in_unicast_pkts = None,
-                in_broadcast_pkts = None,
-                in_multicast_pkts = None,
-                in_discards = None,
-                in_errors = None,
-                in_unknown_protos = None,
-                out_octets = None,
-                out_unicast_pkts = None,
-                out_broadcast_pkts = None,
-                out_multicast_pkts = None,
-                out_discards = None,
-                out_errors = None
+                tp_id = None,
+                is_part_of = None
             )
         else:
-            return Statistics(
-                type = 'Statistics',
+            return TerminationPoint(
+                tp_id = None,
                 is_part_of = None,
-                discontinuity_time = None,
         )
         """
 
-    def testStatistics(self):
-        """Test Statistics"""
+    def testTerminationPoint(self):
+        """Test TerminationPoint"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

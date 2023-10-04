@@ -15,10 +15,10 @@
 import unittest
 import datetime
 
-from ngsi_ld_models.models.interface import Interface  # noqa: E501
+from ngsi_ld_models.models.interface_statistics import InterfaceStatistics  # noqa: E501
 
-class TestInterface(unittest.TestCase):
-    """Interface unit test stubs"""
+class TestInterfaceStatistics(unittest.TestCase):
+    """InterfaceStatistics unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,18 +26,18 @@ class TestInterface(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> Interface:
-        """Test Interface
+    def make_instance(self, include_optional) -> InterfaceStatistics:
+        """Test InterfaceStatistics
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `Interface`
+        # uncomment below to create an instance of `InterfaceStatistics`
         """
-        model = Interface()  # noqa: E501
+        model = InterfaceStatistics()  # noqa: E501
         if include_optional:
-            return Interface(
+            return InterfaceStatistics(
                 id = '',
-                type = 'Interface',
+                type = 'InterfaceStatistics',
                 scope = None,
                 location = {
                     'key' : null
@@ -51,31 +51,32 @@ class TestInterface(unittest.TestCase):
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 modified_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 deleted_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                name = None,
-                description = None,
-                enabled = None,
-                link_up_down_trap_enable = None,
-                admin_status = None,
-                oper_status = None,
-                last_change = None,
-                if_index = None,
-                phys_address = None,
-                speed = None,
-                higher_layer_if = None,
-                lower_layer_if = None,
-                is_part_of = None
+                is_part_of = None,
+                discontinuity_time = None,
+                in_octets = None,
+                in_unicast_pkts = None,
+                in_broadcast_pkts = None,
+                in_multicast_pkts = None,
+                in_discards = None,
+                in_errors = None,
+                in_unknown_protos = None,
+                out_octets = None,
+                out_unicast_pkts = None,
+                out_broadcast_pkts = None,
+                out_multicast_pkts = None,
+                out_discards = None,
+                out_errors = None
             )
         else:
-            return Interface(
-                type = 'Interface',
-                admin_status = None,
-                oper_status = None,
-                if_index = None,
+            return InterfaceStatistics(
+                type = 'InterfaceStatistics',
+                is_part_of = None,
+                discontinuity_time = None,
         )
         """
 
-    def testInterface(self):
-        """Test Interface"""
+    def testInterfaceStatistics(self):
+        """Test InterfaceStatistics"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

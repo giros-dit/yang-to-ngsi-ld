@@ -7,7 +7,7 @@ import pdb
 
 import ngsi_ld_client
 from ngsi_ld_models.models.interface import Interface
-from ngsi_ld_models.models.statistics import Statistics
+from ngsi_ld_models.models.interface_statistics import InterfaceStatistics
 from ngsi_ld_client.models.entity import Entity
 from ngsi_ld_client.models.query_entity200_response_inner import QueryEntity200ResponseInner
 
@@ -64,9 +64,9 @@ interface = Interface(
     higherLayerIf={"type": "Relationship", "object": "urn:ngsi-ld:Interface:GigabitEthernet0.3.7.123"}
 )
 
-interface_statistics = Statistics(
-    id="urn:ngsi-ld:Statistics:GigabitEthernet0.3.7",
-    type="Statistics",
+interface_statistics = InterfaceStatistics(
+    id="urn:ngsi-ld:InterfaceStatistics:GigabitEthernet0.3.7",
+    type="InterfaceStatistics",
     isPartOf={"type": "Relationship", "object": "urn:ngsi-ld:Interface:GigabitEthernet0.3.7"},
     discontinuityTime={"type": "Property", "value": "2022-07-13T17:22:06Z"},
     inOctets={"type": "Property", "value": 30547004},
@@ -100,9 +100,9 @@ subinterface = Interface(
     lowerLayerIf={"type": "Relationship", "object": "urn:ngsi-ld:Interface:GigabitEthernet0.3.7"}
 )
 
-subinterface_statistics = Statistics(
-    id="urn:ngsi-ld:Statistics:GigabitEthernet0.3.7.123",
-    type="Statistics",
+subinterface_statistics = InterfaceStatistics(
+    id="urn:ngsi-ld:InterfaceStatistics:GigabitEthernet0.3.7.123",
+    type="InterfaceStatistics",
     isPartOf={"type": "Relationship", "object": "urn:ngsi-ld:Interface:GigabitEthernet0.3.7.123"},
     discontinuityTime={"type": "Property", "value": "2022-07-13T17:22:06Z"},
     inOctets={"type": "Property", "value": 0},
@@ -132,9 +132,9 @@ entities_input.append(QueryEntity200ResponseInner.from_dict(interface_entity_inp
 
 interface_statistics_entity_input = interface_statistics.to_dict()
 
-logger.info("Statistics object representation: %s\n" % interface_statistics_entity_input)
+logger.info("InterfaceStatistics object representation: %s\n" % interface_statistics_entity_input)
 
-logger.info("Entity object representation for Statistics object: %s\n" % Entity.from_dict(interface_statistics_entity_input))
+logger.info("Entity object representation for InterfaceStatistics object: %s\n" % Entity.from_dict(interface_statistics_entity_input))
 
 entities_input.append(QueryEntity200ResponseInner.from_dict(interface_statistics_entity_input))
 
@@ -148,9 +148,9 @@ entities_input.append(QueryEntity200ResponseInner.from_dict(subinterface_entity_
 
 subinterface_statistics_entity_input = subinterface_statistics.to_dict()
 
-logger.info("Statistics object representation: %s\n" % subinterface_statistics_entity_input)
+logger.info("InterfaceStatistics object representation: %s\n" % subinterface_statistics_entity_input)
 
-logger.info("Entity object representation for Statistics object: %s\n" % Entity.from_dict(subinterface_statistics_entity_input))
+logger.info("Entity object representation for InterfaceStatistics object: %s\n" % Entity.from_dict(subinterface_statistics_entity_input))
 
 entities_input.append(QueryEntity200ResponseInner.from_dict(subinterface_statistics_entity_input))
 
