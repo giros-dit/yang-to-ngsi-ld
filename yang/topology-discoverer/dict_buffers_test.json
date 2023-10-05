@@ -25,6 +25,14 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:pc12-eth1-s1-eth2"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkDestination:pc12"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkDestination:eth1"
         }
     },
     {
@@ -33,6 +41,14 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:pc12-eth1-s1-eth2"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkSource:s1"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkSource:eth2"
         }
     },
     {
@@ -53,6 +69,14 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r1-eth3-r3-eth2"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkDestination:r1"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkDestination:eth3"
         }
     },
     {
@@ -61,6 +85,14 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r1-eth3-r3-eth2"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkSource:r3"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkSource:eth2"
         }
     },
     {
@@ -81,6 +113,14 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r1-eth2-r2-eth2"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkDestination:r1"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkDestination:eth2"
         }
     },
     {
@@ -89,6 +129,14 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r1-eth2-r2-eth2"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkSource:r2"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkSource:eth2"
         }
     },
     {
@@ -109,6 +157,14 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r2-eth1-s2-eth3"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkDestination:r2"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkDestination:eth1"
         }
     },
     {
@@ -117,6 +173,14 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r2-eth1-s2-eth3"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkSource:s2"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkSource:eth3"
         }
     },
     {
@@ -137,6 +201,14 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s2-eth1-pc21-eth1"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkDestination:pc21"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkDestination:eth1"
         }
     },
     {
@@ -145,6 +217,14 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s2-eth1-pc21-eth1"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkSource:s2"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkSource:eth1"
         }
     },
     {
@@ -165,6 +245,14 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r2-eth3-r3-eth3"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkDestination:r2"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkDestination:eth3"
         }
     },
     {
@@ -173,6 +261,14 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r2-eth3-r3-eth3"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkSource:r3"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkSource:eth3"
         }
     },
     {
@@ -193,6 +289,14 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s2-eth2-pc22-eth1"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkDestination:pc22"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkDestination:eth1"
         }
     },
     {
@@ -201,6 +305,14 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s2-eth2-pc22-eth1"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkSource:s2"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkSource:eth2"
         }
     },
     {
@@ -221,6 +333,14 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r3-eth1-s3-eth3"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkDestination:r3"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkDestination:eth1"
         }
     },
     {
@@ -229,6 +349,14 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r3-eth1-s3-eth3"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkSource:s3"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkSource:eth3"
         }
     },
     {
@@ -249,6 +377,14 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s3-eth1-pc31-eth1"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkDestination:pc31"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkDestination:eth1"
         }
     },
     {
@@ -257,6 +393,14 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s3-eth1-pc31-eth1"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkSource:s3"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkSource:eth1"
         }
     },
     {
@@ -277,6 +421,14 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s1-eth3-r1-eth1"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkDestination:r1"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkDestination:eth1"
         }
     },
     {
@@ -285,6 +437,14 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s1-eth3-r1-eth1"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkSource:s1"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkSource:eth3"
         }
     },
     {
@@ -305,6 +465,14 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s3-eth2-pc32-eth1"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkDestination:pc32"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkDestination:eth1"
         }
     },
     {
@@ -313,6 +481,14 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s3-eth2-pc32-eth1"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkSource:s3"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkSource:eth2"
         }
     },
     {
@@ -333,6 +509,14 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:pc11-eth1-s1-eth1"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkDestination:pc11"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkDestination:eth1"
         }
     },
     {
@@ -341,6 +525,14 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:pc11-eth1-s1-eth1"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkSource:s1"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLinkSource:eth1"
         }
     },
     {
