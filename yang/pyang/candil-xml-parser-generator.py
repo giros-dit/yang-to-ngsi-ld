@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an XML p
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 0.3.3.
+Version: 0.3.4.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -212,6 +212,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
 
     IMPORT_STATEMENTS = [
         'import sys\n',
+        'import json\n',
         'import xml.etree.ElementTree as et\n',
         'from kafka import KafkaConsumer, KafkaProducer'
     ]
@@ -234,7 +235,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         ]
 
     WRITING_INSTRUCTIONS_STDOUT = [
-        'print(dict_buffers[::-1])'
+        'print(json.dumps(dict_buffers[::-1], indent=4))'
     ]
 
     if (ctx.opts.kafka_server is not None) and (ctx.opts.kafka_output_topic is not None):
@@ -397,7 +398,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + 'for ' + str(element.arg).replace('-', '_') + ' in ' + str(parent_element_arg).replace('-', '_') + '.findall(\".//{' + element_namespace + '}' + str(element.arg) + '\"):')
                 depth_level += 1
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + current_path.replace('-', '_') + 'dict_buffer = {}')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\" + ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\" + ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1] + \":\"')
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"type\"] = \"' + current_camelcase_path + '\"')
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"] = {}')
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"type\"] = \"Relationship\"')
@@ -420,6 +421,8 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Property\"')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"value\"] = ' + text_format)
+        '''
+        RELATIONSHIPS (refs) ARE NOT PROCESSED FOR NOW
         elif (is_relationship(element) == True) and (is_deprecated(element) == False):
             if (str(element.arg) != 'type'):
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + camelcase_element_arg + ' ' + '=' + ' ' + str(parent_element_arg).replace('-', '_') + '.find(\".//{' + element_namespace + '}' + str(element.arg) + '\")')
@@ -428,7 +431,8 @@ def generate_python_xml_parser_code(ctx, modules, fd):
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + 'if element_text is not None:')
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Relationship\"')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + str(parent_element_arg).replace('-', '_').capitalize() + ':\" + element_text')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + camelcase_entity_path + ':\" + element_text')
+        '''
     
     # -- Generate XML parser Python code --
 

@@ -1,4 +1,5 @@
 import sys
+import json
 import xml.etree.ElementTree as et
 from kafka import KafkaConsumer, KafkaProducer
 
@@ -21,22 +22,15 @@ for network in root.findall(".//{urn:ietf:params:xml:ns:yang:ietf-network}networ
             network_dict_buffer["networkId"]["value"] = element_text
     for supporting_network in network.findall(".//{urn:ietf:params:xml:ns:yang:ietf-network}supporting-network"):
         network_supporting_network_dict_buffer = {}
-        network_supporting_network_dict_buffer["id"] = "urn:ngsi-ld:NetworkSupportingNetwork:" + network_dict_buffer["id"].split(":")[-1]
+        network_supporting_network_dict_buffer["id"] = "urn:ngsi-ld:NetworkSupportingNetwork:" + network_dict_buffer["id"].split(":")[-1] + ":"
         network_supporting_network_dict_buffer["type"] = "NetworkSupportingNetwork"
         network_supporting_network_dict_buffer["isPartOf"] = {}
         network_supporting_network_dict_buffer["isPartOf"]["type"] = "Relationship"
         network_supporting_network_dict_buffer["isPartOf"]["object"] = network_dict_buffer["id"]
-        networkRef = supporting_network.find(".//{urn:ietf:params:xml:ns:yang:ietf-network}network-ref")
-        if networkRef is not None:
-            element_text = networkRef.text
-            if element_text is not None:
-                network_supporting_network_dict_buffer["networkRef"] = {}
-                network_supporting_network_dict_buffer["networkRef"]["type"] = "Relationship"
-                network_supporting_network_dict_buffer["networkRef"]["object"] = "urn:ngsi-ld:Supporting_network:" + element_text
         dict_buffers.append(network_supporting_network_dict_buffer)
     for node in network.findall(".//{urn:ietf:params:xml:ns:yang:ietf-network}node"):
         network_node_dict_buffer = {}
-        network_node_dict_buffer["id"] = "urn:ngsi-ld:NetworkNode:" + network_dict_buffer["id"].split(":")[-1]
+        network_node_dict_buffer["id"] = "urn:ngsi-ld:NetworkNode:" + network_dict_buffer["id"].split(":")[-1] + ":"
         network_node_dict_buffer["type"] = "NetworkNode"
         network_node_dict_buffer["isPartOf"] = {}
         network_node_dict_buffer["isPartOf"]["type"] = "Relationship"
@@ -51,29 +45,15 @@ for network in root.findall(".//{urn:ietf:params:xml:ns:yang:ietf-network}networ
                 network_node_dict_buffer["nodeId"]["value"] = element_text
         for supporting_node in node.findall(".//{urn:ietf:params:xml:ns:yang:ietf-network}supporting-node"):
             network_node_supporting_node_dict_buffer = {}
-            network_node_supporting_node_dict_buffer["id"] = "urn:ngsi-ld:NetworkNodeSupportingNode:" + network_node_dict_buffer["id"].split(":")[-1]
+            network_node_supporting_node_dict_buffer["id"] = "urn:ngsi-ld:NetworkNodeSupportingNode:" + network_node_dict_buffer["id"].split(":")[-1] + ":"
             network_node_supporting_node_dict_buffer["type"] = "NetworkNodeSupportingNode"
             network_node_supporting_node_dict_buffer["isPartOf"] = {}
             network_node_supporting_node_dict_buffer["isPartOf"]["type"] = "Relationship"
             network_node_supporting_node_dict_buffer["isPartOf"]["object"] = network_node_dict_buffer["id"]
-            networkRef = supporting_node.find(".//{urn:ietf:params:xml:ns:yang:ietf-network}network-ref")
-            if networkRef is not None:
-                element_text = networkRef.text
-                if element_text is not None:
-                    network_node_supporting_node_dict_buffer["networkRef"] = {}
-                    network_node_supporting_node_dict_buffer["networkRef"]["type"] = "Relationship"
-                    network_node_supporting_node_dict_buffer["networkRef"]["object"] = "urn:ngsi-ld:Supporting_node:" + element_text
-            nodeRef = supporting_node.find(".//{urn:ietf:params:xml:ns:yang:ietf-network}node-ref")
-            if nodeRef is not None:
-                element_text = nodeRef.text
-                if element_text is not None:
-                    network_node_supporting_node_dict_buffer["nodeRef"] = {}
-                    network_node_supporting_node_dict_buffer["nodeRef"]["type"] = "Relationship"
-                    network_node_supporting_node_dict_buffer["nodeRef"]["object"] = "urn:ngsi-ld:Supporting_node:" + element_text
             dict_buffers.append(network_node_supporting_node_dict_buffer)
         for termination_point in node.findall(".//{urn:ietf:params:xml:ns:yang:ietf-network-topology}termination-point"):
             network_node_termination_point_dict_buffer = {}
-            network_node_termination_point_dict_buffer["id"] = "urn:ngsi-ld:NetworkNodeTerminationPoint:" + network_node_dict_buffer["id"].split(":")[-1]
+            network_node_termination_point_dict_buffer["id"] = "urn:ngsi-ld:NetworkNodeTerminationPoint:" + network_node_dict_buffer["id"].split(":")[-1] + ":"
             network_node_termination_point_dict_buffer["type"] = "NetworkNodeTerminationPoint"
             network_node_termination_point_dict_buffer["isPartOf"] = {}
             network_node_termination_point_dict_buffer["isPartOf"]["type"] = "Relationship"
@@ -88,38 +68,17 @@ for network in root.findall(".//{urn:ietf:params:xml:ns:yang:ietf-network}networ
                     network_node_termination_point_dict_buffer["tpId"]["value"] = element_text
             for supporting_termination_point in termination_point.findall(".//{urn:ietf:params:xml:ns:yang:ietf-network-topology}supporting-termination-point"):
                 network_node_termination_point_supporting_termination_point_dict_buffer = {}
-                network_node_termination_point_supporting_termination_point_dict_buffer["id"] = "urn:ngsi-ld:NetworkNodeTerminationPointSupportingTerminationPoint:" + network_node_termination_point_dict_buffer["id"].split(":")[-1]
+                network_node_termination_point_supporting_termination_point_dict_buffer["id"] = "urn:ngsi-ld:NetworkNodeTerminationPointSupportingTerminationPoint:" + network_node_termination_point_dict_buffer["id"].split(":")[-1] + ":"
                 network_node_termination_point_supporting_termination_point_dict_buffer["type"] = "NetworkNodeTerminationPointSupportingTerminationPoint"
                 network_node_termination_point_supporting_termination_point_dict_buffer["isPartOf"] = {}
                 network_node_termination_point_supporting_termination_point_dict_buffer["isPartOf"]["type"] = "Relationship"
                 network_node_termination_point_supporting_termination_point_dict_buffer["isPartOf"]["object"] = network_node_termination_point_dict_buffer["id"]
-                networkRef = supporting_termination_point.find(".//{urn:ietf:params:xml:ns:yang:ietf-network-topology}network-ref")
-                if networkRef is not None:
-                    element_text = networkRef.text
-                    if element_text is not None:
-                        network_node_termination_point_supporting_termination_point_dict_buffer["networkRef"] = {}
-                        network_node_termination_point_supporting_termination_point_dict_buffer["networkRef"]["type"] = "Relationship"
-                        network_node_termination_point_supporting_termination_point_dict_buffer["networkRef"]["object"] = "urn:ngsi-ld:Supporting_termination_point:" + element_text
-                nodeRef = supporting_termination_point.find(".//{urn:ietf:params:xml:ns:yang:ietf-network-topology}node-ref")
-                if nodeRef is not None:
-                    element_text = nodeRef.text
-                    if element_text is not None:
-                        network_node_termination_point_supporting_termination_point_dict_buffer["nodeRef"] = {}
-                        network_node_termination_point_supporting_termination_point_dict_buffer["nodeRef"]["type"] = "Relationship"
-                        network_node_termination_point_supporting_termination_point_dict_buffer["nodeRef"]["object"] = "urn:ngsi-ld:Supporting_termination_point:" + element_text
-                tpRef = supporting_termination_point.find(".//{urn:ietf:params:xml:ns:yang:ietf-network-topology}tp-ref")
-                if tpRef is not None:
-                    element_text = tpRef.text
-                    if element_text is not None:
-                        network_node_termination_point_supporting_termination_point_dict_buffer["tpRef"] = {}
-                        network_node_termination_point_supporting_termination_point_dict_buffer["tpRef"]["type"] = "Relationship"
-                        network_node_termination_point_supporting_termination_point_dict_buffer["tpRef"]["object"] = "urn:ngsi-ld:Supporting_termination_point:" + element_text
                 dict_buffers.append(network_node_termination_point_supporting_termination_point_dict_buffer)
             dict_buffers.append(network_node_termination_point_dict_buffer)
         dict_buffers.append(network_node_dict_buffer)
     for link in network.findall(".//{urn:ietf:params:xml:ns:yang:ietf-network-topology}link"):
         network_link_dict_buffer = {}
-        network_link_dict_buffer["id"] = "urn:ngsi-ld:NetworkLink:" + network_dict_buffer["id"].split(":")[-1]
+        network_link_dict_buffer["id"] = "urn:ngsi-ld:NetworkLink:" + network_dict_buffer["id"].split(":")[-1] + ":"
         network_link_dict_buffer["type"] = "NetworkLink"
         network_link_dict_buffer["isPartOf"] = {}
         network_link_dict_buffer["isPartOf"]["type"] = "Relationship"
@@ -134,71 +93,29 @@ for network in root.findall(".//{urn:ietf:params:xml:ns:yang:ietf-network}networ
                 network_link_dict_buffer["linkId"]["value"] = element_text
         for source in link.findall(".//{urn:ietf:params:xml:ns:yang:ietf-network-topology}source"):
             network_link_source_dict_buffer = {}
-            network_link_source_dict_buffer["id"] = "urn:ngsi-ld:NetworkLinkSource:" + network_link_dict_buffer["id"].split(":")[-1]
+            network_link_source_dict_buffer["id"] = "urn:ngsi-ld:NetworkLinkSource:" + network_link_dict_buffer["id"].split(":")[-1] + ":"
             network_link_source_dict_buffer["type"] = "NetworkLinkSource"
             network_link_source_dict_buffer["isPartOf"] = {}
             network_link_source_dict_buffer["isPartOf"]["type"] = "Relationship"
             network_link_source_dict_buffer["isPartOf"]["object"] = network_link_dict_buffer["id"]
-            sourceNode = source.find(".//{urn:ietf:params:xml:ns:yang:ietf-network-topology}source-node")
-            if sourceNode is not None:
-                element_text = sourceNode.text
-                if element_text is not None:
-                    network_link_source_dict_buffer["sourceNode"] = {}
-                    network_link_source_dict_buffer["sourceNode"]["type"] = "Relationship"
-                    network_link_source_dict_buffer["sourceNode"]["object"] = "urn:ngsi-ld:Source:" + element_text
-            sourceTp = source.find(".//{urn:ietf:params:xml:ns:yang:ietf-network-topology}source-tp")
-            if sourceTp is not None:
-                element_text = sourceTp.text
-                if element_text is not None:
-                    network_link_source_dict_buffer["sourceTp"] = {}
-                    network_link_source_dict_buffer["sourceTp"]["type"] = "Relationship"
-                    network_link_source_dict_buffer["sourceTp"]["object"] = "urn:ngsi-ld:Source:" + element_text
             dict_buffers.append(network_link_source_dict_buffer)
         for destination in link.findall(".//{urn:ietf:params:xml:ns:yang:ietf-network-topology}destination"):
             network_link_destination_dict_buffer = {}
-            network_link_destination_dict_buffer["id"] = "urn:ngsi-ld:NetworkLinkDestination:" + network_link_dict_buffer["id"].split(":")[-1]
+            network_link_destination_dict_buffer["id"] = "urn:ngsi-ld:NetworkLinkDestination:" + network_link_dict_buffer["id"].split(":")[-1] + ":"
             network_link_destination_dict_buffer["type"] = "NetworkLinkDestination"
             network_link_destination_dict_buffer["isPartOf"] = {}
             network_link_destination_dict_buffer["isPartOf"]["type"] = "Relationship"
             network_link_destination_dict_buffer["isPartOf"]["object"] = network_link_dict_buffer["id"]
-            destNode = destination.find(".//{urn:ietf:params:xml:ns:yang:ietf-network-topology}dest-node")
-            if destNode is not None:
-                element_text = destNode.text
-                if element_text is not None:
-                    network_link_destination_dict_buffer["destNode"] = {}
-                    network_link_destination_dict_buffer["destNode"]["type"] = "Relationship"
-                    network_link_destination_dict_buffer["destNode"]["object"] = "urn:ngsi-ld:Destination:" + element_text
-            destTp = destination.find(".//{urn:ietf:params:xml:ns:yang:ietf-network-topology}dest-tp")
-            if destTp is not None:
-                element_text = destTp.text
-                if element_text is not None:
-                    network_link_destination_dict_buffer["destTp"] = {}
-                    network_link_destination_dict_buffer["destTp"]["type"] = "Relationship"
-                    network_link_destination_dict_buffer["destTp"]["object"] = "urn:ngsi-ld:Destination:" + element_text
             dict_buffers.append(network_link_destination_dict_buffer)
         for supporting_link in link.findall(".//{urn:ietf:params:xml:ns:yang:ietf-network-topology}supporting-link"):
             network_link_supporting_link_dict_buffer = {}
-            network_link_supporting_link_dict_buffer["id"] = "urn:ngsi-ld:NetworkLinkSupportingLink:" + network_link_dict_buffer["id"].split(":")[-1]
+            network_link_supporting_link_dict_buffer["id"] = "urn:ngsi-ld:NetworkLinkSupportingLink:" + network_link_dict_buffer["id"].split(":")[-1] + ":"
             network_link_supporting_link_dict_buffer["type"] = "NetworkLinkSupportingLink"
             network_link_supporting_link_dict_buffer["isPartOf"] = {}
             network_link_supporting_link_dict_buffer["isPartOf"]["type"] = "Relationship"
             network_link_supporting_link_dict_buffer["isPartOf"]["object"] = network_link_dict_buffer["id"]
-            networkRef = supporting_link.find(".//{urn:ietf:params:xml:ns:yang:ietf-network-topology}network-ref")
-            if networkRef is not None:
-                element_text = networkRef.text
-                if element_text is not None:
-                    network_link_supporting_link_dict_buffer["networkRef"] = {}
-                    network_link_supporting_link_dict_buffer["networkRef"]["type"] = "Relationship"
-                    network_link_supporting_link_dict_buffer["networkRef"]["object"] = "urn:ngsi-ld:Supporting_link:" + element_text
-            linkRef = supporting_link.find(".//{urn:ietf:params:xml:ns:yang:ietf-network-topology}link-ref")
-            if linkRef is not None:
-                element_text = linkRef.text
-                if element_text is not None:
-                    network_link_supporting_link_dict_buffer["linkRef"] = {}
-                    network_link_supporting_link_dict_buffer["linkRef"]["type"] = "Relationship"
-                    network_link_supporting_link_dict_buffer["linkRef"]["object"] = "urn:ngsi-ld:Supporting_link:" + element_text
             dict_buffers.append(network_link_supporting_link_dict_buffer)
         dict_buffers.append(network_link_dict_buffer)
     dict_buffers.append(network_dict_buffer)
 
-print(dict_buffers[::-1])
+print(json.dumps(dict_buffers[::-1], indent=4))
