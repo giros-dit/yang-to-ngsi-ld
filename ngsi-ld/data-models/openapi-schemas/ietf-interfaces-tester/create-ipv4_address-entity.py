@@ -7,7 +7,7 @@ import pdb
 
 import ngsi_ld_client
 
-from ngsi_ld_models.models.ipv4_address import Ipv4Address
+from ngsi_ld_models.models.interface_ipv4_address import InterfaceIpv4Address
 from ngsi_ld_client.models.entity import Entity
 from ngsi_ld_client.models.query_entity200_response_inner import QueryEntity200ResponseInner
 
@@ -46,10 +46,10 @@ ngsi_ld.set_default_header(
     header_value="application/json"
 )
 
-ipv4_address = Ipv4Address(
-    id="urn:ngsi-ld:Ipv4Address:GigabitEthernet0.3.7",
-    type="Ipv4Address",
-    isPartOf={"type": "Relationship", "object": "urn:ngsi-ld:Ipv4:GigabitEthernet0.3.7"},
+ipv4_address = InterfaceIpv4Address(
+    id="urn:ngsi-ld:InterfaceIpv4Address:GigabitEthernet0.3.7",
+    type="InterfaceIpv4Address",
+    isPartOf={"type": "Relationship", "object": "urn:ngsi-ld:InterfaceIpv4:GigabitEthernet0.3.7"},
     ip={"type": "Property", "value": "11.40.1.11"},
     netmask={"type": "Property", "value": "255.255.255.0"},
     origin={"type": "Property", "value": "static"}
@@ -59,7 +59,7 @@ api_instance = ngsi_ld_client.ContextInformationProvisionApi(ngsi_ld)
 
 entity_input = ipv4_address.to_dict()
 
-logger.info("Ipv4Address object representation: %s\n" % entity_input)
+logger.info("InterfaceIpv4Address object representation: %s\n" % entity_input)
 
 logger.info("Entity object representation: %s\n" % Entity.from_dict(entity_input))
 

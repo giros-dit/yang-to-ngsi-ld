@@ -7,7 +7,7 @@ import pdb
 
 import ngsi_ld_client
 
-from ngsi_ld_models.models.ipv6_address import Ipv6Address
+from ngsi_ld_models.models.interface_ipv6_address import InterfaceIpv6Address
 from ngsi_ld_client.models.entity import Entity
 from ngsi_ld_client.models.query_entity200_response_inner import QueryEntity200ResponseInner
 
@@ -46,10 +46,10 @@ ngsi_ld.set_default_header(
     header_value="application/json"
 )
 
-ipv6_address = Ipv6Address(
-    id="urn:ngsi-ld:Ipv6Address:GigabitEthernet0.3.7",
-    type="Ipv6Address",
-    isPartOf={"type": "Relationship", "object": "urn:ngsi-ld:Ipv6:GigabitEthernet0.3.7"},
+ipv6_address = InterfaceIpv6Address(
+    id="urn:ngsi-ld:InterfaceIpv6Address:GigabitEthernet0.3.7",
+    type="InterfaceIpv6Address",
+    isPartOf={"type": "Relationship", "object": "urn:ngsi-ld:InterfaceIpv6:GigabitEthernet0.3.7"},
     ip={"type": "Property", "value": "2001:db8:3333:4444:5555:6666:7777:8888"},
     prefixLength={"type": "Property", "value": 128},
     origin={"type": "Property", "value": "static"},
@@ -60,7 +60,7 @@ api_instance = ngsi_ld_client.ContextInformationProvisionApi(ngsi_ld)
 
 entity_input = ipv6_address.to_dict()
 
-logger.info("Ipv6Address object representation: %s\n" % entity_input)
+logger.info("InterfaceIpv6Address object representation: %s\n" % entity_input)
 
 logger.info("Entity object representation: %s\n" % Entity.from_dict(entity_input))
 

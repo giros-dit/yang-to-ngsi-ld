@@ -7,7 +7,7 @@ import pdb
 
 import ngsi_ld_client
 
-from ngsi_ld_models.models.ipv6_autoconf import Ipv6Autoconf
+from ngsi_ld_models.models.interface_ipv6_autoconf import InterfaceIpv6Autoconf
 from ngsi_ld_client.models.entity import Entity
 from ngsi_ld_client.models.query_entity200_response_inner import QueryEntity200ResponseInner
 
@@ -46,10 +46,10 @@ ngsi_ld.set_default_header(
     header_value="application/json"
 )
 
-ipv6_autoconf = Ipv6Autoconf(
-    id="urn:ngsi-ld:Ipv6Autoconf:GigabitEthernet0.3.7",
-    type="Ipv6Autoconf",
-    isPartOf={"type": "Relationship", "object": "urn:ngsi-ld:Ipv6:GigabitEthernet0.3.7"},
+ipv6_autoconf = InterfaceIpv6Autoconf(
+    id="urn:ngsi-ld:InterfaceIpv6Autoconf:GigabitEthernet0.3.7",
+    type="InterfaceIpv6Autoconf",
+    isPartOf={"type": "Relationship", "object": "urn:ngsi-ld:InterfaceIpv6:GigabitEthernet0.3.7"},
     createGlobalAddresses={"type": "Property", "value": True},
     createTemporaryAddresses={"type": "Property", "value": False},
     temporaryValidLifeTime={"type": "Property", "value": 604800},
@@ -60,7 +60,7 @@ api_instance = ngsi_ld_client.ContextInformationProvisionApi(ngsi_ld)
 
 entity_input = ipv6_autoconf.to_dict()
 
-logger.info("Ipv6Autoconf object representation: %s\n" % entity_input)
+logger.info("InterfaceIpv6Autoconf object representation: %s\n" % entity_input)
 
 logger.info("Entity object representation: %s\n" % Entity.from_dict(entity_input))
 

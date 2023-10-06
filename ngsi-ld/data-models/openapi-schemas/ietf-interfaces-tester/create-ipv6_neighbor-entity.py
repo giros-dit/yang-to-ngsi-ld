@@ -7,7 +7,7 @@ import pdb
 
 import ngsi_ld_client
 
-from ngsi_ld_models.models.ipv6_neighbor import Ipv6Neighbor
+from ngsi_ld_models.models.interface_ipv6_neighbor import InterfaceIpv6Neighbor
 from ngsi_ld_client.models.entity import Entity
 from ngsi_ld_client.models.query_entity200_response_inner import QueryEntity200ResponseInner
 
@@ -46,10 +46,10 @@ ngsi_ld.set_default_header(
     header_value="application/json"
 )
 
-ipv6_neighbor = Ipv6Neighbor(
-    id="urn:ngsi-ld:Ipv6Neighbor:GigabitEthernet0.3.7:2001:db8:3333:4444:CCCC:DDDD:EEEE:FFFF",
-    type="Ipv6Neighbor",
-    isPartOf={"type": "Relationship", "object": "urn:ngsi-ld:Ipv6:GigabitEthernet0.3.7"},
+ipv6_neighbor = InterfaceIpv6Neighbor(
+    id="urn:ngsi-ld:InterfaceIpv6Neighbor:GigabitEthernet0.3.7:2001:db8:3333:4444:CCCC:DDDD:EEEE:FFFF",
+    type="InterfaceIpv6Neighbor",
+    isPartOf={"type": "Relationship", "object": "urn:ngsi-ld:InterfaceIpv6:GigabitEthernet0.3.7"},
     ip={"type": "Property", "value": "2001:db8:3333:4444:CCCC:DDDD:EEEE:FFFF"},
     linkLayerAddress={"type": "Property", "value": "3C:15:FB:E7:04:78"},
     origin={"type": "Property", "value": "other"},
@@ -61,7 +61,7 @@ api_instance = ngsi_ld_client.ContextInformationProvisionApi(ngsi_ld)
 
 entity_input = ipv6_neighbor.to_dict()
 
-logger.info("Ipv6Neighbor object representation: %s\n" % entity_input)
+logger.info("InterfaceIpv6Neighbor object representation: %s\n" % entity_input)
 
 logger.info("Entity object representation: %s\n" % Entity.from_dict(entity_input))
 

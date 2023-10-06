@@ -7,11 +7,11 @@ import pdb
 
 import ngsi_ld_client
 from ngsi_ld_models.models.network import Network
-from ngsi_ld_models.models.node import Node
-from ngsi_ld_models.models.link import Link
-from ngsi_ld_models.models.source import Source
-from ngsi_ld_models.models.destination import Destination
-from ngsi_ld_models.models.termination_point import TerminationPoint
+from ngsi_ld_models.models.network_node import NetworkNode
+from ngsi_ld_models.models.network_link import NetworkLink
+from ngsi_ld_models.models.network_link_source import NetworkLinkSource
+from ngsi_ld_models.models.network_link_destination import NetworkLinkDestination
+from ngsi_ld_models.models.network_node_termination_point import NetworkNodeTerminationPoint
 from ngsi_ld_client.models.entity import Entity
 from ngsi_ld_client.models.query_entity200_response_inner import QueryEntity200ResponseInner
 
@@ -58,55 +58,55 @@ network = Network(
     networkId={"type":"Property", "value": "telemetry-testbed-l3-topology"}
 )
 
-node1 = Node(
-    id="urn:ngsi-ld:Node:telemetry-testbed-l3-topology:pc11",
-    type="Node",
+node1 = NetworkNode(
+    id="urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc11",
+    type="NetworkNode",
     nodeId={"type":"Property", "value": "pc11"},
     isPartOf={"type": "Relationship", "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"}
 )
 
-termination_point1 = TerminationPoint(
-    id="urn:ngsi-ld:TerminationPoint:telemetry-testbed-l3-topology:pc11:eth1",
-    type="TerminationPoint",
+termination_point1 = NetworkNodeTerminationPoint(
+    id="urn:ngsi-ld:NetworkNodeTerminationPoint:pc11:eth1",
+    type="NetworkNodeTerminationPoint",
     tpId={"type":"Property", "value": "eth1"},
-    isPartOf={"type": "Relationship", "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:pc11"}
+    isPartOf={"type": "Relationship", "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc11"}
 )
 
-node2 = Node(
-    id="urn:ngsi-ld:Node:telemetry-testbed-l3-topology:s1",
+node2 = NetworkNode(
+    id="urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s1",
     type="Node",
     nodeId={"type":"Property", "value": "s1"},
     isPartOf={"type": "Relationship", "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"}
 )
 
-termination_point2 = TerminationPoint(
-    id="urn:ngsi-ld:TerminationPoint:telemetry-testbed-l3-topology:s1:eth1",
-    type="TerminationPoint",
+termination_point2 = NetworkNodeTerminationPoint(
+    id="urn:ngsi-ld:NetworkNodeTerminationPoint:s1:eth1",
+    type="NetworkNodeTerminationPoint",
     tpId={"type":"Property", "value": "eth1"},
-    isPartOf={"type": "Relationship", "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:s1"}
+    isPartOf={"type": "Relationship", "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s1"}
 )
 
-link = Link(
-    id="urn:ngsi-ld:Link:telemetry-testbed-l3-topology:pc11-eth1-s1-eth1",
-    type="Link",
+link = NetworkLink(
+    id="urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:pc11-eth1-s1-eth1",
+    type="NetworkLink",
     linkId={"type":"Property", "value": "pc11-eth1-s1-eth1"},
     isPartOf={"type": "Relationship", "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"}    
 )
 
-source = Source(
-    id="urn:ngsi-ld:Source:telemetry-testbed-l3-topology:pc11-eth1-s1-eth1",
-    type="Source",
-    sourceNode={"type": "Relationship", "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:pc11"},
-    sourceTp={"type": "Relationship", "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:pc11:eth1"},
-    isPartOf={"type": "Relationship", "object": "urn:ngsi-ld:Link:telemetry-testbed-l3-topology:pc11-eth1-s1-eth1"}    
+source = NetworkLinkSource(
+    id="urn:ngsi-ld:NetworkLinkSource:pc11-eth1-s1-eth1:",
+    type="NetworkLinkSource",
+    sourceNode={"type": "Relationship", "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc11"},
+    sourceTp={"type": "Relationship", "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc11:eth1"},
+    isPartOf={"type": "Relationship", "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:pc11-eth1-s1-eth1"}    
 )
 
-destination = Destination(
-    id="urn:ngsi-ld:Destination:telemetry-testbed-l3-topology:pc11-eth1-s1-eth1",
-    type="Destination",
-    destNode={"type": "Relationship", "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:s1"},
-    destTp={"type": "Relationship", "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:s1:eth1"},
-    isPartOf={"type": "Relationship", "object": "urn:ngsi-ld:Link:telemetry-testbed-l3-topology:pc11-eth1-s1-eth1"}    
+destination = NetworkLinkDestination(
+    id="urn:ngsi-ld:NetworkLinkDestination:pc11-eth1-s1-eth1:",
+    type="NetworkLinkDestination",
+    destNode={"type": "Relationship", "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s1"},
+    destTp={"type": "Relationship", "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s1:eth1"},
+    isPartOf={"type": "Relationship", "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:pc11-eth1-s1-eth1"}    
 )
 
 api_instance = ngsi_ld_client.ContextInformationProvisionApi(ngsi_ld)
@@ -123,63 +123,63 @@ entities_input.append(QueryEntity200ResponseInner.from_dict(network_entity_input
 
 node1_entity_input = node1.to_dict()
 
-logger.info("Node object representation: %s\n" % node1_entity_input)
+logger.info("NetworkNode object representation: %s\n" % node1_entity_input)
 
-logger.info("Entity object representation for Node object: %s\n" % Entity.from_dict(node1_entity_input))
+logger.info("Entity object representation for NetowrNode object: %s\n" % Entity.from_dict(node1_entity_input))
 
 entities_input.append(QueryEntity200ResponseInner.from_dict(node1_entity_input))
 
 
 node2_entity_input = node2.to_dict()
 
-logger.info("Node object representation: %s\n" % node2_entity_input)
+logger.info("NetworkNode object representation: %s\n" % node2_entity_input)
 
-logger.info("Entity object representation for Node object: %s\n" % Entity.from_dict(node2_entity_input))
+logger.info("Entity object representation for NetworkNode object: %s\n" % Entity.from_dict(node2_entity_input))
 
 entities_input.append(QueryEntity200ResponseInner.from_dict(node2_entity_input))
 
 
 tp1_entity_input = termination_point1.to_dict()
 
-logger.info("TerminationPoint object representation: %s\n" % tp1_entity_input)
+logger.info("NetworkNodeTerminationPoint object representation: %s\n" % tp1_entity_input)
 
-logger.info("Entity object representation for TerminationPoint object: %s\n" % Entity.from_dict(tp1_entity_input))
+logger.info("Entity object representation for NetworkNodeTerminationPoint object: %s\n" % Entity.from_dict(tp1_entity_input))
 
 entities_input.append(QueryEntity200ResponseInner.from_dict(tp1_entity_input))
 
 
 tp2_entity_input = termination_point2.to_dict()
 
-logger.info("TerminationPoint object representation: %s\n" % tp2_entity_input)
+logger.info("NetworkNodeTerminationPoint object representation: %s\n" % tp2_entity_input)
 
-logger.info("Entity object representation for TerminationPoint object: %s\n" % Entity.from_dict(tp2_entity_input))
+logger.info("Entity object representation for NetworkNodeTerminationPoint object: %s\n" % Entity.from_dict(tp2_entity_input))
 
 entities_input.append(QueryEntity200ResponseInner.from_dict(tp2_entity_input))
 
 
 link_entity_input = link.to_dict()
 
-logger.info("Link object representation: %s\n" % link_entity_input)
+logger.info("NetworkLink object representation: %s\n" % link_entity_input)
 
-logger.info("Entity object representation for Link object: %s\n" % Entity.from_dict(link_entity_input))
+logger.info("Entity object representation for NetworkLink object: %s\n" % Entity.from_dict(link_entity_input))
 
 entities_input.append(QueryEntity200ResponseInner.from_dict(link_entity_input))
 
 
 source_entity_input = source.to_dict()
 
-logger.info("Source object representation: %s\n" % source_entity_input)
+logger.info("NetworkLinkSource object representation: %s\n" % source_entity_input)
 
-logger.info("Entity object representation for Source object: %s\n" % Entity.from_dict(source_entity_input))
+logger.info("Entity object representation for NetworkLinkSource object: %s\n" % Entity.from_dict(source_entity_input))
 
 entities_input.append(QueryEntity200ResponseInner.from_dict(source_entity_input))
 
 
 destination_entity_input = destination.to_dict()
 
-logger.info("Destination object representation: %s\n" % destination_entity_input)
+logger.info("NetworkLinkDestination object representation: %s\n" % destination_entity_input)
 
-logger.info("Entity object representation for Destination object: %s\n" % Entity.from_dict(destination_entity_input))
+logger.info("Entity object representation for NetworkLinkDestination object: %s\n" % Entity.from_dict(destination_entity_input))
 
 entities_input.append(QueryEntity200ResponseInner.from_dict(destination_entity_input))
 

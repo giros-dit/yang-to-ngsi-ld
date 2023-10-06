@@ -19,30 +19,28 @@ import json
 
 from datetime import datetime
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, StrictStr, field_validator
 from pydantic import Field
-from ngsi_ld_models.models.property_previous_value import PropertyPreviousValue
 from typing import Dict, Any
 try:
     from typing import Self
 except ImportError:
     from typing_extensions import Self
 
-class DupAddrDetectTransmits(BaseModel):
+class NodeRef(BaseModel):
     """
-    NGSI-LD Property Type. The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address  Detection on a tentative address.  A value of zero indicates that  Duplicate Address Detection is not performed on tentative  addresses. A value of one indicates a single transmission with no follow-up retransmissions.   # noqa: E501
+    NGSI-LD Relationship Type. References the underlay node itself. Also, it could identify in which node  a supporting termination point is present.   # noqa: E501
     """
-    type: Optional[StrictStr] = Field(default='Property', description="Node type. ")
-    value: StrictInt
+    type: Optional[StrictStr] = Field(default='Relationship', description="Node type. ")
+    object: StrictStr
     observed_at: Optional[datetime] = Field(default=None, description="Is defined as the temporal Property at which a certain Property or Relationship became valid or was observed. For example, a temperature Value was measured by the sensor at this point in time. ", alias="observedAt")
-    unit_code: Optional[StrictStr] = Field(default=None, description="Property Value's unit code. ", alias="unitCode")
-    dataset_id: Optional[StrictStr] = Field(default=None, description="It allows identifying a set or group of property values. ", alias="datasetId")
+    dataset_id: Optional[StrictStr] = Field(default=None, description="It allows identifying a set or group of target relationship objects. ", alias="datasetId")
     created_at: Optional[datetime] = Field(default=None, description="Is defined as the temporal Property at which the Entity, Property or Relationship was entered into an NGSI-LD system. ", alias="createdAt")
     modified_at: Optional[datetime] = Field(default=None, description="Is defined as the temporal Property at which the Entity, Property or Relationship was last modified in an NGSI-LD system, e.g. in order to correct a previously entered incorrect value. ", alias="modifiedAt")
     deleted_at: Optional[datetime] = Field(default=None, description="Is defined as the temporal Property at which the Entity, Property or Relationship was deleted from an NGSI-LD system.  Entity deletion timestamp. See clause 4.8 It is only used in notifications reporting deletions and in the Temporal Representation of Entities (clause 4.5.6), Properties (clause 4.5.7), Relationships (clause 4.5.8) and LanguageProperties (clause 5.2.32). ", alias="deletedAt")
-    instance_id: Optional[StrictStr] = Field(default=None, description="A URI uniquely identifying a Property instance, as mandated by (see clause 4.5.7). System generated. ", alias="instanceId")
-    previous_value: Optional[PropertyPreviousValue] = Field(default=None, alias="previousValue")
-    __properties: ClassVar[List[str]] = ["type", "value", "observedAt", "unitCode", "datasetId", "createdAt", "modifiedAt", "deletedAt", "instanceId", "previousValue"]
+    instance_id: Optional[StrictStr] = Field(default=None, description="A URI uniquely identifying a Relationship instance (see clause 4.5.8). System generated. ", alias="instanceId")
+    previous_object: Optional[StrictStr] = Field(default=None, description="Previous Relationship's target object. Only used in notifications. ", alias="previousObject")
+    __properties: ClassVar[List[str]] = ["type", "object", "observedAt", "datasetId", "createdAt", "modifiedAt", "deletedAt", "instanceId", "previousObject"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -50,8 +48,8 @@ class DupAddrDetectTransmits(BaseModel):
         if value is None:
             return value
 
-        if value not in ('Property', 'Relationship', 'GeoProperty', 'LanguageProperty'):
-            raise ValueError("must be one of enum values ('Property', 'Relationship', 'GeoProperty', 'LanguageProperty')")
+        if value not in ('Relationship'):
+            raise ValueError("must be one of enum values ('Relationship')")
         return value
 
     model_config = {
@@ -71,7 +69,7 @@ class DupAddrDetectTransmits(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
-        """Create an instance of DupAddrDetectTransmits from a JSON string"""
+        """Create an instance of NodeRef from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
@@ -82,16 +80,14 @@ class DupAddrDetectTransmits(BaseModel):
                             "modified_at",
                             "deleted_at",
                             "instance_id",
+                            "previous_object",
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of previous_value
-        if self.previous_value:
-            _dict['previousValue'] = self.previous_value.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: dict) -> Self:
-        """Create an instance of DupAddrDetectTransmits from a dict"""
+        """Create an instance of NodeRef from a dict"""
         if obj is None:
             return None
 
@@ -101,19 +97,18 @@ class DupAddrDetectTransmits(BaseModel):
         # raise errors for additional fields in the input
         for _key in obj.keys():
             if _key not in cls.__properties:
-                raise ValueError("Error due to additional fields (not defined in DupAddrDetectTransmits) in the input: " + _key)
+                raise ValueError("Error due to additional fields (not defined in NodeRef) in the input: " + _key)
 
         _obj = cls.model_validate({
-            "type": obj.get("type") if obj.get("type") is not None else 'Property',
-            "value": obj.get("value") if obj.get("value") is not None else 1,
+            "type": obj.get("type") if obj.get("type") is not None else 'Relationship',
+            "object": obj.get("object"),
             "observedAt": obj.get("observedAt"),
-            "unitCode": obj.get("unitCode"),
             "datasetId": obj.get("datasetId"),
             "createdAt": obj.get("createdAt"),
             "modifiedAt": obj.get("modifiedAt"),
             "deletedAt": obj.get("deletedAt"),
             "instanceId": obj.get("instanceId"),
-            "previousValue": PropertyPreviousValue.from_dict(obj.get("previousValue")) if obj.get("previousValue") is not None else None
+            "previousObject": obj.get("previousObject")
         })
         return _obj
 

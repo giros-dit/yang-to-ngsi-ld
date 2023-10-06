@@ -7,7 +7,7 @@ import pdb
 
 import ngsi_ld_client
 
-from ngsi_ld_models.models.ipv4_neighbor import Ipv4Neighbor
+from ngsi_ld_models.models.interface_ipv4_neighbor import InterfaceIpv4Neighbor
 from ngsi_ld_client.models.entity import Entity
 from ngsi_ld_client.models.query_entity200_response_inner import QueryEntity200ResponseInner
 
@@ -46,10 +46,10 @@ ngsi_ld.set_default_header(
     header_value="application/json"
 )
 
-ipv4_neighbor = Ipv4Neighbor(
-    id="urn:ngsi-ld:Ipv4Neighbor:GigabitEthernet0.3.7:11.40.1.12",
-    type="Ipv4Neighbor",
-    isPartOf={"type": "Relationship", "object": "urn:ngsi-ld:Ipv4:GigabitEthernet0.3.7"},
+ipv4_neighbor = InterfaceIpv4Neighbor(
+    id="urn:ngsi-ld:InterfaceIpv4Neighbor:GigabitEthernet0.3.7:11.40.1.12",
+    type="InterfaceIpv4Neighbor",
+    isPartOf={"type": "Relationship", "object": "urn:ngsi-ld:InterfaceIpv4:GigabitEthernet0.3.7"},
     ip={"type": "Property", "value": "11.40.1.12"},
     linkLayerAddress={"type": "Property", "value": "3C:15:FB:E7:04:78"},
     origin={"type": "Property", "value": "other"}
@@ -59,7 +59,7 @@ api_instance = ngsi_ld_client.ContextInformationProvisionApi(ngsi_ld)
 
 entity_input = ipv4_neighbor.to_dict()
 
-logger.info("Ipv4Neighbor object representation: %s\n" % entity_input)
+logger.info("InterfaceIpv4Neighbor object representation: %s\n" % entity_input)
 
 logger.info("Entity object representation: %s\n" % Entity.from_dict(entity_input))
 

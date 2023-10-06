@@ -7,7 +7,7 @@ import pdb
 
 import ngsi_ld_client
 
-from ngsi_ld_models.models.ipv4 import Ipv4
+from ngsi_ld_models.models.interface_ipv4 import InterfaceIpv4
 from ngsi_ld_client.models.entity import Entity
 from ngsi_ld_client.models.query_entity200_response_inner import QueryEntity200ResponseInner
 
@@ -46,9 +46,9 @@ ngsi_ld.set_default_header(
     header_value="application/json"
 )
 
-ipv4 = Ipv4(
-    id="urn:ngsi-ld:Ipv4:GigabitEthernet0.3.7",
-    type="Ipv4",
+ipv4 = InterfaceIpv4(
+    id="urn:ngsi-ld:InterfaceIpv4:GigabitEthernet0.3.7",
+    type="InterfaceIpv4",
     isPartOf={"type": "Relationship", "object": "urn:ngsi-ld:Interface:GigabitEthernet0.3.7"},
     enabled={"type": "Property", "value": True},
     forwarding={"type": "Property", "value": True},
@@ -59,7 +59,7 @@ api_instance = ngsi_ld_client.ContextInformationProvisionApi(ngsi_ld)
 
 entity_input = ipv4.to_dict()
 
-logger.info("Ipv4 object representation: %s\n" % entity_input)
+logger.info("InterfaceIpv4 object representation: %s\n" % entity_input)
 
 logger.info("Entity object representation: %s\n" % Entity.from_dict(entity_input))
 

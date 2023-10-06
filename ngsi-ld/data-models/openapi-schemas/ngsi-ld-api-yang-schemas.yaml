@@ -5570,7 +5570,7 @@ components:
             - value
       additionalProperties: false
     #Custom schemas for ietf-ip YANG model
-    Ipv4:
+    InterfaceIpv4:
       description: |
         NGSI-LD Entity Type that represents the IPv4 parameters on interfaces of a YANG model-based network device.
       allOf:
@@ -5578,11 +5578,11 @@ components:
         - type: object
           properties:
             type:
-              description: NGSI-LD Entity identifier. It has to be Ipv4.
+              description: NGSI-LD Entity identifier. It has to be InterfaceIpv4.
               type: string
               enum:
-                - Ipv4
-              default: Ipv4
+                - InterfaceIpv4
+              default: InterfaceIpv4
             enabled:
               $ref: '#/components/schemas/IpEnabled'
             forwarding:
@@ -5593,7 +5593,7 @@ components:
               $ref: "#/components/schemas/IsPartOf"
         - required:
             - isPartOf
-    Ipv4Address:
+    InterfaceIpv4Address:
       description: |
         NGSI-LD Entity Type that represents the IPv4 address on interfaces of a YANG model-based network device.
       allOf:
@@ -5601,11 +5601,11 @@ components:
         - type: object
           properties:
             type:
-              description: NGSI-LD Entity identifier. It has to be Ipv4Address.
+              description: NGSI-LD Entity identifier. It has to be InterfaceIpv4Address.
               type: string
               enum:
-                - Ipv4Address
-              default: Ipv4Address
+                - InterfaceIpv4Address
+              default: InterfaceIpv4Address
             ip:
               $ref: '#/components/schemas/Ipv4Ip'
             prefixLength:
@@ -5618,7 +5618,7 @@ components:
               $ref: "#/components/schemas/IsPartOf"
         - required:
             - isPartOf
-    Ipv4Neighbor:
+    InterfaceIpv4Neighbor:
       description: |
         NGSI-LD Entity Type that represents a list of mappings from IPv4 addresses to link-layer addresses.
         Entries in this list in the intended configuration are used as static entries in the ARP Cache.
@@ -5628,11 +5628,11 @@ components:
         - type: object
           properties:
             type:
-              description: NGSI-LD Entity identifier. It has to be Ipv4Neighbor.
+              description: NGSI-LD Entity identifier. It has to be InterfaceIpv4Neighbor.
               type: string
               enum:
-                - Ipv4Neighbor
-              default: Ipv4Neighbor
+                - InterfaceIpv4Neighbor
+              default: InterfaceIpv4Neighbor
             ip:
               $ref: '#/components/schemas/Ipv4Ip'
             linkLayerAddress:
@@ -5646,7 +5646,7 @@ components:
             - linkLayerAddress
             - origin
             - isPartOf
-    Ipv6:
+    InterfaceIpv6:
       description: |
         NGSI-LD Entity Type that represents the IPv6 parameters on interfaces of a YANG model-based network device.
       allOf:
@@ -5654,11 +5654,11 @@ components:
         - type: object
           properties:
             type:
-              description: NGSI-LD Entity identifier. It has to be Ipv6.
+              description: NGSI-LD Entity identifier. It has to be InterfaceIpv6.
               type: string
               enum:
-                - Ipv6
-              default: Ipv6
+                - InterfaceIpv6
+              default: InterfaceIpv6
             enabled:
               $ref: '#/components/schemas/IpEnabled'
             forwarding:
@@ -5674,7 +5674,7 @@ components:
         - required:
             - ip
             - isPartOf
-    Ipv6Address:
+    InterfaceIpv6Address:
       description: |
         NGSI-LD Entity Type that represents the IPv6 address on interfaces of a YANG model-based network device.
       allOf:
@@ -5682,11 +5682,11 @@ components:
         - type: object
           properties:
             type:
-              description: NGSI-LD Entity identifier. It has to be Ipv6Address.
+              description: NGSI-LD Entity identifier. It has to be InterfaceIpv6Address.
               type: string
               enum:
-                - Ipv6Address
-              default: Ipv6Address
+                - InterfaceIpv6Address
+              default: InterfaceIpv6Address
             ip:
               $ref: '#/components/schemas/Ipv6Ip'
             prefixLength:
@@ -5700,7 +5700,7 @@ components:
         - required:
             - ip
             - isPartOf
-    Ipv6Neighbor:
+    InterfaceIpv6Neighbor:
       description: |
         NGSI-LD Entity Type that represents a list of mappings from IPv6 addresses to link-layer addresses.
         Entries in this list in the intended configuration are used as static entries in the Neighbor Cache.
@@ -5710,11 +5710,11 @@ components:
         - type: object
           properties:
             type:
-              description: NGSI-LD Entity identifier. It has to be Ipv6Neighbor.
+              description: NGSI-LD Entity identifier. It has to be InterfaceIpv6Neighbor.
               type: string
               enum:
-                - Ipv6Neighbor
-              default: Ipv6Neighbor
+                - InterfaceIpv6Neighbor
+              default: InterfaceIpv6Neighbor
             ip:
               $ref: '#/components/schemas/Ipv6Ip'
             linkLayerAddress:
@@ -5732,7 +5732,7 @@ components:
             - linkLayerAddress
             - origin
             - isPartOf
-    Ipv6Autoconf:
+    InterfaceIpv6Autoconf:
       description: |
         Parameters to control the autoconfiguration of IPv6 addresses, as described in RFC 4862.
       allOf:
@@ -5740,11 +5740,11 @@ components:
         - type: object
           properties:
             type:
-              description: NGSI-LD Entity identifier. It has to be Ipv6Autoconf.
+              description: NGSI-LD Entity identifier. It has to be InterfaceIpv6Autoconf.
               type: string
               enum:
-                - Ipv6Autoconf
-              default: Ipv6Autoconf
+                - InterfaceIpv6Autoconf
+              default: InterfaceIpv6Autoconf
             createGlobalAddresses:
               $ref: '#/components/schemas/CreateGlobalAddresses'
             createTemporaryAddresses:
@@ -5923,9 +5923,9 @@ components:
             - value    
     DupAddrDetectTransmits:
       description: |
-        The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address Detection on a
-        tentative address.  A value of zero indicates that  Duplicate Address Detection is not performed on tentative addresses.  
-        A value of one indicates a single transmission with no follow-up retransmissions.
+        NGSI-LD Property Type. The number of consecutive Neighbor Solicitation messages sent while performing Duplicate Address 
+        Detection on a tentative address.  A value of zero indicates that  Duplicate Address Detection is not performed on tentative 
+        addresses. A value of one indicates a single transmission with no follow-up retransmissions.
       allOf:
         - $ref: '#/components/schemas/Property'
         - type: object
@@ -6073,7 +6073,43 @@ components:
               type: string
           required:
             - value
-    Node:
+    NetworkSupportingNetwork:
+      description: |
+        NGSI-LD Entity Type that represents an underlay network. An underlay network, used to represent layered network
+        topologies.
+      allOf:
+        - $ref: '#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be NetworkSupportingNetwork.
+              type: string
+              enum:
+                - NetworkSupportingNetwork
+              default: NetworkSupportingNetwork
+            networkRef:
+              $ref: '#/components/schemas/NetworkRef'
+            isPartOf:
+              $ref: "#/components/schemas/IsPartOf"
+        - required:
+            - networkRef
+            - isPartOf
+    NetworkRef:
+      description: |
+        NGSI-LD Relationship Type. References the underlay network. In addition, it could refer to
+        the underlay network of which an underlay node is a part. Also, it could refer to the underlay 
+        topology where a supporting link is present or in which topology a supporting termination point 
+        is present.
+      allOf:
+        - $ref: '#/components/schemas/Relationship'
+        - type: object
+          properties:
+            object:
+              type: string
+          required:
+            - object
+      additionalProperties: false
+    NetworkNode:
       description: |
         NGSI-LD Entity Type that represents a node. The inventory of node within the network.
       allOf:
@@ -6081,11 +6117,11 @@ components:
         - type: object
           properties:
             type:
-              description: NGSI-LD Entity identifier. It has to be Node.
+              description: NGSI-LD Entity identifier. It has to be NetworkNode.
               type: string
               enum:
-                - Node
-              default: Node
+                - NetworkNode
+              default: NetworkNode
             nodeId:
               $ref: '#/components/schemas/NodeId'
             isPartOf:
@@ -6106,7 +6142,44 @@ components:
               type: string
           required:
             - value
-    Link:
+    NetworkNodeSupportingNode:
+      description: |
+        NGSI-LD Entity Type that represents another node that is in an underlay network
+        and that supports this node. Used to represent layering structure.
+      allOf:
+        - $ref: '#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be NetworkNodeSupportingNode.
+              type: string
+              enum:
+                - NetworkNodeSupportingNode
+              default: NetworkNodeSupportingNode
+            networkRef:
+              $ref: '#/components/schemas/NetworkRef'
+            nodeRef:
+              $ref: '#/components/schemas/NodeRef'
+            isPartOf:
+              $ref: "#/components/schemas/IsPartOf"
+        - required:
+            - networkRef
+            - nodeRef
+            - isPartOf
+    NodeRef:
+      description: |
+        NGSI-LD Relationship Type. References the underlay node itself. Also, it could identify in which node 
+        a supporting termination point is present.
+      allOf:
+        - $ref: '#/components/schemas/Relationship'
+        - type: object
+          properties:
+            object:
+              type: string
+          required:
+            - object
+      additionalProperties: false
+    NetworkLink:
       description: |
         NGSI-LD Entity Type that represents a link. A network link connects a local (source) node and
         a remote (destination) node via a set of the respective node's termination points.  It is 
@@ -6119,11 +6192,11 @@ components:
         - type: object
           properties:
             type:
-              description: NGSI-LD Entity identifier. It has to be Link.
+              description: NGSI-LD Entity identifier. It has to be NetworkLink.
               type: string
               enum:
-                - Link
-              default: Link
+                - NetworkLink
+              default: NetworkLink
             linkId:
               $ref: '#/components/schemas/LinkId'
             isPartOf:
@@ -6144,7 +6217,44 @@ components:
               type: string
           required:
             - value
-    Source:
+    NetworkLinkSupportingLink:
+      description: |
+        NGSI-LD Entity Type that identifies the underlay link or links on which this link depends.
+      allOf:
+        - $ref: '#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be NetworkLinkSupportingLink.
+              type: string
+              enum:
+                - NetworkLinkSupportingLink
+              default: NetworkLinkSupportingLink
+            networkRef:
+              $ref: '#/components/schemas/NetworkRef'
+            linkRef:
+              $ref: '#/components/schemas/LinkRef'
+            isPartOf:
+              $ref: "#/components/schemas/IsPartOf"
+        - required:
+            - networkRef
+            - linkRef
+            - isPartOf
+    LinkRef:
+      description: |
+        NGSI-LD Relationship Type. This leaf identifies a link that is a part
+        of this link's underlay.  Reference loops in which a link identifies 
+        itself as its underlay, either directly or transitively, are not allowed.
+      allOf:
+        - $ref: '#/components/schemas/Relationship'
+        - type: object
+          properties:
+            object:
+              type: string
+          required:
+            - object
+      additionalProperties: false
+    NetworkLinkSource:
       description: |
         NGSI-LD Entity Type that represents the logical source of a particular link.
       allOf:
@@ -6152,11 +6262,11 @@ components:
         - type: object
           properties:
             type:
-              description: NGSI-LD Entity identifier. It has to be Source.
+              description: NGSI-LD Entity identifier. It has to be NetworkLinkSource.
               type: string
               enum:
-                - Source
-              default: Source
+                - NetworkLinkSource
+              default: NetworkLinkSource
             sourceNode:
               $ref: '#/components/schemas/SourceNode'
             sourceTp:
@@ -6193,7 +6303,7 @@ components:
           required:
             - object
       additionalProperties: false
-    Destination:
+    NetworkLinkDestination:
       description: |
         NGSI-LD Entity Type that represents the logical source of a particular link.
       allOf:
@@ -6201,11 +6311,11 @@ components:
         - type: object
           properties:
             type:
-              description: NGSI-LD Entity identifier. It has to be Destination.
+              description: NGSI-LD Entity identifier. It has to be NetworkLinkDestination.
               type: string
               enum:
-                - Destination
-              default: Destination
+                - NetworkLinkDestination
+              default: NetworkLinkDestination
             destNode:
               $ref: '#/components/schemas/DestNode'
             destTp:
@@ -6242,7 +6352,7 @@ components:
           required:
             - object
       additionalProperties: false
-    TerminationPoint:
+    NetworkNodeTerminationPoint:
       description: |
         NGSI-LD Entity Type that represents the logical source of a particular link.
       allOf:
@@ -6250,11 +6360,11 @@ components:
         - type: object
           properties:
             type:
-              description: NGSI-LD Entity identifier. It has to be TerminationPoint.
+              description: NGSI-LD Entity identifier. It has to be NetworkNodeTerminationPoint.
               type: string
               enum:
-                - TerminationPoint
-              default: TerminationPoint
+                - NetworkNodeTerminationPoint
+              default: NetworkNodeTerminationPoint
             tpId:
               $ref: '#/components/schemas/TpId'
             isPartOf:
@@ -6274,6 +6384,49 @@ components:
               type: string
           required:
             - value
+    NetworkNodeTerminationPointSupportingTerminationPoint:
+      description: |
+        NGSI-LD Entity Type that represents any termination points on which a given termination point 
+        depends or onto which it maps.Those termination points will themselves be contained in a 
+        supporting node.  This dependency information can be inferred from the dependencies between links.  
+        Therefore, this item is not separately configurable.  Hence, no corresponding constraint needs 
+        to be articulated. The corresponding information is simply provided by the implementing system.
+      allOf:
+        - $ref: '#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be NetworkNodeTerminationPointSupportingTerminationPoint.
+              type: string
+              enum:
+                - NetworkNodeTerminationPointSupportingTerminationPoint
+              default: NetworkNodeTerminationPointSupportingTerminationPoint
+            networkRef:
+              $ref: '#/components/schemas/NetworkRef'
+            nodeRef:
+              $ref: '#/components/schemas/NodeRef'
+            tpRef:
+              $ref: '#/components/schemas/TpRef'
+            isPartOf:
+              $ref: "#/components/schemas/IsPartOf"
+        - required:
+            - networkRef
+            - nodeRef
+            - tpRef
+            - isPartOf
+    TpRef:
+      description: |
+        NGSI-LD Relationship Type. Reference to the termination point of the underlay node 
+        (the underlay node must be in a different topology).
+      allOf:
+        - $ref: '#/components/schemas/Relationship'
+        - type: object
+          properties:
+            object:
+              type: string
+          required:
+            - object
+      additionalProperties: false    
   responses:
     BadRequest:
       description: |
