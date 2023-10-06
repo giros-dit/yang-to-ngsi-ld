@@ -28,11 +28,11 @@
         },
         "destNode": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkDestination:pc12"
+            "object": "urn:ngsi-ld:NetworkNode:pc12"
         },
         "destTp": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkDestination:eth1"
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth1"
         }
     },
     {
@@ -44,11 +44,11 @@
         },
         "sourceNode": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkSource:s1"
+            "object": "urn:ngsi-ld:NetworkNode:s1"
         },
         "sourceTp": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkSource:eth2"
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth2"
         }
     },
     {
@@ -72,11 +72,11 @@
         },
         "destNode": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkDestination:r1"
+            "object": "urn:ngsi-ld:NetworkNode:r1"
         },
         "destTp": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkDestination:eth3"
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth3"
         }
     },
     {
@@ -88,11 +88,11 @@
         },
         "sourceNode": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkSource:r3"
+            "object": "urn:ngsi-ld:NetworkNode:r3"
         },
         "sourceTp": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkSource:eth2"
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth2"
         }
     },
     {
@@ -116,11 +116,11 @@
         },
         "destNode": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkDestination:r1"
+            "object": "urn:ngsi-ld:NetworkNode:r1"
         },
         "destTp": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkDestination:eth2"
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth2"
         }
     },
     {
@@ -132,11 +132,11 @@
         },
         "sourceNode": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkSource:r2"
+            "object": "urn:ngsi-ld:NetworkNode:r2"
         },
         "sourceTp": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkSource:eth2"
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth2"
         }
     },
     {
@@ -160,11 +160,11 @@
         },
         "destNode": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkDestination:r2"
+            "object": "urn:ngsi-ld:NetworkNode:r2"
         },
         "destTp": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkDestination:eth1"
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth1"
         }
     },
     {
@@ -176,11 +176,11 @@
         },
         "sourceNode": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkSource:s2"
+            "object": "urn:ngsi-ld:NetworkNode:s2"
         },
         "sourceTp": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkSource:eth3"
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth3"
         }
     },
     {
@@ -204,11 +204,11 @@
         },
         "destNode": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkDestination:pc21"
+            "object": "urn:ngsi-ld:NetworkNode:pc21"
         },
         "destTp": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkDestination:eth1"
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth1"
         }
     },
     {
@@ -220,11 +220,11 @@
         },
         "sourceNode": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkSource:s2"
+            "object": "urn:ngsi-ld:NetworkNode:s2"
         },
         "sourceTp": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkSource:eth1"
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth1"
         }
     },
     {
@@ -248,11 +248,11 @@
         },
         "destNode": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkDestination:r2"
+            "object": "urn:ngsi-ld:NetworkNode:r2"
         },
         "destTp": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkDestination:eth3"
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth3"
         }
     },
     {
@@ -264,11 +264,11 @@
         },
         "sourceNode": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkSource:r3"
+            "object": "urn:ngsi-ld:NetworkNode:r3"
         },
         "sourceTp": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkSource:eth3"
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth3"
         }
     },
     {
@@ -292,11 +292,11 @@
         },
         "destNode": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkDestination:pc22"
+            "object": "urn:ngsi-ld:NetworkNode:pc22"
         },
         "destTp": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkDestination:eth1"
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth1"
         }
     },
     {
@@ -308,11 +308,11 @@
         },
         "sourceNode": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkSource:s2"
+            "object": "urn:ngsi-ld:NetworkNode:s2"
         },
         "sourceTp": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkSource:eth2"
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth2"
         }
     },
     {
@@ -336,11 +336,11 @@
         },
         "destNode": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkDestination:r3"
+            "object": "urn:ngsi-ld:NetworkNode:r3"
         },
         "destTp": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkDestination:eth1"
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth1"
         }
     },
     {
@@ -352,11 +352,11 @@
         },
         "sourceNode": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkSource:s3"
+            "object": "urn:ngsi-ld:NetworkNode:s3"
         },
         "sourceTp": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkSource:eth3"
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth3"
         }
     },
     {
@@ -380,11 +380,11 @@
         },
         "destNode": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkDestination:pc31"
+            "object": "urn:ngsi-ld:NetworkNode:pc31"
         },
         "destTp": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkDestination:eth1"
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth1"
         }
     },
     {
@@ -396,11 +396,11 @@
         },
         "sourceNode": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkSource:s3"
+            "object": "urn:ngsi-ld:NetworkNode:s3"
         },
         "sourceTp": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkSource:eth1"
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth1"
         }
     },
     {
@@ -424,11 +424,11 @@
         },
         "destNode": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkDestination:r1"
+            "object": "urn:ngsi-ld:NetworkNode:r1"
         },
         "destTp": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkDestination:eth1"
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth1"
         }
     },
     {
@@ -440,11 +440,11 @@
         },
         "sourceNode": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkSource:s1"
+            "object": "urn:ngsi-ld:NetworkNode:s1"
         },
         "sourceTp": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkSource:eth3"
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth3"
         }
     },
     {
@@ -468,11 +468,11 @@
         },
         "destNode": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkDestination:pc32"
+            "object": "urn:ngsi-ld:NetworkNode:pc32"
         },
         "destTp": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkDestination:eth1"
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth1"
         }
     },
     {
@@ -484,11 +484,11 @@
         },
         "sourceNode": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkSource:s3"
+            "object": "urn:ngsi-ld:NetworkNode:s3"
         },
         "sourceTp": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkSource:eth2"
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth2"
         }
     },
     {
@@ -512,11 +512,11 @@
         },
         "destNode": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkDestination:pc11"
+            "object": "urn:ngsi-ld:NetworkNode:pc11"
         },
         "destTp": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkDestination:eth1"
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth1"
         }
     },
     {
@@ -528,11 +528,11 @@
         },
         "sourceNode": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkSource:s1"
+            "object": "urn:ngsi-ld:NetworkNode:s1"
         },
         "sourceTp": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkLinkSource:eth1"
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth1"
         }
     },
     {
