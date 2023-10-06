@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an XML p
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 0.3.4.
+Version: 0.3.5.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -364,7 +364,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             result = True
         return result
 
-    def generate_parser_code(element, parent_element_arg, entity_path: str, camelcase_entity_path: str, depth_level: int):
+    def generate_parser_code(element, parent_element_arg, entity_path: str, camelcase_entity_path: str, camelcase_entity_list: list, depth_level: int):
         '''
         Auxiliary function.
         Recursively generates the XML parser code.
@@ -381,13 +381,14 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             if (subelements is not None):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                        generate_parser_code(subelement, None, None, None, depth_level)
+                        generate_parser_code(subelement, None, None, None, list(), depth_level)
         elif (is_entity(element) == True) and (is_deprecated(element) == False):
             current_camelcase_path = ''
             if (camelcase_entity_path is None):
                 current_camelcase_path = to_camelcase(str(element.keyword), str(element.arg))
             else:
                 current_camelcase_path = camelcase_entity_path + to_camelcase(str(element.keyword), str(element.arg))
+            camelcase_entity_list.append(current_camelcase_path)
             if (parent_element_arg is None): # 1st level Entity.
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + 'for ' + str(element.arg).replace('-', '_') + ' in root.findall(\".//{' + element_namespace + '}' + str(element.arg) + '\"):')
                 depth_level += 1
@@ -407,7 +408,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             if (subelements is not None):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                        generate_parser_code(subelement, element.arg, current_path, current_camelcase_path, depth_level)
+                        generate_parser_code(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level)
             fd.write('\n' + INDENTATION_LEVEL * depth_level + 'dict_buffers.append(' + current_path.replace('-', '_') + 'dict_buffer)')
         elif (is_property(element) == True) and (is_deprecated(element) == False):
             fd.write('\n' + INDENTATION_LEVEL * depth_level + camelcase_element_arg + ' ' + '=' + ' ' + str(parent_element_arg).replace('-', '_') + '.find(\".//{' + element_namespace + '}' + str(element.arg) + '\")')
@@ -423,13 +424,22 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"value\"] = ' + text_format)
         elif (is_relationship(element) == True) and (is_deprecated(element) == False):
             if (str(element.arg) != 'type'):
+                pointer = element.i_leafref_ptr[0]
+                pointer_parent = pointer.parent
+                camelcase_pointer_parent = to_camelcase(str(pointer_parent.keyword), str(pointer_parent.arg))
+
+                matches = [] # Best match is always the first element appended into the list: index 0.
+                for camelcase_entity in camelcase_entity_list:
+                    if camelcase_pointer_parent in camelcase_entity:
+                        matches.append(camelcase_entity)
+
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + camelcase_element_arg + ' ' + '=' + ' ' + str(parent_element_arg).replace('-', '_') + '.find(\".//{' + element_namespace + '}' + str(element.arg) + '\")')
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + 'if ' + camelcase_element_arg + ' is not None:')
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + 'element_text = ' + camelcase_element_arg + '.text')
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + 'if element_text is not None:')
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
                 fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Relationship\"')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + camelcase_entity_path + ':\" + element_text')
+                fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + matches[0] + ':\" + element_text')
     
     # -- Generate XML parser Python code --
 
@@ -460,7 +470,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
                 depth_level = 2
             for element in elements:
                 if (element is not None) and (element.keyword in statements.data_definition_keywords):
-                    generate_parser_code(element, None, None, None, depth_level)
+                    generate_parser_code(element, None, None, None, list(), depth_level)
     
     fd.write('\n\n')
 
