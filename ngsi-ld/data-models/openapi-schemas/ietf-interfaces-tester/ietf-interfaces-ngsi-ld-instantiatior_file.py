@@ -4,18 +4,19 @@ import logging
 import logging.config
 import pdb
 import yaml
+import json
 
 import ngsi_ld_client
 
 from ngsi_ld_models.models.interface import Interface
-from ngsi_ld_models.models.statistics import Statistics
-from ngsi_ld_models.models.ipv4 import Ipv4
-from ngsi_ld_models.models.ipv4_address import Ipv4Address
-from ngsi_ld_models.models.ipv4_neighbor import Ipv4Neighbor
-from ngsi_ld_models.models.ipv6 import Ipv6
-from ngsi_ld_models.models.ipv6_address import Ipv6Address
-from ngsi_ld_models.models.ipv6_autoconf import Ipv6Autoconf
-from ngsi_ld_models.models.ipv6_neighbor import Ipv6Neighbor
+from ngsi_ld_models.models.interface_statistics import InterfaceStatistics
+from ngsi_ld_models.models.interface_ipv4 import InterfaceIpv4
+from ngsi_ld_models.models.interface_ipv4_address import InterfaceIpv4Address
+from ngsi_ld_models.models.interface_ipv4_neighbor import InterfaceIpv4Neighbor
+from ngsi_ld_models.models.interface_ipv6 import InterfaceIpv6
+from ngsi_ld_models.models.interface_ipv6_address import InterfaceIpv6Address
+from ngsi_ld_models.models.interface_ipv6_autoconf import InterfaceIpv6Autoconf
+from ngsi_ld_models.models.interface_ipv6_neighbor import InterfaceIpv6Neighbor
 from ngsi_ld_client.models.entity import Entity
 from ngsi_ld_client.models.query_entity200_response_inner import QueryEntity200ResponseInner
 
@@ -82,7 +83,7 @@ and upsert them to the Orion-LD broker.
 
 dict_buffers_file = sys.argv[1]
 input_file = open(dict_buffers_file, 'r')
-dict_buffers = eval(input_file.read())
+dict_buffers = json.load(input_file)
 input_file.close()
 
 for dict_buffer in dict_buffers:
@@ -90,27 +91,27 @@ for dict_buffer in dict_buffers:
     if type == 'Interface':
         interface = Interface.from_dict(dict_buffer)
         create_ngsi_ld_entity(interface)
-    if type == 'Statistics':
-        statistics = Statistics.from_dict(dict_buffer)
-        create_ngsi_ld_entity(statistics)
-    if type == 'Ipv4':
-        ipv4 = Ipv4.from_dict(dict_buffer)
-        create_ngsi_ld_entity(ipv4)
-    if type == 'Ipv4Address':
-        ipv4Address = Ipv4Address.from_dict(dict_buffer)
-        create_ngsi_ld_entity(ipv4Address)
-    if type == 'Ipv4Neighbor':
-        ipv4Neighbor = Ipv4Neighbor.from_dict(dict_buffer)
-        create_ngsi_ld_entity(ipv4Neighbor)
-    if type == 'Ipv6':
-        ipv6 = Ipv6.from_dict(dict_buffer)
-        create_ngsi_ld_entity(ipv6)
-    if type == 'Ipv6Address':
-        ipv6Address = Ipv6Address.from_dict(dict_buffer)
-        create_ngsi_ld_entity(ipv6Address)
-    if type == 'Ipv6Autoconf':
-        ipv6Autoconf = Ipv6Autoconf.from_dict(dict_buffer)
-        create_ngsi_ld_entity(ipv6Autoconf)
-    if type == 'Ipv6Neighbor':
-        ipv6Neighbor = Ipv6Neighbor.from_dict(dict_buffer)
-        create_ngsi_ld_entity(ipv6Neighbor)
+    if type == 'InterfaceStatistics':
+        interface_statistics = InterfaceStatistics.from_dict(dict_buffer)
+        create_ngsi_ld_entity(interface_statistics)
+    if type == 'InterfaceIpv4':
+        interface_ipv4 = InterfaceIpv4.from_dict(dict_buffer)
+        create_ngsi_ld_entity(interface_ipv4)
+    if type == 'InterfaceIpv4Address':
+        interface_ipv4_address = InterfaceIpv4Address.from_dict(dict_buffer)
+        create_ngsi_ld_entity(interface_ipv4_address)
+    if type == 'InterfaceIpv4Neighbor':
+        interface_ipv4_neighbor = InterfaceIpv4Neighbor.from_dict(dict_buffer)
+        create_ngsi_ld_entity(interface_ipv4_neighbor)
+    if type == 'InterfaceIpv6':
+        interface_ipv6 = InterfaceIpv6.from_dict(dict_buffer)
+        create_ngsi_ld_entity(interface_ipv6)
+    if type == 'InterfaceIpv6Address':
+        interface_ipv6_address = InterfaceIpv6Address.from_dict(dict_buffer)
+        create_ngsi_ld_entity(interface_ipv6_address)
+    if type == 'InterfaceIpv6Autoconf':
+        interface_ipv6_autoconf = InterfaceIpv6Autoconf.from_dict(dict_buffer)
+        create_ngsi_ld_entity(interface_ipv6_autoconf)
+    if type == 'InterfaceIpv6Neighbor':
+        interface_ipv6_neighbor = InterfaceIpv6Neighbor.from_dict(dict_buffer)
+        create_ngsi_ld_entity(interface_ipv6_neighbor)
