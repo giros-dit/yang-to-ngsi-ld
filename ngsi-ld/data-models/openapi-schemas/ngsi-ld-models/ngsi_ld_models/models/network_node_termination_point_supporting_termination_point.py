@@ -23,7 +23,6 @@ from pydantic import BaseModel, StrictStr, field_validator
 from pydantic import Field
 from ngsi_ld_models.models.entity_scope import EntityScope
 from ngsi_ld_models.models.geo_property import GeoProperty
-from ngsi_ld_models.models.is_part_of import IsPartOf
 from ngsi_ld_models.models.network_ref import NetworkRef
 from ngsi_ld_models.models.node_ref import NodeRef
 from ngsi_ld_models.models.tp_ref import TpRef
@@ -49,9 +48,8 @@ class NetworkNodeTerminationPointSupportingTerminationPoint(BaseModel):
     network_ref: NetworkRef = Field(alias="networkRef")
     node_ref: NodeRef = Field(alias="nodeRef")
     tp_ref: TpRef = Field(alias="tpRef")
-    is_part_of: IsPartOf = Field(alias="isPartOf")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["id", "type", "scope", "location", "observationSpace", "operationSpace", "createdAt", "modifiedAt", "deletedAt", "networkRef", "nodeRef", "tpRef", "isPartOf"]
+    __properties: ClassVar[List[str]] = ["id", "type", "scope", "location", "observationSpace", "operationSpace", "createdAt", "modifiedAt", "deletedAt", "networkRef", "nodeRef", "tpRef"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -114,9 +112,6 @@ class NetworkNodeTerminationPointSupportingTerminationPoint(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of tp_ref
         if self.tp_ref:
             _dict['tpRef'] = self.tp_ref.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of is_part_of
-        if self.is_part_of:
-            _dict['isPartOf'] = self.is_part_of.to_dict()
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -145,8 +140,7 @@ class NetworkNodeTerminationPointSupportingTerminationPoint(BaseModel):
             "deletedAt": obj.get("deletedAt"),
             "networkRef": NetworkRef.from_dict(obj.get("networkRef")) if obj.get("networkRef") is not None else None,
             "nodeRef": NodeRef.from_dict(obj.get("nodeRef")) if obj.get("nodeRef") is not None else None,
-            "tpRef": TpRef.from_dict(obj.get("tpRef")) if obj.get("tpRef") is not None else None,
-            "isPartOf": IsPartOf.from_dict(obj.get("isPartOf")) if obj.get("isPartOf") is not None else None
+            "tpRef": TpRef.from_dict(obj.get("tpRef")) if obj.get("tpRef") is not None else None
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

@@ -6087,11 +6087,8 @@ components:
               default: NetworkSupportingNetwork
             networkRef:
               $ref: '#/components/schemas/NetworkRef'
-            isPartOf:
-              $ref: "#/components/schemas/IsPartOf"
         - required:
             - networkRef
-            - isPartOf
     NetworkRef:
       description: |
         NGSI-LD Relationship Type. References the underlay network. In addition, it could refer to
@@ -6158,12 +6155,9 @@ components:
               $ref: '#/components/schemas/NetworkRef'
             nodeRef:
               $ref: '#/components/schemas/NodeRef'
-            isPartOf:
-              $ref: "#/components/schemas/IsPartOf"
         - required:
             - networkRef
             - nodeRef
-            - isPartOf
     NodeRef:
       description: |
         NGSI-LD Relationship Type. References the underlay node itself. Also, it could identify in which node 
@@ -6232,12 +6226,9 @@ components:
               $ref: '#/components/schemas/NetworkRef'
             linkRef:
               $ref: '#/components/schemas/LinkRef'
-            isPartOf:
-              $ref: "#/components/schemas/IsPartOf"
         - required:
             - networkRef
             - linkRef
-            - isPartOf
     LinkRef:
       description: |
         NGSI-LD Relationship Type. This leaf identifies a link that is a part
@@ -6405,13 +6396,10 @@ components:
               $ref: '#/components/schemas/NodeRef'
             tpRef:
               $ref: '#/components/schemas/TpRef'
-            isPartOf:
-              $ref: "#/components/schemas/IsPartOf"
         - required:
             - networkRef
             - nodeRef
             - tpRef
-            - isPartOf
     TpRef:
       description: |
         NGSI-LD Relationship Type. Reference to the termination point of the underlay node 

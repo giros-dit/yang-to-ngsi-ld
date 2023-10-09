@@ -52,14 +52,12 @@ class TestNetworkLinkSupportingLink(unittest.TestCase):
                 modified_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 deleted_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 network_ref = None,
-                link_ref = None,
-                is_part_of = None
+                link_ref = None
             )
         else:
             return NetworkLinkSupportingLink(
                 network_ref = None,
                 link_ref = None,
-                is_part_of = None,
         )
         """
 

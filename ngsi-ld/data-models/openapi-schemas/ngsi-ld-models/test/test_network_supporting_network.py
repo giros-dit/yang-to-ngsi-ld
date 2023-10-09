@@ -51,13 +51,11 @@ class TestNetworkSupportingNetwork(unittest.TestCase):
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 modified_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 deleted_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                network_ref = None,
-                is_part_of = None
+                network_ref = None
             )
         else:
             return NetworkSupportingNetwork(
                 network_ref = None,
-                is_part_of = None,
         )
         """
 

@@ -23,7 +23,6 @@ from pydantic import BaseModel, StrictStr, field_validator
 from pydantic import Field
 from ngsi_ld_models.models.entity_scope import EntityScope
 from ngsi_ld_models.models.geo_property import GeoProperty
-from ngsi_ld_models.models.is_part_of import IsPartOf
 from ngsi_ld_models.models.network_ref import NetworkRef
 from typing import Dict, Any
 try:
@@ -45,9 +44,8 @@ class NetworkSupportingNetwork(BaseModel):
     modified_at: Optional[datetime] = Field(default=None, description="Is defined as the temporal Property at which the Entity, Property or Relationship was last modified in an NGSI-LD system, e.g. in order to correct a previously entered incorrect value. ", alias="modifiedAt")
     deleted_at: Optional[datetime] = Field(default=None, description="Is defined as the temporal Property at which the Entity, Property or Relationship was deleted from an NGSI-LD system.  Entity deletion timestamp. See clause 4.8 It is only used in notifications reporting deletions and in the Temporal Representation of Entities (clause 4.5.6), Properties (clause 4.5.7), Relationships (clause 4.5.8) and LanguageProperties (clause 5.2.32). ", alias="deletedAt")
     network_ref: NetworkRef = Field(alias="networkRef")
-    is_part_of: IsPartOf = Field(alias="isPartOf")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["id", "type", "scope", "location", "observationSpace", "operationSpace", "createdAt", "modifiedAt", "deletedAt", "networkRef", "isPartOf"]
+    __properties: ClassVar[List[str]] = ["id", "type", "scope", "location", "observationSpace", "operationSpace", "createdAt", "modifiedAt", "deletedAt", "networkRef"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -104,9 +102,6 @@ class NetworkSupportingNetwork(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of network_ref
         if self.network_ref:
             _dict['networkRef'] = self.network_ref.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of is_part_of
-        if self.is_part_of:
-            _dict['isPartOf'] = self.is_part_of.to_dict()
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -133,8 +128,7 @@ class NetworkSupportingNetwork(BaseModel):
             "createdAt": obj.get("createdAt"),
             "modifiedAt": obj.get("modifiedAt"),
             "deletedAt": obj.get("deletedAt"),
-            "networkRef": NetworkRef.from_dict(obj.get("networkRef")) if obj.get("networkRef") is not None else None,
-            "isPartOf": IsPartOf.from_dict(obj.get("isPartOf")) if obj.get("isPartOf") is not None else None
+            "networkRef": NetworkRef.from_dict(obj.get("networkRef")) if obj.get("networkRef") is not None else None
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

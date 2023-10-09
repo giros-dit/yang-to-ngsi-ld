@@ -17,7 +17,6 @@ Name | Type | Description | Notes
 **network_ref** | [**NetworkRef**](NetworkRef.md) |  | 
 **node_ref** | [**NodeRef**](NodeRef.md) |  | 
 **tp_ref** | [**TpRef**](TpRef.md) |  | 
-**is_part_of** | [**IsPartOf**](IsPartOf.md) |  | 
 
 ## Example
 
