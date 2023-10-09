@@ -70,6 +70,11 @@ def generate_ngsi_ld_context(ctx, modules, fd):
 
     # Use PDB to debug the code with pdb.set_trace().
 
+    # CONSTANTS:
+
+    NGSI_LD_CORE_CONTEXT_URI = 'https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.6.jsonld/'
+    IS_PART_OF_URI = 'https://smartdatamodels.org/isPartOf'
+
     # AUXILIARY FUNCTIONS: 
 
     def to_camelcase(keyword: str, element_name: str) -> str:
@@ -174,6 +179,7 @@ def generate_ngsi_ld_context(ctx, modules, fd):
                 else:
                     current_camelcase_path = camelcase_entity_path + to_camelcase(str(element.keyword), str(element.arg))
                 json_ld = {}
+                json_ld["@context"] = []
                 ngsi_ld_context = {}
                 ngsi_ld_context[module_name] = module_urn + '/'
                 ngsi_ld_context[current_camelcase_path] = xpath + name
@@ -183,8 +189,11 @@ def generate_ngsi_ld_context(ctx, modules, fd):
                         if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
                             generate_context(subelement, module_name, module_urn, xpath + name + '/', current_camelcase_path, ngsi_ld_context)
                 json_ld["@context"] = ngsi_ld_context
+                ngsi_ld_context["isPartOf"] = IS_PART_OF_URI
+                json_ld["@context"].append(ngsi_ld_context)
+                json_ld["@context"].append(NGSI_LD_CORE_CONTEXT_URI)
                 # Help: https://stackoverflow.com/questions/12517451/automatically-creating-directories-with-file-output
-                filename = 'ngsi-ld-context/' + xpath.replace('/', '_').replace(':', '_') + name.replace(':', '_') + '.jsonld'
+                filename = 'ngsi-ld-context/' + xpath.replace('/', '_').replace(':', '_') + str(element.arg) + '.jsonld'
                 os.makedirs(os.path.dirname(filename), exist_ok=True)
                 file = open(filename, 'w')
                 file.write(json.dumps(json_ld, indent=4) + '\n')
