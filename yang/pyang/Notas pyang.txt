@@ -113,3 +113,30 @@ Por cada Entity hacer un fichero por separado.
                 fd.write('\n' + entity_import_statement)
 
 ### - ###
+
+### - PUNTEROS CON LEAFREF - ###
+
+(Pdb) print(sourcenode.i_leafref)
+<pyang.types.PathTypeSpec object at 0x7f0aec4228f0>
+(Pdb) print(sourcenode.i_leafref_ptr)
+(<pyang.LeafLeaflistStatement 'leaf node-id' at 0x7f0aec3c1470>, <pyang.error.Position object at 0x7f0aec3f27c0>)
+(Pdb) print(sourcenode.i_leafref_expanded)
+True
+(Pdb) print(sourcenode.i_leafref_ptr)
+(<pyang.LeafLeaflistStatement 'leaf node-id' at 0x7f0aec3c1470>, <pyang.error.Position object at 0x7f0aec3f27c0>)
+(Pdb) module.search_one(sourcenode.i_leafref_ptr[0])
+(Pdb) print(module.search_one(sourcenode.i_leafref_ptr[0]))
+None
+(Pdb) pointer = sourcenode.i_leafref_ptr[0]
+(Pdb) print(pointer)
+leaf node-id
+(Pdb) dir(pointer)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__slotnames__', '__slots__', '__str__', '__subclasshook__', 'arg', 'copy', 'ext_mod', 'i_augment', 'i_children', 'i_config', 'i_default', 'i_default_str', 'i_derefed_leaf', 'i_extension', 'i_extension_modulename', 'i_extension_revision', 'i_groupings', 'i_is_key', 'i_is_validated', 'i_leafref', 'i_leafref_expanded', 'i_leafref_ptr', 'i_module', 'i_not_implemented', 'i_orig_module', 'i_this_not_supported', 'i_typedefs', 'i_uniques', 'i_uses', 'i_uses_pos', 'i_uses_top', 'internal_reset', 'is_grammatically_valid', 'keyword', 'main_module', 'parent', 'pos', 'pprint', 'raw_keyword', 'search', 'search_one', 'stmt_parent', 'substmts', 'top']
+(Pdb) print(pointer.arg)
+node-id
+(Pdb) print(pointer.parent.arg)
+node
+(Pdb) print(pointer.parent.parent.arg)
+network
+
+### - - ###
