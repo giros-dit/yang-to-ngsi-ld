@@ -1,16 +1,10 @@
 import sys
+import json
 import xml.etree.ElementTree as et
-import logging
-import logging.config
-import yaml
-import os
-import time
-import re
-import subprocess
-import pdb
+from kafka import KafkaConsumer, KafkaProducer
 
-xml_file = sys.argv[1]
-tree = et.parse(xml_file)
+xml = sys.argv[1]
+tree = et.parse(xml)
 root = tree.getroot()
 dict_buffers = []
 
@@ -105,8 +99,8 @@ for interface in root.findall(".//{urn:ietf:params:xml:ns:yang:ietf-interfaces}i
             interface_dict_buffer["speed"]["value"] = int(element_text)
     for statistics in interface.findall(".//{urn:ietf:params:xml:ns:yang:ietf-interfaces}statistics"):
         interface_statistics_dict_buffer = {}
-        interface_statistics_dict_buffer["id"] = "urn:ngsi-ld:Statistics:" + interface_dict_buffer["id"].split(":")[-1]
-        interface_statistics_dict_buffer["type"] = "Statistics"
+        interface_statistics_dict_buffer["id"] = "urn:ngsi-ld:InterfaceStatistics:" + interface_dict_buffer["id"].split(":")[-1] + ":"
+        interface_statistics_dict_buffer["type"] = "InterfaceStatistics"
         interface_statistics_dict_buffer["isPartOf"] = {}
         interface_statistics_dict_buffer["isPartOf"]["type"] = "Relationship"
         interface_statistics_dict_buffer["isPartOf"]["object"] = interface_dict_buffer["id"]
@@ -211,8 +205,8 @@ for interface in root.findall(".//{urn:ietf:params:xml:ns:yang:ietf-interfaces}i
         dict_buffers.append(interface_statistics_dict_buffer)
     for ipv4 in interface.findall(".//{urn:ietf:params:xml:ns:yang:ietf-ip}ipv4"):
         interface_ipv4_dict_buffer = {}
-        interface_ipv4_dict_buffer["id"] = "urn:ngsi-ld:Ipv4:" + interface_dict_buffer["id"].split(":")[-1]
-        interface_ipv4_dict_buffer["type"] = "Ipv4"
+        interface_ipv4_dict_buffer["id"] = "urn:ngsi-ld:InterfaceIpv4:" + interface_dict_buffer["id"].split(":")[-1] + ":"
+        interface_ipv4_dict_buffer["type"] = "InterfaceIpv4"
         interface_ipv4_dict_buffer["isPartOf"] = {}
         interface_ipv4_dict_buffer["isPartOf"]["type"] = "Relationship"
         interface_ipv4_dict_buffer["isPartOf"]["object"] = interface_dict_buffer["id"]
@@ -239,8 +233,8 @@ for interface in root.findall(".//{urn:ietf:params:xml:ns:yang:ietf-interfaces}i
                 interface_ipv4_dict_buffer["mtu"]["value"] = int(element_text)
         for address in ipv4.findall(".//{urn:ietf:params:xml:ns:yang:ietf-ip}address"):
             interface_ipv4_address_dict_buffer = {}
-            interface_ipv4_address_dict_buffer["id"] = "urn:ngsi-ld:Address:" + interface_ipv4_dict_buffer["id"].split(":")[-1]
-            interface_ipv4_address_dict_buffer["type"] = "Address"
+            interface_ipv4_address_dict_buffer["id"] = "urn:ngsi-ld:InterfaceIpv4Address:" + interface_ipv4_dict_buffer["id"].split(":")[-1] + ":"
+            interface_ipv4_address_dict_buffer["type"] = "InterfaceIpv4Address"
             interface_ipv4_address_dict_buffer["isPartOf"] = {}
             interface_ipv4_address_dict_buffer["isPartOf"]["type"] = "Relationship"
             interface_ipv4_address_dict_buffer["isPartOf"]["object"] = interface_ipv4_dict_buffer["id"]
@@ -261,8 +255,8 @@ for interface in root.findall(".//{urn:ietf:params:xml:ns:yang:ietf-interfaces}i
             dict_buffers.append(interface_ipv4_address_dict_buffer)
         for neighbor in ipv4.findall(".//{urn:ietf:params:xml:ns:yang:ietf-ip}neighbor"):
             interface_ipv4_neighbor_dict_buffer = {}
-            interface_ipv4_neighbor_dict_buffer["id"] = "urn:ngsi-ld:Neighbor:" + interface_ipv4_dict_buffer["id"].split(":")[-1]
-            interface_ipv4_neighbor_dict_buffer["type"] = "Neighbor"
+            interface_ipv4_neighbor_dict_buffer["id"] = "urn:ngsi-ld:InterfaceIpv4Neighbor:" + interface_ipv4_dict_buffer["id"].split(":")[-1] + ":"
+            interface_ipv4_neighbor_dict_buffer["type"] = "InterfaceIpv4Neighbor"
             interface_ipv4_neighbor_dict_buffer["isPartOf"] = {}
             interface_ipv4_neighbor_dict_buffer["isPartOf"]["type"] = "Relationship"
             interface_ipv4_neighbor_dict_buffer["isPartOf"]["object"] = interface_ipv4_dict_buffer["id"]
@@ -291,8 +285,8 @@ for interface in root.findall(".//{urn:ietf:params:xml:ns:yang:ietf-interfaces}i
         dict_buffers.append(interface_ipv4_dict_buffer)
     for ipv6 in interface.findall(".//{urn:ietf:params:xml:ns:yang:ietf-ip}ipv6"):
         interface_ipv6_dict_buffer = {}
-        interface_ipv6_dict_buffer["id"] = "urn:ngsi-ld:Ipv6:" + interface_dict_buffer["id"].split(":")[-1]
-        interface_ipv6_dict_buffer["type"] = "Ipv6"
+        interface_ipv6_dict_buffer["id"] = "urn:ngsi-ld:InterfaceIpv6:" + interface_dict_buffer["id"].split(":")[-1] + ":"
+        interface_ipv6_dict_buffer["type"] = "InterfaceIpv6"
         interface_ipv6_dict_buffer["isPartOf"] = {}
         interface_ipv6_dict_buffer["isPartOf"]["type"] = "Relationship"
         interface_ipv6_dict_buffer["isPartOf"]["object"] = interface_dict_buffer["id"]
@@ -319,8 +313,8 @@ for interface in root.findall(".//{urn:ietf:params:xml:ns:yang:ietf-interfaces}i
                 interface_ipv6_dict_buffer["mtu"]["value"] = int(element_text)
         for address in ipv6.findall(".//{urn:ietf:params:xml:ns:yang:ietf-ip}address"):
             interface_ipv6_address_dict_buffer = {}
-            interface_ipv6_address_dict_buffer["id"] = "urn:ngsi-ld:Address:" + interface_ipv6_dict_buffer["id"].split(":")[-1]
-            interface_ipv6_address_dict_buffer["type"] = "Address"
+            interface_ipv6_address_dict_buffer["id"] = "urn:ngsi-ld:InterfaceIpv6Address:" + interface_ipv6_dict_buffer["id"].split(":")[-1] + ":"
+            interface_ipv6_address_dict_buffer["type"] = "InterfaceIpv6Address"
             interface_ipv6_address_dict_buffer["isPartOf"] = {}
             interface_ipv6_address_dict_buffer["isPartOf"]["type"] = "Relationship"
             interface_ipv6_address_dict_buffer["isPartOf"]["object"] = interface_ipv6_dict_buffer["id"]
@@ -355,8 +349,8 @@ for interface in root.findall(".//{urn:ietf:params:xml:ns:yang:ietf-interfaces}i
             dict_buffers.append(interface_ipv6_address_dict_buffer)
         for neighbor in ipv6.findall(".//{urn:ietf:params:xml:ns:yang:ietf-ip}neighbor"):
             interface_ipv6_neighbor_dict_buffer = {}
-            interface_ipv6_neighbor_dict_buffer["id"] = "urn:ngsi-ld:Neighbor:" + interface_ipv6_dict_buffer["id"].split(":")[-1]
-            interface_ipv6_neighbor_dict_buffer["type"] = "Neighbor"
+            interface_ipv6_neighbor_dict_buffer["id"] = "urn:ngsi-ld:InterfaceIpv6Neighbor:" + interface_ipv6_dict_buffer["id"].split(":")[-1] + ":"
+            interface_ipv6_neighbor_dict_buffer["type"] = "InterfaceIpv6Neighbor"
             interface_ipv6_neighbor_dict_buffer["isPartOf"] = {}
             interface_ipv6_neighbor_dict_buffer["isPartOf"]["type"] = "Relationship"
             interface_ipv6_neighbor_dict_buffer["isPartOf"]["object"] = interface_ipv6_dict_buffer["id"]
@@ -405,8 +399,8 @@ for interface in root.findall(".//{urn:ietf:params:xml:ns:yang:ietf-interfaces}i
                 interface_ipv6_dict_buffer["dupAddrDetectTransmits"]["value"] = int(element_text)
         for autoconf in ipv6.findall(".//{urn:ietf:params:xml:ns:yang:ietf-ip}autoconf"):
             interface_ipv6_autoconf_dict_buffer = {}
-            interface_ipv6_autoconf_dict_buffer["id"] = "urn:ngsi-ld:Autoconf:" + interface_ipv6_dict_buffer["id"].split(":")[-1]
-            interface_ipv6_autoconf_dict_buffer["type"] = "Autoconf"
+            interface_ipv6_autoconf_dict_buffer["id"] = "urn:ngsi-ld:InterfaceIpv6Autoconf:" + interface_ipv6_dict_buffer["id"].split(":")[-1] + ":"
+            interface_ipv6_autoconf_dict_buffer["type"] = "InterfaceIpv6Autoconf"
             interface_ipv6_autoconf_dict_buffer["isPartOf"] = {}
             interface_ipv6_autoconf_dict_buffer["isPartOf"]["type"] = "Relationship"
             interface_ipv6_autoconf_dict_buffer["isPartOf"]["object"] = interface_ipv6_dict_buffer["id"]
@@ -428,6 +422,7 @@ for interface in root.findall(".//{urn:ietf:params:xml:ns:yang:ietf-interfaces}i
             if temporaryValidLifetime is not None:
                 element_text = temporaryValidLifetime.text
                 if element_text is not None:
+                    interface_ipv6_autoconf_dict_buffer["id"] = interface_ipv6_autoconf_dict_buffer["id"] + int(element_text)
                     interface_ipv6_autoconf_dict_buffer["temporaryValidLifetime"] = {}
                     interface_ipv6_autoconf_dict_buffer["temporaryValidLifetime"]["type"] = "Property"
                     interface_ipv6_autoconf_dict_buffer["temporaryValidLifetime"]["value"] = int(element_text)
@@ -442,7 +437,8 @@ for interface in root.findall(".//{urn:ietf:params:xml:ns:yang:ietf-interfaces}i
         dict_buffers.append(interface_ipv6_dict_buffer)
     dict_buffers.append(interface_dict_buffer)
 
-# Manual modification to print dictionary buffers:
-for dict_buffer in dict_buffers:
-    print(dict_buffer)
-    print('\n')
+dict_buffers_file = sys.argv[2]
+output_file = open(dict_buffers_file, 'w')
+output_file.write(json.dumps(dict_buffers[::-1], indent=4))
+output_file.close()
+dict_buffers.clear()

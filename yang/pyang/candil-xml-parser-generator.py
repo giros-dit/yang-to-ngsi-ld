@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an XML p
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 0.3.5.
+Version: 0.3.6.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -68,7 +68,7 @@ pyang -f candil-xml-parser-generator [OPTIONS] <base_module.yang> [augmenting_mo
 
 OPTIONS:
     --candil-xml-parser-generator-input-mode=MODE --> **MANDATORY** Define where to read input XML data from. Valid values: file, kafka.
-    --candil-xml-parser-generator-output-mode=MODE --> **MANDATORY** Define where to write output dictionary buffers to. Valid values: stdout, kafka.
+    --candil-xml-parser-generator-output-mode=MODE --> **MANDATORY** Define where to write output dictionary buffers to. Valid values: file, stdout, kafka.
     --candil-xml-parser-generator-kafka-server=SOCKET --> Only when using Kafka, specify the socket (ip:port) where the Kafka server is reachable.
     --candil-xml-parser-generator-kafka-input-topic=TOPIC --> Only when using Kafka for the input mode, specify the name of the topic where to read XML data from.
     --candil-xml-parser-generator-kafka-output-topic=TOPIC --> Only when using Kafka for the output mode, specify the name of the topic where to write dictionary buffers to.
@@ -88,7 +88,8 @@ def generate_python_xml_parser_code(ctx, modules, fd):
     INPUT_MODE_KAFKA = "kafka" # -> Input XML data is read from a Kafka topic.
     
     # Writing modes for output dictionary buffers.
-    OUTPUT_MODE_STDOUT = "stdout" # -> Output dictionary buffers are written to stdout (terminal). Can be redirected to a file.
+    OUTPUT_MODE_STDOUT = "stdout" # -> Output dictionary buffers are written to stdout (terminal).
+    OUTPUT_MODE_FILE = "file" # -> Output dictionary buffers are written to a file.
     OUTPUT_MODE_KAFKA = "kafka" # -> Output dictionary buffers are written to a Kafka topic.
 
     # NOTE: from ietf-yang-types@2023-01-23.yang.
@@ -235,7 +236,16 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         ]
 
     WRITING_INSTRUCTIONS_STDOUT = [
-        'print(json.dumps(dict_buffers[::-1], indent=4))'
+        'print(json.dumps(dict_buffers[::-1], indent=4))\n',
+        'dict_buffers.clear()'
+    ]
+
+    WRITING_INSTRUCTIONS_FILE = [
+        'dict_buffers_file = sys.argv[2]\n',
+        'output_file = open(dict_buffers_file, \'w\')\n',
+        'output_file.write(json.dumps(dict_buffers[::-1], indent=4))\n',
+        'output_file.close()\n',
+        'dict_buffers.clear()'
     ]
 
     if (ctx.opts.kafka_server is not None) and (ctx.opts.kafka_output_topic is not None):
@@ -244,7 +254,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             2 * INDENTATION_LEVEL + 'producer.send(\'' + ctx.opts.kafka_output_topic + '\', value=json.dumps(dict_buffers[::-1], indent=4).encode(\'utf-8\'))\n',
             2 * INDENTATION_LEVEL + 'producer.flush()\n',
             2 * INDENTATION_LEVEL + 'dict_buffers.clear()'
-        ]
+        ] 
 
     # AUXILIARY FUNCTIONS: 
 
@@ -475,6 +485,9 @@ def generate_python_xml_parser_code(ctx, modules, fd):
     fd.write('\n\n')
 
     # Generate writing instructions for the XML parser (depending on the output mode):
+    if (ctx.opts.output_mode is not None) and (ctx.opts.output_mode == OUTPUT_MODE_FILE):
+        for line in WRITING_INSTRUCTIONS_FILE:
+            fd.write(line)
     if (ctx.opts.output_mode is not None) and (ctx.opts.output_mode == OUTPUT_MODE_STDOUT):
         for line in WRITING_INSTRUCTIONS_STDOUT:
             fd.write(line)

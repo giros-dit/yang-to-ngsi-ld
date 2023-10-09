@@ -83,7 +83,7 @@ and upsert them to the Orion-LD broker.
 
 dict_buffers_file = sys.argv[1]
 input_file = open(dict_buffers_file, 'r')
-dict_buffers = json.load(input_file)
+dict_buffers = json.loads(input_file.read())
 input_file.close()
 
 for dict_buffer in dict_buffers:
