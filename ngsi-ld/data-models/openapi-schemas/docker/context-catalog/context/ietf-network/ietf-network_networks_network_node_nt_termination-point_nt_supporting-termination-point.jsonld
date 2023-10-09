@@ -1,0 +1,9 @@
+{
+    "@context": {
+        "ietf-network": "urn:ietf:params:xml:ns:yang:ietf-network/",
+        "NetworkNodeTerminationPointSupportingTerminationPoint": "ietf-network:networks/network/node/nt:termination-point/nt:supporting-termination-point",
+        "networkRef": "ietf-network:networks/network/node/nt:termination-point/nt:supporting-termination-point/nt:network-ref",
+        "nodeRef": "ietf-network:networks/network/node/nt:termination-point/nt:supporting-termination-point/nt:node-ref",
+        "tpRef": "ietf-network:networks/network/node/nt:termination-point/nt:supporting-termination-point/nt:tp-ref"
+    }
+}

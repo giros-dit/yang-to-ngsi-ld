@@ -1,8 +1,7 @@
 {
     "@context": {
         "ietf-interfaces": "urn:ietf:params:xml:ns:yang:ietf-interfaces/",
-        "Statistics": "ietf-interfaces:interfaces/interface/statistics",
-        "isPartOf": "https://smartdatamodels.org/isPartOf",
+        "InterfaceStatistics": "ietf-interfaces:interfaces/interface/statistics",
         "discontinuityTime": "ietf-interfaces:interfaces/interface/statistics/discontinuity-time",
         "inOctets": "ietf-interfaces:interfaces/interface/statistics/in-octets",
         "inUnicastPkts": "ietf-interfaces:interfaces/interface/statistics/in-unicast-pkts",

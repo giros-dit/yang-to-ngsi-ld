@@ -1,0 +1,13 @@
+{
+    "@context": [
+        "http://context-catalog:8080/context/ietf-interfaces/ietf-interfaces_interfaces_interface.jsonld",
+        "http://context-catalog:8080/context/ietf-interfaces/ietf-interfaces_interfaces_interface_statistics.jsonld",
+        "http://context-catalog:8080/context/ietf-interfaces/ietf-interfaces_interfaces_interface_ip_ipv4.jsonld",
+        "http://context-catalog:8080/context/ietf-interfaces/ietf-interfaces_interfaces_interface_ip_ipv6.jsonld",
+        "http://context-catalog:8080/context/ietf-interfaces/ietf-interfaces_interfaces_interface_ip_ipv4_address.jsonld",
+        "http://context-catalog:8080/context/ietf-interfaces/ietf-interfaces_interfaces_interface_ip_ipv4_neighbor.jsonld",
+        "http://context-catalog:8080/context/ietf-interfaces/ietf-interfaces_interfaces_interface_ip_ipv6_address.jsonld",
+        "http://context-catalog:8080/context/ietf-interfaces/ietf-interfaces_interfaces_interface_ip_ipv6_neighbor.jsonld",
+        "http://context-catalog:8080/context/ietf-interfaces/ietf-interfaces_interfaces_interface_ip_ipv6_autoconf.jsonld"
+    ]
+}
