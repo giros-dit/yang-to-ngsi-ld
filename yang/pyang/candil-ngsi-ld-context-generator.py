@@ -4,7 +4,7 @@ pyang plugin -- CANDIL NGSI-LD Context Generator.
 Generates the NGSI-LD context files associated with a YANG module file following the defined guidelines and conventions.
 The results are written to individual .jsonld files: one for every NGSI-LD Entity.
 
-Version: 0.3.1.
+Version: 0.3.2.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -157,7 +157,7 @@ def generate_ngsi_ld_context(ctx, modules, fd):
             result = True
         return result
                 
-    def generate_context(element, module_name, module_urn, xpath, ngsi_ld_context):
+    def generate_context(element, module_name: str, module_urn: str, xpath: str, camelcase_entity_path: str, ngsi_ld_context: dict):
         '''
         Auxiliary function.
         Recursively generates the NGSI-LD context(s) given a YANG data node (element) and the X-Path.
@@ -171,18 +171,23 @@ def generate_ngsi_ld_context(ctx, modules, fd):
             if (subelements is not None):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                        generate_context(subelement, module_name, module_urn, xpath + name + '/', None)
+                        generate_context(subelement, module_name, module_urn, xpath + name + '/', None, None)
         elif (is_entity(element) == True) and (is_deprecated(element) == False):
+                current_camelcase_path = ''
+                if (camelcase_entity_path is None):
+                    current_camelcase_path = to_camelcase(str(element.keyword), str(element.arg))
+                else:
+                    current_camelcase_path = camelcase_entity_path + to_camelcase(str(element.keyword), str(element.arg))
                 json_ld = {}
                 json_ld["@context"] = []
                 ngsi_ld_context = {}
                 ngsi_ld_context[module_name] = module_urn + '/'
-                ngsi_ld_context[to_camelcase(str(element.keyword), str(element.arg))] = xpath + name 
+                ngsi_ld_context[current_camelcase_path] = xpath + name
                 subelements = element.i_children
                 if (subelements is not None):
                     for subelement in subelements:
                         if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                            generate_context(subelement, module_name, module_urn, xpath + name + '/', ngsi_ld_context)
+                            generate_context(subelement, module_name, module_urn, xpath + name + '/', current_camelcase_path, ngsi_ld_context)
                 ngsi_ld_context["isPartOf"] = IS_PART_OF_URI
                 json_ld["@context"].append(ngsi_ld_context)
                 json_ld["@context"].append(NGSI_LD_CORE_CONTEXT_URI)
@@ -206,4 +211,4 @@ def generate_ngsi_ld_context(ctx, modules, fd):
         if (elements is not None):
             for element in elements:
                 if (element is not None) and (element.keyword in statements.data_definition_keywords):
-                    generate_context(element, module_name, module_urn, xpath, None)
+                    generate_context(element, module_name, module_urn, xpath, None, None)
