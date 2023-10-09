@@ -17,7 +17,6 @@ Name | Type | Description | Notes
 **enabled** | [**IpEnabled**](IpEnabled.md) |  | [optional] 
 **forwarding** | [**Forwarding**](Forwarding.md) |  | [optional] 
 **mtu** | [**Ipv6Mtu**](Ipv6Mtu.md) |  | [optional] 
-**status** | [**Ipv6Status**](Ipv6Status.md) |  | [optional] 
 **dup_addr_detect_transmits** | [**DupAddrDetectTransmits**](DupAddrDetectTransmits.md) |  | [optional] 
 **is_part_of** | [**IsPartOf**](IsPartOf.md) |  | 
 

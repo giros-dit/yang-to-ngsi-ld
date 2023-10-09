@@ -54,7 +54,6 @@ class TestInterfaceIpv6(unittest.TestCase):
                 enabled = None,
                 forwarding = None,
                 mtu = None,
-                status = None,
                 dup_addr_detect_transmits = None,
                 is_part_of = None
             )

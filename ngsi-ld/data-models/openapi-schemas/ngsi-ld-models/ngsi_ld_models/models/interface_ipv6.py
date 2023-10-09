@@ -27,7 +27,6 @@ from ngsi_ld_models.models.forwarding import Forwarding
 from ngsi_ld_models.models.geo_property import GeoProperty
 from ngsi_ld_models.models.ip_enabled import IpEnabled
 from ngsi_ld_models.models.ipv6_mtu import Ipv6Mtu
-from ngsi_ld_models.models.ipv6_status import Ipv6Status
 from ngsi_ld_models.models.is_part_of import IsPartOf
 from typing import Dict, Any
 try:
@@ -51,11 +50,10 @@ class InterfaceIpv6(BaseModel):
     enabled: Optional[IpEnabled] = None
     forwarding: Optional[Forwarding] = None
     mtu: Optional[Ipv6Mtu] = None
-    status: Optional[Ipv6Status] = None
     dup_addr_detect_transmits: Optional[DupAddrDetectTransmits] = Field(default=None, alias="dupAddrDetectTransmits")
     is_part_of: IsPartOf = Field(alias="isPartOf")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["id", "type", "scope", "location", "observationSpace", "operationSpace", "createdAt", "modifiedAt", "deletedAt", "enabled", "forwarding", "mtu", "status", "dupAddrDetectTransmits", "isPartOf"]
+    __properties: ClassVar[List[str]] = ["id", "type", "scope", "location", "observationSpace", "operationSpace", "createdAt", "modifiedAt", "deletedAt", "enabled", "forwarding", "mtu", "dupAddrDetectTransmits", "isPartOf"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -118,9 +116,6 @@ class InterfaceIpv6(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of mtu
         if self.mtu:
             _dict['mtu'] = self.mtu.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of status
-        if self.status:
-            _dict['status'] = self.status.to_dict()
         # override the default output from pydantic by calling `to_dict()` of dup_addr_detect_transmits
         if self.dup_addr_detect_transmits:
             _dict['dupAddrDetectTransmits'] = self.dup_addr_detect_transmits.to_dict()
@@ -156,7 +151,6 @@ class InterfaceIpv6(BaseModel):
             "enabled": IpEnabled.from_dict(obj.get("enabled")) if obj.get("enabled") is not None else None,
             "forwarding": Forwarding.from_dict(obj.get("forwarding")) if obj.get("forwarding") is not None else None,
             "mtu": Ipv6Mtu.from_dict(obj.get("mtu")) if obj.get("mtu") is not None else None,
-            "status": Ipv6Status.from_dict(obj.get("status")) if obj.get("status") is not None else None,
             "dupAddrDetectTransmits": DupAddrDetectTransmits.from_dict(obj.get("dupAddrDetectTransmits")) if obj.get("dupAddrDetectTransmits") is not None else None,
             "isPartOf": IsPartOf.from_dict(obj.get("isPartOf")) if obj.get("isPartOf") is not None else None
         })

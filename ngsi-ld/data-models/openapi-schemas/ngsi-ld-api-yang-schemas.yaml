@@ -5665,8 +5665,6 @@ components:
               $ref: '#/components/schemas/Forwarding'
             mtu:
               $ref: '#/components/schemas/Ipv6Mtu'
-            status:
-              $ref: "#/components/schemas/Ipv6Status"
             dupAddrDetectTransmits:
               $ref: "#/components/schemas/DupAddrDetectTransmits"
             isPartOf:
