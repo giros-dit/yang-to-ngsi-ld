@@ -4,6 +4,7 @@
         "Interface": "ietf-interfaces:interfaces/interface",
         "name": "ietf-interfaces:interfaces/interface/name",
         "description": "ietf-interfaces:interfaces/interface/description",
+        "type": "ietf-interfaces:interfaces/interface/type",
         "enabled": "ietf-interfaces:interfaces/interface/enabled",
         "linkUpDownTrapEnable": "ietf-interfaces:interfaces/interface/link-up-down-trap-enable",
         "adminStatus": "ietf-interfaces:interfaces/interface/admin-status",

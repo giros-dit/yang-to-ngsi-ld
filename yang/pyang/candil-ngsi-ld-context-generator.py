@@ -4,7 +4,7 @@ pyang plugin -- CANDIL NGSI-LD Context Generator.
 Generates the NGSI-LD context files associated with a YANG module file following the defined guidelines and conventions.
 The results are written to individual .jsonld files: one for every NGSI-LD Entity.
 
-Version: 0.3.2.
+Version: 0.3.3.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -83,9 +83,6 @@ def generate_ngsi_ld_context(ctx, modules, fd):
             if (keyword == 'module'):
                 return element_name
             if (keyword == 'container') or (keyword == 'list'):
-                # Original convention:
-                # return element_name.capitalize()
-                # Proposed convention:
                 return re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element_name.capitalize())
             if (keyword == 'leaf') or (keyword == 'leaf-list'):
                 return re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element_name)

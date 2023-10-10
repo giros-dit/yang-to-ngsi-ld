@@ -80,6 +80,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
     '''
 
     # Use PDB to debug the code with pdb.set_trace().
+    pdb.set_trace()
 
     # CONSTANTS:
 
@@ -189,6 +190,13 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         "tp-id": "string"
     }
 
+    YANG_PRIMITIVE_TYPES = [
+        "int8", "int16", "int32", "int64",
+        "uint8", "uint16", "uint32", "uint64",
+        "decimal64", "string", "boolean", "enumeration",
+        "bits", "binary", "empty", "union"
+    ]
+
     # NOTE: NGSI-LD types are Python "types" (as per this particular implementation).
     BASE_YANG_TYPES_TO_NGSI_LD_TYPES = {
         'int8': 'Integer',
@@ -295,6 +303,32 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             base_yang_type = element_type
         return BASE_YANG_TYPES_TO_NGSI_LD_TYPES[base_yang_type]
     
+    def typedefs_discovering(modules) -> dict:
+        '''
+        Auxiliary functions.
+        Given a set of YANG modules, finds all typedefs defined in them and returns a Python
+        dictionary with their conversions to primitive YANG types.
+        '''
+        defined_typedefs_dict = {}
+        primitive_typedefs_dict = {}
+        for module in modules:
+            typedefs = module.search("typedef")
+            if typedefs is not None:
+                for typedef in typedefs: # First iteration retrieves the defined type.
+                    if typedef is not None:
+                        typedef_name = str(typedef.arg)
+                        typedef_type = str(typedef.search_one("type").arg)
+                        defined_typedefs_dict[typedef_name] = typedef_type
+                for typedef in typedefs: # Second iteration retrieves the primitive type.
+                    if typedef is not None:
+                        typedef_name = str(typedef.arg)
+                        typedef_type = str(typedef.search_one("type").arg)
+                        if typedef_type not in YANG_PRIMITIVE_TYPES:
+                            primitive_typedefs_dict[typedef_name] = defined_typedefs_dict[typedef_name]
+                        else:
+                            primitive_typedefs_dict[typedef_name] = typedef_type
+        return primitive_typedefs_dict
+
     def element_text_type_formatting(ngsi_ld_type: str, element_text: str) -> str:
         '''
         Auxiliary function.
@@ -468,6 +502,9 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             fd.write(line)
     
     fd.write('\n')
+
+    # TEST: Find typedefs.
+    print(typedefs_discovering(modules))
 
     # Generate XML parser code (element data retrieval and transformation to generate dictionary buffers):
     depth_level = 0
