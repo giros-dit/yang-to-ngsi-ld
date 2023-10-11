@@ -6,8 +6,8 @@ authors = ["GIROS-DIT UPM <gi.giros@upm.es>"]
 
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
-pydantic = "^1.8.2"
-PyYAML = "^6.0"
+pydantic = ">=2"
+pyyaml = "^6.0"
 requests = "^2.26.0"
 
 [tool.poetry.dev-dependencies]

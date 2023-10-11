@@ -7,14 +7,6 @@ import yaml
 import ngsi_ld_client
 from ngsi_ld_models.models.interface import Interface
 
-from ngsi_ld_client.models.entity_input import EntityInput
-from ngsi_ld_client.models.entity_output import EntityOutput
-
-from ngsi_ld_client.models.property_input import PropertyInput
-from ngsi_ld_client.models.relationship_input import RelationshipInput
-
-from ngsi_ld_client.models.entity_fragment_input import EntityFragmentInput
-from fastapi import FastAPI, Request, status
 from ngsi_ld_client.api_client import ApiClient as NGSILDClient
 from ngsi_ld_client.configuration import Configuration as NGSILDConfiguration
 from ngsi_ld_client.exceptions import ApiException
@@ -28,7 +20,7 @@ logging.config.dictConfig(config)
 logger = logging.getLogger(__name__)
 
 # NGSI-LD Context Broker
-BROKER_URI = os.getenv("BROKER_URI", "http://localhost:1026/v2")
+BROKER_URI = os.getenv("BROKER_URI", "http://localhost:1026/ngsi-ld/v1")
 # Context Catalog
 CONTEXT_CATALOG_URI = os.getenv("CONTEXT_CATALOG_URI",
                                 "http://localhost:8080/context.jsonld")

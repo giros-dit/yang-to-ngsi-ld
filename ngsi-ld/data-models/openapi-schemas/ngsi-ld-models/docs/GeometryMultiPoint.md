@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **str** |  | [optional] 
-**coordinates** | **List[List]** | An array of positions.  | [optional] 
+**coordinates** | **List[List[float]]** | An array of positions.  | [optional] 
 
 ## Example
 

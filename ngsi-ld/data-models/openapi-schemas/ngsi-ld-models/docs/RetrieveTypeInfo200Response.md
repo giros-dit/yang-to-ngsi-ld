@@ -4,12 +4,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**context** | [**LdContext**](LdContext.md) |  | 
 **id** | **str** | Fully Qualified Name (FQN) of the entity type being described.  | 
 **type** | **str** | JSON-LD @type.  | 
 **type_name** | **str** | Name of the entity type, short name if contained in @context.  | 
 **entity_count** | **float** | Number of entity instances of this entity type.  | 
 **attribute_details** | [**List[Attribute]**](Attribute.md) | List of attributes that entity instances with the specified entity type can have.  | 
+**context** | [**LdContext**](LdContext.md) |  | 
 
 ## Example
 

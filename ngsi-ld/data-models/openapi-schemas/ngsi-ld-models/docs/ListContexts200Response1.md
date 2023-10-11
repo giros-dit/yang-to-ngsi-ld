@@ -4,7 +4,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**context** | [**LdContext**](LdContext.md) |  | 
 
 ## Example
 
