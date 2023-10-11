@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an XML p
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 0.4.0.
+Version: 0.4.1.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -97,7 +97,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         "int8", "int16", "int32", "int64",
         "uint8", "uint16", "uint32", "uint64",
         "decimal64", "string", "boolean", "enumeration",
-        "bits", "binary", "empty", "union"
+        "bits", "binary", "empty", "union", "identityref"
     ]
 
     # NOTE: NGSI-LD types are Python "types" (as per this particular implementation).
@@ -117,7 +117,8 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         'bits': 'String[]',
         'binary': 'String',
         'empty': 'String',
-        'union': 'String'
+        'union': 'String',
+        'identityref': 'String'
     }
 
     INDENTATION_LEVEL = '    '
@@ -244,7 +245,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         elif (ngsi_ld_type == 'Boolean'):
             return 'eval(' + element_text + '.capitalize())'
     
-    def is_enclosing_container(element):
+    def is_enclosing_container(element) -> bool:
         '''
         Auxiliary function.
         Checks if an element is an "enclosing container":
@@ -265,7 +266,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
                 result = True
             return result
 
-    def is_deprecated(element):
+    def is_deprecated(element) -> bool:
         '''
         Auxiliary function.
         Checks if an element is deprecated.
@@ -276,7 +277,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             result = True
         return result
     
-    def is_entity(element):
+    def is_entity(element) -> bool:
         '''
         Auxiliary function.
         Checks if an element matches the YANG to NGSI-LD translation convention for an Entity.
@@ -286,24 +287,30 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             result = True
         return result
     
-    def is_property(element):
+    def is_property(element, typedefs_dict: dict) -> bool:
         '''
         Auxiliary function.
         Checks if an element matches the YANG to NGSI-LD translation convention for a Property.
         '''
         result = False
-        if (element.keyword in ['leaf-list', 'leaf']) and ('leafref' not in str(element.search_one('type'))):
-            result = True
+        if (element.keyword in ['leaf-list', 'leaf']):
+            element_type = str(element.search_one('type')).replace("type ", "").split(":")[-1]
+            if (element_type in YANG_PRIMITIVE_TYPES) or \
+                ((typedefs_dict[element_type] is not None) and (typedefs_dict[element_type] != 'leafref')):
+                result = True
         return result
     
-    def is_relationship(element):
+    def is_relationship(element, typedefs_dict: dict) -> bool:
         '''
         Auxiliary function.
         Checks if an element matches the YANG to NGSI-LD translation convention for a Relationship.
         '''
         result = False
-        if (element.keyword in ['leaf-list', 'leaf']) and ('leafref' in str(element.search_one('type'))):
-            result = True
+        if (element.keyword in ['leaf-list', 'leaf']):
+            element_type = str(element.search_one('type')).replace("type ", "").split(":")[-1]
+            if (element_type == 'leafref') or \
+                ((typedefs_dict[element_type] is not None) and (typedefs_dict[element_type] == 'leafref')):
+                result = True
         return result
 
     def generate_parser_code(element, parent_element_arg, entity_path: str, camelcase_entity_path: str, camelcase_entity_list: list, depth_level: int, typedefs_dict: dict):
@@ -352,7 +359,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
                         generate_parser_code(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict)
             fd.write('\n' + INDENTATION_LEVEL * depth_level + 'dict_buffers.append(' + current_path.replace('-', '_') + 'dict_buffer)')
-        elif (is_property(element) == True) and (is_deprecated(element) == False):
+        elif (is_property(element, typedefs_dict) == True) and (is_deprecated(element) == False):
             fd.write('\n' + INDENTATION_LEVEL * depth_level + camelcase_element_arg + ' ' + '=' + ' ' + str(parent_element_arg).replace('-', '_') + '.find(\".//{' + element_namespace + '}' + str(element.arg) + '\")')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + 'if ' + camelcase_element_arg + ' is not None:')
             ngsi_ld_type = yang_to_ngsi_ld_types_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1], typedefs_dict)
@@ -364,25 +371,21 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Property\"')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"value\"] = ' + text_format)
-        elif (is_relationship(element) == True) and (is_deprecated(element) == False):
-            if (str(element.arg) != 'type'):
-                print(str(element.arg))
-                pointer = element.i_leafref_ptr[0]
-                pointer_parent = pointer.parent
-                camelcase_pointer_parent = to_camelcase(str(pointer_parent.keyword), str(pointer_parent.arg))
-
-                matches = [] # Best match is always the first element appended into the list: index 0.
-                for camelcase_entity in camelcase_entity_list:
-                    if camelcase_pointer_parent in camelcase_entity:
-                        matches.append(camelcase_entity)
-
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + camelcase_element_arg + ' ' + '=' + ' ' + str(parent_element_arg).replace('-', '_') + '.find(\".//{' + element_namespace + '}' + str(element.arg) + '\")')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + 'if ' + camelcase_element_arg + ' is not None:')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + 'element_text = ' + camelcase_element_arg + '.text')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + 'if element_text is not None:')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Relationship\"')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + matches[0] + ':\" + element_text')
+        elif (is_relationship(element, typedefs_dict) == True) and (is_deprecated(element) == False):
+            pointer = element.i_leafref_ptr[0]
+            pointer_parent = pointer.parent
+            camelcase_pointer_parent = to_camelcase(str(pointer_parent.keyword), str(pointer_parent.arg))
+            matches = [] # Best match is always the first element appended into the list: index 0.
+            for camelcase_entity in camelcase_entity_list:
+                if camelcase_pointer_parent in camelcase_entity:
+                    matches.append(camelcase_entity)
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + camelcase_element_arg + ' ' + '=' + ' ' + str(parent_element_arg).replace('-', '_') + '.find(\".//{' + element_namespace + '}' + str(element.arg) + '\")')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + 'if ' + camelcase_element_arg + ' is not None:')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + 'element_text = ' + camelcase_element_arg + '.text')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + 'if element_text is not None:')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Relationship\"')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + matches[0] + ':\" + element_text')
     
     # -- Generate XML parser Python code --
 
