@@ -1,7 +1,6 @@
-import sys
 import json
 import xml.etree.ElementTree as et
-from kafka import KafkaConsumer, KafkaProducer
+import sys
 
 xml = sys.argv[1]
 tree = et.parse(xml)

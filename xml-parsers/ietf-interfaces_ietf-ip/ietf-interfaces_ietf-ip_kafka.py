@@ -1,7 +1,7 @@
-import sys
 import json
 import xml.etree.ElementTree as et
-from kafka import KafkaConsumer, KafkaProducer
+from kafka import KafkaConsumer
+from kafka import KafkaProducer
 
 dict_buffers = []
 consumer = KafkaConsumer('interfaces-state-subscriptions', bootstrap_servers=['localhost:9092'])
@@ -29,13 +29,6 @@ while True:
                     interface_dict_buffer["description"] = {}
                     interface_dict_buffer["description"]["type"] = "Property"
                     interface_dict_buffer["description"]["value"] = element_text
-            type = interface.find(".//{urn:ietf:params:xml:ns:yang:ietf-interfaces}type")
-            if type is not None:
-                element_text = type.text
-                if element_text is not None:
-                    interface_dict_buffer["type"] = {}
-                    interface_dict_buffer["type"]["type"] = "Property"
-                    interface_dict_buffer["type"]["value"] = element_text
             enabled = interface.find(".//{urn:ietf:params:xml:ns:yang:ietf-interfaces}enabled")
             if enabled is not None:
                 element_text = enabled.text

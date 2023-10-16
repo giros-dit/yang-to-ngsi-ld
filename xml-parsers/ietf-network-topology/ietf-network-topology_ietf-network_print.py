@@ -1,7 +1,6 @@
-import sys
 import json
 import xml.etree.ElementTree as et
-from kafka import KafkaConsumer, KafkaProducer
+import sys
 
 xml = sys.argv[1]
 tree = et.parse(xml)
@@ -203,3 +202,4 @@ for network in root.findall(".//{urn:ietf:params:xml:ns:yang:ietf-network}networ
     dict_buffers.append(network_dict_buffer)
 
 print(json.dumps(dict_buffers[::-1], indent=4))
+dict_buffers.clear()
