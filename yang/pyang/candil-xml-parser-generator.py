@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an XML p
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 0.4.1.
+Version: 0.4.2.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -35,7 +35,7 @@ class CandilXmlParserGeneratorPlugin(plugin.PyangPlugin):
             optparse.make_option('--candil-xml-parser-generator-help', dest='print_help', action='store_true', help='Prints help and usage.'),
             optparse.make_option('--candil-xml-parser-generator-input-mode', dest='input_mode', action='store', help='Defines reading mode for input XML data.'),
             optparse.make_option('--candil-xml-parser-generator-output-mode', dest='output_mode', action='store', help='Defines writing mode for output dictionary buffers.'),
-            optparse.make_option('--candil-xml-parser-generator-kafka-server', dest='kafka_server', action='store', help='Defines the Kafka server to use (in socket format).'),
+            optparse.make_option('--candil-xml-parser-generator-kafka-server', dest='kafka_server', action='store', help='Defines the Kafka server to use (in socket format: <ip_or_hostname>:<port>).'),
             optparse.make_option('--candil-xml-parser-generator-kafka-input-topic', dest='kafka_input_topic', action='store', help='Defines Kafka\'s input topic to use for reading XML data.'),
             optparse.make_option('--candil-xml-parser-generator-kafka-output-topic', dest='kafka_output_topic', action='store', help='Defines Kafka\'s output topic to use for writing dictionary buffers.')
         ]
@@ -70,7 +70,7 @@ pyang -f candil-xml-parser-generator [OPTIONS] <base_module.yang> [augmenting_mo
 OPTIONS:
     --candil-xml-parser-generator-input-mode=MODE --> **MANDATORY** Define where to read input XML data from. Valid values: file, kafka.
     --candil-xml-parser-generator-output-mode=MODE --> **MANDATORY** Define where to write output dictionary buffers to. Valid values: file, stdout, kafka.
-    --candil-xml-parser-generator-kafka-server=SOCKET --> Only when using Kafka, specify the socket (ip:port) where the Kafka server is reachable.
+    --candil-xml-parser-generator-kafka-server=SOCKET --> Only when using Kafka, specify the socket (<ip_or_hostname>:<port>) where the Kafka server is reachable.
     --candil-xml-parser-generator-kafka-input-topic=TOPIC --> Only when using Kafka for the input mode, specify the name of the topic where to read XML data from.
     --candil-xml-parser-generator-kafka-output-topic=TOPIC --> Only when using Kafka for the output mode, specify the name of the topic where to write dictionary buffers to.
     ''')
@@ -97,7 +97,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         "int8", "int16", "int32", "int64",
         "uint8", "uint16", "uint32", "uint64",
         "decimal64", "string", "boolean", "enumeration",
-        "bits", "binary", "empty", "union", "identityref"
+        "bits", "binary", "empty", "union"
     ]
 
     # NOTE: NGSI-LD types are Python "types" (as per this particular implementation).
@@ -117,17 +117,26 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         'bits': 'String[]',
         'binary': 'String',
         'empty': 'String',
-        'union': 'String',
-        'identityref': 'String'
+        'union': 'String'
     }
 
     INDENTATION_LEVEL = '    '
 
-    IMPORT_STATEMENTS = [
-        'import sys\n',
+    BASE_IMPORT_STATEMENTS = [
         'import json\n',
-        'import xml.etree.ElementTree as et\n',
-        'from kafka import KafkaConsumer, KafkaProducer'
+        'import xml.etree.ElementTree as et',
+    ]
+
+    FILE_INPUT_IMPORT_STATEMENTS = [
+        'import sys'
+    ]
+
+    KAFKA_INPUT_IMPORT_STATEMENTS = [
+        'from kafka import KafkaConsumer'
+    ]
+
+    KAFKA_OUTPUT_IMPORT_STATEMENTS = [
+        'from kafka import KafkaProducer'
     ]
 
     READING_INSTRUCTIONS_FILE = [
@@ -162,7 +171,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
 
     if (ctx.opts.kafka_server is not None) and (ctx.opts.kafka_output_topic is not None):
         WRITING_INSTRUCTIONS_KAFKA = [
-            2 * INDENTATION_LEVEL + 'producer = KafkaProducer([\'' + ctx.opts.kafka_server + '\'])\n',
+            2 * INDENTATION_LEVEL + 'producer = KafkaProducer(bootstrap_servers=[\'' + ctx.opts.kafka_server + '\'])\n',
             2 * INDENTATION_LEVEL + 'producer.send(\'' + ctx.opts.kafka_output_topic + '\', value=json.dumps(dict_buffers[::-1], indent=4).encode(\'utf-8\'))\n',
             2 * INDENTATION_LEVEL + 'producer.flush()\n',
             2 * INDENTATION_LEVEL + 'dict_buffers.clear()'
@@ -195,22 +204,22 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         primitive_typedefs_dict = {}
 
         for module in modules: # First iteration retrieves the defined type.
-            typedefs = module.search("typedef")
+            typedefs = module.search('typedef')
             if typedefs is not None:
                 for typedef in typedefs:
                     if typedef is not None:
                         typedef_name = str(typedef.arg)
-                        typedef_type = str(typedef.search_one("type").arg).split(":")[-1]
+                        typedef_type = str(typedef.search_one('type').arg).split(':')[-1]
                         defined_typedefs_dict[typedef_name] = typedef_type
         
         for module in modules: # Second iteration retrieves the primitive type.
-            typedefs = module.search("typedef")
+            typedefs = module.search('typedef')
             if typedefs is not None:
                 for typedef in typedefs:
                     if typedef is not None:
                         typedef_name = str(typedef.arg)
-                        typedef_type = str(typedef.search_one("type").arg).split(":")[-1]
-                        if (typedef_type not in YANG_PRIMITIVE_TYPES) and (typedef_type != "leafref"):
+                        typedef_type = str(typedef.search_one('type').arg).split(':')[-1]
+                        if (typedef_type not in YANG_PRIMITIVE_TYPES) and ('ref' not in typedef_type):
                             primitive_typedefs_dict[typedef_name] = defined_typedefs_dict[typedef_type]
                         else:
                             primitive_typedefs_dict[typedef_name] = typedef_type
@@ -294,9 +303,9 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         '''
         result = False
         if (element.keyword in ['leaf-list', 'leaf']):
-            element_type = str(element.search_one('type')).replace("type ", "").split(":")[-1]
+            element_type = str(element.search_one('type')).replace('type ', '').split(':')[-1]
             if (element_type in YANG_PRIMITIVE_TYPES) or \
-                ((typedefs_dict[element_type] is not None) and (typedefs_dict[element_type] != 'leafref')):
+                ((typedefs_dict.get(element_type) is not None) and (typedefs_dict.get(element_type) != 'leafref')):
                 result = True
         return result
     
@@ -307,9 +316,22 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         '''
         result = False
         if (element.keyword in ['leaf-list', 'leaf']):
-            element_type = str(element.search_one('type')).replace("type ", "").split(":")[-1]
+            element_type = str(element.search_one('type')).replace('type ', '').split(':')[-1]
             if (element_type == 'leafref') or \
-                ((typedefs_dict[element_type] is not None) and (typedefs_dict[element_type] == 'leafref')):
+                ((typedefs_dict.get(element_type) is not None) and (typedefs_dict.get(element_type) == 'leafref')):
+                result = True
+        return result
+
+    def is_yang_identity(element, typedefs_dict: dict) -> bool:
+        '''
+        Auxiliary function.
+        Checks if an element matches the YANG to NGSI-LD translation convention for a YANG Identity (identityref).
+        '''
+        result = False
+        if (element.keyword in statements.data_definition_keywords):
+            element_type = str(element.search_one('type')).replace('type ', '').split(':')[-1]
+            if (element_type == 'identityref') or \
+                ((typedefs_dict.get(element_type) is not None) and (typedefs_dict.get(element_type) == 'identityref')):
                 result = True
         return result
 
@@ -389,11 +411,24 @@ def generate_python_xml_parser_code(ctx, modules, fd):
     
     # -- Generate XML parser Python code --
 
-    # Generate base import statements (standard Python libraries and such):
-    for import_statement in IMPORT_STATEMENTS:
+    # Generate import statements (standard Python libraries and such):
+    for import_statement in BASE_IMPORT_STATEMENTS:
         fd.write(import_statement)
+    fd.write('\n')
+    if (ctx.opts.input_mode is not None) and (ctx.opts.input_mode == INPUT_MODE_FILE):
+        for line in FILE_INPUT_IMPORT_STATEMENTS:
+            fd.write(line)
+            fd.write('\n')
+    if (ctx.opts.input_mode is not None) and (ctx.opts.input_mode == INPUT_MODE_KAFKA):
+        for line in KAFKA_INPUT_IMPORT_STATEMENTS:
+            fd.write(line)
+            fd.write('\n')
+    if (ctx.opts.output_mode is not None) and (ctx.opts.output_mode == OUTPUT_MODE_KAFKA):
+        for line in KAFKA_OUTPUT_IMPORT_STATEMENTS:
+            fd.write(line)
+            fd.write('\n')
 
-    fd.write('\n\n')
+    fd.write('\n')
 
     # Generate reading instructions for the XML parser (depending on the input mode):
     if (ctx.opts.input_mode is not None) and (ctx.opts.input_mode == INPUT_MODE_FILE):
@@ -405,11 +440,11 @@ def generate_python_xml_parser_code(ctx, modules, fd):
     
     fd.write('\n')
 
-    # TEST: Find typedefs.
+    # Find typedefs, considering also modules in import sentences:
     typedef_modules = []
     for module in modules:
         typedef_modules.append(module)
-        imports = module.search("import")
+        imports = module.search('import')
         for i in imports:
             submodule = ctx.get_module(i.arg)
             if submodule is not None:
