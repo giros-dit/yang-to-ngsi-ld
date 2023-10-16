@@ -127,7 +127,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         'import xml.etree.ElementTree as et',
     ]
 
-    FILE_INPUT_IMPORT_STATEMENTS = [
+    FILE_IMPORT_STATEMENTS = [
         'import sys'
     ]
 
@@ -415,8 +415,9 @@ def generate_python_xml_parser_code(ctx, modules, fd):
     for import_statement in BASE_IMPORT_STATEMENTS:
         fd.write(import_statement)
     fd.write('\n')
-    if (ctx.opts.input_mode is not None) and (ctx.opts.input_mode == INPUT_MODE_FILE):
-        for line in FILE_INPUT_IMPORT_STATEMENTS:
+    if ((ctx.opts.input_mode is not None) and (ctx.opts.input_mode == INPUT_MODE_FILE)) or \
+        ((ctx.opts.output_mode is not None) and (ctx.opts.output_mode == OUTPUT_MODE_FILE)):
+        for line in FILE_IMPORT_STATEMENTS:
             fd.write(line)
             fd.write('\n')
     if (ctx.opts.input_mode is not None) and (ctx.opts.input_mode == INPUT_MODE_KAFKA):
