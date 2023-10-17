@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an XML p
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 0.4.2.
+Version: 0.4.3.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -81,6 +81,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
     '''
 
     # Use PDB to debug the code with pdb.set_trace().
+    # pdb.set_trace()
 
     # CONSTANTS:
 
@@ -230,12 +231,15 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         Auxiliary function.
         Returns the NGSI-LD type (in Python implementation) given the YANG type of an element/node in a YANG module.
         '''
-        base_yang_type = ''
-        if (typedefs_dict.get(element_type) is not None):
-            base_yang_type = typedefs_dict[element_type]
+        if (element_type == 'identityref'):
+            return 'String'
         else:
-            base_yang_type = element_type
-        return BASE_YANG_TYPES_TO_NGSI_LD_TYPES[base_yang_type]
+            base_yang_type = ''
+            if (typedefs_dict.get(element_type) is not None):
+                base_yang_type = typedefs_dict[element_type]
+            else:
+                base_yang_type = element_type
+            return BASE_YANG_TYPES_TO_NGSI_LD_TYPES[base_yang_type]
 
     def element_text_type_formatting(ngsi_ld_type: str, element_text: str) -> str:
         '''
@@ -347,12 +351,16 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             current_path = str(element.arg) + '_'
         else:
             current_path = entity_path + str(element.arg) + '_'
+        ### ENCLOSING CONTAINER IDENTIFICATION ###
         if (is_enclosing_container(element) == True) and (is_deprecated(element) == False):
             subelements = element.i_children
             if (subelements is not None):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
                         generate_parser_code(subelement, None, None, None, list(), depth_level, typedefs_dict)
+        ### --- ###
+
+        ### NGSI-LD ENTITY IDENTIFICATION ###
         elif (is_entity(element) == True) and (is_deprecated(element) == False):
             current_camelcase_path = ''
             if (camelcase_entity_path is None):
@@ -381,6 +389,9 @@ def generate_python_xml_parser_code(ctx, modules, fd):
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
                         generate_parser_code(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict)
             fd.write('\n' + INDENTATION_LEVEL * depth_level + 'dict_buffers.append(' + current_path.replace('-', '_') + 'dict_buffer)')
+        ### --- ###
+
+        ### NGSI-LD PROPERTY IDENTIFICATION ###
         elif (is_property(element, typedefs_dict) == True) and (is_deprecated(element) == False):
             fd.write('\n' + INDENTATION_LEVEL * depth_level + camelcase_element_arg + ' ' + '=' + ' ' + str(parent_element_arg).replace('-', '_') + '.find(\".//{' + element_namespace + '}' + str(element.arg) + '\")')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + 'if ' + camelcase_element_arg + ' is not None:')
@@ -393,6 +404,9 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Property\"')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"value\"] = ' + text_format)
+        ### --- ###
+        
+        ### NGSI-LD RELATIONSHIP IDENTIFICATION ###
         elif (is_relationship(element, typedefs_dict) == True) and (is_deprecated(element) == False):
             pointer = element.i_leafref_ptr[0]
             pointer_parent = pointer.parent
@@ -408,6 +422,37 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Relationship\"')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + matches[0] + ':\" + element_text')
+        ### --- ###
+
+        ### NGSI-LD YANG IDENTITY IDENTIFICATION ###
+        elif (is_yang_identity(element, typedefs_dict) == True) and (is_deprecated(element) == False):
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + camelcase_element_arg + ' ' + '=' + ' ' + str(parent_element_arg).replace('-', '_') + '.find(\".//{' + element_namespace + '}' + str(element.arg) + '\")')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + 'if ' + camelcase_element_arg + ' is not None:')
+            ngsi_ld_type = yang_to_ngsi_ld_types_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1], typedefs_dict)
+            text_format = element_text_type_formatting(ngsi_ld_type, 'element_text')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + 'element_text = ' + camelcase_element_arg + '.text')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + 'if element_text is not None:')
+            if (str(element.arg) == 'type'):
+                relationshipId = str(element.parent.arg) + str(element.arg).capitalize()
+            else:
+                relationshipId = str(element.arg)
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer = {}')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:YANGIdentity:\" + element_text')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"type\"] = \"YANGIdentity\"')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"description\"] = {}')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"description\"][\"type\"] = \"Property\"')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"description\"][\"value\"] = \"Not available yet.\"')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"identifier\"] = {}')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"identifier\"][\"type\"] = \"Property\"')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"identifier\"][\"value\"] = element_text.split(\':\')[-1]')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"namespace\"] = {}')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"namespace\"][\"type\"] = \"Property\"')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"namespace\"][\"value\"] = \"Not available yet.\"')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + 'dict_buffers.append(' + current_path.replace('-', '_') + 'dict_buffer)')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + relationshipId + '\"] = {}')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + relationshipId + '\"][\"type\"] = \"Relationship\"')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + relationshipId + '\"][\"object\"] = \"urn:ngsi-ld:YANGIdentity:\" + element_text')
+        ### --- ###
     
     # -- Generate XML parser Python code --
 
