@@ -4,7 +4,7 @@ pyang plugin -- CANDIL NGSI-LD Context Generator.
 Generates the NGSI-LD context files associated with a YANG module file following the defined guidelines and conventions.
 The results are written to individual .jsonld files: one for every NGSI-LD Entity.
 
-Version: 0.3.3.
+Version: 0.3.4.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -69,6 +69,7 @@ def generate_ngsi_ld_context(ctx, modules, fd):
     '''
 
     # Use PDB to debug the code with pdb.set_trace().
+    # pdb.set_trace()
 
     # AUXILIARY FUNCTIONS: 
 
@@ -87,7 +88,7 @@ def generate_ngsi_ld_context(ctx, modules, fd):
             if (keyword == 'leaf') or (keyword == 'leaf-list'):
                 return re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element_name)
     
-    def is_enclosing_container(element):
+    def is_enclosing_container(element) -> bool:
         '''
         Auxiliary function.
         Checks if an element is an "enclosing container":
@@ -108,7 +109,7 @@ def generate_ngsi_ld_context(ctx, modules, fd):
                 result = True
             return result
     
-    def is_deprecated(element):
+    def is_deprecated(element) -> bool:
         '''
         Auxiliary function.
         Checks if an element is deprecated.
@@ -119,7 +120,7 @@ def generate_ngsi_ld_context(ctx, modules, fd):
             result = True
         return result
 
-    def is_entity(element):
+    def is_entity(element) -> bool:
         '''
         Auxiliary function.
         Checks if an element matches the YANG to NGSI-LD translation convention for an Entity.
@@ -129,23 +130,40 @@ def generate_ngsi_ld_context(ctx, modules, fd):
             result = True
         return result
     
-    def is_property(element):
+    def is_property(element) -> bool:
         '''
         Auxiliary function.
         Checks if an element matches the YANG to NGSI-LD translation convention for a Property.
         '''
         result = False
-        if (element.keyword in ['leaf-list', 'leaf']) and ('ref' not in str(element.search_one('type'))):
-            result = True
+        if (element.keyword in ['leaf-list', 'leaf']):
+            element_type = str(element.search_one('type')).replace('type ', '').split(':')[-1]
+            if ('ref' not in element_type):
+                result = True
         return result
     
-    def is_relationship(element):
+    def is_relationship(element) -> bool:
         '''
         Auxiliary function.
         Checks if an element matches the YANG to NGSI-LD translation convention for a Relationship.
         '''
         result = False
-        if (element.keyword in ['leaf-list', 'leaf']) and ('ref' in str(element.search_one('type'))):
+        if (element.keyword in ['leaf-list', 'leaf']):
+            element_type = str(element.search_one('type')).replace('type ', '').split(':')[-1]
+            if ('ref' in element_type):
+                result = True
+        return result
+
+    def is_yang_identity(element) -> bool:
+        '''
+        Auxiliary function.
+        Checks if an element matches the YANG to NGSI-LD translation convention for a YANG Identity.
+        NOTE: YANG Identities are NGSI-LD Entities, but since they are either leaf-lists or leaves, they
+        have no children, and therefore they are processed differently.
+        '''
+        result = False
+        element_type = str(element.search_one('type')).replace('type ', '').split(':')[-1]
+        if (element_type == 'identityref'):
             result = True
         return result
                 

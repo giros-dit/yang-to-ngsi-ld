@@ -309,7 +309,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         if (element.keyword in ['leaf-list', 'leaf']):
             element_type = str(element.search_one('type')).replace('type ', '').split(':')[-1]
             if (element_type in YANG_PRIMITIVE_TYPES) or \
-                ((typedefs_dict.get(element_type) is not None) and (typedefs_dict.get(element_type) != 'leafref')):
+                ((typedefs_dict.get(element_type) is not None) and ('ref' not in typedefs_dict.get(element_type))):
                 result = True
         return result
     
@@ -322,17 +322,19 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         if (element.keyword in ['leaf-list', 'leaf']):
             element_type = str(element.search_one('type')).replace('type ', '').split(':')[-1]
             if (element_type == 'leafref') or \
-                ((typedefs_dict.get(element_type) is not None) and (typedefs_dict.get(element_type) == 'leafref')):
+                ((typedefs_dict.get(element_type) is not None) and ('ref' in typedefs_dict.get(element_type))):
                 result = True
         return result
 
     def is_yang_identity(element, typedefs_dict: dict) -> bool:
         '''
         Auxiliary function.
-        Checks if an element matches the YANG to NGSI-LD translation convention for a YANG Identity (identityref).
+        Checks if an element matches the YANG to NGSI-LD translation convention for a YANG Identity.
+        NOTE: YANG Identities are NGSI-LD Entities, but since they are either leaf-lists or leaves, they
+        have no children, and therefore they are processed differently.
         '''
         result = False
-        if (element.keyword in statements.data_definition_keywords):
+        if (element.keyword in ['leaf-list', 'leaf']):
             element_type = str(element.search_one('type')).replace('type ', '').split(':')[-1]
             if (element_type == 'identityref') or \
                 ((typedefs_dict.get(element_type) is not None) and (typedefs_dict.get(element_type) == 'identityref')):
