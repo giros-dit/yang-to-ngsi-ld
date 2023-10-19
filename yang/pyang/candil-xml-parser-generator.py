@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an XML p
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 0.4.3.
+Version: 0.4.4.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -434,26 +434,31 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             text_format = element_text_type_formatting(ngsi_ld_type, 'element_text')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + 'element_text = ' + camelcase_element_arg + '.text')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + 'if element_text is not None:')
-            if (str(element.arg) == 'type'):
-                relationshipId = str(element.parent.arg) + str(element.arg).capitalize()
-            else:
-                relationshipId = str(element.arg)
+            ### CREATION OF THE 'NGSI-LD ENTITY PART' FOR THE YANG IDENTITY ###
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer = {}')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:YANGIdentity:\" + element_text')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"type\"] = \"YANGIdentity\"')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"description\"] = {}')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"description\"][\"type\"] = \"Property\"')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"description\"][\"value\"] = \"Not available yet.\"')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"description\"][\"value\"] = \"Undefined\"')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"identifier\"] = {}')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"identifier\"][\"type\"] = \"Property\"')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"identifier\"][\"value\"] = element_text.split(\':\')[-1]')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"namespace\"] = {}')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"namespace\"][\"type\"] = \"Property\"')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"namespace\"][\"value\"] = \"Not available yet.\"')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"namespace\"][\"value\"] = \"Undefined\"')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + 'dict_buffers.append(' + current_path.replace('-', '_') + 'dict_buffer)')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + relationshipId + '\"] = {}')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + relationshipId + '\"][\"type\"] = \"Relationship\"')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + relationshipId + '\"][\"object\"] = \"urn:ngsi-ld:YANGIdentity:\" + element_text')
+            ### --- ###
+            ### CREATION OF THE 'NGSI-LD RELATIONSHIP PART' FOR THE YANG IDENTITY: PARENT -> YANG IDENTITY ###
+            if (str(element.arg) == 'type'):
+                yang_identity_name = str(element.parent.arg) + str(element.arg).capitalize()
+            else:
+                yang_identity_name = str(element.arg)
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"] = {}')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"][\"type\"] = \"Relationship\"')
+            # The 'object' pointer to the YANGIdentity 'id' must be completed.
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"][\"object\"] = \"urn:ngsi-ld:YANGIdentity:\" + element_text')
+            ### --- ###
         ### --- ###
     
     # -- Generate XML parser Python code --
