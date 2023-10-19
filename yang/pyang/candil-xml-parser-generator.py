@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an XML p
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 0.4.4.
+Version: 0.4.5.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -69,7 +69,7 @@ pyang -f candil-xml-parser-generator [OPTIONS] <base_module.yang> [augmenting_mo
 
 OPTIONS:
     --candil-xml-parser-generator-input-mode=MODE --> **MANDATORY** Define where to read input XML data from. Valid values: file, kafka.
-    --candil-xml-parser-generator-output-mode=MODE --> **MANDATORY** Define where to write output dictionary buffers to. Valid values: file, stdout, kafka.
+    --candil-xml-parser-generator-output-mode=MODE --> **MANDATORY** Define where to write output dictionary buffers to. Valid values: file, print or kafka.
     --candil-xml-parser-generator-kafka-server=SOCKET --> Only when using Kafka, specify the socket (<ip_or_hostname>:<port>) where the Kafka server is reachable.
     --candil-xml-parser-generator-kafka-input-topic=TOPIC --> Only when using Kafka for the input mode, specify the name of the topic where to read XML data from.
     --candil-xml-parser-generator-kafka-output-topic=TOPIC --> Only when using Kafka for the output mode, specify the name of the topic where to write dictionary buffers to.
@@ -90,7 +90,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
     INPUT_MODE_KAFKA = "kafka" # -> Input XML data is read from a Kafka topic.
     
     # Writing modes for output dictionary buffers.
-    OUTPUT_MODE_STDOUT = "stdout" # -> Output dictionary buffers are written to stdout (terminal).
+    OUTPUT_MODE_PRINT = "print" # -> Output dictionary buffers are printed to stdout (terminal).
     OUTPUT_MODE_FILE = "file" # -> Output dictionary buffers are written to a file.
     OUTPUT_MODE_KAFKA = "kafka" # -> Output dictionary buffers are written to a Kafka topic.
 
@@ -125,7 +125,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
 
     BASE_IMPORT_STATEMENTS = [
         'import json\n',
-        'import xml.etree.ElementTree as et',
+        'from lxml import etree as et',
     ]
 
     FILE_IMPORT_STATEMENTS = [
@@ -157,7 +157,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             2 * INDENTATION_LEVEL + 'root = et.fromstring(xml)'
         ]
 
-    WRITING_INSTRUCTIONS_STDOUT = [
+    WRITING_INSTRUCTIONS_PRINT = [
         'print(json.dumps(dict_buffers[::-1], indent=4))\n',
         'dict_buffers.clear()'
     ]
@@ -436,7 +436,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + 'if element_text is not None:')
             ### CREATION OF THE 'NGSI-LD ENTITY PART' FOR THE YANG IDENTITY ###
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer = {}')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:YANGIdentity:\" + element_text')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:YANGIdentity:\" + element_text + \":\"')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"type\"] = \"YANGIdentity\"')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"description\"] = {}')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"description\"][\"type\"] = \"Property\"')
@@ -446,7 +446,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"identifier\"][\"value\"] = element_text.split(\':\')[-1]')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"namespace\"] = {}')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"namespace\"][\"type\"] = \"Property\"')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"namespace\"][\"value\"] = \"Undefined\"')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"namespace\"][\"value\"] = list(type.nsmap.values())[0]')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + 'dict_buffers.append(' + current_path.replace('-', '_') + 'dict_buffer)')
             ### --- ###
             ### CREATION OF THE 'NGSI-LD RELATIONSHIP PART' FOR THE YANG IDENTITY: PARENT -> YANG IDENTITY ###
@@ -457,7 +457,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"] = {}')
             fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"][\"type\"] = \"Relationship\"')
             # The 'object' pointer to the YANGIdentity 'id' must be completed.
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"][\"object\"] = \"urn:ngsi-ld:YANGIdentity:\" + element_text')
+            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"][\"object\"] = \"urn:ngsi-ld:YANGIdentity:\" + element_text + \":\"')
             ### --- ###
         ### --- ###
     
@@ -524,8 +524,8 @@ def generate_python_xml_parser_code(ctx, modules, fd):
     if (ctx.opts.output_mode is not None) and (ctx.opts.output_mode == OUTPUT_MODE_FILE):
         for line in WRITING_INSTRUCTIONS_FILE:
             fd.write(line)
-    if (ctx.opts.output_mode is not None) and (ctx.opts.output_mode == OUTPUT_MODE_STDOUT):
-        for line in WRITING_INSTRUCTIONS_STDOUT:
+    if (ctx.opts.output_mode is not None) and (ctx.opts.output_mode == OUTPUT_MODE_PRINT):
+        for line in WRITING_INSTRUCTIONS_PRINT:
             fd.write(line)
     if (ctx.opts.output_mode is not None) and (ctx.opts.output_mode == OUTPUT_MODE_KAFKA):
         for line in WRITING_INSTRUCTIONS_KAFKA:

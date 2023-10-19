@@ -1,5 +1,5 @@
 import json
-import xml.etree.ElementTree as et
+from lxml import etree as et
 import sys
 
 xml = sys.argv[1]
