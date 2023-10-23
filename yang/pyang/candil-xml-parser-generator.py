@@ -353,6 +353,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             current_path = str(element.arg) + '_'
         else:
             current_path = entity_path + str(element.arg) + '_'
+        
         ### ENCLOSING CONTAINER IDENTIFICATION ###
         if (is_enclosing_container(element) == True) and (is_deprecated(element) == False):
             subelements = element.i_children

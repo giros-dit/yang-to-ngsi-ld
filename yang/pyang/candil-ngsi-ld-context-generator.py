@@ -4,7 +4,7 @@ pyang plugin -- CANDIL NGSI-LD Context Generator.
 Generates the NGSI-LD context files associated with a YANG module file following the defined guidelines and conventions.
 The results are written to individual .jsonld files: one for every NGSI-LD Entity.
 
-Version: 0.3.4.
+Version: 0.3.5.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -70,6 +70,14 @@ def generate_ngsi_ld_context(ctx, modules, fd):
 
     # Use PDB to debug the code with pdb.set_trace().
     # pdb.set_trace()
+
+    # CONSTANTS:
+
+    IETF_YANG_URI = "http://ietf.yang.org#"
+
+    YANG_IDENTITY_BROADER_URI = "http://www.w3.org/2004/02/skos/core#broader"
+
+    NGSI_LD_CORE_CONTEXT_URI = "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.6.jsonld"
 
     # AUXILIARY FUNCTIONS: 
 
@@ -150,7 +158,7 @@ def generate_ngsi_ld_context(ctx, modules, fd):
         result = False
         if (element.keyword in ['leaf-list', 'leaf']):
             element_type = str(element.search_one('type')).replace('type ', '').split(':')[-1]
-            if ('ref' in element_type):
+            if ('ref' in element_type) and (element_type != 'identityref'):
                 result = True
         return result
 
@@ -176,12 +184,17 @@ def generate_ngsi_ld_context(ctx, modules, fd):
             name = str(element.arg)
         else:
             name = element.i_module.i_prefix + ':' + str(element.arg)
+        
+        ### ENCLOSING CONTAINER IDENTIFICATION ###
         if (is_enclosing_container(element) == True) and (is_deprecated(element) == False):
             subelements = element.i_children
             if (subelements is not None):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
                         generate_context(subelement, module_name, module_urn, xpath + name + '/', None, None)
+        ### --- ###
+
+        ### NGSI-LD ENTITY IDENTIFICATION ###
         elif (is_entity(element) == True) and (is_deprecated(element) == False):
                 current_camelcase_path = ''
                 if (camelcase_entity_path is None):
@@ -204,10 +217,33 @@ def generate_ngsi_ld_context(ctx, modules, fd):
                 file = open(filename, 'w')
                 file.write(json.dumps(json_ld, indent=4) + '\n')
                 fd.write('NGSI-LD Context written to ' + file.name + '\n')
+        ### --- ###
+
+        ### NGSI-LD PROPERTY IDENTIFICATION ###
         elif (is_property(element) == True) and (is_deprecated(element) == False):
             ngsi_ld_context[to_camelcase(str(element.keyword), str(element.arg))] = xpath + name
+        ### --- ###
+
+        ### NGSI-LD RELATIONSHIP IDENTIFICATION ###
         elif (is_relationship(element) == True) and (is_deprecated(element) == False):
             ngsi_ld_context[to_camelcase(str(element.keyword), str(element.arg))] = xpath + name
+        ### --- ###
+
+        ### NGSI-LD YANG IDENTITY IDENTIFICATION ###
+        elif (is_yang_identity(element) == True) and (is_deprecated(element) == False):
+            yang_identity_json_ld = {}
+            yang_identity_context = []
+            yang_identity_ngsi_ld_context = {}
+            yang_identity_ngsi_ld_context["ietf-yang"] = IETF_YANG_URI
+            yang_identity_ngsi_ld_context["YANGIdentity"] = "ietf-yang:YANGIdentity"
+            yang_identity_ngsi_ld_context["description"] = "ietf-yang:description"
+            yang_identity_ngsi_ld_context["identifier"] = "ietf-yang:identifier"
+            yang_identity_ngsi_ld_context["namespace"] = "ietf-yang:namespace"
+            yang_identity_ngsi_ld_context["broader"] = YANG_IDENTITY_BROADER_URI
+            yang_identity_context.append(yang_identity_ngsi_ld_context)
+            yang_identity_context.append(NGSI_LD_CORE_CONTEXT_URI)
+            yang_identity_json_ld["@context"] = yang_identity_context
+        ### --- ###
     
     # Generate NGSI-LD Context:
     for module in modules:
