@@ -9,6 +9,9 @@ Version: 0.3.5.
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
 
+### HELP REFERENCES ###
+### [1] https://stackoverflow.com/questions/12517451/automatically-creating-directories-with-file-output
+
 import json
 import os
 import optparse
@@ -74,9 +77,7 @@ def generate_ngsi_ld_context(ctx, modules, fd):
     # CONSTANTS:
 
     IETF_YANG_URI = "http://ietf.yang.org#"
-
     YANG_IDENTITY_BROADER_URI = "http://www.w3.org/2004/02/skos/core#broader"
-
     NGSI_LD_CORE_CONTEXT_URI = "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.6.jsonld"
 
     # AUXILIARY FUNCTIONS: 
@@ -211,7 +212,6 @@ def generate_ngsi_ld_context(ctx, modules, fd):
                         if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
                             generate_context(subelement, module_name, module_urn, xpath + name + '/', current_camelcase_path, ngsi_ld_context)
                 json_ld["@context"] = ngsi_ld_context
-                # Help: https://stackoverflow.com/questions/12517451/automatically-creating-directories-with-file-output
                 filename = 'ngsi-ld-context/' + xpath.replace('/', '_').replace(':', '_') + name.replace(':', '_') + '.jsonld'
                 os.makedirs(os.path.dirname(filename), exist_ok=True)
                 file = open(filename, 'w')
@@ -243,6 +243,11 @@ def generate_ngsi_ld_context(ctx, modules, fd):
             yang_identity_context.append(yang_identity_ngsi_ld_context)
             yang_identity_context.append(NGSI_LD_CORE_CONTEXT_URI)
             yang_identity_json_ld["@context"] = yang_identity_context
+            yang_identity_filename = 'ngsi-ld-context/' + xpath.replace('/', '_').replace(':', '_') +  name.replace(':', '_') + '.jsonld'
+            os.makedirs(os.path.dirname(yang_identity_filename), exist_ok=True)
+            yang_identity_file = open(yang_identity_filename, 'w')
+            yang_identity_file.write(json.dumps(yang_identity_json_ld, indent=4) + '\n')
+            fd.write('NGSI-LD Context written to ' + yang_identity_file.name + '\n')
         ### --- ###
     
     # Generate NGSI-LD Context:

@@ -494,7 +494,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
     
     fd.write('\n')
 
-    # Find typedefs, considering also modules in import sentences:
+    # Find typedefs, including those defined in modules in import sentences:
     typedef_modules = []
     for module in modules:
         typedef_modules.append(module)
