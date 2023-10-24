@@ -121,7 +121,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         'union': 'String'
     }
 
-    INDENTATION_LEVEL = '    '
+    INDENTATION_BLOCK = '    '
 
     BASE_IMPORT_STATEMENTS = [
         'import json\n',
@@ -152,9 +152,9 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             'dict_buffers = []\n',
             'consumer = KafkaConsumer(\'' + ctx.opts.kafka_input_topic + '\', bootstrap_servers=[\'' + ctx.opts.kafka_server + '\'])\n',
             'while True:\n',
-            INDENTATION_LEVEL + 'for message in consumer:\n',
-            2 * INDENTATION_LEVEL + 'xml = str(message.value.decode(\'utf-8\'))\n',
-            2 * INDENTATION_LEVEL + 'root = et.fromstring(xml)'
+            INDENTATION_BLOCK + 'for message in consumer:\n',
+            2 * INDENTATION_BLOCK + 'xml = str(message.value.decode(\'utf-8\'))\n',
+            2 * INDENTATION_BLOCK + 'root = et.fromstring(xml)'
         ]
 
     WRITING_INSTRUCTIONS_PRINT = [
@@ -172,10 +172,10 @@ def generate_python_xml_parser_code(ctx, modules, fd):
 
     if (ctx.opts.kafka_server is not None) and (ctx.opts.kafka_output_topic is not None):
         WRITING_INSTRUCTIONS_KAFKA = [
-            2 * INDENTATION_LEVEL + 'producer = KafkaProducer(bootstrap_servers=[\'' + ctx.opts.kafka_server + '\'])\n',
-            2 * INDENTATION_LEVEL + 'producer.send(\'' + ctx.opts.kafka_output_topic + '\', value=json.dumps(dict_buffers[::-1], indent=4).encode(\'utf-8\'))\n',
-            2 * INDENTATION_LEVEL + 'producer.flush()\n',
-            2 * INDENTATION_LEVEL + 'dict_buffers.clear()'
+            2 * INDENTATION_BLOCK + 'producer = KafkaProducer(bootstrap_servers=[\'' + ctx.opts.kafka_server + '\'])\n',
+            2 * INDENTATION_BLOCK + 'producer.send(\'' + ctx.opts.kafka_output_topic + '\', value=json.dumps(dict_buffers[::-1], indent=4).encode(\'utf-8\'))\n',
+            2 * INDENTATION_BLOCK + 'producer.flush()\n',
+            2 * INDENTATION_BLOCK + 'dict_buffers.clear()'
         ] 
 
     # AUXILIARY FUNCTIONS: 
@@ -372,41 +372,41 @@ def generate_python_xml_parser_code(ctx, modules, fd):
                 current_camelcase_path = camelcase_entity_path + to_camelcase(str(element.keyword), str(element.arg))
             camelcase_entity_list.append(current_camelcase_path)
             if (parent_element_arg is None): # 1st level Entity.
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + 'for ' + str(element.arg).replace('-', '_') + ' in root.findall(\".//{' + element_namespace + '}' + str(element.arg) + '\"):')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + 'for ' + str(element.arg).replace('-', '_') + ' in root.findall(\".//{' + element_namespace + '}' + str(element.arg) + '\"):')
                 depth_level += 1
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + current_path.replace('-', '_') + 'dict_buffer = {}')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\"')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"type\"] = \"' + current_camelcase_path + '\"')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer = {}')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\"')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"type\"] = \"' + current_camelcase_path + '\"')
             else: # 2nd level Entity onwards.
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + 'for ' + str(element.arg).replace('-', '_') + ' in ' + str(parent_element_arg).replace('-', '_') + '.findall(\".//{' + element_namespace + '}' + str(element.arg) + '\"):')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + 'for ' + str(element.arg).replace('-', '_') + ' in ' + str(parent_element_arg).replace('-', '_') + '.findall(\".//{' + element_namespace + '}' + str(element.arg) + '\"):')
                 depth_level += 1
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + current_path.replace('-', '_') + 'dict_buffer = {}')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\" + ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1] + \":\"')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"type\"] = \"' + current_camelcase_path + '\"')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"] = {}')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"type\"] = \"Relationship\"')
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"object\"] = ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"]')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer = {}')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\" + ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1] + \":\"')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"type\"] = \"' + current_camelcase_path + '\"')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"] = {}')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"type\"] = \"Relationship\"')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"object\"] = ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"]')
             subelements = element.i_children
             if (subelements is not None):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
                         generate_parser_code(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict)
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + 'dict_buffers.append(' + current_path.replace('-', '_') + 'dict_buffer)')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + 'dict_buffers.append(' + current_path.replace('-', '_') + 'dict_buffer)')
         ### --- ###
 
         ### NGSI-LD PROPERTY IDENTIFICATION ###
         elif (is_property(element, typedefs_dict) == True) and (is_deprecated(element) == False):
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + camelcase_element_arg + ' ' + '=' + ' ' + str(parent_element_arg).replace('-', '_') + '.find(\".//{' + element_namespace + '}' + str(element.arg) + '\")')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + 'if ' + camelcase_element_arg + ' is not None:')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + camelcase_element_arg + ' ' + '=' + ' ' + str(parent_element_arg).replace('-', '_') + '.find(\".//{' + element_namespace + '}' + str(element.arg) + '\")')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + camelcase_element_arg + ' is not None:')
             ngsi_ld_type = yang_to_ngsi_ld_types_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1], typedefs_dict)
             text_format = element_text_type_formatting(ngsi_ld_type, 'element_text')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + 'element_text = ' + camelcase_element_arg + '.text')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + 'if element_text is not None:')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'element_text = ' + camelcase_element_arg + '.text')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if element_text is not None:')
             if ('name'.casefold() in str(element.arg)) or ('id'.casefold() in str(element.arg).casefold()):
-                fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] = ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] + ' + text_format)
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Property\"')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"value\"] = ' + text_format)
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] = ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] + ' + text_format)
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Property\"')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"value\"] = ' + text_format)
         ### --- ###
         
         ### NGSI-LD RELATIONSHIP IDENTIFICATION ###
@@ -418,47 +418,47 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             for camelcase_entity in camelcase_entity_list:
                 if camelcase_pointer_parent in camelcase_entity:
                     matches.append(camelcase_entity)
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + camelcase_element_arg + ' ' + '=' + ' ' + str(parent_element_arg).replace('-', '_') + '.find(\".//{' + element_namespace + '}' + str(element.arg) + '\")')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + 'if ' + camelcase_element_arg + ' is not None:')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + 'element_text = ' + camelcase_element_arg + '.text')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + 'if element_text is not None:')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Relationship\"')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + matches[0] + ':\" + element_text')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + camelcase_element_arg + ' ' + '=' + ' ' + str(parent_element_arg).replace('-', '_') + '.find(\".//{' + element_namespace + '}' + str(element.arg) + '\")')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + camelcase_element_arg + ' is not None:')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'element_text = ' + camelcase_element_arg + '.text')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if element_text is not None:')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Relationship\"')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + matches[0] + ':\" + element_text')
         ### --- ###
 
         ### NGSI-LD YANG IDENTITY IDENTIFICATION ###
         elif (is_yang_identity(element, typedefs_dict) == True) and (is_deprecated(element) == False):
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + camelcase_element_arg + ' ' + '=' + ' ' + str(parent_element_arg).replace('-', '_') + '.find(\".//{' + element_namespace + '}' + str(element.arg) + '\")')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + 'if ' + camelcase_element_arg + ' is not None:')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + camelcase_element_arg + ' ' + '=' + ' ' + str(parent_element_arg).replace('-', '_') + '.find(\".//{' + element_namespace + '}' + str(element.arg) + '\")')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + camelcase_element_arg + ' is not None:')
             ngsi_ld_type = yang_to_ngsi_ld_types_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1], typedefs_dict)
             text_format = element_text_type_formatting(ngsi_ld_type, 'element_text')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + 'element_text = ' + camelcase_element_arg + '.text')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL + 'if element_text is not None:')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'element_text = ' + camelcase_element_arg + '.text')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if element_text is not None:')
             ### CREATION OF THE 'NGSI-LD ENTITY PART' FOR THE YANG IDENTITY ###
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer = {}')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:YANGIdentity:\" + element_text + \":\"')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"type\"] = \"YANGIdentity\"')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"description\"] = {}')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"description\"][\"type\"] = \"Property\"')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"description\"][\"value\"] = \"Undefined\"')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"identifier\"] = {}')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"identifier\"][\"type\"] = \"Property\"')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"identifier\"][\"value\"] = element_text.split(\':\')[-1]')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"namespace\"] = {}')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"namespace\"][\"type\"] = \"Property\"')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace('-', '_') + 'dict_buffer[\"namespace\"][\"value\"] = list(type.nsmap.values())[0]')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + 'dict_buffers.append(' + current_path.replace('-', '_') + 'dict_buffer)')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace('-', '_') + 'dict_buffer = {}')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:YANGIdentity:\" + element_text + \":\"')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace('-', '_') + 'dict_buffer[\"type\"] = \"YANGIdentity\"')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace('-', '_') + 'dict_buffer[\"description\"] = {}')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace('-', '_') + 'dict_buffer[\"description\"][\"type\"] = \"Property\"')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace('-', '_') + 'dict_buffer[\"description\"][\"value\"] = \"Undefined\"')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace('-', '_') + 'dict_buffer[\"identifier\"] = {}')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace('-', '_') + 'dict_buffer[\"identifier\"][\"type\"] = \"Property\"')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace('-', '_') + 'dict_buffer[\"identifier\"][\"value\"] = element_text.split(\':\')[-1]')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace('-', '_') + 'dict_buffer[\"namespace\"] = {}')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace('-', '_') + 'dict_buffer[\"namespace\"][\"type\"] = \"Property\"')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace('-', '_') + 'dict_buffer[\"namespace\"][\"value\"] = list(type.nsmap.values())[0]')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + 'dict_buffers.append(' + current_path.replace('-', '_') + 'dict_buffer)')
             ### --- ###
             ### CREATION OF THE 'NGSI-LD RELATIONSHIP PART' FOR THE YANG IDENTITY: PARENT -> YANG IDENTITY ###
             if (str(element.arg) == 'type'):
                 yang_identity_name = str(element.parent.arg) + str(element.arg).capitalize()
             else:
                 yang_identity_name = str(element.arg)
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"] = {}')
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"][\"type\"] = \"Relationship\"')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"] = {}')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"][\"type\"] = \"Relationship\"')
             # The 'object' pointer to the YANGIdentity 'id' must be completed.
-            fd.write('\n' + INDENTATION_LEVEL * depth_level + INDENTATION_LEVEL * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"][\"object\"] = \"urn:ngsi-ld:YANGIdentity:\" + element_text + \":\"')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"][\"object\"] = \"urn:ngsi-ld:YANGIdentity:\" + element_text + \":\"')
             ### --- ###
         ### --- ###
     
