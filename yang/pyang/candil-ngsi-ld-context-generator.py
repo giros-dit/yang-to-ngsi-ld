@@ -4,7 +4,7 @@ pyang plugin -- CANDIL NGSI-LD Context Generator.
 Generates the NGSI-LD context files associated with a YANG module file following the defined guidelines and conventions.
 The results are written to individual .jsonld files: one for every NGSI-LD Entity.
 
-Version: 0.3.5.
+Version: 0.3.6.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -35,14 +35,14 @@ class CandilNgsiLdContextGeneratorPlugin(plugin.PyangPlugin):
     
     def add_opts(self, optparser):
         optlist = [
-            optparse.make_option('--candil-ngsi-ld-context-generator-help', dest='print_ngsild_ctxg_help', action='store_true', help='Prints help and usage.')
+            optparse.make_option('--candil-ngsi-ld-context-generator-help', dest='print_help', action='store_true', help='Prints help and usage.')
         ]
         g = optparser.add_option_group('CANDIL NGSI-LD Context Generator - Execution options')
         g.add_options(optlist)
 
     def setup_ctx(self, ctx):
         if ctx.opts.print_ngsild_ctxg_help:
-            print_ngsild_ctxg_help()
+            print_help()
             sys.exit(0)
 
     def setup_fmt(self, ctx):
@@ -51,9 +51,9 @@ class CandilNgsiLdContextGeneratorPlugin(plugin.PyangPlugin):
     def emit(self, ctx, modules, fd):
         generate_ngsi_ld_context(ctx, modules, fd)
 
-def print_ngsild_ctxg_help():
+def print_help():
     '''
-    Prints plugin's help and usage information.
+    Prints execution help.
     '''
     print('''
 Pyang plugin - CANDIL NGSI-LD Context Generator (candil-ngsi-ld-context-generator).
@@ -74,7 +74,7 @@ def generate_ngsi_ld_context(ctx, modules, fd):
     # Use PDB to debug the code with pdb.set_trace().
     # pdb.set_trace()
 
-    # CONSTANTS:
+    # FUNCTION CONSTANTS:
 
     IETF_YANG_URI = "http://ietf.yang.org#"
     YANG_IDENTITY_BROADER_URI = "http://www.w3.org/2004/02/skos/core#broader"
