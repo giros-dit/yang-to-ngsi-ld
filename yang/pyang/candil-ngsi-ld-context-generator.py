@@ -4,13 +4,16 @@ pyang plugin -- CANDIL NGSI-LD Context Generator.
 Generates the NGSI-LD context files associated with a YANG module file following the defined guidelines and conventions.
 The results are written to individual .jsonld files: one for every NGSI-LD Entity.
 
-Version: 0.3.6.
+Version: 0.3.7.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
 
 ### HELP REFERENCES ###
+
 ### [1] https://stackoverflow.com/questions/12517451/automatically-creating-directories-with-file-output
+
+### --- ###
 
 import json
 import os
@@ -35,13 +38,13 @@ class CandilNgsiLdContextGeneratorPlugin(plugin.PyangPlugin):
     
     def add_opts(self, optparser):
         optlist = [
-            optparse.make_option('--candil-ngsi-ld-context-generator-help', dest='print_help', action='store_true', help='Prints help and usage.')
+            optparse.make_option('--candil-ngsi-ld-context-generator-help', dest='candil_ngsi_ld_context_generator_help', action='store_true', help='Prints help and usage.')
         ]
-        g = optparser.add_option_group('CANDIL NGSI-LD Context Generator - Execution options')
+        g = optparser.add_option_group('CANDIL NGSI-LD Context Generator specific options')
         g.add_options(optlist)
 
     def setup_ctx(self, ctx):
-        if ctx.opts.print_ngsild_ctxg_help:
+        if ctx.opts.candil_ngsi_ld_context_generator_help:
             print_help()
             sys.exit(0)
 
@@ -74,13 +77,15 @@ def generate_ngsi_ld_context(ctx, modules, fd):
     # Use PDB to debug the code with pdb.set_trace().
     # pdb.set_trace()
 
-    # FUNCTION CONSTANTS:
+    ### FUNCTION CONSTANTS ###
 
     IETF_YANG_URI = "http://ietf.yang.org#"
     YANG_IDENTITY_BROADER_URI = "http://www.w3.org/2004/02/skos/core#broader"
     NGSI_LD_CORE_CONTEXT_URI = "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.6.jsonld"
 
-    # AUXILIARY FUNCTIONS: 
+    ### --- ###
+
+    ### AUXILIARY FUNCTIONS ###
 
     def to_camelcase(keyword: str, element_name: str) -> str:
         '''
@@ -249,6 +254,8 @@ def generate_ngsi_ld_context(ctx, modules, fd):
             yang_identity_file.write(json.dumps(yang_identity_json_ld, indent=4) + '\n')
             fd.write('NGSI-LD Context written to ' + yang_identity_file.name + '\n')
         ### --- ###
+    
+    ### --- ###
     
     # Generate NGSI-LD Context:
     for module in modules:

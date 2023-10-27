@@ -1,9 +1,10 @@
 '''
 pyang plugin -- CANDIL NGSI-LD Context Generator.
 
-Discovers YANG Identities within a YANG module and generates their corresponding NGSI-LD Entities.
+Discovers YANG Identities within a YANG module and generates the data structures
+(dictionary buffers) of their corresponding NGSI-LD Entities.
 
-Version: 0.0.2.
+Version: 0.0.3.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -38,44 +39,18 @@ class CandilYangIdentitiesGeneratorPlugin(plugin.PyangPlugin):
     
     def add_opts(self, optparser):
         optlist = [
-            optparse.make_option('--candil-yang-identities-generator-help', dest='print_help', action='store_true', help='Prints help and usage.'),
-            optparse.make_option('--candil-yang-identities-generator-output-mode', dest='output_mode', action='store', help='Defines output mode for the representation of NGSI-LD Entities.'),
-            optparse.make_option('--candil-yang-identities-generator-kafka-server', dest='kafka_server', action='store', help='Defines the Kafka server to use (in socket format: <ip_or_hostname>:<port>).'),
-            optparse.make_option('--candil-yang-identities-generator-kafka-topic', dest='kafka_topic', action='store', help='Defines the Kafka output topic for the representation of NGSI-LD Entities.')
+            optparse.make_option('--candil-yang-identities-generator-help', dest='candil_yang_identities_generator_help', action='store_true', help='Prints help and usage.'),
+            optparse.make_option('--candil-yang-identities-generator-output-mode', dest='candil_yang_identities_generator_output_mode', action='store', help='Defines the output mode for dictionary buffers.'),
+            optparse.make_option('--candil-yang-identities-generator-kafka-server', dest='candil_yang_identities_generator_kafka_server', action='store', help='Only when using Kafka, specifies the endpoint of the server to use.'),
+            optparse.make_option('--candil-yang-identities-generator-kafka-topic', dest='candil_yang_identities_generator_kafka_topic', action='store', help='Only when using Kafka, specifies the output topic to use.')
         ]
-        g = optparser.add_option_group('CANDIL YANG Identities Generator - Execution options')
+        g = optparser.add_option_group('CANDIL YANG Identities Generator specific options')
         g.add_options(optlist)
 
     def setup_ctx(self, ctx):
-        # Invocation options check.
-        if ctx.opts.print_help:
+        if ctx.opts.candil_yang_identities_generator_help:
             print_help()
             sys.exit(0)
-        else:
-            if ctx.opts.output_mode is None:
-                print("Output mode must be defined. Printing help and exiting...")
-                print_help()
-                sys.exit(0)
-            else:
-                if (ctx.opts.output_mode not in [OUTPUT_MODE_FILE, OUTPUT_MODE_KAFKA]):
-                    print("Incorrect output mode. Printing help and exiting...")
-                    print_help()
-                    sys.exit(0)
-                else:
-                    if ctx.opts.output_mode == OUTPUT_MODE_FILE:
-                        print("The corresponding NGSI-LD Entities for YANG Identities will be written to a file.")
-                        print("File name will be \"YANGIdentities.json\" and will be placed in the current directory.")
-                    if ctx.opts.output_mode == OUTPUT_MODE_KAFKA:
-                        print("The corresponding NGSI-LD Entities for YANG Identities will be written to a Kafka topic.")
-                        if ctx.opts.kafka_server is None:
-                            print("The endpoint for the Kafka server to use must be defined. Printing help and exiting...")
-                            print_help()
-                            sys.exit(0)
-                        else:
-                            if ctx.opts.kafka_topic is None:
-                                print("The Kafka output topic must be defined. Printing help and exiting...")
-                                print_help()
-                                sys.exit(0)
 
     def setup_fmt(self, ctx):
         ctx.implicit_errors = False
@@ -89,15 +64,16 @@ def print_help():
     '''
     print('''
 Pyang plugin - CANDIL YANG Identities Generator (candil-yang-identities-generator).
-Discovers YANG Identities within a YANG module and generates their corresponding NGSI-LD Entities.
+Discovers YANG Identities within a YANG module and generates the data structures
+(dictionary buffers) of their corresponding NGSI-LD Entities.
 
 Usage:
-pyang -f candil-yang-identities-generator [OPTIONS] <base_module.yang> [augmenting_module_1.yang] [augmenting_module_2.yang] ... [augmenting_module_N.yang]
+pyang -f candil-yang-identities-generator [OPTIONS] <module.yang>
 
 OPTIONS:
-    --candil-yang-identities-generator-output-mode=MODE --> **MANDATORY** Defines where to output the representation of NGSI-LD Entities to. Valid values: file or kafka.
+    --candil-yang-identities-generator-output-mode=MODE --> Defines where to output the representation of NGSI-LD Entities to (dictionary buffers). Valid values: file or kafka.
     --candil-yang-identities-generator-kafka-server=SOCKET --> Only when using Kafka, specifies the socket (<ip_or_hostname>:<port>) where the Kafka server is reachable.
-    --candil-yang-identities-generator-kafka-topic=TOPIC --> Only when using Kafka, specifies the output topic for the representation of NGSI-LD Entities.
+    --candil-yang-identities-generator-kafka-topic=TOPIC --> Only when using Kafka, specifies the output topic for the representation of NGSI-LD Entities (dictionary buffers).
     ''')
 
 def generate_yang_identities(ctx, modules, fd):
@@ -157,14 +133,16 @@ def generate_yang_identities(ctx, modules, fd):
                 dict_buffers.append(identity_dict_buffer)
 
     # Depending on the output mode, dictionary buffers are written either to a file or to a Kafka topic.
-    if (ctx.opts.output_mode == OUTPUT_MODE_FILE):
+    if (ctx.opts.candil_yang_identities_generator_output_mode == OUTPUT_MODE_FILE):
         output_file = open("YANGIdentities.json", "w")
         output_file.write(json.dumps(dict_buffers, indent=4))
         dict_buffers.clear()
         sys.exit(0)
-    if (ctx.opts.output_mode == OUTPUT_MODE_KAFKA):
-        producer = KafkaProducer(bootstrap_servers=[ctx.opts.kafka_server])
-        producer.send(ctx.opts.kafka_topic, value=json.dumps(dict_buffers, indent=4).encode("utf-8"))
-        producer.flush()
-        dict_buffers.clear()
-        sys.exit(0)
+    if (ctx.opts.candil_yang_identities_generator_output_mode == OUTPUT_MODE_KAFKA):
+        if (ctx.opts.candil_yang_identities_generator_kafka_server is not None) and \
+        (ctx.opts.candil_yang_identities_generator_kafka_topic is not None):
+            producer = KafkaProducer(bootstrap_servers=[ctx.opts.candil_yang_identities_generator_kafka_server])
+            producer.send(ctx.opts.candil_yang_identities_generator_kafka_topic, value=json.dumps(dict_buffers, indent=4).encode("utf-8"))
+            producer.flush()
+            dict_buffers.clear()
+            sys.exit(0)

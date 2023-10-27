@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an XML p
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 0.5.0.
+Version: 0.5.1.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -19,7 +19,7 @@ import json
 from pyang import plugin
 from pyang import statements
 
-# PLUGIN CONSTANTS:
+### PLUGIN CONSTANTS ###
 
 # Reading modes for input XML data.
 INPUT_MODE_FILE = "file" # -> Input XML data filepath is specified as an invocation argument.
@@ -29,6 +29,8 @@ INPUT_MODE_KAFKA = "kafka" # -> Input XML data is read from a Kafka topic.
 OUTPUT_MODE_PRINT = "print" # -> Output dictionary buffers are printed to stdout (terminal).
 OUTPUT_MODE_FILE = "file" # -> Output dictionary buffers are written to a file.
 OUTPUT_MODE_KAFKA = "kafka" # -> Output dictionary buffers are written to a Kafka topic.
+
+### --- ###
 
 def pyang_plugin_init():
     plugin.register_plugin(CandilXmlParserGeneratorPlugin())
@@ -43,59 +45,20 @@ class CandilXmlParserGeneratorPlugin(plugin.PyangPlugin):
     
     def add_opts(self, optparser):
         optlist = [
-            optparse.make_option('--candil-xml-parser-generator-help', dest='print_help', action='store_true', help='Prints help and usage.'),
-            optparse.make_option('--candil-xml-parser-generator-input-mode', dest='input_mode', action='store', help='Defines reading mode for input XML data.'),
-            optparse.make_option('--candil-xml-parser-generator-output-mode', dest='output_mode', action='store', help='Defines writing mode for output dictionary buffers.'),
-            optparse.make_option('--candil-xml-parser-generator-kafka-server', dest='kafka_server', action='store', help='Defines the Kafka server to use (in socket format: <ip_or_hostname>:<port>).'),
-            optparse.make_option('--candil-xml-parser-generator-kafka-input-topic', dest='kafka_input_topic', action='store', help='Defines the Kafka input topic to use for reading XML data.'),
-            optparse.make_option('--candil-xml-parser-generator-kafka-output-topic', dest='kafka_output_topic', action='store', help='Defines the Kafka output topic to use for writing dictionary buffers.')
+            optparse.make_option('--candil-xml-parser-generator-help', dest='candil_xml_parser_generator_help', action='store_true', help='Prints help and usage.'),
+            optparse.make_option('--candil-xml-parser-generator-input-mode', dest='candil_xml_parser_generator_input_mode', action='store', help='Defines the input mode for the XML parser.'),
+            optparse.make_option('--candil-xml-parser-generator-output-mode', dest='candil_xml_parser_generator_output_mode', action='store', help='Defines the output mode for the XML parser.'),
+            optparse.make_option('--candil-xml-parser-generator-kafka-server', dest='candil_xml_parser_generator_kafka_server', action='store', help='Only when using Kafka, specifies the endpoint of the server that the XML parser will use.'),
+            optparse.make_option('--candil-xml-parser-generator-kafka-input-topic', dest='candil_xml_parser_generator_kafka_input_topic', action='store', help='Only when using Kafka, specifies the input topic that the XML parser will use.'),
+            optparse.make_option('--candil-xml-parser-generator-kafka-output-topic', dest='candil_xml_parser_generator_kafka_output_topic', action='store', help='Only when using Kafka, specifies the output topic that the XML parser will use.')
         ]
-        g = optparser.add_option_group('CANDIL XML Parser Generator - Execution options')
+        g = optparser.add_option_group('CANDIL XML Parser Generator specific options')
         g.add_options(optlist)
 
     def setup_ctx(self, ctx):
-        # Invocation options check.
-        if ctx.opts.print_help:
+        if ctx.opts.candil_xml_parser_generator_help:
             print_help()
             sys.exit(0)
-        else:
-            if (ctx.opts.input_mode is None) or (ctx.opts.output_mode is None):
-                print("Input and output modes must be defined. Printing help and exiting...")
-                print_help()
-                sys.exit(0)
-            else:
-                # Input mode check.
-                if (ctx.opts.input_mode not in [INPUT_MODE_FILE, INPUT_MODE_KAFKA]):
-                    print("Incorrect input mode. Printing help and exiting...")
-                    print_help()
-                    sys.exit(0)
-                else:
-                    if (ctx.opts.input_mode == INPUT_MODE_FILE):
-                        print("The XML parser will read data from a file.")
-                        print("The filepath for the XML data must be given as an invocation argument.")
-                    if (ctx.opts.input_mode == INPUT_MODE_KAFKA):
-                        print("The XML parser will read data from a Kafka topic.")
-                        if (ctx.opts.kafka_server is None) or (ctx.opts.kafka_input_topic is None):
-                            print("The endpoint of the Kafka server and the input topic must be defined. Printing help and exiting...")
-                            print_help()
-                            sys.exit(0)      
-                # Output mode check.              
-                if (ctx.opts.output_mode not in [OUTPUT_MODE_FILE, OUTPUT_MODE_PRINT, OUTPUT_MODE_KAFKA]):
-                    print("Incorrect output mode. Printing help and exiting...")
-                    print_help()
-                    sys.exit(0)
-                else:
-                    if (ctx.opts.output_mode == OUTPUT_MODE_FILE):
-                        print("The XML parser will write dictionary buffers to a file.")
-                        print("File name will be \"dict_buffers.json\" and will be placed in the current directory.")
-                    if (ctx.opts.output_mode == OUTPUT_MODE_PRINT):
-                        print("The XML parser will print dictionary buffers to the terminal (stdout).")
-                    if (ctx.opts.output_mode == OUTPUT_MODE_KAFKA):
-                        print("The XML parser will write dictionary buffers to a Kafka topic.")
-                        if (ctx.opts.kafka_server is None) or (ctx.opts.kafka_output_topic is None):
-                            print("The endpoint of the Kafka server and the output topic must be defined. Printing help and exiting...")
-                            print_help()
-                            sys.exit(0)
 
     def setup_fmt(self, ctx):
         ctx.implicit_errors = False
@@ -111,14 +74,14 @@ def print_help():
 Pyang plugin - CANDIL XML Parser Generator (candil-xml-parser-generator).
 Given one or several YANG modules, this plugin generates the Python code of an XML parser
 that is able to read data modeled by these YANG modules and is also able to generate
-the data structures of the identified NGSI-LD Entities.
+the data structures (dictionary buffers) of the identified NGSI-LD Entities.
 
 Usage:
 pyang -f candil-xml-parser-generator [OPTIONS] <base_module.yang> [augmenting_module_1.yang] [augmenting_module_2.yang] ... [augmenting_module_N.yang] [> <output_file.py>]
 
 OPTIONS:
-    --candil-xml-parser-generator-input-mode=MODE --> **MANDATORY** Defines where the XML parser will read input XML data from. Valid values: file, kafka.
-    --candil-xml-parser-generator-output-mode=MODE --> **MANDATORY** Defines where the XML parser will output dictionary buffers to. Valid values: file, print or kafka.
+    --candil-xml-parser-generator-input-mode=MODE --> Defines where the XML parser will read input XML data from. Valid values: file, kafka.
+    --candil-xml-parser-generator-output-mode=MODE --> Defines where the XML parser will output dictionary buffers to. Valid values: file, print or kafka.
     --candil-xml-parser-generator-kafka-server=SOCKET --> Only when using Kafka, specifies the socket (<ip_or_hostname>:<port>) where the Kafka server is reachable to the XML parser.
     --candil-xml-parser-generator-kafka-input-topic=TOPIC --> Only when using Kafka for the input mode, specifies the name of the topic where the XML parser will read input XML data from.
     --candil-xml-parser-generator-kafka-output-topic=TOPIC --> Only when using Kafka for the output mode, specifies the name of the topic where the XML parser will output dictionary buffers to.
@@ -132,7 +95,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
     # Use PDB to debug the code with pdb.set_trace().
     # pdb.set_trace()
 
-    # FUNCTION CONSTANTS:
+    ### FUNCTION CONSTANTS ###
 
     YANG_PRIMITIVE_TYPES = [
         "int8", "int16", "int32", "int64",
@@ -141,7 +104,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         "bits", "binary", "empty", "union"
     ]
 
-    # NOTE: NGSI-LD types are Python "types" (as per this particular implementation).
+    # NOTE: NGSI-LD types are Python types (as per this particular implementation).
     BASE_YANG_TYPES_TO_NGSI_LD_TYPES = {
         'int8': 'Integer',
         'int16': 'Integer',
@@ -187,14 +150,16 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         'dict_buffers = []'
     ]
 
-    READING_INSTRUCTIONS_KAFKA = [
-        'dict_buffers = []\n',
-        'consumer = KafkaConsumer(\'' + ctx.opts.kafka_input_topic + '\', bootstrap_servers=[\'' + ctx.opts.kafka_server + '\'])\n',
-        'while True:\n',
-        INDENTATION_BLOCK + 'for message in consumer:\n',
-        2 * INDENTATION_BLOCK + 'xml = str(message.value.decode(\'utf-8\'))\n',
-        2 * INDENTATION_BLOCK + 'root = et.fromstring(xml)'
-    ]
+    if (ctx.opts.candil_xml_parser_generator_kafka_server is not None) and \
+        (ctx.opts.candil_xml_parser_generator_kafka_input_topic is not None):
+        READING_INSTRUCTIONS_KAFKA = [
+            'dict_buffers = []\n',
+            'consumer = KafkaConsumer(\'' + ctx.opts.candil_xml_parser_generator_kafka_input_topic + '\', bootstrap_servers=[\'' + ctx.opts.candil_xml_parser_generator_kafka_server + '\'])\n',
+            'while True:\n',
+            INDENTATION_BLOCK + 'for message in consumer:\n',
+            2 * INDENTATION_BLOCK + 'xml = str(message.value.decode(\'utf-8\'))\n',
+            2 * INDENTATION_BLOCK + 'root = et.fromstring(xml)'
+        ]
         
 
     WRITING_INSTRUCTIONS_PRINT = [
@@ -209,14 +174,18 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         'dict_buffers.clear()'
     ]
 
-    WRITING_INSTRUCTIONS_KAFKA = [
-        2 * INDENTATION_BLOCK + 'producer = KafkaProducer(bootstrap_servers=[\'' + ctx.opts.kafka_server + '\'])\n',
-        2 * INDENTATION_BLOCK + 'producer.send(\'' + ctx.opts.kafka_output_topic + '\', value=json.dumps(dict_buffers[::-1], indent=4).encode(\'utf-8\'))\n',
-        2 * INDENTATION_BLOCK + 'producer.flush()\n',
-        2 * INDENTATION_BLOCK + 'dict_buffers.clear()'
-    ]
+    if (ctx.opts.candil_xml_parser_generator_kafka_server is not None) and \
+        (ctx.opts.candil_xml_parser_generator_kafka_output_topic is not None):
+        WRITING_INSTRUCTIONS_KAFKA = [
+            2 * INDENTATION_BLOCK + 'producer = KafkaProducer(bootstrap_servers=[\'' + ctx.opts.candil_xml_parser_generator_kafka_server + '\'])\n',
+            2 * INDENTATION_BLOCK + 'producer.send(\'' + ctx.opts.candil_xml_parser_generator_kafka_output_topic + '\', value=json.dumps(dict_buffers[::-1], indent=4).encode(\'utf-8\'))\n',
+            2 * INDENTATION_BLOCK + 'producer.flush()\n',
+            2 * INDENTATION_BLOCK + 'dict_buffers.clear()'
+        ]
 
-    # AUXILIARY FUNCTIONS: 
+    ### --- ###
+
+    ### AUXILIARY FUNCTIONS ###
 
     def to_camelcase(element_keyword: str, element_arg: str) -> str:
         '''
@@ -482,22 +451,22 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"][\"object\"] = \"urn:ngsi-ld:YANGIdentity:\" + element_text')
         ### --- ###
     
-    # -- Generate XML parser Python code --
+    ### --- ###
 
     # Generate import statements (standard Python libraries and such):
     for import_statement in BASE_IMPORT_STATEMENTS:
         fd.write(import_statement)
     fd.write('\n')
-    if (ctx.opts.input_mode == INPUT_MODE_FILE) or \
-        (ctx.opts.output_mode == OUTPUT_MODE_FILE):
+    if (ctx.opts.candil_xml_parser_generator_input_mode == INPUT_MODE_FILE) or \
+        (ctx.opts.candil_xml_parser_generator_output_mode == OUTPUT_MODE_FILE):
         for line in FILE_IMPORT_STATEMENTS:
             fd.write(line)
             fd.write('\n')
-    if (ctx.opts.input_mode == INPUT_MODE_KAFKA):
+    if (ctx.opts.candil_xml_parser_generator_input_mode == INPUT_MODE_KAFKA):
         for line in KAFKA_INPUT_IMPORT_STATEMENTS:
             fd.write(line)
             fd.write('\n')
-    if (ctx.opts.output_mode == OUTPUT_MODE_KAFKA):
+    if (ctx.opts.candil_xml_parser_generator_output_mode == OUTPUT_MODE_KAFKA):
         for line in KAFKA_OUTPUT_IMPORT_STATEMENTS:
             fd.write(line)
             fd.write('\n')
@@ -505,16 +474,16 @@ def generate_python_xml_parser_code(ctx, modules, fd):
     fd.write('\n')
 
     # Generate reading instructions for the XML parser (depending on the input mode):
-    if (ctx.opts.input_mode == INPUT_MODE_FILE):
+    if (ctx.opts.candil_xml_parser_generator_input_mode == INPUT_MODE_FILE):
         for line in READING_INSTRUCTIONS_FILE:
             fd.write(line)
-    if (ctx.opts.input_mode == INPUT_MODE_KAFKA):
+    if (ctx.opts.candil_xml_parser_generator_input_mode == INPUT_MODE_KAFKA):
         for line in READING_INSTRUCTIONS_KAFKA:
             fd.write(line)
     
     fd.write('\n')
 
-    # Find typedefs, including those defined in modules in import sentences:
+    # Find typedefs, including those from modules in import sentences:
     typedef_modules = []
     for module in modules:
         typedef_modules.append(module)
@@ -531,9 +500,9 @@ def generate_python_xml_parser_code(ctx, modules, fd):
     for module in modules:
         elements = module.i_children
         if (elements is not None):
-            if (ctx.opts.input_mode == INPUT_MODE_FILE):
+            if (ctx.opts.candil_xml_parser_generator_input_mode == INPUT_MODE_FILE):
                 depth_level = 0
-            if (ctx.opts.input_mode == INPUT_MODE_KAFKA):
+            if (ctx.opts.candil_xml_parser_generator_input_mode == INPUT_MODE_KAFKA):
                 depth_level = 2
             for element in elements:
                 if (element is not None) and (element.keyword in statements.data_definition_keywords):
@@ -542,16 +511,15 @@ def generate_python_xml_parser_code(ctx, modules, fd):
     fd.write('\n\n')
 
     # Generate writing instructions for the XML parser (depending on the output mode):
-    if (ctx.opts.output_mode == OUTPUT_MODE_FILE):
+    if (ctx.opts.candil_xml_parser_generator_output_mode == OUTPUT_MODE_FILE):
         for line in WRITING_INSTRUCTIONS_FILE:
             fd.write(line)
-    if (ctx.opts.output_mode == OUTPUT_MODE_PRINT):
+    if (ctx.opts.candil_xml_parser_generator_output_mode == OUTPUT_MODE_PRINT):
         for line in WRITING_INSTRUCTIONS_PRINT:
             fd.write(line)
-    if (ctx.opts.output_mode == OUTPUT_MODE_KAFKA):
+    if (ctx.opts.candil_xml_parser_generator_output_mode == OUTPUT_MODE_KAFKA):
         for line in WRITING_INSTRUCTIONS_KAFKA:
             fd.write(line)
     
     fd.write('\n')
-
     fd.close()
