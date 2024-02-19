@@ -30,22 +30,9 @@ for interface in root.findall(".//{urn:ietf:params:xml:ns:yang:ietf-interfaces}i
     if type is not None:
         element_text = type.text
         if element_text is not None:
-            interface_type_dict_buffer = {}
-            interface_type_dict_buffer["id"] = "urn:ngsi-ld:YANGIdentity:" + element_text + ":"
-            interface_type_dict_buffer["type"] = "YANGIdentity"
-            interface_type_dict_buffer["description"] = {}
-            interface_type_dict_buffer["description"]["type"] = "Property"
-            interface_type_dict_buffer["description"]["value"] = "Undefined"
-            interface_type_dict_buffer["identifier"] = {}
-            interface_type_dict_buffer["identifier"]["type"] = "Property"
-            interface_type_dict_buffer["identifier"]["value"] = element_text.split(':')[-1]
-            interface_type_dict_buffer["namespace"] = {}
-            interface_type_dict_buffer["namespace"]["type"] = "Property"
-            interface_type_dict_buffer["namespace"]["value"] = list(type.nsmap.values())[0]
-            dict_buffers.append(interface_type_dict_buffer)
             interface_dict_buffer["interfaceType"] = {}
             interface_dict_buffer["interfaceType"]["type"] = "Relationship"
-            interface_dict_buffer["interfaceType"]["object"] = "urn:ngsi-ld:YANGIdentity:" + element_text + ":"
+            interface_dict_buffer["interfaceType"]["object"] = "urn:ngsi-ld:YANGIdentity:" + element_text
     enabled = interface.find(".//{urn:ietf:params:xml:ns:yang:ietf-interfaces}enabled")
     if enabled is not None:
         element_text = enabled.text
