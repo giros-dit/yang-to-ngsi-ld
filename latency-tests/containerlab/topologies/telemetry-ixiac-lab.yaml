@@ -1,0 +1,32 @@
+name: telemetry-ixiac-lab
+
+topology:
+  nodes:
+    ixia-c:
+      kind: keysight_ixia-c-one
+      image: ghcr.io/open-traffic-generator/ixia-c-one:0.1.0-84
+      type: ixia-c-traffic-generator
+      group: server
+      exec:
+        - "./ifcfg add eth1 10.0.1.2 24"
+        - "./ifcfg add eth2 10.0.2.2 24"
+    r1:
+      kind: vr-csr
+      image: vrnetlab/vr-csr:17.03.04
+      type: cisco-xe-csr1000v
+      group: router
+      startup-config: r1-config-ixiac.txt
+      exec:
+        - bash -c "ip l show eth1 | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}' | head -1"
+    r2:
+      kind: vr-csr
+      image: vrnetlab/vr-csr:17.03.04
+      type: cisco-xe-csr1000v
+      group: router
+      startup-config: r2-config-ixiac.txt
+      exec:
+        - bash -c "ip l show eth1 | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}' | head -1"
+  links:
+    - endpoints: ["ixia-c:eth1", "r1:eth1"]
+    - endpoints: ["r1:eth2", "r2:eth2"]
+    - endpoints: ["ixia-c:eth2", "r2:eth1"]
