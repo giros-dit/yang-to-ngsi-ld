@@ -1,8 +1,3 @@
-#!/bin/sh
+#!/bin/bash
 
-set -e
-
-# activate our virtual environment here
-. /venv/bin/activate
-
-exec python csr-create-periodic-subscription-interfaces-state-kafka.py clab-telemetry-ixiac-lab-r1 GigabitEthernet1 100
+python3 csr-create-periodic-subscription-interfaces-state-kafka.py clab-telemetry-ixiac-lab-r1 GigabitEthernet1 100

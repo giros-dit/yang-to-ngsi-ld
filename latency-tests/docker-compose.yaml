@@ -27,7 +27,7 @@ services:
       - "2181"
     logging:
       driver: none
-  
+
   context-catalog:
     image: halverneus/static-file-server
     hostname: context-catalog
@@ -38,7 +38,7 @@ services:
       - "8080:8080"
     volumes:
       - ./docker/context-catalog:/web
-  
+
   postgres:
     image: postgis/postgis
     hostname: postgres
@@ -49,7 +49,7 @@ services:
       POSTGRES_USER: ngb
       POSTGRES_PASSWORD: ngb
       POSTGRES_DB: ngb
-  
+
   scorpio:
     image: scorpiobroker/all-in-one-runner:java-latest
     hostname: scorpio
@@ -58,7 +58,7 @@ services:
       - "9090:9090"
     depends_on:
       - postgres 
-  
+
   notifier-tester:
     build:
       context: .
@@ -78,11 +78,11 @@ services:
 
   ncclient-collector:
     build:
-      context: .
-      dockerfile: ./docker/ncclient-collector/Dockerfile
+      context: ./docker/ncclient-collector/
+      dockerfile: Dockerfile
     hostname: ncclient-collector
     container_name: ncclient-collector
-    volumes:
-      - ./docker/ncclient-collector/ncclient_collector:/opt/ncclient-collector/ncclient_collector
+    #volumes:
+    #  - ./docker/ncclient-collector:/opt/ncclient-collector
     depends_on:
       - kafka

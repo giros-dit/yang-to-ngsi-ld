@@ -1,43 +1,22 @@
-# Based on https://stackoverflow.com/a/57886655
-FROM python:3.9-slim as base
+# Custom Dockerfile for ncclient-collector
 
-ENV PYTHONFAULTHANDLER=1 \
-    PYTHONHASHSEED=random \
-    PYTHONUNBUFFERED=1
+FROM ubuntu:latest
 
-# Set hierarchy with folders
-ENV APP_NAME=ncclient-collector
-ENV APP_DIR=/opt/${APP_NAME}
-RUN mkdir -p ${APP_DIR}
-WORKDIR ${APP_DIR}
+RUN apt update && apt -y dist-upgrade && apt -y autoremove && apt autoclean
 
-FROM base as builder
+RUN apt install --no-install-recommends -y bash net-tools iputils-ping python3 python3-pip
 
-ENV PIP_DEFAULT_TIMEOUT=100 \
-    PIP_DISABLE_PIP_VERSION_CHECK=1 \
-    PIP_NO_CACHE_DIR=1 \
-    POETRY_VERSION=1.5.0
+RUN python3 -m pip install --upgrade pip
 
-RUN pip install "poetry==$POETRY_VERSION"
-RUN python -m venv /venv
+RUN python3 -m pip install ncclient kafka-python
 
-RUN apt-get update && apt-get install git -y
+RUN mkdir -p /opt/ncclient-collector
 
-# Copy app artifacts
-COPY docker/${APP_NAME}/pyproject.toml docker/${APP_NAME}/poetry.lock ./
-RUN poetry export -f requirements.txt --without-hashes | /venv/bin/pip install -r /dev/stdin
+WORKDIR /opt/ncclient-collector
 
-COPY docker/${APP_NAME}/ .
-RUN poetry build && /venv/bin/pip install dist/*.whl
+COPY csr-create-periodic-subscription-interfaces-state-kafka.py .
+COPY docker-entrypoint.sh .
 
-FROM base as final
-
-COPY --from=builder /venv /venv
-COPY --from=builder ${APP_DIR} .
-
-WORKDIR ${APP_DIR}/ncclient_collector
-
-COPY docker/${APP_NAME}/docker-entrypoint.sh .
 RUN chmod +x docker-entrypoint.sh
-CMD ["./docker-entrypoint.sh"]
-#ENTRYPOINT ["python", "csr-create-periodic-subscription-interfaces-state-kafka.py"]
+
+ENTRYPOINT ["/bin/bash", "docker-entrypoint.sh"]
