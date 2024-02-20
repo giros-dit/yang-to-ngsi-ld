@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "ietf-interfaces": "urn:ietf:params:xml:ns:yang:ietf-interfaces/",
+        "InterfaceIpv4Address": "ietf-interfaces:interfaces/interface/ip:ipv4/ip:address",
+        "ip": "ietf-interfaces:interfaces/interface/ip:ipv4/ip:address/ip:ip",
+        "origin": "ietf-interfaces:interfaces/interface/ip:ipv4/ip:address/ip:origin"
+    }
+}
