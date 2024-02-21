@@ -1,0 +1,6 @@
+{
+    "@context": {
+        "TemperatureSensor": "https://iot-sensors.org/iot/TemperatureSensor",
+        "temperature": "https://iot-sensors.org/iot/TemperatureSensor/temperature"
+    }
+}

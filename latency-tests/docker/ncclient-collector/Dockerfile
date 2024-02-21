@@ -14,7 +14,7 @@ RUN mkdir -p /opt/ncclient-collector
 
 WORKDIR /opt/ncclient-collector
 
-COPY csr-create-periodic-subscription-interfaces-state-kafka.py .
+COPY ncclient-collector-kafka.py .
 COPY docker-entrypoint.sh .
 
 RUN chmod +x docker-entrypoint.sh

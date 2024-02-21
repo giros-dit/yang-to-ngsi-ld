@@ -5,10 +5,12 @@ from kafka import KafkaProducer
 from ncclient import manager
 from ncclient.xml_ import to_ele
 
+import xml.etree.ElementTree as et
+
 if len(sys.argv) < 4:
     print("Error - Incorrect arguments")
-    print('Usage: python csr-create-periodic-subscription-interfaces-state-kafka.py <container_name> <interface_name> <period_in_cs>')
-    print('Example: python csr-create-periodic-subscription-interfaces-state-kafka.py clab-telemetry-testbed-xe-ceos-4hosts-r1 GigabitEthernet1 1000')
+    print('Usage: python ncclient-collector-kafka.py <container_name> <interface_name> <period_in_cs>')
+    print('Example: python ncclient-collector-kafka.py clab-telemetry-ixiac-lab-r1 GigabitEthernet1 1000')
     exit(1)
 else:
     container_name = sys.argv[1]
@@ -22,11 +24,11 @@ r = {
     "device_params": {"name": "csr"}
 }
 
-print(container_name)
+print("Hello, this is the ncclient-collector for " + container_name)
 
 session = manager.connect(**r)
 
-print ("\nSession ID: ", session.session_id)
+print("I have successfully established a session with ID# " + session.session_id)
 
 xpath = "/interfaces-state/interface[name=\'" + sys.argv[2] + "\']"
 subscription = "period"
@@ -49,15 +51,21 @@ rpc = """
 
 request = session.dispatch(to_ele(rpc))
 
-print(request)
+#print(request)
 
 producer = KafkaProducer(bootstrap_servers=['kafka:9092'])
 
-print("\nYANG-Push notifications for XPath " + xpath + " of network device "+ container_name + ": \n")
+print("I have subscribed myself to get periodic YANG-Push notifications for X-Path " + xpath + " of network device " + container_name)
 
 while True:
     sub_data = session.take_notification()
-    print(str(sub_data.notification_xml).encode('utf-8'))
+    print("I have received a notification!")
+    #print(str(sub_data.notification_xml).encode('utf-8'))
     if (sub_data != None):
-        producer.send('interfaces-state-subscriptions', value=str(sub_data.notification_xml).encode('utf-8'))
+        notification_xml = str(sub_data.notification_xml)
+        root = et.fromstring(notification_xml)
+        eventTime = root[0].text
+        producer.send('interfaces-state-subscriptions', value=notification_xml.encode('utf-8'))
+        print("I have sent it to a Kafka topic named interfaces-state-subscriptions")
+        print("The eventTime element of the notification is: " + eventTime)
     producer.flush()

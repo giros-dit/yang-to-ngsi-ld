@@ -1,6 +1,9 @@
 {
     "@context": [
-        "http://context-catalog:8080/context/ietf_interfaces/context.jsonld",
+        "http://context-catalog:8080/context/iot-device/context.jsonld",
+        "http://context-catalog:8080/context/temperature-sensor/context.jsonld",
+        "http://context-catalog:8080/context/humidity-sensor/context.jsonld",
+        "http://context-catalog:8080/context/interface-statistics/context.jsonld",
         "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
     ]
 }

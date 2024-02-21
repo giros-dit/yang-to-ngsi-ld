@@ -1,5 +1,14 @@
 version: '3.8'
 services:
+  zookeeper:
+    image: zookeeper
+    hostname: zookeeper
+    container_name: zookeeper
+    ports:
+      - "2181"
+    logging:
+      driver: none
+
   kafka:
     image: wurstmeister/kafka:latest
     hostname: kafka
@@ -18,15 +27,11 @@ services:
       - zookeeper
     logging:
       driver: none
-
-  zookeeper:
-    image: zookeeper
-    hostname: zookeeper
-    container_name: zookeeper
-    ports:
-      - "2181"
-    logging:
-      driver: none
+    healthcheck:
+      test: ["CMD", "kafka-topics.sh", "--list", "--zookeeper", "zookeeper:2181"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   context-catalog:
     image: halverneus/static-file-server
@@ -49,15 +54,25 @@ services:
       POSTGRES_USER: ngb
       POSTGRES_PASSWORD: ngb
       POSTGRES_DB: ngb
+    healthcheck:
+      test: ["CMD", "pg_isready", "-d", "ngb", "-U", "ngb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   scorpio:
     image: scorpiobroker/all-in-one-runner:java-latest
     hostname: scorpio
     container_name: scorpio
+    expose:
+      - "9090"
     ports:
       - "9090:9090"
     depends_on:
-      - postgres 
+      postgres:
+        condition: service_healthy
+      context-catalog:
+        condition: service_started
 
   notifier-tester:
     build:
@@ -72,9 +87,13 @@ services:
     volumes:
       - ./docker/notifier-tester/notifier_tester:/opt/notifier-tester/notifier_tester
     depends_on:
-      - scorpio
-      - postgres
-      - kafka
+      scorpio:
+        condition: service_started
+      context-catalog:
+        condition: service_started
+      kafka:
+        condition: service_healthy
+    restart: always
 
   ncclient-collector:
     build:
@@ -82,7 +101,13 @@ services:
       dockerfile: Dockerfile
     hostname: ncclient-collector
     container_name: ncclient-collector
-    #volumes:
-    #  - ./docker/ncclient-collector:/opt/ncclient-collector
+    volumes:
+      - ./docker/ncclient-collector:/opt/ncclient-collector
     depends_on:
-      - kafka
+      kafka:
+        condition: service_healthy
+
+networks:
+  default:
+    name: clab
+    external: true
