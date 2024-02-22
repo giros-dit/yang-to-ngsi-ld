@@ -1,6 +1,0 @@
-{
-    "@context": {
-        "HumiditySensor": "https://iot-sensors.org/iot/HumiditySensor",
-        "humidity": "https://iot-sensors.org/iot/HumiditySensor/humidity"
-    }
-}

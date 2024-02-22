@@ -107,6 +107,35 @@ services:
       kafka:
         condition: service_healthy
 
+  xml-parser:
+    build:
+      context: ./docker/xml-parser/
+      dockerfile: Dockerfile
+    hostname: xml-parser
+    container_name: xml-parser
+    volumes:
+      - ./docker/xml-parser:/opt/xml-parser
+    depends_on:
+      kafka:
+        condition: service_healthy
+
+  ngsi-ld-instantiator:
+    build:
+      context: .
+      dockerfile: ./docker/ngsi-ld-instantiator/Dockerfile
+    hostname: ngsi-ld-instantiator
+    container_name: ngsi-ld-instantiator
+    volumes:
+      - ./docker/ngsi-ld-instantiator:/opt/ngsi-ld-instantiator
+    depends_on:
+      scorpio:
+        condition: service_started
+      context-catalog:
+        condition: service_started
+      kafka:
+        condition: service_healthy
+    restart: always
+
 networks:
   default:
     name: clab
