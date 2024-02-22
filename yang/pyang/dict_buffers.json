@@ -1,0 +1,2946 @@
+[
+    {
+        "id": "urn:ngsi-ld:Interface:mgmt0-standby",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:mgmt0-standby"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:mgmt0-standby",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:mgmt0-standby"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:mgmt0-standby",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:mgmt0-standby"
+        },
+        "name": {
+            "type": "Property",
+            "value": "mgmt0-standby"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:mgmt0-standby"
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 1080049662
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255535000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:mgmt0-standby",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:mgmt0-standby"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:mgmt0",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:mgmt0"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:mgmt0.0",
+        "type": "InterfaceSubinterfacesSubinterface",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:mgmt0"
+        },
+        "index": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:mgmt0.0"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceState:mgmt0.0",
+        "type": "InterfaceSubinterfacesSubinterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:mgmt0.0"
+        },
+        "index": {
+            "type": "Property",
+            "value": 0
+        },
+        "enabled": {
+            "type": "Property",
+            "value": true
+        },
+        "name": {
+            "type": "Property",
+            "value": "mgmt0.0"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 1077936129
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "UP"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "UP"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424257725000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceStateCounters:mgmt0.0",
+        "type": "InterfaceSubinterfacesSubinterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceState:mgmt0.0"
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 8566
+        },
+        "inDiscards": {
+            "type": "Property",
+            "value": 21
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 39214
+        },
+        "outDiscards": {
+            "type": "Property",
+            "value": 0
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:mgmt0.0",
+        "type": "InterfaceSubinterfacesSubinterfaceConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:mgmt0.0"
+        },
+        "index": {
+            "type": "Property",
+            "value": 0
+        },
+        "enabled": {
+            "type": "Property",
+            "value": true
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:mgmt0",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:mgmt0"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeConfig:mgmt0",
+        "type": "InterfaceHoldTimeConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:mgmt0"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:mgmt0",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:mgmt0"
+        },
+        "name": {
+            "type": "Property",
+            "value": "mgmt0"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:mgmt0"
+        },
+        "mtu": {
+            "type": "Property",
+            "value": 1514
+        },
+        "enabled": {
+            "type": "Property",
+            "value": true
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 1077952510
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "UP"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "UP"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424257725000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:mgmt0",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:mgmt0"
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 15345
+        },
+        "inUnicastPkts": {
+            "type": "Property",
+            "value": 31
+        },
+        "inBroadcastPkts": {
+            "type": "Property",
+            "value": 12
+        },
+        "inMulticastPkts": {
+            "type": "Property",
+            "value": 66
+        },
+        "inDiscards": {
+            "type": "Property",
+            "value": 21
+        },
+        "inErrors": {
+            "type": "Property",
+            "value": 1
+        },
+        "inFcsErrors": {
+            "type": "Property",
+            "value": 0
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 39574
+        },
+        "outUnicastPkts": {
+            "type": "Property",
+            "value": 46
+        },
+        "outBroadcastPkts": {
+            "type": "Property",
+            "value": 6
+        },
+        "outMulticastPkts": {
+            "type": "Property",
+            "value": 18
+        },
+        "outDiscards": {
+            "type": "Property",
+            "value": 0
+        },
+        "outErrors": {
+            "type": "Property",
+            "value": 0
+        },
+        "carrierTransitions": {
+            "type": "Property",
+            "value": 1
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceConfig:mgmt0",
+        "type": "InterfaceConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:mgmt0"
+        },
+        "name": {
+            "type": "Property",
+            "value": "mgmt0"
+        },
+        "configType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:mgmt0"
+        },
+        "enabled": {
+            "type": "Property",
+            "value": true
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/36",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/36"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/36",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/36"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/36",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/36"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/36"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/36"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 1163262
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/36",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/36"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/35",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/35"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/35",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/35"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/35",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/35"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/35"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/35"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 1130494
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/35",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/35"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/34",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/34"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/34",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/34"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/34",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/34"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/34"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/34"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 1097726
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/34",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/34"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/33",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/33"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/33",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/33"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/33",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/33"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/33"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/33"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 1064958
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/33",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/33"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/32",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/32"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/32",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/32"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/32",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/32"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/32"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/32"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 1032190
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/32",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/32"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/31",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/31"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/31",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/31"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/31",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/31"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/31"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/31"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 999422
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/31",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/31"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/30",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/30"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/30",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/30"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/30",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/30"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/30"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/30"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 966654
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/30",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/30"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/29",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/29"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/29",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/29"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/29",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/29"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/29"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/29"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 933886
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/29",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/29"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/28",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/28"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/28",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/28"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/28",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/28"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/28"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/28"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 901118
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/28",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/28"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/27",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/27"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/27",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/27"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/27",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/27"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/27"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/27"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 868350
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/27",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/27"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/26",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/26"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/26",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/26"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/26",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/26"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/26"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/26"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 835582
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/26",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/26"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/25",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/25"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/25",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/25"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/25",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/25"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/25"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/25"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 802814
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/25",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/25"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/24",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/24"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/24",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/24"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/24",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/24"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/24"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/24"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 770046
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/24",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/24"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/23",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/23"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/23",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/23"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/23",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/23"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/23"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/23"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 737278
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/23",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/23"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/22",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/22"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/22",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/22"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/22",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/22"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/22"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/22"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 704510
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/22",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/22"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/21",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/21"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/21",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/21"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/21",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/21"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/21"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/21"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 671742
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255489000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/21",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/21"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/20",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/20"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/20",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/20"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/20",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/20"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/20"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/20"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 638974
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255489000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/20",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/20"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/19",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/19"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/19",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/19"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/19",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/19"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/19"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/19"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 606206
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255489000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/19",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/19"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/18",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/18"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/18",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/18"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/18",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/18"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/18"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/18"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 573438
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/18",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/18"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/17",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/17"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/17",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/17"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/17",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/17"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/17"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/17"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 540670
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/17",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/17"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/16",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/16"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/16",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/16"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/16",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/16"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/16"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/16"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 507902
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/16",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/16"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/15",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/15"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/15",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/15"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/15",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/15"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/15"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/15"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 475134
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/15",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/15"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/14",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/14"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/14",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/14"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/14",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/14"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/14"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/14"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 442366
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/14",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/14"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/13",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/13"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/13",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/13"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/13",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/13"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/13"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/13"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 409598
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/13",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/13"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/12",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/12"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/12",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/12"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/12",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/12"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/12"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/12"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 376830
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/12",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/12"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/11",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/11"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/11",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/11"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/11",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/11"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/11"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/11"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 344062
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/11",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/11"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/10",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/10"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/10",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/10"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/10",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/10"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/10"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/10"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 311294
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/10",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/10"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/9",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/9"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/9",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/9"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/9",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/9"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/9"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/9"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 278526
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/9",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/9"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/8",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/8"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/8",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/8"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/8",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/8"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/8"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/8"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 245758
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/8",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/8"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/7",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/7"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/7",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/7"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/7",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/7"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/7"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/7"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 212990
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/7",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/7"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/6",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/6"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/6",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/6"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/6",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/6"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/6"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/6"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 180222
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/6",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/6"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/5",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/5"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/5",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/5"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/5",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/5"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/5"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/5"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 147454
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/5",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/5"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/4",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/4"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/4",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/4"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/4",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/4"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/4"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/4"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 114686
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/4",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/4"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/3",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/3"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/3",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/3"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/3",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/3"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/3"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/3"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": false
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 81918
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "DOWN"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424255490000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/3",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/3"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/2",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/2"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:ethernet-1/2.0",
+        "type": "InterfaceSubinterfacesSubinterface",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/2"
+        },
+        "index": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:ethernet-1/2.0"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceState:ethernet-1/2.0",
+        "type": "InterfaceSubinterfacesSubinterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:ethernet-1/2.0"
+        },
+        "index": {
+            "type": "Property",
+            "value": 0
+        },
+        "enabled": {
+            "type": "Property",
+            "value": true
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/2.0"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 32769
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "UP"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "UP"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424262324000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceStateCounters:ethernet-1/2.0",
+        "type": "InterfaceSubinterfacesSubinterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceState:ethernet-1/2.0"
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 38
+        },
+        "inDiscards": {
+            "type": "Property",
+            "value": 2
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 0
+        },
+        "outDiscards": {
+            "type": "Property",
+            "value": 0
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:ethernet-1/2.0",
+        "type": "InterfaceSubinterfacesSubinterfaceConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:ethernet-1/2.0"
+        },
+        "index": {
+            "type": "Property",
+            "value": 0
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/2",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/2"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeConfig:ethernet-1/2",
+        "type": "InterfaceHoldTimeConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/2"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/2",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/2"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/2"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/2"
+        },
+        "mtu": {
+            "type": "Property",
+            "value": 9232
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": true
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 49150
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "UP"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "UP"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424261000000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/2",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/2"
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 2417
+        },
+        "inUnicastPkts": {
+            "type": "Property",
+            "value": 0
+        },
+        "inBroadcastPkts": {
+            "type": "Property",
+            "value": 5
+        },
+        "inMulticastPkts": {
+            "type": "Property",
+            "value": 11
+        },
+        "inDiscards": {
+            "type": "Property",
+            "value": 0
+        },
+        "inErrors": {
+            "type": "Property",
+            "value": 0
+        },
+        "inFcsErrors": {
+            "type": "Property",
+            "value": 0
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 2080
+        },
+        "outUnicastPkts": {
+            "type": "Property",
+            "value": 1
+        },
+        "outBroadcastPkts": {
+            "type": "Property",
+            "value": 8
+        },
+        "outMulticastPkts": {
+            "type": "Property",
+            "value": 10
+        },
+        "outDiscards": {
+            "type": "Property",
+            "value": 0
+        },
+        "outErrors": {
+            "type": "Property",
+            "value": 0
+        },
+        "carrierTransitions": {
+            "type": "Property",
+            "value": 1
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceConfig:ethernet-1/2",
+        "type": "InterfaceConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/2"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/2"
+        },
+        "configType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/2"
+        },
+        "enabled": {
+            "type": "Property",
+            "value": true
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:ethernet-1/1",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:ethernet-1/1.0",
+        "type": "InterfaceSubinterfacesSubinterface",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/1"
+        },
+        "index": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:ethernet-1/1.0"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceState:ethernet-1/1.0",
+        "type": "InterfaceSubinterfacesSubinterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:ethernet-1/1.0"
+        },
+        "index": {
+            "type": "Property",
+            "value": 0
+        },
+        "enabled": {
+            "type": "Property",
+            "value": true
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/1.0"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 1
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "UP"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "UP"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424262324000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceStateCounters:ethernet-1/1.0",
+        "type": "InterfaceSubinterfacesSubinterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceState:ethernet-1/1.0"
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 318
+        },
+        "inDiscards": {
+            "type": "Property",
+            "value": 2
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 0
+        },
+        "outDiscards": {
+            "type": "Property",
+            "value": 0
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:ethernet-1/1.0",
+        "type": "InterfaceSubinterfacesSubinterfaceConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:ethernet-1/1.0"
+        },
+        "index": {
+            "type": "Property",
+            "value": 0
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/1",
+        "type": "InterfaceHoldTimeState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceHoldTimeConfig:ethernet-1/1",
+        "type": "InterfaceHoldTimeConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:ethernet-1/1",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/1"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/1"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/1"
+        },
+        "mtu": {
+            "type": "Property",
+            "value": 9232
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": null
+        },
+        "enabled": {
+            "type": "Property",
+            "value": true
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 16382
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "UP"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "UP"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708424260933000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/1",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/1"
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 15945
+        },
+        "inUnicastPkts": {
+            "type": "Property",
+            "value": 0
+        },
+        "inBroadcastPkts": {
+            "type": "Property",
+            "value": 0
+        },
+        "inMulticastPkts": {
+            "type": "Property",
+            "value": 11
+        },
+        "inDiscards": {
+            "type": "Property",
+            "value": 114
+        },
+        "inErrors": {
+            "type": "Property",
+            "value": 4
+        },
+        "inFcsErrors": {
+            "type": "Property",
+            "value": 0
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 1840
+        },
+        "outUnicastPkts": {
+            "type": "Property",
+            "value": 0
+        },
+        "outBroadcastPkts": {
+            "type": "Property",
+            "value": 5
+        },
+        "outMulticastPkts": {
+            "type": "Property",
+            "value": 10
+        },
+        "outDiscards": {
+            "type": "Property",
+            "value": 0
+        },
+        "outErrors": {
+            "type": "Property",
+            "value": 0
+        },
+        "carrierTransitions": {
+            "type": "Property",
+            "value": 1
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceConfig:ethernet-1/1",
+        "type": "InterfaceConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/1"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/1"
+        },
+        "configType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ethernet-1/1"
+        },
+        "enabled": {
+            "type": "Property",
+            "value": true
+        }
+    }
+]
