@@ -10,7 +10,10 @@ with open(json_payload) as f:
 if isinstance(json_data.get("interfaces"), dict):
     interfaces = json_data.get("interfaces")
     if interfaces is not None:
-        interfaces = interfaces.get("interface")
+        if "interface" in list(interfaces.keys()):
+            interfaces = interfaces.get("interface")
+        elif "openconfig-interfaces:interface" in list(interfaces.keys()):
+            interfaces = interfaces.get("openconfig-interfaces:interface")
         for interface in interfaces:
             interface_dict_buffer = {}
             interface_dict_buffer["id"] = "urn:ngsi-ld:Interface:"
@@ -24,7 +27,10 @@ if isinstance(json_data.get("interfaces"), dict):
                 interface_dict_buffer["name"]["type"] = "Relationship"
                 interface_dict_buffer["name"]["object"] = "urn:ngsi-ld:InterfaceConfig:" + interface_dict_buffer["id"].split(":")[-1]
             if isinstance(interface.get("config"), dict):
-                config = interface.get("config")
+                if "config" in list(interface.keys()):
+                    config = interface.get("config")
+                elif "openconfig-interfaces:config" in list(interface.keys()):
+                    config = interface.get("openconfig-interfaces:config")
                 interface_config_dict_buffer = {}
                 interface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceConfig:" + interface_dict_buffer["id"].split(":")[-1]
                 interface_config_dict_buffer["type"] = "InterfaceConfig"
@@ -70,7 +76,10 @@ if isinstance(json_data.get("interfaces"), dict):
                     interface_config_dict_buffer["enabled"]["value"] = eval(str(element_text).capitalize())
                 dict_buffers.append(interface_config_dict_buffer)
             if isinstance(interface.get("state"), dict):
-                state = interface.get("state")
+                if "state" in list(interface.keys()):
+                    state = interface.get("state")
+                elif "openconfig-interfaces:state" in list(interface.keys()):
+                    state = interface.get("openconfig-interfaces:state")
                 interface_state_dict_buffer = {}
                 interface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceState:" + interface_dict_buffer["id"].split(":")[-1]
                 interface_state_dict_buffer["type"] = "InterfaceState"
@@ -139,7 +148,10 @@ if isinstance(json_data.get("interfaces"), dict):
                     interface_state_dict_buffer["lastChange"]["type"] = "Property"
                     interface_state_dict_buffer["lastChange"]["value"] = int(element_text)
                 if isinstance(state.get("counters"), dict):
-                    counters = state.get("counters")
+                    if "counters" in list(state.keys()):
+                        counters = state.get("counters")
+                    elif "openconfig-interfaces:counters" in list(state.keys()):
+                        counters = state.get("openconfig-interfaces:counters")
                     interface_state_counters_dict_buffer = {}
                     interface_state_counters_dict_buffer["id"] = "urn:ngsi-ld:InterfaceStateCounters:" + interface_state_dict_buffer["id"].split(":")[-1]
                     interface_state_counters_dict_buffer["type"] = "InterfaceStateCounters"
@@ -245,7 +257,10 @@ if isinstance(json_data.get("interfaces"), dict):
                     dict_buffers.append(interface_state_counters_dict_buffer)
                 dict_buffers.append(interface_state_dict_buffer)
             if isinstance(interface.get("config"), dict):
-                config = interface.get("config")
+                if "config" in list(interface.keys()):
+                    config = interface.get("config")
+                elif "openconfig-interfaces:config" in list(interface.keys()):
+                    config = interface.get("openconfig-interfaces:config")
                 interface_config_dict_buffer = {}
                 interface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceHoldTimeConfig:" + interface_dict_buffer["id"].split(":")[-1]
                 interface_config_dict_buffer["type"] = "InterfaceHoldTimeConfig"
@@ -266,7 +281,10 @@ if isinstance(json_data.get("interfaces"), dict):
                     interface_config_dict_buffer["down"]["value"] = int(element_text)
                 dict_buffers.append(interface_config_dict_buffer)
             if isinstance(interface.get("state"), dict):
-                state = interface.get("state")
+                if "state" in list(interface.keys()):
+                    state = interface.get("state")
+                elif "openconfig-interfaces:state" in list(interface.keys()):
+                    state = interface.get("openconfig-interfaces:state")
                 interface_state_dict_buffer = {}
                 interface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceHoldTimeState:" + interface_dict_buffer["id"].split(":")[-1]
                 interface_state_dict_buffer["type"] = "InterfaceHoldTimeState"
@@ -287,7 +305,10 @@ if isinstance(json_data.get("interfaces"), dict):
                     interface_state_dict_buffer["down"]["value"] = int(element_text)
                 dict_buffers.append(interface_state_dict_buffer)
             if isinstance(interface.get("subinterfaces"), dict):
-                subinterfaces = interface.get("subinterfaces")
+                if "subinterfaces" in list(interface.keys()):
+                    subinterfaces = interface.get("subinterfaces")
+                elif "openconfig-interfaces:subinterfaces" in list(interface.keys()):
+                    subinterfaces = interface.get("openconfig-interfaces:subinterfaces")
                 if subinterfaces is not None:
                     subinterfaces = subinterfaces.get("subinterface")
                     for subinterface in subinterfaces:
@@ -306,7 +327,10 @@ if isinstance(json_data.get("interfaces"), dict):
                             interface_subinterface_dict_buffer["index"]["type"] = "Relationship"
                             interface_subinterface_dict_buffer["index"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:" + interface_subinterface_dict_buffer["id"].split(":")[-1]
                         if isinstance(subinterface.get("config"), dict):
-                            config = subinterface.get("config")
+                            if "config" in list(subinterface.keys()):
+                                config = subinterface.get("config")
+                            elif "openconfig-interfaces:config" in list(subinterface.keys()):
+                                config = subinterface.get("openconfig-interfaces:config")
                             interface_subinterface_config_dict_buffer = {}
                             interface_subinterface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:" + interface_subinterface_dict_buffer["id"].split(":")[-1]
                             interface_subinterface_config_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceConfig"
@@ -335,7 +359,10 @@ if isinstance(json_data.get("interfaces"), dict):
                                 interface_subinterface_config_dict_buffer["enabled"]["value"] = eval(str(element_text).capitalize())
                             dict_buffers.append(interface_subinterface_config_dict_buffer)
                         if isinstance(subinterface.get("state"), dict):
-                            state = subinterface.get("state")
+                            if "state" in list(subinterface.keys()):
+                                state = subinterface.get("state")
+                            elif "openconfig-interfaces:state" in list(subinterface.keys()):
+                                state = subinterface.get("openconfig-interfaces:state")
                             interface_subinterface_state_dict_buffer = {}
                             interface_subinterface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceState:" + interface_subinterface_dict_buffer["id"].split(":")[-1]
                             interface_subinterface_state_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceState"
@@ -395,7 +422,10 @@ if isinstance(json_data.get("interfaces"), dict):
                                 interface_subinterface_state_dict_buffer["lastChange"]["type"] = "Property"
                                 interface_subinterface_state_dict_buffer["lastChange"]["value"] = int(element_text)
                             if isinstance(state.get("counters"), dict):
-                                counters = state.get("counters")
+                                if "counters" in list(state.keys()):
+                                    counters = state.get("counters")
+                                elif "openconfig-interfaces:counters" in list(state.keys()):
+                                    counters = state.get("openconfig-interfaces:counters")
                                 interface_subinterface_state_counters_dict_buffer = {}
                                 interface_subinterface_state_counters_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceStateCounters:" + interface_subinterface_state_dict_buffer["id"].split(":")[-1]
                                 interface_subinterface_state_counters_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceStateCounters"
