@@ -72,8 +72,8 @@ def create_ngsi_ld_entity(ngsi_ld, entity) -> bool:
 
     entity_input = entity.to_dict()
 
-    #logger.info("Entity object representation: %s\n" % Entity.from_dict(entity_input))
-    #logger.info("QueryEntity200ResponseInner object representation: %s\n" % QueryEntity200ResponseInner.from_dict(entity_input))
+    logger.info("Entity object representation: %s\n" % Entity.from_dict(entity_input))
+    logger.info("QueryEntity200ResponseInner object representation: %s\n" % QueryEntity200ResponseInner.from_dict(entity_input))
 
     query_entity_input = QueryEntity200ResponseInner.from_dict(entity_input)
 
