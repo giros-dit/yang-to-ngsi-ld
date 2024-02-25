@@ -8,11 +8,15 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:mgmt0-standby",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:mgmt0-standby",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:mgmt0-standby"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1708424255535000000"
         }
     },
     {
@@ -52,19 +56,27 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:mgmt0-standby",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:mgmt0-standby"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:mgmt0",
         "type": "Interface",
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:mgmt0"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetState:mgmt0",
+        "type": "InterfaceEthernetState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:mgmt0"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:0"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "02:42:AC:14:14:02"
         }
     },
     {
@@ -153,22 +165,6 @@
         "enabled": {
             "type": "Property",
             "value": true
-        }
-    },
-    {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:mgmt0",
-        "type": "InterfaceHoldTimeState",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:mgmt0"
-        }
-    },
-    {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeConfig:mgmt0",
-        "type": "InterfaceHoldTimeConfig",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:mgmt0"
         }
     },
     {
@@ -304,11 +300,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/36",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/36",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/36"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:23"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:23"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:23"
         }
     },
     {
@@ -352,14 +360,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/36",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/36"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/35",
         "type": "Interface",
         "name": {
@@ -368,11 +368,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/35",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/35",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/35"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:22"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:22"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:22"
         }
     },
     {
@@ -416,14 +428,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/35",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/35"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/34",
         "type": "Interface",
         "name": {
@@ -432,11 +436,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/34",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/34",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/34"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:21"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:21"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:21"
         }
     },
     {
@@ -480,14 +496,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/34",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/34"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/33",
         "type": "Interface",
         "name": {
@@ -496,11 +504,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/33",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/33",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/33"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:20"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:20"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:20"
         }
     },
     {
@@ -544,14 +564,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/33",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/33"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/32",
         "type": "Interface",
         "name": {
@@ -560,11 +572,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/32",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/32",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/32"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:1F"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:1F"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:1F"
         }
     },
     {
@@ -608,14 +632,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/32",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/32"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/31",
         "type": "Interface",
         "name": {
@@ -624,11 +640,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/31",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/31",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/31"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:1E"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:1E"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:1E"
         }
     },
     {
@@ -672,14 +700,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/31",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/31"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/30",
         "type": "Interface",
         "name": {
@@ -688,11 +708,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/30",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/30",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/30"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:1D"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:1D"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:1D"
         }
     },
     {
@@ -736,14 +768,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/30",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/30"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/29",
         "type": "Interface",
         "name": {
@@ -752,11 +776,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/29",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/29",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/29"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:1C"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:1C"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:1C"
         }
     },
     {
@@ -800,14 +836,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/29",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/29"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/28",
         "type": "Interface",
         "name": {
@@ -816,11 +844,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/28",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/28",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/28"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:1B"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:1B"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:1B"
         }
     },
     {
@@ -864,14 +904,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/28",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/28"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/27",
         "type": "Interface",
         "name": {
@@ -880,11 +912,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/27",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/27",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/27"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:1A"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:1A"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:1A"
         }
     },
     {
@@ -928,14 +972,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/27",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/27"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/26",
         "type": "Interface",
         "name": {
@@ -944,11 +980,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/26",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/26",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/26"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:19"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:19"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:19"
         }
     },
     {
@@ -992,14 +1040,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/26",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/26"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/25",
         "type": "Interface",
         "name": {
@@ -1008,11 +1048,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/25",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/25",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/25"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:18"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:18"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:18"
         }
     },
     {
@@ -1056,14 +1108,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/25",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/25"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/24",
         "type": "Interface",
         "name": {
@@ -1072,11 +1116,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/24",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/24",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/24"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:17"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:17"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:17"
         }
     },
     {
@@ -1120,14 +1176,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/24",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/24"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/23",
         "type": "Interface",
         "name": {
@@ -1136,11 +1184,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/23",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/23",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/23"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:16"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:16"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:16"
         }
     },
     {
@@ -1184,14 +1244,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/23",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/23"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/22",
         "type": "Interface",
         "name": {
@@ -1200,11 +1252,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/22",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/22",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/22"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:15"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:15"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:15"
         }
     },
     {
@@ -1248,14 +1312,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/22",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/22"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/21",
         "type": "Interface",
         "name": {
@@ -1264,11 +1320,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/21",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/21",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/21"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:14"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:14"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:14"
         }
     },
     {
@@ -1312,14 +1380,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/21",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/21"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/20",
         "type": "Interface",
         "name": {
@@ -1328,11 +1388,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/20",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/20",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/20"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:13"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:13"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:13"
         }
     },
     {
@@ -1376,14 +1448,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/20",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/20"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/19",
         "type": "Interface",
         "name": {
@@ -1392,11 +1456,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/19",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/19",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/19"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:12"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:12"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:12"
         }
     },
     {
@@ -1440,14 +1516,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/19",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/19"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/18",
         "type": "Interface",
         "name": {
@@ -1456,11 +1524,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/18",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/18",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/18"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:11"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:11"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:11"
         }
     },
     {
@@ -1504,14 +1584,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/18",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/18"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/17",
         "type": "Interface",
         "name": {
@@ -1520,11 +1592,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/17",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/17",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/17"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:10"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:10"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:10"
         }
     },
     {
@@ -1568,14 +1652,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/17",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/17"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/16",
         "type": "Interface",
         "name": {
@@ -1584,11 +1660,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/16",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/16",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/16"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:0F"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:0F"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:0F"
         }
     },
     {
@@ -1632,14 +1720,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/16",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/16"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/15",
         "type": "Interface",
         "name": {
@@ -1648,11 +1728,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/15",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/15",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/15"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:0E"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:0E"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:0E"
         }
     },
     {
@@ -1696,14 +1788,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/15",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/15"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/14",
         "type": "Interface",
         "name": {
@@ -1712,11 +1796,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/14",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/14",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/14"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:0D"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:0D"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:0D"
         }
     },
     {
@@ -1760,14 +1856,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/14",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/14"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/13",
         "type": "Interface",
         "name": {
@@ -1776,11 +1864,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/13",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/13",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/13"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:0C"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:0C"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:0C"
         }
     },
     {
@@ -1824,14 +1924,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/13",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/13"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/12",
         "type": "Interface",
         "name": {
@@ -1840,11 +1932,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/12",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/12",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/12"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:0B"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:0B"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:0B"
         }
     },
     {
@@ -1888,14 +1992,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/12",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/12"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/11",
         "type": "Interface",
         "name": {
@@ -1904,11 +2000,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/11",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/11",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/11"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:0A"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:0A"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:0A"
         }
     },
     {
@@ -1952,14 +2060,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/11",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/11"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/10",
         "type": "Interface",
         "name": {
@@ -1968,11 +2068,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/10",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/10",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/10"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:09"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:09"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:09"
         }
     },
     {
@@ -2016,14 +2128,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/10",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/10"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/9",
         "type": "Interface",
         "name": {
@@ -2032,11 +2136,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/9",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/9",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/9"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:08"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:08"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:08"
         }
     },
     {
@@ -2080,14 +2196,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/9",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/9"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/8",
         "type": "Interface",
         "name": {
@@ -2096,11 +2204,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/8",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/8",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/8"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:07"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:07"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:07"
         }
     },
     {
@@ -2144,14 +2264,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/8",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/8"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/7",
         "type": "Interface",
         "name": {
@@ -2160,11 +2272,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/7",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/7",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/7"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:06"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:06"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:06"
         }
     },
     {
@@ -2208,14 +2332,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/7",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/7"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/6",
         "type": "Interface",
         "name": {
@@ -2224,11 +2340,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/6",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/6",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/6"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:05"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:05"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:05"
         }
     },
     {
@@ -2272,14 +2400,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/6",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/6"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/5",
         "type": "Interface",
         "name": {
@@ -2288,11 +2408,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/5",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/5",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/5"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:04"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:04"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:04"
         }
     },
     {
@@ -2336,14 +2468,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/5",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/5"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/4",
         "type": "Interface",
         "name": {
@@ -2352,11 +2476,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/4",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/4",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/4"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:03"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:03"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:03"
         }
     },
     {
@@ -2400,14 +2536,6 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/4",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/4"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/3",
         "type": "Interface",
         "name": {
@@ -2416,11 +2544,23 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/3",
-        "type": "InterfaceHoldTimeState",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/3",
+        "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/3"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:02"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:02"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:02"
         }
     },
     {
@@ -2464,19 +2604,31 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/3",
-        "type": "InterfaceStateCounters",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/3"
-        }
-    },
-    {
         "id": "urn:ngsi-ld:Interface:ethernet-1/2",
         "type": "Interface",
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/2"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/2",
+        "type": "InterfaceEthernetState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/2"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:01"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:01"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:01"
         }
     },
     {
@@ -2561,22 +2713,6 @@
         "index": {
             "type": "Property",
             "value": 0
-        }
-    },
-    {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/2",
-        "type": "InterfaceHoldTimeState",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:ethernet-1/2"
-        }
-    },
-    {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeConfig:ethernet-1/2",
-        "type": "InterfaceHoldTimeConfig",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:ethernet-1/2"
         }
     },
     {
@@ -2716,6 +2852,26 @@
         }
     },
     {
+        "id": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/1",
+        "type": "InterfaceEthernetState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:ethernet-1/1"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:00"
+        },
+        "port-speed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:1A:A7:04:FF:00:00"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:A7:04:FF:00:00"
+        }
+    },
+    {
         "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:ethernet-1/1.0",
         "type": "InterfaceSubinterfacesSubinterface",
         "isPartOf": {
@@ -2797,22 +2953,6 @@
         "index": {
             "type": "Property",
             "value": 0
-        }
-    },
-    {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeState:ethernet-1/1",
-        "type": "InterfaceHoldTimeState",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:ethernet-1/1"
-        }
-    },
-    {
-        "id": "urn:ngsi-ld:InterfaceHoldTimeConfig:ethernet-1/1",
-        "type": "InterfaceHoldTimeConfig",
-        "isPartOf": {
-            "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:ethernet-1/1"
         }
     },
     {

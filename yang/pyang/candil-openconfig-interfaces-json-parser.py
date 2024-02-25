@@ -9,529 +9,691 @@ with open(json_payload) as f:
 
 if isinstance(json_data.get("interfaces"), dict):
     interfaces = json_data.get("interfaces")
-    if interfaces is not None:
+    if interfaces is not None and len(interfaces) != 0:
         if "interface" in list(interfaces.keys()):
             interfaces = interfaces.get("interface")
         elif "openconfig-interfaces:interface" in list(interfaces.keys()):
             interfaces = interfaces.get("openconfig-interfaces:interface")
         for interface in interfaces:
-            interface_dict_buffer = {}
-            interface_dict_buffer["id"] = "urn:ngsi-ld:Interface:"
-            interface_dict_buffer["type"] = "Interface"
-            name = interface.get("name")
-            if name is not None:
-                element_text = name
-                if interface_dict_buffer["id"].split(":")[-1] != element_text:
-                    interface_dict_buffer["id"] = interface_dict_buffer["id"] + element_text
-                interface_dict_buffer["name"] = {}
-                interface_dict_buffer["name"]["type"] = "Relationship"
-                interface_dict_buffer["name"]["object"] = "urn:ngsi-ld:InterfaceConfig:" + interface_dict_buffer["id"].split(":")[-1]
-            if isinstance(interface.get("config"), dict):
-                if "config" in list(interface.keys()):
-                    config = interface.get("config")
-                elif "openconfig-interfaces:config" in list(interface.keys()):
-                    config = interface.get("openconfig-interfaces:config")
-                interface_config_dict_buffer = {}
-                interface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceConfig:" + interface_dict_buffer["id"].split(":")[-1]
-                interface_config_dict_buffer["type"] = "InterfaceConfig"
-                interface_config_dict_buffer["isPartOf"] = {}
-                interface_config_dict_buffer["isPartOf"]["type"] = "Relationship"
-                interface_config_dict_buffer["isPartOf"]["object"] = interface_dict_buffer["id"]
-                name = config.get("name")
+            if interface is not None and len(interface) != 0:
+                interface_dict_buffer = {}
+                interface_dict_buffer["id"] = "urn:ngsi-ld:Interface:"
+                interface_dict_buffer["type"] = "Interface"
+                name = interface.get("name")
                 if name is not None:
                     element_text = name
-                    if interface_config_dict_buffer["id"].split(":")[-1] != element_text:
-                        interface_config_dict_buffer["id"] = interface_config_dict_buffer["id"] + element_text
-                    interface_config_dict_buffer["name"] = {}
-                    interface_config_dict_buffer["name"]["type"] = "Property"
-                    interface_config_dict_buffer["name"]["value"] = element_text
-                type = config.get("type")
-                if type is not None:
-                        interface_config_dict_buffer["configType"] = {}
-                        interface_config_dict_buffer["configType"]["type"] = "Relationship"
-                        interface_config_dict_buffer["configType"]["object"] = "urn:ngsi-ld:YANGIdentity:" + element_text
-                mtu = config.get("mtu")
-                if mtu is not None:
-                    element_text = mtu
-                    interface_config_dict_buffer["mtu"] = {}
-                    interface_config_dict_buffer["mtu"]["type"] = "Property"
-                    interface_config_dict_buffer["mtu"]["value"] = int(element_text)
-                loopbackMode = config.get("loopback-mode")
-                if loopbackMode is not None:
-                    element_text = loopbackMode
-                    interface_config_dict_buffer["loopbackMode"] = {}
-                    interface_config_dict_buffer["loopbackMode"]["type"] = "Property"
-                    interface_config_dict_buffer["loopbackMode"]["value"] = eval(str(element_text).capitalize())
-                description = config.get("description")
-                if description is not None:
-                    element_text = description
-                    interface_config_dict_buffer["description"] = {}
-                    interface_config_dict_buffer["description"]["type"] = "Property"
-                    interface_config_dict_buffer["description"]["value"] = element_text
-                enabled = config.get("enabled")
-                if enabled is not None:
-                    element_text = enabled
-                    interface_config_dict_buffer["enabled"] = {}
-                    interface_config_dict_buffer["enabled"]["type"] = "Property"
-                    interface_config_dict_buffer["enabled"]["value"] = eval(str(element_text).capitalize())
-                dict_buffers.append(interface_config_dict_buffer)
-            if isinstance(interface.get("state"), dict):
-                if "state" in list(interface.keys()):
-                    state = interface.get("state")
-                elif "openconfig-interfaces:state" in list(interface.keys()):
-                    state = interface.get("openconfig-interfaces:state")
-                interface_state_dict_buffer = {}
-                interface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceState:" + interface_dict_buffer["id"].split(":")[-1]
-                interface_state_dict_buffer["type"] = "InterfaceState"
-                interface_state_dict_buffer["isPartOf"] = {}
-                interface_state_dict_buffer["isPartOf"]["type"] = "Relationship"
-                interface_state_dict_buffer["isPartOf"]["object"] = interface_dict_buffer["id"]
-                name = state.get("name")
-                if name is not None:
-                    element_text = name
-                    if interface_state_dict_buffer["id"].split(":")[-1] != element_text:
-                        interface_state_dict_buffer["id"] = interface_state_dict_buffer["id"] + element_text
-                    interface_state_dict_buffer["name"] = {}
-                    interface_state_dict_buffer["name"]["type"] = "Property"
-                    interface_state_dict_buffer["name"]["value"] = element_text
-                type = state.get("type")
-                if type is not None:
-                        interface_state_dict_buffer["stateType"] = {}
-                        interface_state_dict_buffer["stateType"]["type"] = "Relationship"
-                        interface_state_dict_buffer["stateType"]["object"] = "urn:ngsi-ld:YANGIdentity:" + element_text
-                mtu = state.get("mtu")
-                if mtu is not None:
-                    element_text = mtu
-                    interface_state_dict_buffer["mtu"] = {}
-                    interface_state_dict_buffer["mtu"]["type"] = "Property"
-                    interface_state_dict_buffer["mtu"]["value"] = int(element_text)
-                loopbackMode = state.get("loopback-mode")
-                if loopbackMode is not None:
-                    element_text = loopbackMode
-                    interface_state_dict_buffer["loopbackMode"] = {}
-                    interface_state_dict_buffer["loopbackMode"]["type"] = "Property"
-                    interface_state_dict_buffer["loopbackMode"]["value"] = eval(str(element_text).capitalize())
-                description = state.get("description")
-                if description is not None:
-                    element_text = description
-                    interface_state_dict_buffer["description"] = {}
-                    interface_state_dict_buffer["description"]["type"] = "Property"
-                    interface_state_dict_buffer["description"]["value"] = element_text
-                enabled = state.get("enabled")
-                if enabled is not None:
-                    element_text = enabled
-                    interface_state_dict_buffer["enabled"] = {}
-                    interface_state_dict_buffer["enabled"]["type"] = "Property"
-                    interface_state_dict_buffer["enabled"]["value"] = eval(str(element_text).capitalize())
-                ifindex = state.get("ifindex")
-                if ifindex is not None:
-                    element_text = ifindex
-                    interface_state_dict_buffer["ifindex"] = {}
-                    interface_state_dict_buffer["ifindex"]["type"] = "Property"
-                    interface_state_dict_buffer["ifindex"]["value"] = int(element_text)
-                adminStatus = state.get("admin-status")
-                if adminStatus is not None:
-                    element_text = adminStatus
-                    interface_state_dict_buffer["adminStatus"] = {}
-                    interface_state_dict_buffer["adminStatus"]["type"] = "Property"
-                    interface_state_dict_buffer["adminStatus"]["value"] = element_text
-                operStatus = state.get("oper-status")
-                if operStatus is not None:
-                    element_text = operStatus
-                    interface_state_dict_buffer["operStatus"] = {}
-                    interface_state_dict_buffer["operStatus"]["type"] = "Property"
-                    interface_state_dict_buffer["operStatus"]["value"] = element_text
-                lastChange = state.get("last-change")
-                if lastChange is not None:
-                    element_text = lastChange
-                    interface_state_dict_buffer["lastChange"] = {}
-                    interface_state_dict_buffer["lastChange"]["type"] = "Property"
-                    interface_state_dict_buffer["lastChange"]["value"] = int(element_text)
-                if isinstance(state.get("counters"), dict):
-                    if "counters" in list(state.keys()):
+                    if interface_dict_buffer["id"].split(":")[-1] != element_text:
+                        interface_dict_buffer["id"] = interface_dict_buffer["id"] + element_text
+                    interface_dict_buffer["name"] = {}
+                    interface_dict_buffer["name"]["type"] = "Relationship"
+                    interface_dict_buffer["name"]["object"] = "urn:ngsi-ld:InterfaceConfig:" + interface_dict_buffer["id"].split(":")[-1]
+                config = interface.get("config")
+                if isinstance(config, dict):
+                    if config is not None and len(config) != 0:
+                        interface_config_dict_buffer = {}
+                        interface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceConfig:" + interface_dict_buffer["id"].split(":")[-1]
+                        interface_config_dict_buffer["type"] = "InterfaceConfig"
+                        interface_config_dict_buffer["isPartOf"] = {}
+                        interface_config_dict_buffer["isPartOf"]["type"] = "Relationship"
+                        interface_config_dict_buffer["isPartOf"]["object"] = interface_dict_buffer["id"]
+                        name = config.get("name")
+                        if name is not None:
+                            element_text = name
+                            if interface_config_dict_buffer["id"].split(":")[-1] != element_text:
+                                interface_config_dict_buffer["id"] = interface_config_dict_buffer["id"] + element_text
+                            interface_config_dict_buffer["name"] = {}
+                            interface_config_dict_buffer["name"]["type"] = "Property"
+                            interface_config_dict_buffer["name"]["value"] = element_text
+                        type = config.get("type")
+                        if type is not None and len(type) != 0:
+                                interface_config_dict_buffer["configType"] = {}
+                                interface_config_dict_buffer["configType"]["type"] = "Relationship"
+                                interface_config_dict_buffer["configType"]["object"] = "urn:ngsi-ld:YANGIdentity:" + element_text
+                        mtu = config.get("mtu")
+                        if mtu is not None:
+                            element_text = mtu
+                            interface_config_dict_buffer["mtu"] = {}
+                            interface_config_dict_buffer["mtu"]["type"] = "Property"
+                            interface_config_dict_buffer["mtu"]["value"] = int(element_text)
+                        loopbackMode = config.get("loopback-mode")
+                        if loopbackMode is not None:
+                            element_text = loopbackMode
+                            interface_config_dict_buffer["loopbackMode"] = {}
+                            interface_config_dict_buffer["loopbackMode"]["type"] = "Property"
+                            interface_config_dict_buffer["loopbackMode"]["value"] = eval(str(element_text).capitalize())
+                        description = config.get("description")
+                        if description is not None:
+                            element_text = description
+                            interface_config_dict_buffer["description"] = {}
+                            interface_config_dict_buffer["description"]["type"] = "Property"
+                            interface_config_dict_buffer["description"]["value"] = element_text
+                        enabled = config.get("enabled")
+                        if enabled is not None:
+                            element_text = enabled
+                            interface_config_dict_buffer["enabled"] = {}
+                            interface_config_dict_buffer["enabled"]["type"] = "Property"
+                            interface_config_dict_buffer["enabled"]["value"] = eval(str(element_text).capitalize())
+                        dict_buffers.append(interface_config_dict_buffer)
+                state = interface.get("state")
+                if isinstance(state, dict):
+                    if state is not None and len(state) != 0:
+                        interface_state_dict_buffer = {}
+                        interface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceState:" + interface_dict_buffer["id"].split(":")[-1]
+                        interface_state_dict_buffer["type"] = "InterfaceState"
+                        interface_state_dict_buffer["isPartOf"] = {}
+                        interface_state_dict_buffer["isPartOf"]["type"] = "Relationship"
+                        interface_state_dict_buffer["isPartOf"]["object"] = interface_dict_buffer["id"]
+                        name = state.get("name")
+                        if name is not None:
+                            element_text = name
+                            if interface_state_dict_buffer["id"].split(":")[-1] != element_text:
+                                interface_state_dict_buffer["id"] = interface_state_dict_buffer["id"] + element_text
+                            interface_state_dict_buffer["name"] = {}
+                            interface_state_dict_buffer["name"]["type"] = "Property"
+                            interface_state_dict_buffer["name"]["value"] = element_text
+                        type = state.get("type")
+                        if type is not None and len(type) != 0:
+                                interface_state_dict_buffer["stateType"] = {}
+                                interface_state_dict_buffer["stateType"]["type"] = "Relationship"
+                                interface_state_dict_buffer["stateType"]["object"] = "urn:ngsi-ld:YANGIdentity:" + element_text
+                        mtu = state.get("mtu")
+                        if mtu is not None:
+                            element_text = mtu
+                            interface_state_dict_buffer["mtu"] = {}
+                            interface_state_dict_buffer["mtu"]["type"] = "Property"
+                            interface_state_dict_buffer["mtu"]["value"] = int(element_text)
+                        loopbackMode = state.get("loopback-mode")
+                        if loopbackMode is not None:
+                            element_text = loopbackMode
+                            interface_state_dict_buffer["loopbackMode"] = {}
+                            interface_state_dict_buffer["loopbackMode"]["type"] = "Property"
+                            interface_state_dict_buffer["loopbackMode"]["value"] = eval(str(element_text).capitalize())
+                        description = state.get("description")
+                        if description is not None:
+                            element_text = description
+                            interface_state_dict_buffer["description"] = {}
+                            interface_state_dict_buffer["description"]["type"] = "Property"
+                            interface_state_dict_buffer["description"]["value"] = element_text
+                        enabled = state.get("enabled")
+                        if enabled is not None:
+                            element_text = enabled
+                            interface_state_dict_buffer["enabled"] = {}
+                            interface_state_dict_buffer["enabled"]["type"] = "Property"
+                            interface_state_dict_buffer["enabled"]["value"] = eval(str(element_text).capitalize())
+                        ifindex = state.get("ifindex")
+                        if ifindex is not None:
+                            element_text = ifindex
+                            interface_state_dict_buffer["ifindex"] = {}
+                            interface_state_dict_buffer["ifindex"]["type"] = "Property"
+                            interface_state_dict_buffer["ifindex"]["value"] = int(element_text)
+                        adminStatus = state.get("admin-status")
+                        if adminStatus is not None:
+                            element_text = adminStatus
+                            interface_state_dict_buffer["adminStatus"] = {}
+                            interface_state_dict_buffer["adminStatus"]["type"] = "Property"
+                            interface_state_dict_buffer["adminStatus"]["value"] = element_text
+                        operStatus = state.get("oper-status")
+                        if operStatus is not None:
+                            element_text = operStatus
+                            interface_state_dict_buffer["operStatus"] = {}
+                            interface_state_dict_buffer["operStatus"]["type"] = "Property"
+                            interface_state_dict_buffer["operStatus"]["value"] = element_text
+                        lastChange = state.get("last-change")
+                        if lastChange is not None:
+                            element_text = lastChange
+                            interface_state_dict_buffer["lastChange"] = {}
+                            interface_state_dict_buffer["lastChange"]["type"] = "Property"
+                            interface_state_dict_buffer["lastChange"]["value"] = int(element_text)
                         counters = state.get("counters")
-                    elif "openconfig-interfaces:counters" in list(state.keys()):
-                        counters = state.get("openconfig-interfaces:counters")
-                    interface_state_counters_dict_buffer = {}
-                    interface_state_counters_dict_buffer["id"] = "urn:ngsi-ld:InterfaceStateCounters:" + interface_state_dict_buffer["id"].split(":")[-1]
-                    interface_state_counters_dict_buffer["type"] = "InterfaceStateCounters"
-                    interface_state_counters_dict_buffer["isPartOf"] = {}
-                    interface_state_counters_dict_buffer["isPartOf"]["type"] = "Relationship"
-                    interface_state_counters_dict_buffer["isPartOf"]["object"] = interface_state_dict_buffer["id"]
-                    inOctets = counters.get("in-octets")
-                    if inOctets is not None:
-                        element_text = inOctets
-                        interface_state_counters_dict_buffer["inOctets"] = {}
-                        interface_state_counters_dict_buffer["inOctets"]["type"] = "Property"
-                        interface_state_counters_dict_buffer["inOctets"]["value"] = int(element_text)
-                    inUnicastPkts = counters.get("in-unicast-pkts")
-                    if inUnicastPkts is not None:
-                        element_text = inUnicastPkts
-                        interface_state_counters_dict_buffer["inUnicastPkts"] = {}
-                        interface_state_counters_dict_buffer["inUnicastPkts"]["type"] = "Property"
-                        interface_state_counters_dict_buffer["inUnicastPkts"]["value"] = int(element_text)
-                    inBroadcastPkts = counters.get("in-broadcast-pkts")
-                    if inBroadcastPkts is not None:
-                        element_text = inBroadcastPkts
-                        interface_state_counters_dict_buffer["inBroadcastPkts"] = {}
-                        interface_state_counters_dict_buffer["inBroadcastPkts"]["type"] = "Property"
-                        interface_state_counters_dict_buffer["inBroadcastPkts"]["value"] = int(element_text)
-                    inMulticastPkts = counters.get("in-multicast-pkts")
-                    if inMulticastPkts is not None:
-                        element_text = inMulticastPkts
-                        interface_state_counters_dict_buffer["inMulticastPkts"] = {}
-                        interface_state_counters_dict_buffer["inMulticastPkts"]["type"] = "Property"
-                        interface_state_counters_dict_buffer["inMulticastPkts"]["value"] = int(element_text)
-                    inDiscards = counters.get("in-discards")
-                    if inDiscards is not None:
-                        element_text = inDiscards
-                        interface_state_counters_dict_buffer["inDiscards"] = {}
-                        interface_state_counters_dict_buffer["inDiscards"]["type"] = "Property"
-                        interface_state_counters_dict_buffer["inDiscards"]["value"] = int(element_text)
-                    inErrors = counters.get("in-errors")
-                    if inErrors is not None:
-                        element_text = inErrors
-                        interface_state_counters_dict_buffer["inErrors"] = {}
-                        interface_state_counters_dict_buffer["inErrors"]["type"] = "Property"
-                        interface_state_counters_dict_buffer["inErrors"]["value"] = int(element_text)
-                    inUnknownProtos = counters.get("in-unknown-protos")
-                    if inUnknownProtos is not None:
-                        element_text = inUnknownProtos
-                        interface_state_counters_dict_buffer["inUnknownProtos"] = {}
-                        interface_state_counters_dict_buffer["inUnknownProtos"]["type"] = "Property"
-                        interface_state_counters_dict_buffer["inUnknownProtos"]["value"] = int(element_text)
-                    inFcsErrors = counters.get("in-fcs-errors")
-                    if inFcsErrors is not None:
-                        element_text = inFcsErrors
-                        interface_state_counters_dict_buffer["inFcsErrors"] = {}
-                        interface_state_counters_dict_buffer["inFcsErrors"]["type"] = "Property"
-                        interface_state_counters_dict_buffer["inFcsErrors"]["value"] = int(element_text)
-                    outOctets = counters.get("out-octets")
-                    if outOctets is not None:
-                        element_text = outOctets
-                        interface_state_counters_dict_buffer["outOctets"] = {}
-                        interface_state_counters_dict_buffer["outOctets"]["type"] = "Property"
-                        interface_state_counters_dict_buffer["outOctets"]["value"] = int(element_text)
-                    outUnicastPkts = counters.get("out-unicast-pkts")
-                    if outUnicastPkts is not None:
-                        element_text = outUnicastPkts
-                        interface_state_counters_dict_buffer["outUnicastPkts"] = {}
-                        interface_state_counters_dict_buffer["outUnicastPkts"]["type"] = "Property"
-                        interface_state_counters_dict_buffer["outUnicastPkts"]["value"] = int(element_text)
-                    outBroadcastPkts = counters.get("out-broadcast-pkts")
-                    if outBroadcastPkts is not None:
-                        element_text = outBroadcastPkts
-                        interface_state_counters_dict_buffer["outBroadcastPkts"] = {}
-                        interface_state_counters_dict_buffer["outBroadcastPkts"]["type"] = "Property"
-                        interface_state_counters_dict_buffer["outBroadcastPkts"]["value"] = int(element_text)
-                    outMulticastPkts = counters.get("out-multicast-pkts")
-                    if outMulticastPkts is not None:
-                        element_text = outMulticastPkts
-                        interface_state_counters_dict_buffer["outMulticastPkts"] = {}
-                        interface_state_counters_dict_buffer["outMulticastPkts"]["type"] = "Property"
-                        interface_state_counters_dict_buffer["outMulticastPkts"]["value"] = int(element_text)
-                    outDiscards = counters.get("out-discards")
-                    if outDiscards is not None:
-                        element_text = outDiscards
-                        interface_state_counters_dict_buffer["outDiscards"] = {}
-                        interface_state_counters_dict_buffer["outDiscards"]["type"] = "Property"
-                        interface_state_counters_dict_buffer["outDiscards"]["value"] = int(element_text)
-                    outErrors = counters.get("out-errors")
-                    if outErrors is not None:
-                        element_text = outErrors
-                        interface_state_counters_dict_buffer["outErrors"] = {}
-                        interface_state_counters_dict_buffer["outErrors"]["type"] = "Property"
-                        interface_state_counters_dict_buffer["outErrors"]["value"] = int(element_text)
-                    carrierTransitions = counters.get("carrier-transitions")
-                    if carrierTransitions is not None:
-                        element_text = carrierTransitions
-                        interface_state_counters_dict_buffer["carrierTransitions"] = {}
-                        interface_state_counters_dict_buffer["carrierTransitions"]["type"] = "Property"
-                        interface_state_counters_dict_buffer["carrierTransitions"]["value"] = int(element_text)
-                    lastClear = counters.get("last-clear")
-                    if lastClear is not None:
-                        element_text = lastClear
-                        interface_state_counters_dict_buffer["lastClear"] = {}
-                        interface_state_counters_dict_buffer["lastClear"]["type"] = "Property"
-                        interface_state_counters_dict_buffer["lastClear"]["value"] = int(element_text)
-                    dict_buffers.append(interface_state_counters_dict_buffer)
-                dict_buffers.append(interface_state_dict_buffer)
-            if isinstance(interface.get("config"), dict):
-                if "config" in list(interface.keys()):
-                    config = interface.get("config")
-                elif "openconfig-interfaces:config" in list(interface.keys()):
-                    config = interface.get("openconfig-interfaces:config")
-                interface_config_dict_buffer = {}
-                interface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceHoldTimeConfig:" + interface_dict_buffer["id"].split(":")[-1]
-                interface_config_dict_buffer["type"] = "InterfaceHoldTimeConfig"
-                interface_config_dict_buffer["isPartOf"] = {}
-                interface_config_dict_buffer["isPartOf"]["type"] = "Relationship"
-                interface_config_dict_buffer["isPartOf"]["object"] = interface_dict_buffer["id"]
-                up = config.get("up")
-                if up is not None:
-                    element_text = up
-                    interface_config_dict_buffer["up"] = {}
-                    interface_config_dict_buffer["up"]["type"] = "Property"
-                    interface_config_dict_buffer["up"]["value"] = int(element_text)
-                down = config.get("down")
-                if down is not None:
-                    element_text = down
-                    interface_config_dict_buffer["down"] = {}
-                    interface_config_dict_buffer["down"]["type"] = "Property"
-                    interface_config_dict_buffer["down"]["value"] = int(element_text)
-                dict_buffers.append(interface_config_dict_buffer)
-            if isinstance(interface.get("state"), dict):
-                if "state" in list(interface.keys()):
-                    state = interface.get("state")
-                elif "openconfig-interfaces:state" in list(interface.keys()):
-                    state = interface.get("openconfig-interfaces:state")
-                interface_state_dict_buffer = {}
-                interface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceHoldTimeState:" + interface_dict_buffer["id"].split(":")[-1]
-                interface_state_dict_buffer["type"] = "InterfaceHoldTimeState"
-                interface_state_dict_buffer["isPartOf"] = {}
-                interface_state_dict_buffer["isPartOf"]["type"] = "Relationship"
-                interface_state_dict_buffer["isPartOf"]["object"] = interface_dict_buffer["id"]
-                up = state.get("up")
-                if up is not None:
-                    element_text = up
-                    interface_state_dict_buffer["up"] = {}
-                    interface_state_dict_buffer["up"]["type"] = "Property"
-                    interface_state_dict_buffer["up"]["value"] = int(element_text)
-                down = state.get("down")
-                if down is not None:
-                    element_text = down
-                    interface_state_dict_buffer["down"] = {}
-                    interface_state_dict_buffer["down"]["type"] = "Property"
-                    interface_state_dict_buffer["down"]["value"] = int(element_text)
-                dict_buffers.append(interface_state_dict_buffer)
-            if isinstance(interface.get("subinterfaces"), dict):
-                if "subinterfaces" in list(interface.keys()):
-                    subinterfaces = interface.get("subinterfaces")
-                elif "openconfig-interfaces:subinterfaces" in list(interface.keys()):
-                    subinterfaces = interface.get("openconfig-interfaces:subinterfaces")
-                if subinterfaces is not None:
-                    subinterfaces = subinterfaces.get("subinterface")
-                    for subinterface in subinterfaces:
-                        interface_subinterface_dict_buffer = {}
-                        interface_subinterface_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:" + interface_dict_buffer["id"].split(":")[-1]
-                        interface_subinterface_dict_buffer["type"] = "InterfaceSubinterfacesSubinterface"
-                        interface_subinterface_dict_buffer["isPartOf"] = {}
-                        interface_subinterface_dict_buffer["isPartOf"]["type"] = "Relationship"
-                        interface_subinterface_dict_buffer["isPartOf"]["object"] = interface_dict_buffer["id"]
-                        index = subinterface.get("index")
-                        if index is not None:
-                            element_text = index
-                            if "." + str(element_text) not in interface_subinterface_dict_buffer["id"].split(":")[-1]:
-                                interface_subinterface_dict_buffer["id"] = interface_subinterface_dict_buffer["id"] + "." + str(element_text)
-                            interface_subinterface_dict_buffer["index"] = {}
-                            interface_subinterface_dict_buffer["index"]["type"] = "Relationship"
-                            interface_subinterface_dict_buffer["index"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:" + interface_subinterface_dict_buffer["id"].split(":")[-1]
-                        if isinstance(subinterface.get("config"), dict):
-                            if "config" in list(subinterface.keys()):
-                                config = subinterface.get("config")
-                            elif "openconfig-interfaces:config" in list(subinterface.keys()):
-                                config = subinterface.get("openconfig-interfaces:config")
-                            interface_subinterface_config_dict_buffer = {}
-                            interface_subinterface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:" + interface_subinterface_dict_buffer["id"].split(":")[-1]
-                            interface_subinterface_config_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceConfig"
-                            interface_subinterface_config_dict_buffer["isPartOf"] = {}
-                            interface_subinterface_config_dict_buffer["isPartOf"]["type"] = "Relationship"
-                            interface_subinterface_config_dict_buffer["isPartOf"]["object"] = interface_subinterface_dict_buffer["id"]
-                            index = config.get("index")
-                            if index is not None:
-                                element_text = index
-                                if "." + str(element_text) not in interface_subinterface_config_dict_buffer["id"].split(":")[-1]:
-                                    interface_subinterface_config_dict_buffer["id"] = interface_subinterface_config_dict_buffer["id"] + "." + str(element_text)
-                                interface_subinterface_config_dict_buffer["index"] = {}
-                                interface_subinterface_config_dict_buffer["index"]["type"] = "Property"
-                                interface_subinterface_config_dict_buffer["index"]["value"] = int(element_text)
-                            description = config.get("description")
-                            if description is not None:
-                                element_text = description
-                                interface_subinterface_config_dict_buffer["description"] = {}
-                                interface_subinterface_config_dict_buffer["description"]["type"] = "Property"
-                                interface_subinterface_config_dict_buffer["description"]["value"] = element_text
-                            enabled = config.get("enabled")
-                            if enabled is not None:
-                                element_text = enabled
-                                interface_subinterface_config_dict_buffer["enabled"] = {}
-                                interface_subinterface_config_dict_buffer["enabled"]["type"] = "Property"
-                                interface_subinterface_config_dict_buffer["enabled"]["value"] = eval(str(element_text).capitalize())
-                            dict_buffers.append(interface_subinterface_config_dict_buffer)
-                        if isinstance(subinterface.get("state"), dict):
-                            if "state" in list(subinterface.keys()):
-                                state = subinterface.get("state")
-                            elif "openconfig-interfaces:state" in list(subinterface.keys()):
-                                state = subinterface.get("openconfig-interfaces:state")
-                            interface_subinterface_state_dict_buffer = {}
-                            interface_subinterface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceState:" + interface_subinterface_dict_buffer["id"].split(":")[-1]
-                            interface_subinterface_state_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceState"
-                            interface_subinterface_state_dict_buffer["isPartOf"] = {}
-                            interface_subinterface_state_dict_buffer["isPartOf"]["type"] = "Relationship"
-                            interface_subinterface_state_dict_buffer["isPartOf"]["object"] = interface_subinterface_dict_buffer["id"]
-                            index = state.get("index")
-                            if index is not None:
-                                element_text = index
-                                if "." + str(element_text) not in interface_subinterface_state_dict_buffer["id"].split(":")[-1]:
-                                    interface_subinterface_state_dict_buffer["id"] = interface_subinterface_state_dict_buffer["id"] + "." + str(element_text)
-                                interface_subinterface_state_dict_buffer["index"] = {}
-                                interface_subinterface_state_dict_buffer["index"]["type"] = "Property"
-                                interface_subinterface_state_dict_buffer["index"]["value"] = int(element_text)
-                            description = state.get("description")
-                            if description is not None:
-                                element_text = description
-                                interface_subinterface_state_dict_buffer["description"] = {}
-                                interface_subinterface_state_dict_buffer["description"]["type"] = "Property"
-                                interface_subinterface_state_dict_buffer["description"]["value"] = element_text
-                            enabled = state.get("enabled")
-                            if enabled is not None:
-                                element_text = enabled
-                                interface_subinterface_state_dict_buffer["enabled"] = {}
-                                interface_subinterface_state_dict_buffer["enabled"]["type"] = "Property"
-                                interface_subinterface_state_dict_buffer["enabled"]["value"] = eval(str(element_text).capitalize())
-                            name = state.get("name")
-                            if name is not None:
-                                element_text = name
-                                if interface_subinterface_state_dict_buffer["id"].split(":")[-1] != element_text:
-                                    interface_subinterface_state_dict_buffer["id"] = interface_subinterface_state_dict_buffer["id"] + element_text
-                                interface_subinterface_state_dict_buffer["name"] = {}
-                                interface_subinterface_state_dict_buffer["name"]["type"] = "Property"
-                                interface_subinterface_state_dict_buffer["name"]["value"] = element_text
-                            ifindex = state.get("ifindex")
-                            if ifindex is not None:
-                                element_text = ifindex
-                                interface_subinterface_state_dict_buffer["ifindex"] = {}
-                                interface_subinterface_state_dict_buffer["ifindex"]["type"] = "Property"
-                                interface_subinterface_state_dict_buffer["ifindex"]["value"] = int(element_text)
-                            adminStatus = state.get("admin-status")
-                            if adminStatus is not None:
-                                element_text = adminStatus
-                                interface_subinterface_state_dict_buffer["adminStatus"] = {}
-                                interface_subinterface_state_dict_buffer["adminStatus"]["type"] = "Property"
-                                interface_subinterface_state_dict_buffer["adminStatus"]["value"] = element_text
-                            operStatus = state.get("oper-status")
-                            if operStatus is not None:
-                                element_text = operStatus
-                                interface_subinterface_state_dict_buffer["operStatus"] = {}
-                                interface_subinterface_state_dict_buffer["operStatus"]["type"] = "Property"
-                                interface_subinterface_state_dict_buffer["operStatus"]["value"] = element_text
-                            lastChange = state.get("last-change")
-                            if lastChange is not None:
-                                element_text = lastChange
-                                interface_subinterface_state_dict_buffer["lastChange"] = {}
-                                interface_subinterface_state_dict_buffer["lastChange"]["type"] = "Property"
-                                interface_subinterface_state_dict_buffer["lastChange"]["value"] = int(element_text)
-                            if isinstance(state.get("counters"), dict):
-                                if "counters" in list(state.keys()):
-                                    counters = state.get("counters")
-                                elif "openconfig-interfaces:counters" in list(state.keys()):
-                                    counters = state.get("openconfig-interfaces:counters")
-                                interface_subinterface_state_counters_dict_buffer = {}
-                                interface_subinterface_state_counters_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceStateCounters:" + interface_subinterface_state_dict_buffer["id"].split(":")[-1]
-                                interface_subinterface_state_counters_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceStateCounters"
-                                interface_subinterface_state_counters_dict_buffer["isPartOf"] = {}
-                                interface_subinterface_state_counters_dict_buffer["isPartOf"]["type"] = "Relationship"
-                                interface_subinterface_state_counters_dict_buffer["isPartOf"]["object"] = interface_subinterface_state_dict_buffer["id"]
+                        if isinstance(counters, dict):
+                            if counters is not None and len(counters) != 0:
+                                interface_state_counters_dict_buffer = {}
+                                interface_state_counters_dict_buffer["id"] = "urn:ngsi-ld:InterfaceStateCounters:" + interface_state_dict_buffer["id"].split(":")[-1]
+                                interface_state_counters_dict_buffer["type"] = "InterfaceStateCounters"
+                                interface_state_counters_dict_buffer["isPartOf"] = {}
+                                interface_state_counters_dict_buffer["isPartOf"]["type"] = "Relationship"
+                                interface_state_counters_dict_buffer["isPartOf"]["object"] = interface_state_dict_buffer["id"]
                                 inOctets = counters.get("in-octets")
                                 if inOctets is not None:
                                     element_text = inOctets
-                                    interface_subinterface_state_counters_dict_buffer["inOctets"] = {}
-                                    interface_subinterface_state_counters_dict_buffer["inOctets"]["type"] = "Property"
-                                    interface_subinterface_state_counters_dict_buffer["inOctets"]["value"] = int(element_text)
+                                    interface_state_counters_dict_buffer["inOctets"] = {}
+                                    interface_state_counters_dict_buffer["inOctets"]["type"] = "Property"
+                                    interface_state_counters_dict_buffer["inOctets"]["value"] = int(element_text)
                                 inUnicastPkts = counters.get("in-unicast-pkts")
                                 if inUnicastPkts is not None:
                                     element_text = inUnicastPkts
-                                    interface_subinterface_state_counters_dict_buffer["inUnicastPkts"] = {}
-                                    interface_subinterface_state_counters_dict_buffer["inUnicastPkts"]["type"] = "Property"
-                                    interface_subinterface_state_counters_dict_buffer["inUnicastPkts"]["value"] = int(element_text)
+                                    interface_state_counters_dict_buffer["inUnicastPkts"] = {}
+                                    interface_state_counters_dict_buffer["inUnicastPkts"]["type"] = "Property"
+                                    interface_state_counters_dict_buffer["inUnicastPkts"]["value"] = int(element_text)
                                 inBroadcastPkts = counters.get("in-broadcast-pkts")
                                 if inBroadcastPkts is not None:
                                     element_text = inBroadcastPkts
-                                    interface_subinterface_state_counters_dict_buffer["inBroadcastPkts"] = {}
-                                    interface_subinterface_state_counters_dict_buffer["inBroadcastPkts"]["type"] = "Property"
-                                    interface_subinterface_state_counters_dict_buffer["inBroadcastPkts"]["value"] = int(element_text)
+                                    interface_state_counters_dict_buffer["inBroadcastPkts"] = {}
+                                    interface_state_counters_dict_buffer["inBroadcastPkts"]["type"] = "Property"
+                                    interface_state_counters_dict_buffer["inBroadcastPkts"]["value"] = int(element_text)
                                 inMulticastPkts = counters.get("in-multicast-pkts")
                                 if inMulticastPkts is not None:
                                     element_text = inMulticastPkts
-                                    interface_subinterface_state_counters_dict_buffer["inMulticastPkts"] = {}
-                                    interface_subinterface_state_counters_dict_buffer["inMulticastPkts"]["type"] = "Property"
-                                    interface_subinterface_state_counters_dict_buffer["inMulticastPkts"]["value"] = int(element_text)
+                                    interface_state_counters_dict_buffer["inMulticastPkts"] = {}
+                                    interface_state_counters_dict_buffer["inMulticastPkts"]["type"] = "Property"
+                                    interface_state_counters_dict_buffer["inMulticastPkts"]["value"] = int(element_text)
                                 inDiscards = counters.get("in-discards")
                                 if inDiscards is not None:
                                     element_text = inDiscards
-                                    interface_subinterface_state_counters_dict_buffer["inDiscards"] = {}
-                                    interface_subinterface_state_counters_dict_buffer["inDiscards"]["type"] = "Property"
-                                    interface_subinterface_state_counters_dict_buffer["inDiscards"]["value"] = int(element_text)
+                                    interface_state_counters_dict_buffer["inDiscards"] = {}
+                                    interface_state_counters_dict_buffer["inDiscards"]["type"] = "Property"
+                                    interface_state_counters_dict_buffer["inDiscards"]["value"] = int(element_text)
                                 inErrors = counters.get("in-errors")
                                 if inErrors is not None:
                                     element_text = inErrors
-                                    interface_subinterface_state_counters_dict_buffer["inErrors"] = {}
-                                    interface_subinterface_state_counters_dict_buffer["inErrors"]["type"] = "Property"
-                                    interface_subinterface_state_counters_dict_buffer["inErrors"]["value"] = int(element_text)
+                                    interface_state_counters_dict_buffer["inErrors"] = {}
+                                    interface_state_counters_dict_buffer["inErrors"]["type"] = "Property"
+                                    interface_state_counters_dict_buffer["inErrors"]["value"] = int(element_text)
                                 inUnknownProtos = counters.get("in-unknown-protos")
                                 if inUnknownProtos is not None:
                                     element_text = inUnknownProtos
-                                    interface_subinterface_state_counters_dict_buffer["inUnknownProtos"] = {}
-                                    interface_subinterface_state_counters_dict_buffer["inUnknownProtos"]["type"] = "Property"
-                                    interface_subinterface_state_counters_dict_buffer["inUnknownProtos"]["value"] = int(element_text)
+                                    interface_state_counters_dict_buffer["inUnknownProtos"] = {}
+                                    interface_state_counters_dict_buffer["inUnknownProtos"]["type"] = "Property"
+                                    interface_state_counters_dict_buffer["inUnknownProtos"]["value"] = int(element_text)
                                 inFcsErrors = counters.get("in-fcs-errors")
                                 if inFcsErrors is not None:
                                     element_text = inFcsErrors
-                                    interface_subinterface_state_counters_dict_buffer["inFcsErrors"] = {}
-                                    interface_subinterface_state_counters_dict_buffer["inFcsErrors"]["type"] = "Property"
-                                    interface_subinterface_state_counters_dict_buffer["inFcsErrors"]["value"] = int(element_text)
+                                    interface_state_counters_dict_buffer["inFcsErrors"] = {}
+                                    interface_state_counters_dict_buffer["inFcsErrors"]["type"] = "Property"
+                                    interface_state_counters_dict_buffer["inFcsErrors"]["value"] = int(element_text)
                                 outOctets = counters.get("out-octets")
                                 if outOctets is not None:
                                     element_text = outOctets
-                                    interface_subinterface_state_counters_dict_buffer["outOctets"] = {}
-                                    interface_subinterface_state_counters_dict_buffer["outOctets"]["type"] = "Property"
-                                    interface_subinterface_state_counters_dict_buffer["outOctets"]["value"] = int(element_text)
+                                    interface_state_counters_dict_buffer["outOctets"] = {}
+                                    interface_state_counters_dict_buffer["outOctets"]["type"] = "Property"
+                                    interface_state_counters_dict_buffer["outOctets"]["value"] = int(element_text)
                                 outUnicastPkts = counters.get("out-unicast-pkts")
                                 if outUnicastPkts is not None:
                                     element_text = outUnicastPkts
-                                    interface_subinterface_state_counters_dict_buffer["outUnicastPkts"] = {}
-                                    interface_subinterface_state_counters_dict_buffer["outUnicastPkts"]["type"] = "Property"
-                                    interface_subinterface_state_counters_dict_buffer["outUnicastPkts"]["value"] = int(element_text)
+                                    interface_state_counters_dict_buffer["outUnicastPkts"] = {}
+                                    interface_state_counters_dict_buffer["outUnicastPkts"]["type"] = "Property"
+                                    interface_state_counters_dict_buffer["outUnicastPkts"]["value"] = int(element_text)
                                 outBroadcastPkts = counters.get("out-broadcast-pkts")
                                 if outBroadcastPkts is not None:
                                     element_text = outBroadcastPkts
-                                    interface_subinterface_state_counters_dict_buffer["outBroadcastPkts"] = {}
-                                    interface_subinterface_state_counters_dict_buffer["outBroadcastPkts"]["type"] = "Property"
-                                    interface_subinterface_state_counters_dict_buffer["outBroadcastPkts"]["value"] = int(element_text)
+                                    interface_state_counters_dict_buffer["outBroadcastPkts"] = {}
+                                    interface_state_counters_dict_buffer["outBroadcastPkts"]["type"] = "Property"
+                                    interface_state_counters_dict_buffer["outBroadcastPkts"]["value"] = int(element_text)
                                 outMulticastPkts = counters.get("out-multicast-pkts")
                                 if outMulticastPkts is not None:
                                     element_text = outMulticastPkts
-                                    interface_subinterface_state_counters_dict_buffer["outMulticastPkts"] = {}
-                                    interface_subinterface_state_counters_dict_buffer["outMulticastPkts"]["type"] = "Property"
-                                    interface_subinterface_state_counters_dict_buffer["outMulticastPkts"]["value"] = int(element_text)
+                                    interface_state_counters_dict_buffer["outMulticastPkts"] = {}
+                                    interface_state_counters_dict_buffer["outMulticastPkts"]["type"] = "Property"
+                                    interface_state_counters_dict_buffer["outMulticastPkts"]["value"] = int(element_text)
                                 outDiscards = counters.get("out-discards")
                                 if outDiscards is not None:
                                     element_text = outDiscards
-                                    interface_subinterface_state_counters_dict_buffer["outDiscards"] = {}
-                                    interface_subinterface_state_counters_dict_buffer["outDiscards"]["type"] = "Property"
-                                    interface_subinterface_state_counters_dict_buffer["outDiscards"]["value"] = int(element_text)
+                                    interface_state_counters_dict_buffer["outDiscards"] = {}
+                                    interface_state_counters_dict_buffer["outDiscards"]["type"] = "Property"
+                                    interface_state_counters_dict_buffer["outDiscards"]["value"] = int(element_text)
                                 outErrors = counters.get("out-errors")
                                 if outErrors is not None:
                                     element_text = outErrors
-                                    interface_subinterface_state_counters_dict_buffer["outErrors"] = {}
-                                    interface_subinterface_state_counters_dict_buffer["outErrors"]["type"] = "Property"
-                                    interface_subinterface_state_counters_dict_buffer["outErrors"]["value"] = int(element_text)
+                                    interface_state_counters_dict_buffer["outErrors"] = {}
+                                    interface_state_counters_dict_buffer["outErrors"]["type"] = "Property"
+                                    interface_state_counters_dict_buffer["outErrors"]["value"] = int(element_text)
                                 carrierTransitions = counters.get("carrier-transitions")
                                 if carrierTransitions is not None:
                                     element_text = carrierTransitions
-                                    interface_subinterface_state_counters_dict_buffer["carrierTransitions"] = {}
-                                    interface_subinterface_state_counters_dict_buffer["carrierTransitions"]["type"] = "Property"
-                                    interface_subinterface_state_counters_dict_buffer["carrierTransitions"]["value"] = int(element_text)
+                                    interface_state_counters_dict_buffer["carrierTransitions"] = {}
+                                    interface_state_counters_dict_buffer["carrierTransitions"]["type"] = "Property"
+                                    interface_state_counters_dict_buffer["carrierTransitions"]["value"] = int(element_text)
                                 lastClear = counters.get("last-clear")
                                 if lastClear is not None:
                                     element_text = lastClear
-                                    interface_subinterface_state_counters_dict_buffer["lastClear"] = {}
-                                    interface_subinterface_state_counters_dict_buffer["lastClear"]["type"] = "Property"
-                                    interface_subinterface_state_counters_dict_buffer["lastClear"]["value"] = int(element_text)
-                                dict_buffers.append(interface_subinterface_state_counters_dict_buffer)
-                            dict_buffers.append(interface_subinterface_state_dict_buffer)
-                        dict_buffers.append(interface_subinterface_dict_buffer)
-            dict_buffers.append(interface_dict_buffer)
+                                    interface_state_counters_dict_buffer["lastClear"] = {}
+                                    interface_state_counters_dict_buffer["lastClear"]["type"] = "Property"
+                                    interface_state_counters_dict_buffer["lastClear"]["value"] = int(element_text)
+                                dict_buffers.append(interface_state_counters_dict_buffer)
+                        dict_buffers.append(interface_state_dict_buffer)
+                hold_time = interface.get("hold-time")
+                if isinstance(hold_time, dict):
+                    if hold_time is not None and len(hold_time) != 0:
+                        config = hold_time.get("config")
+                        if isinstance(config, dict):
+                            if config is not None and len(config) != 0:
+                                interface_config_dict_buffer = {}
+                                interface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceHoldTimeConfig:" + interface_dict_buffer["id"].split(":")[-1]
+                                interface_config_dict_buffer["type"] = "InterfaceHoldTimeConfig"
+                                interface_config_dict_buffer["isPartOf"] = {}
+                                interface_config_dict_buffer["isPartOf"]["type"] = "Relationship"
+                                interface_config_dict_buffer["isPartOf"]["object"] = interface_dict_buffer["id"]
+                                up = config.get("up")
+                                if up is not None:
+                                    element_text = up
+                                    interface_config_dict_buffer["up"] = {}
+                                    interface_config_dict_buffer["up"]["type"] = "Property"
+                                    interface_config_dict_buffer["up"]["value"] = int(element_text)
+                                down = config.get("down")
+                                if down is not None:
+                                    element_text = down
+                                    interface_config_dict_buffer["down"] = {}
+                                    interface_config_dict_buffer["down"]["type"] = "Property"
+                                    interface_config_dict_buffer["down"]["value"] = int(element_text)
+                                dict_buffers.append(interface_config_dict_buffer)
+                        hold_time = interface.get("hold-time")
+                        if isinstance(hold_time, dict):
+                            if hold_time is not None and len(hold_time) != 0:
+                                state = hold_time.get("state")
+                                if isinstance(state, dict):
+                                    if state is not None and len(state) != 0:
+                                        interface_state_dict_buffer = {}
+                                        interface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceHoldTimeState:" + interface_dict_buffer["id"].split(":")[-1]
+                                        interface_state_dict_buffer["type"] = "InterfaceHoldTimeState"
+                                        interface_state_dict_buffer["isPartOf"] = {}
+                                        interface_state_dict_buffer["isPartOf"]["type"] = "Relationship"
+                                        interface_state_dict_buffer["isPartOf"]["object"] = interface_dict_buffer["id"]
+                                        up = state.get("up")
+                                        if up is not None:
+                                            element_text = up
+                                            interface_state_dict_buffer["up"] = {}
+                                            interface_state_dict_buffer["up"]["type"] = "Property"
+                                            interface_state_dict_buffer["up"]["value"] = int(element_text)
+                                        down = state.get("down")
+                                        if down is not None:
+                                            element_text = down
+                                            interface_state_dict_buffer["down"] = {}
+                                            interface_state_dict_buffer["down"]["type"] = "Property"
+                                            interface_state_dict_buffer["down"]["value"] = int(element_text)
+                                        dict_buffers.append(interface_state_dict_buffer)
+                subinterfaces = interface.get("subinterfaces")
+                if isinstance(subinterfaces, dict):
+                    if subinterfaces is not None and len(subinterfaces) != 0:
+                        subinterfaces = subinterfaces.get("subinterface")
+                        for subinterface in subinterfaces:
+                            interface_subinterface_dict_buffer = {}
+                            interface_subinterface_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:" + interface_dict_buffer["id"].split(":")[-1]
+                            interface_subinterface_dict_buffer["type"] = "InterfaceSubinterfacesSubinterface"
+                            interface_subinterface_dict_buffer["isPartOf"] = {}
+                            interface_subinterface_dict_buffer["isPartOf"]["type"] = "Relationship"
+                            interface_subinterface_dict_buffer["isPartOf"]["object"] = interface_dict_buffer["id"]
+                            index = subinterface.get("index")
+                            if index is not None:
+                                element_text = index
+                                if "." + str(element_text) not in interface_subinterface_dict_buffer["id"].split(":")[-1]:
+                                    interface_subinterface_dict_buffer["id"] = interface_subinterface_dict_buffer["id"] + "." + str(element_text)
+                                interface_subinterface_dict_buffer["index"] = {}
+                                interface_subinterface_dict_buffer["index"]["type"] = "Relationship"
+                                interface_subinterface_dict_buffer["index"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:" + interface_subinterface_dict_buffer["id"].split(":")[-1]
+                            config = subinterface.get("config")
+                            if isinstance(config, dict):
+                                if config is not None and len(config) != 0:
+                                    interface_subinterface_config_dict_buffer = {}
+                                    interface_subinterface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:" + interface_subinterface_dict_buffer["id"].split(":")[-1]
+                                    interface_subinterface_config_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceConfig"
+                                    interface_subinterface_config_dict_buffer["isPartOf"] = {}
+                                    interface_subinterface_config_dict_buffer["isPartOf"]["type"] = "Relationship"
+                                    interface_subinterface_config_dict_buffer["isPartOf"]["object"] = interface_subinterface_dict_buffer["id"]
+                                    index = config.get("index")
+                                    if index is not None:
+                                        element_text = index
+                                        if "." + str(element_text) not in interface_subinterface_config_dict_buffer["id"].split(":")[-1]:
+                                            interface_subinterface_config_dict_buffer["id"] = interface_subinterface_config_dict_buffer["id"] + "." + str(element_text)
+                                        interface_subinterface_config_dict_buffer["index"] = {}
+                                        interface_subinterface_config_dict_buffer["index"]["type"] = "Property"
+                                        interface_subinterface_config_dict_buffer["index"]["value"] = int(element_text)
+                                    description = config.get("description")
+                                    if description is not None:
+                                        element_text = description
+                                        interface_subinterface_config_dict_buffer["description"] = {}
+                                        interface_subinterface_config_dict_buffer["description"]["type"] = "Property"
+                                        interface_subinterface_config_dict_buffer["description"]["value"] = element_text
+                                    enabled = config.get("enabled")
+                                    if enabled is not None:
+                                        element_text = enabled
+                                        interface_subinterface_config_dict_buffer["enabled"] = {}
+                                        interface_subinterface_config_dict_buffer["enabled"]["type"] = "Property"
+                                        interface_subinterface_config_dict_buffer["enabled"]["value"] = eval(str(element_text).capitalize())
+                                    dict_buffers.append(interface_subinterface_config_dict_buffer)
+                            state = subinterface.get("state")
+                            if isinstance(state, dict):
+                                if state is not None and len(state) != 0:
+                                    interface_subinterface_state_dict_buffer = {}
+                                    interface_subinterface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceState:" + interface_subinterface_dict_buffer["id"].split(":")[-1]
+                                    interface_subinterface_state_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceState"
+                                    interface_subinterface_state_dict_buffer["isPartOf"] = {}
+                                    interface_subinterface_state_dict_buffer["isPartOf"]["type"] = "Relationship"
+                                    interface_subinterface_state_dict_buffer["isPartOf"]["object"] = interface_subinterface_dict_buffer["id"]
+                                    index = state.get("index")
+                                    if index is not None:
+                                        element_text = index
+                                        if "." + str(element_text) not in interface_subinterface_state_dict_buffer["id"].split(":")[-1]:
+                                            interface_subinterface_state_dict_buffer["id"] = interface_subinterface_state_dict_buffer["id"] + "." + str(element_text)
+                                        interface_subinterface_state_dict_buffer["index"] = {}
+                                        interface_subinterface_state_dict_buffer["index"]["type"] = "Property"
+                                        interface_subinterface_state_dict_buffer["index"]["value"] = int(element_text)
+                                    description = state.get("description")
+                                    if description is not None:
+                                        element_text = description
+                                        interface_subinterface_state_dict_buffer["description"] = {}
+                                        interface_subinterface_state_dict_buffer["description"]["type"] = "Property"
+                                        interface_subinterface_state_dict_buffer["description"]["value"] = element_text
+                                    enabled = state.get("enabled")
+                                    if enabled is not None:
+                                        element_text = enabled
+                                        interface_subinterface_state_dict_buffer["enabled"] = {}
+                                        interface_subinterface_state_dict_buffer["enabled"]["type"] = "Property"
+                                        interface_subinterface_state_dict_buffer["enabled"]["value"] = eval(str(element_text).capitalize())
+                                    name = state.get("name")
+                                    if name is not None:
+                                        element_text = name
+                                        if interface_subinterface_state_dict_buffer["id"].split(":")[-1] != element_text:
+                                            interface_subinterface_state_dict_buffer["id"] = interface_subinterface_state_dict_buffer["id"] + element_text
+                                        interface_subinterface_state_dict_buffer["name"] = {}
+                                        interface_subinterface_state_dict_buffer["name"]["type"] = "Property"
+                                        interface_subinterface_state_dict_buffer["name"]["value"] = element_text
+                                    ifindex = state.get("ifindex")
+                                    if ifindex is not None:
+                                        element_text = ifindex
+                                        interface_subinterface_state_dict_buffer["ifindex"] = {}
+                                        interface_subinterface_state_dict_buffer["ifindex"]["type"] = "Property"
+                                        interface_subinterface_state_dict_buffer["ifindex"]["value"] = int(element_text)
+                                    adminStatus = state.get("admin-status")
+                                    if adminStatus is not None:
+                                        element_text = adminStatus
+                                        interface_subinterface_state_dict_buffer["adminStatus"] = {}
+                                        interface_subinterface_state_dict_buffer["adminStatus"]["type"] = "Property"
+                                        interface_subinterface_state_dict_buffer["adminStatus"]["value"] = element_text
+                                    operStatus = state.get("oper-status")
+                                    if operStatus is not None:
+                                        element_text = operStatus
+                                        interface_subinterface_state_dict_buffer["operStatus"] = {}
+                                        interface_subinterface_state_dict_buffer["operStatus"]["type"] = "Property"
+                                        interface_subinterface_state_dict_buffer["operStatus"]["value"] = element_text
+                                    lastChange = state.get("last-change")
+                                    if lastChange is not None:
+                                        element_text = lastChange
+                                        interface_subinterface_state_dict_buffer["lastChange"] = {}
+                                        interface_subinterface_state_dict_buffer["lastChange"]["type"] = "Property"
+                                        interface_subinterface_state_dict_buffer["lastChange"]["value"] = int(element_text)
+                                    counters = state.get("counters")
+                                    if isinstance(counters, dict):
+                                        if counters is not None and len(counters) != 0:
+                                            interface_subinterface_state_counters_dict_buffer = {}
+                                            interface_subinterface_state_counters_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceStateCounters:" + interface_subinterface_state_dict_buffer["id"].split(":")[-1]
+                                            interface_subinterface_state_counters_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceStateCounters"
+                                            interface_subinterface_state_counters_dict_buffer["isPartOf"] = {}
+                                            interface_subinterface_state_counters_dict_buffer["isPartOf"]["type"] = "Relationship"
+                                            interface_subinterface_state_counters_dict_buffer["isPartOf"]["object"] = interface_subinterface_state_dict_buffer["id"]
+                                            inOctets = counters.get("in-octets")
+                                            if inOctets is not None:
+                                                element_text = inOctets
+                                                interface_subinterface_state_counters_dict_buffer["inOctets"] = {}
+                                                interface_subinterface_state_counters_dict_buffer["inOctets"]["type"] = "Property"
+                                                interface_subinterface_state_counters_dict_buffer["inOctets"]["value"] = int(element_text)
+                                            inUnicastPkts = counters.get("in-unicast-pkts")
+                                            if inUnicastPkts is not None:
+                                                element_text = inUnicastPkts
+                                                interface_subinterface_state_counters_dict_buffer["inUnicastPkts"] = {}
+                                                interface_subinterface_state_counters_dict_buffer["inUnicastPkts"]["type"] = "Property"
+                                                interface_subinterface_state_counters_dict_buffer["inUnicastPkts"]["value"] = int(element_text)
+                                            inBroadcastPkts = counters.get("in-broadcast-pkts")
+                                            if inBroadcastPkts is not None:
+                                                element_text = inBroadcastPkts
+                                                interface_subinterface_state_counters_dict_buffer["inBroadcastPkts"] = {}
+                                                interface_subinterface_state_counters_dict_buffer["inBroadcastPkts"]["type"] = "Property"
+                                                interface_subinterface_state_counters_dict_buffer["inBroadcastPkts"]["value"] = int(element_text)
+                                            inMulticastPkts = counters.get("in-multicast-pkts")
+                                            if inMulticastPkts is not None:
+                                                element_text = inMulticastPkts
+                                                interface_subinterface_state_counters_dict_buffer["inMulticastPkts"] = {}
+                                                interface_subinterface_state_counters_dict_buffer["inMulticastPkts"]["type"] = "Property"
+                                                interface_subinterface_state_counters_dict_buffer["inMulticastPkts"]["value"] = int(element_text)
+                                            inDiscards = counters.get("in-discards")
+                                            if inDiscards is not None:
+                                                element_text = inDiscards
+                                                interface_subinterface_state_counters_dict_buffer["inDiscards"] = {}
+                                                interface_subinterface_state_counters_dict_buffer["inDiscards"]["type"] = "Property"
+                                                interface_subinterface_state_counters_dict_buffer["inDiscards"]["value"] = int(element_text)
+                                            inErrors = counters.get("in-errors")
+                                            if inErrors is not None:
+                                                element_text = inErrors
+                                                interface_subinterface_state_counters_dict_buffer["inErrors"] = {}
+                                                interface_subinterface_state_counters_dict_buffer["inErrors"]["type"] = "Property"
+                                                interface_subinterface_state_counters_dict_buffer["inErrors"]["value"] = int(element_text)
+                                            inUnknownProtos = counters.get("in-unknown-protos")
+                                            if inUnknownProtos is not None:
+                                                element_text = inUnknownProtos
+                                                interface_subinterface_state_counters_dict_buffer["inUnknownProtos"] = {}
+                                                interface_subinterface_state_counters_dict_buffer["inUnknownProtos"]["type"] = "Property"
+                                                interface_subinterface_state_counters_dict_buffer["inUnknownProtos"]["value"] = int(element_text)
+                                            inFcsErrors = counters.get("in-fcs-errors")
+                                            if inFcsErrors is not None:
+                                                element_text = inFcsErrors
+                                                interface_subinterface_state_counters_dict_buffer["inFcsErrors"] = {}
+                                                interface_subinterface_state_counters_dict_buffer["inFcsErrors"]["type"] = "Property"
+                                                interface_subinterface_state_counters_dict_buffer["inFcsErrors"]["value"] = int(element_text)
+                                            outOctets = counters.get("out-octets")
+                                            if outOctets is not None:
+                                                element_text = outOctets
+                                                interface_subinterface_state_counters_dict_buffer["outOctets"] = {}
+                                                interface_subinterface_state_counters_dict_buffer["outOctets"]["type"] = "Property"
+                                                interface_subinterface_state_counters_dict_buffer["outOctets"]["value"] = int(element_text)
+                                            outUnicastPkts = counters.get("out-unicast-pkts")
+                                            if outUnicastPkts is not None:
+                                                element_text = outUnicastPkts
+                                                interface_subinterface_state_counters_dict_buffer["outUnicastPkts"] = {}
+                                                interface_subinterface_state_counters_dict_buffer["outUnicastPkts"]["type"] = "Property"
+                                                interface_subinterface_state_counters_dict_buffer["outUnicastPkts"]["value"] = int(element_text)
+                                            outBroadcastPkts = counters.get("out-broadcast-pkts")
+                                            if outBroadcastPkts is not None:
+                                                element_text = outBroadcastPkts
+                                                interface_subinterface_state_counters_dict_buffer["outBroadcastPkts"] = {}
+                                                interface_subinterface_state_counters_dict_buffer["outBroadcastPkts"]["type"] = "Property"
+                                                interface_subinterface_state_counters_dict_buffer["outBroadcastPkts"]["value"] = int(element_text)
+                                            outMulticastPkts = counters.get("out-multicast-pkts")
+                                            if outMulticastPkts is not None:
+                                                element_text = outMulticastPkts
+                                                interface_subinterface_state_counters_dict_buffer["outMulticastPkts"] = {}
+                                                interface_subinterface_state_counters_dict_buffer["outMulticastPkts"]["type"] = "Property"
+                                                interface_subinterface_state_counters_dict_buffer["outMulticastPkts"]["value"] = int(element_text)
+                                            outDiscards = counters.get("out-discards")
+                                            if outDiscards is not None:
+                                                element_text = outDiscards
+                                                interface_subinterface_state_counters_dict_buffer["outDiscards"] = {}
+                                                interface_subinterface_state_counters_dict_buffer["outDiscards"]["type"] = "Property"
+                                                interface_subinterface_state_counters_dict_buffer["outDiscards"]["value"] = int(element_text)
+                                            outErrors = counters.get("out-errors")
+                                            if outErrors is not None:
+                                                element_text = outErrors
+                                                interface_subinterface_state_counters_dict_buffer["outErrors"] = {}
+                                                interface_subinterface_state_counters_dict_buffer["outErrors"]["type"] = "Property"
+                                                interface_subinterface_state_counters_dict_buffer["outErrors"]["value"] = int(element_text)
+                                            carrierTransitions = counters.get("carrier-transitions")
+                                            if carrierTransitions is not None:
+                                                element_text = carrierTransitions
+                                                interface_subinterface_state_counters_dict_buffer["carrierTransitions"] = {}
+                                                interface_subinterface_state_counters_dict_buffer["carrierTransitions"]["type"] = "Property"
+                                                interface_subinterface_state_counters_dict_buffer["carrierTransitions"]["value"] = int(element_text)
+                                            lastClear = counters.get("last-clear")
+                                            if lastClear is not None:
+                                                element_text = lastClear
+                                                interface_subinterface_state_counters_dict_buffer["lastClear"] = {}
+                                                interface_subinterface_state_counters_dict_buffer["lastClear"]["type"] = "Property"
+                                                interface_subinterface_state_counters_dict_buffer["lastClear"]["value"] = int(element_text)
+                                            dict_buffers.append(interface_subinterface_state_counters_dict_buffer)
+                                    dict_buffers.append(interface_subinterface_state_dict_buffer)
+                            dict_buffers.append(interface_subinterface_dict_buffer)
+                ethernet = interface.get("openconfig-if-ethernet:ethernet")
+                if isinstance(ethernet, dict):
+                    if ethernet is not None and len(ethernet) != 0:
+                        config = ethernet.get("config")
+                        if isinstance(config, dict):
+                            if config is not None and len(config) != 0:
+                                interface_config_dict_buffer = {}
+                                interface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceEthernetConfig:" + interface_dict_buffer["id"].split(":")[-1]
+                                interface_config_dict_buffer["type"] = "InterfaceEthernetConfig"
+                                interface_config_dict_buffer["isPartOf"] = {}
+                                interface_config_dict_buffer["isPartOf"]["type"] = "Relationship"
+                                interface_config_dict_buffer["isPartOf"]["object"] = interface_dict_buffer["id"]
+                                macAddress = config.get("mac-address")
+                                if macAddress is not None:
+                                    element_text = macAddress
+                                    interface_config_dict_buffer["macAddress"] = {}
+                                    interface_config_dict_buffer["macAddress"]["type"] = "Property"
+                                    interface_config_dict_buffer["macAddress"]["value"] = element_text
+                                autoNegotiate = config.get("auto-negotiate")
+                                if autoNegotiate is not None:
+                                    element_text = autoNegotiate
+                                    interface_config_dict_buffer["autoNegotiate"] = {}
+                                    interface_config_dict_buffer["autoNegotiate"]["type"] = "Property"
+                                    interface_config_dict_buffer["autoNegotiate"]["value"] = eval(str(element_text).capitalize())
+                                duplexMode = config.get("duplex-mode")
+                                if duplexMode is not None:
+                                    element_text = duplexMode
+                                    interface_config_dict_buffer["duplexMode"] = {}
+                                    interface_config_dict_buffer["duplexMode"]["type"] = "Property"
+                                    interface_config_dict_buffer["duplexMode"]["value"] = element_text
+                                portSpeed = config.get("port-speed")
+                                if portSpeed is not None and len(portSpeed) != 0:
+                                        interface_config_dict_buffer["port-speed"] = {}
+                                        interface_config_dict_buffer["port-speed"]["type"] = "Relationship"
+                                        interface_config_dict_buffer["port-speed"]["object"] = "urn:ngsi-ld:YANGIdentity:" + element_text
+                                enableFlowControl = config.get("enable-flow-control")
+                                if enableFlowControl is not None:
+                                    element_text = enableFlowControl
+                                    interface_config_dict_buffer["enableFlowControl"] = {}
+                                    interface_config_dict_buffer["enableFlowControl"]["type"] = "Property"
+                                    interface_config_dict_buffer["enableFlowControl"]["value"] = eval(str(element_text).capitalize())
+                                dict_buffers.append(interface_config_dict_buffer)
+                ethernet = interface.get("openconfig-if-ethernet:ethernet")
+                if isinstance(ethernet, dict):
+                    if ethernet is not None and len(ethernet) != 0:
+                        state = ethernet.get("state")
+                        if isinstance(state, dict):
+                            if state is not None and len(state) != 0:
+                                interface_state_dict_buffer = {}
+                                interface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceEthernetState:" + interface_dict_buffer["id"].split(":")[-1]
+                                interface_state_dict_buffer["type"] = "InterfaceEthernetState"
+                                interface_state_dict_buffer["isPartOf"] = {}
+                                interface_state_dict_buffer["isPartOf"]["type"] = "Relationship"
+                                interface_state_dict_buffer["isPartOf"]["object"] = interface_dict_buffer["id"]
+                                macAddress = state.get("mac-address")
+                                if macAddress is not None:
+                                    element_text = macAddress
+                                    interface_state_dict_buffer["macAddress"] = {}
+                                    interface_state_dict_buffer["macAddress"]["type"] = "Property"
+                                    interface_state_dict_buffer["macAddress"]["value"] = element_text
+                                autoNegotiate = state.get("auto-negotiate")
+                                if autoNegotiate is not None:
+                                    element_text = autoNegotiate
+                                    interface_state_dict_buffer["autoNegotiate"] = {}
+                                    interface_state_dict_buffer["autoNegotiate"]["type"] = "Property"
+                                    interface_state_dict_buffer["autoNegotiate"]["value"] = eval(str(element_text).capitalize())
+                                duplexMode = state.get("duplex-mode")
+                                if duplexMode is not None:
+                                    element_text = duplexMode
+                                    interface_state_dict_buffer["duplexMode"] = {}
+                                    interface_state_dict_buffer["duplexMode"]["type"] = "Property"
+                                    interface_state_dict_buffer["duplexMode"]["value"] = element_text
+                                portSpeed = state.get("port-speed")
+                                if portSpeed is not None and len(portSpeed) != 0:
+                                        interface_state_dict_buffer["port-speed"] = {}
+                                        interface_state_dict_buffer["port-speed"]["type"] = "Relationship"
+                                        interface_state_dict_buffer["port-speed"]["object"] = "urn:ngsi-ld:YANGIdentity:" + element_text
+                                enableFlowControl = state.get("enable-flow-control")
+                                if enableFlowControl is not None:
+                                    element_text = enableFlowControl
+                                    interface_state_dict_buffer["enableFlowControl"] = {}
+                                    interface_state_dict_buffer["enableFlowControl"]["type"] = "Property"
+                                    interface_state_dict_buffer["enableFlowControl"]["value"] = eval(str(element_text).capitalize())
+                                hwMacAddress = state.get("hw-mac-address")
+                                if hwMacAddress is not None:
+                                    element_text = hwMacAddress
+                                    interface_state_dict_buffer["hwMacAddress"] = {}
+                                    interface_state_dict_buffer["hwMacAddress"]["type"] = "Property"
+                                    interface_state_dict_buffer["hwMacAddress"]["value"] = element_text
+                                negotiatedDuplexMode = state.get("negotiated-duplex-mode")
+                                if negotiatedDuplexMode is not None:
+                                    element_text = negotiatedDuplexMode
+                                    interface_state_dict_buffer["negotiatedDuplexMode"] = {}
+                                    interface_state_dict_buffer["negotiatedDuplexMode"]["type"] = "Property"
+                                    interface_state_dict_buffer["negotiatedDuplexMode"]["value"] = element_text
+                                negotiatedPortSpeed = state.get("negotiated-port-speed")
+                                if negotiatedPortSpeed is not None and len(negotiatedPortSpeed) != 0:
+                                        interface_state_dict_buffer["negotiated-port-speed"] = {}
+                                        interface_state_dict_buffer["negotiated-port-speed"]["type"] = "Relationship"
+                                        interface_state_dict_buffer["negotiated-port-speed"]["object"] = "urn:ngsi-ld:YANGIdentity:" + element_text
+                                ethernet = state.get("openconfig-if-ethernet:ethernet")
+                                if isinstance(ethernet, dict):
+                                    if ethernet is not None and len(ethernet) != 0:
+                                        counters = ethernet.get("counters")
+                                        if isinstance(counters, dict):
+                                            if counters is not None and len(counters) != 0:
+                                                interface_state_counters_dict_buffer = {}
+                                                interface_state_counters_dict_buffer["id"] = "urn:ngsi-ld:InterfaceEthernetStateCounters:" + interface_state_dict_buffer["id"].split(":")[-1]
+                                                interface_state_counters_dict_buffer["type"] = "InterfaceEthernetStateCounters"
+                                                interface_state_counters_dict_buffer["isPartOf"] = {}
+                                                interface_state_counters_dict_buffer["isPartOf"]["type"] = "Relationship"
+                                                interface_state_counters_dict_buffer["isPartOf"]["object"] = interface_state_dict_buffer["id"]
+                                                inMacControlFrames = counters.get("in-mac-control-frames")
+                                                if inMacControlFrames is not None:
+                                                    element_text = inMacControlFrames
+                                                    interface_state_counters_dict_buffer["inMacControlFrames"] = {}
+                                                    interface_state_counters_dict_buffer["inMacControlFrames"]["type"] = "Property"
+                                                    interface_state_counters_dict_buffer["inMacControlFrames"]["value"] = int(element_text)
+                                                inMacPauseFrames = counters.get("in-mac-pause-frames")
+                                                if inMacPauseFrames is not None:
+                                                    element_text = inMacPauseFrames
+                                                    interface_state_counters_dict_buffer["inMacPauseFrames"] = {}
+                                                    interface_state_counters_dict_buffer["inMacPauseFrames"]["type"] = "Property"
+                                                    interface_state_counters_dict_buffer["inMacPauseFrames"]["value"] = int(element_text)
+                                                inOversizeFrames = counters.get("in-oversize-frames")
+                                                if inOversizeFrames is not None:
+                                                    element_text = inOversizeFrames
+                                                    interface_state_counters_dict_buffer["inOversizeFrames"] = {}
+                                                    interface_state_counters_dict_buffer["inOversizeFrames"]["type"] = "Property"
+                                                    interface_state_counters_dict_buffer["inOversizeFrames"]["value"] = int(element_text)
+                                                inJabberFrames = counters.get("in-jabber-frames")
+                                                if inJabberFrames is not None:
+                                                    element_text = inJabberFrames
+                                                    interface_state_counters_dict_buffer["inJabberFrames"] = {}
+                                                    interface_state_counters_dict_buffer["inJabberFrames"]["type"] = "Property"
+                                                    interface_state_counters_dict_buffer["inJabberFrames"]["value"] = int(element_text)
+                                                inFragmentFrames = counters.get("in-fragment-frames")
+                                                if inFragmentFrames is not None:
+                                                    element_text = inFragmentFrames
+                                                    interface_state_counters_dict_buffer["inFragmentFrames"] = {}
+                                                    interface_state_counters_dict_buffer["inFragmentFrames"]["type"] = "Property"
+                                                    interface_state_counters_dict_buffer["inFragmentFrames"]["value"] = int(element_text)
+                                                in8021qFrames = counters.get("in-8021q-frames")
+                                                if in8021qFrames is not None:
+                                                    element_text = in8021qFrames
+                                                    interface_state_counters_dict_buffer["in8021qFrames"] = {}
+                                                    interface_state_counters_dict_buffer["in8021qFrames"]["type"] = "Property"
+                                                    interface_state_counters_dict_buffer["in8021qFrames"]["value"] = int(element_text)
+                                                inCrcErrors = counters.get("in-crc-errors")
+                                                if inCrcErrors is not None:
+                                                    element_text = inCrcErrors
+                                                    interface_state_counters_dict_buffer["inCrcErrors"] = {}
+                                                    interface_state_counters_dict_buffer["inCrcErrors"]["type"] = "Property"
+                                                    interface_state_counters_dict_buffer["inCrcErrors"]["value"] = int(element_text)
+                                                outMacControlFrames = counters.get("out-mac-control-frames")
+                                                if outMacControlFrames is not None:
+                                                    element_text = outMacControlFrames
+                                                    interface_state_counters_dict_buffer["outMacControlFrames"] = {}
+                                                    interface_state_counters_dict_buffer["outMacControlFrames"]["type"] = "Property"
+                                                    interface_state_counters_dict_buffer["outMacControlFrames"]["value"] = int(element_text)
+                                                outMacPauseFrames = counters.get("out-mac-pause-frames")
+                                                if outMacPauseFrames is not None:
+                                                    element_text = outMacPauseFrames
+                                                    interface_state_counters_dict_buffer["outMacPauseFrames"] = {}
+                                                    interface_state_counters_dict_buffer["outMacPauseFrames"]["type"] = "Property"
+                                                    interface_state_counters_dict_buffer["outMacPauseFrames"]["value"] = int(element_text)
+                                                out8021qFrames = counters.get("out-8021q-frames")
+                                                if out8021qFrames is not None:
+                                                    element_text = out8021qFrames
+                                                    interface_state_counters_dict_buffer["out8021qFrames"] = {}
+                                                    interface_state_counters_dict_buffer["out8021qFrames"]["type"] = "Property"
+                                                    interface_state_counters_dict_buffer["out8021qFrames"]["value"] = int(element_text)
+                                                dict_buffers.append(interface_state_counters_dict_buffer)
+                                dict_buffers.append(interface_state_dict_buffer)
+                dict_buffers.append(interface_dict_buffer)
 
 output_file = open("dict_buffers.json", 'w')
 output_file.write(json.dumps(dict_buffers[::-1], indent=4))
