@@ -2,6 +2,7 @@ import json
 import xml.etree.ElementTree as et
 from kafka import KafkaConsumer
 from kafka import KafkaProducer
+from dateutil import parser
 
 print("Hello, I am the XML parser for NETCONF notifications")
 

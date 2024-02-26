@@ -7,6 +7,8 @@ import json
 
 from kafka import KafkaConsumer
 
+from dateutil import parser
+
 import ngsi_ld_client
 
 from ngsi_ld_models.models.interface import Interface
@@ -171,7 +173,15 @@ while True:
 
         for dict_buffer in dict_buffers:
             entity_id = dict_buffer['id']
+            print('\n')
+            print(dict_buffer)
+            print('\n')
             entity = get_entity_class_object_by_type(dict_buffer)
+            print('\n')
+            print(entity)
+            print('\n')
+            print(entity.to_dict())
+            print('\n')
 
             print("Dictionary buffers contain information for entity " + entity_id)
 

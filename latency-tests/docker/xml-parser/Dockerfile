@@ -8,7 +8,7 @@ RUN apt install --no-install-recommends -y bash net-tools iputils-ping python3 p
 
 RUN python3 -m pip install --upgrade pip
 
-RUN python3 -m pip install kafka-python
+RUN python3 -m pip install kafka-python python-dateutil
 
 RUN mkdir -p /opt/xml-parser
 
