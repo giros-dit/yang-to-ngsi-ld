@@ -173,32 +173,25 @@ while True:
 
         for dict_buffer in dict_buffers:
             entity_id = dict_buffer['id']
-            print('\n')
-            print(dict_buffer)
-            print('\n')
+            
             entity = get_entity_class_object_by_type(dict_buffer)
-            print('\n')
-            print(entity)
-            print('\n')
-            print(entity.to_dict())
-            print('\n')
 
-            print("Dictionary buffers contain information for entity " + entity_id)
+            print("Dictionary buffer contains information for entity " + entity_id)
 
             exists = retrieve_ngsi_ld_entity(ngsi_ld, entity_id)
             if exists == False:
-                print("Entity " + entity_id + " DOES NOT exist. Trying to create it...")
+                print("Entity " + entity_id + " DOES NOT EXIST. Trying to create it...")
                 created = create_ngsi_ld_entity(ngsi_ld, entity)
                 if created == False:
-                    print("Entity " + entity_id + " COULD NOT be created")
+                    print("Entity " + entity_id + " COULD NOT BE CREATED")
                 else:
-                    print("Entity " + entity_id + " was successfully created")
+                    print("Entity " + entity_id + " WAS SUCCESSFULLY CREATED")
             else:
-                print("Entity " + entity_id + " DOES exist. Trying to update it...")
+                print("Entity " + entity_id + " DOES EXIST. Trying to update it...")
                 updated = update_ngsi_ld_entity(ngsi_ld, entity_id, entity)
                 if updated == False:
-                    print("Entity " + entity_id + " COULD NOT be updated")
+                    print("Entity " + entity_id + " COULD NOT BE UPDATED")
                 else:
-                    print("Entity " + entity_id + " was successfully updated")
+                    print("Entity " + entity_id + " WAS SUCCESSFULLY UPDATED")
         
         print("Iteration done! Waiting for the next set of dictionary buffers...")
