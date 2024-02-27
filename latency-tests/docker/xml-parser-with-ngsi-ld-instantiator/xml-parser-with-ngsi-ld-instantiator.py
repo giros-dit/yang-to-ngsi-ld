@@ -4,6 +4,7 @@ import logging.config
 import pdb
 import yaml
 import json
+import time
 
 from kafka import KafkaConsumer
 
@@ -50,7 +51,7 @@ CONTEXT_CATALOG_URI = os.getenv("CONTEXT_CATALOG_URI", "http://context-catalog:8
 
 ## -- BEGIN AUXILIARY FUNCTIONS -- ##
 
-def parse_xml(message) -> list:
+def parse_xml(message):
     dict_buffers = []
 
     xml = str(message.value.decode('utf-8'))
@@ -554,7 +555,7 @@ def parse_xml(message) -> list:
                 dict_buffers.append(interface_ipv6_autoconf_dict_buffer)
             dict_buffers.append(interface_ipv6_dict_buffer)
         dict_buffers.append(interface_dict_buffer)
-    return dict_buffers[::-1]
+    return observedAt, dict_buffers[::-1]
 
 def init_ngsi_ld_client():
     configuration = NGSILDConfiguration(host=BROKER_URI)
@@ -658,6 +659,8 @@ def get_entity_class_object_by_type(dict_buffer: dict):
 
 ## -- END AUXILIARY FUNCTIONS -- ##
 
+exec_times = []
+
 print("Hello, I am the XML parser for NETCONF notifications and the NGSI-LD instantiator")
 
 print("I will consume messages (NETCONF notifications) from a Kafka topic named interfaces-state-subscriptions")
@@ -675,9 +678,11 @@ print("Done!")
 
 while True:
     for message in consumer:
+        start_time = time.perf_counter_ns()
+        
         print("I have consumed a new notification!")
 
-        dict_buffers = parse_xml(message)
+        observed_at, dict_buffers = parse_xml(message)
 
         print("I have parsed the XML and created the associated NGSI-LD-compliant data structures/dictionary buffers")
 
@@ -706,4 +711,17 @@ while True:
                 else:
                     print("Entity " + entity_id + " WAS SUCCESSFULLY UPDATED")
         
+        stop_time = time.perf_counter_ns()
+        
+        exec_time = stop_time - start_time
+        exec_times.append(exec_time)
+
         print("Iteration done! Waiting for the next notification...")
+
+        print(" ---> PERFORMANCE MEASUREMENTS ---> ")
+        print("OBSERVED AT TIME: " + observed_at)
+        print(f"ITERATION EXECUTION TIME: {exec_time/1e6} ms\n")
+        print(f"MEAN EXECUTION TIME SO FAR: {(sum(exec_times)/len(exec_times))/1e6} ms\n")
+        print(f"MIN EXECUTION TIME SO FAR: {min(exec_times)/1e6} ms\n")
+        print(f"MAX EXECUTION TIME SO FAR: {max(exec_times)/1e6} ms\n")
+        print(" <--- PERFORMANCE MEASUREMENTS <--- ")
