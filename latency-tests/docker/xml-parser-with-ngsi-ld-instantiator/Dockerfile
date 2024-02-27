@@ -1,4 +1,4 @@
-# Custom Dockerfile for ngsi-ld-instantiator
+# Custom Dockerfile for xml-parser-with-ngsi-ld-instantiator
 
 FROM ubuntu:latest
 
@@ -10,18 +10,18 @@ RUN python3 -m pip install --upgrade pip
 
 RUN python3 -m pip install poetry
 
-RUN mkdir -p /opt/ngsi-ld-instantiator
+RUN mkdir -p /opt/xml-parser-with-ngsi-ld-instantiator
 
-WORKDIR /opt/ngsi-ld-instantiator
+WORKDIR /opt/xml-parser-with-ngsi-ld-instantiator
 
-COPY ./docker/ngsi-ld-instantiator .
+COPY ./docker/xml-parser-with-ngsi-ld-instantiator .
 
-WORKDIR /opt/ngsi-ld-instantiator/ngsi-ld-models
-
-RUN poetry install
-
-WORKDIR /opt/ngsi-ld-instantiator
+WORKDIR /opt/xml-parser-with-ngsi-ld-instantiator/ngsi-ld-models
 
 RUN poetry install
 
-ENTRYPOINT ["poetry", "run", "python", "-u", "ngsi-ld-instantiator.py"]
+WORKDIR /opt/xml-parser-with-ngsi-ld-instantiator
+
+RUN poetry install
+
+ENTRYPOINT ["poetry", "run", "python", "-u", "xml-parser-with-ngsi-ld-instantiator.py"]
