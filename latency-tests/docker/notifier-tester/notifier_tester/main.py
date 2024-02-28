@@ -4,6 +4,7 @@ from time import sleep
 import time
 from fastapi import FastAPI, Request, status
 import json
+import csv
 import ngsi_ld_client
 from ngsi_ld_client.models.create_subscription_request import CreateSubscriptionRequest
 from ngsi_ld_client.models.subscription_on_change import SubscriptionOnChange
@@ -16,9 +17,7 @@ from notifier_tester.check_client import NGSILDHealthInfoClient
 from datetime import datetime,timezone
 from dateutil import parser
 
-TOTAL_ITERATIONS = 10
-CURRENT_ITERATION = 0
-evaluation_delta_times = []
+delta_times = []
 
 logger = logging.getLogger(__name__)
 
@@ -59,19 +58,11 @@ LIST_ENTITIES = [
     "InterfaceStatistics"
 ]
 
-def calculate_delta(delta_times, current_iteration):
-    if current_iteration == TOTAL_ITERATIONS:
-        global CURRENT_ITERATION
-        CURRENT_ITERATION = 0
-        logger.info(f"EVALUATION TIMES - SUMMARY (OVER {len(delta_times)} ITERATIONS)")
-        evaluation_mean_exec_time = sum(delta_times)/len(delta_times)
-        evaluation_min_exec_time = min(delta_times)
-        evaluation_max_exec_time = max(delta_times)
-        evaluation_total_exec_time = sum(delta_times)
-        logger.info(f"MEAN VALUE: {evaluation_mean_exec_time} s | {evaluation_mean_exec_time*1e3} ms | {evaluation_mean_exec_time*1e6} µs")
-        logger.info(f"MIN VALUE: {evaluation_min_exec_time} s | {evaluation_min_exec_time*1e3} ms | {evaluation_min_exec_time*1e6} µs")
-        logger.info(f"MAX VALUE: {evaluation_max_exec_time} s | {evaluation_max_exec_time*1e3} ms | {evaluation_max_exec_time*1e6} µs")
-        logger.info(f"TOTAL EXECUTION TIME: {evaluation_total_exec_time} s | {evaluation_total_exec_time*1e3} ms | {evaluation_total_exec_time*1e6} µs")
+performance_measurements_file = open("/opt/notifier-tester/notifier_tester/performance_measurements.csv", "w", newline='')
+csv_writer = csv.writer(performance_measurements_file)
+csv_header = ["observed_at", "modified_at", "evaluation_time", "mean_evaluation_time",
+              "min_evaluation_time", "max_evaluation_time", "notifications_received"]
+csv_writer.writerow(csv_header)  
     
 # Init FastAPI server
 app = FastAPI(
@@ -135,11 +126,9 @@ async def startup_event():
 @app.post("/notify",
           status_code=status.HTTP_200_OK)
 async def receiveNotification(request: Request):
-    global CURRENT_ITERATION
     notification = await request.json()
     for entity in notification["data"]:
         if entity["type"] == "InterfaceStatistics":
-            CURRENT_ITERATION += 1
             logger.info("Entity notification: %s\n" % entity)
             if "observedAt" in entity["inOctets"] and "modifiedAt" in entity["inOctets"]:
                 #current_time = datetime.utcnow().replace(tzinfo=timezone.utc).isoformat()
@@ -147,14 +136,28 @@ async def receiveNotification(request: Request):
                 #current_datetime = datetime.fromisoformat(current_time)   
                 #logger.info(f"Current time: {current_datetime}") 
 
-                observedAt = parser.parse(entity["inOctets"]["observedAt"])
-                logger.info(f"observedAt time: {observedAt}") 
-                modifiedAt = parser.parse(entity["inOctets"]["modifiedAt"])
-                logger.info(f"modifiedAt time: {modifiedAt}") 
+                observed_at = parser.parse(entity["inOctets"]["observedAt"])
+                modified_at = parser.parse(entity["inOctets"]["modifiedAt"])
 
-                delta_time = (modifiedAt - observedAt).total_seconds()
-                print(f"Delta time: {delta_time}")
-                evaluation_delta_times.append(delta_time)
+                delta_time = (modified_at - observed_at).total_seconds()
+                delta_times.append(delta_time)
+
+                logger.info("--- PERFORMANCE MEASUREMENTS ---\n")
+                logger.info("OBSERVED AT: " + observed_at.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
+                logger.info("MODIFIED AT: " + modified_at.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n") 
+                logger.info("NOTIFICATIONS RECEIVED SO FAR: " + str(len(delta_times)) + "\n")
+                logger.info(f"EVALUATION TIME: {delta_time * 1e3} ms\n")
+                mean_evaluation_time = sum(delta_times)/len(delta_times)
+                min_evaluation_time = min(delta_times)
+                max_evaluation_time = max(delta_times)
+                logger.info(f"MEAN EVALUATION TIME: {mean_evaluation_time * 1e3} ms\n")
+                logger.info(f"MIN EVALUATION TIME: {min_evaluation_time * 1e3} ms\n")
+                logger.info(f"MAX EVALUATION TIME VALUE: {max_evaluation_time * 1e3} ms\n")
+                logger.info("--- PERFORMANCE MEASUREMENTS ---")
                 
-                logger.info(f"ITERATION #{CURRENT_ITERATION} DELTA TIME: {delta_time} s | {delta_time*1e3} ms | {delta_time*1e6} µs\n")
-                calculate_delta(evaluation_delta_times, CURRENT_ITERATION)
+                csv_data = [observed_at.strftime("%Y-%m-%dT%H:%M:%S.%fZ"), modified_at.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+                            str(delta_time * 1e3) + " ms", str(mean_evaluation_time * 1e3) + " ms",
+                            str(min_evaluation_time * 1e3) + " ms", str(max_evaluation_time * 1e3) + " ms",
+                            str(len(delta_times))]
+                csv_writer.writerow(csv_data)
+                performance_measurements_file.flush()
