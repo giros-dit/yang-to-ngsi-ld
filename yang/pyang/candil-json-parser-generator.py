@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an JSON 
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 0.0.1.
+Version: 1.0.0.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -370,7 +370,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
                 result = True
         return result
 
-    def generate_parser_code(element, parent_element_arg, entity_path: str, camelcase_entity_path: str, camelcase_entity_list: list, depth_level: int, typedefs_dict: dict, other_element, modules_name: list):
+    def generate_parser_code(element, parent_element_arg, entity_path: str, camelcase_entity_path: str, camelcase_entity_list: list, depth_level: int, typedefs_dict: dict, transition_element, modules_name: list):
         '''
         Auxiliary function.
         Recursively generates the JSON parser code.
@@ -382,9 +382,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
 
         if len(modules_name) == 0:
             PARENT_YANG_MODULE = element_name
-
-        if element_name not in modules_name:
-            modules_name.append(element_name)
+            modules_name.append(PARENT_YANG_MODULE)
         
         current_path = ''
         if (entity_path is None):
@@ -394,7 +392,9 @@ def generate_python_json_parser_code(ctx, modules, fd):
         
         ### ENCLOSING CONTAINER IDENTIFICATION ###
         if (is_enclosing_container(element) == True) and (is_deprecated(element) == False):
+            #print("Element " + str(element) + " is enclosing container.")
             subelements = element.i_children
+            first_subelement = True
             if (subelements is not None):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
@@ -405,35 +405,50 @@ def generate_python_json_parser_code(ctx, modules, fd):
                             if (camelcase_entity_path is None):
                                 current_camelcase_path = to_camelcase(str(element.keyword), str(subelement.arg))
                             else:
-                                current_camelcase_path = camelcase_entity_path + to_camelcase(str(element.keyword), str(element.arg)) # + to_camelcase(str(subelement.keyword), str(subelement.arg))                            
+                                current_camelcase_path = camelcase_entity_path + to_camelcase(str(element.keyword), str(element.arg)) 
                             camelcase_entity_list.append(current_camelcase_path)
-                            if element_name == PARENT_YANG_MODULE and subelement.keyword == 'container':
-                                fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
-                                fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if isinstance(' + str(element.arg).replace('-', '_') + ', dict):')
-                                depth_level += 1
-                                fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(element.arg).replace('-', '_') + ' is not None and len(' + str(element.arg).replace('-', '_') + ') != 0:')
-                                depth_level += 1
-                                generate_parser_code(subelement, element.arg, entity_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, element, modules_name)
-                            else:
+                            if subelement.keyword == 'container':
+                                if first_subelement == True:
+                                    if element_name != PARENT_YANG_MODULE:
+                                        for module_name in modules_name:
+                                            if parent_element_arg == module_name.split(":")[-1]:
+                                                modules_name.append(element_name + ":" + element.arg)
+                                        if str(element_name + ":" + element.arg) not in modules_name:
+                                            modules_name.append(element_name + ":" + element.arg)
+                                            fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element_name) + ":" + str(element.arg) + '")')
+                                        else:
+                                            fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element.arg) + '")')    
+                                    else:
+                                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
+                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if isinstance(' + str(element.arg).replace('-', '_') + ', dict):')
+                                    depth_level += 1
+                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(element.arg).replace('-', '_') + ' is not None and len(' + str(element.arg).replace('-', '_') + ') != 0:')
+                                    depth_level += 1
+                                    first_subelement = False
+                                generate_parser_code(subelement, element.arg, entity_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name)
+                            elif subelement.keyword == 'list':                                
+                                if first_subelement == True:
+                                    if element_name != PARENT_YANG_MODULE:
+                                        for module_name in modules_name:
+                                            if parent_element_arg == module_name.split(":")[-1]:
+                                                modules_name.append(element_name + ":" + element.arg)
+                                                modules_name.append(element_name + ":" + subelement.arg)
+                                        if str(element_name + ":" + element.arg) not in modules_name:
+                                            modules_name.append(element_name + ":" + element.arg)
+                                            modules_name.append(element_name + ":" + subelement.arg)
+                                            fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element_name + ":" + str(element.arg) + '")'))
+
+                                        else:
+                                            fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element.arg) + '")')   
+                                    else:
+                                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
+                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if isinstance(' + str(element.arg).replace('-', '_') + ', dict):')
+                                    depth_level += 1
+                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(element.arg).replace('-', '_') + ' is not None and len(' + str(element.arg).replace('-', '_') + ') != 0:')
+                                    depth_level += 1
+                                    first_subelement = False
                                 generate_parser_code(subelement, parent_element_arg, entity_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, element, modules_name)
 
-                            '''
-                            if subelement.keyword in ['list']:
-                                generate_parser_code(element, parent_element_arg, entity_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict)
-                            elif subelement.keyword in ['container']:
-                                generate_parser_code(subelement, parent_element_arg, entity_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict)
-                            '''
-        ### --- ###
-
-        ### GROUPING IDENTIFICATION ###
-        
-        #if (is_grouping(element) == True) and (is_deprecated(element) == False):
-        #    subelements = element.i_children
-        #    if (subelements is not None):
-        #        for subelement in subelements:
-        #            if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-        #                generate_parser_code(subelement, element.arg, None, None, list(), depth_level, typedefs_dict)
-        ### --- ###
                         
         ### NGSI-LD ENTITY IDENTIFICATION ###
         elif (is_entity(element) == True) and (is_deprecated(element) == False):
@@ -444,18 +459,14 @@ def generate_python_json_parser_code(ctx, modules, fd):
                 current_camelcase_path = camelcase_entity_path + to_camelcase(str(element.keyword), str(element.arg))
             camelcase_entity_list.append(current_camelcase_path)
             if (parent_element_arg is None): # 1st level Entity.
-                #fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if isinstance(data, list):')  
-                #depth_level += 1
                 if element.keyword in ['container']:
-                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + 'for ' + str(element.arg).replace('-', '_') + ' in json_data:')
-                    #depth_level += 1
-                    if(other_element is not None):
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if isinstance(' + 'json_data' + '.get("' + str(other_element.arg) + '")' + ', dict):')
+                    if(transition_element is not None):
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if isinstance(' + 'json_data' + '.get("' + str(transition_element.arg) + '")' + ', dict):')
                         depth_level += 1
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(other_element.arg).replace('-', '_') + ' = ' + 'json_data' + '.get("' + str(other_element.arg) + '")')
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(other_element.arg).replace('-', '_') + ' is not None and len(' + str(other_element.arg).replace('-', '_') + ') != 0:')
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + 'json_data' + '.get("' + str(transition_element.arg) + '")')
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(transition_element.arg).replace('-', '_') + ' is not None and len(' + str(transition_element.arg).replace('-', '_') + ') != 0:')
                         depth_level += 1
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + 'json_data' + '.get("' + str(element.arg) + '")')
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(transition_element.arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(element.arg).replace('-', '_') + ' is not None and len(' + str(element.arg).replace('-', '_') + ') != 0:')
                         depth_level += 1
                     else:
@@ -471,25 +482,23 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     if (subelements is not None):
                         for subelement in subelements:
                             if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                                generate_parser_code(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, other_element, modules_name)
+                                generate_parser_code(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name)
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'dict_buffers.append(' + current_path.replace('-', '_') + 'dict_buffer)')
                 elif element.keyword in ['list']:
-                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + 'for ' + str(element.arg).replace('-', '_') + ' in json_data:')
-                    #depth_level += 1
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if isinstance(' + 'json_data' + '.get("' + str(other_element.arg) + '")' + ', dict):')
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if isinstance(' + 'json_data' + '.get("' + str(transition_element.arg) + '")' + ', dict):')
                     depth_level += 1
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + str(other_element.arg).replace('-', '_') + ' = ' + 'json_data' + '.get("' + str(other_element.arg) + '")')
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(other_element.arg).replace('-', '_') + ' is not None and len(' + str(other_element.arg).replace('-', '_') + ') != 0:')
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + 'json_data' + '.get("' + str(transition_element.arg) + '")')
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(transition_element.arg).replace('-', '_') + ' is not None and len(' + str(transition_element.arg).replace('-', '_') + ') != 0:')
                     depth_level += 1
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + "\"" + str(element.arg) + "\"" + ' in list(' + str(other_element.arg).replace('-', '_') + '.keys()):')
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + "\"" + str(element.arg) + "\"" + ' in list(' + str(transition_element.arg).replace('-', '_') + '.keys()):')
                     depth_level += 1
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + str(other_element.arg).replace('-', '_') + ' = ' + str(other_element.arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + str(transition_element.arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
                     depth_level -= 1
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'elif ' + "\"" + str(element_name) + ":" + str(element.arg) + "\"" + ' in list(' + str(other_element.arg).replace('-', '_') + '.keys()):')
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'elif ' + "\"" + str(element_name) + ":" + str(element.arg) + "\"" + ' in list(' + str(transition_element.arg).replace('-', '_') + '.keys()):')
                     depth_level += 1
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + str(other_element.arg).replace('-', '_') + ' = ' + str(other_element.arg).replace('-', '_') + '.get("' + str(element_name + ":" + str(element.arg) + '")'))
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + str(transition_element.arg).replace('-', '_') + '.get("' + str(element_name + ":" + str(element.arg) + '")'))
                     depth_level -= 1
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'for ' + str(element.arg).replace('-', '_') + ' in ' + str(other_element.arg).replace('-', '_') + ':')
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'for ' + str(element.arg).replace('-', '_') + ' in ' + str(transition_element.arg).replace('-', '_') + ':')
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(element.arg).replace('-', '_') + ' is not None and len(' + str(element.arg).replace('-', '_') + ') != 0:')
                     depth_level += 1
@@ -501,23 +510,45 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     if (subelements is not None):
                         for subelement in subelements:
                             if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                                generate_parser_code(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, other_element, modules_name)
+                                generate_parser_code(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name)
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'dict_buffers.append(' + current_path.replace('-', '_') + 'dict_buffer)')
             else: # 2nd level Entity onwards.
                 if element.keyword in ['container']:
                     #fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if isinstance(' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element.arg) + '")' + ', dict):')
                     #depth_level += 1
+                    #if element_name != PARENT_YANG_MODULE:
+                    '''
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element_name + ":" + str(transition_element.arg) + '")'))
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if isinstance(' + str(transition_element.arg).replace('-', '_') + ', dict):')
+                        depth_level += 1
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(transition_element.arg).replace('-', '_') + ' is not None and len(' + str(transition_element.arg).replace('-', '_') + ') != 0:')
+                        depth_level += 1
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(transition_element.arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
+                    '''
                     if element_name != PARENT_YANG_MODULE:
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(other_element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element_name + ":" + str(other_element.arg) + '")'))
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if isinstance(' + str(other_element.arg).replace('-', '_') + ', dict):')
-                        depth_level += 1
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(other_element.arg).replace('-', '_') + ' is not None and len(' + str(other_element.arg).replace('-', '_') + ') != 0:')
-                        depth_level += 1
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(other_element.arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
+                        for module_name in modules_name:
+                            if parent_element_arg == module_name.split(":")[-1]:
+                                modules_name.append(element_name + ":" + element.arg)
+                        if str(element_name + ":" + element.arg) not in modules_name:
+                            modules_name.append(element_name + ":" + element.arg)
+                            fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element_name) + ":" + str(element.arg) + '")')
+                        else:
+                            fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element.arg) + '")')    
                     else:
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
 
-                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + "\"" + str(element_name) + ":" + str(other_element.arg) + "\"" + ' in list(' + str(parent_element_arg).replace('-', '_') + '.keys()) and ' + "\"" + str(element_name) + "\"" + ' != ' + "\"" + PARENT_YANG_MODULE + "\"" + ":")
+
+                    '''
+                    for module_name in modules_name:
+                        if parent_element_arg == module_name.split(":")[-1]:
+                            modules_name.append(element_name + ":" + element.arg)
+                    if element_name + ":" + element.arg not in modules_name:
+                        modules_name.append(element_name + ":" + element.arg)
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element_name + ":" + str(element.arg) + '")'))
+                    else:
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
+                    '''
+                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + "\"" + str(element_name) + ":" + str(transition_element.arg) + "\"" + ' in list(' + str(parent_element_arg).replace('-', '_') + '.keys()) and ' + "\"" + str(element_name) + "\"" + ' != ' + "\"" + PARENT_YANG_MODULE + "\"" + ":")
                     #depth_level += 1
                     #fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element_name + ":" + str(element.arg) + '")'))
                     #depth_level -= 1
@@ -546,41 +577,70 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     if (subelements is not None):
                         for subelement in subelements:
                             if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                                generate_parser_code(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, other_element, modules_name)
+                                generate_parser_code(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name)
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'dict_buffers.append(' + current_path.replace('-', '_') + 'dict_buffer)')
                 elif element.keyword in ['list']:
-                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if isinstance(' + str(parent_element_arg).replace('-', '_') + '.get("' + str(other_element.arg) + '")' + ', dict):')
+                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if isinstance(' + str(parent_element_arg).replace('-', '_') + '.get("' + str(transition_element.arg) + '")' + ', dict):')
                     #depth_level += 1
+
+                    #if element_name != PARENT_YANG_MODULE:
+                    '''
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element_name + ":" + str(transition_element.arg) + '")'))
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if isinstance(' + str(transition_element.arg).replace('-', '_') + ', dict):')
+                        depth_level += 1
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(transition_element.arg).replace('-', '_') + ' is not None and len(' + str(transition_element.arg).replace('-', '_') + ') != 0:')
+                        depth_level += 1
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(transition_element.arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
+                    '''
+                    '''
                     if element_name != PARENT_YANG_MODULE:
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(other_element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element_name + ":" + str(other_element.arg) + '")'))
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if isinstance(' + str(other_element.arg).replace('-', '_') + ', dict):')
-                        depth_level += 1
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(other_element.arg).replace('-', '_') + ' is not None and len(' + str(other_element.arg).replace('-', '_') + ') != 0:')
-                        depth_level += 1
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(other_element.arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
+                        for module_name in modules_name:
+                            #print(parent_element_arg + " " + module_name.split(":")[-1])
+                            if parent_element_arg == module_name.split(":")[-1]:
+                                modules_name.append(element_name + ":" + element.arg)
+                        if str(element_name + ":" + element.arg) not in modules_name:
+                            modules_name.append(element_name + ":" + element.arg)
+                            fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element_name + ":" + str(transition_element.arg) + '")'))
+
+                        else:
+                            fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(transition_element.arg) + '")')   
                     else:
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(other_element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(other_element.arg) + '")')
-                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + "\"" + str(element_name) + ":" + str(other_element.arg) + "\"" + ' in list(' + str(parent_element_arg).replace('-', '_') + '.keys()) and ' + "\"" + str(element_name) + "\"" + ' != ' + "\"" + PARENT_YANG_MODULE + "\"" + ":")
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(transition_element.arg) + '")')
+
+                    '''
+                    '''
+                    for module_name in modules_name:
+                        if parent_element_arg == module_name.split(":")[-1]:
+                            modules_name.append(element_name + ":" + element.arg)
+                    if element_name + ":" + element.arg not in modules_name:
+                        modules_name.append(element_name + ":" + element.arg)
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element_name + ":" + str(transition_element.arg) + '")'))
+                    else:
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(transition_element.arg) + '")')
+                    '''
+                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + "\"" + str(element_name) + ":" + str(transition_element.arg) + "\"" + ' in list(' + str(parent_element_arg).replace('-', '_') + '.keys()) and ' + "\"" + str(element_name) + "\"" + ' != ' + "\"" + PARENT_YANG_MODULE + "\"" + ":")
                     #depth_level += 1
-                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + str(other_element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element_name + ":" + str(other_element.arg) + '")'))
+                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element_name + ":" + str(transition_element.arg) + '")'))
                     #depth_level -= 1
-                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + 'elif ' + "\"" + str(other_element.arg) + "\"" + ' in list(' + str(parent_element_arg).replace('-', '_') + '.keys()) or ' + "\"" + str(element_name) + ":" + str(other_element.arg) + "\"" + ' in list(' + str(parent_element_arg).replace('-', '_') + '.keys()):')
+                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + 'elif ' + "\"" + str(transition_element.arg) + "\"" + ' in list(' + str(parent_element_arg).replace('-', '_') + '.keys()) or ' + "\"" + str(element_name) + ":" + str(transition_element.arg) + "\"" + ' in list(' + str(parent_element_arg).replace('-', '_') + '.keys()):')
                     #depth_level += 1
-                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + "\"" + str(other_element.arg) + "\"" + ' in list(' + str(parent_element_arg).replace('-', '_') + '.keys()):')
+                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + "\"" + str(transition_element.arg) + "\"" + ' in list(' + str(parent_element_arg).replace('-', '_') + '.keys()):')
                     #depth_level += 1
-                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + str(other_element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(other_element.arg) + '")')
+                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(transition_element.arg) + '")')
                     #depth_level -= 1
-                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + 'elif ' + "\"" + str(element_name) + ":" + str(other_element.arg) + "\"" + ' in list(' + str(parent_element_arg).replace('-', '_') + '.keys()):')
+                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + 'elif ' + "\"" + str(element_name) + ":" + str(transition_element.arg) + "\"" + ' in list(' + str(parent_element_arg).replace('-', '_') + '.keys()):')
                     #depth_level += 1
-                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + str(other_element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element_name + ":" + str(other_element.arg) + '")'))
+                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element_name + ":" + str(transition_element.arg) + '")'))
                     #depth_level -= 1
                     #depth_level -= 1
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if isinstance(' + str(other_element.arg).replace('-', '_') + ', dict):')
+                    '''
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if isinstance(' + str(transition_element.arg).replace('-', '_') + ', dict):')
                     depth_level += 1
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(other_element.arg).replace('-', '_') + ' is not None and len(' + str(other_element.arg).replace('-', '_') + ') != 0:')
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(transition_element.arg).replace('-', '_') + ' is not None and len(' + str(transition_element.arg).replace('-', '_') + ') != 0:')
                     depth_level += 1
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + str(other_element.arg).replace('-', '_') + ' = ' + str(other_element.arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'for ' + str(element.arg).replace('-', '_') + ' in ' + str(other_element.arg).replace('-', '_') + ':')
+                    '''
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + "_" + str(element.arg).replace('-', '_') + ' = ' + str(transition_element.arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'for ' + str(element.arg).replace('-', '_') + ' in ' + str(transition_element.arg).replace('-', '_') + "_" + str(element.arg).replace('-', '_') + ':')
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer = {}')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\" + ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]')
@@ -592,7 +652,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     if (subelements is not None):
                         for subelement in subelements:
                             if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                                generate_parser_code(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, other_element, modules_name)
+                                generate_parser_code(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name)
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'dict_buffers.append(' + current_path.replace('-', '_') + 'dict_buffer)')
         ### --- ###
 
@@ -650,9 +710,27 @@ def generate_python_json_parser_code(ctx, modules, fd):
                 text_format = str(text_format)
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if ' + '\".\"' + ' + str(element_text) not in ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]:') #+ ' != element_text:')  
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] = ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] + ' + '\".\"' + ' + str(element_text)')
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Relationship\"')
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + matches[0] + ':\" + ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]')
+            if ('interface'.casefold() == str(element.arg)):
+                text_format = str(text_format)
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if ' + entity_path.replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]' + ' != ' + text_format + ":") 
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + INDENTATION_BLOCK + entity_path.replace('-', '_') + 'dict_buffer[\"id\"] = ' + entity_path.replace('-', '_') + 'dict_buffer[\"id\"] + ' + text_format) 
+            if ('subinterface'.casefold() == str(element.arg)):
+                text_format = str(text_format)
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if ' + '\".\"' + ' + str(element_text) not in ' + entity_path.replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]:') #+ ' != element_text:')  
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + INDENTATION_BLOCK + entity_path.replace('-', '_') + 'dict_buffer[\"id\"] = ' + entity_path.replace('-', '_') + 'dict_buffer[\"id\"] + ' + '\".\"' + ' + str(element_text)')
+            if ('ip'.casefold() == str(element.arg)):
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if ' + '\":\"' + ' in element_text:')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + INDENTATION_BLOCK + 'element_text = element_text.replace(\":\",\".\")')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]' + ' != ' + text_format + ":")  
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] = ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] + ' + '\":\"' + ' + ' + text_format)
+            if ('interface'.casefold() == str(element.arg) or 'subinterface'.casefold() == str(element.arg)):
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + entity_path.replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + entity_path.replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Relationship\"')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + entity_path.replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + matches[0] + ':\" + ' + entity_path.replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]')
+            else:
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Relationship\"')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + matches[0] + ':\" + ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]')
         ### --- ###
 
         ### NGSI-LD YANG IDENTITY IDENTIFICATION ###
