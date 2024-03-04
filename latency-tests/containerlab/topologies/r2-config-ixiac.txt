@@ -4,12 +4,14 @@
 
 ! GigabitEthernet2 (ixia-c traffic engine  <-> r2)
 interface GigabitEthernet2
+ description r2-GigabitEthernet2
  ip address 10.0.2.1 255.255.255.0
  no shutdown 
 !
 
 ! GigabitEthernet3 (r1 <-> r2)
 interface GigabitEthernet3
+ description r2-GigabitEthernet3
  ip address 192.168.254.2 255.255.255.0
  no shutdown
 !

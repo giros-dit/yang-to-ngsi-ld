@@ -71,7 +71,6 @@ def parse_xml(message):
         if name is not None:
             element_text = name.text
             if element_text is not None:
-                interface_dict_buffer["id"] = interface_dict_buffer["id"] + element_text
                 interface_dict_buffer["name"] = {}
                 interface_dict_buffer["name"]["type"] = "Property"
                 interface_dict_buffer["name"]["value"] = element_text
@@ -144,6 +143,7 @@ def parse_xml(message):
         if physAddress is not None:
             element_text = physAddress.text
             if element_text is not None:
+                interface_dict_buffer["id"] = interface_dict_buffer["id"] + element_text.replace(":", "-")
                 interface_dict_buffer["physAddress"] = {}
                 interface_dict_buffer["physAddress"]["type"] = "Property"
                 interface_dict_buffer["physAddress"]["value"] = element_text

@@ -95,7 +95,12 @@ async def startup_event():
         subs_request = CreateSubscriptionRequest (
             id="urn:ngsi-ld:Subscription:Periodic:{0}".format(entity),
             type="Subscription",
-            entities=[{ "type": entity, "id": "urn:ngsi-ld:InterfaceStatistics:GigabitEthernet1" }],
+            entities=[
+                {
+                    "type": entity,
+                    "id": "urn:ngsi-ld:InterfaceStatistics:0c-00-90-8a-0d-01"
+                }
+            ],
             description="Periodic subscription to InterfaceStatistics entities.",
             timeInterval= 10,
             notification=notification_params
