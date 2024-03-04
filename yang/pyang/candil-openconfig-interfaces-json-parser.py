@@ -1944,7 +1944,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                 dict_buffers.append(interface_state_dict_buffer)
                 dict_buffers.append(interface_dict_buffer)
 
-output_file = open("dict_buffers.json", 'w')
+output_file = open("dict_buffers_queries.json", 'w')
 output_file.write(json.dumps(dict_buffers[::-1], indent=4))
 output_file.close()
 dict_buffers.clear()

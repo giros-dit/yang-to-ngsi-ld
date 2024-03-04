@@ -1,0 +1,66 @@
+[
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ethernet-1/1",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/1"
+        },
+        "carrierTransitions": {
+            "type": "Property",
+            "value": 1
+        },
+        "inBroadcastPkts": {
+            "type": "Property",
+            "value": 0
+        },
+        "inDiscards": {
+            "type": "Property",
+            "value": 10
+        },
+        "inErrors": {
+            "type": "Property",
+            "value": 0
+        },
+        "inFcsErrors": {
+            "type": "Property",
+            "value": 0
+        },
+        "inMulticastPkts": {
+            "type": "Property",
+            "value": 4
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 1686
+        },
+        "inUnicastPkts": {
+            "type": "Property",
+            "value": 0
+        },
+        "outBroadcastPkts": {
+            "type": "Property",
+            "value": 5
+        },
+        "outDiscards": {
+            "type": "Property",
+            "value": 0
+        },
+        "outErrors": {
+            "type": "Property",
+            "value": 0
+        },
+        "outMulticastPkts": {
+            "type": "Property",
+            "value": 3
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 762
+        },
+        "outUnicastPkts": {
+            "type": "Property",
+            "value": 0
+        }
+    }
+]

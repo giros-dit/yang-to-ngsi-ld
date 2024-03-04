@@ -171,7 +171,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
     ]
 
     WRITING_INSTRUCTIONS_FILE = [
-        'output_file = open(\"dict_buffers.json\", \'w\')\n',
+        'output_file = open(\"dict_buffers_queries.json\", \'w\')\n',
         'output_file.write(json.dumps(dict_buffers[::-1], indent=4))\n',
         'output_file.close()\n',
         'dict_buffers.clear()'
@@ -614,7 +614,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
                             modules_name.append(element_name + ":" + element.arg)
                     if element_name + ":" + element.arg not in modules_name:
                         modules_name.append(element_name + ":" + element.arg)
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element_name + ":" + str(transition_element.arg) + '")'))
+                        fd.write('\n' + INDENTATION_BLOCK * depth_levzel + str(transition_element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element_name + ":" + str(transition_element.arg) + '")'))
                     else:
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(transition_element.arg) + '")')
                     '''
