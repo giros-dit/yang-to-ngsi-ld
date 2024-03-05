@@ -61,16 +61,18 @@ def parse_xml(message):
 
     # observed_at is the eventTime element from the XML notification
     event_time = root[0].text
+    from_device = root[-1].text
     observed_at = event_time
 
     for interface in root.findall(".//{urn:ietf:params:xml:ns:yang:ietf-interfaces}interface"):
         interface_dict_buffer = {}
-        interface_dict_buffer["id"] = "urn:ngsi-ld:Interface:"
+        interface_dict_buffer["id"] = "urn:ngsi-ld:Interface:" + from_device + "_"
         interface_dict_buffer["type"] = "Interface"
         name = interface.find(".//{urn:ietf:params:xml:ns:yang:ietf-interfaces}name")
         if name is not None:
             element_text = name.text
             if element_text is not None:
+                interface_dict_buffer["id"] = interface_dict_buffer["id"] + element_text
                 interface_dict_buffer["name"] = {}
                 interface_dict_buffer["name"]["type"] = "Property"
                 interface_dict_buffer["name"]["value"] = element_text
@@ -143,7 +145,6 @@ def parse_xml(message):
         if physAddress is not None:
             element_text = physAddress.text
             if element_text is not None:
-                interface_dict_buffer["id"] = interface_dict_buffer["id"] + element_text.replace(":", "-")
                 interface_dict_buffer["physAddress"] = {}
                 interface_dict_buffer["physAddress"]["type"] = "Property"
                 interface_dict_buffer["physAddress"]["value"] = element_text

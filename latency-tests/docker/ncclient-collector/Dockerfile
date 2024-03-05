@@ -15,8 +15,3 @@ RUN mkdir -p /opt/ncclient-collector
 WORKDIR /opt/ncclient-collector
 
 COPY ncclient-collector-kafka.py .
-COPY docker-entrypoint.sh .
-
-RUN chmod +x docker-entrypoint.sh
-
-ENTRYPOINT ["/bin/bash", "docker-entrypoint.sh"]

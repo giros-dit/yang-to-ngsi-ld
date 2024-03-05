@@ -64,7 +64,13 @@ while True:
     if (sub_data != None):
         notification_xml = str(sub_data.notification_xml)
         root = et.fromstring(notification_xml)
+        # A new subelement is added to the NETCONF notification: fromDevice.
+        # It is the name of the device that is sending the notification.
+        # WARNING: This is not defined in the specification.
+        from_device = et.SubElement(root, 'fromDevice')
+        from_device.text = container_name
         eventTime = root[0].text
+        notification_xml = et.tostring(root, encoding='unicode')
         producer.send('interfaces-state-subscriptions', value=notification_xml.encode('utf-8'))
         print("I have sent it to a Kafka topic named interfaces-state-subscriptions")
         print("The eventTime element of the notification is: " + eventTime)

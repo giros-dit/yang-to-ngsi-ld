@@ -98,7 +98,7 @@ async def startup_event():
             entities=[
                 {
                     "type": entity,
-                    "id": "urn:ngsi-ld:InterfaceStatistics:0c-00-90-8a-0d-01"
+                    "id": "urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1_GigabitEthernet2"
                 }
             ],
             description="Periodic subscription to InterfaceStatistics entities.",
