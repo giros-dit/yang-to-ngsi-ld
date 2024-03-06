@@ -991,7 +991,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
     fd.write('\n' + INDENTATION_BLOCK * depth_level + "additionalProperties: false")
     fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
     depth_level += 1
-    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- $ref: \'#/components/schemas/Relationship\'")
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- $ref: \'" + OPENAPI_URL + "#/components/schemas/Relationship\'")
     fd.write('\n' + INDENTATION_BLOCK * depth_level + "- type: object")
     depth_level += 1
     fd.write('\n' + INDENTATION_BLOCK * depth_level + "properties:")

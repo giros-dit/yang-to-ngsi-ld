@@ -1266,7 +1266,7 @@ components:
       description: NGSI-LD Relationship Type. A hierarchical relationship.
       additionalProperties: false
       allOf:
-        - $ref: '#/components/schemas/Relationship'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
         - type: object
           properties:
             object:
