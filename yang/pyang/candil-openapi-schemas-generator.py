@@ -3,7 +3,7 @@ pyang plugin -- CANDIL OpenAPI Schemas Generator.
 
 Given one or several YANG modules, it dynamically generates the relative OpenAPI Schemas.
 
-Version: 0.0.1.
+Version: 1.0.0.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -21,6 +21,7 @@ from pyang import statements
 ### PLUGIN CONSTANTS ###
 
 PARENT_YANG_MODULE = "" # -> Parent YANG module
+OPENAPI_URL = "https://forge.etsi.org/rep/cim/NGSI-LD/-/raw/1.6.1/ngsi-ld-api.yaml"
 
 ### --- ###
 
@@ -59,10 +60,10 @@ def print_help():
     '''
     print('''
 Pyang plugin - CANDIL OpenAPI Schemas Generator (candil-openapi-schemas-generator).
-Given one or several YANG modules, this plugin generates the code of the OpenAPI schemas generator..
+Given one or several YANG modules, this plugin generates the OpenAPI schemas.
 
 Usage:
-pyang -f candil-openapi-schemas-generator [OPTIONS] <base_module.yang> [augmenting_module_1.yang] [augmenting_module_2.yang] ... [augmenting_module_N.yang] [> <output_file.py>]
+pyang -f candil-openapi-schemas-generator [OPTIONS] <base_module.yang> [augmenting_module_1.yang] [augmenting_module_2.yang] ... [augmenting_module_N.yang] [> <output_file.yaml>]
     ''')
           
 def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
@@ -223,6 +224,16 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                 base_yang_type = element_type
             return BASE_YANG_TYPES_TO_OPENAPI_SCHEMAS_TYPES[base_yang_type]
 
+    def yang_to_openapi_schemas_formats_conversion(element_type: str) -> str:
+        '''
+        Auxiliary function.
+        Returns the OpenAPI schemas format given the YANG type of an element/node in a YANG module.
+        '''
+        if BASE_YANG_TYPES_TO_OPENAPI_SCHEMAS_FORMATS.get(element_type) is not None:
+            return str(BASE_YANG_TYPES_TO_OPENAPI_SCHEMAS_FORMATS.get(element_type))
+        else:
+            return None
+        
     def is_enclosing_container(element) -> bool:
         '''
         Auxiliary function.
@@ -353,7 +364,6 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
         ### ENCLOSING CONTAINER IDENTIFICATION ###
         if (is_enclosing_container(element) == True) and (is_deprecated(element) == False):
             subelements = element.i_children
-            first_subelement = True
             if (subelements is not None):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
@@ -385,26 +395,31 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     depth_level = 2
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_camelcase_path + ":")
                     depth_level += 1
-                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |" + '\n')
-                    description_yaml = {'description': element.search_one('description').arg}
-                    #depth_level += 1
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + yaml.dump(description_yaml, default_flow_style=False))
+
+                    #description_yaml = {'description': element.search_one('description').arg}
+                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + yaml.dump(description_yaml, default_flow_style=False))
+
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
+                    depth_level += 1
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
+                    depth_level -= 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
                     depth_level += 1
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- $ref: \'#/components/schemas/Entity\'")
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- $ref: \'" + OPENAPI_URL + "#/components/schemas/Entity\'")
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "- type: object")
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "properties:")
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "type:")
                     depth_level += 1
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "description:")
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: NGSI-LD Entity identifier. It has to be " + current_camelcase_path + ".")
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "type: string")
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "enum:")
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " +  current_camelcase_path)
                     depth_level -= 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "default: " + current_camelcase_path)
+                    depth_level -= 1
 
                     subelements = element.i_children
                     subelement_list = []
@@ -438,22 +453,24 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     depth_level = 2                
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_camelcase_path + ":")
                     depth_level += 1
-                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
-                    #depth_level += 1
-                    #pdb.set_trace()
-                    description_yaml = {'description': str(element.search_one('description').arg)}
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + yaml.dump(description_yaml, default_flow_style=False))
-                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + element.search_one('description').arg)
+                    
+                    #description_yaml = {'description': str(element.search_one('description').arg)}
+                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + yaml.dump(description_yaml, default_flow_style=False))
+                    
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
+                    depth_level += 1
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
+                    depth_level -= 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
                     depth_level += 1
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- $ref: \'#/components/schemas/Entity\'")
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- $ref: \'" + OPENAPI_URL + "#/components/schemas/Entity\'")
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "- type: object")
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "properties:")
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "type:")
                     depth_level += 1
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "description:")
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: NGSI-LD Entity identifier. It has to be " + current_camelcase_path + ".")
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "type: string")
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "enum:")
                     depth_level += 1
@@ -495,26 +512,30 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     depth_level = 2
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_camelcase_path + ":")
                     depth_level += 1
-                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |" + '\n')
-                    description_yaml = {'description': element.search_one('description').arg}
-                    #depth_level += 1
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + yaml.dump(description_yaml, default_flow_style=False))
+
+                    #description_yaml = {'description': element.search_one('description').arg}
+                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + yaml.dump(description_yaml, default_flow_style=False))
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
+                    depth_level += 1
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
+                    depth_level -= 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
                     depth_level += 1
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- $ref: \'#/components/schemas/Entity\'")
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- $ref: \'" + OPENAPI_URL + "#/components/schemas/Entity\'")
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "- type: object")
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "properties:")
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "type:")
                     depth_level += 1
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "description:")
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: NGSI-LD Entity identifier. It has to be " + current_camelcase_path + ".")
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "type: string")
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "enum:")
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " +  current_camelcase_path)
                     depth_level -= 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "default: " + current_camelcase_path)
+                    depth_level -= 1
 
                     subelements = element.i_children
                     subelement_list = []
@@ -545,11 +566,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                                 if mandatory != None:
                                     if str(mandatory.arg) == "true":
                                         fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + to_camelcase(str(subelement.keyword), str(subelement.arg)))
-                        '''
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"] = {}')
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"type\"] = \"Relationship\"')
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"object\"] = ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') +  'dict_buffer[\"id\"]')
-                    '''
+                                        
                     subelements = element.i_children
                     if (subelements is not None):
                         for subelement in subelements:
@@ -560,27 +577,31 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     depth_level = 2
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_camelcase_path + ":")
                     depth_level += 1
-                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |" + '\n')
-                    description_yaml = {'description': element.search_one('description').arg}
-                    #depth_level += 1
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + yaml.dump(description_yaml, default_flow_style=False))
+                    
+                    #description_yaml = {'description': element.search_one('description').arg}
+                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + yaml.dump(description_yaml, default_flow_style=False))
+                    
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
+                    depth_level += 1
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
                     depth_level += 1
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- $ref: \'#/components/schemas/Entity\'")
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- $ref: \'" + OPENAPI_URL + "#/components/schemas/Entity\'")
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "- type: object")
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "properties:")
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "type:")
                     depth_level += 1
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "description:")
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: NGSI-LD Entity identifier. It has to be " + current_camelcase_path + ".")
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "type: string")
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "enum:")
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " +  current_camelcase_path)
                     depth_level -= 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "default: " + current_camelcase_path)
-
+                    depth_level -= 1
+                    
                     subelements = element.i_children
                     subelement_list = []
                     if (subelements is not None):
@@ -621,15 +642,21 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
         elif (is_property(element, typedefs_dict) == True) and (is_deprecated(element) == False):
             depth_level = 2
             openapi_schema_type = yang_to_openapi_schemas_types_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1], typedefs_dict)
+            openapi_schema_format = yang_to_openapi_schemas_formats_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1])
 
             fd.write('\n' + INDENTATION_BLOCK * depth_level + re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize() + ":"))
             depth_level += 1
-            description_yaml = {'description': str(element.search_one('description').arg)}
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + yaml.dump(description_yaml, default_flow_style=False))
+            
+            #description_yaml = {'description': str(element.search_one('description').arg)}
+            #fd.write('\n' + INDENTATION_BLOCK * depth_level + yaml.dump(description_yaml, default_flow_style=False))
+            
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
+            depth_level += 1
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
+            depth_level -= 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "additionalProperties: false")
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
-            depth_level += 1
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + "- $ref: \'#/components/schemas/Relationship\'")
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + "- $ref: \'" + OPENAPI_URL + "#/components/schemas/Property\'")
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "- type: object")
             depth_level += 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "properties:")
@@ -647,10 +674,19 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
             else:
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + "type: " + str(openapi_schema_type))
                 if is_datetime(element, typedefs_dict) == True:
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "format: datetime")    
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "format: datetime") 
+                if openapi_schema_format is not None:
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "format: " + openapi_schema_format)   
                 if has_pattern(element, typedefs_pattern_dict) == True:
                     element_type = str(element.search_one('type')).replace('type ', '').split(':')[-1]
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "pattern: \'" + str(typedefs_pattern_dict.get(element_type)) + "\'")
+                if element.search_one('default') is not None:
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "default: " + str(element.search_one('default').arg))   
+                if element.search_one('maximum') is not None:
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "maximum: " + str(element.search_one('maximum').arg)) 
+                if element.search_one('minimum') is not None:
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "minimum: " + str(element.search_one('minimum').arg)) 
+            
             depth_level -= 2
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "required:")
             depth_level += 1
@@ -661,17 +697,23 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
         ### NGSI-LD RELATIONSHIP IDENTIFICATION ###
         elif (is_relationship(element, typedefs_dict) == True) and (is_deprecated(element) == False):
             depth_level = 2
-
             openapi_schema_type = yang_to_openapi_schemas_types_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1], typedefs_dict)
+            openapi_schema_format = yang_to_openapi_schemas_formats_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1])
 
             fd.write('\n' + INDENTATION_BLOCK * depth_level + re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize() + ":"))
             depth_level += 1
-            description_yaml = {'description': str(element.search_one('description').arg)}
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + yaml.dump(description_yaml, default_flow_style=False))
+            
+            #description_yaml = {'description': str(element.search_one('description').arg)}
+            #fd.write('\n' + INDENTATION_BLOCK * depth_level + yaml.dump(description_yaml, default_flow_style=False))
+                    
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
+            depth_level += 1
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
+            depth_level -= 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "additionalProperties: false")
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
             depth_level += 1
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + "- $ref: \'#/components/schemas/Property\'")
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + "- $ref: \'" + OPENAPI_URL + "#/components/schemas/Relationship\'")
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "- type: object")
             depth_level += 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "properties:")
@@ -690,9 +732,18 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + "type: " + str(openapi_schema_type))
                 if is_datetime(element, typedefs_dict) == True:
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "format: datetime") 
+                if openapi_schema_format is not None:
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "format: " + openapi_schema_format)
                 if has_pattern(element, typedefs_pattern_dict) == True:
                     element_type = str(element.search_one('type')).replace('type ', '').split(':')[-1]
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "pattern: \'" + str(typedefs_pattern_dict.get(element_type)) + "\'")
+                if element.search_one('default') is not None:
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "default: " + str(element.search_one('default').arg))
+                if element.search_one('maximum') is not None:
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "maximum: " + str(element.search_one('maximum').arg)) 
+                if element.search_one('minimum') is not None:
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "minimum: " + str(element.search_one('minimum').arg)) 
+            
             depth_level -= 2
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "required:")
             depth_level += 1
@@ -721,11 +772,15 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
     
     ### --- ###
 
+    aux_args = sys.argv[3:]
+    args = []
+    for arg in aux_args:
+        args.append(arg.split('/')[-1])
 
     fd.write("openapi: 3.0.3")
     fd.write('\n' + "info:")
-    fd.write('\n' + INDENTATION_BLOCK + "title: OpenAPI schemas for YANG data models")
-    fd.write('\n' + INDENTATION_BLOCK + "version: 0.0.1")
+    fd.write('\n' + INDENTATION_BLOCK + "title: OpenAPI schemas for YANG data models " + ', '.join(map(str, args)) + ".") 
+    fd.write('\n' + INDENTATION_BLOCK + "version: 1.0.0")
     fd.write('\n' + INDENTATION_BLOCK + "description: Schemas or YANG data models compliant with the NGSI-LD OAS V1.6.1 metamodel according to ETSI GS CIM 009 V1.6.1.")
     fd.write('\n' + "paths: {}")
     fd.write('\n' + "components:")
@@ -760,7 +815,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
     fd.write('\n' + INDENTATION_BLOCK * depth_level + "additionalProperties: false")
     fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
     depth_level += 1
-    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- $ref: \'#/components/schemas/Property\'")
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- $ref: \'#/components/schemas/Relationship\'")
     fd.write('\n' + INDENTATION_BLOCK * depth_level + "- type: object")
     depth_level += 1
     fd.write('\n' + INDENTATION_BLOCK * depth_level + "properties:")
