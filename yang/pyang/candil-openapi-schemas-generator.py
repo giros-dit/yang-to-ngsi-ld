@@ -3,7 +3,7 @@ pyang plugin -- CANDIL OpenAPI Schemas Generator.
 
 Given one or several YANG modules, it dynamically generates the relative OpenAPI Schemas.
 
-Version: 1.0.0.
+Version: 1.0.1.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -21,7 +21,8 @@ from pyang import statements
 ### PLUGIN CONSTANTS ###
 
 PARENT_YANG_MODULE = "" # -> Parent YANG module
-OPENAPI_URL = "https://forge.etsi.org/rep/cim/NGSI-LD/-/raw/1.6.1/ngsi-ld-api.yaml"
+OPENAPI_URL = "https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml" # -> Consolidated OpenAPI spec. for NGSI-LD API v1.6.1
+#OPENAPI_URL = "https://forge.etsi.org/rep/cim/NGSI-LD/-/raw/1.6.1/ngsi-ld-api.yaml" # -> Official OpenAPI spec. for NGSI-LD API v1.6.1
 
 ### --- ###
 
@@ -130,7 +131,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                 return element_arg
             if (element_keyword == 'container') or (element_keyword == 'list'):
                 return re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element_arg.capitalize())
-            if (element_keyword == 'leaf') or (element_keyword == 'leaf-list'):
+            if (element_keyword == 'leaf') or (element_keyword == 'leaf-list') or (element_keyword == 'choice'):
                 return re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element_arg)
     
     def typedefs_discovering(modules) -> dict:
@@ -276,6 +277,16 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
             result = True
         return result
     
+    def is_choice(element) -> bool:
+        '''
+        Auxiliary function.
+        Checks if an element matches the YANG to NGSI-LD translation convention for a Property-of-Property.
+        '''
+        result = False
+        if (str(element.keyword) == 'choice'):
+            result = True
+        return result
+    
     def is_property(element, typedefs_dict: dict) -> bool:
         '''
         Auxiliary function.
@@ -326,6 +337,30 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                 result = True
         return result
 
+    def get_yang_module_data_nodes(element, yang_data_nodes_list: list) -> list:
+        '''
+        Auxiliary recursive function.
+        Recursively gets all YANG data nodes.
+        '''
+        if element.keyword in ['container', 'list', "choice"]:
+            subelements = element.i_children
+            if (subelements is not None):
+                for subelement in subelements:
+                    if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords) and (is_deprecated(subelement) == False):  
+                        if str(subelement.keyword) == "choice":
+                            cases = subelement.i_children
+                            if (cases is not None):
+                                for case in cases:
+                                    if (case is not None) and (case.keyword in statements.data_definition_keywords) and (is_deprecated(case) == False):
+                                        yang_data_nodes_list.append(case.arg)
+                                        get_yang_module_data_nodes(case, yang_data_nodes_list)
+                        else:
+                            yang_data_nodes_list.append(subelement.arg) 
+                            get_yang_module_data_nodes(subelement, yang_data_nodes_list)
+                        
+        
+        return yang_data_nodes_list
+
     def is_yang_identity(element, typedefs_dict: dict) -> bool:
         '''
         Auxiliary function.
@@ -341,7 +376,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                 result = True
         return result
 
-    def generate_schemas(element, parent_element_arg, entity_path: str, camelcase_entity_path: str, camelcase_entity_list: list, depth_level: int, typedefs_dict: dict, transition_element, modules_name: list, typedefs_pattern_dict: dict):
+    def generate_schemas(element, parent_element_arg, entity_path: str, camelcase_entity_path: str, camelcase_entity_list: list, depth_level: int, typedefs_dict: dict, transition_element, modules_name: list, typedefs_pattern_dict: dict, yang_data_nodes_list: list):
         '''
         Auxiliary function.
         Recursively generates the JSON parser code.
@@ -368,7 +403,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
                         if parent_element_arg is None:
-                            generate_schemas(subelement, None, None, None, list(), depth_level, typedefs_dict, element, modules_name, typedefs_pattern_dict)
+                            generate_schemas(subelement, None, None, None, list(), depth_level, typedefs_dict, element, modules_name, typedefs_pattern_dict, yang_data_nodes_list)
                         else:
                             current_camelcase_path = ''
                             if (camelcase_entity_path is None):
@@ -377,9 +412,9 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                                 current_camelcase_path = camelcase_entity_path + to_camelcase(str(element.keyword), str(element.arg)) 
                             camelcase_entity_list.append(current_camelcase_path)
                             if subelement.keyword == 'container':
-                                generate_schemas(subelement, element.arg, entity_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name, typedefs_pattern_dict)
+                                generate_schemas(subelement, element.arg, entity_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name, typedefs_pattern_dict, yang_data_nodes_list)
                             elif subelement.keyword == 'list':                            
-                                generate_schemas(subelement, parent_element_arg, entity_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, element, modules_name, typedefs_pattern_dict)
+                                generate_schemas(subelement, parent_element_arg, entity_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, element, modules_name, typedefs_pattern_dict, yang_data_nodes_list)
 
                         
         ### NGSI-LD ENTITY IDENTIFICATION ###
@@ -426,10 +461,20 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     if (subelements is not None):
                         for subelement in subelements:
                             if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords) and (subelement.keyword not in ['container', 'list']):
-                                camelcase_subelement_arg = to_camelcase(str(subelement.keyword), str(subelement.arg))
-                                fd.write('\n' + INDENTATION_BLOCK * depth_level + camelcase_subelement_arg + ":")
-                                depth_level += 1
-                                fd.write('\n' + INDENTATION_BLOCK * depth_level +  "$ref: \'#/components/schemas/" + re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), subelement.arg.capitalize()) + "\'")
+                                if str(subelement.arg) == "type":
+                                     name_subelement = str(element.arg + str(subelement.arg.capitalize())).replace('-','')
+                                     fd.write('\n' + INDENTATION_BLOCK * depth_level + name_subelement + ":")
+                                     depth_level += 1
+                                     ref_subelement = str(str(element.arg.capitalize()) + str(subelement.arg.capitalize())).replace('-','')
+                                     fd.write('\n' + INDENTATION_BLOCK * depth_level +  "$ref: \'#/components/schemas/" + ref_subelement + "\'")
+                                else:
+                                    camelcase_subelement_arg = to_camelcase(str(subelement.keyword), str(subelement.arg))
+                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + camelcase_subelement_arg + ":")
+                                    depth_level += 1
+                                    if yang_data_nodes_list.count(str(subelement.arg)) > 1:
+                                        fd.write('\n' + INDENTATION_BLOCK * depth_level +  "$ref: \'#/components/schemas/" + current_camelcase_path + str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), subelement.arg.capitalize())) + "\'")
+                                    else:
+                                        fd.write('\n' + INDENTATION_BLOCK * depth_level +  "$ref: \'#/components/schemas/" + re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), subelement.arg.capitalize()) + "\'")
                                 depth_level -= 1
                     
                     depth_level -= 2
@@ -444,11 +489,15 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                                 mandatory = subelement.search_one('mandatory')
                                 if mandatory != None:
                                     if str(mandatory.arg) == "true":
-                                        fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + to_camelcase(str(subelement.keyword), str(subelement.arg)))
+                                        if str(subelement.arg) == "type":
+                                            name_subelement = str(element.arg + str(subelement.arg.capitalize())).replace('-','')
+                                            fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + name_subelement)
+                                        else:
+                                            fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + to_camelcase(str(subelement.keyword), str(subelement.arg)))
                     if (subelements is not None):
                         for subelement in subelements:
                             if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                                generate_schemas(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name, typedefs_pattern_dict)
+                                generate_schemas(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name, typedefs_pattern_dic, yang_data_nodes_list)
                 elif element.keyword in ['list']:    
                     depth_level = 2                
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_camelcase_path + ":")
@@ -484,11 +533,22 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     if (subelements is not None):
                         for subelement in subelements:
                             if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords) and (subelement.keyword not in ['container', 'list']):
-                                camelcase_subelement_arg = to_camelcase(str(subelement.keyword), str(subelement.arg))
-                                subelement_list.append(camelcase_subelement_arg)
-                                fd.write('\n' + INDENTATION_BLOCK * depth_level + camelcase_subelement_arg + ":")
-                                depth_level += 1
-                                fd.write('\n' + INDENTATION_BLOCK * depth_level +  "$ref: \'#/components/schemas/" + re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), subelement.arg.capitalize()) + "\'")
+                                if str(subelement.arg) == "type":
+                                     name_subelement = str(element.arg + str(subelement.arg.capitalize())).replace('-','')
+                                     fd.write('\n' + INDENTATION_BLOCK * depth_level + name_subelement + ":")
+                                     depth_level += 1
+                                     ref_subelement = str(str(element.arg.capitalize()) + str(subelement.arg.capitalize())).replace('-','')
+                                     fd.write('\n' + INDENTATION_BLOCK * depth_level +  "$ref: \'#/components/schemas/" + ref_subelement + "\'")
+                                else:
+                                    camelcase_subelement_arg = to_camelcase(str(subelement.keyword), str(subelement.arg))
+                                    subelement_list.append(camelcase_subelement_arg)
+                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + camelcase_subelement_arg + ":")
+                                    depth_level += 1
+                                        
+                                    if yang_data_nodes_list.count(str(subelement.arg)) > 1:
+                                        fd.write('\n' + INDENTATION_BLOCK * depth_level +  "$ref: \'#/components/schemas/" + current_camelcase_path + str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), subelement.arg.capitalize())) + "\'")
+                                    else:
+                                        fd.write('\n' + INDENTATION_BLOCK * depth_level +  "$ref: \'#/components/schemas/" + re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), subelement.arg.capitalize()) + "\'")
                                 depth_level -= 1
                     depth_level -= 2
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "- required:")
@@ -502,11 +562,15 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                                 mandatory = subelement.search_one('mandatory')
                                 if mandatory != None:
                                     if str(mandatory.arg) == "true":
-                                        fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + to_camelcase(str(subelement.keyword), str(subelement.arg)))
+                                        if str(subelement.arg) == "type":
+                                            name_subelement = str(element.arg + str(subelement.arg.capitalize())).replace('-','')
+                                            fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + name_subelement)
+                                        else:
+                                            fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + to_camelcase(str(subelement.keyword), str(subelement.arg)))
                     if (subelements is not None):
                         for subelement in subelements:
                             if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                                generate_schemas(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name, typedefs_pattern_dict)
+                                generate_schemas(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name, typedefs_pattern_dict, yang_data_nodes_list)
             else: # 2nd level Entity onwards.
                 if element.keyword in ['container']:
                     depth_level = 2
@@ -542,10 +606,20 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     if (subelements is not None):
                         for subelement in subelements:
                             if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords) and (subelement.keyword not in ['container', 'list']):
-                                camelcase_subelement_arg = to_camelcase(str(subelement.keyword), str(subelement.arg))
-                                fd.write('\n' + INDENTATION_BLOCK * depth_level + camelcase_subelement_arg + ":")
-                                depth_level += 1
-                                fd.write('\n' + INDENTATION_BLOCK * depth_level +  "$ref: \'#/components/schemas/" + re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), subelement.arg.capitalize()) + "\'")
+                                if str(subelement.arg) == "type":
+                                     name_subelement = str(element.arg + str(subelement.arg.capitalize())).replace('-','')
+                                     fd.write('\n' + INDENTATION_BLOCK * depth_level + name_subelement + ":")
+                                     depth_level += 1
+                                     ref_subelement = str(str(element.arg.capitalize()) + str(subelement.arg.capitalize())).replace('-','')
+                                     fd.write('\n' + INDENTATION_BLOCK * depth_level +  "$ref: \'#/components/schemas/" + ref_subelement + "\'")
+                                else:
+                                    camelcase_subelement_arg = to_camelcase(str(subelement.keyword), str(subelement.arg))
+                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + camelcase_subelement_arg + ":")
+                                    depth_level += 1
+                                    if yang_data_nodes_list.count(str(subelement.arg)) > 1:
+                                        fd.write('\n' + INDENTATION_BLOCK * depth_level +  "$ref: \'#/components/schemas/" + current_camelcase_path + str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), subelement.arg.capitalize())) + "\'")
+                                    else:   
+                                        fd.write('\n' + INDENTATION_BLOCK * depth_level +  "$ref: \'#/components/schemas/" + re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), subelement.arg.capitalize()) + "\'")
                                 depth_level -= 1
                     
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "isPartOf:")
@@ -565,13 +639,17 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                                 mandatory = subelement.search_one('mandatory')
                                 if mandatory != None:
                                     if str(mandatory.arg) == "true":
-                                        fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + to_camelcase(str(subelement.keyword), str(subelement.arg)))
+                                        if str(subelement.arg) == "type":
+                                            name_subelement = str(element.arg + str(subelement.arg.capitalize())).replace('-','')
+                                            fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + name_subelement)
+                                        else:
+                                            fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + to_camelcase(str(subelement.keyword), str(subelement.arg)))
                                         
                     subelements = element.i_children
                     if (subelements is not None):
                         for subelement in subelements:
                             if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                                generate_schemas(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name, typedefs_pattern_dict)
+                                generate_schemas(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name, typedefs_pattern_dict, yang_data_nodes_list)
 
                 elif element.keyword in ['list']:
                     depth_level = 2
@@ -584,6 +662,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
+                    depth_level -= 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "- $ref: \'" + OPENAPI_URL + "#/components/schemas/Entity\'")
@@ -607,10 +686,20 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     if (subelements is not None):
                         for subelement in subelements:
                             if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords) and (subelement.keyword not in ['container', 'list']):
-                                camelcase_subelement_arg = to_camelcase(str(subelement.keyword), str(subelement.arg))
-                                fd.write('\n' + INDENTATION_BLOCK * depth_level + str(camelcase_subelement_arg) + ":")
-                                depth_level += 1
-                                fd.write('\n' + INDENTATION_BLOCK * depth_level +  "$ref: \'#/components/schemas/" + re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), subelement.arg.capitalize()) + "\'")
+                                if str(subelement.arg) == "type":
+                                     name_subelement = str(element.arg + str(subelement.arg.capitalize())).replace('-','')
+                                     fd.write('\n' + INDENTATION_BLOCK * depth_level + name_subelement + ":")
+                                     depth_level += 1
+                                     ref_subelement = str(str(element.arg.capitalize()) + str(subelement.arg.capitalize())).replace('-','')
+                                     fd.write('\n' + INDENTATION_BLOCK * depth_level +  "$ref: \'#/components/schemas/" + ref_subelement + "\'")
+                                else:
+                                    camelcase_subelement_arg = to_camelcase(str(subelement.keyword), str(subelement.arg))
+                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + str(camelcase_subelement_arg) + ":")
+                                    depth_level += 1
+                                    if yang_data_nodes_list.count(str(subelement.arg)) > 1:
+                                        fd.write('\n' + INDENTATION_BLOCK * depth_level +  "$ref: \'#/components/schemas/" + current_camelcase_path + str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), subelement.arg.capitalize())) + "\'")
+                                    else:
+                                        fd.write('\n' + INDENTATION_BLOCK * depth_level +  "$ref: \'#/components/schemas/" + re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), subelement.arg.capitalize()) + "\'")
                                 depth_level -= 1
                     
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "isPartOf:")
@@ -630,21 +719,76 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                                 mandatory = subelement.search_one('mandatory')
                                 if mandatory != None:
                                     if str(mandatory.arg) == "true":
-                                        fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + to_camelcase(str(subelement.keyword), str(subelement.arg)))
+                                        if str(subelement.arg) == "type":
+                                            name_subelement = str(element.arg + str(subelement.arg.capitalize())).replace('-','')
+                                            fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + name_subelement)
+                                        else:
+                                            fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + to_camelcase(str(subelement.keyword), str(subelement.arg)))
                     subelements = element.i_children
                     if (subelements is not None):
                         for subelement in subelements:
                             if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                                generate_schemas(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name, typedefs_pattern_dict)
+                                generate_schemas(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name, typedefs_pattern_dict, yang_data_nodes_list)
         ### --- ###
+        
+        ### NGSI-LD PROPERTY-OF-PROPERTY IDENTIFICATION ###
+        elif (is_choice(element) == True) and (is_deprecated(element) == False):
+            depth_level = 2
+            current_camelcase_path = ''
 
+            if yang_data_nodes_list.count(str(element.arg)) > 1:
+                current_camelcase_path = camelcase_entity_path + str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize()))
+            else:
+                current_camelcase_path = str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize()))
+
+            #fd.write('\n' + INDENTATION_BLOCK * depth_level + re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize() + ":"))
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + current_camelcase_path + ":")
+            depth_level += 1
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
+            depth_level += 1
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
+            depth_level -= 1
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + "oneOf:")
+            depth_level += 1
+
+            cases = element.i_children
+            if (cases is not None):
+                for case in cases:
+                    if (case is not None) and (case.keyword in statements.data_definition_keywords) and (str(case.keyword) == "case"):
+                        #camelcase_subelement_arg = to_camelcase(str(subelement.keyword), str(subelement.arg))
+                        #fd.write('\n' + INDENTATION_BLOCK * depth_level + camelcase_subelement_arg + ":")
+                        #depth_level += 1
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level +  "- $ref: \'#/components/schemas/" + current_camelcase_path + "\'")
+                        #fd.write('\n' + INDENTATION_BLOCK * depth_level +  "- $ref: \'#/components/schemas/" + re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), case.arg.capitalize()) + "\'")
+                        #depth_level -= 1
+            depth_level -= 1
+            if (cases is not None):
+                for case in cases:
+                    if (case is not None) and (case.keyword in statements.data_definition_keywords):
+                        subelements = case.i_children
+                        if (subelements is not None):
+                            for subelement in subelements:
+                                if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
+                                    generate_schemas(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name, typedefs_pattern_dict, yang_data_nodes_list)
+
+        ### --- ###
+        
         ### NGSI-LD PROPERTY IDENTIFICATION ###
         elif (is_property(element, typedefs_dict) == True) and (is_deprecated(element) == False):
             depth_level = 2
+
+            current_camelcase_path = ''
+
+            if yang_data_nodes_list.count(str(element.arg)) > 1:
+                current_camelcase_path = camelcase_entity_path + str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize()))
+            else:
+                current_camelcase_path = str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize()))
+
             openapi_schema_type = yang_to_openapi_schemas_types_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1], typedefs_dict)
             openapi_schema_format = yang_to_openapi_schemas_formats_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1])
 
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize() + ":"))
+            #fd.write('\n' + INDENTATION_BLOCK * depth_level + re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize() + ":"))
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + current_camelcase_path + ":")
             depth_level += 1
             
             #description_yaml = {'description': str(element.search_one('description').arg)}
@@ -666,8 +810,13 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
             if str(openapi_schema_type) == "enum":
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + "type: " + "string")
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + "enum:")
-                element_enums = element.search_one('type').search('enum')
+                element_enums = element.search_one('type').search('enum')  
+                             
+                if len(element_enums) == 0:
+                    element_enums = element.search_one('type').i_typedef.search_one('type').search('enum')
+
                 depth_level += 1
+
                 for element_enum in element_enums:
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + str(element_enum.arg))
                 depth_level -= 1
@@ -697,10 +846,19 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
         ### NGSI-LD RELATIONSHIP IDENTIFICATION ###
         elif (is_relationship(element, typedefs_dict) == True) and (is_deprecated(element) == False):
             depth_level = 2
+
+            current_camelcase_path = ''
+
+            if yang_data_nodes_list.count(str(element.arg)) > 1:
+                current_camelcase_path = camelcase_entity_path + str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize()))
+            else:
+                current_camelcase_path = str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize()))
+
             openapi_schema_type = yang_to_openapi_schemas_types_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1], typedefs_dict)
             openapi_schema_format = yang_to_openapi_schemas_formats_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1])
 
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize() + ":"))
+            #fd.write('\n' + INDENTATION_BLOCK * depth_level + re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize() + ":"))
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + current_camelcase_path + ":")
             depth_level += 1
             
             #description_yaml = {'description': str(element.search_one('description').arg)}
@@ -724,7 +882,12 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + "type: " + "string")
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + "enum:")
                 element_enums = element.search_one('type').search('enum')
+                
+                if len(element_enums) == 0:
+                    element_enums = element.search_one('type').i_typedef.search_one('type').search('enum')
+
                 depth_level += 1
+
                 for element_enum in element_enums:
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + str(element_enum.arg))
                 depth_level -= 1
@@ -800,6 +963,19 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
     typedefs_dict = typedefs_discovering(typedef_modules)
     typedefs_pattern_dict = typedefs_pattern_discovering(typedef_modules)
 
+    # Get all data nodes for the evaluated YANG modules
+    yang_data_nodes_list = []
+    full_yang_data_nodes_list = []
+    for module in modules:
+        elements = module.i_children
+        if (elements is not None):
+            for element in elements:
+                if (element is not None) and (element.keyword in statements.data_definition_keywords):
+                    yang_data_nodes_list.append(element.arg)
+                    get_yang_module_data_nodes(element, yang_data_nodes_list)
+                    #full_yang_data_nodes_list.append(element.arg)
+                    #full_yang_data_nodes_list.append(get_yang_module_data_nodes(element, yang_data_nodes_list))
+                    
     # Generate OpenAPI generator code (element data retrieval and transformation to generate OpenAPI schemas):
     depth_level = 2
     for module in modules:
@@ -807,7 +983,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
         if (elements is not None):
             for element in elements:
                 if (element is not None) and (element.keyword in statements.data_definition_keywords):
-                    generate_schemas(element, None, None, None, list(), depth_level, typedefs_dict, None, list(), typedefs_pattern_dict)
+                    generate_schemas(element, None, None, None, list(), depth_level, typedefs_dict, None, list(), typedefs_pattern_dict, yang_data_nodes_list)
     
     fd.write('\n' + INDENTATION_BLOCK * depth_level + "IsPartOf:")
     depth_level += 1
