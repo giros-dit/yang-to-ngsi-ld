@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an XML p
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 0.5.2.
+Version: 0.5.3.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -147,7 +147,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         'xml = sys.argv[1]\n',
         'tree = et.parse(xml)\n',
         'root = tree.getroot()\n',
-        'observedAt = root[0].text',
+        'observedAt = root[0].text\n',
         'dict_buffers = []'
     ]
 
@@ -159,7 +159,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             'while True:\n',
             INDENTATION_BLOCK + 'for message in consumer:\n',
             2 * INDENTATION_BLOCK + 'xml = str(message.value.decode(\'utf-8\'))\n',
-            2 * INDENTATION_BLOCK + 'root = et.fromstring(xml)',
+            2 * INDENTATION_BLOCK + 'root = et.fromstring(xml)\n',
             2 * INDENTATION_BLOCK + 'observedAt = root[0].text'
         ]
         
@@ -309,6 +309,16 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             result = True
         return result
     
+    def is_choice(element) -> bool:
+        '''
+        Auxiliary function.
+        Checks if an element is a YANG choice.
+        '''
+        result = False
+        if (element.keyword == 'choice'):
+            result = True
+        return result
+    
     def is_property(element, typedefs_dict: dict) -> bool:
         '''
         Auxiliary function.
@@ -402,6 +412,26 @@ def generate_python_xml_parser_code(ctx, modules, fd):
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
                         generate_parser_code(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict)
             fd.write('\n' + INDENTATION_BLOCK * depth_level + 'dict_buffers.append(' + current_path.replace('-', '_') + 'dict_buffer)')
+        ### --- ###
+        
+        ### YANG CHOICE IDENTIFICATION: IT CONTAINS NGSI-LD PROPERTIES ###
+        elif (is_choice(element) == True) and (is_deprecated(element) == False):
+            current_path = current_path.replace(str(element.arg) + '_', '')
+            '''
+            Children of "choice" elements are "case" subelements.
+            These subelements have "leaf" or "leaf-list" children, which match
+            for NGSI-LD properties. Therefore, we need to deep dive two times in the
+            element tree.
+            '''
+            subelements = element.i_children
+            if (subelements is not None):
+                for subelement in subelements:
+                    if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
+                        subelements = subelement.i_children
+                        if (subelements is not None):
+                            for subelement in subelements:
+                                if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
+                                    generate_parser_code(subelement, parent_element_arg, current_path, camelcase_entity_path, camelcase_entity_list, depth_level, typedefs_dict)
         ### --- ###
 
         ### NGSI-LD PROPERTY IDENTIFICATION ###
