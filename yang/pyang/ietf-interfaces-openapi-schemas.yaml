@@ -102,13 +102,13 @@ components:
         such a mechanism is outside the scope of this document.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: string
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+          required:
+            - value
     Description:
       description: |
         A textual description of the interface.
@@ -125,13 +125,38 @@ components:
         configuration.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: string
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+          required:
+            - valueCHACHO
+
+    InterfaceType:
+      description: |
+        The type of the interface.
+        
+        When an interface entry is created, a server MAY
+        initialize the type leaf with a valid value, e.g., if it
+        is possible to derive the type from the name of the
+        interface.
+        
+        If a client tries to set the type of an interface to a
+        value that can never be used by the system, e.g., if the
+        type is not supported or if the type does not match the
+        name of the interface, the server MUST reject the request.
+        A NETCONF server MUST reply with an rpc-error with the
+        error-tag 'invalid-value' in this case.
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
+        - type: object
+          properties:
+            object:
+              type: string
+          required:
+            - object
     InterfaceEnabled:
       description: |
         This leaf contains the configured, desired state of the
@@ -146,14 +171,14 @@ components:
         reflected in ifAdminStatus.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: boolean
-            default: true
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: boolean
+              default: true
+          required:
+            - value
     LinkUpDownTrapEnable:
       description: |
         Controls whether linkUp/linkDown SNMP notifications
@@ -165,16 +190,16 @@ components:
         no 'lower-layer-if' entries), and 'disabled' otherwise.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: string
-            enum:
-              - enabled
-              - disabled
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              enum:
+                - enabled
+                - disabled
+          required:
+            - value
     AdminStatus:
       description: |
         The desired state of the interface.
@@ -182,17 +207,17 @@ components:
         This leaf has the same read semantics as ifAdminStatus.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: string
-            enum:
-              - up
-              - down
-              - testing
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              enum:
+                - up
+                - down
+                - testing
+          required:
+            - value
     OperStatus:
       description: |
         The current operational state of the interface.
@@ -200,21 +225,21 @@ components:
         This leaf has the same semantics as ifOperStatus.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: string
-            enum:
-              - up
-              - down
-              - testing
-              - unknown
-              - dormant
-              - not-present
-              - lower-layer-down
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              enum:
+                - up
+                - down
+                - testing
+                - unknown
+                - dormant
+                - not-present
+                - lower-layer-down
+          required:
+            - value
     LastChange:
       description: |
         The time the interface entered its current operational
@@ -223,29 +248,29 @@ components:
         subsystem, then this node is not present.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: string
-            format: datetime
-            pattern: '[0-9]{4}-(1[0-2]|0[1-9])-(0[1-9]|[1-2][0-9]|3[0-1])T(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?(Z|[\+\-]((1[0-3]|0[0-9]):([0-5][0-9])|14:00))?'
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              format: datetime
+              pattern: '[0-9]{4}-(1[0-2]|0[1-9])-(0[1-9]|[1-2][0-9]|3[0-1])T(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?(Z|[\+\-]((1[0-3]|0[0-9]):([0-5][0-9])|14:00))?'
+          required:
+            - value
     IfIndex:
       description: |
         The ifIndex value for the ifEntry represented by this
         interface.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: integer
-            format: int32
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+              format: int32
+          required:
+            - value
     PhysAddress:
       description: |
         The interface's address at its protocol sub-layer. For
@@ -257,14 +282,14 @@ components:
         (e.g., a serial line), this node is not present.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: string
-            pattern: '([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              pattern: '([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'
+          required:
+            - value
     HigherLayerIf:
       description: |
         A list of references to interfaces layered on top of this
@@ -301,13 +326,13 @@ components:
         node is not present.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: integer
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
     InterfaceStatistics:
       description: |
         A collection of interface-related statistics objects.
@@ -365,15 +390,15 @@ components:
         management subsystem re-initialized itself.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: string
-            format: datetime
-            pattern: '[0-9]{4}-(1[0-2]|0[1-9])-(0[1-9]|[1-2][0-9]|3[0-1])T(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?(Z|[\+\-]((1[0-3]|0[0-9]):([0-5][0-9])|14:00))?'
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              format: datetime
+              pattern: '[0-9]{4}-(1[0-2]|0[1-9])-(0[1-9]|[1-2][0-9]|3[0-1])T(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?(Z|[\+\-]((1[0-3]|0[0-9]):([0-5][0-9])|14:00))?'
+          required:
+            - value
     InOctets:
       description: |
         The total number of octets received on the interface,
@@ -385,13 +410,13 @@ components:
         'discontinuity-time'.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: integer
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
     InUnicastPkts:
       description: |
         The number of packets, delivered by this sub-layer to a
@@ -404,13 +429,13 @@ components:
         'discontinuity-time'.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: integer
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
     InBroadcastPkts:
       description: |
         The number of packets, delivered by this sub-layer to a
@@ -423,13 +448,13 @@ components:
         'discontinuity-time'.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: integer
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
     InMulticastPkts:
       description: |
         The number of packets, delivered by this sub-layer to a
@@ -443,13 +468,13 @@ components:
         'discontinuity-time'.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: integer
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
     InDiscards:
       description: |
         The number of inbound packets that were chosen to be
@@ -464,13 +489,13 @@ components:
         'discontinuity-time'.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: integer
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
     InErrors:
       description: |
         For packet-oriented interfaces, the number of inbound
@@ -487,13 +512,13 @@ components:
         'discontinuity-time'.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: integer
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
     InUnknownProtos:
       description: |
         For packet-oriented interfaces, the number of packets
@@ -512,13 +537,13 @@ components:
         'discontinuity-time'.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: integer
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
     OutOctets:
       description: |
         The total number of octets transmitted out of the
@@ -530,13 +555,13 @@ components:
         'discontinuity-time'.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: integer
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
     OutUnicastPkts:
       description: |
         The total number of packets that higher-level protocols
@@ -550,13 +575,13 @@ components:
         'discontinuity-time'.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: integer
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
     OutBroadcastPkts:
       description: |
         The total number of packets that higher-level protocols
@@ -570,13 +595,13 @@ components:
         'discontinuity-time'.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: integer
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
     OutMulticastPkts:
       description: |
         The total number of packets that higher-level protocols
@@ -592,13 +617,13 @@ components:
         'discontinuity-time'.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: integer
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
     OutDiscards:
       description: |
         The number of outbound packets that were chosen to be
@@ -613,13 +638,13 @@ components:
         'discontinuity-time'.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: integer
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
     OutErrors:
       description: |
         For packet-oriented interfaces, the number of outbound
@@ -634,13 +659,13 @@ components:
         'discontinuity-time'.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: integer
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
     InterfaceIpv4:
       description: |
         Parameters for the IPv4 address family.
@@ -673,14 +698,14 @@ components:
         and receive IPv4 packets.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: boolean
-            default: true
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: boolean
+              default: true
+          required:
+            - value
     InterfaceIpv4Forwarding:
       description: |
         Controls IPv4 packet forwarding of datagrams received by,
@@ -689,14 +714,14 @@ components:
         source-routed via the host).
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: boolean
-            default: false
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: boolean
+              default: false
+          required:
+            - value
     InterfaceIpv4Mtu:
       description: |
         The size, in octets, of the largest IPv4 packet that the
@@ -709,13 +734,13 @@ components:
         depends on the interface's type.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: integer
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
     InterfaceIpv4Address:
       description: |
         The list of IPv4 addresses on the interface.
@@ -746,14 +771,14 @@ components:
         The IPv4 address on the interface.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: string
-            pattern: '[0-9\.]*'
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              pattern: '[0-9\.]*'
+          required:
+            - value
     Subnet:
       description: |
         The subnet can be specified as a prefix length or,
@@ -767,44 +792,44 @@ components:
         The length of the subnet prefix.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: integer
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
     Netmask:
       description: |
         The subnet specified as a netmask.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: string
-            pattern: '(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              pattern: '(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'
+          required:
+            - value
     InterfaceIpv4AddressOrigin:
       description: |
         The origin of this address.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: string
-            enum:
-              - other
-              - static
-              - dhcp
-              - link-layer
-              - random
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              enum:
+                - other
+                - static
+                - dhcp
+                - link-layer
+                - random
+          required:
+            - value
     InterfaceIpv4Neighbor:
       description: |
         A list of mappings from IPv4 addresses to
@@ -842,43 +867,43 @@ components:
         The IPv4 address of the neighbor node.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: string
-            pattern: '[0-9\.]*'
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              pattern: '[0-9\.]*'
+          required:
+            - value
     InterfaceIpv4NeighborLinkLayerAddress:
       description: |
         The link-layer address of the neighbor node.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: string
-            pattern: '([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              pattern: '([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'
+          required:
+            - value
     InterfaceIpv4NeighborOrigin:
       description: |
         The origin of this neighbor entry.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: string
-            enum:
-              - other
-              - static
-              - dynamic
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              enum:
+                - other
+                - static
+                - dynamic
+          required:
+            - value
     InterfaceIpv6:
       description: |
         Parameters for the IPv6 address family.
@@ -913,14 +938,14 @@ components:
         and receive IPv6 packets.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: boolean
-            default: true
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: boolean
+              default: true
+          required:
+            - value
     InterfaceIpv6Forwarding:
       description: |
         Controls IPv6 packet forwarding of datagrams received by,
@@ -929,14 +954,14 @@ components:
         source-routed via the host).
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: boolean
-            default: false
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: boolean
+              default: false
+          required:
+            - value
     InterfaceIpv6Mtu:
       description: |
         The size, in octets, of the largest IPv6 packet that the
@@ -949,13 +974,13 @@ components:
         depends on the interface's type.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: integer
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
     InterfaceIpv6Address:
       description: |
         The list of IPv6 addresses on the interface.
@@ -988,44 +1013,44 @@ components:
         The IPv6 address on the interface.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: string
-            pattern: '[0-9a-fA-F:\.]*'
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              pattern: '[0-9a-fA-F:\.]*'
+          required:
+            - value
     InterfaceIpv6AddressPrefixLength:
       description: |
         The length of the subnet prefix.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: integer
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
     InterfaceIpv6AddressOrigin:
       description: |
         The origin of this address.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: string
-            enum:
-              - other
-              - static
-              - dhcp
-              - link-layer
-              - random
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              enum:
+                - other
+                - static
+                - dhcp
+                - link-layer
+                - random
+          required:
+            - value
     Status:
       description: |
         The status of an address. Most of the states correspond
@@ -1033,22 +1058,22 @@ components:
         Autoconfiguration protocol.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: string
-            enum:
-              - preferred
-              - deprecated
-              - invalid
-              - inaccessible
-              - unknown
-              - tentative
-              - duplicate
-              - optimistic
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              enum:
+                - preferred
+                - deprecated
+                - invalid
+                - inaccessible
+                - unknown
+                - tentative
+                - duplicate
+                - optimistic
+          required:
+            - value
     InterfaceIpv6Neighbor:
       description: |
         A list of mappings from IPv6 addresses to
@@ -1090,14 +1115,14 @@ components:
         The IPv6 address of the neighbor node.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: string
-            pattern: '[0-9a-fA-F:\.]*'
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              pattern: '[0-9a-fA-F:\.]*'
+          required:
+            - value
     InterfaceIpv6NeighborLinkLayerAddress:
       description: |
         The link-layer address of the neighbor node.
@@ -1106,61 +1131,61 @@ components:
         is 'incomplete', this leaf is not instantiated.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: string
-            pattern: '([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              pattern: '([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'
+          required:
+            - value
     InterfaceIpv6NeighborOrigin:
       description: |
         The origin of this neighbor entry.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: string
-            enum:
-              - other
-              - static
-              - dynamic
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              enum:
+                - other
+                - static
+                - dynamic
+          required:
+            - value
     IsRouter:
       description: |
         Indicates that the neighbor node acts as a router.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: string
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+          required:
+            - value
     State:
       description: |
         The Neighbor Unreachability Detection state of this
         entry.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: string
-            enum:
-              - incomplete
-              - reachable
-              - stale
-              - delay
-              - probe
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              enum:
+                - incomplete
+                - reachable
+                - stale
+                - delay
+                - probe
+          required:
+            - value
     DupAddrDetectTransmits:
       description: |
         The number of consecutive Neighbor Solicitation messages
@@ -1171,14 +1196,14 @@ components:
         transmission with no follow-up retransmissions.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: integer
-            default: 1
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+              default: 1
+          required:
+            - value
     InterfaceIpv6Autoconf:
       description: |
         Parameters to control the autoconfiguration of IPv6
@@ -1212,56 +1237,125 @@ components:
         described in RFC 4862.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: boolean
-            default: true
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: boolean
+              default: true
+          required:
+            - value
     CreateTemporaryAddresses:
       description: |
         If enabled, the host creates temporary addresses as
         described in RFC 4941.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: boolean
-            default: false
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: boolean
+              default: false
+          required:
+            - value
     TemporaryValidLifetime:
       description: |
         The time period during which the temporary address
         is valid.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: integer
-            default: 604800
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+              default: 604800
+          required:
+            - value
     TemporaryPreferredLifetime:
       description: |
         The time period during which the temporary address is
         preferred.
       additionalProperties: false
       allOf:
-      - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
-      - type: object
-        properties:
-          value:
-            type: integer
-            default: 86400
-        required:
-          - value
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+              default: 86400
+          required:
+            - value
+    YANGIdentity:
+      description: A representation schema for YANG Identities.
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be YANGIdentity.
+              type: string
+              enum:
+                - YANGIdentity
+              default: YANGIdentity
+            description:
+              $ref: '#/components/schemas/YANGIdentityDescription'
+            identifier:
+              $ref: '#/components/schemas/YANGIdentityIdentifier'
+            namespace:
+              $ref: '#/components/schemas/YANGIdentityNamespace'
+            broader:
+              $ref: '#/components/schemas/YANGIdentityBroader'
+        - required:
+          - type
+          - description
+          - identifier
+          - namespace
+    YANGIdentityDescription:
+      description: NGSI-LD Relationship Type. YANG Identity description.
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+          required:
+            - value
+    YANGIdentityIdentifier:
+      description: NGSI-LD Relationship Type. YANG Identity identifier.
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+          required:
+            - value
+    YANGIdentityNamespace:
+      description: NGSI-LD Relationship Type. YANG Identity namespace.
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+          required:
+            - value
+    YANGIdentityBroader:
+      description: NGSI-LD Relationship Type. The relationship to the base YANG Identity.
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
+        - type: object
+          properties:
+            object:
+              type: string
+          required:
+            - object
     IsPartOf:
       description: NGSI-LD Relationship Type. A hierarchical relationship.
       additionalProperties: false

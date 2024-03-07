@@ -3,7 +3,7 @@ pyang plugin -- CANDIL OpenAPI Schemas Generator.
 
 Given one or several YANG modules, it dynamically generates the relative OpenAPI Schemas.
 
-Version: 1.0.1.
+Version: 1.0.2.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -313,7 +313,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                 result = True
         return result
 
-    def is_datetime(element, typedefs_dict: dict) -> bool:
+    def is_datetime(element) -> bool:
         '''
         Auxiliary function.
         Checks if an element typedef matches to date-and-time.
@@ -736,7 +736,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
             depth_level = 2
             current_camelcase_path = ''
 
-            if yang_data_nodes_list.count(str(element.arg)) > 1:
+            if (yang_data_nodes_list.count(str(element.arg)) > 1) or (str(element.arg) == 'type'):
                 current_camelcase_path = camelcase_entity_path + str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize()))
             else:
                 current_camelcase_path = str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize()))
@@ -779,7 +779,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
 
             current_camelcase_path = ''
 
-            if yang_data_nodes_list.count(str(element.arg)) > 1:
+            if (yang_data_nodes_list.count(str(element.arg)) > 1) or (str(element.arg) == 'type'):
                 current_camelcase_path = camelcase_entity_path + str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize()))
             else:
                 current_camelcase_path = str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize()))
@@ -800,6 +800,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
             depth_level -= 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "additionalProperties: false")
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
+            depth_level += 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "- $ref: \'" + OPENAPI_URL + "#/components/schemas/Property\'")
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "- type: object")
             depth_level += 1
@@ -822,7 +823,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                 depth_level -= 1
             else:
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + "type: " + str(openapi_schema_type))
-                if is_datetime(element, typedefs_dict) == True:
+                if is_datetime(element) == True:
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "format: datetime") 
                 if openapi_schema_format is not None:
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "format: " + openapi_schema_format)   
@@ -849,7 +850,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
 
             current_camelcase_path = ''
 
-            if yang_data_nodes_list.count(str(element.arg)) > 1:
+            if (yang_data_nodes_list.count(str(element.arg))) > 1 or (str(element.arg) == 'type'):
                 current_camelcase_path = camelcase_entity_path + str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize()))
             else:
                 current_camelcase_path = str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize()))
@@ -893,7 +894,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                 depth_level -= 1
             else:
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + "type: " + str(openapi_schema_type))
-                if is_datetime(element, typedefs_dict) == True:
+                if is_datetime(element) == True:
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "format: datetime") 
                 if openapi_schema_format is not None:
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "format: " + openapi_schema_format)
@@ -915,22 +916,59 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
         ### --- ###
 
         ### NGSI-LD YANG IDENTITY IDENTIFICATION ###
-        '''
+        
         elif (is_yang_identity(element, typedefs_dict) == True) and (is_deprecated(element) == False):
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + camelcase_element_arg + ' ' + '=' + ' ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + camelcase_element_arg + ' is not None and len(' + camelcase_element_arg + ') != 0:')
-            #ngsi_ld_type = yang_to_ngsi_ld_types_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1], typedefs_dict)
-            #text_format = element_text_type_formatting(ngsi_ld_type, 'element_text')
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'element_text = ' + camelcase_element_arg)
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if element_text is not None:')
-            if (str(element.arg) == 'type'):
-                yang_identity_name = str(element.parent.arg) + str(element.arg).capitalize()
+            depth_level = 2
+            
+            '''
+            current_camelcase_path = ''
+
+            if yang_data_nodes_list.count(str(element.arg)) > 1:
+                current_camelcase_path = camelcase_entity_path + str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize()))
             else:
-                yang_identity_name = str(element.arg)
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"] = {}')
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"][\"type\"] = \"Relationship\"')
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"][\"object\"] = \"urn:ngsi-ld:YANGIdentity:\" + element_text')
-        '''
+                current_camelcase_path = str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize()))
+            '''
+
+            yang_identity_name = ''
+
+            if (yang_data_nodes_list.count(str(element.arg)) > 1) or (str(element.arg) == 'type'):
+                yang_identity_name = str(element.parent.arg).capitalize() + str(element.arg).capitalize()
+            else:
+                yang_identity_name = str(element.arg).capitalize()
+
+            openapi_schema_type = yang_to_openapi_schemas_types_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1], typedefs_dict)
+            #openapi_schema_format = yang_to_openapi_schemas_formats_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1])
+
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + yang_identity_name + ":")
+            depth_level += 1
+            
+            #description_yaml = {'description': str(element.search_one('description').arg)}
+            #fd.write('\n' + INDENTATION_BLOCK * depth_level + yaml.dump(description_yaml, default_flow_style=False))
+                    
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
+            depth_level += 1
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
+            depth_level -= 1
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + "additionalProperties: false")
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
+            depth_level += 1
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + "- $ref: \'" + OPENAPI_URL + "#/components/schemas/Relationship\'")
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + "- type: object")
+            depth_level += 1
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + "properties:")
+            depth_level += 1
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + "object:")
+            depth_level += 1
+
+            if str(openapi_schema_type) == "string":
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + "type: " + "string")
+
+            depth_level -= 2
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + "required:")
+            depth_level += 1
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + "- object")
+            depth_level -= 4
+            
         ### --- ###
     
     ### --- ###
@@ -965,7 +1003,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
 
     # Get all data nodes for the evaluated YANG modules
     yang_data_nodes_list = []
-    full_yang_data_nodes_list = []
+    #full_yang_data_nodes_list = []
     for module in modules:
         elements = module.i_children
         if (elements is not None):
@@ -985,6 +1023,139 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                 if (element is not None) and (element.keyword in statements.data_definition_keywords):
                     generate_schemas(element, None, None, None, list(), depth_level, typedefs_dict, None, list(), typedefs_pattern_dict, yang_data_nodes_list)
     
+    
+    depth_level = 2
+
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "YANGIdentity:")
+    depth_level += 1
+
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: A representation schema for YANG Identities.")
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- $ref: \'" + OPENAPI_URL + "#/components/schemas/Entity\'")
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- type: object")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "properties:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "type:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: NGSI-LD Entity identifier. It has to be YANGIdentity.")
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "type: string")
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "enum:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- YANGIdentity")
+    depth_level -= 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "default: YANGIdentity")
+    depth_level -= 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "description:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "$ref: \'#/components/schemas/YANGIdentityDescription\'")
+    depth_level -= 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "identifier:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "$ref: \'#/components/schemas/YANGIdentityIdentifier\'")
+    depth_level -= 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "namespace:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "$ref: \'#/components/schemas/YANGIdentityNamespace\'")
+    depth_level -= 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "broader:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "$ref: \'#/components/schemas/YANGIdentityBroader\'")
+    depth_level -= 3
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- required:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- type")
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- description")
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- identifier")
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- namespace")
+
+    depth_level = 2
+
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "YANGIdentityDescription:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: NGSI-LD Relationship Type. YANG Identity description.")
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "additionalProperties: false")
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- $ref: \'" + OPENAPI_URL + "#/components/schemas/Property\'")
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- type: object")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "properties:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "value:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "type: string")
+    depth_level -= 2
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "required:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- value")
+
+    depth_level = 2
+
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "YANGIdentityIdentifier:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: NGSI-LD Relationship Type. YANG Identity identifier.")
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "additionalProperties: false")
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- $ref: \'" + OPENAPI_URL + "#/components/schemas/Property\'")
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- type: object")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "properties:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "value:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "type: string")
+    depth_level -= 2
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "required:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- value")
+
+    depth_level = 2
+
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "YANGIdentityNamespace:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: NGSI-LD Relationship Type. YANG Identity namespace.")
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "additionalProperties: false")
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- $ref: \'" + OPENAPI_URL + "#/components/schemas/Property\'")
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- type: object")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "properties:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "value:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "type: string")
+    depth_level -= 2
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "required:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- value")
+    
+    depth_level = 2
+
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "YANGIdentityBroader:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: NGSI-LD Relationship Type. The relationship to the base YANG Identity.")
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "additionalProperties: false")
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- $ref: \'" + OPENAPI_URL + "#/components/schemas/Relationship\'")
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- type: object")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "properties:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "object:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "type: string")
+    depth_level -= 2
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "required:")
+    depth_level += 1
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- object")
+
+    depth_level = 2
+    
     fd.write('\n' + INDENTATION_BLOCK * depth_level + "IsPartOf:")
     depth_level += 1
     fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: NGSI-LD Relationship Type. A hierarchical relationship.")
@@ -1003,6 +1174,5 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
     fd.write('\n' + INDENTATION_BLOCK * depth_level + "required:")
     depth_level += 1
     fd.write('\n' + INDENTATION_BLOCK * depth_level + "- object")
-    depth_level -= 4
 
     fd.close()
