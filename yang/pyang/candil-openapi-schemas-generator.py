@@ -821,6 +821,9 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                 for element_enum in element_enums:
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + str(element_enum.arg))
                 depth_level -= 1
+
+                if element.search_one('default') is not None:
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "default: " + str(element.search_one('default').arg))
             else:
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + "type: " + str(openapi_schema_type))
                 if is_datetime(element) == True:
@@ -892,6 +895,9 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                 for element_enum in element_enums:
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + str(element_enum.arg))
                 depth_level -= 1
+
+                if element.search_one('default') is not None:
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "default: " + str(element.search_one('default').arg))
             else:
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + "type: " + str(openapi_schema_type))
                 if is_datetime(element) == True:
@@ -962,6 +968,9 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
 
             if str(openapi_schema_type) == "string":
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + "type: " + "string")
+            
+            if element.search_one('default') is not None:
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + "default: urn:ngsi-ld:YANGIdentity:" + str(element.search_one('default').arg))
 
             depth_level -= 2
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "required:")

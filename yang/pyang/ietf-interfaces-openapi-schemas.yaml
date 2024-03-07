@@ -131,8 +131,7 @@ components:
             value:
               type: string
           required:
-            - valueCHACHO
-
+            - value
     InterfaceType:
       description: |
         The type of the interface.

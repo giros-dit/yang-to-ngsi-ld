@@ -112,8 +112,7 @@ components:
             value:
               type: string
           required:
-            - valueCHACHO
-
+            - value
     ConfigType:
       description: |
         The type of the interface.
@@ -227,8 +226,7 @@ components:
               type: boolean
               default: true
           required:
-            - valueCHACHO
-
+            - value
     ConfigTpid:
       description: |
         Optionally set the tag protocol identifier field (TPID) that
@@ -240,6 +238,7 @@ components:
           properties:
             object:
               type: string
+              default: urn:ngsi-ld:YANGIdentity:oc-vlan-types:TPID_0X8100
           required:
             - object
     InterfaceState:
@@ -327,8 +326,7 @@ components:
             value:
               type: string
           required:
-            - valueCHACHO
-
+            - value
     StateType:
       description: |
         The type of the interface.
@@ -878,8 +876,7 @@ components:
             value:
               type: integer
           required:
-            - valueCHACHO
-
+            - value
     StateTpid:
       description: |
         Optionally set the tag protocol identifier field (TPID) that
@@ -891,6 +888,7 @@ components:
           properties:
             object:
               type: string
+              default: urn:ngsi-ld:YANGIdentity:oc-vlan-types:TPID_0X8100
           required:
             - object
     InterfaceHoldTimeConfig:
@@ -2380,6 +2378,7 @@ components:
                 - DISABLE
                 - REMOTE_ONLY
                 - ALL
+              default: DISABLE
           required:
             - value
     InterfaceSubinterfacesSubinterfaceIpv4ProxyArpState:
@@ -2423,6 +2422,7 @@ components:
                 - DISABLE
                 - REMOTE_ONLY
                 - ALL
+              default: DISABLE
           required:
             - value
     InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor:
@@ -4724,8 +4724,7 @@ components:
                 - FULL
                 - HALF
           required:
-            - valueCHACHO
-
+            - value
     ConfigPort-speed:
       description: |
         When auto-negotiate is TRUE, this optionally sets the
@@ -4862,8 +4861,7 @@ components:
                 - FULL
                 - HALF
           required:
-            - valueCHACHO
-
+            - value
     StatePort-speed:
       description: |
         When auto-negotiate is TRUE, this optionally sets the
@@ -4932,8 +4930,7 @@ components:
                 - FULL
                 - HALF
           required:
-            - valueCHACHO
-
+            - value
     Negotiated-port-speed:
       description: |
         When auto-negotiate is set to TRUE, and the interface has
@@ -6290,6 +6287,7 @@ components:
                 - DISABLE
                 - REMOTE_ONLY
                 - ALL
+              default: DISABLE
           required:
             - value
     InterfaceRoutedVlanIpv4ProxyArpState:
@@ -6333,6 +6331,7 @@ components:
                 - DISABLE
                 - REMOTE_ONLY
                 - ALL
+              default: DISABLE
           required:
             - value
     InterfaceRoutedVlanIpv4NeighborsNeighbor:
@@ -8645,6 +8644,7 @@ components:
               enum:
                 - ACTIVE
                 - SUSPENDED
+              default: ACTIVE
           required:
             - value
     VlanState:
@@ -8708,6 +8708,7 @@ components:
               enum:
                 - ACTIVE
                 - SUSPENDED
+              default: ACTIVE
           required:
             - value
     VlanMembersMember:
