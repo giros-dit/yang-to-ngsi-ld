@@ -131,7 +131,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                 return element_arg
             if (element_keyword == 'container') or (element_keyword == 'list'):
                 return re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element_arg.capitalize())
-            if (element_keyword == 'leaf') or (element_keyword == 'leaf-list') or (element_keyword == 'choice'):
+            if (element_keyword == 'leaf') or (element_keyword == 'leaf-list') or (element_keyword == 'choice') or (element_keyword == 'case'):
                 return re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element_arg)
     
     def typedefs_discovering(modules) -> dict:
@@ -755,12 +755,15 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
             if (cases is not None):
                 for case in cases:
                     if (case is not None) and (case.keyword in statements.data_definition_keywords) and (str(case.keyword) == "case"):
-                        #camelcase_subelement_arg = to_camelcase(str(subelement.keyword), str(subelement.arg))
-                        #fd.write('\n' + INDENTATION_BLOCK * depth_level + camelcase_subelement_arg + ":")
-                        #depth_level += 1
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level +  "- $ref: \'#/components/schemas/" + current_camelcase_path + "\'")
-                        #fd.write('\n' + INDENTATION_BLOCK * depth_level +  "- $ref: \'#/components/schemas/" + re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), case.arg.capitalize()) + "\'")
-                        #depth_level -= 1
+                        choice_camelcase_path = ''
+
+                        if (yang_data_nodes_list.count(str(case.arg)) > 1) or (str(case.arg) == 'type'):
+                            choice_camelcase_path = current_camelcase_path + str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), case.arg.capitalize()))
+                        else:
+                            choice_camelcase_path = str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), case.arg.capitalize()))
+
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level +  "- $ref: \'#/components/schemas/" + choice_camelcase_path + "\'")
+
             depth_level -= 1
             if (cases is not None):
                 for case in cases:

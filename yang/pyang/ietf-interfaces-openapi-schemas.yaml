@@ -784,8 +784,8 @@ components:
         if the server supports non-contiguous netmasks, as
         a netmask.
       oneOf:
-        - $ref: '#/components/schemas/Subnet'
-        - $ref: '#/components/schemas/Subnet'
+        - $ref: '#/components/schemas/SubnetPrefixLength'
+        - $ref: '#/components/schemas/Netmask'
     SubnetPrefixLength:
       description: |
         The length of the subnet prefix.
