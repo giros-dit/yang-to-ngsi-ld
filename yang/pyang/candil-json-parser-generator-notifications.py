@@ -1,11 +1,11 @@
 '''
-pyang plugin -- CANDIL JSON Parser Generator for gNMI Subscriptions RPCs.
+pyang plugin -- CANDIL JSON Parser Generator for telemetry notifications received from a gNMI Subscription RPC.
 
 Given one or several YANG modules, it dynamically generates the code of an JSON parser
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 0.0.2.
+Version: 0.1.0.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -391,7 +391,6 @@ def generate_python_json_parser_code(ctx, modules, fd):
         
         ### ENCLOSING CONTAINER IDENTIFICATION ###
         if (is_enclosing_container(element) == True) and (is_deprecated(element) == False):
-            #print("Element " + str(element) + " is enclosing container.")
             subelements = element.i_children
             first_subelement = True
             if (subelements is not None):
@@ -471,12 +470,17 @@ def generate_python_json_parser_code(ctx, modules, fd):
                         depth_level += 1
                         actual_position = position
                         position += 1
-
-                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + 'dict_buffer = {}')
-                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if len(parent_path) - 1 == ' + str(position-1) + " or len(parent_path) - 1 == " + str(position) + ":")
-                    #depth_level += 1
+                        
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer = {}')
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\"')
+
+                    if element.search_one('key') != None:
+                        #fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if iteration_key == \"' + str(current_path + element.search_one('key').arg) + '\"' + ':')
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if iteration_key.get(\"' + str(current_path + element.search_one('key').arg) + '\"' + '):')
+                        depth_level += 1
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\" + str(iteration_key)')
+                        depth_level -= 1
+
+                    ###fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\"')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"type\"] = \"' + current_camelcase_path + '\"')
                     depth_level -= 1
                     subelements = element.i_children
@@ -492,9 +496,17 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     actual_position = position
                     position += 1      
                     depth_level += 1 
-
+                        
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer = {}')
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\"')
+                    ###
+                    if element.search_one('key') != None:
+                        #fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if iteration_key == \"' + str(current_path + element.search_one('key').arg) + '\"' + ':')
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if iteration_key.get(\"' + str(current_path + element.search_one('key').arg) + '\"' + '):')
+                        depth_level += 1
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\" + iteration_key.get(\"' + str(current_path + element.search_one('key').arg) + '\"' + ')')
+                        depth_level -= 1
+                    ### 
+                    ###fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\"')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"type\"] = \"' + current_camelcase_path + '\"')
                     depth_level -= 1
                     subelements = element.i_children
@@ -529,9 +541,18 @@ def generate_python_json_parser_code(ctx, modules, fd):
                         actual_position = position
                         position += 1 
 
-                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + 'dict_buffer = {}')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer = {}')
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_')+ 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\" + iteration_key') # + 'dict_buffer[\"id\"].split(\":\")[-1]') 
+
+                    if element.search_one('key') != None:
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if iteration_key.get(\"' + str(current_path + element.search_one('key').arg) + '\"' + '):')
+                        depth_level += 1
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\" + iteration_key')
+                        depth_level -= 1
+                    else:
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\" + ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]')
+                    
+                    ###fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_')+ 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\" + iteration_key') # + 'dict_buffer[\"id\"].split(\":\")[-1]') 
+                    
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"type\"] = \"' + current_camelcase_path + '\"')
                     
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if len(parent_path) - 1 == ' + str(actual_position) + " or len(parent_path) - 1 == " + str(actual_position + 1) + ":")
@@ -559,7 +580,16 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     position += 1
 
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer = {}')
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\" + iteration_key') # + 'dict_buffer[\"id\"].split(\":\")[-1]')
+
+                    if element.search_one('key') != None:
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if iteration_key.get(\"' + str(current_path + element.search_one('key').arg) + '\"' + '):')
+                        depth_level += 1
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\" + iteration_key')
+                        depth_level -= 1
+                    else:
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\" + ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]')
+ 
+                    ###fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\" + iteration_key') # + 'dict_buffer[\"id\"].split(\":\")[-1]')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"type\"] = \"' + current_camelcase_path + '\"')
                     
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if len(parent_path) - 1 == ' + str(actual_position) + " or len(parent_path) - 1 == " + str(actual_position + 1) + ":")
@@ -611,14 +641,13 @@ def generate_python_json_parser_code(ctx, modules, fd):
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] = ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] + ' + text_format)
             if ('index'.casefold() == str(element.arg)):
                 text_format = str(text_format)
-                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if ' + '\".\"' + ' + str(element_text) not in ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]:') #+ ' != element_text:')  
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if ' + '\".\"' + ' + str(element_text) not in ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]:')
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] = ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] + ' + '\".\"' + ' + str(element_text)')
             
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Property\"')
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"value\"] = ' + text_format)
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"observedAt\"] = observed_at')
-
         ### --- ###
         
         ### NGSI-LD RELATIONSHIP IDENTIFICATION ###
@@ -663,12 +692,12 @@ def generate_python_json_parser_code(ctx, modules, fd):
             if ('interface'.casefold() == str(element.arg) or 'subinterface'.casefold() == str(element.arg)):
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + entity_path.replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + entity_path.replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Relationship\"')
-                fd.write('\n' + INDENTATION_BLOCK * depth_level + entity_path.replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + matches[0] + ':\" + iteration_key') # + 'dict_buffer[\"id\"].split(\":\")[-1]')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + entity_path.replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + matches[0] + ':\" + ' + entity_path.replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]') # iteration_key') 
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + entity_path.replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"observedAt\"] = observed_at')
             else:
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Relationship\"')
-                fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + matches[0] + ':\" + iteration_key') # + 'dict_buffer[\"id\"].split(\":\")[-1]')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + matches[0] + ':\" + ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]') # iteration_key') 
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"observedAt\"] = observed_at')
         ### --- ###
 
@@ -716,7 +745,9 @@ def generate_python_json_parser_code(ctx, modules, fd):
     fd.write('\n' + INDENTATION_BLOCK + INDENTATION_BLOCK + "values.append(value)")    
     fd.write('\n' + INDENTATION_BLOCK + INDENTATION_BLOCK + "for i_key, i_value in item[\'tags\'].items():")
     fd.write('\n' + INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + "if i_key != \'source\' and i_key != \'subscription-name\':")
-    fd.write('\n' + INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + "iteration_keys.append(i_value)")
+    fd.write('\n' + INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + "iteration_key = {}")
+    fd.write('\n' + INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + "iteration_key[" + 'i_key' + "] = " + 'i_value')
+    fd.write('\n' + INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + "iteration_keys.append(iteration_key)")
 
     fd.write('\n')
 

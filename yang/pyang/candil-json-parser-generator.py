@@ -1,5 +1,5 @@
 '''
-pyang plugin -- CANDIL JSON Parser Generator.
+pyang plugin -- CANDIL JSON Parser Generator for operational status and configuration information received from a gNMI Query RPC.
 
 Given one or several YANG modules, it dynamically generates the code of an JSON parser
 that is able to read data modeled by these modules and is also capable of creating
