@@ -96,9 +96,7 @@ services:
     restart: always
 
   ncclient-collector-1:
-    build:
-      context: ./docker/ncclient-collector/
-      dockerfile: Dockerfile
+    image: latency-tests-ncclient-collector:latest
     hostname: ncclient-collector-1
     container_name: ncclient-collector-1
     command: ["python3", "-u", "/opt/ncclient-collector/ncclient-collector-kafka.py", "clab-telemetry-ixiac-lab-r1", "GigabitEthernet2", "1000"]
@@ -109,9 +107,7 @@ services:
         condition: service_healthy
 
   ncclient-collector-2:
-    build:
-      context: ./docker/ncclient-collector/
-      dockerfile: Dockerfile
+    image: latency-tests-ncclient-collector:latest
     hostname: ncclient-collector-2
     container_name: ncclient-collector-2
     command: ["python3", "-u", "/opt/ncclient-collector/ncclient-collector-kafka.py", "clab-telemetry-ixiac-lab-r1", "GigabitEthernet3", "1000"]
@@ -122,9 +118,7 @@ services:
         condition: service_healthy
 
   ncclient-collector-3:
-    build:
-      context: ./docker/ncclient-collector/
-      dockerfile: Dockerfile
+    image: latency-tests-ncclient-collector:latest
     hostname: ncclient-collector-3
     container_name: ncclient-collector-3
     command: ["python3", "-u", "/opt/ncclient-collector/ncclient-collector-kafka.py", "clab-telemetry-ixiac-lab-r2", "GigabitEthernet2", "1000"]
@@ -135,9 +129,7 @@ services:
         condition: service_healthy
 
   ncclient-collector-4:
-    build:
-      context: ./docker/ncclient-collector/
-      dockerfile: Dockerfile
+    image: latency-tests-ncclient-collector:latest
     hostname: ncclient-collector-4
     container_name: ncclient-collector-4
     command: ["python3", "-u", "/opt/ncclient-collector/ncclient-collector-kafka.py", "clab-telemetry-ixiac-lab-r2", "GigabitEthernet3", "1000"]
