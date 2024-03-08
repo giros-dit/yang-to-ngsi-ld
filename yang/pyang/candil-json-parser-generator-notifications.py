@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an JSON 
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 0.0.1.
+Version: 0.0.2.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -133,6 +133,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
 
     BASE_IMPORT_STATEMENTS = [
         'import json\n',
+        'import numpy as np\n',
         'from collections import defaultdict'
     ]
 
@@ -157,7 +158,9 @@ def generate_python_json_parser_code(ctx, modules, fd):
         'iteration_keys = []\n',
         '\n',
         'with open(json_payload) as f:\n',
-        INDENTATION_BLOCK + 'data = json.load(f)',
+        INDENTATION_BLOCK + 'data = json.load(f)\n',
+        INDENTATION_BLOCK + 'timestamp_data = int(data[0]["timestamp"])\n',
+        INDENTATION_BLOCK + 'observed_at = str(np.datetime64(timestamp_data, \'ns\'))'
         #INDENTATION_BLOCK + 'json_data = data[0]["values"]',
         #INDENTATION_BLOCK + 'tags = data[0]["tags"]',
     ]
@@ -170,7 +173,8 @@ def generate_python_json_parser_code(ctx, modules, fd):
             'while True:\n',
             INDENTATION_BLOCK + 'for message in consumer:\n',
             2 * INDENTATION_BLOCK + 'json_payload = str(message.value.decode(\'utf-8\'))\n',
-            2 * INDENTATION_BLOCK + 'data = json_payload[0]["values"]',
+            2 * INDENTATION_BLOCK + 'timestamp_data = int(json_payload[0]["timestamp"])\n',
+            2 * INDENTATION_BLOCK + 'observed_at = str(np.datetime64(timestamp_data, \'ns\'))'
         ]
         
     WRITING_COMBINED_BUFFER = [
@@ -182,8 +186,6 @@ def generate_python_json_parser_code(ctx, modules, fd):
         INDENTATION_BLOCK + 'else:\n',
         2 * INDENTATION_BLOCK + 'dict_buffer_combinated[key].update(dict_buffer)\n',
         'dict_buffers = list(dict_buffer_combinated.values())\n'
-        #for resulted_dict_buffer in resulted_dict_buffers:
-        #print(resulted_dict_buffer)
     ]
 
     WRITING_INSTRUCTIONS_PRINT = [
@@ -331,6 +333,16 @@ def generate_python_json_parser_code(ctx, modules, fd):
             result = True
         return result
     
+    def is_choice(element) -> bool:
+        '''
+        Auxiliary function.
+        Checks if an element is a YANG choice.
+        '''
+        result = False
+        if (element.keyword == 'choice'):
+            result = True
+        return result
+    
     def is_property(element, typedefs_dict: dict) -> bool:
         '''
         Auxiliary function.
@@ -354,21 +366,6 @@ def generate_python_json_parser_code(ctx, modules, fd):
             element_type = str(element.search_one('type')).replace('type ', '').split(':')[-1]
             if (element_type == 'leafref') or \
                 ((typedefs_dict.get(element_type) is not None) and ('ref' in typedefs_dict.get(element_type))):
-                result = True
-        return result
-
-    def is_yang_identity(element, typedefs_dict: dict) -> bool:
-        '''
-        Auxiliary function.
-        Checks if an element matches the YANG to NGSI-LD translation convention for a YANG Identity.
-        NOTE: YANG Identities are NGSI-LD Entities, but since they are either leaf-lists or leaves, they
-        have no children, and therefore they are processed differently.
-        '''
-        result = False
-        if (element.keyword in ['leaf-list', 'leaf']):
-            element_type = str(element.search_one('type')).replace('type ', '').split(':')[-1]
-            if (element_type == 'identityref') or \
-                ((typedefs_dict.get(element_type) is not None) and (typedefs_dict.get(element_type) == 'identityref')):
                 result = True
         return result
 
@@ -543,6 +540,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"] = {}')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"type\"] = \"Relationship\"')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"object\"] = ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') +  'dict_buffer[\"id\"]')
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"observedAt\"] = observed_at')
                     
                     subelements = element.i_children
                     if (subelements is not None):
@@ -570,6 +568,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"] = {}')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"type\"] = \"Relationship\"')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"object\"] = ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"]')
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"observedAt\"] = observed_at')
                     
                     subelements = element.i_children
                     if (subelements is not None):
@@ -581,6 +580,26 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'dict_buffers.append(' + current_path.replace('-', '_') + 'dict_buffer)')
         ### --- ###
 
+        ### YANG CHOICE IDENTIFICATION: IT CONTAINS NGSI-LD PROPERTIES ###
+        elif (is_choice(element) == True) and (is_deprecated(element) == False):
+            current_path = current_path.replace(str(element.arg) + '_', '')
+            '''
+            Children of "choice" elements are "case" subelements.
+            These subelements have "leaf" or "leaf-list" children, which match
+            for NGSI-LD properties. Therefore, we need to deep dive two times in the
+            element tree.
+            '''
+            subelements = element.i_children
+            if (subelements is not None):
+                for subelement in subelements:
+                    if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
+                        subelements = subelement.i_children
+                        if (subelements is not None):
+                            for subelement in subelements:
+                                if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
+                                    generate_parser_code(subelement, parent_element_arg, current_path, camelcase_entity_path, camelcase_entity_list, depth_level, typedefs_dict)
+        ### --- ###
+                                    
         ### NGSI-LD PROPERTY IDENTIFICATION ###
         elif (is_property(element, typedefs_dict) == True) and (is_deprecated(element) == False):
             fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if child_node == "' + str(element.arg) + '":')
@@ -598,6 +617,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Property\"')
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"value\"] = ' + text_format)
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"observedAt\"] = observed_at')
 
         ### --- ###
         
@@ -644,30 +664,14 @@ def generate_python_json_parser_code(ctx, modules, fd):
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + entity_path.replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + entity_path.replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Relationship\"')
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + entity_path.replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + matches[0] + ':\" + iteration_key') # + 'dict_buffer[\"id\"].split(\":\")[-1]')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + entity_path.replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"observedAt\"] = observed_at')
             else:
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Relationship\"')
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + matches[0] + ':\" + iteration_key') # + 'dict_buffer[\"id\"].split(\":\")[-1]')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"observedAt\"] = observed_at')
         ### --- ###
 
-        ### NGSI-LD YANG IDENTITY IDENTIFICATION ###
-        '''
-        elif (is_yang_identity(element, typedefs_dict) == True) and (is_deprecated(element) == False):
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + camelcase_element_arg + ' ' + '=' + ' ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + camelcase_element_arg + ' is not None and len(' + camelcase_element_arg + ') != 0:')
-            #ngsi_ld_type = yang_to_ngsi_ld_types_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1], typedefs_dict)
-            #text_format = element_text_type_formatting(ngsi_ld_type, 'element_text')
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'element_text = ' + camelcase_element_arg)
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if element_text is not None:')
-            if (str(element.arg) == 'type'):
-                yang_identity_name = str(element.parent.arg) + str(element.arg).capitalize()
-            else:
-                yang_identity_name = str(element.arg)
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"] = {}')
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"][\"type\"] = \"Relationship\"')
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"][\"object\"] = \"urn:ngsi-ld:YANGIdentity:\" + element_text')
-        '''
-        ### --- ###
     
     ### --- ###
 

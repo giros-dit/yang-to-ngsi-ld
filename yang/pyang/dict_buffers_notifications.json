@@ -4,63 +4,78 @@
         "type": "InterfaceStateCounters",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/1"
+            "object": "urn:ngsi-ld:InterfaceState:ethernet-1/1",
+            "observedAt": "2024-02-29T12:08:59.332762572"
         },
         "carrierTransitions": {
             "type": "Property",
-            "value": 1
+            "value": 1,
+            "observedAt": "2024-02-29T12:08:59.332762572"
         },
         "inBroadcastPkts": {
             "type": "Property",
-            "value": 0
+            "value": 0,
+            "observedAt": "2024-02-29T12:08:59.332762572"
         },
         "inDiscards": {
             "type": "Property",
-            "value": 10
+            "value": 10,
+            "observedAt": "2024-02-29T12:08:59.332762572"
         },
         "inErrors": {
             "type": "Property",
-            "value": 0
+            "value": 0,
+            "observedAt": "2024-02-29T12:08:59.332762572"
         },
         "inFcsErrors": {
             "type": "Property",
-            "value": 0
+            "value": 0,
+            "observedAt": "2024-02-29T12:08:59.332762572"
         },
         "inMulticastPkts": {
             "type": "Property",
-            "value": 4
+            "value": 4,
+            "observedAt": "2024-02-29T12:08:59.332762572"
         },
         "inOctets": {
             "type": "Property",
-            "value": 1686
+            "value": 1686,
+            "observedAt": "2024-02-29T12:08:59.332762572"
         },
         "inUnicastPkts": {
             "type": "Property",
-            "value": 0
+            "value": 0,
+            "observedAt": "2024-02-29T12:08:59.332762572"
         },
         "outBroadcastPkts": {
             "type": "Property",
-            "value": 5
+            "value": 5,
+            "observedAt": "2024-02-29T12:08:59.332762572"
         },
         "outDiscards": {
             "type": "Property",
-            "value": 0
+            "value": 0,
+            "observedAt": "2024-02-29T12:08:59.332762572"
         },
         "outErrors": {
             "type": "Property",
-            "value": 0
+            "value": 0,
+            "observedAt": "2024-02-29T12:08:59.332762572"
         },
         "outMulticastPkts": {
             "type": "Property",
-            "value": 3
+            "value": 3,
+            "observedAt": "2024-02-29T12:08:59.332762572"
         },
         "outOctets": {
             "type": "Property",
-            "value": 762
+            "value": 762,
+            "observedAt": "2024-02-29T12:08:59.332762572"
         },
         "outUnicastPkts": {
             "type": "Property",
-            "value": 0
+            "value": 0,
+            "observedAt": "2024-02-29T12:08:59.332762572"
         }
     }
 ]
