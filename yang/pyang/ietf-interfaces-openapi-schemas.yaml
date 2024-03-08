@@ -375,6 +375,7 @@ components:
               $ref: '#/components/schemas/OutErrors'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -686,6 +687,7 @@ components:
               $ref: '#/components/schemas/InterfaceIpv4Mtu'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -761,6 +763,7 @@ components:
               $ref: '#/components/schemas/InterfaceIpv4AddressOrigin'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceIpv4.
         - required:
           - type
           - isPartOf
@@ -857,6 +860,7 @@ components:
               $ref: '#/components/schemas/InterfaceIpv4NeighborOrigin'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceIpv4.
         - required:
           - type
           - isPartOf
@@ -926,6 +930,7 @@ components:
               $ref: '#/components/schemas/DupAddrDetectTransmits'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -1003,6 +1008,7 @@ components:
               $ref: '#/components/schemas/Status'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceIpv6.
         - required:
           - type
           - isPartOf
@@ -1105,6 +1111,7 @@ components:
               $ref: '#/components/schemas/State'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceIpv6.
         - required:
           - type
           - isPartOf
@@ -1227,6 +1234,7 @@ components:
               $ref: '#/components/schemas/TemporaryPreferredLifetime'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceIpv6.
         - required:
           - type
           - isPartOf

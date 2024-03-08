@@ -53,7 +53,7 @@ components:
             name:
               $ref: '#/components/schemas/InterfaceConfigName'
             configType:
-              $ref: '#/components/schemas/ConfigType'
+              $ref: '#/components/schemas/InterfaceConfigType'
             mtu:
               $ref: '#/components/schemas/InterfaceConfigMtu'
             loopbackMode:
@@ -66,6 +66,7 @@ components:
               $ref: '#/components/schemas/InterfaceConfigTpid'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -113,7 +114,7 @@ components:
               type: string
           required:
             - value
-    ConfigType:
+    InterfaceConfigType:
       description: |
         The type of the interface.
         
@@ -227,7 +228,7 @@ components:
               default: true
           required:
             - value
-    ConfigTpid:
+    InterfaceConfigTpid:
       description: |
         Optionally set the tag protocol identifier field (TPID) that
         is accepted on the VLAN
@@ -257,7 +258,7 @@ components:
             name:
               $ref: '#/components/schemas/InterfaceStateName'
             stateType:
-              $ref: '#/components/schemas/StateType'
+              $ref: '#/components/schemas/InterfaceStateType'
             mtu:
               $ref: '#/components/schemas/InterfaceStateMtu'
             loopbackMode:
@@ -278,6 +279,7 @@ components:
               $ref: '#/components/schemas/InterfaceStateTpid'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -327,7 +329,7 @@ components:
               type: string
           required:
             - value
-    StateType:
+    InterfaceStateType:
       description: |
         The type of the interface.
         
@@ -560,6 +562,7 @@ components:
               $ref: '#/components/schemas/InterfaceStateCountersLastClear'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceState.
         - required:
           - type
           - isPartOf
@@ -877,7 +880,7 @@ components:
               type: integer
           required:
             - value
-    StateTpid:
+    InterfaceStateTpid:
       description: |
         Optionally set the tag protocol identifier field (TPID) that
         is accepted on the VLAN
@@ -910,6 +913,7 @@ components:
               $ref: '#/components/schemas/InterfaceHoldTimeConfigDown'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -962,6 +966,7 @@ components:
               $ref: '#/components/schemas/InterfaceHoldTimeStateDown'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -1013,6 +1018,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIndex'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -1050,6 +1056,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceConfigEnabled'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterfacesSubinterface.
         - required:
           - type
           - isPartOf
@@ -1160,6 +1167,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceStateLastChange'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterfacesSubinterface.
         - required:
           - type
           - isPartOf
@@ -1375,6 +1383,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceStateCountersLastClear'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterfacesSubinterfaceState.
         - required:
           - type
           - isPartOf
@@ -1709,6 +1718,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceVlanConfigVlanId'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterface.
         - required:
           - type
           - isPartOf
@@ -1744,6 +1754,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceVlanStateVlanId'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterface.
         - required:
           - type
           - isPartOf
@@ -1779,6 +1790,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressIp'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterface.
         - required:
           - type
           - isPartOf
@@ -1814,6 +1826,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfigPrefixLength'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress.
         - required:
           - type
           - isPartOf
@@ -1864,6 +1877,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressStateOrigin'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress.
         - required:
           - type
           - isPartOf
@@ -1928,6 +1942,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressVrrpVrrpGroupVirtualRouterId'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterfaceAddress.
         - required:
           - type
           - isPartOf
@@ -1973,6 +1988,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressVrrpVrrpGroupConfigAdvertisementInterval'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressVrrpVrrpGroup.
         - required:
           - type
           - isPartOf
@@ -2109,6 +2125,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressVrrpVrrpGroupStateCurrentPriority'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressVrrpVrrpGroup.
         - required:
           - type
           - isPartOf
@@ -2246,6 +2263,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressVrrpVrrpGroupInterfaceTrackingConfigPriorityDecrement'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterfaceAddressVrrp-group.
         - required:
           - type
           - isPartOf
@@ -2301,6 +2319,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressVrrpVrrpGroupInterfaceTrackingStatePriorityDecrement'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterfaceAddressVrrp-group.
         - required:
           - type
           - isPartOf
@@ -2354,6 +2373,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv4ProxyArpConfigMode'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterface.
         - required:
           - type
           - isPartOf
@@ -2398,6 +2418,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv4ProxyArpStateMode'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterface.
         - required:
           - type
           - isPartOf
@@ -2446,6 +2467,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborIp'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterface.
         - required:
           - type
           - isPartOf
@@ -2481,6 +2503,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborConfigLinkLayerAddress'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor.
         - required:
           - type
           - isPartOf
@@ -2533,6 +2556,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborStateOrigin'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor.
         - required:
           - type
           - isPartOf
@@ -2596,6 +2620,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv4UnnumberedConfigEnabled'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterface.
         - required:
           - type
           - isPartOf
@@ -2631,6 +2656,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv4UnnumberedStateEnabled'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterface.
         - required:
           - type
           - isPartOf
@@ -2668,6 +2694,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv4UnnumberedInterfaceRefConfigSubinterface'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterface.
         - required:
           - type
           - isPartOf
@@ -2719,6 +2746,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv4UnnumberedInterfaceRefStateSubinterface'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterface.
         - required:
           - type
           - isPartOf
@@ -2772,6 +2800,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv4ConfigDhcpClient'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterface.
         - required:
           - type
           - isPartOf
@@ -2845,6 +2874,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv4StateDhcpClient'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterface.
         - required:
           - type
           - isPartOf
@@ -2937,6 +2967,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv4StateCountersOutDiscardedPkts'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterfacesSubinterfaceIpv4State.
         - required:
           - type
           - isPartOf
@@ -3135,6 +3166,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressIp'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterface.
         - required:
           - type
           - isPartOf
@@ -3170,6 +3202,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressConfigPrefixLength'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterfacesSubinterfaceIpv6AddressesAddress.
         - required:
           - type
           - isPartOf
@@ -3223,6 +3256,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressStateStatus'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterfacesSubinterfaceIpv6AddressesAddress.
         - required:
           - type
           - isPartOf
@@ -3310,6 +3344,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressVrrpVrrpGroupVirtualRouterId'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterfaceAddress.
         - required:
           - type
           - isPartOf
@@ -3357,6 +3392,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressVrrpVrrpGroupConfigVirtualLinkLocal'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressVrrpVrrpGroup.
         - required:
           - type
           - isPartOf
@@ -3508,6 +3544,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressVrrpVrrpGroupStateVirtualLinkLocal'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressVrrpVrrpGroup.
         - required:
           - type
           - isPartOf
@@ -3658,6 +3695,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressVrrpVrrpGroupInterfaceTrackingConfigPriorityDecrement'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterfaceAddressVrrp-group.
         - required:
           - type
           - isPartOf
@@ -3713,6 +3751,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressVrrpVrrpGroupInterfaceTrackingStatePriorityDecrement'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterfaceAddressVrrp-group.
         - required:
           - type
           - isPartOf
@@ -3771,6 +3810,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv6RouterAdvertisementConfigSuppress'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterface.
         - required:
           - type
           - isPartOf
@@ -3837,6 +3877,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv6RouterAdvertisementStateSuppress'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterface.
         - required:
           - type
           - isPartOf
@@ -3898,6 +3939,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborIp'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterface.
         - required:
           - type
           - isPartOf
@@ -3933,6 +3975,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborConfigLinkLayerAddress'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighbor.
         - required:
           - type
           - isPartOf
@@ -3989,6 +4032,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborStateNeighborState'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighbor.
         - required:
           - type
           - isPartOf
@@ -4083,6 +4127,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv6UnnumberedConfigEnabled'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterface.
         - required:
           - type
           - isPartOf
@@ -4118,6 +4163,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv6UnnumberedStateEnabled'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterface.
         - required:
           - type
           - isPartOf
@@ -4155,6 +4201,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv6UnnumberedInterfaceRefConfigSubinterface'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterface.
         - required:
           - type
           - isPartOf
@@ -4206,6 +4253,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv6UnnumberedInterfaceRefStateSubinterface'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterface.
         - required:
           - type
           - isPartOf
@@ -4261,6 +4309,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv6ConfigDhcpClient'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterface.
         - required:
           - type
           - isPartOf
@@ -4354,6 +4403,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv6StateDhcpClient'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterface.
         - required:
           - type
           - isPartOf
@@ -4464,6 +4514,7 @@ components:
               $ref: '#/components/schemas/InterfaceSubinterfacesSubinterfaceIpv6StateCountersOutDiscardedPkts'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceSubinterfacesSubinterfaceIpv6State.
         - required:
           - type
           - isPartOf
@@ -4672,6 +4723,7 @@ components:
               $ref: '#/components/schemas/InterfaceEthernetConfigAggregateId'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -4725,7 +4777,7 @@ components:
                 - HALF
           required:
             - value
-    ConfigPort-speed:
+    InterfaceEthernetConfigPort-speed:
       description: |
         When auto-negotiate is TRUE, this optionally sets the
         port-speed mode that will be advertised to the peer for
@@ -4809,6 +4861,7 @@ components:
               $ref: '#/components/schemas/InterfaceEthernetStateAggregateId'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -4862,7 +4915,7 @@ components:
                 - HALF
           required:
             - value
-    StatePort-speed:
+    InterfaceEthernetStatePort-speed:
       description: |
         When auto-negotiate is TRUE, this optionally sets the
         port-speed mode that will be advertised to the peer for
@@ -4980,6 +5033,7 @@ components:
               $ref: '#/components/schemas/Out8021qFrames'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceEthernetState.
         - required:
           - type
           - isPartOf
@@ -5144,6 +5198,7 @@ components:
               $ref: '#/components/schemas/InterfaceEthernetSwitchedVlanConfigTrunkVlans'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -5230,6 +5285,7 @@ components:
               $ref: '#/components/schemas/InterfaceEthernetSwitchedVlanStateTrunkVlans'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -5313,6 +5369,7 @@ components:
               $ref: '#/components/schemas/InterfaceAggregationConfigMinLinks'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -5370,6 +5427,7 @@ components:
               $ref: '#/components/schemas/InterfaceAggregationStateMember'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -5452,6 +5510,7 @@ components:
               $ref: '#/components/schemas/InterfaceAggregationSwitchedVlanConfigTrunkVlans'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -5538,6 +5597,7 @@ components:
               $ref: '#/components/schemas/InterfaceAggregationSwitchedVlanStateTrunkVlans'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -5618,6 +5678,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanConfigVlan'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -5653,6 +5714,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanStateVlan'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -5688,6 +5750,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv4AddressesAddressIp'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -5723,6 +5786,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv4AddressesAddressConfigPrefixLength'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceRoutedVlanIpv4AddressesAddress.
         - required:
           - type
           - isPartOf
@@ -5773,6 +5837,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv4AddressesAddressStateOrigin'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceRoutedVlanIpv4AddressesAddress.
         - required:
           - type
           - isPartOf
@@ -5837,6 +5902,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv4AddressesAddressVrrpVrrpGroupVirtualRouterId'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceAddress.
         - required:
           - type
           - isPartOf
@@ -5882,6 +5948,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv4AddressesAddressVrrpVrrpGroupConfigAdvertisementInterval'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceRoutedVlanIpv4AddressesAddressVrrpVrrpGroup.
         - required:
           - type
           - isPartOf
@@ -6018,6 +6085,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv4AddressesAddressVrrpVrrpGroupStateCurrentPriority'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceRoutedVlanIpv4AddressesAddressVrrpVrrpGroup.
         - required:
           - type
           - isPartOf
@@ -6155,6 +6223,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv4AddressesAddressVrrpVrrpGroupInterfaceTrackingConfigPriorityDecrement'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceAddressVrrp-group.
         - required:
           - type
           - isPartOf
@@ -6210,6 +6279,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv4AddressesAddressVrrpVrrpGroupInterfaceTrackingStatePriorityDecrement'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceAddressVrrp-group.
         - required:
           - type
           - isPartOf
@@ -6263,6 +6333,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv4ProxyArpConfigMode'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -6307,6 +6378,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv4ProxyArpStateMode'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -6355,6 +6427,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv4NeighborsNeighborIp'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -6390,6 +6463,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv4NeighborsNeighborConfigLinkLayerAddress'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceRoutedVlanIpv4NeighborsNeighbor.
         - required:
           - type
           - isPartOf
@@ -6442,6 +6516,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv4NeighborsNeighborStateOrigin'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceRoutedVlanIpv4NeighborsNeighbor.
         - required:
           - type
           - isPartOf
@@ -6505,6 +6580,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv4UnnumberedConfigEnabled'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -6540,6 +6616,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv4UnnumberedStateEnabled'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -6577,6 +6654,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv4UnnumberedInterfaceRefConfigSubinterface'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -6628,6 +6706,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv4UnnumberedInterfaceRefStateSubinterface'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -6681,6 +6760,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv4ConfigDhcpClient'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -6754,6 +6834,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv4StateDhcpClient'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -6846,6 +6927,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv4StateCountersOutDiscardedPkts'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceRoutedVlanIpv4State.
         - required:
           - type
           - isPartOf
@@ -7044,6 +7126,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv6AddressesAddressIp'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -7079,6 +7162,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv6AddressesAddressConfigPrefixLength'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceRoutedVlanIpv6AddressesAddress.
         - required:
           - type
           - isPartOf
@@ -7132,6 +7216,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv6AddressesAddressStateStatus'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceRoutedVlanIpv6AddressesAddress.
         - required:
           - type
           - isPartOf
@@ -7219,6 +7304,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv6AddressesAddressVrrpVrrpGroupVirtualRouterId'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceAddress.
         - required:
           - type
           - isPartOf
@@ -7266,6 +7352,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv6AddressesAddressVrrpVrrpGroupConfigVirtualLinkLocal'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceRoutedVlanIpv6AddressesAddressVrrpVrrpGroup.
         - required:
           - type
           - isPartOf
@@ -7417,6 +7504,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv6AddressesAddressVrrpVrrpGroupStateVirtualLinkLocal'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceRoutedVlanIpv6AddressesAddressVrrpVrrpGroup.
         - required:
           - type
           - isPartOf
@@ -7567,6 +7655,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv6AddressesAddressVrrpVrrpGroupInterfaceTrackingConfigPriorityDecrement'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceAddressVrrp-group.
         - required:
           - type
           - isPartOf
@@ -7622,6 +7711,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv6AddressesAddressVrrpVrrpGroupInterfaceTrackingStatePriorityDecrement'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceAddressVrrp-group.
         - required:
           - type
           - isPartOf
@@ -7680,6 +7770,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv6RouterAdvertisementConfigSuppress'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -7746,6 +7837,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv6RouterAdvertisementStateSuppress'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -7807,6 +7899,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv6NeighborsNeighborIp'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -7842,6 +7935,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv6NeighborsNeighborConfigLinkLayerAddress'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceRoutedVlanIpv6NeighborsNeighbor.
         - required:
           - type
           - isPartOf
@@ -7898,6 +7992,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv6NeighborsNeighborStateNeighborState'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceRoutedVlanIpv6NeighborsNeighbor.
         - required:
           - type
           - isPartOf
@@ -7992,6 +8087,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv6UnnumberedConfigEnabled'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -8027,6 +8123,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv6UnnumberedStateEnabled'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -8064,6 +8161,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv6UnnumberedInterfaceRefConfigSubinterface'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -8115,6 +8213,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv6UnnumberedInterfaceRefStateSubinterface'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -8170,6 +8269,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv6ConfigDhcpClient'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -8263,6 +8363,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv6StateDhcpClient'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Interface.
         - required:
           - type
           - isPartOf
@@ -8373,6 +8474,7 @@ components:
               $ref: '#/components/schemas/InterfaceRoutedVlanIpv6StateCountersOutDiscardedPkts'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type InterfaceRoutedVlanIpv6State.
         - required:
           - type
           - isPartOf
@@ -8604,6 +8706,7 @@ components:
               $ref: '#/components/schemas/VlanConfigStatus'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Vlan.
         - required:
           - type
           - isPartOf
@@ -8668,6 +8771,7 @@ components:
               $ref: '#/components/schemas/VlanStateStatus'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Vlan.
         - required:
           - type
           - isPartOf
@@ -8727,6 +8831,7 @@ components:
               default: VlanMembersMember
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Vlan.
         - required:
           - type
           - isPartOf
@@ -8747,6 +8852,7 @@ components:
               $ref: '#/components/schemas/VlanMembersMemberStateInterface'
             isPartOf:
               $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type VlanMembersMember.
         - required:
           - type
           - isPartOf

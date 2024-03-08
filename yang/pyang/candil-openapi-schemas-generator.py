@@ -3,7 +3,7 @@ pyang plugin -- CANDIL OpenAPI Schemas Generator.
 
 Given one or several YANG modules, it dynamically generates the relative OpenAPI Schemas.
 
-Version: 1.0.2.
+Version: 1.0.3.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -280,7 +280,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
     def is_choice(element) -> bool:
         '''
         Auxiliary function.
-        Checks if an element matches the YANG to NGSI-LD translation convention for a Property-of-Property.
+        Checks if an element is a YANG choice.
         '''
         result = False
         if (str(element.keyword) == 'choice'):
@@ -465,7 +465,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                                      name_subelement = str(element.arg + str(subelement.arg.capitalize())).replace('-','')
                                      fd.write('\n' + INDENTATION_BLOCK * depth_level + name_subelement + ":")
                                      depth_level += 1
-                                     ref_subelement = str(str(element.arg.capitalize()) + str(subelement.arg.capitalize())).replace('-','')
+                                     ref_subelement = (current_camelcase_path + str(subelement.arg.capitalize())).replace('-','')
                                      fd.write('\n' + INDENTATION_BLOCK * depth_level +  "$ref: \'#/components/schemas/" + ref_subelement + "\'")
                                 else:
                                     camelcase_subelement_arg = to_camelcase(str(subelement.keyword), str(subelement.arg))
@@ -537,7 +537,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                                      name_subelement = str(element.arg + str(subelement.arg.capitalize())).replace('-','')
                                      fd.write('\n' + INDENTATION_BLOCK * depth_level + name_subelement + ":")
                                      depth_level += 1
-                                     ref_subelement = str(str(element.arg.capitalize()) + str(subelement.arg.capitalize())).replace('-','')
+                                     ref_subelement = (current_camelcase_path + str(subelement.arg.capitalize())).replace('-','')
                                      fd.write('\n' + INDENTATION_BLOCK * depth_level +  "$ref: \'#/components/schemas/" + ref_subelement + "\'")
                                 else:
                                     camelcase_subelement_arg = to_camelcase(str(subelement.keyword), str(subelement.arg))
@@ -610,7 +610,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                                      name_subelement = str(element.arg + str(subelement.arg.capitalize())).replace('-','')
                                      fd.write('\n' + INDENTATION_BLOCK * depth_level + name_subelement + ":")
                                      depth_level += 1
-                                     ref_subelement = str(str(element.arg.capitalize()) + str(subelement.arg.capitalize())).replace('-','')
+                                     ref_subelement = (current_camelcase_path + str(subelement.arg.capitalize())).replace('-','')
                                      fd.write('\n' + INDENTATION_BLOCK * depth_level +  "$ref: \'#/components/schemas/" + ref_subelement + "\'")
                                 else:
                                     camelcase_subelement_arg = to_camelcase(str(subelement.keyword), str(subelement.arg))
@@ -625,6 +625,10 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "isPartOf:")
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level +  "$ref: \'#/components/schemas/IsPartOf\'")
+                    if(is_enclosing_container(element.parent) == True):
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: isPartOf Relationship with Entity type " + re.sub(r'(_)(\w)', lambda m: m.group(2).upper(), entity_path.capitalize()).replace('_','') + ".")
+                    else:
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: isPartOf Relationship with Entity type " + camelcase_entity_path + ".")                    
                     depth_level -= 1
                     depth_level -= 2
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "- required:")
@@ -690,7 +694,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                                      name_subelement = str(element.arg + str(subelement.arg.capitalize())).replace('-','')
                                      fd.write('\n' + INDENTATION_BLOCK * depth_level + name_subelement + ":")
                                      depth_level += 1
-                                     ref_subelement = str(str(element.arg.capitalize()) + str(subelement.arg.capitalize())).replace('-','')
+                                     ref_subelement = (current_camelcase_path + str(subelement.arg.capitalize())).replace('-','')
                                      fd.write('\n' + INDENTATION_BLOCK * depth_level +  "$ref: \'#/components/schemas/" + ref_subelement + "\'")
                                 else:
                                     camelcase_subelement_arg = to_camelcase(str(subelement.keyword), str(subelement.arg))
@@ -705,6 +709,10 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "isPartOf:")
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level +  "$ref: \'#/components/schemas/IsPartOf\'")
+                    if(is_enclosing_container(element.parent) == True):
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: isPartOf Relationship with Entity type " + re.sub(r'(_)(\w)', lambda m: m.group(2).upper(), entity_path.capitalize()).replace('_','') + ".")
+                    else:
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: isPartOf Relationship with Entity type " + camelcase_entity_path + ".")
                     depth_level -= 1
                     depth_level -= 2
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "- required:")
@@ -731,7 +739,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                                 generate_schemas(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name, typedefs_pattern_dict, yang_data_nodes_list)
         ### --- ###
         
-        ### NGSI-LD PROPERTY-OF-PROPERTY IDENTIFICATION ###
+        ### YANG CHOICE IDENTIFICATION: IT CONTAINS NGSI-LD PROPERTIES ###
         elif (is_choice(element) == True) and (is_deprecated(element) == False):
             depth_level = 2
             current_camelcase_path = ''
@@ -925,7 +933,6 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
         ### --- ###
 
         ### NGSI-LD YANG IDENTITY IDENTIFICATION ###
-        
         elif (is_yang_identity(element, typedefs_dict) == True) and (is_deprecated(element) == False):
             depth_level = 2
             
@@ -941,7 +948,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
             yang_identity_name = ''
 
             if (yang_data_nodes_list.count(str(element.arg)) > 1) or (str(element.arg) == 'type'):
-                yang_identity_name = str(element.parent.arg).capitalize() + str(element.arg).capitalize()
+                yang_identity_name = camelcase_entity_path + str(element.arg).capitalize()
             else:
                 yang_identity_name = str(element.arg).capitalize()
 
@@ -980,7 +987,6 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
             depth_level += 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "- object")
             depth_level -= 4
-            
         ### --- ###
     
     ### --- ###
