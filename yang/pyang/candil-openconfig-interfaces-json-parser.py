@@ -908,7 +908,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                                                                 element_text = trackInterface
                                                                                 interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"] = {}
                                                                                 interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"]["type"] = "Relationship"
-                                                                                interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressVrrpVrrpGroupInterfaceTrackingConfigInterface:" + interface_subinterface_address_vrrp_group_config_dict_buffer["id"].split(":")[-1]
+                                                                                interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:Interface:" + interface_subinterface_address_vrrp_group_config_dict_buffer["id"].split(":")[-1]
                                                                                 interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"]["observedAt"] = observed_at
                                                                             priorityDecrement = config.get("priority-decrement")
                                                                             if priorityDecrement is not None:
@@ -933,7 +933,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                                                                 element_text = trackInterface
                                                                                 interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"] = {}
                                                                                 interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"]["type"] = "Relationship"
-                                                                                interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressVrrpVrrpGroupInterfaceTrackingStateInterface:" + interface_subinterface_address_vrrp_group_state_dict_buffer["id"].split(":")[-1]
+                                                                                interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:Interface:" + interface_subinterface_address_vrrp_group_state_dict_buffer["id"].split(":")[-1]
                                                                                 interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"]["observedAt"] = observed_at
                                                                             priorityDecrement = state.get("priority-decrement")
                                                                             if priorityDecrement is not None:
@@ -1598,7 +1598,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                                                                 element_text = trackInterface
                                                                                 interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"] = {}
                                                                                 interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"]["type"] = "Relationship"
-                                                                                interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressVrrpVrrpGroupInterfaceTrackingConfigInterface:" + interface_subinterface_address_vrrp_group_config_dict_buffer["id"].split(":")[-1]
+                                                                                interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:Interface:" + interface_subinterface_address_vrrp_group_config_dict_buffer["id"].split(":")[-1]
                                                                                 interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"]["observedAt"] = observed_at
                                                                             priorityDecrement = config.get("priority-decrement")
                                                                             if priorityDecrement is not None:
@@ -1623,7 +1623,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                                                                 element_text = trackInterface
                                                                                 interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"] = {}
                                                                                 interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"]["type"] = "Relationship"
-                                                                                interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressVrrpVrrpGroupInterfaceTrackingStateInterface:" + interface_subinterface_address_vrrp_group_state_dict_buffer["id"].split(":")[-1]
+                                                                                interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:Interface:" + interface_subinterface_address_vrrp_group_state_dict_buffer["id"].split(":")[-1]
                                                                                 interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"]["observedAt"] = observed_at
                                                                             priorityDecrement = state.get("priority-decrement")
                                                                             if priorityDecrement is not None:
@@ -2109,10 +2109,10 @@ if isinstance(json_data.get("interfaces"), dict):
                                 if portSpeed is not None and len(portSpeed) != 0:
                                     element_text = portSpeed
                                     if element_text is not None:
-                                        interface_config_dict_buffer["port-speed"] = {}
-                                        interface_config_dict_buffer["port-speed"]["type"] = "Relationship"
-                                        interface_config_dict_buffer["port-speed"]["object"] = "urn:ngsi-ld:YANGIdentity:" + element_text
-                                        interface_config_dict_buffer["port-speed"]["observedAt"] = observed_at
+                                        interface_config_dict_buffer["portSpeed"] = {}
+                                        interface_config_dict_buffer["portSpeed"]["type"] = "Relationship"
+                                        interface_config_dict_buffer["portSpeed"]["object"] = "urn:ngsi-ld:YANGIdentity:" + element_text
+                                        interface_config_dict_buffer["portSpeed"]["observedAt"] = observed_at
                                 enableFlowControl = config.get("enable-flow-control")
                                 if enableFlowControl is not None:
                                     element_text = enableFlowControl
@@ -2127,7 +2127,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                         interface_config_dict_buffer["id"] = interface_config_dict_buffer["id"] + element_text
                                     interface_config_dict_buffer["aggregateId"] = {}
                                     interface_config_dict_buffer["aggregateId"]["type"] = "Relationship"
-                                    interface_config_dict_buffer["aggregateId"]["object"] = "urn:ngsi-ld:InterfaceEthernetConfigInterface:" + interface_config_dict_buffer["id"].split(":")[-1]
+                                    interface_config_dict_buffer["aggregateId"]["object"] = "urn:ngsi-ld:Interface:" + interface_config_dict_buffer["id"].split(":")[-1]
                                     interface_config_dict_buffer["aggregateId"]["observedAt"] = observed_at
                                 dict_buffers.append(interface_config_dict_buffer)
                         state = ethernet.get("state")
@@ -2165,10 +2165,10 @@ if isinstance(json_data.get("interfaces"), dict):
                                 if portSpeed is not None and len(portSpeed) != 0:
                                     element_text = portSpeed
                                     if element_text is not None:
-                                        interface_state_dict_buffer["port-speed"] = {}
-                                        interface_state_dict_buffer["port-speed"]["type"] = "Relationship"
-                                        interface_state_dict_buffer["port-speed"]["object"] = "urn:ngsi-ld:YANGIdentity:" + element_text
-                                        interface_state_dict_buffer["port-speed"]["observedAt"] = observed_at
+                                        interface_state_dict_buffer["portSpeed"] = {}
+                                        interface_state_dict_buffer["portSpeed"]["type"] = "Relationship"
+                                        interface_state_dict_buffer["portSpeed"]["object"] = "urn:ngsi-ld:YANGIdentity:" + element_text
+                                        interface_state_dict_buffer["portSpeed"]["observedAt"] = observed_at
                                 enableFlowControl = state.get("enable-flow-control")
                                 if enableFlowControl is not None:
                                     element_text = enableFlowControl
@@ -2194,10 +2194,10 @@ if isinstance(json_data.get("interfaces"), dict):
                                 if negotiatedPortSpeed is not None and len(negotiatedPortSpeed) != 0:
                                     element_text = negotiatedPortSpeed
                                     if element_text is not None:
-                                        interface_state_dict_buffer["negotiated-port-speed"] = {}
-                                        interface_state_dict_buffer["negotiated-port-speed"]["type"] = "Relationship"
-                                        interface_state_dict_buffer["negotiated-port-speed"]["object"] = "urn:ngsi-ld:YANGIdentity:" + element_text
-                                        interface_state_dict_buffer["negotiated-port-speed"]["observedAt"] = observed_at
+                                        interface_state_dict_buffer["negotiatedPortSpeed"] = {}
+                                        interface_state_dict_buffer["negotiatedPortSpeed"]["type"] = "Relationship"
+                                        interface_state_dict_buffer["negotiatedPortSpeed"]["object"] = "urn:ngsi-ld:YANGIdentity:" + element_text
+                                        interface_state_dict_buffer["negotiatedPortSpeed"]["observedAt"] = observed_at
                                 counters = state.get("counters")
                                 if isinstance(counters, dict):
                                     if counters is not None and len(counters) != 0:
@@ -2286,7 +2286,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                         interface_state_dict_buffer["id"] = interface_state_dict_buffer["id"] + element_text
                                     interface_state_dict_buffer["aggregateId"] = {}
                                     interface_state_dict_buffer["aggregateId"]["type"] = "Relationship"
-                                    interface_state_dict_buffer["aggregateId"]["object"] = "urn:ngsi-ld:InterfaceEthernetStateInterface:" + interface_state_dict_buffer["id"].split(":")[-1]
+                                    interface_state_dict_buffer["aggregateId"]["object"] = "urn:ngsi-ld:Interface:" + interface_state_dict_buffer["id"].split(":")[-1]
                                     interface_state_dict_buffer["aggregateId"]["observedAt"] = observed_at
                                 dict_buffers.append(interface_state_dict_buffer)
                         switched_vlan = ethernet.get("switched-vlan")
@@ -2434,7 +2434,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                     element_text = member
                                     interface_state_dict_buffer["member"] = {}
                                     interface_state_dict_buffer["member"]["type"] = "Relationship"
-                                    interface_state_dict_buffer["member"]["object"] = "urn:ngsi-ld:InterfaceAggregationStateInterface:" + interface_state_dict_buffer["id"].split(":")[-1]
+                                    interface_state_dict_buffer["member"]["object"] = "urn:ngsi-ld:Interface:" + interface_state_dict_buffer["id"].split(":")[-1]
                                     interface_state_dict_buffer["member"]["observedAt"] = observed_at
                                 dict_buffers.append(interface_state_dict_buffer)
                         switched_vlan = aggregation.get("switched-vlan")
@@ -2810,7 +2810,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                                                             element_text = trackInterface
                                                                             interface_address_vrrp_group_config_dict_buffer["trackInterface"] = {}
                                                                             interface_address_vrrp_group_config_dict_buffer["trackInterface"]["type"] = "Relationship"
-                                                                            interface_address_vrrp_group_config_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:InterfaceRoutedVlanIpv4AddressesAddressVrrpVrrpGroupInterfaceTrackingConfigInterface:" + interface_address_vrrp_group_config_dict_buffer["id"].split(":")[-1]
+                                                                            interface_address_vrrp_group_config_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:Interface:" + interface_address_vrrp_group_config_dict_buffer["id"].split(":")[-1]
                                                                             interface_address_vrrp_group_config_dict_buffer["trackInterface"]["observedAt"] = observed_at
                                                                         priorityDecrement = config.get("priority-decrement")
                                                                         if priorityDecrement is not None:
@@ -2835,7 +2835,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                                                             element_text = trackInterface
                                                                             interface_address_vrrp_group_state_dict_buffer["trackInterface"] = {}
                                                                             interface_address_vrrp_group_state_dict_buffer["trackInterface"]["type"] = "Relationship"
-                                                                            interface_address_vrrp_group_state_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:InterfaceRoutedVlanIpv4AddressesAddressVrrpVrrpGroupInterfaceTrackingStateInterface:" + interface_address_vrrp_group_state_dict_buffer["id"].split(":")[-1]
+                                                                            interface_address_vrrp_group_state_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:Interface:" + interface_address_vrrp_group_state_dict_buffer["id"].split(":")[-1]
                                                                             interface_address_vrrp_group_state_dict_buffer["trackInterface"]["observedAt"] = observed_at
                                                                         priorityDecrement = state.get("priority-decrement")
                                                                         if priorityDecrement is not None:
@@ -3500,7 +3500,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                                                             element_text = trackInterface
                                                                             interface_address_vrrp_group_config_dict_buffer["trackInterface"] = {}
                                                                             interface_address_vrrp_group_config_dict_buffer["trackInterface"]["type"] = "Relationship"
-                                                                            interface_address_vrrp_group_config_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:InterfaceRoutedVlanIpv6AddressesAddressVrrpVrrpGroupInterfaceTrackingConfigInterface:" + interface_address_vrrp_group_config_dict_buffer["id"].split(":")[-1]
+                                                                            interface_address_vrrp_group_config_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:Interface:" + interface_address_vrrp_group_config_dict_buffer["id"].split(":")[-1]
                                                                             interface_address_vrrp_group_config_dict_buffer["trackInterface"]["observedAt"] = observed_at
                                                                         priorityDecrement = config.get("priority-decrement")
                                                                         if priorityDecrement is not None:
@@ -3525,7 +3525,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                                                             element_text = trackInterface
                                                                             interface_address_vrrp_group_state_dict_buffer["trackInterface"] = {}
                                                                             interface_address_vrrp_group_state_dict_buffer["trackInterface"]["type"] = "Relationship"
-                                                                            interface_address_vrrp_group_state_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:InterfaceRoutedVlanIpv6AddressesAddressVrrpVrrpGroupInterfaceTrackingStateInterface:" + interface_address_vrrp_group_state_dict_buffer["id"].split(":")[-1]
+                                                                            interface_address_vrrp_group_state_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:Interface:" + interface_address_vrrp_group_state_dict_buffer["id"].split(":")[-1]
                                                                             interface_address_vrrp_group_state_dict_buffer["trackInterface"]["observedAt"] = observed_at
                                                                         priorityDecrement = state.get("priority-decrement")
                                                                         if priorityDecrement is not None:

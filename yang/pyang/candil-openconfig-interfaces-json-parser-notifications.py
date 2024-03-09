@@ -699,7 +699,7 @@ for element_text, child_node, parent_path, iteration_key in zip(values, child_no
                                                             if len(parent_path) - 1 == 10 or len(parent_path) - 1 == 11:
                                                                 interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"] = {}
                                                                 interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"]["type"] = "Relationship"
-                                                                interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressVrrpVrrpGroupInterfaceTrackingConfigInterface:" + interface_subinterface_address_vrrp_group_config_dict_buffer["id"].split(":")[-1]
+                                                                interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:Interface:" + interface_subinterface_address_vrrp_group_config_dict_buffer["id"].split(":")[-1]
                                                                 interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"]["observedAt"] = observed_at
                                                             if child_node == "priority-decrement":
                                                                 interface_subinterface_address_vrrp_group_config_dict_buffer["priorityDecrement"] = {}
@@ -720,7 +720,7 @@ for element_text, child_node, parent_path, iteration_key in zip(values, child_no
                                                                 if len(parent_path) - 1 == 11 or len(parent_path) - 1 == 12:
                                                                     interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"] = {}
                                                                     interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"]["type"] = "Relationship"
-                                                                    interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressVrrpVrrpGroupInterfaceTrackingStateInterface:" + interface_subinterface_address_vrrp_group_state_dict_buffer["id"].split(":")[-1]
+                                                                    interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:Interface:" + interface_subinterface_address_vrrp_group_state_dict_buffer["id"].split(":")[-1]
                                                                     interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"]["observedAt"] = observed_at
                                                                 if child_node == "priority-decrement":
                                                                     interface_subinterface_address_vrrp_group_state_dict_buffer["priorityDecrement"] = {}
@@ -1257,7 +1257,7 @@ for element_text, child_node, parent_path, iteration_key in zip(values, child_no
                                                             if len(parent_path) - 1 == 10 or len(parent_path) - 1 == 11:
                                                                 interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"] = {}
                                                                 interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"]["type"] = "Relationship"
-                                                                interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressVrrpVrrpGroupInterfaceTrackingConfigInterface:" + interface_subinterface_address_vrrp_group_config_dict_buffer["id"].split(":")[-1]
+                                                                interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:Interface:" + interface_subinterface_address_vrrp_group_config_dict_buffer["id"].split(":")[-1]
                                                                 interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"]["observedAt"] = observed_at
                                                             if child_node == "priority-decrement":
                                                                 interface_subinterface_address_vrrp_group_config_dict_buffer["priorityDecrement"] = {}
@@ -1278,7 +1278,7 @@ for element_text, child_node, parent_path, iteration_key in zip(values, child_no
                                                                 if len(parent_path) - 1 == 11 or len(parent_path) - 1 == 12:
                                                                     interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"] = {}
                                                                     interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"]["type"] = "Relationship"
-                                                                    interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressVrrpVrrpGroupInterfaceTrackingStateInterface:" + interface_subinterface_address_vrrp_group_state_dict_buffer["id"].split(":")[-1]
+                                                                    interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:Interface:" + interface_subinterface_address_vrrp_group_state_dict_buffer["id"].split(":")[-1]
                                                                     interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"]["observedAt"] = observed_at
                                                                 if child_node == "priority-decrement":
                                                                     interface_subinterface_address_vrrp_group_state_dict_buffer["priorityDecrement"] = {}
@@ -1677,7 +1677,7 @@ for element_text, child_node, parent_path, iteration_key in zip(values, child_no
                             interface_config_dict_buffer["id"] = interface_config_dict_buffer["id"] + element_text
                         interface_config_dict_buffer["aggregateId"] = {}
                         interface_config_dict_buffer["aggregateId"]["type"] = "Relationship"
-                        interface_config_dict_buffer["aggregateId"]["object"] = "urn:ngsi-ld:InterfaceEthernetConfigInterface:" + interface_config_dict_buffer["id"].split(":")[-1]
+                        interface_config_dict_buffer["aggregateId"]["object"] = "urn:ngsi-ld:Interface:" + interface_config_dict_buffer["id"].split(":")[-1]
                         interface_config_dict_buffer["aggregateId"]["observedAt"] = observed_at
                     if len(parent_path) - 1 == 3:
                         dict_buffers.append(interface_config_dict_buffer)
@@ -1786,7 +1786,7 @@ for element_text, child_node, parent_path, iteration_key in zip(values, child_no
                                 interface_state_dict_buffer["id"] = interface_state_dict_buffer["id"] + element_text
                             interface_state_dict_buffer["aggregateId"] = {}
                             interface_state_dict_buffer["aggregateId"]["type"] = "Relationship"
-                            interface_state_dict_buffer["aggregateId"]["object"] = "urn:ngsi-ld:InterfaceEthernetStateInterface:" + interface_state_dict_buffer["id"].split(":")[-1]
+                            interface_state_dict_buffer["aggregateId"]["object"] = "urn:ngsi-ld:Interface:" + interface_state_dict_buffer["id"].split(":")[-1]
                             interface_state_dict_buffer["aggregateId"]["observedAt"] = observed_at
                         if len(parent_path) - 1 == 4:
                             dict_buffers.append(interface_state_dict_buffer)
@@ -1902,7 +1902,7 @@ for element_text, child_node, parent_path, iteration_key in zip(values, child_no
                         if len(parent_path) - 1 == 4 or len(parent_path) - 1 == 5:
                             interface_state_dict_buffer["member"] = {}
                             interface_state_dict_buffer["member"]["type"] = "Relationship"
-                            interface_state_dict_buffer["member"]["object"] = "urn:ngsi-ld:InterfaceAggregationStateInterface:" + interface_state_dict_buffer["id"].split(":")[-1]
+                            interface_state_dict_buffer["member"]["object"] = "urn:ngsi-ld:Interface:" + interface_state_dict_buffer["id"].split(":")[-1]
                             interface_state_dict_buffer["member"]["observedAt"] = observed_at
                         if len(parent_path) - 1 == 4:
                             dict_buffers.append(interface_state_dict_buffer)
@@ -2202,7 +2202,7 @@ for element_text, child_node, parent_path, iteration_key in zip(values, child_no
                                                             if len(parent_path) - 1 == 11 or len(parent_path) - 1 == 12:
                                                                 interface_address_vrrp_group_config_dict_buffer["trackInterface"] = {}
                                                                 interface_address_vrrp_group_config_dict_buffer["trackInterface"]["type"] = "Relationship"
-                                                                interface_address_vrrp_group_config_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:InterfaceRoutedVlanIpv4AddressesAddressVrrpVrrpGroupInterfaceTrackingConfigInterface:" + interface_address_vrrp_group_config_dict_buffer["id"].split(":")[-1]
+                                                                interface_address_vrrp_group_config_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:Interface:" + interface_address_vrrp_group_config_dict_buffer["id"].split(":")[-1]
                                                                 interface_address_vrrp_group_config_dict_buffer["trackInterface"]["observedAt"] = observed_at
                                                             if child_node == "priority-decrement":
                                                                 interface_address_vrrp_group_config_dict_buffer["priorityDecrement"] = {}
@@ -2223,7 +2223,7 @@ for element_text, child_node, parent_path, iteration_key in zip(values, child_no
                                                                 if len(parent_path) - 1 == 12 or len(parent_path) - 1 == 13:
                                                                     interface_address_vrrp_group_state_dict_buffer["trackInterface"] = {}
                                                                     interface_address_vrrp_group_state_dict_buffer["trackInterface"]["type"] = "Relationship"
-                                                                    interface_address_vrrp_group_state_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:InterfaceRoutedVlanIpv4AddressesAddressVrrpVrrpGroupInterfaceTrackingStateInterface:" + interface_address_vrrp_group_state_dict_buffer["id"].split(":")[-1]
+                                                                    interface_address_vrrp_group_state_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:Interface:" + interface_address_vrrp_group_state_dict_buffer["id"].split(":")[-1]
                                                                     interface_address_vrrp_group_state_dict_buffer["trackInterface"]["observedAt"] = observed_at
                                                                 if child_node == "priority-decrement":
                                                                     interface_address_vrrp_group_state_dict_buffer["priorityDecrement"] = {}
@@ -2760,7 +2760,7 @@ for element_text, child_node, parent_path, iteration_key in zip(values, child_no
                                                                 if len(parent_path) - 1 == 12 or len(parent_path) - 1 == 13:
                                                                     interface_address_vrrp_group_config_dict_buffer["trackInterface"] = {}
                                                                     interface_address_vrrp_group_config_dict_buffer["trackInterface"]["type"] = "Relationship"
-                                                                    interface_address_vrrp_group_config_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:InterfaceRoutedVlanIpv6AddressesAddressVrrpVrrpGroupInterfaceTrackingConfigInterface:" + interface_address_vrrp_group_config_dict_buffer["id"].split(":")[-1]
+                                                                    interface_address_vrrp_group_config_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:Interface:" + interface_address_vrrp_group_config_dict_buffer["id"].split(":")[-1]
                                                                     interface_address_vrrp_group_config_dict_buffer["trackInterface"]["observedAt"] = observed_at
                                                                 if child_node == "priority-decrement":
                                                                     interface_address_vrrp_group_config_dict_buffer["priorityDecrement"] = {}
@@ -2781,7 +2781,7 @@ for element_text, child_node, parent_path, iteration_key in zip(values, child_no
                                                                     if len(parent_path) - 1 == 13 or len(parent_path) - 1 == 14:
                                                                         interface_address_vrrp_group_state_dict_buffer["trackInterface"] = {}
                                                                         interface_address_vrrp_group_state_dict_buffer["trackInterface"]["type"] = "Relationship"
-                                                                        interface_address_vrrp_group_state_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:InterfaceRoutedVlanIpv6AddressesAddressVrrpVrrpGroupInterfaceTrackingStateInterface:" + interface_address_vrrp_group_state_dict_buffer["id"].split(":")[-1]
+                                                                        interface_address_vrrp_group_state_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:Interface:" + interface_address_vrrp_group_state_dict_buffer["id"].split(":")[-1]
                                                                         interface_address_vrrp_group_state_dict_buffer["trackInterface"]["observedAt"] = observed_at
                                                                     if child_node == "priority-decrement":
                                                                         interface_address_vrrp_group_state_dict_buffer["priorityDecrement"] = {}

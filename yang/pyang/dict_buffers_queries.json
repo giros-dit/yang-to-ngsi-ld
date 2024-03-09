@@ -16,7 +16,7 @@
             "object": "urn:ngsi-ld:Interface:mgmt0-standby",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_1GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -83,7 +83,7 @@
             "object": "urn:ngsi-ld:Interface:mgmt0",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_1GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -859,7 +859,7 @@
             "value": "1A:A7:04:FF:00:23",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -941,7 +941,7 @@
             "value": "1A:A7:04:FF:00:22",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -1023,7 +1023,7 @@
             "value": "1A:A7:04:FF:00:21",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -1105,7 +1105,7 @@
             "value": "1A:A7:04:FF:00:20",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -1187,7 +1187,7 @@
             "value": "1A:A7:04:FF:00:1F",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -1269,7 +1269,7 @@
             "value": "1A:A7:04:FF:00:1E",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -1351,7 +1351,7 @@
             "value": "1A:A7:04:FF:00:1D",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -1433,7 +1433,7 @@
             "value": "1A:A7:04:FF:00:1C",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -1515,7 +1515,7 @@
             "value": "1A:A7:04:FF:00:1B",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -1597,7 +1597,7 @@
             "value": "1A:A7:04:FF:00:1A",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -1679,7 +1679,7 @@
             "value": "1A:A7:04:FF:00:19",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -1761,7 +1761,7 @@
             "value": "1A:A7:04:FF:00:18",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -1843,7 +1843,7 @@
             "value": "1A:A7:04:FF:00:17",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -1925,7 +1925,7 @@
             "value": "1A:A7:04:FF:00:16",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -2007,7 +2007,7 @@
             "value": "1A:A7:04:FF:00:15",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -2089,7 +2089,7 @@
             "value": "1A:A7:04:FF:00:14",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -2171,7 +2171,7 @@
             "value": "1A:A7:04:FF:00:13",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -2253,7 +2253,7 @@
             "value": "1A:A7:04:FF:00:12",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -2335,7 +2335,7 @@
             "value": "1A:A7:04:FF:00:11",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -2417,7 +2417,7 @@
             "value": "1A:A7:04:FF:00:10",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -2499,7 +2499,7 @@
             "value": "1A:A7:04:FF:00:0F",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -2581,7 +2581,7 @@
             "value": "1A:A7:04:FF:00:0E",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -2663,7 +2663,7 @@
             "value": "1A:A7:04:FF:00:0D",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -2745,7 +2745,7 @@
             "value": "1A:A7:04:FF:00:0C",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -2827,7 +2827,7 @@
             "value": "1A:A7:04:FF:00:0B",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -2909,7 +2909,7 @@
             "value": "1A:A7:04:FF:00:0A",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -2991,7 +2991,7 @@
             "value": "1A:A7:04:FF:00:09",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -3073,7 +3073,7 @@
             "value": "1A:A7:04:FF:00:08",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -3155,7 +3155,7 @@
             "value": "1A:A7:04:FF:00:07",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -3237,7 +3237,7 @@
             "value": "1A:A7:04:FF:00:06",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -3319,7 +3319,7 @@
             "value": "1A:A7:04:FF:00:05",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -3401,7 +3401,7 @@
             "value": "1A:A7:04:FF:00:04",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -3483,7 +3483,7 @@
             "value": "1A:A7:04:FF:00:03",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -3565,7 +3565,7 @@
             "value": "1A:A7:04:FF:00:02",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -3647,7 +3647,7 @@
             "value": "1A:A7:04:FF:00:01",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
@@ -4246,7 +4246,7 @@
             "value": "1A:A7:04:FF:00:00",
             "observedAt": "2024-02-20T10:21:51.821354830"
         },
-        "port-speed": {
+        "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
             "observedAt": "2024-02-20T10:21:51.821354830"
