@@ -23,6 +23,8 @@ components:
         System-controlled interfaces created by the system are
         always present in this list in the operational state,
         whether or not they are configured.
+        
+        YANG module: ietf-interfaces.yang
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
         - type: object
@@ -100,6 +102,8 @@ components:
         mechanism to handle the differences in size and characters
         allowed between this leaf and ifName. The definition of
         such a mechanism is outside the scope of this document.
+        
+        YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -123,6 +127,8 @@ components:
         storage, the MIB implementation MUST map ifAlias to the
         value of 'description' in the persistently stored
         configuration.
+        
+        YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -147,12 +153,15 @@ components:
         name of the interface, the server MUST reject the request.
         A NETCONF server MUST reply with an rpc-error with the
         error-tag 'invalid-value' in this case.
+        
+        YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
         - type: object
           properties:
             object:
+              description: Relationship with Entity type YANGIdentity.
               type: string
           required:
             - object
@@ -168,6 +177,8 @@ components:
         
         Changes in this leaf in the intended configuration are
         reflected in ifAdminStatus.
+        
+        YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -187,6 +198,8 @@ components:
         operationally used by the server for interfaces that do
         not operate on top of any other interface (i.e., there are
         no 'lower-layer-if' entries), and 'disabled' otherwise.
+        
+        YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -204,6 +217,8 @@ components:
         The desired state of the interface.
         
         This leaf has the same read semantics as ifAdminStatus.
+        
+        YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -222,6 +237,8 @@ components:
         The current operational state of the interface.
         
         This leaf has the same semantics as ifOperStatus.
+        
+        YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -245,6 +262,8 @@ components:
         state. If the current state was entered prior to the
         last re-initialization of the local network management
         subsystem, then this node is not present.
+        
+        YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -260,6 +279,8 @@ components:
       description: |
         The ifIndex value for the ifEntry represented by this
         interface.
+        
+        YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -279,6 +300,8 @@ components:
         and byte ordering and the format of the value of this
         object. For interfaces that do not have such an address
         (e.g., a serial line), this node is not present.
+        
+        YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -293,12 +316,15 @@ components:
       description: |
         A list of references to interfaces layered on top of this
         interface.
+        
+        YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
         - type: object
           properties:
             object:
+              description: Relationship with Entity type Interface.
               type: string
           required:
             - object
@@ -306,12 +332,15 @@ components:
       description: |
         A list of references to interfaces layered underneath this
         interface.
+        
+        YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
         - type: object
           properties:
             object:
+              description: Relationship with Entity type Interface.
               type: string
           required:
             - object
@@ -323,6 +352,8 @@ components:
         be made, this node should contain the nominal bandwidth.
         For interfaces that have no concept of bandwidth, this
         node is not present.
+        
+        YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -335,6 +366,8 @@ components:
     InterfaceStatistics:
       description: |
         A collection of interface-related statistics objects.
+        
+        YANG module: ietf-interfaces.yang
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
         - type: object
@@ -388,6 +421,8 @@ components:
         since the last re-initialization of the local management
         subsystem, then this node contains the time the local
         management subsystem re-initialized itself.
+        
+        YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -408,6 +443,8 @@ components:
         at re-initialization of the management system and at
         other times as indicated by the value of
         'discontinuity-time'.
+        
+        YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -427,6 +464,8 @@ components:
         at re-initialization of the management system and at
         other times as indicated by the value of
         'discontinuity-time'.
+        
+        YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -446,6 +485,8 @@ components:
         at re-initialization of the management system and at
         other times as indicated by the value of
         'discontinuity-time'.
+        
+        YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -466,6 +507,8 @@ components:
         at re-initialization of the management system and at
         other times as indicated by the value of
         'discontinuity-time'.
+        
+        YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -487,6 +530,8 @@ components:
         at re-initialization of the management system and at
         other times as indicated by the value of
         'discontinuity-time'.
+        
+        YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -510,6 +555,8 @@ components:
         at re-initialization of the management system and at
         other times as indicated by the value of
         'discontinuity-time'.
+        
+        YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -535,6 +582,8 @@ components:
         at re-initialization of the management system and at
         other times as indicated by the value of
         'discontinuity-time'.
+        
+        YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -553,6 +602,8 @@ components:
         at re-initialization of the management system and at
         other times as indicated by the value of
         'discontinuity-time'.
+        
+        YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -573,6 +624,8 @@ components:
         at re-initialization of the management system and at
         other times as indicated by the value of
         'discontinuity-time'.
+        
+        YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -593,6 +646,8 @@ components:
         at re-initialization of the management system and at
         other times as indicated by the value of
         'discontinuity-time'.
+        
+        YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -615,6 +670,8 @@ components:
         at re-initialization of the management system and at
         other times as indicated by the value of
         'discontinuity-time'.
+        
+        YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -636,6 +693,8 @@ components:
         at re-initialization of the management system and at
         other times as indicated by the value of
         'discontinuity-time'.
+        
+        YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -657,6 +716,8 @@ components:
         at re-initialization of the management system and at
         other times as indicated by the value of
         'discontinuity-time'.
+        
+        YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -669,6 +730,8 @@ components:
     InterfaceIpv4:
       description: |
         Parameters for the IPv4 address family.
+        
+        YANG module: ietf-ip.yang
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
         - type: object
@@ -697,6 +760,8 @@ components:
         interface. When IPv4 is enabled, this interface is
         connected to an IPv4 stack, and the interface can send
         and receive IPv4 packets.
+        
+        YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -713,6 +778,8 @@ components:
         but not addressed to, this interface. IPv4 routers
         forward datagrams. IPv4 hosts do not (except those
         source-routed via the host).
+        
+        YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -733,6 +800,8 @@ components:
         
         If this leaf is not configured, the operationally used MTU
         depends on the interface's type.
+        
+        YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -745,6 +814,8 @@ components:
     InterfaceIpv4Address:
       description: |
         The list of IPv4 addresses on the interface.
+        
+        YANG module: ietf-ip.yang
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
         - type: object
@@ -771,6 +842,8 @@ components:
     InterfaceIpv4AddressIp:
       description: |
         The IPv4 address on the interface.
+        
+        YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -786,12 +859,16 @@ components:
         The subnet can be specified as a prefix length or,
         if the server supports non-contiguous netmasks, as
         a netmask.
+        
+        YANG module: ietf-ip.yang
       oneOf:
         - $ref: '#/components/schemas/SubnetPrefixLength'
         - $ref: '#/components/schemas/Netmask'
     SubnetPrefixLength:
       description: |
         The length of the subnet prefix.
+        
+        YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -804,6 +881,8 @@ components:
     Netmask:
       description: |
         The subnet specified as a netmask.
+        
+        YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -817,6 +896,8 @@ components:
     InterfaceIpv4AddressOrigin:
       description: |
         The origin of this address.
+        
+        YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -842,6 +923,8 @@ components:
         
         In the operational state, this list represents the ARP
         Cache.
+        
+        YANG module: ietf-ip.yang
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
         - type: object
@@ -868,6 +951,8 @@ components:
     InterfaceIpv4NeighborIp:
       description: |
         The IPv4 address of the neighbor node.
+        
+        YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -881,6 +966,8 @@ components:
     InterfaceIpv4NeighborLinkLayerAddress:
       description: |
         The link-layer address of the neighbor node.
+        
+        YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -894,6 +981,8 @@ components:
     InterfaceIpv4NeighborOrigin:
       description: |
         The origin of this neighbor entry.
+        
+        YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -910,6 +999,8 @@ components:
     InterfaceIpv6:
       description: |
         Parameters for the IPv6 address family.
+        
+        YANG module: ietf-ip.yang
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
         - type: object
@@ -940,6 +1031,8 @@ components:
         interface. When IPv6 is enabled, this interface is
         connected to an IPv6 stack, and the interface can send
         and receive IPv6 packets.
+        
+        YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -956,6 +1049,8 @@ components:
         but not addressed to, this interface. IPv6 routers
         forward datagrams. IPv6 hosts do not (except those
         source-routed via the host).
+        
+        YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -976,6 +1071,8 @@ components:
         
         If this leaf is not configured, the operationally used MTU
         depends on the interface's type.
+        
+        YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -988,6 +1085,8 @@ components:
     InterfaceIpv6Address:
       description: |
         The list of IPv6 addresses on the interface.
+        
+        YANG module: ietf-ip.yang
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
         - type: object
@@ -1016,6 +1115,8 @@ components:
     InterfaceIpv6AddressIp:
       description: |
         The IPv6 address on the interface.
+        
+        YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -1029,6 +1130,8 @@ components:
     InterfaceIpv6AddressPrefixLength:
       description: |
         The length of the subnet prefix.
+        
+        YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -1041,6 +1144,8 @@ components:
     InterfaceIpv6AddressOrigin:
       description: |
         The origin of this address.
+        
+        YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -1061,6 +1166,8 @@ components:
         The status of an address. Most of the states correspond
         to states from the IPv6 Stateless Address
         Autoconfiguration protocol.
+        
+        YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -1089,6 +1196,8 @@ components:
         
         In the operational state, this list represents the
         Neighbor Cache.
+        
+        YANG module: ietf-ip.yang
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
         - type: object
@@ -1119,6 +1228,8 @@ components:
     InterfaceIpv6NeighborIp:
       description: |
         The IPv6 address of the neighbor node.
+        
+        YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -1135,6 +1246,8 @@ components:
         
         In the operational state, if the neighbor's 'state' leaf
         is 'incomplete', this leaf is not instantiated.
+        
+        YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -1148,6 +1261,8 @@ components:
     InterfaceIpv6NeighborOrigin:
       description: |
         The origin of this neighbor entry.
+        
+        YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -1164,6 +1279,8 @@ components:
     IsRouter:
       description: |
         Indicates that the neighbor node acts as a router.
+        
+        YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -1177,6 +1294,8 @@ components:
       description: |
         The Neighbor Unreachability Detection state of this
         entry.
+        
+        YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -1200,6 +1319,8 @@ components:
         Duplicate Address Detection is not performed on
         tentative addresses. A value of one indicates a single
         transmission with no follow-up retransmissions.
+        
+        YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -1214,6 +1335,8 @@ components:
       description: |
         Parameters to control the autoconfiguration of IPv6
         addresses, as described in RFC 4862.
+        
+        YANG module: ietf-ip.yang
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
         - type: object
@@ -1242,6 +1365,8 @@ components:
       description: |
         If enabled, the host creates global addresses as
         described in RFC 4862.
+        
+        YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -1256,6 +1381,8 @@ components:
       description: |
         If enabled, the host creates temporary addresses as
         described in RFC 4941.
+        
+        YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -1270,6 +1397,8 @@ components:
       description: |
         The time period during which the temporary address
         is valid.
+        
+        YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -1284,6 +1413,8 @@ components:
       description: |
         The time period during which the temporary address is
         preferred.
+        
+        YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
