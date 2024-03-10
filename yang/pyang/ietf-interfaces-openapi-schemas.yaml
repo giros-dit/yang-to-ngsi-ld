@@ -289,6 +289,8 @@ components:
             value:
               type: integer
               format: int32
+              minimum: 1
+              maximum: 2147483647
           required:
             - value
     PhysAddress:
@@ -809,6 +811,8 @@ components:
           properties:
             value:
               type: integer
+              minimum: 68
+              maximum: max
           required:
             - value
     InterfaceIpv4Address:
@@ -876,6 +880,8 @@ components:
           properties:
             value:
               type: integer
+              minimum: 0
+              maximum: 32
           required:
             - value
     Netmask:
@@ -1080,6 +1086,8 @@ components:
           properties:
             value:
               type: integer
+              minimum: 1280
+              maximum: max
           required:
             - value
     InterfaceIpv6Address:
@@ -1139,6 +1147,8 @@ components:
           properties:
             value:
               type: integer
+              minimum: 0
+              maximum: 128
           required:
             - value
     InterfaceIpv6AddressOrigin:
@@ -1462,7 +1472,7 @@ components:
           required:
             - value
     YANGIdentityIdentifier:
-      description: NGSI-LD Relationship Type. YANG Identity identifier.
+      description: NGSI-LD Property Type. YANG Identity identifier.
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
@@ -1473,7 +1483,7 @@ components:
           required:
             - value
     YANGIdentityNamespace:
-      description: NGSI-LD Relationship Type. YANG Identity namespace.
+      description: NGSI-LD Property Type. YANG Identity namespace.
       additionalProperties: false
       allOf:
         - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'

@@ -337,7 +337,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
             if typedefs_pattern_dict.get(element_type) is not None:
                 result = True
         return result
-
+    
     def get_yang_module_data_nodes(element, yang_data_nodes_list: list) -> list:
         '''
         Auxiliary recursive function.
@@ -877,11 +877,19 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "pattern: \'" + str(typedefs_pattern_dict.get(element_type)) + "\'")
                 if element.search_one('default') is not None:
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "default: " + str(element.search_one('default').arg))   
+                '''
                 if element.search_one('maximum') is not None:
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "maximum: " + str(element.search_one('maximum').arg)) 
                 if element.search_one('minimum') is not None:
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "minimum: " + str(element.search_one('minimum').arg)) 
-            
+                '''
+                if element.search_one('type').search_one('range') != None:
+                    element_type_range = str(element.search_one('type').search_one('range').arg)
+                    minimum = element_type_range.split("..")[0]
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "minimum: " + minimum) 
+                    maximum = element_type_range.split("..")[1]
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "maximum: " + maximum)
+
             depth_level -= 2
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "required:")
             depth_level += 1
@@ -991,11 +999,19 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "pattern: \'" + str(typedefs_pattern_dict.get(element_type)) + "\'")
                 if element.search_one('default') is not None:
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "default: " + str(element.search_one('default').arg))
+                '''
                 if element.search_one('maximum') is not None:
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "maximum: " + str(element.search_one('maximum').arg)) 
                 if element.search_one('minimum') is not None:
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "minimum: " + str(element.search_one('minimum').arg)) 
-            
+                '''
+                if element.search_one('type').search_one('range') != None:
+                    element_type_range = str(element.search_one('type').search_one('range'))
+                    minimum = element_type_range.split("..")[0]
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "minimum: " + minimum) 
+                    maximum = element_type_range.split("..")[1]
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "maximum: " + maximum)
+
             depth_level -= 2
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "required:")
             depth_level += 1
@@ -1178,7 +1194,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
 
     fd.write('\n' + INDENTATION_BLOCK * depth_level + "YANGIdentityIdentifier:")
     depth_level += 1
-    fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: NGSI-LD Relationship Type. YANG Identity identifier.")
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: NGSI-LD Property Type. YANG Identity identifier.")
     fd.write('\n' + INDENTATION_BLOCK * depth_level + "additionalProperties: false")
     fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
     depth_level += 1
@@ -1199,7 +1215,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
 
     fd.write('\n' + INDENTATION_BLOCK * depth_level + "YANGIdentityNamespace:")
     depth_level += 1
-    fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: NGSI-LD Relationship Type. YANG Identity namespace.")
+    fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: NGSI-LD Property Type. YANG Identity namespace.")
     fd.write('\n' + INDENTATION_BLOCK * depth_level + "additionalProperties: false")
     fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
     depth_level += 1
