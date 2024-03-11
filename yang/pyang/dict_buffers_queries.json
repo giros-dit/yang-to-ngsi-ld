@@ -5,7 +5,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:mgmt0-standby",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -14,12 +14,12 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:mgmt0-standby",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_1GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -28,42 +28,42 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:mgmt0-standby",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "mgmt0-standby",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 1080049662,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255535000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -72,7 +72,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:mgmt0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -81,17 +81,17 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:mgmt0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_1GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "02:42:AC:14:14:02",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -100,37 +100,37 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceEthernetState:mgmt0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inMacPauseFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inOversizeFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inJabberFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inFragmentFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inCrcErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outMacPauseFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -139,12 +139,12 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:mgmt0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "index": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:mgmt0.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -153,17 +153,17 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:mgmt0.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": true,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "mtu": {
             "type": "Property",
             "value": 1500,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -172,47 +172,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6State:mgmt0.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inPkts": {
             "type": "Property",
             "value": 84,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inDiscardedPkts": {
             "type": "Property",
             "value": 21,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outPkts": {
             "type": "Property",
             "value": 64,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -221,12 +221,12 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:mgmt0.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": true,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -235,12 +235,12 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:mgmt0.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ip": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborConfig:fe80..1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -249,32 +249,32 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighbor:mgmt0.0:fe80..1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ip": {
             "type": "Property",
             "value": "fe80::1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "linkLayerAddress": {
             "type": "Property",
             "value": "02:42:25:97:2F:45",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "origin": {
             "type": "Property",
             "value": "DYNAMIC",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "isRouter": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "neighborState": {
             "type": "Property",
             "value": "STALE",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -283,12 +283,12 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:mgmt0.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ip": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborConfig:2001.172.20.20..1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -297,32 +297,32 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighbor:mgmt0.0:2001.172.20.20..1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ip": {
             "type": "Property",
             "value": "2001:172:20:20::1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "linkLayerAddress": {
             "type": "Property",
             "value": "02:42:25:97:2F:45",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "origin": {
             "type": "Property",
             "value": "DYNAMIC",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "isRouter": {
             "type": "Property",
             "value": true,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "neighborState": {
             "type": "Property",
             "value": "REACHABLE",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -331,22 +331,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:mgmt0.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "interval": {
             "type": "Property",
             "value": 200,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lifetime": {
             "type": "Property",
             "value": 1800,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "suppress": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -355,12 +355,12 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:mgmt0.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ip": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressConfig:fe80..42.acff.fe14.1402",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -369,27 +369,27 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddress:mgmt0.0:fe80..42.acff.fe14.1402",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ip": {
             "type": "Property",
             "value": "fe80::42:acff:fe14:1402",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "prefixLength": {
             "type": "Property",
             "value": 64,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "origin": {
             "type": "Property",
             "value": "LINK_LAYER",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "status": {
             "type": "Property",
             "value": "PREFERRED",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -398,12 +398,12 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:mgmt0.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ip": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressConfig:2001.172.20.20..2",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -412,27 +412,27 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddress:mgmt0.0:2001.172.20.20..2",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ip": {
             "type": "Property",
             "value": "2001:172:20:20::2",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "prefixLength": {
             "type": "Property",
             "value": 64,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "origin": {
             "type": "Property",
             "value": "DHCP",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "status": {
             "type": "Property",
             "value": "PREFERRED",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -441,17 +441,17 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:mgmt0.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": true,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "mtu": {
             "type": "Property",
             "value": 1500,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -460,47 +460,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4State:mgmt0.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -509,12 +509,12 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:mgmt0.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": true,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -523,12 +523,12 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:mgmt0.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ip": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborConfig:172.20.20.1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -537,22 +537,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor:mgmt0.0:172.20.20.1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ip": {
             "type": "Property",
             "value": "172.20.20.1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "linkLayerAddress": {
             "type": "Property",
             "value": "02:42:25:97:2F:45",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "origin": {
             "type": "Property",
             "value": "DYNAMIC",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -561,12 +561,12 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:mgmt0.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ip": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:172.20.20.2",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -575,22 +575,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:mgmt0.0:172.20.20.2",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ip": {
             "type": "Property",
             "value": "172.20.20.2",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "prefixLength": {
             "type": "Property",
             "value": 24,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "origin": {
             "type": "Property",
             "value": "DHCP",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -599,42 +599,42 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:mgmt0.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "index": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": true,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "mgmt0.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 1077936129,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "UP",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "UP",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424257725000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -643,27 +643,27 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceState:mgmt0.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inOctets": {
             "type": "Property",
             "value": 8566,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inDiscards": {
             "type": "Property",
             "value": 21,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outOctets": {
             "type": "Property",
             "value": 39214,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outDiscards": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -672,17 +672,17 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:mgmt0.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "index": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": true,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -691,47 +691,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:mgmt0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "mgmt0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "mtu": {
             "type": "Property",
             "value": 1514,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": true,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 1077952510,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "UP",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "UP",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424257725000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -740,77 +740,77 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceState:mgmt0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inOctets": {
             "type": "Property",
             "value": 15345,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inUnicastPkts": {
             "type": "Property",
             "value": 31,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inBroadcastPkts": {
             "type": "Property",
             "value": 12,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inMulticastPkts": {
             "type": "Property",
             "value": 66,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inDiscards": {
             "type": "Property",
             "value": 21,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inErrors": {
             "type": "Property",
             "value": 1,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inFcsErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outOctets": {
             "type": "Property",
             "value": 39574,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outUnicastPkts": {
             "type": "Property",
             "value": 46,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outBroadcastPkts": {
             "type": "Property",
             "value": 6,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outMulticastPkts": {
             "type": "Property",
             "value": 18,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outDiscards": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "carrierTransitions": {
             "type": "Property",
             "value": 1,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -819,22 +819,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:mgmt0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "mgmt0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "configType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": true,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -843,7 +843,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/36",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -852,22 +852,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/36",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:23",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:23",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -876,47 +876,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/36",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/36",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 1163262,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -925,7 +925,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/35",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -934,22 +934,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/35",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:22",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:22",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -958,47 +958,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/35",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/35",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 1130494,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1007,7 +1007,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/34",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1016,22 +1016,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/34",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:21",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:21",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1040,47 +1040,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/34",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/34",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 1097726,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1089,7 +1089,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/33",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1098,22 +1098,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/33",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:20",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:20",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1122,47 +1122,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/33",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/33",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 1064958,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1171,7 +1171,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/32",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1180,22 +1180,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/32",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:1F",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:1F",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1204,47 +1204,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/32",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/32",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 1032190,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1253,7 +1253,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/31",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1262,22 +1262,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/31",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:1E",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:1E",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1286,47 +1286,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/31",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/31",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 999422,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1335,7 +1335,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/30",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1344,22 +1344,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/30",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:1D",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:1D",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1368,47 +1368,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/30",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/30",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 966654,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1417,7 +1417,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/29",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1426,22 +1426,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/29",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:1C",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:1C",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1450,47 +1450,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/29",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/29",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 933886,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1499,7 +1499,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/28",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1508,22 +1508,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/28",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:1B",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:1B",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1532,47 +1532,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/28",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/28",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 901118,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1581,7 +1581,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/27",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1590,22 +1590,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/27",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:1A",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:1A",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1614,47 +1614,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/27",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/27",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 868350,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1663,7 +1663,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/26",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1672,22 +1672,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/26",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:19",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:19",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1696,47 +1696,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/26",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/26",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 835582,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1745,7 +1745,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/25",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1754,22 +1754,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/25",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:18",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:18",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1778,47 +1778,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/25",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/25",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 802814,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1827,7 +1827,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/24",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1836,22 +1836,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/24",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:17",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:17",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1860,47 +1860,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/24",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/24",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 770046,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1909,7 +1909,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/23",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1918,22 +1918,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/23",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:16",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:16",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1942,47 +1942,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/23",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/23",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 737278,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -1991,7 +1991,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/22",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2000,22 +2000,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/22",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:15",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:15",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2024,47 +2024,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/22",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/22",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 704510,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2073,7 +2073,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/21",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2082,22 +2082,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/21",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:14",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:14",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2106,47 +2106,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/21",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/21",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 671742,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255489000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2155,7 +2155,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/20",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2164,22 +2164,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/20",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:13",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:13",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2188,47 +2188,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/20",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/20",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 638974,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255489000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2237,7 +2237,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/19",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2246,22 +2246,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/19",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:12",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:12",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2270,47 +2270,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/19",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/19",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 606206,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255489000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2319,7 +2319,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/18",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2328,22 +2328,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/18",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:11",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:11",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2352,47 +2352,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/18",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/18",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 573438,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2401,7 +2401,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/17",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2410,22 +2410,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/17",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:10",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:10",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2434,47 +2434,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/17",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/17",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 540670,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2483,7 +2483,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/16",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2492,22 +2492,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/16",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:0F",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:0F",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2516,47 +2516,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/16",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/16",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 507902,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2565,7 +2565,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/15",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2574,22 +2574,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/15",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:0E",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:0E",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2598,47 +2598,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/15",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/15",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 475134,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2647,7 +2647,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/14",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2656,22 +2656,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/14",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:0D",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:0D",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2680,47 +2680,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/14",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/14",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 442366,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2729,7 +2729,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/13",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2738,22 +2738,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/13",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:0C",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:0C",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2762,47 +2762,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/13",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/13",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 409598,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2811,7 +2811,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/12",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2820,22 +2820,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/12",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:0B",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:0B",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2844,47 +2844,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/12",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/12",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 376830,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2893,7 +2893,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/11",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2902,22 +2902,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/11",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:0A",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:0A",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2926,47 +2926,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/11",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/11",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 344062,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2975,7 +2975,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/10",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -2984,22 +2984,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/10",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:09",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:09",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3008,47 +3008,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/10",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/10",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 311294,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3057,7 +3057,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/9",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3066,22 +3066,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/9",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:08",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:08",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3090,47 +3090,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/9",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/9",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 278526,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3139,7 +3139,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/8",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3148,22 +3148,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/8",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:07",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:07",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3172,47 +3172,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/8",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/8",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 245758,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3221,7 +3221,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/7",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3230,22 +3230,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/7",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:06",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:06",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3254,47 +3254,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/7",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/7",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 212990,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3303,7 +3303,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/6",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3312,22 +3312,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/6",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:05",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:05",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3336,47 +3336,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/6",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/6",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 180222,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3385,7 +3385,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/5",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3394,22 +3394,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/5",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:04",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:04",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3418,47 +3418,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/5",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/5",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 147454,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3467,7 +3467,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/4",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3476,22 +3476,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/4",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:03",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:03",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3500,47 +3500,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/4",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/4",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 114686,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3549,7 +3549,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/3",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3558,22 +3558,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/3",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:02",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:02",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3582,47 +3582,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/3",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/3",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 81918,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "DOWN",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424255490000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3631,7 +3631,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/2",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3640,22 +3640,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/2",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:01",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:01",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3664,37 +3664,37 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/2",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inMacPauseFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inOversizeFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inJabberFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inFragmentFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inCrcErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outMacPauseFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3703,12 +3703,12 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/2",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "index": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:ethernet-1/2.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3717,17 +3717,17 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:ethernet-1/2.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "mtu": {
             "type": "Property",
             "value": 1500,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3736,47 +3736,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6State:ethernet-1/2.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3785,22 +3785,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:ethernet-1/2.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "interval": {
             "type": "Property",
             "value": 200,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lifetime": {
             "type": "Property",
             "value": 1800,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "suppress": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3809,17 +3809,17 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:ethernet-1/2.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": true,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "mtu": {
             "type": "Property",
             "value": 1500,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3828,47 +3828,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4State:ethernet-1/2.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inPkts": {
             "type": "Property",
             "value": 2,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inDiscardedPkts": {
             "type": "Property",
             "value": 2,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3877,12 +3877,12 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:ethernet-1/2.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": true,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3891,12 +3891,12 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:ethernet-1/2.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ip": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborConfig:192.168.254.2",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3905,22 +3905,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor:ethernet-1/2.0:192.168.254.2",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ip": {
             "type": "Property",
             "value": "192.168.254.2",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "linkLayerAddress": {
             "type": "Property",
             "value": "AA:C1:AB:82:7D:93",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "origin": {
             "type": "Property",
             "value": "DYNAMIC",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3929,12 +3929,12 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:ethernet-1/2.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ip": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:192.168.254.1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3943,22 +3943,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:ethernet-1/2.0:192.168.254.1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ip": {
             "type": "Property",
             "value": "192.168.254.1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "prefixLength": {
             "type": "Property",
             "value": 24,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "origin": {
             "type": "Property",
             "value": "STATIC",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3967,17 +3967,17 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:ethernet-1/2.0:192.168.254.1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ip": {
             "type": "Property",
             "value": "192.168.254.1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "prefixLength": {
             "type": "Property",
             "value": 24,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -3986,42 +3986,42 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:ethernet-1/2.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "index": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": true,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/2.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 32769,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "UP",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "UP",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424262324000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -4030,27 +4030,27 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceState:ethernet-1/2.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inOctets": {
             "type": "Property",
             "value": 38,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inDiscards": {
             "type": "Property",
             "value": 2,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outDiscards": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -4059,12 +4059,12 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:ethernet-1/2.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "index": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -4073,52 +4073,52 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/2",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/2",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "mtu": {
             "type": "Property",
             "value": 9232,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": true,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 49150,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "UP",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "UP",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424261000000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -4127,77 +4127,77 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceState:ethernet-1/2",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inOctets": {
             "type": "Property",
             "value": 2417,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inUnicastPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inBroadcastPkts": {
             "type": "Property",
             "value": 5,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inMulticastPkts": {
             "type": "Property",
             "value": 11,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inDiscards": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inFcsErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outOctets": {
             "type": "Property",
             "value": 2080,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outUnicastPkts": {
             "type": "Property",
             "value": 1,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outBroadcastPkts": {
             "type": "Property",
             "value": 8,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outMulticastPkts": {
             "type": "Property",
             "value": 10,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outDiscards": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "carrierTransitions": {
             "type": "Property",
             "value": 1,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -4206,22 +4206,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/2",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/2",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "configType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": true,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -4230,7 +4230,7 @@
         "name": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceConfig:ethernet-1/1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -4239,22 +4239,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "macAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:00",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "portSpeed": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_400GB",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "hwMacAddress": {
             "type": "Property",
             "value": "1A:A7:04:FF:00:00",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -4263,37 +4263,37 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceEthernetState:ethernet-1/1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inMacPauseFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inOversizeFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inJabberFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inFragmentFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inCrcErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outMacPauseFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -4302,12 +4302,12 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "index": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:ethernet-1/1.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -4316,17 +4316,17 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:ethernet-1/1.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "mtu": {
             "type": "Property",
             "value": 1500,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -4335,47 +4335,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6State:ethernet-1/1.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inPkts": {
             "type": "Property",
             "value": 4,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -4384,22 +4384,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:ethernet-1/1.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "interval": {
             "type": "Property",
             "value": 200,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lifetime": {
             "type": "Property",
             "value": 1800,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "suppress": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -4408,17 +4408,17 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:ethernet-1/1.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": true,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "mtu": {
             "type": "Property",
             "value": 1500,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -4427,47 +4427,47 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4State:ethernet-1/1.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inPkts": {
             "type": "Property",
             "value": 2,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inDiscardedPkts": {
             "type": "Property",
             "value": 2,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -4476,12 +4476,12 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:ethernet-1/1.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": true,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -4490,12 +4490,12 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:ethernet-1/1.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ip": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:10.0.1.1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -4504,22 +4504,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:ethernet-1/1.0:10.0.1.1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ip": {
             "type": "Property",
             "value": "10.0.1.1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "prefixLength": {
             "type": "Property",
             "value": 24,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "origin": {
             "type": "Property",
             "value": "STATIC",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -4528,17 +4528,17 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:ethernet-1/1.0:10.0.1.1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ip": {
             "type": "Property",
             "value": "10.0.1.1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "prefixLength": {
             "type": "Property",
             "value": 24,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -4547,42 +4547,42 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:ethernet-1/1.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "index": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": true,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/1.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 1,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "UP",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "UP",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424262324000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -4591,27 +4591,27 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceState:ethernet-1/1.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inOctets": {
             "type": "Property",
             "value": 318,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inDiscards": {
             "type": "Property",
             "value": 2,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outDiscards": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -4620,12 +4620,12 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:ethernet-1/1.0",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "index": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -4634,52 +4634,52 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "stateType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "mtu": {
             "type": "Property",
             "value": 9232,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "loopbackMode": {
             "type": "Property",
             "value": null,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": true,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "ifindex": {
             "type": "Property",
             "value": 16382,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "adminStatus": {
             "type": "Property",
             "value": "UP",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "operStatus": {
             "type": "Property",
             "value": "UP",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "lastChange": {
             "type": "Property",
             "value": 1708424260933000000,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -4688,77 +4688,77 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:InterfaceState:ethernet-1/1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inOctets": {
             "type": "Property",
             "value": 15945,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inUnicastPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inBroadcastPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inMulticastPkts": {
             "type": "Property",
             "value": 11,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inDiscards": {
             "type": "Property",
             "value": 114,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inErrors": {
             "type": "Property",
             "value": 4,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "inFcsErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outOctets": {
             "type": "Property",
             "value": 1840,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outUnicastPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outBroadcastPkts": {
             "type": "Property",
             "value": 5,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outMulticastPkts": {
             "type": "Property",
             "value": 10,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outDiscards": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "outErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "carrierTransitions": {
             "type": "Property",
             "value": 1,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     },
     {
@@ -4767,22 +4767,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:Interface:ethernet-1/1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "name": {
             "type": "Property",
             "value": "ethernet-1/1",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "configType": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         },
         "enabled": {
             "type": "Property",
             "value": true,
-            "observedAt": "2024-02-20T10:21:51.821354830"
+            "observedAt": "2024-02-20T10:21:51.821Z"
         }
     }
 ]

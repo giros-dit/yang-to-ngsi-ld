@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an JSON 
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 1.0.2.
+Version: 1.0.3.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -31,6 +31,7 @@ OUTPUT_MODE_FILE = "file" # -> Output dictionary buffers are written to a file.
 OUTPUT_MODE_KAFKA = "kafka" # -> Output dictionary buffers are written to a Kafka topic.
 
 PARENT_YANG_MODULE = "" # -> Parent YANG module
+ENTITY_TYPE_LIST = [] # -> It includes all the different types of entities generated throughout all the YANG modules that are processed
 
 ### --- ###
 
@@ -153,7 +154,8 @@ def generate_python_json_parser_code(ctx, modules, fd):
         INDENTATION_BLOCK + 'data = json.load(f)\n',
         INDENTATION_BLOCK + 'json_data = data[0]["updates"][0]["values"]\n',
         INDENTATION_BLOCK + 'timestamp_data = int(data[0]["timestamp"])\n',
-        INDENTATION_BLOCK + 'observed_at = str(np.datetime64(timestamp_data, \'ns\'))'
+        INDENTATION_BLOCK + 'datetime_ns = np.datetime64(timestamp_data, \'ns\')\n',
+        INDENTATION_BLOCK + 'observed_at = str(datetime_ns.astype(\'datetime64[ms]\')) + \'Z\''
     ]
 
     if (ctx.opts.candil_json_parser_generator_kafka_server is not None) and \
@@ -166,7 +168,8 @@ def generate_python_json_parser_code(ctx, modules, fd):
             2 * INDENTATION_BLOCK + 'json_payload = str(message.value.decode(\'utf-8\'))\n',
             2 * INDENTATION_BLOCK + 'json_data = json_payload[0]["updates"][0]["values"]\n',
             2 * INDENTATION_BLOCK + 'timestamp_data = int(json_payload[0]["timestamp"])\n',
-            2 * INDENTATION_BLOCK + 'observed_at = str(np.datetime64(timestamp_data, \'ns\')))'
+            2 * INDENTATION_BLOCK + 'datetime_ns = np.datetime64(timestamp_data, \'ns\')\n',
+            2 * INDENTATION_BLOCK + 'observed_at = str(datetime_ns.astype(\'datetime64[ms]\')) + \'Z\''
         ]
 
     WRITING_INSTRUCTIONS_PRINT = [
@@ -350,6 +353,29 @@ def generate_python_json_parser_code(ctx, modules, fd):
                 result = True
         return result
 
+    def get_yang_module_data_nodes(element, yang_data_nodes_list: list) -> list:
+        '''
+        Auxiliary recursive function.
+        Recursively gets all YANG data nodes.
+        '''
+        if element.keyword in ['container', 'list', "choice"]:
+            subelements = element.i_children
+            if (subelements is not None):
+                for subelement in subelements:
+                    if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords) and (is_deprecated(subelement) == False):  
+                        if str(subelement.keyword) == "choice":
+                            cases = subelement.i_children
+                            if (cases is not None):
+                                for case in cases:
+                                    if (case is not None) and (case.keyword in statements.data_definition_keywords) and (is_deprecated(case) == False):
+                                        yang_data_nodes_list.append(case.arg)
+                                        get_yang_module_data_nodes(case, yang_data_nodes_list)
+                        else:
+                            yang_data_nodes_list.append(subelement.arg) 
+                            get_yang_module_data_nodes(subelement, yang_data_nodes_list)
+                        
+        return yang_data_nodes_list
+    
     def is_yang_identity(element, typedefs_dict: dict) -> bool:
         '''
         Auxiliary function.
@@ -365,18 +391,19 @@ def generate_python_json_parser_code(ctx, modules, fd):
                 result = True
         return result
 
-    def generate_parser_code(element, parent_element_arg, entity_path: str, camelcase_entity_path: str, camelcase_entity_list: list, depth_level: int, typedefs_dict: dict, transition_element, modules_name: list):
+    def generate_parser_code(element, parent_element_arg, entity_path: str, camelcase_entity_path: str, depth_level: int, typedefs_dict: dict, transition_element, modules_name: list, yang_data_nodes_list: list):
         '''
         Auxiliary function.
         Recursively generates the JSON parser code.
         '''
         global PARENT_YANG_MODULE
+        global ENTITY_TYPE_LIST
         camelcase_element_arg = to_camelcase(str(element.keyword), str(element.arg))
-        element_namespace = str(element.i_module.search_one('namespace').arg)
-        element_name = str(element.i_module.arg)
+        yang_module_namespace = str(element.i_module.search_one('namespace').arg)
+        yang_module_name = str(element.i_module.arg)
 
         if len(modules_name) == 0:
-            PARENT_YANG_MODULE = element_name
+            PARENT_YANG_MODULE = yang_module_name
             modules_name.append(PARENT_YANG_MODULE)
         
         current_path = ''
@@ -393,23 +420,22 @@ def generate_python_json_parser_code(ctx, modules, fd):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
                         if parent_element_arg is None:
-                            generate_parser_code(subelement, None, None, None, list(), depth_level, typedefs_dict, element, modules_name)
+                            generate_parser_code(subelement, None, None, None, depth_level, typedefs_dict, element, modules_name, yang_data_nodes_list)
                         else:
                             current_camelcase_path = ''
                             if (camelcase_entity_path is None):
                                 current_camelcase_path = to_camelcase(str(element.keyword), str(subelement.arg))
                             else:
                                 current_camelcase_path = camelcase_entity_path + to_camelcase(str(element.keyword), str(element.arg)) 
-                            camelcase_entity_list.append(current_camelcase_path)
                             if subelement.keyword == 'container':
                                 if first_subelement == True:
-                                    if element_name != PARENT_YANG_MODULE:
+                                    if yang_module_name != PARENT_YANG_MODULE:
                                         for module_name in modules_name:
                                             if parent_element_arg == module_name.split(":")[-1]:
-                                                modules_name.append(element_name + ":" + element.arg)
-                                        if str(element_name + ":" + element.arg) not in modules_name:
-                                            modules_name.append(element_name + ":" + element.arg)
-                                            fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element_name) + ":" + str(element.arg) + '")')
+                                                modules_name.append(yang_module_name + ":" + element.arg)
+                                        if str(yang_module_name + ":" + element.arg) not in modules_name:
+                                            modules_name.append(yang_module_name + ":" + element.arg)
+                                            fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(yang_module_name) + ":" + str(element.arg) + '")')
                                         else:
                                             fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element.arg) + '")')    
                                     else:
@@ -419,18 +445,18 @@ def generate_python_json_parser_code(ctx, modules, fd):
                                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(element.arg).replace('-', '_') + ' is not None and len(' + str(element.arg).replace('-', '_') + ') != 0:')
                                     depth_level += 1
                                     first_subelement = False
-                                generate_parser_code(subelement, element.arg, entity_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name)
+                                generate_parser_code(subelement, element.arg, entity_path, current_camelcase_path, depth_level, typedefs_dict, None, modules_name, yang_data_nodes_list)
                             elif subelement.keyword == 'list':                                
                                 if first_subelement == True:
-                                    if element_name != PARENT_YANG_MODULE:
+                                    if yang_module_name != PARENT_YANG_MODULE:
                                         for module_name in modules_name:
                                             if parent_element_arg == module_name.split(":")[-1]:
-                                                modules_name.append(element_name + ":" + element.arg)
-                                                modules_name.append(element_name + ":" + subelement.arg)
-                                        if str(element_name + ":" + element.arg) not in modules_name:
-                                            modules_name.append(element_name + ":" + element.arg)
-                                            modules_name.append(element_name + ":" + subelement.arg)
-                                            fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element_name + ":" + str(element.arg) + '")'))
+                                                modules_name.append(yang_module_name + ":" + element.arg)
+                                                modules_name.append(yang_module_name + ":" + subelement.arg)
+                                        if str(yang_module_name + ":" + element.arg) not in modules_name:
+                                            modules_name.append(yang_module_name + ":" + element.arg)
+                                            modules_name.append(yang_module_name + ":" + subelement.arg)
+                                            fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(yang_module_name + ":" + str(element.arg) + '")'))
 
                                         else:
                                             fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element.arg) + '")')   
@@ -441,7 +467,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
                                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(element.arg).replace('-', '_') + ' is not None and len(' + str(element.arg).replace('-', '_') + ') != 0:')
                                     depth_level += 1
                                     first_subelement = False
-                                generate_parser_code(subelement, parent_element_arg, entity_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, element, modules_name)
+                                generate_parser_code(subelement, parent_element_arg, entity_path, current_camelcase_path, depth_level, typedefs_dict, element, modules_name, yang_data_nodes_list)
 
                         
         ### NGSI-LD ENTITY IDENTIFICATION ###
@@ -451,7 +477,10 @@ def generate_python_json_parser_code(ctx, modules, fd):
                 current_camelcase_path = to_camelcase(str(element.keyword), str(element.arg))
             else:
                 current_camelcase_path = camelcase_entity_path + to_camelcase(str(element.keyword), str(element.arg))
-            camelcase_entity_list.append(current_camelcase_path)
+            
+            if current_camelcase_path not in ENTITY_TYPE_LIST:
+                ENTITY_TYPE_LIST.append(current_camelcase_path)
+            
             if (parent_element_arg is None): # 1st level Entity.
                 if element.keyword in ['container']:
                     if(transition_element is not None):
@@ -476,7 +505,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     if (subelements is not None):
                         for subelement in subelements:
                             if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                                generate_parser_code(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name)
+                                generate_parser_code(subelement, element.arg, current_path, current_camelcase_path, depth_level, typedefs_dict, None, modules_name, yang_data_nodes_list)
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'dict_buffers.append(' + current_path.replace('-', '_') + 'dict_buffer)')
                 elif element.keyword in ['list']:
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if isinstance(' + 'json_data' + '.get("' + str(transition_element.arg) + '")' + ', dict):')
@@ -488,9 +517,9 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + str(transition_element.arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
                     depth_level -= 1
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'elif ' + "\"" + str(element_name) + ":" + str(element.arg) + "\"" + ' in list(' + str(transition_element.arg).replace('-', '_') + '.keys()):')
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'elif ' + "\"" + str(yang_module_name) + ":" + str(element.arg) + "\"" + ' in list(' + str(transition_element.arg).replace('-', '_') + '.keys()):')
                     depth_level += 1
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + str(transition_element.arg).replace('-', '_') + '.get("' + str(element_name + ":" + str(element.arg) + '")'))
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + str(transition_element.arg).replace('-', '_') + '.get("' + str(yang_module_name + ":" + str(element.arg) + '")'))
                     depth_level -= 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'for ' + str(element.arg).replace('-', '_') + ' in ' + str(transition_element.arg).replace('-', '_') + ':')
                     depth_level += 1
@@ -504,18 +533,18 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     if (subelements is not None):
                         for subelement in subelements:
                             if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                                generate_parser_code(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name)
+                                generate_parser_code(subelement, element.arg, current_path, current_camelcase_path, depth_level, typedefs_dict, None, modules_name, yang_data_nodes_list)
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'dict_buffers.append(' + current_path.replace('-', '_') + 'dict_buffer)')
             else: # 2nd level Entity onwards.
                 if element.keyword in ['container']:
                     
-                    if element_name != PARENT_YANG_MODULE:
+                    if yang_module_name != PARENT_YANG_MODULE:
                         for module_name in modules_name:
                             if parent_element_arg == module_name.split(":")[-1]:
-                                modules_name.append(element_name + ":" + element.arg)
-                        if str(element_name + ":" + element.arg) not in modules_name:
-                            modules_name.append(element_name + ":" + element.arg)
-                            fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element_name) + ":" + str(element.arg) + '")')
+                                modules_name.append(yang_module_name + ":" + element.arg)
+                        if str(yang_module_name + ":" + element.arg) not in modules_name:
+                            modules_name.append(yang_module_name + ":" + element.arg)
+                            fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(yang_module_name) + ":" + str(element.arg) + '")')
                         else:
                             fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element.arg) + '")')    
                     else:
@@ -536,7 +565,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     if (subelements is not None):
                         for subelement in subelements:
                             if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                                generate_parser_code(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name)
+                                generate_parser_code(subelement, element.arg, current_path, current_camelcase_path, depth_level, typedefs_dict, None, modules_name, yang_data_nodes_list)
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'dict_buffers.append(' + current_path.replace('-', '_') + 'dict_buffer)')
                 elif element.keyword in ['list']:
 
@@ -554,7 +583,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     if (subelements is not None):
                         for subelement in subelements:
                             if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                                generate_parser_code(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name)
+                                generate_parser_code(subelement, element.arg, current_path, current_camelcase_path, depth_level, typedefs_dict, None, modules_name, yang_data_nodes_list)
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'dict_buffers.append(' + current_path.replace('-', '_') + 'dict_buffer)')
         ### --- ###
 
@@ -575,7 +604,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
                         if (subelements is not None):
                             for subelement in subelements:
                                 if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                                    generate_parser_code(subelement, parent_element_arg, current_path, camelcase_entity_path, camelcase_entity_list, depth_level, typedefs_dict)
+                                    generate_parser_code(subelement, parent_element_arg, current_path, camelcase_entity_path, depth_level, typedefs_dict, yang_data_nodes_list)
         ### --- ###
                                     
         ### NGSI-LD PROPERTY IDENTIFICATION ###
@@ -604,33 +633,38 @@ def generate_python_json_parser_code(ctx, modules, fd):
         
         ### NGSI-LD RELATIONSHIP IDENTIFICATION ###
         elif (is_relationship(element, typedefs_dict) == True) and (is_deprecated(element) == False):
+
+            current_camelcase_path = ''
+
+            if (yang_data_nodes_list.count(str(element.arg))) > 1 or (str(element.arg) == 'type'):
+                current_camelcase_path = camelcase_entity_path + str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize()))
+            else:
+                current_camelcase_path = str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize()))
+
             pointer = element.i_leafref_ptr[0]
             pointer_parent = pointer.parent
             camelcase_pointer_parent = to_camelcase(str(pointer_parent.keyword), str(pointer_parent.arg))
             
-            #relationship_camelcase_path = camelcase_entity_path + camelcase_pointer_parent
-            #camelcase_entity_list.append(relationship_camelcase_path)
-            
             matches = [] # Best match is always the first element appended into the list: index 0.
-            for camelcase_entity in camelcase_entity_list:
+            for camelcase_entity in ENTITY_TYPE_LIST:
                 if camelcase_pointer_parent == camelcase_entity_path + camelcase_entity:
                     matches.append(camelcase_entity)
 
             if len(matches) == 0:
                 childs = element.parent.i_children
                 matched_childs = 0
-                if (childs is not None): #and (camelcase_entity_path + camelcase_pointer_parent) != current_camelcase_path:
+                if (childs is not None) and (camelcase_entity_path + camelcase_pointer_parent) != current_camelcase_path:
                     for child in childs:
                         if child.arg == str(pointer_parent.arg):
                             matched_childs += 1 
                     
                     if matched_childs > 0:    
                         relationship_camelcase_path = camelcase_entity_path + camelcase_pointer_parent
-                        camelcase_entity_list.append(relationship_camelcase_path)
+                        ENTITY_TYPE_LIST.append(relationship_camelcase_path)
                     else:
                         relationship_camelcase_path = camelcase_pointer_parent
                 else:
-                    for camelcase_entity in camelcase_entity_list:
+                    for camelcase_entity in ENTITY_TYPE_LIST:
                         if camelcase_pointer_parent == camelcase_entity or camelcase_pointer_parent in camelcase_entity:
                             matches.append(camelcase_entity)
 
@@ -650,7 +684,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
 
             if len(matches) == 0:
                 relationship_camelcase_path = camelcase_entity_path + camelcase_pointer_parent
-                camelcase_entity_list.append(relationship_camelcase_path)
+                ENTITY_TYPE_LIST.append(relationship_camelcase_path)
             else:
                 relationship_camelcase_path = matches[0]
             '''
@@ -758,6 +792,16 @@ def generate_python_json_parser_code(ctx, modules, fd):
     typedef_modules = list(dict.fromkeys(typedef_modules)) # Delete duplicates.
     typedefs_dict = typedefs_discovering(typedef_modules)
 
+    # Get all data nodes for the evaluated YANG modules
+    yang_data_nodes_list = []
+    for module in modules:
+        elements = module.i_children
+        if (elements is not None):
+            for element in elements:
+                if (element is not None) and (element.keyword in statements.data_definition_keywords):
+                    yang_data_nodes_list.append(element.arg)
+                    get_yang_module_data_nodes(element, yang_data_nodes_list)
+
     # Generate JSON parser code (element data retrieval and transformation to generate dictionary buffers):
     depth_level = 0
     for module in modules:
@@ -769,8 +813,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
                 depth_level = 2
             for element in elements:
                 if (element is not None) and (element.keyword in statements.data_definition_keywords):
-                    generate_parser_code(element, None, None, None, list(), depth_level, typedefs_dict, None, list())
-    
+                    generate_parser_code(element, None, None, None, depth_level, typedefs_dict, None, list(), yang_data_nodes_list)
     fd.write('\n\n')
 
     # Generate writing instructions for the JSON parser (depending on the output mode):

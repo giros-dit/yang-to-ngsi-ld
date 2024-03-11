@@ -8,7 +8,8 @@ with open(json_payload) as f:
     data = json.load(f)
     json_data = data[0]["updates"][0]["values"]
     timestamp_data = int(data[0]["timestamp"])
-    observed_at = str(np.datetime64(timestamp_data, 'ns'))
+    datetime_ns = np.datetime64(timestamp_data, 'ns')
+    observed_at = str(datetime_ns.astype('datetime64[ms]')) + 'Z'
 
 if isinstance(json_data.get("interfaces"), dict):
     interfaces = json_data.get("interfaces")
@@ -1124,7 +1125,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                                                     interface_subinterface_config_dict_buffer["id"] = interface_subinterface_config_dict_buffer["id"] + element_text
                                                                 interface_subinterface_config_dict_buffer["interface"] = {}
                                                                 interface_subinterface_config_dict_buffer["interface"]["type"] = "Relationship"
-                                                                interface_subinterface_config_dict_buffer["interface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4UnnumberedInterfaceRefConfigInterface:" + interface_subinterface_config_dict_buffer["id"].split(":")[-1]
+                                                                interface_subinterface_config_dict_buffer["interface"]["object"] = "urn:ngsi-ld:Interface:" + interface_subinterface_config_dict_buffer["id"].split(":")[-1]
                                                                 interface_subinterface_config_dict_buffer["interface"]["observedAt"] = observed_at
                                                             subinterface = config.get("subinterface")
                                                             if subinterface is not None:
@@ -1133,7 +1134,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                                                     interface_subinterface_config_dict_buffer["id"] = interface_subinterface_config_dict_buffer["id"] + "." + str(element_text)
                                                                 interface_subinterface_config_dict_buffer["subinterface"] = {}
                                                                 interface_subinterface_config_dict_buffer["subinterface"]["type"] = "Relationship"
-                                                                interface_subinterface_config_dict_buffer["subinterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4UnnumberedInterfaceRefConfigSubinterface:" + interface_subinterface_config_dict_buffer["id"].split(":")[-1]
+                                                                interface_subinterface_config_dict_buffer["subinterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:" + interface_subinterface_config_dict_buffer["id"].split(":")[-1]
                                                                 interface_subinterface_config_dict_buffer["subinterface"]["observedAt"] = observed_at
                                                             dict_buffers.append(interface_subinterface_config_dict_buffer)
                                                     state = interface_ref.get("state")
@@ -1153,7 +1154,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                                                     interface_subinterface_state_dict_buffer["id"] = interface_subinterface_state_dict_buffer["id"] + element_text
                                                                 interface_subinterface_state_dict_buffer["interface"] = {}
                                                                 interface_subinterface_state_dict_buffer["interface"]["type"] = "Relationship"
-                                                                interface_subinterface_state_dict_buffer["interface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4UnnumberedInterfaceRefStateInterface:" + interface_subinterface_state_dict_buffer["id"].split(":")[-1]
+                                                                interface_subinterface_state_dict_buffer["interface"]["object"] = "urn:ngsi-ld:Interface:" + interface_subinterface_state_dict_buffer["id"].split(":")[-1]
                                                                 interface_subinterface_state_dict_buffer["interface"]["observedAt"] = observed_at
                                                             subinterface = state.get("subinterface")
                                                             if subinterface is not None:
@@ -1162,7 +1163,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                                                     interface_subinterface_state_dict_buffer["id"] = interface_subinterface_state_dict_buffer["id"] + "." + str(element_text)
                                                                 interface_subinterface_state_dict_buffer["subinterface"] = {}
                                                                 interface_subinterface_state_dict_buffer["subinterface"]["type"] = "Relationship"
-                                                                interface_subinterface_state_dict_buffer["subinterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4UnnumberedInterfaceRefStateSubinterface:" + interface_subinterface_state_dict_buffer["id"].split(":")[-1]
+                                                                interface_subinterface_state_dict_buffer["subinterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:" + interface_subinterface_state_dict_buffer["id"].split(":")[-1]
                                                                 interface_subinterface_state_dict_buffer["subinterface"]["observedAt"] = observed_at
                                                             dict_buffers.append(interface_subinterface_state_dict_buffer)
                                     config = ipv4.get("config")
@@ -1856,7 +1857,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                                                     interface_subinterface_config_dict_buffer["id"] = interface_subinterface_config_dict_buffer["id"] + element_text
                                                                 interface_subinterface_config_dict_buffer["interface"] = {}
                                                                 interface_subinterface_config_dict_buffer["interface"]["type"] = "Relationship"
-                                                                interface_subinterface_config_dict_buffer["interface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6UnnumberedInterfaceRefConfigInterface:" + interface_subinterface_config_dict_buffer["id"].split(":")[-1]
+                                                                interface_subinterface_config_dict_buffer["interface"]["object"] = "urn:ngsi-ld:Interface:" + interface_subinterface_config_dict_buffer["id"].split(":")[-1]
                                                                 interface_subinterface_config_dict_buffer["interface"]["observedAt"] = observed_at
                                                             subinterface = config.get("subinterface")
                                                             if subinterface is not None:
@@ -1865,7 +1866,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                                                     interface_subinterface_config_dict_buffer["id"] = interface_subinterface_config_dict_buffer["id"] + "." + str(element_text)
                                                                 interface_subinterface_config_dict_buffer["subinterface"] = {}
                                                                 interface_subinterface_config_dict_buffer["subinterface"]["type"] = "Relationship"
-                                                                interface_subinterface_config_dict_buffer["subinterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6UnnumberedInterfaceRefConfigSubinterface:" + interface_subinterface_config_dict_buffer["id"].split(":")[-1]
+                                                                interface_subinterface_config_dict_buffer["subinterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:" + interface_subinterface_config_dict_buffer["id"].split(":")[-1]
                                                                 interface_subinterface_config_dict_buffer["subinterface"]["observedAt"] = observed_at
                                                             dict_buffers.append(interface_subinterface_config_dict_buffer)
                                                     state = interface_ref.get("state")
@@ -1885,7 +1886,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                                                     interface_subinterface_state_dict_buffer["id"] = interface_subinterface_state_dict_buffer["id"] + element_text
                                                                 interface_subinterface_state_dict_buffer["interface"] = {}
                                                                 interface_subinterface_state_dict_buffer["interface"]["type"] = "Relationship"
-                                                                interface_subinterface_state_dict_buffer["interface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6UnnumberedInterfaceRefStateInterface:" + interface_subinterface_state_dict_buffer["id"].split(":")[-1]
+                                                                interface_subinterface_state_dict_buffer["interface"]["object"] = "urn:ngsi-ld:Interface:" + interface_subinterface_state_dict_buffer["id"].split(":")[-1]
                                                                 interface_subinterface_state_dict_buffer["interface"]["observedAt"] = observed_at
                                                             subinterface = state.get("subinterface")
                                                             if subinterface is not None:
@@ -1894,7 +1895,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                                                     interface_subinterface_state_dict_buffer["id"] = interface_subinterface_state_dict_buffer["id"] + "." + str(element_text)
                                                                 interface_subinterface_state_dict_buffer["subinterface"] = {}
                                                                 interface_subinterface_state_dict_buffer["subinterface"]["type"] = "Relationship"
-                                                                interface_subinterface_state_dict_buffer["subinterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6UnnumberedInterfaceRefStateSubinterface:" + interface_subinterface_state_dict_buffer["id"].split(":")[-1]
+                                                                interface_subinterface_state_dict_buffer["subinterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:" + interface_subinterface_state_dict_buffer["id"].split(":")[-1]
                                                                 interface_subinterface_state_dict_buffer["subinterface"]["observedAt"] = observed_at
                                                             dict_buffers.append(interface_subinterface_state_dict_buffer)
                                     config = ipv6.get("config")
@@ -3026,7 +3027,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                                                 interface_config_dict_buffer["id"] = interface_config_dict_buffer["id"] + element_text
                                                             interface_config_dict_buffer["interface"] = {}
                                                             interface_config_dict_buffer["interface"]["type"] = "Relationship"
-                                                            interface_config_dict_buffer["interface"]["object"] = "urn:ngsi-ld:InterfaceRoutedVlanIpv4UnnumberedInterfaceRefConfigInterface:" + interface_config_dict_buffer["id"].split(":")[-1]
+                                                            interface_config_dict_buffer["interface"]["object"] = "urn:ngsi-ld:Interface:" + interface_config_dict_buffer["id"].split(":")[-1]
                                                             interface_config_dict_buffer["interface"]["observedAt"] = observed_at
                                                         subinterface = config.get("subinterface")
                                                         if subinterface is not None:
@@ -3035,7 +3036,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                                                 interface_config_dict_buffer["id"] = interface_config_dict_buffer["id"] + "." + str(element_text)
                                                             interface_config_dict_buffer["subinterface"] = {}
                                                             interface_config_dict_buffer["subinterface"]["type"] = "Relationship"
-                                                            interface_config_dict_buffer["subinterface"]["object"] = "urn:ngsi-ld:InterfaceRoutedVlanIpv4UnnumberedInterfaceRefConfigSubinterface:" + interface_config_dict_buffer["id"].split(":")[-1]
+                                                            interface_config_dict_buffer["subinterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:" + interface_config_dict_buffer["id"].split(":")[-1]
                                                             interface_config_dict_buffer["subinterface"]["observedAt"] = observed_at
                                                         dict_buffers.append(interface_config_dict_buffer)
                                                 state = interface_ref.get("state")
@@ -3055,7 +3056,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                                                 interface_state_dict_buffer["id"] = interface_state_dict_buffer["id"] + element_text
                                                             interface_state_dict_buffer["interface"] = {}
                                                             interface_state_dict_buffer["interface"]["type"] = "Relationship"
-                                                            interface_state_dict_buffer["interface"]["object"] = "urn:ngsi-ld:InterfaceRoutedVlanIpv4UnnumberedInterfaceRefStateInterface:" + interface_state_dict_buffer["id"].split(":")[-1]
+                                                            interface_state_dict_buffer["interface"]["object"] = "urn:ngsi-ld:Interface:" + interface_state_dict_buffer["id"].split(":")[-1]
                                                             interface_state_dict_buffer["interface"]["observedAt"] = observed_at
                                                         subinterface = state.get("subinterface")
                                                         if subinterface is not None:
@@ -3064,7 +3065,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                                                 interface_state_dict_buffer["id"] = interface_state_dict_buffer["id"] + "." + str(element_text)
                                                             interface_state_dict_buffer["subinterface"] = {}
                                                             interface_state_dict_buffer["subinterface"]["type"] = "Relationship"
-                                                            interface_state_dict_buffer["subinterface"]["object"] = "urn:ngsi-ld:InterfaceRoutedVlanIpv4UnnumberedInterfaceRefStateSubinterface:" + interface_state_dict_buffer["id"].split(":")[-1]
+                                                            interface_state_dict_buffer["subinterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:" + interface_state_dict_buffer["id"].split(":")[-1]
                                                             interface_state_dict_buffer["subinterface"]["observedAt"] = observed_at
                                                         dict_buffers.append(interface_state_dict_buffer)
                                 config = ipv4.get("config")
@@ -3758,7 +3759,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                                                 interface_config_dict_buffer["id"] = interface_config_dict_buffer["id"] + element_text
                                                             interface_config_dict_buffer["interface"] = {}
                                                             interface_config_dict_buffer["interface"]["type"] = "Relationship"
-                                                            interface_config_dict_buffer["interface"]["object"] = "urn:ngsi-ld:InterfaceRoutedVlanIpv6UnnumberedInterfaceRefConfigInterface:" + interface_config_dict_buffer["id"].split(":")[-1]
+                                                            interface_config_dict_buffer["interface"]["object"] = "urn:ngsi-ld:Interface:" + interface_config_dict_buffer["id"].split(":")[-1]
                                                             interface_config_dict_buffer["interface"]["observedAt"] = observed_at
                                                         subinterface = config.get("subinterface")
                                                         if subinterface is not None:
@@ -3767,7 +3768,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                                                 interface_config_dict_buffer["id"] = interface_config_dict_buffer["id"] + "." + str(element_text)
                                                             interface_config_dict_buffer["subinterface"] = {}
                                                             interface_config_dict_buffer["subinterface"]["type"] = "Relationship"
-                                                            interface_config_dict_buffer["subinterface"]["object"] = "urn:ngsi-ld:InterfaceRoutedVlanIpv6UnnumberedInterfaceRefConfigSubinterface:" + interface_config_dict_buffer["id"].split(":")[-1]
+                                                            interface_config_dict_buffer["subinterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:" + interface_config_dict_buffer["id"].split(":")[-1]
                                                             interface_config_dict_buffer["subinterface"]["observedAt"] = observed_at
                                                         dict_buffers.append(interface_config_dict_buffer)
                                                 state = interface_ref.get("state")
@@ -3787,7 +3788,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                                                 interface_state_dict_buffer["id"] = interface_state_dict_buffer["id"] + element_text
                                                             interface_state_dict_buffer["interface"] = {}
                                                             interface_state_dict_buffer["interface"]["type"] = "Relationship"
-                                                            interface_state_dict_buffer["interface"]["object"] = "urn:ngsi-ld:InterfaceRoutedVlanIpv6UnnumberedInterfaceRefStateInterface:" + interface_state_dict_buffer["id"].split(":")[-1]
+                                                            interface_state_dict_buffer["interface"]["object"] = "urn:ngsi-ld:Interface:" + interface_state_dict_buffer["id"].split(":")[-1]
                                                             interface_state_dict_buffer["interface"]["observedAt"] = observed_at
                                                         subinterface = state.get("subinterface")
                                                         if subinterface is not None:
@@ -3796,7 +3797,7 @@ if isinstance(json_data.get("interfaces"), dict):
                                                                 interface_state_dict_buffer["id"] = interface_state_dict_buffer["id"] + "." + str(element_text)
                                                             interface_state_dict_buffer["subinterface"] = {}
                                                             interface_state_dict_buffer["subinterface"]["type"] = "Relationship"
-                                                            interface_state_dict_buffer["subinterface"]["object"] = "urn:ngsi-ld:InterfaceRoutedVlanIpv6UnnumberedInterfaceRefStateSubinterface:" + interface_state_dict_buffer["id"].split(":")[-1]
+                                                            interface_state_dict_buffer["subinterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:" + interface_state_dict_buffer["id"].split(":")[-1]
                                                             interface_state_dict_buffer["subinterface"]["observedAt"] = observed_at
                                                         dict_buffers.append(interface_state_dict_buffer)
                                 config = ipv6.get("config")
@@ -4095,7 +4096,7 @@ if isinstance(json_data.get("vlans"), dict):
                                             vlan_member_state_dict_buffer["id"] = vlan_member_state_dict_buffer["id"] + element_text
                                         vlan_member_state_dict_buffer["interface"] = {}
                                         vlan_member_state_dict_buffer["interface"]["type"] = "Relationship"
-                                        vlan_member_state_dict_buffer["interface"]["object"] = "urn:ngsi-ld:VlanMembersMemberStateInterface:" + vlan_member_state_dict_buffer["id"].split(":")[-1]
+                                        vlan_member_state_dict_buffer["interface"]["object"] = "urn:ngsi-ld:Interface:" + vlan_member_state_dict_buffer["id"].split(":")[-1]
                                         vlan_member_state_dict_buffer["interface"]["observedAt"] = observed_at
                                     dict_buffers.append(vlan_member_state_dict_buffer)
                             dict_buffers.append(vlan_member_dict_buffer)
