@@ -1,9 +1,9 @@
 '''
 pyang plugin -- CANDIL OpenAPI Schemas Generator.
 
-Given one or several YANG modules, it dynamically generates the relative OpenAPI Schemas.
+Given one or several YANG modules, it dynamically generates the relative OpenAPI Schemas according to the OpenAPI specification for NGSI-LD API V1.6.1.
 
-Version: 1.0.4.
+Version: 1.0.5.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -19,11 +19,9 @@ from pyang import plugin
 from pyang import statements
 
 ### PLUGIN CONSTANTS ###
-
-PARENT_YANG_MODULE = "" # -> Parent YANG module
 OPENAPI_URL = "https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml" # -> Consolidated OpenAPI spec. for NGSI-LD API v1.6.1
 #OPENAPI_URL = "https://forge.etsi.org/rep/cim/NGSI-LD/-/raw/1.6.1/ngsi-ld-api.yaml" # -> Official OpenAPI spec. for NGSI-LD API v1.6.1
-
+ENTITY_TYPE_LIST = [] # -> It includes all the different types of entities generated throughout all the YANG modules that are processed
 ### --- ###
 
 def pyang_plugin_init():
@@ -358,7 +356,6 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                         else:
                             yang_data_nodes_list.append(subelement.arg) 
                             get_yang_module_data_nodes(subelement, yang_data_nodes_list)
-                        
         
         return yang_data_nodes_list
 
@@ -377,19 +374,15 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                 result = True
         return result
 
-    def generate_schemas(element, parent_element_arg, entity_path: str, camelcase_entity_path: str, camelcase_entity_list: list, depth_level: int, typedefs_dict: dict, transition_element, modules_name: list, typedefs_pattern_dict: dict, yang_data_nodes_list: list):
+    def generate_schemas(element, parent_element_arg, entity_path: str, camelcase_entity_path: str, depth_level: int, typedefs_dict: dict, typedefs_pattern_dict: dict, yang_data_nodes_list: list):
         '''
         Auxiliary function.
         Recursively generates the JSON parser code.
         '''
-        global PARENT_YANG_MODULE
+        global ENTITY_TYPE_LIST
         camelcase_element_arg = to_camelcase(str(element.keyword), str(element.arg))
         element_namespace = str(element.i_module.search_one('namespace').arg)
-        element_name = str(element.i_module.arg)
-
-        if len(modules_name) == 0:
-            PARENT_YANG_MODULE = element_name
-            modules_name.append(PARENT_YANG_MODULE)
+        yang_module_name = str(element.i_module.arg)
         
         current_path = ''
         if (entity_path is None):
@@ -404,18 +397,17 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
                         if parent_element_arg is None:
-                            generate_schemas(subelement, None, None, None, list(), depth_level, typedefs_dict, element, modules_name, typedefs_pattern_dict, yang_data_nodes_list)
+                            generate_schemas(subelement, None, None, None, depth_level, typedefs_dict, typedefs_pattern_dict, yang_data_nodes_list)
                         else:
                             current_camelcase_path = ''
                             if (camelcase_entity_path is None):
                                 current_camelcase_path = to_camelcase(str(element.keyword), str(subelement.arg))
                             else:
                                 current_camelcase_path = camelcase_entity_path + to_camelcase(str(element.keyword), str(element.arg)) 
-                            #camelcase_entity_list.append(current_camelcase_path)
                             if subelement.keyword == 'container':
-                                generate_schemas(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name, typedefs_pattern_dict, yang_data_nodes_list)
+                                generate_schemas(subelement, element.arg, current_path, current_camelcase_path, depth_level, typedefs_dict, typedefs_pattern_dict, yang_data_nodes_list)
                             elif subelement.keyword == 'list':    
-                                generate_schemas(subelement, parent_element_arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, element, modules_name, typedefs_pattern_dict, yang_data_nodes_list)
+                                generate_schemas(subelement, parent_element_arg, current_path, current_camelcase_path, depth_level, typedefs_dict, typedefs_pattern_dict, yang_data_nodes_list)
 
                         
         ### NGSI-LD ENTITY IDENTIFICATION ###
@@ -425,20 +417,20 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                 current_camelcase_path = to_camelcase(str(element.keyword), str(element.arg))
             else:
                 current_camelcase_path = camelcase_entity_path + to_camelcase(str(element.keyword), str(element.arg))
-            camelcase_entity_list.append(current_camelcase_path)
+            
+            if current_camelcase_path not in ENTITY_TYPE_LIST:
+                ENTITY_TYPE_LIST.append(current_camelcase_path)
+
             if (parent_element_arg is None): # 1st level Entity.
                 if element.keyword in ['container']:
                     depth_level = 2
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_camelcase_path + ":")
                     depth_level += 1
 
-                    #description_yaml = {'description': element.search_one('description').arg}
-                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + yaml.dump(description_yaml, default_flow_style=False))
-
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + element_name + '.yang')
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + yang_module_name + '.yang')
                     depth_level -= 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
                     depth_level += 1
@@ -499,19 +491,16 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     if (subelements is not None):
                         for subelement in subelements:
                             if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                                generate_schemas(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name, typedefs_pattern_dic, yang_data_nodes_list)
+                                generate_schemas(subelement, element.arg, current_path, current_camelcase_path, depth_level, typedefs_dict, typedefs_pattern_dict, yang_data_nodes_list)
                 elif element.keyword in ['list']:    
                     depth_level = 2                
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_camelcase_path + ":")
                     depth_level += 1
-                    
-                    #description_yaml = {'description': str(element.search_one('description').arg)}
-                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + yaml.dump(description_yaml, default_flow_style=False))
-                    
+                                        
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + element_name + '.yang')
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + yang_module_name + '.yang')
                     depth_level -= 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
                     depth_level += 1
@@ -573,19 +562,17 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     if (subelements is not None):
                         for subelement in subelements:
                             if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                                generate_schemas(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name, typedefs_pattern_dict, yang_data_nodes_list)
+                                generate_schemas(subelement, element.arg, current_path, current_camelcase_path, depth_level, typedefs_dict, typedefs_pattern_dict, yang_data_nodes_list)
             else: # 2nd level Entity onwards.
                 if element.keyword in ['container']:
                     depth_level = 2
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_camelcase_path + ":")
                     depth_level += 1
 
-                    #description_yaml = {'description': element.search_one('description').arg}
-                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + yaml.dump(description_yaml, default_flow_style=False))
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + element_name + '.yang')
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + yang_module_name + '.yang')
                     depth_level -= 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
                     depth_level += 1
@@ -669,20 +656,17 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     if (subelements is not None):
                         for subelement in subelements:
                             if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                                generate_schemas(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name, typedefs_pattern_dict, yang_data_nodes_list)
+                                generate_schemas(subelement, element.arg, current_path, current_camelcase_path, depth_level, typedefs_dict, typedefs_pattern_dict, yang_data_nodes_list)
 
                 elif element.keyword in ['list']:
                     depth_level = 2
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_camelcase_path + ":")
                     depth_level += 1
-                    
-                    #description_yaml = {'description': element.search_one('description').arg}
-                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + yaml.dump(description_yaml, default_flow_style=False))
-                    
+                                        
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + element_name + '.yang')
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + yang_module_name + '.yang')
                     depth_level -= 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
                     depth_level += 1
@@ -765,7 +749,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     if (subelements is not None):
                         for subelement in subelements:
                             if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                                generate_schemas(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name, typedefs_pattern_dict, yang_data_nodes_list)
+                                generate_schemas(subelement, element.arg, current_path, current_camelcase_path, depth_level, typedefs_dict, typedefs_pattern_dict, yang_data_nodes_list)
         ### --- ###
         
         ### YANG CHOICE IDENTIFICATION: IT CONTAINS NGSI-LD PROPERTIES ###
@@ -778,13 +762,12 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
             else:
                 current_camelcase_path = str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize()))
 
-            #fd.write('\n' + INDENTATION_BLOCK * depth_level + re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize() + ":"))
             fd.write('\n' + INDENTATION_BLOCK * depth_level + current_camelcase_path + ":")
             depth_level += 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
             depth_level += 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + element_name + '.yang')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + yang_module_name + '.yang')
             depth_level -= 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "oneOf:")
             depth_level += 1
@@ -810,7 +793,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                         if (subelements is not None):
                             for subelement in subelements:
                                 if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                                    generate_schemas(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, None, modules_name, typedefs_pattern_dict, yang_data_nodes_list)
+                                    generate_schemas(subelement, element.arg, current_path, current_camelcase_path, depth_level, typedefs_dict, typedefs_pattern_dict, yang_data_nodes_list)
 
         ### --- ###
         
@@ -828,17 +811,13 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
             openapi_schema_type = yang_to_openapi_schemas_types_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1], typedefs_dict)
             openapi_schema_format = yang_to_openapi_schemas_formats_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1])
 
-            #fd.write('\n' + INDENTATION_BLOCK * depth_level + re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize() + ":"))
             fd.write('\n' + INDENTATION_BLOCK * depth_level + current_camelcase_path + ":")
             depth_level += 1
-            
-            #description_yaml = {'description': str(element.search_one('description').arg)}
-            #fd.write('\n' + INDENTATION_BLOCK * depth_level + yaml.dump(description_yaml, default_flow_style=False))
-            
+                        
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
             depth_level += 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + element_name + '.yang')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + yang_module_name + '.yang')
             depth_level -= 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "additionalProperties: false")
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
@@ -911,11 +890,9 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
             pointer = element.i_leafref_ptr[0]
             pointer_parent = pointer.parent
             camelcase_pointer_parent = to_camelcase(str(pointer_parent.keyword), str(pointer_parent.arg))
-            #relationship_camelcase_path = camelcase_entity_path + camelcase_pointer_parent
-            #camelcase_entity_list.append(relationship_camelcase_path)
 
             matches = [] # Best match is always the first element appended into the list: index 0.
-            for camelcase_entity in camelcase_entity_list:
+            for camelcase_entity in ENTITY_TYPE_LIST:
                 if camelcase_pointer_parent == camelcase_entity_path + camelcase_entity:
                     matches.append(camelcase_entity)
 
@@ -929,11 +906,11 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     
                     if matched_childs > 0:    
                         relationship_camelcase_path = camelcase_entity_path + camelcase_pointer_parent
-                        camelcase_entity_list.append(relationship_camelcase_path)
+                        ENTITY_TYPE_LIST.append(relationship_camelcase_path)
                     else:
                         relationship_camelcase_path = camelcase_pointer_parent
                 else:
-                    for camelcase_entity in camelcase_entity_list:
+                    for camelcase_entity in ENTITY_TYPE_LIST:
                         if camelcase_pointer_parent == camelcase_entity or camelcase_pointer_parent in camelcase_entity:
                             matches.append(camelcase_entity)
 
@@ -949,17 +926,13 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
             openapi_schema_type = yang_to_openapi_schemas_types_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1], typedefs_dict)
             openapi_schema_format = yang_to_openapi_schemas_formats_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1])
 
-            #fd.write('\n' + INDENTATION_BLOCK * depth_level + re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize() + ":"))
             fd.write('\n' + INDENTATION_BLOCK * depth_level + current_camelcase_path + ":")
             depth_level += 1
-            
-            #description_yaml = {'description': str(element.search_one('description').arg)}
-            #fd.write('\n' + INDENTATION_BLOCK * depth_level + yaml.dump(description_yaml, default_flow_style=False))
                     
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
             depth_level += 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + element_name + '.yang')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + yang_module_name + '.yang')
             depth_level -= 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "additionalProperties: false")
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
@@ -1031,18 +1004,14 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                 yang_identity_name = str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize()))
 
             openapi_schema_type = yang_to_openapi_schemas_types_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1], typedefs_dict)
-            #openapi_schema_format = yang_to_openapi_schemas_formats_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1])
 
             fd.write('\n' + INDENTATION_BLOCK * depth_level + yang_identity_name + ":")
             depth_level += 1
-            
-            #description_yaml = {'description': str(element.search_one('description').arg)}
-            #fd.write('\n' + INDENTATION_BLOCK * depth_level + yaml.dump(description_yaml, default_flow_style=False))
-                    
+                                
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
             depth_level += 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + element_name + '.yang')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + yang_module_name + '.yang')
             depth_level -= 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "additionalProperties: false")
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
@@ -1080,7 +1049,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
     fd.write('\n' + "info:")
     fd.write('\n' + INDENTATION_BLOCK + "title: OpenAPI schemas for YANG data models " + ', '.join(map(str, args)) + ".") 
     fd.write('\n' + INDENTATION_BLOCK + "version: 1.0.0")
-    fd.write('\n' + INDENTATION_BLOCK + "description: Schemas or YANG data models compliant with the NGSI-LD OAS V1.6.1 metamodel according to ETSI GS CIM 009 V1.6.1.")
+    fd.write('\n' + INDENTATION_BLOCK + "description: OpenAPI schemas for YANG data models compliant with the NGSI-LD OAS V1.6.1 metamodel according to ETSI GS CIM 009 V1.6.1.")
     fd.write('\n' + "paths: {}")
     fd.write('\n' + "components:")
     fd.write('\n' + INDENTATION_BLOCK + "schemas:")
@@ -1114,13 +1083,13 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     
     # Generate OpenAPI generator code (element data retrieval and transformation to generate OpenAPI schemas):
     depth_level = 2
-    camelcase_entity_list = []
+    
     for module in modules:
         elements = module.i_children
         if (elements is not None):
             for element in elements:
                 if (element is not None) and (element.keyword in statements.data_definition_keywords):
-                    generate_schemas(element, None, None, None, camelcase_entity_list, depth_level, typedefs_dict, None, list(), typedefs_pattern_dict, yang_data_nodes_list)
+                    generate_schemas(element, None, None, None, depth_level, typedefs_dict, typedefs_pattern_dict, yang_data_nodes_list)
     
     
     depth_level = 2
