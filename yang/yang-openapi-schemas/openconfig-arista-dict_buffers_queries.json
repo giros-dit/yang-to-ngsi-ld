@@ -1,0 +1,1364 @@
+[
+    {
+        "id": "urn:ngsi-ld:Interface:Ethernet1",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:Ethernet1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetState:Ethernet1",
+        "type": "InterfaceEthernetState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:Ethernet1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "aa:c1:ab:34:7a:df",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "autoNegotiate": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "duplexMode": {
+            "type": "Property",
+            "value": "FULL",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "portSpeed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:SPEED_1GB",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "aa:c1:ab:34:7a:df",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "negotiatedPortSpeed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:SPEED_UNKNOWN",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetStateCounters:Ethernet1",
+        "type": "InterfaceEthernetStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernetState:Ethernet1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inMacControlFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inMacPauseFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inOversizeFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inJabberFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inFragmentFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inCrcErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "outMacControlFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "outMacPauseFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetConfig:Ethernet1",
+        "type": "InterfaceEthernetConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:Ethernet1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "00:00:00:00:00:00",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "portSpeed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:SPEED_UNKNOWN",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Ethernet1.0",
+        "type": "InterfaceSubinterfacesSubinterface",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:Ethernet1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "index": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:Ethernet1.0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4State:Ethernet1.0",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4State",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Ethernet1.0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "enabled": {
+            "type": "Property",
+            "value": true,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4Config:Ethernet1.0",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4Config",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Ethernet1.0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "enabled": {
+            "type": "Property",
+            "value": true,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor:Ethernet1.0:192.168.254.1",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Ethernet1.0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "ip": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborConfig:192.168.254.1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborState:192.168.254.1",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor:Ethernet1.0:192.168.254.1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "ip": {
+            "type": "Property",
+            "value": "192.168.254.1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "linkLayerAddress": {
+            "type": "Property",
+            "value": "1a:7e:04:ff:00:01",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "origin": {
+            "type": "Property",
+            "value": "DYNAMIC",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborConfig:192.168.254.1",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor:Ethernet1.0:192.168.254.1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "ip": {
+            "type": "Property",
+            "value": "192.168.254.1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:Ethernet1.0:192.168.254.2",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Ethernet1.0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "ip": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:192.168.254.2",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressState:192.168.254.2",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:Ethernet1.0:192.168.254.2",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "ip": {
+            "type": "Property",
+            "value": "192.168.254.2",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "prefixLength": {
+            "type": "Property",
+            "value": 24,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "origin": {
+            "type": "Property",
+            "value": "STATIC",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:192.168.254.2",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:Ethernet1.0:192.168.254.2",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "ip": {
+            "type": "Property",
+            "value": "192.168.254.2",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "prefixLength": {
+            "type": "Property",
+            "value": 24,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceState:Ethernet1.0",
+        "type": "InterfaceSubinterfacesSubinterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Ethernet1.0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "description": {
+            "type": "Property",
+            "value": "\"Peering interface with router r1 (r1 <-> r2)\"",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:Ethernet1.0",
+        "type": "InterfaceSubinterfacesSubinterfaceConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Ethernet1.0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "description": {
+            "type": "Property",
+            "value": "\"Peering interface with router r1 (r1 <-> r2)\"",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:Ethernet1",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:Ethernet1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "Ethernet1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "mtu": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "description": {
+            "type": "Property",
+            "value": "\"Peering interface with router r1 (r1 <-> r2)\"",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 1,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "UP",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "UP",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708629700893365504,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:Ethernet1",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:Ethernet1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 1476,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inUnicastPkts": {
+            "type": "Property",
+            "value": 1,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inBroadcastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inMulticastPkts": {
+            "type": "Property",
+            "value": 10,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inDiscards": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inFcsErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "outUnicastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "outBroadcastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "outMulticastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "outDiscards": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "outErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "carrierTransitions": {
+            "type": "Property",
+            "value": 2,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceConfig:Ethernet1",
+        "type": "InterfaceConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:Ethernet1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "Ethernet1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "configType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "mtu": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "description": {
+            "type": "Property",
+            "value": "\"Peering interface with router r1 (r1 <-> r2)\"",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:Ethernet2",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:Ethernet2",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetState:Ethernet2",
+        "type": "InterfaceEthernetState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:Ethernet2",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "aa:c1:ab:14:2a:d8",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "autoNegotiate": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "duplexMode": {
+            "type": "Property",
+            "value": "FULL",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "portSpeed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:SPEED_1GB",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "aa:c1:ab:14:2a:d8",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "negotiatedPortSpeed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:SPEED_UNKNOWN",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetStateCounters:Ethernet2",
+        "type": "InterfaceEthernetStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernetState:Ethernet2",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inMacControlFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inMacPauseFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inOversizeFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inJabberFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inFragmentFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inCrcErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "outMacControlFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "outMacPauseFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetConfig:Ethernet2",
+        "type": "InterfaceEthernetConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:Ethernet2",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "00:00:00:00:00:00",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "portSpeed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:SPEED_UNKNOWN",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Ethernet2.0",
+        "type": "InterfaceSubinterfacesSubinterface",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:Ethernet2",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "index": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:Ethernet2.0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4State:Ethernet2.0",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4State",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Ethernet2.0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "enabled": {
+            "type": "Property",
+            "value": true,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4Config:Ethernet2.0",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4Config",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Ethernet2.0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "enabled": {
+            "type": "Property",
+            "value": true,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:Ethernet2.0:10.0.2.1",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Ethernet2.0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "ip": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:10.0.2.1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressState:10.0.2.1",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:Ethernet2.0:10.0.2.1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "ip": {
+            "type": "Property",
+            "value": "10.0.2.1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "prefixLength": {
+            "type": "Property",
+            "value": 24,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "origin": {
+            "type": "Property",
+            "value": "STATIC",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:10.0.2.1",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:Ethernet2.0:10.0.2.1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "ip": {
+            "type": "Property",
+            "value": "10.0.2.1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "prefixLength": {
+            "type": "Property",
+            "value": 24,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceState:Ethernet2.0",
+        "type": "InterfaceSubinterfacesSubinterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Ethernet2.0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "description": {
+            "type": "Property",
+            "value": "\"LAN-2 interface (c2 <-> r2)\"",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:Ethernet2.0",
+        "type": "InterfaceSubinterfacesSubinterfaceConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Ethernet2.0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "description": {
+            "type": "Property",
+            "value": "\"LAN-2 interface (c2 <-> r2)\"",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:Ethernet2",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:Ethernet2",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "Ethernet2",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "mtu": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "description": {
+            "type": "Property",
+            "value": "\"LAN-2 interface (c2 <-> r2)\"",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 2,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "UP",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "UP",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708629700893144064,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:Ethernet2",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:Ethernet2",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 14091,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inUnicastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inBroadcastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inMulticastPkts": {
+            "type": "Property",
+            "value": 109,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inDiscards": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inFcsErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "outUnicastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "outBroadcastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "outMulticastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "outDiscards": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "outErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "carrierTransitions": {
+            "type": "Property",
+            "value": 2,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceConfig:Ethernet2",
+        "type": "InterfaceConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:Ethernet2",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "Ethernet2",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "configType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "mtu": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "description": {
+            "type": "Property",
+            "value": "\"LAN-2 interface (c2 <-> r2)\"",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:Management0",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:Management0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetState:Management0",
+        "type": "InterfaceEthernetState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:Management0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "00:1c:73:48:83:ad",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "duplexMode": {
+            "type": "Property",
+            "value": "FULL",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "portSpeed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:SPEED_1GB",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "00:1c:73:48:83:ad",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "negotiatedDuplexMode": {
+            "type": "Property",
+            "value": "FULL",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "negotiatedPortSpeed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:SPEED_1GB",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetStateCounters:Management0",
+        "type": "InterfaceEthernetStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernetState:Management0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inMacControlFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inMacPauseFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inOversizeFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inJabberFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inFragmentFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inCrcErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "outMacControlFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "outMacPauseFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetConfig:Management0",
+        "type": "InterfaceEthernetConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:Management0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "00:00:00:00:00:00",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "portSpeed": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:SPEED_UNKNOWN",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Management0.0",
+        "type": "InterfaceSubinterfacesSubinterface",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:Management0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "index": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:Management0.0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighbor:Management0.0:fe80..1",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighbor",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Management0.0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "ip": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborConfig:fe80..1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborState:fe80..1",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighbor:Management0.0:fe80..1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "ip": {
+            "type": "Property",
+            "value": "fe80::1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "linkLayerAddress": {
+            "type": "Property",
+            "value": "02:42:34:6f:44:44",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "origin": {
+            "type": "Property",
+            "value": "DYNAMIC",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "neighborState": {
+            "type": "Property",
+            "value": "REACHABLE",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborConfig:fe80..1",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighbor:Management0.0:fe80..1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "ip": {
+            "type": "Property",
+            "value": "fe80::1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighbor:Management0.0:2001.172.20.20..1",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighbor",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Management0.0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "ip": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborConfig:2001.172.20.20..1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborState:2001.172.20.20..1",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighbor:Management0.0:2001.172.20.20..1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "ip": {
+            "type": "Property",
+            "value": "2001:172:20:20::1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "linkLayerAddress": {
+            "type": "Property",
+            "value": "02:42:34:6f:44:44",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "origin": {
+            "type": "Property",
+            "value": "DYNAMIC",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "neighborState": {
+            "type": "Property",
+            "value": "REACHABLE",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborConfig:2001.172.20.20..1",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighbor:Management0.0:2001.172.20.20..1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "ip": {
+            "type": "Property",
+            "value": "2001:172:20:20::1",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddress:Management0.0:2001.172.20.20..8",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv6AddressesAddress",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Management0.0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "ip": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressConfig:2001.172.20.20..8",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressState:2001.172.20.20..8",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddress:Management0.0:2001.172.20.20..8",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "ip": {
+            "type": "Property",
+            "value": "2001:172:20:20::8",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "prefixLength": {
+            "type": "Property",
+            "value": 64,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "origin": {
+            "type": "Property",
+            "value": "STATIC",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "status": {
+            "type": "Property",
+            "value": "PREFERRED",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressConfig:2001.172.20.20..8",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddress:Management0.0:2001.172.20.20..8",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "ip": {
+            "type": "Property",
+            "value": "2001:172:20:20::8",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "prefixLength": {
+            "type": "Property",
+            "value": 64,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:Management0.0:172.20.20.8",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Management0.0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "ip": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:172.20.20.8",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressState:172.20.20.8",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:Management0.0:172.20.20.8",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "ip": {
+            "type": "Property",
+            "value": "172.20.20.8",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "prefixLength": {
+            "type": "Property",
+            "value": 24,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "origin": {
+            "type": "Property",
+            "value": "STATIC",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:172.20.20.8",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:Management0.0:172.20.20.8",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "ip": {
+            "type": "Property",
+            "value": "172.20.20.8",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "prefixLength": {
+            "type": "Property",
+            "value": 24,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:Management0",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:Management0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "Management0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "mtu": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 999999,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "UP",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "UP",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1708629695930466304,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:Management0",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:Management0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 22496,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inUnicastPkts": {
+            "type": "Property",
+            "value": 210,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inBroadcastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inMulticastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inDiscards": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "inFcsErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 34831,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "outUnicastPkts": {
+            "type": "Property",
+            "value": 72,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "outBroadcastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "outMulticastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "outDiscards": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "outErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "carrierTransitions": {
+            "type": "Property",
+            "value": 3,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceConfig:Management0",
+        "type": "InterfaceConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:Management0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "Management0",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "configType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        },
+        "mtu": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-02-22T19:24:58.302Z"
+        }
+    }
+]

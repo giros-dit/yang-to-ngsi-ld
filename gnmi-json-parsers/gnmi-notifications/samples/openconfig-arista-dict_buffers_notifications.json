@@ -1,0 +1,30 @@
+[
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:Ethernet2",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:Ethernet2",
+            "observedAt": "2024-02-27T10:18:41.636Z"
+        },
+        "inUnicastPkts": {
+            "type": "Property",
+            "value": 9,
+            "observedAt": "2024-02-27T10:18:41.636Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:Ethernet1",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:Ethernet1",
+            "observedAt": "2024-02-27T10:18:41.636Z"
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 1076,
+            "observedAt": "2024-02-27T10:18:41.636Z"
+        }
+    }
+]

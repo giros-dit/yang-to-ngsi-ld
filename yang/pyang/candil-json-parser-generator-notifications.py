@@ -36,9 +36,9 @@ ENTITY_TYPE_LIST = [] # -> It includes all the different types of entities gener
 ### --- ###
 
 def pyang_plugin_init():
-    plugin.register_plugin(CandilXmlParserGeneratorPlugin())
+    plugin.register_plugin(CandilJsonParserGeneratorPlugin())
 
-class CandilXmlParserGeneratorPlugin(plugin.PyangPlugin):
+class CandilJsonParserGeneratorPlugin(plugin.PyangPlugin):
     def __init__(self):
         plugin.PyangPlugin.__init__(self, 'candil-json-parser-generator-notifications')
 
@@ -60,7 +60,7 @@ class CandilXmlParserGeneratorPlugin(plugin.PyangPlugin):
         g.add_options(optlist)
 
     def setup_ctx(self, ctx):
-        if ctx.opts.candil_json_parser_generator_help:
+        if ctx.opts.candil_json_parser_generator_notifications_help:
             print_help()
             sys.exit(0)
 
@@ -89,7 +89,7 @@ OPTIONS:
     --candil-json-parser-generator-notifications-kafka-server=SOCKET --> Only when using Kafka, specifies the socket (<ip_or_hostname>:<port>) where the Kafka server is reachable to the JSON parser.
     --candil-json-parser-generator-notifications-kafka-input-topic=TOPIC --> Only when using Kafka for the input mode, specifies the name of the topic where the JSON parser will read input JSON data from.
     --candil-json-parser-generator-notifications-kafka-output-topic=TOPIC --> Only when using Kafka for the output mode, specifies the name of the topic where the JSON parser will output dictionary buffers to.
-    --candil-json-parser-generator-notifications-combine-mode=<ON/OFF> --> Combine dictionary buffers by means of id and type fields.
+    --candil-json-parser-generator-notifications-combine-mode=ON --> Combine dictionary buffers by means of id and type fields.
     ''')
           
 def generate_python_json_parser_code(ctx, modules, fd):
@@ -165,20 +165,25 @@ def generate_python_json_parser_code(ctx, modules, fd):
         INDENTATION_BLOCK + 'observed_at = str(datetime_ns.astype(\'datetime64[ms]\')) + \'Z\''
     ]
 
-    if (ctx.opts.candil_json_parser_generator_kafka_server is not None) and \
-        (ctx.opts.candil_json_parser_generator_kafka_input_topic is not None):
+    if (ctx.opts.candil_json_parser_generator_notifications_kafka_server is not None) and \
+        (ctx.opts.candil_json_parser_generator_notifications_kafka_input_topic is not None):
         READING_INSTRUCTIONS_KAFKA = [
             'dict_buffers = []\n',
-            'consumer = KafkaConsumer(\'' + ctx.opts.candil_json_parser_generator_kafka_input_topic + '\', bootstrap_servers=[\'' + ctx.opts.candil_json_parser_generator_kafka_server + '\'])\n',
+            'parent_paths = []\n',
+            'child_nodes = []\n',
+            'values = []\n',
+            'iteration_keys = []\n',
+            '\n',
+            'consumer = KafkaConsumer(\'' + ctx.opts.candil_json_parser_generator_notifications_kafka_input_topic + '\', bootstrap_servers=[\'' + ctx.opts.candil_json_parser_generator_notifications_kafka_server + '\'], value_deserializer=lambda x: json.loads(x.decode(\'utf-8\')))\n',
             'while True:\n',
             INDENTATION_BLOCK + 'for message in consumer:\n',
-            2 * INDENTATION_BLOCK + 'json_payload = str(message.value.decode(\'utf-8\'))\n',
-            2 * INDENTATION_BLOCK + 'timestamp_data = int(json_payload[0]["timestamp"])\n',
+            2 * INDENTATION_BLOCK + 'data = json.loads(message.value)\n',
+            2 * INDENTATION_BLOCK + 'timestamp_data = int(data[0]["timestamp"])\n',
             2 * INDENTATION_BLOCK + 'datetime_ns = np.datetime64(timestamp_data, \'ns\')\n',
             2 * INDENTATION_BLOCK + 'observed_at = str(datetime_ns.astype(\'datetime64[ms]\')) + \'Z\''
         ]
         
-    WRITING_COMBINED_BUFFER = [
+    WRITING_COMBINED_BUFFER_FILE = [
         'dict_buffer_combinated = defaultdict(dict)\n',
         'for dict_buffer in dict_buffers:\n',
         INDENTATION_BLOCK + 'key = (dict_buffer["id"], dict_buffer["type"])\n',
@@ -187,6 +192,17 @@ def generate_python_json_parser_code(ctx, modules, fd):
         INDENTATION_BLOCK + 'else:\n',
         2 * INDENTATION_BLOCK + 'dict_buffer_combinated[key].update(dict_buffer)\n',
         'dict_buffers = list(dict_buffer_combinated.values())\n'
+    ]
+
+    WRITING_COMBINED_BUFFER_KAFKA = [
+        2 * INDENTATION_BLOCK +'dict_buffer_combinated = defaultdict(dict)\n',
+        2 * INDENTATION_BLOCK + 'for dict_buffer in dict_buffers:\n',
+        3 * INDENTATION_BLOCK + 'key = (dict_buffer["id"], dict_buffer["type"])\n',
+        3 * INDENTATION_BLOCK + 'if key not in dict_buffer_combinated:\n',
+        4 * INDENTATION_BLOCK + 'dict_buffer_combinated[key] = dict_buffer\n',
+        3 * INDENTATION_BLOCK + 'else:\n',
+        4 * INDENTATION_BLOCK + 'dict_buffer_combinated[key].update(dict_buffer)\n',
+        2 * INDENTATION_BLOCK + 'dict_buffers = list(dict_buffer_combinated.values())\n'
     ]
 
     WRITING_INSTRUCTIONS_PRINT = [
@@ -201,11 +217,11 @@ def generate_python_json_parser_code(ctx, modules, fd):
         'dict_buffers.clear()'
     ]
 
-    if (ctx.opts.candil_json_parser_generator_kafka_server is not None) and \
-        (ctx.opts.candil_json_parser_generator_kafka_output_topic is not None):
+    if (ctx.opts.candil_json_parser_generator_notifications_kafka_server is not None) and \
+        (ctx.opts.candil_json_parser_generator_notifications_kafka_output_topic is not None):
         WRITING_INSTRUCTIONS_KAFKA = [
-            2 * INDENTATION_BLOCK + 'producer = KafkaProducer(bootstrap_servers=[\'' + ctx.opts.candil_json_parser_generator_kafka_server + '\'])\n',
-            2 * INDENTATION_BLOCK + 'producer.send(\'' + ctx.opts.candil_json_parser_generator_kafka_output_topic + '\', value=json.dumps(dict_buffers[::-1], indent=4).encode(\'utf-8\'))\n',
+            2 * INDENTATION_BLOCK + 'producer = KafkaProducer(bootstrap_servers=[\'' + ctx.opts.candil_json_parser_generator_notifications_kafka_server + '\'])\n',
+            2 * INDENTATION_BLOCK + 'producer.send(\'' + ctx.opts.candil_json_parser_generator_notifications_kafka_output_topic + '\', value=json.dumps(dict_buffers[::-1], indent=4).encode(\'utf-8\'))\n',
             2 * INDENTATION_BLOCK + 'producer.flush()\n',
             2 * INDENTATION_BLOCK + 'dict_buffers.clear()'
         ]
@@ -788,24 +804,28 @@ def generate_python_json_parser_code(ctx, modules, fd):
     
     fd.write('\n')
     
-
+    if (ctx.opts.candil_json_parser_generator_notifications_input_mode == INPUT_MODE_FILE):
+        depth_level = 0
+    if (ctx.opts.candil_json_parser_generator_notifications_input_mode == INPUT_MODE_KAFKA):
+        depth_level = 2
+    
     # Recorrer manualmente el contenido de "values" y "tags" en el JSON
-    fd.write('\n' + "for item in data:")
+    fd.write('\n' + depth_level * INDENTATION_BLOCK + "for item in data:")
 
     # Accede al diccionario dentro de cada elemento de la lista
-    fd.write('\n' + INDENTATION_BLOCK + "for key, value in item[\'values\'].items():")
-    fd.write('\n' + INDENTATION_BLOCK + INDENTATION_BLOCK + "parent_paths.append(key.split(\"/\")[1:-1])")
-    fd.write('\n' + INDENTATION_BLOCK + INDENTATION_BLOCK + "child_nodes.append(key.split(\"/\")[-1])")
-    fd.write('\n' + INDENTATION_BLOCK + INDENTATION_BLOCK + "values.append(value)")    
-    fd.write('\n' + INDENTATION_BLOCK + INDENTATION_BLOCK + "for i_key, i_value in item[\'tags\'].items():")
-    fd.write('\n' + INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + "if i_key != \'source\' and i_key != \'subscription-name\':")
-    fd.write('\n' + INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + "iteration_key = {}")
-    fd.write('\n' + INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + "iteration_key[" + 'i_key' + "] = " + 'i_value')
-    fd.write('\n' + INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + "iteration_keys.append(iteration_key)")
+    fd.write('\n' + depth_level * INDENTATION_BLOCK + INDENTATION_BLOCK + "for key, value in item[\'values\'].items():")
+    fd.write('\n' + depth_level * INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + "parent_paths.append(key.split(\"/\")[1:-1])")
+    fd.write('\n' + depth_level * INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + "child_nodes.append(key.split(\"/\")[-1])")
+    fd.write('\n' + depth_level * INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + "values.append(value)")    
+    fd.write('\n' + depth_level * INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + "for i_key, i_value in item[\'tags\'].items():")
+    fd.write('\n' + depth_level * INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + "if i_key != \'source\' and i_key != \'subscription-name\':")
+    fd.write('\n' + depth_level * INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + "iteration_key = {}")
+    fd.write('\n' + depth_level * INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + "iteration_key[" + 'i_key' + "] = " + 'i_value')
+    fd.write('\n' + depth_level * INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + "iteration_keys.append(iteration_key)")
 
     fd.write('\n')
 
-    fd.write('\n' + "for element_text, child_node, parent_path, iteration_key in zip(values, child_nodes, parent_paths, iteration_keys):")
+    fd.write('\n' + depth_level * INDENTATION_BLOCK + "for element_text, child_node, parent_path, iteration_key in zip(values, child_nodes, parent_paths, iteration_keys):")
              
     # Find typedefs, including those from modules in import sentences:
     typedef_modules = []
@@ -838,15 +858,19 @@ def generate_python_json_parser_code(ctx, modules, fd):
             if (ctx.opts.candil_json_parser_generator_notifications_input_mode == INPUT_MODE_FILE):
                 depth_level = 1
             if (ctx.opts.candil_json_parser_generator_notifications_input_mode == INPUT_MODE_KAFKA):
-                depth_level = 2
+                depth_level = 3
             for element in elements:
                 if (element is not None) and (element.keyword in statements.data_definition_keywords):
                     generate_parser_code(element, None, None, None, depth_level, typedefs_dict, None, list(), position)
     
     fd.write('\n\n')
 
-    if (ctx.opts.candil_json_parser_generator_notifications_combined_mode == "on"):
-       for line in WRITING_COMBINED_BUFFER:
+    if (ctx.opts.candil_json_parser_generator_notifications_combined_mode == "ON" and ctx.opts.candil_json_parser_generator_notifications_output_mode == OUTPUT_MODE_FILE):
+       for line in WRITING_COMBINED_BUFFER_FILE:
+            fd.write(line)
+    
+    if (ctx.opts.candil_json_parser_generator_notifications_combined_mode == "ON" and ctx.opts.candil_json_parser_generator_notifications_output_mode == OUTPUT_MODE_KAFKA):
+       for line in WRITING_COMBINED_BUFFER_KAFKA:
             fd.write(line)
 
     fd.write('\n')

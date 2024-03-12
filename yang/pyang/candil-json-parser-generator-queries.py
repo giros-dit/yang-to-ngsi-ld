@@ -36,30 +36,30 @@ ENTITY_TYPE_LIST = [] # -> It includes all the different types of entities gener
 ### --- ###
 
 def pyang_plugin_init():
-    plugin.register_plugin(CandilXmlParserGeneratorPlugin())
+    plugin.register_plugin(CandilJsonParserGeneratorPlugin())
 
-class CandilXmlParserGeneratorPlugin(plugin.PyangPlugin):
+class CandilJsonParserGeneratorPlugin(plugin.PyangPlugin):
     def __init__(self):
-        plugin.PyangPlugin.__init__(self, 'candil-json-parser-generator')
+        plugin.PyangPlugin.__init__(self, 'candil-json-parser-generator-queries')
 
     def add_output_format(self, fmts):
         self.multiple_modules = True
-        fmts['candil-json-parser-generator'] = self
+        fmts['candil-json-parser-generator-queries'] = self
     
     def add_opts(self, optparser):
         optlist = [
-            optparse.make_option('--candil-json-parser-generator-help', dest='candil_json_parser_generator_help', action='store_true', help='Prints help and usage.'),
-            optparse.make_option('--candil-json-parser-generator-input-mode', dest='candil_json_parser_generator_input_mode', action='store', help='Defines the input mode for the JSON parser.'),
-            optparse.make_option('--candil-json-parser-generator-output-mode', dest='candil_json_parser_generator_output_mode', action='store', help='Defines the output mode for the JSON parser.'),
-            optparse.make_option('--candil-json-parser-generator-kafka-server', dest='candil_json_parser_generator_kafka_server', action='store', help='Only when using Kafka, specifies the endpoint of the server that the JSON parser will use.'),
-            optparse.make_option('--candil-json-parser-generator-kafka-input-topic', dest='candil_json_parser_generator_kafka_input_topic', action='store', help='Only when using Kafka, specifies the input topic that the JSON parser will use.'),
-            optparse.make_option('--candil-json-parser-generator-kafka-output-topic', dest='candil_json_parser_generator_kafka_output_topic', action='store', help='Only when using Kafka, specifies the output topic that the JSON parser will use.')
+            optparse.make_option('--candil-json-parser-generator-queries-help', dest='candil_json_parser_generator_queries_help', action='store_true', help='Prints help and usage.'),
+            optparse.make_option('--candil-json-parser-generator-queries-input-mode', dest='candil_json_parser_generator_queries_input_mode', action='store', help='Defines the input mode for the JSON parser.'),
+            optparse.make_option('--candil-json-parser-generator-queries-output-mode', dest='candil_json_parser_generator_queries_output_mode', action='store', help='Defines the output mode for the JSON parser.'),
+            optparse.make_option('--candil-json-parser-generator-queries-kafka-server', dest='candil_json_parser_generator_queries_kafka_server', action='store', help='Only when using Kafka, specifies the endpoint of the server that the JSON parser will use.'),
+            optparse.make_option('--candil-json-parser-generator-queries-kafka-input-topic', dest='candil_json_parser_generator_queries_kafka_input_topic', action='store', help='Only when using Kafka, specifies the input topic that the JSON parser will use.'),
+            optparse.make_option('--candil-json-parser-generator-queries-kafka-output-topic', dest='candil_json_parser_generator_queries_kafka_output_topic', action='store', help='Only when using Kafka, specifies the output topic that the JSON parser will use.')
         ]
         g = optparser.add_option_group('CANDIL JSON Parser Generator specific options')
         g.add_options(optlist)
 
     def setup_ctx(self, ctx):
-        if ctx.opts.candil_json_parser_generator_help:
+        if ctx.opts.candil_json_parser_generator_queries_help:
             print_help()
             sys.exit(0)
 
@@ -74,20 +74,20 @@ def print_help():
     Prints execution help.
     '''
     print('''
-Pyang plugin - CANDIL JSON Parser Generator (candil-json-parser-generator).
+Pyang plugin - CANDIL JSON Parser Generator (candil-json-parser-generator-queries).
 Given one or several YANG modules, this plugin generates the Python code of an JSON parser
 that is able to read data modeled by these YANG modules and is also able to generate
 the data structures (dictionary buffers) of the identified NGSI-LD Entities.
 
 Usage:
-pyang -f candil-json-parser-generator [OPTIONS] <base_module.yang> [augmenting_module_1.yang] [augmenting_module_2.yang] ... [augmenting_module_N.yang] [> <output_file.py>]
+pyang -f candil-json-parser-generator-queries [OPTIONS] <base_module.yang> [augmenting_module_1.yang] [augmenting_module_2.yang] ... [augmenting_module_N.yang] [> <output_file.py>]
 
 OPTIONS:
-    --candil-json-parser-generator-input-mode=MODE --> Defines where the JSON parser will read input JSON data from. Valid values: file, kafka.
-    --candil-json-parser-generator-output-mode=MODE --> Defines where the JSON parser will output dictionary buffers to. Valid values: file, print or kafka.
-    --candil-json-parser-generator-kafka-server=SOCKET --> Only when using Kafka, specifies the socket (<ip_or_hostname>:<port>) where the Kafka server is reachable to the JSON parser.
-    --candil-json-parser-generator-kafka-input-topic=TOPIC --> Only when using Kafka for the input mode, specifies the name of the topic where the JSON parser will read input JSON data from.
-    --candil-json-parser-generator-kafka-output-topic=TOPIC --> Only when using Kafka for the output mode, specifies the name of the topic where the JSON parser will output dictionary buffers to.
+    --candil-json-parser-generator-queries-input-mode=MODE --> Defines where the JSON parser will read input JSON data from. Valid values: file, kafka.
+    --candil-json-parser-generator-queries-output-mode=MODE --> Defines where the JSON parser will output dictionary buffers to. Valid values: file, print or kafka.
+    --candil-json-parser-generator-queries-kafka-server=SOCKET --> Only when using Kafka, specifies the socket (<ip_or_hostname>:<port>) where the Kafka server is reachable to the JSON parser.
+    --candil-json-parser-generator-queries-kafka-input-topic=TOPIC --> Only when using Kafka for the input mode, specifies the name of the topic where the JSON parser will read input JSON data from.
+    --candil-json-parser-generator-queries-kafka-output-topic=TOPIC --> Only when using Kafka for the output mode, specifies the name of the topic where the JSON parser will output dictionary buffers to.
     ''')
           
 def generate_python_json_parser_code(ctx, modules, fd):
@@ -158,16 +158,16 @@ def generate_python_json_parser_code(ctx, modules, fd):
         INDENTATION_BLOCK + 'observed_at = str(datetime_ns.astype(\'datetime64[ms]\')) + \'Z\''
     ]
 
-    if (ctx.opts.candil_json_parser_generator_kafka_server is not None) and \
-        (ctx.opts.candil_json_parser_generator_kafka_input_topic is not None):
+    if (ctx.opts.candil_json_parser_generator_queries_kafka_server is not None) and \
+        (ctx.opts.candil_json_parser_generator_queries_kafka_input_topic is not None):
         READING_INSTRUCTIONS_KAFKA = [
             'dict_buffers = []\n',
-            'consumer = KafkaConsumer(\'' + ctx.opts.candil_json_parser_generator_kafka_input_topic + '\', bootstrap_servers=[\'' + ctx.opts.candil_json_parser_generator_kafka_server + '\'])\n',
+            'consumer = KafkaConsumer(\'' + ctx.opts.candil_json_parser_generator_queries_kafka_input_topic + '\', bootstrap_servers=[\'' + ctx.opts.candil_json_parser_generator_queries_kafka_server + '\'], value_deserializer=lambda x: json.loads(x.decode(\'utf-8\')))\n',
             'while True:\n',
             INDENTATION_BLOCK + 'for message in consumer:\n',
-            2 * INDENTATION_BLOCK + 'json_payload = str(message.value.decode(\'utf-8\'))\n',
-            2 * INDENTATION_BLOCK + 'json_data = json_payload[0]["updates"][0]["values"]\n',
-            2 * INDENTATION_BLOCK + 'timestamp_data = int(json_payload[0]["timestamp"])\n',
+            2 * INDENTATION_BLOCK + 'data = json.loads(message.value)\n',
+            2 * INDENTATION_BLOCK + 'json_data = data[0]["updates"][0]["values"]\n',
+            2 * INDENTATION_BLOCK + 'timestamp_data = int(data[0]["timestamp"])\n',
             2 * INDENTATION_BLOCK + 'datetime_ns = np.datetime64(timestamp_data, \'ns\')\n',
             2 * INDENTATION_BLOCK + 'observed_at = str(datetime_ns.astype(\'datetime64[ms]\')) + \'Z\''
         ]
@@ -184,11 +184,11 @@ def generate_python_json_parser_code(ctx, modules, fd):
         'dict_buffers.clear()'
     ]
 
-    if (ctx.opts.candil_json_parser_generator_kafka_server is not None) and \
-        (ctx.opts.candil_json_parser_generator_kafka_output_topic is not None):
+    if (ctx.opts.candil_json_parser_generator_queries_kafka_server is not None) and \
+        (ctx.opts.candil_json_parser_generator_queries_kafka_output_topic is not None):
         WRITING_INSTRUCTIONS_KAFKA = [
-            2 * INDENTATION_BLOCK + 'producer = KafkaProducer(bootstrap_servers=[\'' + ctx.opts.candil_json_parser_generator_kafka_server + '\'])\n',
-            2 * INDENTATION_BLOCK + 'producer.send(\'' + ctx.opts.candil_json_parser_generator_kafka_output_topic + '\', value=json.dumps(dict_buffers[::-1], indent=4).encode(\'utf-8\'))\n',
+            2 * INDENTATION_BLOCK + 'producer = KafkaProducer(bootstrap_servers=[\'' + ctx.opts.candil_json_parser_generator_queries_kafka_server + '\'])\n',
+            2 * INDENTATION_BLOCK + 'producer.send(\'' + ctx.opts.candil_json_parser_generator_queries_kafka_output_topic + '\', value=json.dumps(dict_buffers[::-1], indent=4).encode(\'utf-8\'))\n',
             2 * INDENTATION_BLOCK + 'producer.flush()\n',
             2 * INDENTATION_BLOCK + 'dict_buffers.clear()'
         ]
@@ -527,7 +527,6 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer = {}')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\"')
-                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\" + ' + str(element.arg).replace('-', '_') + '_dict_buffer[\"id\"].split(\":\")[-1] + \":\"')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"type\"] = \"' + current_camelcase_path + '\"')
                     subelements = element.i_children
                     if (subelements is not None):
@@ -614,12 +613,10 @@ def generate_python_json_parser_code(ctx, modules, fd):
             ngsi_ld_type = yang_to_ngsi_ld_types_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1], typedefs_dict)
             text_format = element_text_type_formatting(ngsi_ld_type, 'element_text')
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'element_text = ' + camelcase_element_arg)
-            #fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if element_text is not None:')
+
             if ('name'.casefold() in str(element.arg)) or ('id'.casefold() in str(element.arg).casefold()):
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]' + ' != ' + text_format + ":")  
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] = ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] + ' + text_format)
-                #fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'else:')
-                #fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] = ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"][:-1]')
             if ('index'.casefold() == str(element.arg)):
                 text_format = str(text_format)
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if ' + '\".\"' + ' + str(element_text) not in ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]:') #+ ' != element_text:')  
@@ -675,31 +672,16 @@ def generate_python_json_parser_code(ctx, modules, fd):
                         relationship_camelcase_path = matches[0]
             else:
                 relationship_camelcase_path = matches[0]
-            
-            '''
-            matches = [] # Best match is always the first element appended into the list: index 0.
-            for camelcase_entity in camelcase_entity_list:
-                if camelcase_pointer_parent in camelcase_entity:
-                    matches.append(camelcase_entity)
-
-            if len(matches) == 0:
-                relationship_camelcase_path = camelcase_entity_path + camelcase_pointer_parent
-                ENTITY_TYPE_LIST.append(relationship_camelcase_path)
-            else:
-                relationship_camelcase_path = matches[0]
-            '''
 
             fd.write('\n' + INDENTATION_BLOCK * depth_level + camelcase_element_arg + ' ' + '=' + ' ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
             fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + camelcase_element_arg + ' is not None:')
             ngsi_ld_type = yang_to_ngsi_ld_types_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1], typedefs_dict)
             text_format = element_text_type_formatting(ngsi_ld_type, 'element_text')
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'element_text = ' + camelcase_element_arg)
-            #fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if element_text is not None:')
+
             if ('name'.casefold() in str(element.arg)) or ('id'.casefold() in str(element.arg).casefold()):
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]' + ' != ' + text_format + ":")  
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] = ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] + ' + text_format)
-                #fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'else:')
-                #fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] = ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"][:-1]')
             if ('index'.casefold() == str(element.arg)):
                 text_format = str(text_format)
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if ' + '\".\"' + ' + str(element_text) not in ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]:') #+ ' != element_text:')  
@@ -734,8 +716,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
         elif (is_yang_identity(element, typedefs_dict) == True) and (is_deprecated(element) == False):
             fd.write('\n' + INDENTATION_BLOCK * depth_level + camelcase_element_arg + ' ' + '=' + ' ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
             fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + camelcase_element_arg + ' is not None and len(' + camelcase_element_arg + ') != 0:')
-            #ngsi_ld_type = yang_to_ngsi_ld_types_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1], typedefs_dict)
-            #text_format = element_text_type_formatting(ngsi_ld_type, 'element_text')
+
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'element_text = ' + camelcase_element_arg)
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if element_text is not None:')
             if (str(element.arg) == 'type'):
@@ -754,16 +735,16 @@ def generate_python_json_parser_code(ctx, modules, fd):
     for import_statement in BASE_IMPORT_STATEMENTS:
         fd.write(import_statement)
     fd.write('\n')
-    if (ctx.opts.candil_json_parser_generator_input_mode == INPUT_MODE_FILE) or \
-        (ctx.opts.candil_json_parser_generator_output_mode == OUTPUT_MODE_FILE):
+    if (ctx.opts.candil_json_parser_generator_queries_input_mode == INPUT_MODE_FILE) or \
+        (ctx.opts.candil_json_parser_generator_queries_output_mode == OUTPUT_MODE_FILE):
         for line in FILE_IMPORT_STATEMENTS:
             fd.write(line)
             fd.write('\n')
-    if (ctx.opts.candil_json_parser_generator_input_mode == INPUT_MODE_KAFKA):
+    if (ctx.opts.candil_json_parser_generator_queries_input_mode == INPUT_MODE_KAFKA):
         for line in KAFKA_INPUT_IMPORT_STATEMENTS:
             fd.write(line)
             fd.write('\n')
-    if (ctx.opts.candil_json_parser_generator_output_mode == OUTPUT_MODE_KAFKA):
+    if (ctx.opts.candil_json_parser_generator_queries_output_mode == OUTPUT_MODE_KAFKA):
         for line in KAFKA_OUTPUT_IMPORT_STATEMENTS:
             fd.write(line)
             fd.write('\n')
@@ -771,10 +752,10 @@ def generate_python_json_parser_code(ctx, modules, fd):
     fd.write('\n')
 
     # Generate reading instructions for the JSON parser (depending on the input mode):
-    if (ctx.opts.candil_json_parser_generator_input_mode == INPUT_MODE_FILE):
+    if (ctx.opts.candil_json_parser_generator_queries_input_mode == INPUT_MODE_FILE):
         for line in READING_INSTRUCTIONS_FILE:
             fd.write(line)
-    if (ctx.opts.candil_json_parser_generator_input_mode == INPUT_MODE_KAFKA):
+    if (ctx.opts.candil_json_parser_generator_queries_input_mode == INPUT_MODE_KAFKA):
         for line in READING_INSTRUCTIONS_KAFKA:
             fd.write(line)
 
@@ -807,9 +788,9 @@ def generate_python_json_parser_code(ctx, modules, fd):
     for module in modules:
         elements = module.i_children
         if (elements is not None):
-            if (ctx.opts.candil_json_parser_generator_input_mode == INPUT_MODE_FILE):
+            if (ctx.opts.candil_json_parser_generator_queries_input_mode == INPUT_MODE_FILE):
                 depth_level = 0
-            if (ctx.opts.candil_json_parser_generator_input_mode == INPUT_MODE_KAFKA):
+            if (ctx.opts.candil_json_parser_generator_queries_input_mode == INPUT_MODE_KAFKA):
                 depth_level = 2
             for element in elements:
                 if (element is not None) and (element.keyword in statements.data_definition_keywords):
@@ -817,13 +798,13 @@ def generate_python_json_parser_code(ctx, modules, fd):
     fd.write('\n\n')
 
     # Generate writing instructions for the JSON parser (depending on the output mode):
-    if (ctx.opts.candil_json_parser_generator_output_mode == OUTPUT_MODE_FILE):
+    if (ctx.opts.candil_json_parser_generator_queries_output_mode == OUTPUT_MODE_FILE):
         for line in WRITING_INSTRUCTIONS_FILE:
             fd.write(line)
-    if (ctx.opts.candil_json_parser_generator_output_mode == OUTPUT_MODE_PRINT):
+    if (ctx.opts.candil_json_parser_generator_queries_output_mode == OUTPUT_MODE_PRINT):
         for line in WRITING_INSTRUCTIONS_PRINT:
             fd.write(line)
-    if (ctx.opts.candil_json_parser_generator_output_mode == OUTPUT_MODE_KAFKA):
+    if (ctx.opts.candil_json_parser_generator_queries_output_mode == OUTPUT_MODE_KAFKA):
         for line in WRITING_INSTRUCTIONS_KAFKA:
             fd.write(line)
     
