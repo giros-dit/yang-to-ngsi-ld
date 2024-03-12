@@ -10,10 +10,10 @@ child_nodes = []
 values = []
 iteration_keys = []
 
-consumer = KafkaConsumer('input', bootstrap_servers=['localhost:9092'], value_deserializer=lambda x: json.loads(x.decode('utf-8')))
+consumer = KafkaConsumer('input', bootstrap_servers=['kafka:9092'], value_deserializer=lambda x: json.loads(x.decode('utf-8')))
 while True:
     for message in consumer:
-        data = json.loads(message.value)
+        data = message.value 
         timestamp_data = int(data[0]["timestamp"])
         datetime_ns = np.datetime64(timestamp_data, 'ns')
         observed_at = str(datetime_ns.astype('datetime64[ms]')) + 'Z'

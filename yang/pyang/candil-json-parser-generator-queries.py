@@ -165,7 +165,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
             'consumer = KafkaConsumer(\'' + ctx.opts.candil_json_parser_generator_queries_kafka_input_topic + '\', bootstrap_servers=[\'' + ctx.opts.candil_json_parser_generator_queries_kafka_server + '\'], value_deserializer=lambda x: json.loads(x.decode(\'utf-8\')))\n',
             'while True:\n',
             INDENTATION_BLOCK + 'for message in consumer:\n',
-            2 * INDENTATION_BLOCK + 'data = json.loads(message.value)\n',
+            2 * INDENTATION_BLOCK + 'data = message.value\n',
             2 * INDENTATION_BLOCK + 'json_data = data[0]["updates"][0]["values"]\n',
             2 * INDENTATION_BLOCK + 'timestamp_data = int(data[0]["timestamp"])\n',
             2 * INDENTATION_BLOCK + 'datetime_ns = np.datetime64(timestamp_data, \'ns\')\n',
