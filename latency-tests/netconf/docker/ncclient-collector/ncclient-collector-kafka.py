@@ -24,7 +24,7 @@ r = {
     "device_params": {"name": "csr"}
 }
 
-print("Hello, this is the ncclient-collector for " + container_name)
+print("Hello, this is the ncclient-collector for " + container_name + " interface " + sys.argv[2])
 
 session = manager.connect(**r)
 

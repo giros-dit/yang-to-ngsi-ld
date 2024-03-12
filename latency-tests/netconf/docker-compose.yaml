@@ -78,6 +78,7 @@ services:
     build:
       context: .
       dockerfile: ./docker/notifier-tester/Dockerfile
+    image: latency-tests-netconf-notifier-tester:latest
     hostname: notifier-tester
     container_name: notifier-tester
     expose:
@@ -96,7 +97,7 @@ services:
     restart: always
 
   ncclient-collector-1:
-    image: latency-tests-ncclient-collector:latest
+    image: latency-tests-netconf-ncclient-collector:latest
     hostname: ncclient-collector-1
     container_name: ncclient-collector-1
     command: ["python3", "-u", "/opt/ncclient-collector/ncclient-collector-kafka.py", "clab-telemetry-ixiac-lab-r1", "GigabitEthernet2", "1000"]
@@ -107,7 +108,7 @@ services:
         condition: service_healthy
 
   ncclient-collector-2:
-    image: latency-tests-ncclient-collector:latest
+    image: latency-tests-netconf-ncclient-collector:latest
     hostname: ncclient-collector-2
     container_name: ncclient-collector-2
     command: ["python3", "-u", "/opt/ncclient-collector/ncclient-collector-kafka.py", "clab-telemetry-ixiac-lab-r1", "GigabitEthernet3", "1000"]
@@ -118,7 +119,7 @@ services:
         condition: service_healthy
 
   ncclient-collector-3:
-    image: latency-tests-ncclient-collector:latest
+    image: latency-tests-netconf-ncclient-collector:latest
     hostname: ncclient-collector-3
     container_name: ncclient-collector-3
     command: ["python3", "-u", "/opt/ncclient-collector/ncclient-collector-kafka.py", "clab-telemetry-ixiac-lab-r2", "GigabitEthernet2", "1000"]
@@ -129,7 +130,7 @@ services:
         condition: service_healthy
 
   ncclient-collector-4:
-    image: latency-tests-ncclient-collector:latest
+    image: latency-tests-netconf-ncclient-collector:latest
     hostname: ncclient-collector-4
     container_name: ncclient-collector-4
     command: ["python3", "-u", "/opt/ncclient-collector/ncclient-collector-kafka.py", "clab-telemetry-ixiac-lab-r2", "GigabitEthernet3", "1000"]
@@ -143,6 +144,7 @@ services:
     build:
       context: .
       dockerfile: ./docker/xml-parser-with-ngsi-ld-instantiator/Dockerfile
+    image: latency-tests-netconf-xml-parser-with-ngsi-ld-instantiator:latest
     hostname: xml-parser-with-ngsi-ld-instantiator
     container_name: xml-parser-with-ngsi-ld-instantiator
     volumes:

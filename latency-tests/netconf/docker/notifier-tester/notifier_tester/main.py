@@ -85,6 +85,7 @@ async def startup_event():
         )
 
         # Periodic Subscriptions
+        '''
         notification_params = NotificationParams (
             endpoint=endpoint,
             format="normalized",
@@ -99,19 +100,32 @@ async def startup_event():
                 {
                     "type": entity,
                     "id": "urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1_GigabitEthernet2"
+                },
+                {
+                    "type": entity,
+                    "id": "urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1_GigabitEthernet3"
+                },
+                {
+                    "type": entity,
+                    "id": "urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r2_GigabitEthernet2"
+                },
+                {
+                    "type": entity,
+                    "id": "urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r2_GigabitEthernet3"
                 }
             ],
             description="Periodic subscription to InterfaceStatistics entities.",
             timeInterval= 10,
             notification=notification_params
         )
+        '''
 
-        # On-Change Subscriptions        
-        """
+        # On-Change Subscriptions
+        
         notification_params = NotificationParams (
             endpoint=endpoint,
             format="normalized",
-            # attributes=["temperature"],
+            #attributes=["inOctets"],
             sysAttrs=True
             #showChanges=True
         )
@@ -119,12 +133,29 @@ async def startup_event():
         subs_request = CreateSubscriptionRequest (
             id="urn:ngsi-ld:Subscription:{0}".format(entity),
             type="Subscription",
-            entities=[{ "type": entity }],
-            description="On-change subscription to TemperatureSensor entities for changes within temperature property.",
-            watchedAttributes=["temperature"],
+            entities=[
+                {
+                    "type": entity,
+                    "id": "urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1_GigabitEthernet2"
+                },
+                {
+                    "type": entity,
+                    "id": "urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1_GigabitEthernet3"
+                },
+                {
+                    "type": entity,
+                    "id": "urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r2_GigabitEthernet2"
+                },
+                {
+                    "type": entity,
+                    "id": "urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r2_GigabitEthernet3"
+                }
+            ],
+            description="On-change subscription to InterfaceStatistics entities for changes within inOctets property.",
+            watchedAttributes=["inOctets"],
             notification=notification_params
         )
-        """
+
         api_instance = ngsi_ld_client.ContextInformationSubscriptionApi(ngsi_ld)
         api_instance.create_subscription(create_subscription_request=subs_request)
 
