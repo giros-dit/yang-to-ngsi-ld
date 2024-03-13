@@ -100,7 +100,7 @@ services:
     image: latency-tests-netconf-ncclient-collector:latest
     hostname: ncclient-collector-1
     container_name: ncclient-collector-1
-    command: ["python3", "-u", "/opt/ncclient-collector/ncclient-collector-kafka.py", "clab-telemetry-ixiac-lab-r1", "GigabitEthernet2", "1000"]
+    command: ["python3", "-u", "/opt/ncclient-collector/ncclient-collector-kafka.py", "clab-telemetry-ixiac-lab-r1", "GigabitEthernet2", "6000"]
     volumes:
       - ./docker/ncclient-collector:/opt/ncclient-collector
     depends_on:
@@ -111,7 +111,7 @@ services:
     image: latency-tests-netconf-ncclient-collector:latest
     hostname: ncclient-collector-2
     container_name: ncclient-collector-2
-    command: ["python3", "-u", "/opt/ncclient-collector/ncclient-collector-kafka.py", "clab-telemetry-ixiac-lab-r1", "GigabitEthernet3", "1000"]
+    command: ["python3", "-u", "/opt/ncclient-collector/ncclient-collector-kafka.py", "clab-telemetry-ixiac-lab-r1", "GigabitEthernet3", "6000"]
     volumes:
       - ./docker/ncclient-collector:/opt/ncclient-collector
     depends_on:
@@ -122,7 +122,7 @@ services:
     image: latency-tests-netconf-ncclient-collector:latest
     hostname: ncclient-collector-3
     container_name: ncclient-collector-3
-    command: ["python3", "-u", "/opt/ncclient-collector/ncclient-collector-kafka.py", "clab-telemetry-ixiac-lab-r2", "GigabitEthernet2", "1000"]
+    command: ["python3", "-u", "/opt/ncclient-collector/ncclient-collector-kafka.py", "clab-telemetry-ixiac-lab-r2", "GigabitEthernet2", "6000"]
     volumes:
       - ./docker/ncclient-collector:/opt/ncclient-collector
     depends_on:
@@ -133,7 +133,7 @@ services:
     image: latency-tests-netconf-ncclient-collector:latest
     hostname: ncclient-collector-4
     container_name: ncclient-collector-4
-    command: ["python3", "-u", "/opt/ncclient-collector/ncclient-collector-kafka.py", "clab-telemetry-ixiac-lab-r2", "GigabitEthernet3", "1000"]
+    command: ["python3", "-u", "/opt/ncclient-collector/ncclient-collector-kafka.py", "clab-telemetry-ixiac-lab-r2", "GigabitEthernet3", "6000"]
     volumes:
       - ./docker/ncclient-collector:/opt/ncclient-collector
     depends_on:
