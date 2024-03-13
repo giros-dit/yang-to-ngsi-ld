@@ -1,10 +1,10 @@
 [
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:Ethernet2",
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ceos2:Ethernet2",
         "type": "InterfaceStateCounters",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:Ethernet2",
+            "object": "urn:ngsi-ld:InterfaceState:ceos2:Ethernet2",
             "observedAt": "2024-02-27T10:18:41.636Z"
         },
         "inUnicastPkts": {
@@ -14,17 +14,17 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:Ethernet1",
+        "id": "urn:ngsi-ld:InterfaceStateCounters:ceos1:Ethernet1",
         "type": "InterfaceStateCounters",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:Ethernet1",
-            "observedAt": "2024-02-27T10:18:41.636Z"
+            "object": "urn:ngsi-ld:InterfaceState:ceos1:Ethernet1",
+            "observedAt": "2024-02-27T13:05:21.636Z"
         },
         "inOctets": {
             "type": "Property",
             "value": 1076,
-            "observedAt": "2024-02-27T10:18:41.636Z"
+            "observedAt": "2024-02-27T13:05:21.636Z"
         }
     }
 ]

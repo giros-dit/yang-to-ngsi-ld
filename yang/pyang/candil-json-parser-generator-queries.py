@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an JSON 
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 1.0.3.
+Version: 1.0.4.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -155,7 +155,8 @@ def generate_python_json_parser_code(ctx, modules, fd):
         INDENTATION_BLOCK + 'json_data = data[0]["updates"][0]["values"]\n',
         INDENTATION_BLOCK + 'timestamp_data = int(data[0]["timestamp"])\n',
         INDENTATION_BLOCK + 'datetime_ns = np.datetime64(timestamp_data, \'ns\')\n',
-        INDENTATION_BLOCK + 'observed_at = str(datetime_ns.astype(\'datetime64[ms]\')) + \'Z\''
+        INDENTATION_BLOCK + 'observed_at = str(datetime_ns.astype(\'datetime64[ms]\')) + \'Z\'\n',
+        INDENTATION_BLOCK + 'source = str(data[0]["source"])'
     ]
 
     if (ctx.opts.candil_json_parser_generator_queries_kafka_server is not None) and \
@@ -169,7 +170,8 @@ def generate_python_json_parser_code(ctx, modules, fd):
             2 * INDENTATION_BLOCK + 'json_data = data[0]["updates"][0]["values"]\n',
             2 * INDENTATION_BLOCK + 'timestamp_data = int(data[0]["timestamp"])\n',
             2 * INDENTATION_BLOCK + 'datetime_ns = np.datetime64(timestamp_data, \'ns\')\n',
-            2 * INDENTATION_BLOCK + 'observed_at = str(datetime_ns.astype(\'datetime64[ms]\')) + \'Z\''
+            2 * INDENTATION_BLOCK + 'observed_at = str(datetime_ns.astype(\'datetime64[ms]\')) + \'Z\'\n',
+            2 * INDENTATION_BLOCK + 'source = str(data[0]["source"])'
         ]
 
     WRITING_INSTRUCTIONS_PRINT = [
@@ -440,8 +442,6 @@ def generate_python_json_parser_code(ctx, modules, fd):
                                             fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element.arg) + '")')    
                                     else:
                                         fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
-                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if isinstance(' + str(element.arg).replace('-', '_') + ', dict):')
-                                    depth_level += 1
                                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(element.arg).replace('-', '_') + ' is not None and len(' + str(element.arg).replace('-', '_') + ') != 0:')
                                     depth_level += 1
                                     first_subelement = False
@@ -462,8 +462,8 @@ def generate_python_json_parser_code(ctx, modules, fd):
                                             fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element.arg) + '")')   
                                     else:
                                         fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
-                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if isinstance(' + str(element.arg).replace('-', '_') + ', dict):')
-                                    depth_level += 1
+                                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if isinstance(' + str(element.arg).replace('-', '_') + ', dict):')
+                                    #depth_level += 1
                                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(element.arg).replace('-', '_') + ' is not None and len(' + str(element.arg).replace('-', '_') + ') != 0:')
                                     depth_level += 1
                                     first_subelement = False
@@ -484,22 +484,33 @@ def generate_python_json_parser_code(ctx, modules, fd):
             if (parent_element_arg is None): # 1st level Entity.
                 if element.keyword in ['container']:
                     if(transition_element is not None):
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if isinstance(' + 'json_data' + '.get("' + str(transition_element.arg) + '")' + ', dict):')
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if json_data' + '.get("' + str(transition_element.arg) + '")' + 'is not None:')
                         depth_level += 1
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + 'json_data' + '.get("' + str(transition_element.arg) + '")')
+                        depth_level -= 1
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'elif json_data' + '.get("' + str(PARENT_YANG_MODULE) + ":" + str(transition_element.arg) + '")' + 'is not None:')
+                        depth_level += 1
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + 'json_data' + '.get("' + str(PARENT_YANG_MODULE) + ":" + str(transition_element.arg) + '")')
+                        depth_level -= 1
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(transition_element.arg).replace('-', '_') + ' is not None and len(' + str(transition_element.arg).replace('-', '_') + ') != 0:')
                         depth_level += 1
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(transition_element.arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(element.arg).replace('-', '_') + ' is not None and len(' + str(element.arg).replace('-', '_') + ') != 0:')
                         depth_level += 1
                     else:
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if isinstance(' + 'json_data' + '.get("' + str(element.arg) + '")' + ', dict):')
+                        #fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if isinstance(' + 'json_data' + '.get("' + str(element.arg) + '")' + ', dict):')
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if json_data' + '.get("' + str(element.arg) + '")' + 'is not None:')
                         depth_level += 1
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + 'json_data' + '.get("' + str(element.arg) + '")')
+                        depth_level -= 1
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'elif json_data' + '.get("' + str(PARENT_YANG_MODULE) + ":" + str(element.arg) + '")' + 'is not None:')
+                        depth_level += 1
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + 'json_data' + '.get("' + str(PARENT_YANG_MODULE) + ":" + str(element.arg) + '")')
+                        depth_level -= 1
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(element.arg).replace('-', '_') + ' is not None and len(' + str(element.arg).replace('-', '_') + ') != 0:')
                         depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer = {}')
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\"')
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\" + source + ' + '\":"')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"type\"] = \"' + current_camelcase_path + '\"')
                     subelements = element.i_children
                     if (subelements is not None):
@@ -508,9 +519,14 @@ def generate_python_json_parser_code(ctx, modules, fd):
                                 generate_parser_code(subelement, element.arg, current_path, current_camelcase_path, depth_level, typedefs_dict, None, modules_name, yang_data_nodes_list)
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'dict_buffers.append(' + current_path.replace('-', '_') + 'dict_buffer)')
                 elif element.keyword in ['list']:
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if isinstance(' + 'json_data' + '.get("' + str(transition_element.arg) + '")' + ', dict):')
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if json_data' + '.get("' + str(transition_element.arg) + '")' + 'is not None:')
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + 'json_data' + '.get("' + str(transition_element.arg) + '")')
+                    depth_level -= 1
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'elif json_data' + '.get("' + str(PARENT_YANG_MODULE) + ":" + str(transition_element.arg) + '")' + 'is not None:')
+                    depth_level += 1
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + 'json_data' + '.get("' + str(PARENT_YANG_MODULE) + ":" + str(transition_element.arg) + '")')
+                    depth_level -= 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(transition_element.arg).replace('-', '_') + ' is not None and len(' + str(transition_element.arg).replace('-', '_') + ') != 0:')
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + "\"" + str(element.arg) + "\"" + ' in list(' + str(transition_element.arg).replace('-', '_') + '.keys()):')
@@ -526,7 +542,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(element.arg).replace('-', '_') + ' is not None and len(' + str(element.arg).replace('-', '_') + ') != 0:')
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer = {}')
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\"')
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\" + source + ' + '\":"')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"type\"] = \"' + current_camelcase_path + '\"')
                     subelements = element.i_children
                     if (subelements is not None):
@@ -536,7 +552,6 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'dict_buffers.append(' + current_path.replace('-', '_') + 'dict_buffer)')
             else: # 2nd level Entity onwards.
                 if element.keyword in ['container']:
-                    
                     if yang_module_name != PARENT_YANG_MODULE:
                         for module_name in modules_name:
                             if parent_element_arg == module_name.split(":")[-1]:
@@ -549,12 +564,10 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     else:
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
 
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if isinstance(' + str(element.arg).replace('-', '_') + ', dict):')
-                    depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(element.arg).replace('-', '_') + ' is not None and len(' + str(element.arg).replace('-', '_') + ') != 0:')
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer = {}')
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\" + ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]')
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\" + source + ' + '\":" + ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"type\"] = \"' + current_camelcase_path + '\"')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"] = {}')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"type\"] = \"Relationship\"')
@@ -567,12 +580,11 @@ def generate_python_json_parser_code(ctx, modules, fd):
                                 generate_parser_code(subelement, element.arg, current_path, current_camelcase_path, depth_level, typedefs_dict, None, modules_name, yang_data_nodes_list)
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'dict_buffers.append(' + current_path.replace('-', '_') + 'dict_buffer)')
                 elif element.keyword in ['list']:
-
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + "_" + str(element.arg).replace('-', '_') + ' = ' + str(transition_element.arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'for ' + str(element.arg).replace('-', '_') + ' in ' + str(transition_element.arg).replace('-', '_') + "_" + str(element.arg).replace('-', '_') + ':')
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer = {}')
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\" + ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]')
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\" + source + ' + '\":" + ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"type\"] = \"' + current_camelcase_path + '\"')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"] = {}')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"type\"] = \"Relationship\"')
@@ -619,7 +631,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] = ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] + ' + text_format)
             if ('index'.casefold() == str(element.arg)):
                 text_format = str(text_format)
-                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if ' + '\".\"' + ' + str(element_text) not in ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]:') #+ ' != element_text:')  
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if ' + '\".\"' + ' + str(element_text) not in ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]:')  
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] = ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] + ' + '\".\"' + ' + str(element_text)')
 
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
@@ -684,7 +696,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] = ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] + ' + text_format)
             if ('index'.casefold() == str(element.arg)):
                 text_format = str(text_format)
-                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if ' + '\".\"' + ' + str(element_text) not in ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]:') #+ ' != element_text:')  
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if ' + '\".\"' + ' + str(element_text) not in ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]:')
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] = ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] + ' + '\".\"' + ' + str(element_text)')
             if ('interface'.casefold() == str(element.arg)):
                 text_format = str(text_format)
@@ -692,7 +704,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + INDENTATION_BLOCK + entity_path.replace('-', '_') + 'dict_buffer[\"id\"] = ' + entity_path.replace('-', '_') + 'dict_buffer[\"id\"] + ' + text_format) 
             if ('subinterface'.casefold() == str(element.arg)):
                 text_format = str(text_format)
-                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if ' + '\".\"' + ' + str(element_text) not in ' + entity_path.replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]:') #+ ' != element_text:')  
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if ' + '\".\"' + ' + str(element_text) not in ' + entity_path.replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]:')
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + INDENTATION_BLOCK + entity_path.replace('-', '_') + 'dict_buffer[\"id\"] = ' + entity_path.replace('-', '_') + 'dict_buffer[\"id\"] + ' + '\".\"' + ' + str(element_text)')
             if ('ip'.casefold() == str(element.arg)):
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if ' + '\":\"' + ' in element_text:')
@@ -702,12 +714,12 @@ def generate_python_json_parser_code(ctx, modules, fd):
             if ('interface'.casefold() == str(element.arg) or 'subinterface'.casefold() == str(element.arg)):
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + entity_path.replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + entity_path.replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Relationship\"')
-                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + entity_path.replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + relationship_camelcase_path + ':\" + ' + entity_path.replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + entity_path.replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + relationship_camelcase_path + ':\" + source + ' + '\":" + ' + entity_path.replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]')
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + entity_path.replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"observedAt\"] = observed_at')
             else:
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Relationship\"')
-                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + relationship_camelcase_path + ':\" + ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + relationship_camelcase_path + ':\" + source + ' + '\":" + ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]')
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"observedAt\"] = observed_at')
 
         ### --- ###

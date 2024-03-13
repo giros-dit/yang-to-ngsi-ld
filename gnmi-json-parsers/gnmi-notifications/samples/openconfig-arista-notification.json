@@ -3,10 +3,10 @@
         "name": "ceos_traffic_stats",
         "tags": {
             "interface_name": "Ethernet1",
-            "source": "ceos",
+            "source": "ceos1",
             "subscription-name": "ceos_traffic_stats"
         },
-        "timestamp": 1709029121636676490,
+        "timestamp": 1709039121636676490,
         "values": {
             "/interfaces/interface/state/counters/in-octets": 1076
         }
@@ -15,7 +15,7 @@
         "name": "ceos_traffic_stats",
         "tags": {
             "interface_name": "Ethernet2",
-            "source": "ceos",
+            "source": "ceos2",
             "subscription-name": "ceos_traffic_stats"
         },
         "timestamp": 1709029121636676490,
