@@ -1,0 +1,22 @@
+{
+    "@context": {
+        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
+        "SubinterfaceStateCounters": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/state/counters",
+        "inOctets": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/state/counters/in-octets",
+        "inUnicastPkts": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/state/counters/in-unicast-pkts",
+        "inBroadcastPkts": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/state/counters/in-broadcast-pkts",
+        "inMulticastPkts": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/state/counters/in-multicast-pkts",
+        "inDiscards": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/state/counters/in-discards",
+        "inErrors": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/state/counters/in-errors",
+        "inUnknownProtos": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/state/counters/in-unknown-protos",
+        "inFcsErrors": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/state/counters/in-fcs-errors",
+        "outOctets": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/state/counters/out-octets",
+        "outUnicastPkts": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/state/counters/out-unicast-pkts",
+        "outBroadcastPkts": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/state/counters/out-broadcast-pkts",
+        "outMulticastPkts": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/state/counters/out-multicast-pkts",
+        "outDiscards": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/state/counters/out-discards",
+        "outErrors": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/state/counters/out-errors",
+        "carrierTransitions": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/state/counters/carrier-transitions",
+        "lastClear": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/state/counters/last-clear"
+    }
+}

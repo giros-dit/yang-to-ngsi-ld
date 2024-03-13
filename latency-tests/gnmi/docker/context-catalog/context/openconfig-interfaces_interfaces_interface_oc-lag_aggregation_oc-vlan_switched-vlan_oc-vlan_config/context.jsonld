@@ -1,0 +1,10 @@
+{
+    "@context": {
+        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
+        "Config": "openconfig-interfaces:interfaces/interface/oc-lag:aggregation/oc-vlan:switched-vlan/oc-vlan:config",
+        "interfaceMode": "openconfig-interfaces:interfaces/interface/oc-lag:aggregation/oc-vlan:switched-vlan/oc-vlan:config/oc-vlan:interface-mode",
+        "nativeVlan": "openconfig-interfaces:interfaces/interface/oc-lag:aggregation/oc-vlan:switched-vlan/oc-vlan:config/oc-vlan:native-vlan",
+        "accessVlan": "openconfig-interfaces:interfaces/interface/oc-lag:aggregation/oc-vlan:switched-vlan/oc-vlan:config/oc-vlan:access-vlan",
+        "trunkVlans": "openconfig-interfaces:interfaces/interface/oc-lag:aggregation/oc-vlan:switched-vlan/oc-vlan:config/oc-vlan:trunk-vlans"
+    }
+}

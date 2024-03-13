@@ -1,0 +1,7 @@
+{
+    "@context": {
+        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
+        "Config": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/oc-ip:ipv6/oc-ip:unnumbered/oc-ip:config",
+        "enabled": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/oc-ip:ipv6/oc-ip:unnumbered/oc-ip:config/oc-ip:enabled"
+    }
+}

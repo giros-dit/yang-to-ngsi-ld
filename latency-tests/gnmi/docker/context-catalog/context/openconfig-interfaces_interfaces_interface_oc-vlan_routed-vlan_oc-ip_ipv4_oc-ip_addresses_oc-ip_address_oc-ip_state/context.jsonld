@@ -1,0 +1,9 @@
+{
+    "@context": {
+        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
+        "AddressState": "openconfig-interfaces:interfaces/interface/oc-vlan:routed-vlan/oc-ip:ipv4/oc-ip:addresses/oc-ip:address/oc-ip:state",
+        "ip": "openconfig-interfaces:interfaces/interface/oc-vlan:routed-vlan/oc-ip:ipv4/oc-ip:addresses/oc-ip:address/oc-ip:state/oc-ip:ip",
+        "prefixLength": "openconfig-interfaces:interfaces/interface/oc-vlan:routed-vlan/oc-ip:ipv4/oc-ip:addresses/oc-ip:address/oc-ip:state/oc-ip:prefix-length",
+        "origin": "openconfig-interfaces:interfaces/interface/oc-vlan:routed-vlan/oc-ip:ipv4/oc-ip:addresses/oc-ip:address/oc-ip:state/oc-ip:origin"
+    }
+}

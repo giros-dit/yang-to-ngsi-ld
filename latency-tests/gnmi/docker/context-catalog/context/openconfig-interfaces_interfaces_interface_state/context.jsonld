@@ -1,0 +1,15 @@
+{
+    "@context": {
+        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
+        "InterfaceState": "openconfig-interfaces:interfaces/interface/state",
+        "name": "openconfig-interfaces:interfaces/interface/state/name",
+        "mtu": "openconfig-interfaces:interfaces/interface/state/mtu",
+        "loopbackMode": "openconfig-interfaces:interfaces/interface/state/loopback-mode",
+        "description": "openconfig-interfaces:interfaces/interface/state/description",
+        "enabled": "openconfig-interfaces:interfaces/interface/state/enabled",
+        "ifindex": "openconfig-interfaces:interfaces/interface/state/ifindex",
+        "adminStatus": "openconfig-interfaces:interfaces/interface/state/admin-status",
+        "operStatus": "openconfig-interfaces:interfaces/interface/state/oper-status",
+        "lastChange": "openconfig-interfaces:interfaces/interface/state/last-change"
+    }
+}
