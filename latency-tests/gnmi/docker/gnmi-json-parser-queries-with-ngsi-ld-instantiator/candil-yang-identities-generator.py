@@ -129,7 +129,7 @@ def generate_yang_identities(ctx, modules, fd):
                         base = prefix + ":" + base
                     identity_dict_buffer["broader"] = {}
                     identity_dict_buffer["broader"]["type"] = "Relationship"
-                    identity_dict_buffer["broader"]["object"] = "urn:ngsi-ld:YANGIdentity:" + base
+                    identity_dict_buffer["broader"]["value"] = "urn:ngsi-ld:YANGIdentity:" + base
                 dict_buffers.append(identity_dict_buffer)
 
     # Depending on the output mode, dictionary buffers are written either to a file or to a Kafka topic.

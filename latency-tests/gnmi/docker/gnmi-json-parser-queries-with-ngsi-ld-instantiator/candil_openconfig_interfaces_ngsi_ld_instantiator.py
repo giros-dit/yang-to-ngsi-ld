@@ -7,16 +7,19 @@ import yaml
 import time
 import datetime
 import csv
+import subprocess
 
 from kafka import KafkaConsumer
 
 from dateutil import parser
 
 from candil_openconfig_interfaces_json_parser_queries import parse_gnmi_query
+#from candil_yang_identities_generator import parse_gnmi_query
 
 import ngsi_ld_client
 
 from ngsi_ld_models.models.interface import Interface
+from ngsi_ld_models.models.yang_identity import YANGIdentity
 from ngsi_ld_models.models.interface_config import InterfaceConfig
 from ngsi_ld_models.models.interface_state import InterfaceState
 from ngsi_ld_models.models.interface_state_counters import InterfaceStateCounters
@@ -159,6 +162,23 @@ print("Initializing the NGSI-LD client...")
 ngsi_ld = init_ngsi_ld_client()
 
 print("Done!")
+
+print("First, I will process YANG Identities within OpenConfig YANG modules and generates the data structures of their corresponding NGSI-LD Entities to be published.")
+
+with open("YANGIdentities.json", 'r') as file:
+    dict_buffers = json.load(file)
+
+for dict_buffer in dict_buffers:
+    entity_type = dict_buffer['type']
+    if entity_type == "YANGIdentity":
+        entity_id = dict_buffer['id']
+        print("Dictionary buffer contains information for entity " + entity_id)
+        entity = YANGIdentity.from_dict(dict_buffer)
+        created = create_ngsi_ld_entity(ngsi_ld, entity)
+        if created == False:
+            print("Entity " + entity_id + " COULD NOT BE CREATED")
+        else:
+            print("Entity " + entity_id + " WAS SUCCESSFULLY CREATED")
 
 performance_measurements_file = open("performance_measurements.csv", "w", newline='')
 csv_writer = csv.writer(performance_measurements_file)

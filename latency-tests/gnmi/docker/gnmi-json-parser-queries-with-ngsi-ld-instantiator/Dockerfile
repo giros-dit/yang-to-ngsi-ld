@@ -24,4 +24,6 @@ WORKDIR /opt/gnmi-json-parser-queries-with-ngsi-ld-instantiator
 
 RUN poetry install
 
+RUN cp candil-yang-identities-generator.py /root/.cache/pypoetry/virtualenvs/openconfig-ngsi-ld-instantiator-queries-*/lib/python3.10/site-packages/pyang/plugins/
+
 ENTRYPOINT ["poetry", "run", "python", "-u", "candil_openconfig_interfaces_ngsi_ld_instantiator.py"]
