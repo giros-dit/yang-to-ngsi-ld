@@ -10,8 +10,10 @@ headers = ['Processed notifications',
             'Mean execution time']
 
 df = pd.read_csv('xml_parser_with_ngsi_ld_instantiator_perf.csv', names = headers)
+print(df.dtypes)
+print(df)
 
-df.set_index('Processed notifications')
+df.set_index('Processed notifications').plot()
 
 plt.title('xml-parser-with-ngsi-ld-instantiator -- Execution times per processed notification')
 plt.xlabel('processed notifications')

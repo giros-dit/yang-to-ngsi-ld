@@ -10,6 +10,7 @@ df = pd.read_csv('notifier_tester_performance_measurements.csv')
 
 selected_df = df[headers]
 
+print(selected_df.dtypes)
 print(selected_df)
 
 selected_df.set_index('notifications_received').plot()

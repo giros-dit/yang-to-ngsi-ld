@@ -8,6 +8,7 @@ headers = ['Notifications received', 'Notification evaluation time', 'Mean evalu
 
 df = pd.read_csv('notifier_tester_perf.csv', names = headers)
 print(df.dtypes)
+print(df)
 
 df.set_index('Notifications received').plot()
 

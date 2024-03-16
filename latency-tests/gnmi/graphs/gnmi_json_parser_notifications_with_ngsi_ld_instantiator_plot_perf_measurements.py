@@ -10,6 +10,7 @@ df = pd.read_csv('gnmi_json_parser_notifications_with_ngsi_ld_instantiator_perfo
 
 selected_df = df[headers]
 
+print(selected_df.dtypes)
 print(selected_df)
 
 selected_df.set_index('processed_notifications').plot()
