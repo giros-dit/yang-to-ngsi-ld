@@ -1,0 +1,7 @@
+{
+    "@context": {
+        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
+        "State": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/oc-ip:ipv4/oc-ip:proxy-arp/oc-ip:state",
+        "mode": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/oc-ip:ipv4/oc-ip:proxy-arp/oc-ip:state/oc-ip:mode"
+    }
+}

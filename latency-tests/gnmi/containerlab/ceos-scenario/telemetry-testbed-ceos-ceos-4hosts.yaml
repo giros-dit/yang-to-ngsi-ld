@@ -1,0 +1,57 @@
+name: telemetry-testbed-ceos-ceos-4hosts
+
+topology:
+  nodes:
+    pc11:
+      kind: linux
+      type: ubuntu-20.04-bionic
+      group: server
+      image: giros-dit/clab-telemetry-testbed-ubuntu:latest
+    pc12:
+      kind: linux
+      type: ubuntu-20.04-bionic
+      group: server
+      image: giros-dit/clab-telemetry-testbed-ubuntu:latest
+    s1:
+      kind: ceos
+      type: arista-ceos
+      group: switch
+      image: ceos:4.31.2F
+      startup-config: s1-config.txt
+    s2:
+      kind: ceos 
+      type: arista-ceos 
+      group: switch
+      image: ceos:4.31.2F
+      startup-config: s2-config.txt
+    r1:
+      kind: ceos
+      type: arista-ceos
+      group: router
+      image: ceos:4.31.2F
+      startup-config: r1-ceos-config.txt
+    r2:
+      kind: ceos
+      type: arista-ceos
+      group: router
+      image: ceos:4.31.2F
+      startup-config: r2-ceos-config.txt
+    pc21:
+      kind: linux
+      type: ubuntu-20.04-bionic
+      group: server
+      image: giros-dit/clab-telemetry-testbed-ubuntu:latest
+    pc22:
+      kind: linux
+      type: ubuntu-20.04-bionic
+      group: server
+      image: giros-dit/clab-telemetry-testbed-ubuntu:latest
+
+  links:
+    - endpoints: ["pc11:eth1", "s1:eth1"]
+    - endpoints: ["pc12:eth1", "s1:eth2"]
+    - endpoints: ["s1:eth3", "r1:eth2"]
+    - endpoints: ["r1:eth1", "r2:eth1"]
+    - endpoints: ["r2:eth2", "s2:eth3"]
+    - endpoints: ["s2:eth1", "pc21:eth1"]
+    - endpoints: ["s2:eth2", "pc22:eth1"]

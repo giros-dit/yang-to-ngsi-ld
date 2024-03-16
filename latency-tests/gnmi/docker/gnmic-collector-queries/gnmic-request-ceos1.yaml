@@ -1,0 +1,8 @@
+address: "clab-telemetry-testbed-ceos-ceos-4hosts-r1:6030"
+username: admin
+password: admin
+insecure: true
+get-path: 
+    - /openconfig-interfaces:interfaces  # `get` command local flag
+
+

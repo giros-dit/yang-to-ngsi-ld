@@ -1,0 +1,2 @@
+observed_at,iteration_started_at,iteration_finished_at,processing_time_since_observed_at,iteration_execution_time,mean_execution_time,min_execution_time,max_execution_time,processed_notifications
+2024-03-16T11:44:35.153Z,2024-03-16T11:44:35.306358Z,2024-03-16T11:44:36.117176Z,964.176 ms,810.817013 ms,810.817013 ms,810.817013 ms,810.817013 ms,1

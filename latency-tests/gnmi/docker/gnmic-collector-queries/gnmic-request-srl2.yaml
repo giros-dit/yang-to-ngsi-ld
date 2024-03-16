@@ -1,0 +1,9 @@
+address: "clab-telemetry-testbed-srl-srl-4hosts-r2"
+username: admin
+password: NokiaSrl1!
+skip-verify: true
+encoding: JSON_IETF
+get-path: 
+    - /interfaces  # `get` command local flag
+
+

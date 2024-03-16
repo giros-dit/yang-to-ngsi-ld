@@ -1,0 +1,22 @@
+{
+    "@context": {
+        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
+        "InterfaceStateCounters": "openconfig-interfaces:interfaces/interface/state/counters",
+        "inOctets": "openconfig-interfaces:interfaces/interface/state/counters/in-octets",
+        "inUnicastPkts": "openconfig-interfaces:interfaces/interface/state/counters/in-unicast-pkts",
+        "inBroadcastPkts": "openconfig-interfaces:interfaces/interface/state/counters/in-broadcast-pkts",
+        "inMulticastPkts": "openconfig-interfaces:interfaces/interface/state/counters/in-multicast-pkts",
+        "inDiscards": "openconfig-interfaces:interfaces/interface/state/counters/in-discards",
+        "inErrors": "openconfig-interfaces:interfaces/interface/state/counters/in-errors",
+        "inUnknownProtos": "openconfig-interfaces:interfaces/interface/state/counters/in-unknown-protos",
+        "inFcsErrors": "openconfig-interfaces:interfaces/interface/state/counters/in-fcs-errors",
+        "outOctets": "openconfig-interfaces:interfaces/interface/state/counters/out-octets",
+        "outUnicastPkts": "openconfig-interfaces:interfaces/interface/state/counters/out-unicast-pkts",
+        "outBroadcastPkts": "openconfig-interfaces:interfaces/interface/state/counters/out-broadcast-pkts",
+        "outMulticastPkts": "openconfig-interfaces:interfaces/interface/state/counters/out-multicast-pkts",
+        "outDiscards": "openconfig-interfaces:interfaces/interface/state/counters/out-discards",
+        "outErrors": "openconfig-interfaces:interfaces/interface/state/counters/out-errors",
+        "carrierTransitions": "openconfig-interfaces:interfaces/interface/state/counters/carrier-transitions",
+        "lastClear": "openconfig-interfaces:interfaces/interface/state/counters/last-clear"
+    }
+}

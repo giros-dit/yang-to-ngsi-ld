@@ -1,0 +1,18 @@
+{
+    "@context": {
+        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
+        "StateCounters": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/oc-ip:ipv6/oc-ip:state/oc-ip:counters",
+        "inPkts": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/oc-ip:ipv6/oc-ip:state/oc-ip:counters/oc-ip:in-pkts",
+        "inOctets": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/oc-ip:ipv6/oc-ip:state/oc-ip:counters/oc-ip:in-octets",
+        "inErrorPkts": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/oc-ip:ipv6/oc-ip:state/oc-ip:counters/oc-ip:in-error-pkts",
+        "inForwardedPkts": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/oc-ip:ipv6/oc-ip:state/oc-ip:counters/oc-ip:in-forwarded-pkts",
+        "inForwardedOctets": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/oc-ip:ipv6/oc-ip:state/oc-ip:counters/oc-ip:in-forwarded-octets",
+        "inDiscardedPkts": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/oc-ip:ipv6/oc-ip:state/oc-ip:counters/oc-ip:in-discarded-pkts",
+        "outPkts": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/oc-ip:ipv6/oc-ip:state/oc-ip:counters/oc-ip:out-pkts",
+        "outOctets": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/oc-ip:ipv6/oc-ip:state/oc-ip:counters/oc-ip:out-octets",
+        "outErrorPkts": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/oc-ip:ipv6/oc-ip:state/oc-ip:counters/oc-ip:out-error-pkts",
+        "outForwardedPkts": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/oc-ip:ipv6/oc-ip:state/oc-ip:counters/oc-ip:out-forwarded-pkts",
+        "outForwardedOctets": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/oc-ip:ipv6/oc-ip:state/oc-ip:counters/oc-ip:out-forwarded-octets",
+        "outDiscardedPkts": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/oc-ip:ipv6/oc-ip:state/oc-ip:counters/oc-ip:out-discarded-pkts"
+    }
+}

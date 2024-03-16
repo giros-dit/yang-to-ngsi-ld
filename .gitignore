@@ -146,3 +146,7 @@ cython_debug/
 yang/modules/*/
 target/
 poetry.lock
+.telemetry-testbed-srl-srl-4hosts.yaml.bak
+.telemetry-testbed-ceos-ceos-4hosts.yaml.bak
+clab-telemetry-testbed-srl-srl-4hosts
+clab-telemetry-testbed-ceos-ceos-4hosts

@@ -1,19 +1,19 @@
 [
     {
-        "id": "urn:ngsi-ld:Interface:Ethernet1",
+        "id": "urn:ngsi-ld:Interface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1",
         "type": "Interface",
         "name": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceConfig:Ethernet1",
+            "object": "urn:ngsi-ld:InterfaceConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1",
             "observedAt": "2024-02-22T19:24:58.302Z"
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceEthernetState:Ethernet1",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1",
         "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:Ethernet1",
+            "object": "urn:ngsi-ld:Interface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "macAddress": {
@@ -48,11 +48,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceEthernetStateCounters:Ethernet1",
+        "id": "urn:ngsi-ld:InterfaceEthernetStateCounters:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1",
         "type": "InterfaceEthernetStateCounters",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceEthernetState:Ethernet1",
+            "object": "urn:ngsi-ld:InterfaceEthernetState:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "inMacControlFrames": {
@@ -97,11 +97,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceEthernetConfig:Ethernet1",
+        "id": "urn:ngsi-ld:InterfaceEthernetConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1",
         "type": "InterfaceEthernetConfig",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:Ethernet1",
+            "object": "urn:ngsi-ld:Interface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "macAddress": {
@@ -116,25 +116,25 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Ethernet1.0",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1.0",
         "type": "InterfaceSubinterfacesSubinterface",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:Ethernet1",
+            "object": "urn:ngsi-ld:Interface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "index": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:Ethernet1.0",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1.0",
             "observedAt": "2024-02-22T19:24:58.302Z"
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4State:Ethernet1.0",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4State:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1.0",
         "type": "InterfaceSubinterfacesSubinterfaceIpv4State",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Ethernet1.0",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1.0",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "enabled": {
@@ -144,11 +144,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4Config:Ethernet1.0",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4Config:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1.0",
         "type": "InterfaceSubinterfacesSubinterfaceIpv4Config",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Ethernet1.0",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1.0",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "enabled": {
@@ -158,25 +158,25 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor:Ethernet1.0:192.168.254.1",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1.0:192.168.254.1",
         "type": "InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Ethernet1.0",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1.0",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "ip": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborConfig:192.168.254.1",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:192.168.254.1",
             "observedAt": "2024-02-22T19:24:58.302Z"
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborState:192.168.254.1",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborState:clab-telemetry-testbed-srl-ceos-4hosts-r2:192.168.254.1",
         "type": "InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborState",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor:Ethernet1.0:192.168.254.1",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1.0:192.168.254.1",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "ip": {
@@ -196,11 +196,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborConfig:192.168.254.1",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:192.168.254.1",
         "type": "InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborConfig",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor:Ethernet1.0:192.168.254.1",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1.0:192.168.254.1",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "ip": {
@@ -210,25 +210,25 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:Ethernet1.0:192.168.254.2",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1.0:192.168.254.2",
         "type": "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Ethernet1.0",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1.0",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "ip": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:192.168.254.2",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:192.168.254.2",
             "observedAt": "2024-02-22T19:24:58.302Z"
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressState:192.168.254.2",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressState:clab-telemetry-testbed-srl-ceos-4hosts-r2:192.168.254.2",
         "type": "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressState",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:Ethernet1.0:192.168.254.2",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1.0:192.168.254.2",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "ip": {
@@ -248,11 +248,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:192.168.254.2",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:192.168.254.2",
         "type": "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:Ethernet1.0:192.168.254.2",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1.0:192.168.254.2",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "ip": {
@@ -267,11 +267,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceState:Ethernet1.0",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceState:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1.0",
         "type": "InterfaceSubinterfacesSubinterfaceState",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Ethernet1.0",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1.0",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "description": {
@@ -281,11 +281,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:Ethernet1.0",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1.0",
         "type": "InterfaceSubinterfacesSubinterfaceConfig",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Ethernet1.0",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1.0",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "description": {
@@ -295,11 +295,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceState:Ethernet1",
+        "id": "urn:ngsi-ld:InterfaceState:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1",
         "type": "InterfaceState",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:Ethernet1",
+            "object": "urn:ngsi-ld:Interface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "name": {
@@ -344,11 +344,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:Ethernet1",
+        "id": "urn:ngsi-ld:InterfaceStateCounters:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1",
         "type": "InterfaceStateCounters",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:Ethernet1",
+            "object": "urn:ngsi-ld:InterfaceState:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "inOctets": {
@@ -423,11 +423,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceConfig:Ethernet1",
+        "id": "urn:ngsi-ld:InterfaceConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1",
         "type": "InterfaceConfig",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:Ethernet1",
+            "object": "urn:ngsi-ld:Interface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet1",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "name": {
@@ -452,20 +452,20 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:Interface:Ethernet2",
+        "id": "urn:ngsi-ld:Interface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2",
         "type": "Interface",
         "name": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceConfig:Ethernet2",
+            "object": "urn:ngsi-ld:InterfaceConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2",
             "observedAt": "2024-02-22T19:24:58.302Z"
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceEthernetState:Ethernet2",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2",
         "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:Ethernet2",
+            "object": "urn:ngsi-ld:Interface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "macAddress": {
@@ -500,11 +500,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceEthernetStateCounters:Ethernet2",
+        "id": "urn:ngsi-ld:InterfaceEthernetStateCounters:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2",
         "type": "InterfaceEthernetStateCounters",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceEthernetState:Ethernet2",
+            "object": "urn:ngsi-ld:InterfaceEthernetState:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "inMacControlFrames": {
@@ -549,11 +549,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceEthernetConfig:Ethernet2",
+        "id": "urn:ngsi-ld:InterfaceEthernetConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2",
         "type": "InterfaceEthernetConfig",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:Ethernet2",
+            "object": "urn:ngsi-ld:Interface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "macAddress": {
@@ -568,25 +568,25 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Ethernet2.0",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2.0",
         "type": "InterfaceSubinterfacesSubinterface",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:Ethernet2",
+            "object": "urn:ngsi-ld:Interface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "index": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:Ethernet2.0",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2.0",
             "observedAt": "2024-02-22T19:24:58.302Z"
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4State:Ethernet2.0",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4State:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2.0",
         "type": "InterfaceSubinterfacesSubinterfaceIpv4State",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Ethernet2.0",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2.0",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "enabled": {
@@ -596,11 +596,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4Config:Ethernet2.0",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4Config:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2.0",
         "type": "InterfaceSubinterfacesSubinterfaceIpv4Config",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Ethernet2.0",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2.0",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "enabled": {
@@ -610,25 +610,25 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:Ethernet2.0:10.0.2.1",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2.0:10.0.2.1",
         "type": "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Ethernet2.0",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2.0",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "ip": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:10.0.2.1",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:10.0.2.1",
             "observedAt": "2024-02-22T19:24:58.302Z"
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressState:10.0.2.1",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressState:clab-telemetry-testbed-srl-ceos-4hosts-r2:10.0.2.1",
         "type": "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressState",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:Ethernet2.0:10.0.2.1",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2.0:10.0.2.1",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "ip": {
@@ -648,11 +648,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:10.0.2.1",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:10.0.2.1",
         "type": "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:Ethernet2.0:10.0.2.1",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2.0:10.0.2.1",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "ip": {
@@ -667,11 +667,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceState:Ethernet2.0",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceState:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2.0",
         "type": "InterfaceSubinterfacesSubinterfaceState",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Ethernet2.0",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2.0",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "description": {
@@ -681,11 +681,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:Ethernet2.0",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2.0",
         "type": "InterfaceSubinterfacesSubinterfaceConfig",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Ethernet2.0",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2.0",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "description": {
@@ -695,11 +695,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceState:Ethernet2",
+        "id": "urn:ngsi-ld:InterfaceState:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2",
         "type": "InterfaceState",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:Ethernet2",
+            "object": "urn:ngsi-ld:Interface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "name": {
@@ -744,11 +744,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:Ethernet2",
+        "id": "urn:ngsi-ld:InterfaceStateCounters:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2",
         "type": "InterfaceStateCounters",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:Ethernet2",
+            "object": "urn:ngsi-ld:InterfaceState:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "inOctets": {
@@ -823,11 +823,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceConfig:Ethernet2",
+        "id": "urn:ngsi-ld:InterfaceConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2",
         "type": "InterfaceConfig",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:Ethernet2",
+            "object": "urn:ngsi-ld:Interface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Ethernet2",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "name": {
@@ -852,20 +852,20 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:Interface:Management0",
+        "id": "urn:ngsi-ld:Interface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0",
         "type": "Interface",
         "name": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceConfig:Management0",
+            "object": "urn:ngsi-ld:InterfaceConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0",
             "observedAt": "2024-02-22T19:24:58.302Z"
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceEthernetState:Management0",
+        "id": "urn:ngsi-ld:InterfaceEthernetState:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0",
         "type": "InterfaceEthernetState",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:Management0",
+            "object": "urn:ngsi-ld:Interface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "macAddress": {
@@ -900,11 +900,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceEthernetStateCounters:Management0",
+        "id": "urn:ngsi-ld:InterfaceEthernetStateCounters:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0",
         "type": "InterfaceEthernetStateCounters",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceEthernetState:Management0",
+            "object": "urn:ngsi-ld:InterfaceEthernetState:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "inMacControlFrames": {
@@ -949,11 +949,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceEthernetConfig:Management0",
+        "id": "urn:ngsi-ld:InterfaceEthernetConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0",
         "type": "InterfaceEthernetConfig",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:Management0",
+            "object": "urn:ngsi-ld:Interface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "macAddress": {
@@ -968,39 +968,39 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Management0.0",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0.0",
         "type": "InterfaceSubinterfacesSubinterface",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:Management0",
+            "object": "urn:ngsi-ld:Interface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "index": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:Management0.0",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0.0",
             "observedAt": "2024-02-22T19:24:58.302Z"
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighbor:Management0.0:fe80..1",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighbor:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0.0:fe80..1",
         "type": "InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighbor",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Management0.0",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0.0",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "ip": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborConfig:fe80..1",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:fe80..1",
             "observedAt": "2024-02-22T19:24:58.302Z"
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborState:fe80..1",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborState:clab-telemetry-testbed-srl-ceos-4hosts-r2:fe80..1",
         "type": "InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborState",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighbor:Management0.0:fe80..1",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighbor:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0.0:fe80..1",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "ip": {
@@ -1025,11 +1025,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborConfig:fe80..1",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:fe80..1",
         "type": "InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborConfig",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighbor:Management0.0:fe80..1",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighbor:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0.0:fe80..1",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "ip": {
@@ -1039,25 +1039,25 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighbor:Management0.0:2001.172.20.20..1",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighbor:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0.0:2001.172.20.20..1",
         "type": "InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighbor",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Management0.0",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0.0",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "ip": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborConfig:2001.172.20.20..1",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:2001.172.20.20..1",
             "observedAt": "2024-02-22T19:24:58.302Z"
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborState:2001.172.20.20..1",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborState:clab-telemetry-testbed-srl-ceos-4hosts-r2:2001.172.20.20..1",
         "type": "InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborState",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighbor:Management0.0:2001.172.20.20..1",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighbor:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0.0:2001.172.20.20..1",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "ip": {
@@ -1082,11 +1082,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborConfig:2001.172.20.20..1",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:2001.172.20.20..1",
         "type": "InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborConfig",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighbor:Management0.0:2001.172.20.20..1",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighbor:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0.0:2001.172.20.20..1",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "ip": {
@@ -1096,25 +1096,25 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddress:Management0.0:2001.172.20.20..8",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddress:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0.0:2001.172.20.20..8",
         "type": "InterfaceSubinterfacesSubinterfaceIpv6AddressesAddress",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Management0.0",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0.0",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "ip": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressConfig:2001.172.20.20..8",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:2001.172.20.20..8",
             "observedAt": "2024-02-22T19:24:58.302Z"
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressState:2001.172.20.20..8",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressState:clab-telemetry-testbed-srl-ceos-4hosts-r2:2001.172.20.20..8",
         "type": "InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressState",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddress:Management0.0:2001.172.20.20..8",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddress:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0.0:2001.172.20.20..8",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "ip": {
@@ -1139,11 +1139,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressConfig:2001.172.20.20..8",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:2001.172.20.20..8",
         "type": "InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressConfig",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddress:Management0.0:2001.172.20.20..8",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddress:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0.0:2001.172.20.20..8",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "ip": {
@@ -1158,25 +1158,25 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:Management0.0:172.20.20.8",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0.0:172.20.20.8",
         "type": "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:Management0.0",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0.0",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "ip": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:172.20.20.8",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:172.20.20.8",
             "observedAt": "2024-02-22T19:24:58.302Z"
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressState:172.20.20.8",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressState:clab-telemetry-testbed-srl-ceos-4hosts-r2:172.20.20.8",
         "type": "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressState",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:Management0.0:172.20.20.8",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0.0:172.20.20.8",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "ip": {
@@ -1196,11 +1196,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:172.20.20.8",
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:172.20.20.8",
         "type": "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:Management0.0:172.20.20.8",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0.0:172.20.20.8",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "ip": {
@@ -1215,11 +1215,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceState:Management0",
+        "id": "urn:ngsi-ld:InterfaceState:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0",
         "type": "InterfaceState",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:Management0",
+            "object": "urn:ngsi-ld:Interface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "name": {
@@ -1259,11 +1259,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceStateCounters:Management0",
+        "id": "urn:ngsi-ld:InterfaceStateCounters:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0",
         "type": "InterfaceStateCounters",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceState:Management0",
+            "object": "urn:ngsi-ld:InterfaceState:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "inOctets": {
@@ -1338,11 +1338,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:InterfaceConfig:Management0",
+        "id": "urn:ngsi-ld:InterfaceConfig:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0",
         "type": "InterfaceConfig",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:Management0",
+            "object": "urn:ngsi-ld:Interface:clab-telemetry-testbed-srl-ceos-4hosts-r2:Management0",
             "observedAt": "2024-02-22T19:24:58.302Z"
         },
         "name": {

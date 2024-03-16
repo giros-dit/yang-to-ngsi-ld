@@ -1,0 +1,8 @@
+{
+    "@context": [
+        "http://context-catalog:8080/context/openconfig-interfaces_interfaces_interface/context.jsonld",
+        "http://context-catalog:8080/context/openconfig-interfaces_interfaces_interface_state/context.jsonld",
+        "http://context-catalog:8080/context/openconfig-interfaces_interfaces_interface_state_counters/context.jsonld",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
+}

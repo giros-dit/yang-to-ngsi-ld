@@ -1,0 +1,9 @@
+{
+    "@context": {
+        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
+        "Config": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/oc-ip:ipv6/oc-ip:router-advertisement/oc-ip:config",
+        "interval": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/oc-ip:ipv6/oc-ip:router-advertisement/oc-ip:config/oc-ip:interval",
+        "lifetime": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/oc-ip:ipv6/oc-ip:router-advertisement/oc-ip:config/oc-ip:lifetime",
+        "suppress": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/oc-ip:ipv6/oc-ip:router-advertisement/oc-ip:config/oc-ip:suppress"
+    }
+}
