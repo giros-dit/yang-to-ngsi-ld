@@ -4,7 +4,7 @@ pyang plugin -- CANDIL NGSI-LD Context Generator.
 Discovers YANG Identities within a YANG module and generates the data structures
 (dictionary buffers) of their corresponding NGSI-LD Entities.
 
-Version: 0.0.3.
+Version: 0.0.4.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -42,7 +42,8 @@ class CandilYangIdentitiesGeneratorPlugin(plugin.PyangPlugin):
             optparse.make_option('--candil-yang-identities-generator-help', dest='candil_yang_identities_generator_help', action='store_true', help='Prints help and usage.'),
             optparse.make_option('--candil-yang-identities-generator-output-mode', dest='candil_yang_identities_generator_output_mode', action='store', help='Defines the output mode for dictionary buffers.'),
             optparse.make_option('--candil-yang-identities-generator-kafka-server', dest='candil_yang_identities_generator_kafka_server', action='store', help='Only when using Kafka, specifies the endpoint of the server to use.'),
-            optparse.make_option('--candil-yang-identities-generator-kafka-topic', dest='candil_yang_identities_generator_kafka_topic', action='store', help='Only when using Kafka, specifies the output topic to use.')
+            optparse.make_option('--candil-yang-identities-generator-kafka-topic', dest='candil_yang_identities_generator_kafka_topic', action='store', help='Only when using Kafka, specifies the output topic to use.'),
+            optparse.make_option('--candil-yang-identities-generator-mgmt-protocol', dest='candil_yang_identities_generator_mgmt_protocol', action='store', help='Defines the network management protocol (i.e., NETCONF or gNMI).')
         ]
         g = optparser.add_option_group('CANDIL YANG Identities Generator specific options')
         g.add_options(optlist)
@@ -74,6 +75,7 @@ OPTIONS:
     --candil-yang-identities-generator-output-mode=MODE --> Defines where to output the representation of NGSI-LD Entities to (dictionary buffers). Valid values: file or kafka.
     --candil-yang-identities-generator-kafka-server=SOCKET --> Only when using Kafka, specifies the socket (<ip_or_hostname>:<port>) where the Kafka server is reachable.
     --candil-yang-identities-generator-kafka-topic=TOPIC --> Only when using Kafka, specifies the output topic for the representation of NGSI-LD Entities (dictionary buffers).
+    --candil-yang-identities-generator-mgmt-protocol=<netconf/gnmi> -> Defines the network management protocol (i.e., NETCONF or gNMI).
     ''')
 
 def generate_yang_identities(ctx, modules, fd):
@@ -101,7 +103,17 @@ def generate_yang_identities(ctx, modules, fd):
     # Every single module is processed.
     for module in identity_modules:
         namespace = str(module.search_one('namespace').arg)
-        prefix = str(module.i_prefix)
+
+        '''
+        Select the prefix of the YANGIdentity depending of the network management protocol (i.e., NETCONF or gNMI).
+         - In NETCONF Query RPCs the YANG Indentity value comes as "yang_module_prefix:identity_name".
+         - In gNMI Query RPCs the YANG Identity value comes as "yang_module_name:identity_name".               
+        '''
+        if (ctx.opts.candil_yang_identities_generator_mgmt_protocol == "netconf"):
+            prefix = str(module.i_prefix)
+        elif (ctx.opts.candil_yang_identities_generator_mgmt_protocol == "gnmi"):
+            prefix = str(module.i_modulename)
+        
         identities = module.i_identities # The variable "identities" is a dictionary.
         if identities is not None:
             for identity_name in identities: # "identity_name" is the key for iterating over the dictionary.
@@ -123,10 +135,16 @@ def generate_yang_identities(ctx, modules, fd):
                 base = str(identities[identity_name].search_one('base')).replace('base ', '')
                 # When there is no "base" statement, the variable stores the "None" string.
                 # Otherwise, it stores the "parent" identity name.
-                if base != "None":
+                if base != "None":     
                     if ":" not in base:
                         # If the "parent" identity name does not contain the prefix, it is added in order to build the relationship.
                         base = prefix + ":" + base
+                    elif base.split(":")[0] != prefix:
+                        '''
+                        If the prefix of identity name does not contain the real prefix (i.e., "yang_module_name" por gNMI or "yang_module_prefix" for NETCONF), 
+                        it is replaced accordingly in order to build the relationship.
+                        '''
+                        base = prefix + ":" + base.split(":")[-1]
                     identity_dict_buffer["broader"] = {}
                     identity_dict_buffer["broader"]["type"] = "Relationship"
                     identity_dict_buffer["broader"]["object"] = "urn:ngsi-ld:YANGIdentity:" + base

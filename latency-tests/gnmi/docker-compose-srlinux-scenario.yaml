@@ -108,7 +108,6 @@ services:
       dockerfile: ./docker/gnmi-json-parser-queries-with-ngsi-ld-instantiator/Dockerfile
     hostname: gnmi-json-parser-queries-with-ngsi-ld-instantiator
     container_name: gnmi-json-parser-queries-with-ngsi-ld-instantiator
-    command: "poetry run pyang -f candil-yang-identities-generator /opt/gnmi-json-parser-queries-with-ngsi-ld-instantiator/modules/* --candil-yang-identities-generator-output-mode=file"
     volumes:
       - ./docker/gnmi-json-parser-queries-with-ngsi-ld-instantiator:/opt/gnmi-json-parser-queries-with-ngsi-ld-instantiator
     healthcheck:
@@ -167,6 +166,8 @@ services:
       context-catalog:
         condition: service_started
       kafka:
+        condition: service_healthy
+      gnmi-json-parser-notifications-with-ngsi-ld-instantiator:
         condition: service_healthy
     restart: always
     

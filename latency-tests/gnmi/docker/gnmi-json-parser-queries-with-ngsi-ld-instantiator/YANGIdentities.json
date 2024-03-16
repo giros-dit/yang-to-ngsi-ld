@@ -1,6 +1,6 @@
 [
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -16,11 +16,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:if:interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:other",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:other",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -36,11 +36,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:regular1822",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:regular1822",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -56,11 +56,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:hdh1822",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:hdh1822",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -76,11 +76,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ddnX25",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ddnX25",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -96,11 +96,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:rfc877x25",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:rfc877x25",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -116,11 +116,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ethernetCsmacd",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -136,11 +136,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:iso88023Csmacd",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:iso88023Csmacd",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -156,11 +156,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:iso88024TokenBus",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:iso88024TokenBus",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -176,11 +176,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:iso88025TokenRing",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:iso88025TokenRing",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -196,11 +196,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:iso88026Man",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:iso88026Man",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -216,11 +216,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:starLan",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:starLan",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -236,11 +236,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:proteon10Mbit",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:proteon10Mbit",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -256,11 +256,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:proteon80Mbit",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:proteon80Mbit",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -276,11 +276,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:hyperchannel",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:hyperchannel",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -296,11 +296,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:fddi",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:fddi",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -316,11 +316,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:lapb",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:lapb",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -336,11 +336,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:sdlc",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:sdlc",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -356,11 +356,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ds1",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ds1",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -376,11 +376,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:e1",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:e1",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -396,11 +396,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:basicISDN",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:basicISDN",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -416,11 +416,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:primaryISDN",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:primaryISDN",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -436,11 +436,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:propPointToPointSerial",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:propPointToPointSerial",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -456,11 +456,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ppp",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ppp",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -476,11 +476,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:softwareLoopback",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:softwareLoopback",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -496,11 +496,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:eon",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:eon",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -516,11 +516,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ethernet3Mbit",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernet3Mbit",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -536,11 +536,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:nsip",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:nsip",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -556,11 +556,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:slip",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:slip",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -576,11 +576,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ultra",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ultra",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -596,11 +596,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ds3",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ds3",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -616,11 +616,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:sip",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:sip",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -636,11 +636,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:frameRelay",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:frameRelay",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -656,11 +656,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:rs232",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:rs232",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -676,11 +676,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:para",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:para",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -696,11 +696,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:arcnet",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:arcnet",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -716,11 +716,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:arcnetPlus",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:arcnetPlus",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -736,11 +736,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:atm",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:atm",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -756,11 +756,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:miox25",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:miox25",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -776,11 +776,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:sonet",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:sonet",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -796,11 +796,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:x25ple",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:x25ple",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -816,11 +816,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:iso88022llc",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:iso88022llc",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -836,11 +836,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:localTalk",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:localTalk",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -856,11 +856,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:smdsDxi",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:smdsDxi",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -876,11 +876,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:frameRelayService",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:frameRelayService",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -896,11 +896,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:v35",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:v35",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -916,11 +916,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:hssi",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:hssi",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -936,11 +936,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:hippi",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:hippi",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -956,11 +956,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:modem",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:modem",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -976,11 +976,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:aal5",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:aal5",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -996,11 +996,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:sonetPath",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:sonetPath",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1016,11 +1016,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:sonetVT",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:sonetVT",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1036,11 +1036,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:smdsIcip",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:smdsIcip",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1056,11 +1056,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:propVirtual",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:propVirtual",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1076,11 +1076,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:propMultiplexor",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:propMultiplexor",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1096,11 +1096,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ieee80212",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ieee80212",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1116,11 +1116,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:fibreChannel",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:fibreChannel",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1136,11 +1136,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:hippiInterface",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:hippiInterface",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1156,11 +1156,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:frameRelayInterconnect",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:frameRelayInterconnect",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1176,11 +1176,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:aflane8023",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:aflane8023",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1196,11 +1196,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:aflane8025",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:aflane8025",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1216,11 +1216,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:cctEmul",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:cctEmul",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1236,11 +1236,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:fastEther",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:fastEther",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1256,11 +1256,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:isdn",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:isdn",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1276,11 +1276,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:v11",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:v11",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1296,11 +1296,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:v36",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:v36",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1316,11 +1316,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:g703at64k",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:g703at64k",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1336,11 +1336,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:g703at2mb",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:g703at2mb",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1356,11 +1356,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:qllc",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:qllc",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1376,11 +1376,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:fastEtherFX",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:fastEtherFX",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1396,11 +1396,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:channel",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:channel",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1416,11 +1416,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ieee80211",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ieee80211",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1436,11 +1436,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ibm370parChan",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ibm370parChan",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1456,11 +1456,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:escon",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:escon",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1476,11 +1476,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:dlsw",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:dlsw",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1496,11 +1496,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:isdns",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:isdns",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1516,11 +1516,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:isdnu",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:isdnu",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1536,11 +1536,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:lapd",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:lapd",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1556,11 +1556,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ipSwitch",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ipSwitch",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1576,11 +1576,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:rsrb",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:rsrb",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1596,11 +1596,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:atmLogical",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:atmLogical",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1616,11 +1616,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ds0",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ds0",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1636,11 +1636,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ds0Bundle",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ds0Bundle",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1656,11 +1656,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:bsc",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:bsc",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1676,11 +1676,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:async",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:async",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1696,11 +1696,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:cnr",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:cnr",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1716,11 +1716,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:iso88025Dtr",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:iso88025Dtr",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1736,11 +1736,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:eplrs",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:eplrs",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1756,11 +1756,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:arap",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:arap",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1776,11 +1776,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:propCnls",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:propCnls",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1796,11 +1796,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:hostPad",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:hostPad",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1816,11 +1816,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:termPad",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:termPad",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1836,11 +1836,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:frameRelayMPI",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:frameRelayMPI",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1856,11 +1856,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:x213",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:x213",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1876,11 +1876,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:adsl",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:adsl",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1896,11 +1896,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:radsl",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:radsl",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1916,11 +1916,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:sdsl",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:sdsl",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1936,11 +1936,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:vdsl",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:vdsl",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1956,11 +1956,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:iso88025CRFPInt",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:iso88025CRFPInt",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1976,11 +1976,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:myrinet",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:myrinet",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -1996,11 +1996,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:voiceEM",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:voiceEM",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2016,11 +2016,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:voiceFXO",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:voiceFXO",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2036,11 +2036,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:voiceFXS",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:voiceFXS",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2056,11 +2056,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:voiceEncap",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:voiceEncap",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2076,11 +2076,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:voiceOverIp",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:voiceOverIp",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2096,11 +2096,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:atmDxi",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:atmDxi",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2116,11 +2116,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:atmFuni",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:atmFuni",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2136,11 +2136,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:atmIma",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:atmIma",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2156,11 +2156,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:pppMultilinkBundle",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:pppMultilinkBundle",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2176,11 +2176,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ipOverCdlc",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ipOverCdlc",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2196,11 +2196,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ipOverClaw",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ipOverClaw",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2216,11 +2216,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:stackToStack",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:stackToStack",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2236,11 +2236,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:virtualIpAddress",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:virtualIpAddress",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2256,11 +2256,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:mpc",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:mpc",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2276,11 +2276,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ipOverAtm",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ipOverAtm",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2296,11 +2296,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:iso88025Fiber",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:iso88025Fiber",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2316,11 +2316,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:tdlc",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:tdlc",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2336,11 +2336,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:gigabitEthernet",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:gigabitEthernet",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2356,11 +2356,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:hdlc",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:hdlc",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2376,11 +2376,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:lapf",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:lapf",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2396,11 +2396,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:v37",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:v37",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2416,11 +2416,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:x25mlp",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:x25mlp",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2436,11 +2436,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:x25huntGroup",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:x25huntGroup",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2456,11 +2456,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:transpHdlc",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:transpHdlc",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2476,11 +2476,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:interleave",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:interleave",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2496,11 +2496,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:fast",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:fast",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2516,11 +2516,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ip",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ip",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2536,11 +2536,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:docsCableMaclayer",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:docsCableMaclayer",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2556,11 +2556,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:docsCableDownstream",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:docsCableDownstream",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2576,11 +2576,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:docsCableUpstream",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:docsCableUpstream",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2596,11 +2596,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:a12MppSwitch",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:a12MppSwitch",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2616,11 +2616,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:tunnel",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:tunnel",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2636,11 +2636,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:coffee",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:coffee",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2656,11 +2656,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ces",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ces",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2676,11 +2676,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:atmSubInterface",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:atmSubInterface",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2696,11 +2696,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:l2vlan",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:l2vlan",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2716,11 +2716,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:l3ipvlan",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:l3ipvlan",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2736,11 +2736,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:l3ipxvlan",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:l3ipxvlan",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2756,11 +2756,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:digitalPowerline",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:digitalPowerline",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2776,11 +2776,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:mediaMailOverIp",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:mediaMailOverIp",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2796,11 +2796,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:dtm",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:dtm",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2816,11 +2816,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:dcn",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:dcn",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2836,11 +2836,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ipForward",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ipForward",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2856,11 +2856,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:msdsl",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:msdsl",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2876,11 +2876,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ieee1394",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ieee1394",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2896,11 +2896,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:if-gsn",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:if-gsn",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2916,11 +2916,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:dvbRccMacLayer",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:dvbRccMacLayer",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2936,11 +2936,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:dvbRccDownstream",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:dvbRccDownstream",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2956,11 +2956,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:dvbRccUpstream",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:dvbRccUpstream",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2976,11 +2976,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:atmVirtual",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:atmVirtual",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -2996,11 +2996,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:mplsTunnel",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:mplsTunnel",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3016,11 +3016,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:srp",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:srp",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3036,11 +3036,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:voiceOverAtm",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:voiceOverAtm",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3056,11 +3056,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:voiceOverFrameRelay",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:voiceOverFrameRelay",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3076,11 +3076,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:idsl",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:idsl",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3096,11 +3096,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:compositeLink",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:compositeLink",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3116,11 +3116,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ss7SigLink",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ss7SigLink",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3136,11 +3136,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:propWirelessP2P",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:propWirelessP2P",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3156,11 +3156,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:frForward",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:frForward",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3176,11 +3176,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:rfc1483",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:rfc1483",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3196,11 +3196,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:usb",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:usb",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3216,11 +3216,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ieee8023adLag",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ieee8023adLag",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3236,11 +3236,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:bgppolicyaccounting",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:bgppolicyaccounting",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3256,11 +3256,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:frf16MfrBundle",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:frf16MfrBundle",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3276,11 +3276,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:h323Gatekeeper",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:h323Gatekeeper",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3296,11 +3296,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:h323Proxy",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:h323Proxy",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3316,11 +3316,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:mpls",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:mpls",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3336,11 +3336,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:mfSigLink",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:mfSigLink",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3356,11 +3356,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:hdsl2",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:hdsl2",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3376,11 +3376,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:shdsl",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:shdsl",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3396,11 +3396,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ds1FDL",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ds1FDL",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3416,11 +3416,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:pos",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:pos",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3436,11 +3436,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:dvbAsiIn",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:dvbAsiIn",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3456,11 +3456,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:dvbAsiOut",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:dvbAsiOut",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3476,11 +3476,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:plc",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:plc",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3496,11 +3496,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:nfas",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:nfas",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3516,11 +3516,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:tr008",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:tr008",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3536,11 +3536,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:gr303RDT",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:gr303RDT",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3556,11 +3556,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:gr303IDT",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:gr303IDT",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3576,11 +3576,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:isup",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:isup",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3596,11 +3596,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:propDocsWirelessMaclayer",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:propDocsWirelessMaclayer",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3616,11 +3616,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:propDocsWirelessDownstream",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:propDocsWirelessDownstream",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3636,11 +3636,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:propDocsWirelessUpstream",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:propDocsWirelessUpstream",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3656,11 +3656,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:hiperlan2",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:hiperlan2",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3676,11 +3676,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:propBWAp2Mp",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:propBWAp2Mp",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3696,11 +3696,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:sonetOverheadChannel",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:sonetOverheadChannel",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3716,11 +3716,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:digitalWrapperOverheadChannel",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:digitalWrapperOverheadChannel",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3736,11 +3736,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:aal2",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:aal2",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3756,11 +3756,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:radioMAC",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:radioMAC",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3776,11 +3776,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:atmRadio",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:atmRadio",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3796,11 +3796,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:imt",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:imt",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3816,11 +3816,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:mvl",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:mvl",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3836,11 +3836,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:reachDSL",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:reachDSL",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3856,11 +3856,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:frDlciEndPt",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:frDlciEndPt",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3876,11 +3876,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:atmVciEndPt",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:atmVciEndPt",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3896,11 +3896,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:opticalChannel",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:opticalChannel",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3916,11 +3916,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:opticalTransport",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:opticalTransport",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3936,11 +3936,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:propAtm",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:propAtm",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3956,11 +3956,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:voiceOverCable",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:voiceOverCable",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3976,11 +3976,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:infiniband",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:infiniband",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -3996,11 +3996,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:teLink",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:teLink",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4016,11 +4016,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:q2931",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:q2931",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4036,11 +4036,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:virtualTg",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:virtualTg",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4056,11 +4056,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:sipTg",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:sipTg",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4076,11 +4076,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:sipSig",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:sipSig",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4096,11 +4096,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:docsCableUpstreamChannel",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:docsCableUpstreamChannel",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4116,11 +4116,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:econet",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:econet",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4136,11 +4136,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:pon155",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:pon155",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4156,11 +4156,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:pon622",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:pon622",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4176,11 +4176,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:bridge",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:bridge",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4196,11 +4196,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:linegroup",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:linegroup",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4216,11 +4216,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:voiceEMFGD",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:voiceEMFGD",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4236,11 +4236,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:voiceFGDEANA",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:voiceFGDEANA",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4256,11 +4256,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:voiceDID",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:voiceDID",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4276,11 +4276,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:mpegTransport",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:mpegTransport",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4296,11 +4296,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:sixToFour",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:sixToFour",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4316,11 +4316,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:gtp",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:gtp",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4336,11 +4336,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:pdnEtherLoop1",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:pdnEtherLoop1",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4356,11 +4356,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:pdnEtherLoop2",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:pdnEtherLoop2",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4376,11 +4376,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:opticalChannelGroup",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:opticalChannelGroup",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4396,11 +4396,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:homepna",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:homepna",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4416,11 +4416,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:gfp",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:gfp",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4436,11 +4436,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ciscoISLvlan",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ciscoISLvlan",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4456,11 +4456,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:actelisMetaLOOP",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:actelisMetaLOOP",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4476,11 +4476,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:fcipLink",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:fcipLink",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4496,11 +4496,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:rpr",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:rpr",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4516,11 +4516,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:qam",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:qam",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4536,11 +4536,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:lmp",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:lmp",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4556,11 +4556,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:cblVectaStar",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:cblVectaStar",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4576,11 +4576,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:docsCableMCmtsDownstream",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:docsCableMCmtsDownstream",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4596,11 +4596,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:adsl2",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:adsl2",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4616,11 +4616,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:macSecControlledIF",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:macSecControlledIF",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4636,11 +4636,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:macSecUncontrolledIF",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:macSecUncontrolledIF",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4656,11 +4656,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:aviciOpticalEther",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:aviciOpticalEther",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4676,11 +4676,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:atmbond",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:atmbond",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4696,11 +4696,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:voiceFGDOS",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:voiceFGDOS",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4716,11 +4716,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:mocaVersion1",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:mocaVersion1",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4736,11 +4736,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ieee80216WMAN",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ieee80216WMAN",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4756,11 +4756,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:adsl2plus",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:adsl2plus",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4776,11 +4776,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:dvbRcsMacLayer",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:dvbRcsMacLayer",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4796,11 +4796,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:dvbTdm",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:dvbTdm",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4816,11 +4816,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:dvbRcsTdma",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:dvbRcsTdma",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4836,11 +4836,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:x86Laps",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:x86Laps",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4856,11 +4856,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:wwanPP",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:wwanPP",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4876,11 +4876,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:wwanPP2",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:wwanPP2",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4896,11 +4896,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:voiceEBS",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:voiceEBS",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4916,11 +4916,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ifPwType",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ifPwType",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4936,11 +4936,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ilan",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ilan",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4956,11 +4956,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:pip",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:pip",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4976,11 +4976,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:aluELP",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:aluELP",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -4996,11 +4996,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:gpon",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:gpon",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5016,11 +5016,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:vdsl2",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:vdsl2",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5036,11 +5036,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:capwapDot11Profile",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:capwapDot11Profile",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5056,11 +5056,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:capwapDot11Bss",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:capwapDot11Bss",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5076,11 +5076,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:capwapWtpVirtualRadio",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:capwapWtpVirtualRadio",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5096,11 +5096,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:bits",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:bits",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5116,11 +5116,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:docsCableUpstreamRfPort",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:docsCableUpstreamRfPort",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5136,11 +5136,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:cableDownstreamRfPort",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:cableDownstreamRfPort",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5156,11 +5156,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:vmwareVirtualNic",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:vmwareVirtualNic",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5176,11 +5176,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ieee802154",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ieee802154",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5196,11 +5196,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:otnOdu",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:otnOdu",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5216,11 +5216,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:otnOtu",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:otnOtu",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5236,11 +5236,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ifVfiType",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:ifVfiType",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5256,11 +5256,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:g9981",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:g9981",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5276,11 +5276,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:g9982",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:g9982",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5296,11 +5296,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:g9983",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:g9983",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5316,11 +5316,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:aluEpon",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:aluEpon",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5336,11 +5336,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:aluEponOnu",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:aluEponOnu",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5356,11 +5356,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:aluEponPhysicalUni",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:aluEponPhysicalUni",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5376,11 +5376,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:aluEponLogicalLink",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:aluEponLogicalLink",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5396,11 +5396,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:aluGponOnu",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:aluGponOnu",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5416,11 +5416,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:aluGponPhysicalUni",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:aluGponPhysicalUni",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5436,11 +5436,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:ianaift:vmwareNicTeam",
+        "id": "urn:ngsi-ld:YANGIdentity:iana-if-type:vmwareNicTeam",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5456,11 +5456,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:iana-interface-type"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:if:interface-type",
+        "id": "urn:ngsi-ld:YANGIdentity:ietf-interfaces:interface-type",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5476,7 +5476,7 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:oc-eth:ETHERNET_SPEED",
+        "id": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:ETHERNET_SPEED",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5492,7 +5492,7 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:oc-eth:SPEED_10MB",
+        "id": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_10MB",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5508,11 +5508,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:oc-eth:ETHERNET_SPEED"
+            "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:ETHERNET_SPEED"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:oc-eth:SPEED_100MB",
+        "id": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_100MB",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5528,11 +5528,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:oc-eth:ETHERNET_SPEED"
+            "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:ETHERNET_SPEED"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:oc-eth:SPEED_1GB",
+        "id": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_1GB",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5548,11 +5548,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:oc-eth:ETHERNET_SPEED"
+            "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:ETHERNET_SPEED"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:oc-eth:SPEED_10GB",
+        "id": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_10GB",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5568,11 +5568,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:oc-eth:ETHERNET_SPEED"
+            "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:ETHERNET_SPEED"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:oc-eth:SPEED_25GB",
+        "id": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_25GB",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5588,11 +5588,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:oc-eth:ETHERNET_SPEED"
+            "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:ETHERNET_SPEED"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:oc-eth:SPEED_40GB",
+        "id": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_40GB",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5608,11 +5608,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:oc-eth:ETHERNET_SPEED"
+            "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:ETHERNET_SPEED"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:oc-eth:SPEED_50GB",
+        "id": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_50GB",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5628,11 +5628,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:oc-eth:ETHERNET_SPEED"
+            "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:ETHERNET_SPEED"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:oc-eth:SPEED_100GB",
+        "id": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_100GB",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5648,11 +5648,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:oc-eth:ETHERNET_SPEED"
+            "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:ETHERNET_SPEED"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:oc-eth:SPEED_UNKNOWN",
+        "id": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:SPEED_UNKNOWN",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5668,11 +5668,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:oc-eth:ETHERNET_SPEED"
+            "object": "urn:ngsi-ld:YANGIdentity:openconfig-if-ethernet:ETHERNET_SPEED"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:oc-types:ADDRESS_FAMILY",
+        "id": "urn:ngsi-ld:YANGIdentity:openconfig-types:ADDRESS_FAMILY",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5688,7 +5688,7 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:oc-types:IPV4",
+        "id": "urn:ngsi-ld:YANGIdentity:openconfig-types:IPV4",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5704,11 +5704,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:oc-types:ADDRESS_FAMILY"
+            "object": "urn:ngsi-ld:YANGIdentity:openconfig-types:ADDRESS_FAMILY"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:oc-types:IPV6",
+        "id": "urn:ngsi-ld:YANGIdentity:openconfig-types:IPV6",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5724,11 +5724,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:oc-types:ADDRESS_FAMILY"
+            "object": "urn:ngsi-ld:YANGIdentity:openconfig-types:ADDRESS_FAMILY"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:oc-types:MPLS",
+        "id": "urn:ngsi-ld:YANGIdentity:openconfig-types:MPLS",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5744,11 +5744,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:oc-types:ADDRESS_FAMILY"
+            "object": "urn:ngsi-ld:YANGIdentity:openconfig-types:ADDRESS_FAMILY"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:oc-types:L2_ETHERNET",
+        "id": "urn:ngsi-ld:YANGIdentity:openconfig-types:L2_ETHERNET",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5764,11 +5764,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:oc-types:ADDRESS_FAMILY"
+            "object": "urn:ngsi-ld:YANGIdentity:openconfig-types:ADDRESS_FAMILY"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:oc-vlan-types:TPID_TYPES",
+        "id": "urn:ngsi-ld:YANGIdentity:openconfig-vlan-types:TPID_TYPES",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5784,7 +5784,7 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:oc-vlan-types:TPID_0X8100",
+        "id": "urn:ngsi-ld:YANGIdentity:openconfig-vlan-types:TPID_0X8100",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5800,11 +5800,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:oc-vlan-types:TPID_TYPES"
+            "object": "urn:ngsi-ld:YANGIdentity:openconfig-vlan-types:TPID_TYPES"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:oc-vlan-types:TPID_0X8A88",
+        "id": "urn:ngsi-ld:YANGIdentity:openconfig-vlan-types:TPID_0X8A88",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5820,11 +5820,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:oc-vlan-types:TPID_TYPES"
+            "object": "urn:ngsi-ld:YANGIdentity:openconfig-vlan-types:TPID_TYPES"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:oc-vlan-types:TPID_0X9100",
+        "id": "urn:ngsi-ld:YANGIdentity:openconfig-vlan-types:TPID_0X9100",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5840,11 +5840,11 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:oc-vlan-types:TPID_TYPES"
+            "object": "urn:ngsi-ld:YANGIdentity:openconfig-vlan-types:TPID_TYPES"
         }
     },
     {
-        "id": "urn:ngsi-ld:YANGIdentity:oc-vlan-types:TPID_0X9200",
+        "id": "urn:ngsi-ld:YANGIdentity:openconfig-vlan-types:TPID_0X9200",
         "type": "YANGIdentity",
         "description": {
             "type": "Property",
@@ -5860,7 +5860,7 @@
         },
         "broader": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:YANGIdentity:oc-vlan-types:TPID_TYPES"
+            "object": "urn:ngsi-ld:YANGIdentity:openconfig-vlan-types:TPID_TYPES"
         }
     }
 ]

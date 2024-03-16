@@ -167,6 +167,8 @@ services:
         condition: service_started
       kafka:
         condition: service_healthy
+      gnmi-json-parser-notifications-with-ngsi-ld-instantiator:
+        condition: service_healthy
     restart: always
     
 networks:
