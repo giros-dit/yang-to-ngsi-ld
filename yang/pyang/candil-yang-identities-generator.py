@@ -1,5 +1,5 @@
 '''
-pyang plugin -- CANDIL NGSI-LD Context Generator.
+pyang plugin -- CANDIL NGSI-LD Identities Generator.
 
 Discovers YANG Identities within a YANG module and generates the data structures
 (dictionary buffers) of their corresponding NGSI-LD Entities.
