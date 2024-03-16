@@ -1,0 +1,5866 @@
+[
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "This identity is used as a base for all interface types defined in the 'ifType definitions' registry."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "iana-interface-type"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:other",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "other"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:regular1822",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "regular1822"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:hdh1822",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "hdh1822"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ddnX25",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ddnX25"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:rfc877x25",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "rfc877x25"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ethernetCsmacd",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "For all Ethernet-like interfaces, regardless of speed, as per RFC 3635."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ethernetCsmacd"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:iso88023Csmacd",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Deprecated via RFC 3635. Use ethernetCsmacd(6) instead."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "iso88023Csmacd"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:iso88024TokenBus",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "iso88024TokenBus"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:iso88025TokenRing",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "iso88025TokenRing"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:iso88026Man",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "iso88026Man"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:starLan",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Deprecated via RFC 3635. Use ethernetCsmacd(6) instead."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "starLan"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:proteon10Mbit",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "proteon10Mbit"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:proteon80Mbit",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "proteon80Mbit"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:hyperchannel",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "hyperchannel"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:fddi",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "fddi"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:lapb",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "lapb"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:sdlc",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "sdlc"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ds1",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "DS1-MIB."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ds1"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:e1",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Obsolete; see DS1-MIB."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "e1"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:basicISDN",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "No longer used.  See also RFC 2127."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "basicISDN"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:primaryISDN",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "No longer used.  See also RFC 2127."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "primaryISDN"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:propPointToPointSerial",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Proprietary serial."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "propPointToPointSerial"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ppp",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ppp"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:softwareLoopback",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "softwareLoopback"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:eon",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "CLNP over IP."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "eon"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ethernet3Mbit",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ethernet3Mbit"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:nsip",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "XNS over IP."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "nsip"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:slip",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Generic SLIP."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "slip"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ultra",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Ultra Technologies."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ultra"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ds3",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "DS3-MIB."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ds3"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:sip",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "SMDS, coffee."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "sip"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:frameRelay",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "DTE only."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "frameRelay"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:rs232",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "rs232"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:para",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Parallel-port."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "para"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:arcnet",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "ARCnet."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "arcnet"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:arcnetPlus",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "ARCnet Plus."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "arcnetPlus"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:atm",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "ATM cells."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "atm"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:miox25",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "miox25"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:sonet",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "SONET or SDH."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "sonet"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:x25ple",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "x25ple"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:iso88022llc",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "iso88022llc"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:localTalk",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "localTalk"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:smdsDxi",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "smdsDxi"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:frameRelayService",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "FRNETSERV-MIB."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "frameRelayService"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:v35",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "v35"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:hssi",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "hssi"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:hippi",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "hippi"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:modem",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Generic modem."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "modem"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:aal5",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "AAL5 over ATM."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "aal5"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:sonetPath",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "sonetPath"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:sonetVT",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "There is no description for this identity in the YANG module."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "sonetVT"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:smdsIcip",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "SMDS InterCarrier Interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "smdsIcip"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:propVirtual",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Proprietary virtual/internal."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "propVirtual"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:propMultiplexor",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Proprietary multiplexing."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "propMultiplexor"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ieee80212",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "100BaseVG."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ieee80212"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:fibreChannel",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Fibre Channel."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "fibreChannel"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:hippiInterface",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "HIPPI interfaces."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "hippiInterface"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:frameRelayInterconnect",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Obsolete; use either frameRelay(32) or frameRelayService(44)."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "frameRelayInterconnect"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:aflane8023",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "ATM Emulated LAN for 802.3."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "aflane8023"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:aflane8025",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "ATM Emulated LAN for 802.5."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "aflane8025"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:cctEmul",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "ATM Emulated circuit."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "cctEmul"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:fastEther",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Obsoleted via RFC 3635. ethernetCsmacd(6) should be used instead."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "fastEther"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:isdn",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "ISDN and X.25."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "isdn"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:v11",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "CCITT V.11/X.21."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "v11"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:v36",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "CCITT V.36."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "v36"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:g703at64k",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "CCITT G703 at 64Kbps."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "g703at64k"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:g703at2mb",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Obsolete; see DS1-MIB."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "g703at2mb"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:qllc",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "SNA QLLC."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "qllc"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:fastEtherFX",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Obsoleted via RFC 3635. ethernetCsmacd(6) should be used instead."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "fastEtherFX"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:channel",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Channel."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "channel"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ieee80211",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Radio spread spectrum."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ieee80211"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ibm370parChan",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "IBM System 360/370 OEMI Channel."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ibm370parChan"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:escon",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "IBM Enterprise Systems Connection."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "escon"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:dlsw",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Data Link Switching."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "dlsw"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:isdns",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "ISDN S/T interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "isdns"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:isdnu",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "ISDN U interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "isdnu"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:lapd",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Link Access Protocol D."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "lapd"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ipSwitch",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "IP Switching Objects."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ipSwitch"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:rsrb",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Remote Source Route Bridging."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "rsrb"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:atmLogical",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "ATM Logical Port."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "atmLogical"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ds0",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Digital Signal Level 0."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ds0"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ds0Bundle",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Group of ds0s on the same ds1."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ds0Bundle"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:bsc",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Bisynchronous Protocol."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "bsc"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:async",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Asynchronous Protocol."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "async"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:cnr",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Combat Net Radio."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "cnr"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:iso88025Dtr",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "ISO 802.5r DTR."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "iso88025Dtr"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:eplrs",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Ext Pos Loc Report Sys."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "eplrs"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:arap",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Appletalk Remote Access Protocol."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "arap"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:propCnls",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Proprietary Connectionless Protocol."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "propCnls"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:hostPad",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "CCITT-ITU X.29 PAD Protocol."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "hostPad"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:termPad",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "CCITT-ITU X.3 PAD Facility."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "termPad"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:frameRelayMPI",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Multiproto Interconnect over FR."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "frameRelayMPI"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:x213",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "CCITT-ITU X213."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "x213"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:adsl",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Asymmetric Digital Subscriber Loop."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "adsl"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:radsl",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Rate-Adapt. Digital Subscriber Loop."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "radsl"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:sdsl",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Symmetric Digital Subscriber Loop."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "sdsl"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:vdsl",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Very H-Speed Digital Subscrib. Loop."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "vdsl"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:iso88025CRFPInt",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "ISO 802.5 CRFP."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "iso88025CRFPInt"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:myrinet",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Myricom Myrinet."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "myrinet"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:voiceEM",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Voice recEive and transMit."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "voiceEM"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:voiceFXO",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Voice Foreign Exchange Office."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "voiceFXO"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:voiceFXS",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Voice Foreign Exchange Station."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "voiceFXS"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:voiceEncap",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Voice encapsulation."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "voiceEncap"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:voiceOverIp",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Voice over IP encapsulation."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "voiceOverIp"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:atmDxi",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "ATM DXI."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "atmDxi"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:atmFuni",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "ATM FUNI."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "atmFuni"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:atmIma",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "ATM IMA."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "atmIma"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:pppMultilinkBundle",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "PPP Multilink Bundle."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "pppMultilinkBundle"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ipOverCdlc",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "IBM ipOverCdlc."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ipOverCdlc"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ipOverClaw",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "IBM Common Link Access to Workstn."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ipOverClaw"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:stackToStack",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "IBM stackToStack."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "stackToStack"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:virtualIpAddress",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "IBM VIPA."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "virtualIpAddress"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:mpc",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "IBM multi-protocol channel support."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "mpc"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ipOverAtm",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "IBM ipOverAtm."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ipOverAtm"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:iso88025Fiber",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "ISO 802.5j Fiber Token Ring."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "iso88025Fiber"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:tdlc",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "IBM twinaxial data link control."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "tdlc"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:gigabitEthernet",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Obsoleted via RFC 3635. ethernetCsmacd(6) should be used instead."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "gigabitEthernet"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:hdlc",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "HDLC."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "hdlc"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:lapf",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "LAP F."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "lapf"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:v37",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "V.37."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "v37"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:x25mlp",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Multi-Link Protocol."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "x25mlp"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:x25huntGroup",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "X25 Hunt Group."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "x25huntGroup"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:transpHdlc",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Transp HDLC."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "transpHdlc"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:interleave",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Interleave channel."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "interleave"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:fast",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Fast channel."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "fast"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ip",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "IP (for APPN HPR in IP networks)."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ip"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:docsCableMaclayer",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "CATV Mac Layer."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "docsCableMaclayer"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:docsCableDownstream",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "CATV Downstream interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "docsCableDownstream"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:docsCableUpstream",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "CATV Upstream interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "docsCableUpstream"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:a12MppSwitch",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Avalon Parallel Processor."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "a12MppSwitch"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:tunnel",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Encapsulation interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "tunnel"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:coffee",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Coffee pot."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "coffee"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ces",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Circuit Emulation Service."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ces"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:atmSubInterface",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "ATM Sub Interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "atmSubInterface"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:l2vlan",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Layer 2 Virtual LAN using 802.1Q."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "l2vlan"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:l3ipvlan",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Layer 3 Virtual LAN using IP."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "l3ipvlan"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:l3ipxvlan",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Layer 3 Virtual LAN using IPX."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "l3ipxvlan"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:digitalPowerline",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "IP over Power Lines."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "digitalPowerline"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:mediaMailOverIp",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Multimedia Mail over IP."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "mediaMailOverIp"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:dtm",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Dynamic synchronous Transfer Mode."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "dtm"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:dcn",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Data Communications Network."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "dcn"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ipForward",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "IP Forwarding Interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ipForward"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:msdsl",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Multi-rate Symmetric DSL."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "msdsl"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ieee1394",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "IEEE1394 High Performance Serial Bus."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ieee1394"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:if-gsn",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "HIPPI-6400."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "if-gsn"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:dvbRccMacLayer",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "DVB-RCC MAC Layer."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "dvbRccMacLayer"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:dvbRccDownstream",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "DVB-RCC Downstream Channel."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "dvbRccDownstream"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:dvbRccUpstream",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "DVB-RCC Upstream Channel."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "dvbRccUpstream"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:atmVirtual",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "ATM Virtual Interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "atmVirtual"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:mplsTunnel",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "MPLS Tunnel Virtual Interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "mplsTunnel"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:srp",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Spatial Reuse Protocol."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "srp"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:voiceOverAtm",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Voice over ATM."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "voiceOverAtm"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:voiceOverFrameRelay",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Voice Over Frame Relay."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "voiceOverFrameRelay"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:idsl",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Digital Subscriber Loop over ISDN."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "idsl"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:compositeLink",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Avici Composite Link Interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "compositeLink"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ss7SigLink",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "SS7 Signaling Link."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ss7SigLink"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:propWirelessP2P",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Prop. P2P wireless interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "propWirelessP2P"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:frForward",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Frame Forward Interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "frForward"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:rfc1483",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Multiprotocol over ATM AAL5."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "rfc1483"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:usb",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "USB Interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "usb"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ieee8023adLag",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "IEEE 802.3ad Link Aggregate."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ieee8023adLag"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:bgppolicyaccounting",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "BGP Policy Accounting."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "bgppolicyaccounting"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:frf16MfrBundle",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "FRF.16 Multilink Frame Relay."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "frf16MfrBundle"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:h323Gatekeeper",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "H323 Gatekeeper."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "h323Gatekeeper"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:h323Proxy",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "H323 Voice and Video Proxy."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "h323Proxy"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:mpls",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "MPLS."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "mpls"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:mfSigLink",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Multi-frequency signaling link."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "mfSigLink"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:hdsl2",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "High Bit-Rate DSL - 2nd generation."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "hdsl2"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:shdsl",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Multirate HDSL2."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "shdsl"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ds1FDL",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Facility Data Link (4Kbps) on a DS1."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ds1FDL"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:pos",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Packet over SONET/SDH Interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "pos"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:dvbAsiIn",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "DVB-ASI Input."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "dvbAsiIn"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:dvbAsiOut",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "DVB-ASI Output."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "dvbAsiOut"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:plc",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Power Line Communications."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "plc"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:nfas",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Non-Facility Associated Signaling."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "nfas"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:tr008",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "TR008."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "tr008"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:gr303RDT",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Remote Digital Terminal."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "gr303RDT"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:gr303IDT",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Integrated Digital Terminal."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "gr303IDT"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:isup",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "ISUP."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "isup"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:propDocsWirelessMaclayer",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Cisco proprietary Maclayer."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "propDocsWirelessMaclayer"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:propDocsWirelessDownstream",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Cisco proprietary Downstream."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "propDocsWirelessDownstream"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:propDocsWirelessUpstream",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Cisco proprietary Upstream."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "propDocsWirelessUpstream"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:hiperlan2",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "HIPERLAN Type 2 Radio Interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "hiperlan2"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:propBWAp2Mp",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "PropBroadbandWirelessAccesspt2Multipt (use of this value for IEEE 802.16 WMAN interfaces as per IEEE Std 802.16f is deprecated, and ieee80216WMAN(237) should be used instead)."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "propBWAp2Mp"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:sonetOverheadChannel",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "SONET Overhead Channel."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "sonetOverheadChannel"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:digitalWrapperOverheadChannel",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Digital Wrapper."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "digitalWrapperOverheadChannel"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:aal2",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "ATM adaptation layer 2."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "aal2"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:radioMAC",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "MAC layer over radio links."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "radioMAC"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:atmRadio",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "ATM over radio links."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "atmRadio"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:imt",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Inter-Machine Trunks."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "imt"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:mvl",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Multiple Virtual Lines DSL."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "mvl"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:reachDSL",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Long Reach DSL."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "reachDSL"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:frDlciEndPt",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Frame Relay DLCI End Point."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "frDlciEndPt"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:atmVciEndPt",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "ATM VCI End Point."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "atmVciEndPt"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:opticalChannel",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Optical Channel."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "opticalChannel"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:opticalTransport",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Optical Transport."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "opticalTransport"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:propAtm",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Proprietary ATM."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "propAtm"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:voiceOverCable",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Voice Over Cable Interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "voiceOverCable"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:infiniband",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Infiniband."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "infiniband"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:teLink",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "TE Link."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "teLink"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:q2931",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Q.2931."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "q2931"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:virtualTg",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Virtual Trunk Group."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "virtualTg"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:sipTg",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "SIP Trunk Group."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "sipTg"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:sipSig",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "SIP Signaling."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "sipSig"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:docsCableUpstreamChannel",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "CATV Upstream Channel."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "docsCableUpstreamChannel"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:econet",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Acorn Econet."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "econet"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:pon155",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "FSAN 155Mb Symetrical PON interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "pon155"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:pon622",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "FSAN 622Mb Symetrical PON interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "pon622"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:bridge",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Transparent bridge interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "bridge"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:linegroup",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Interface common to multiple lines."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "linegroup"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:voiceEMFGD",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Voice E&M Feature Group D."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "voiceEMFGD"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:voiceFGDEANA",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Voice FGD Exchange Access North American."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "voiceFGDEANA"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:voiceDID",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Voice Direct Inward Dialing."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "voiceDID"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:mpegTransport",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "MPEG transport interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "mpegTransport"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:sixToFour",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "6to4 interface (DEPRECATED)."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "sixToFour"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:gtp",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "GTP (GPRS Tunneling Protocol)."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "gtp"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:pdnEtherLoop1",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Paradyne EtherLoop 1."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "pdnEtherLoop1"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:pdnEtherLoop2",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Paradyne EtherLoop 2."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "pdnEtherLoop2"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:opticalChannelGroup",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Optical Channel Group."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "opticalChannelGroup"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:homepna",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "HomePNA ITU-T G.989."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "homepna"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:gfp",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Generic Framing Procedure (GFP)."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "gfp"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ciscoISLvlan",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Layer 2 Virtual LAN using Cisco ISL."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ciscoISLvlan"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:actelisMetaLOOP",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Acteleis proprietary MetaLOOP High Speed Link."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "actelisMetaLOOP"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:fcipLink",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "FCIP Link."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "fcipLink"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:rpr",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Resilient Packet Ring Interface Type."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "rpr"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:qam",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "RF Qam Interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "qam"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:lmp",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Link Management Protocol."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "lmp"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:cblVectaStar",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Cambridge Broadband Networks Limited VectaStar."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "cblVectaStar"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:docsCableMCmtsDownstream",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "CATV Modular CMTS Downstream Interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "docsCableMCmtsDownstream"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:adsl2",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Asymmetric Digital Subscriber Loop Version 2 (DEPRECATED/OBSOLETED - please use adsl2plus(238) instead)."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "adsl2"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:macSecControlledIF",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "MACSecControlled."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "macSecControlledIF"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:macSecUncontrolledIF",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "MACSecUncontrolled."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "macSecUncontrolledIF"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:aviciOpticalEther",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Avici Optical Ethernet Aggregate."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "aviciOpticalEther"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:atmbond",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "atmbond."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "atmbond"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:voiceFGDOS",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Voice FGD Operator Services."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "voiceFGDOS"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:mocaVersion1",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "MultiMedia over Coax Alliance (MoCA) Interface as documented in information provided privately to IANA."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "mocaVersion1"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ieee80216WMAN",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "IEEE 802.16 WMAN interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ieee80216WMAN"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:adsl2plus",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Asymmetric Digital Subscriber Loop Version 2 - Version 2 Plus and all variants."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "adsl2plus"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:dvbRcsMacLayer",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "DVB-RCS MAC Layer."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "dvbRcsMacLayer"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:dvbTdm",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "DVB Satellite TDM."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "dvbTdm"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:dvbRcsTdma",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "DVB-RCS TDMA."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "dvbRcsTdma"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:x86Laps",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "LAPS based on ITU-T X.86/Y.1323."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "x86Laps"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:wwanPP",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "3GPP WWAN."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "wwanPP"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:wwanPP2",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "3GPP2 WWAN."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "wwanPP2"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:voiceEBS",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Voice P-phone EBS physical interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "voiceEBS"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ifPwType",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Pseudowire interface type."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ifPwType"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ilan",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Internal LAN on a bridge per IEEE 802.1ap."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ilan"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:pip",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Provider Instance Port on a bridge per IEEE 802.1ah PBB."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "pip"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:aluELP",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Alcatel-Lucent Ethernet Link Protection."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "aluELP"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:gpon",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Gigabit-capable passive optical networks (G-PON) as per ITU-T G.948."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "gpon"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:vdsl2",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Very high speed digital subscriber line Version 2 (as per ITU-T Recommendation G.993.2)."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "vdsl2"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:capwapDot11Profile",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "WLAN Profile Interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "capwapDot11Profile"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:capwapDot11Bss",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "WLAN BSS Interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "capwapDot11Bss"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:capwapWtpVirtualRadio",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "WTP Virtual Radio Interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "capwapWtpVirtualRadio"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:bits",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "bitsport."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "bits"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:docsCableUpstreamRfPort",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "DOCSIS CATV Upstream RF Port."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "docsCableUpstreamRfPort"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:cableDownstreamRfPort",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "CATV downstream RF Port."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "cableDownstreamRfPort"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:vmwareVirtualNic",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "VMware Virtual Network Interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "vmwareVirtualNic"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ieee802154",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "IEEE 802.15.4 WPAN interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ieee802154"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:otnOdu",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "OTN Optical Data Unit."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "otnOdu"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:otnOtu",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "OTN Optical channel Transport Unit."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "otnOtu"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:ifVfiType",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "VPLS Forwarding Instance Interface Type."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ifVfiType"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:g9981",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "G.998.1 bonded interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "g9981"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:g9982",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "G.998.2 bonded interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "g9982"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:g9983",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "G.998.3 bonded interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "g9983"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:aluEpon",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Ethernet Passive Optical Networks (E-PON)."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "aluEpon"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:aluEponOnu",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "EPON Optical Network Unit."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "aluEponOnu"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:aluEponPhysicalUni",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "EPON physical User to Network interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "aluEponPhysicalUni"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:aluEponLogicalLink",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "The emulation of a point-to-point link over the EPON layer."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "aluEponLogicalLink"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:aluGponOnu",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "GPON Optical Network Unit."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "aluGponOnu"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:aluGponPhysicalUni",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "GPON physical User to Network interface."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "aluGponPhysicalUni"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:ianaift:vmwareNicTeam",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "VMware NIC Team."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "vmwareNicTeam"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:iana-if-type"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:iana-interface-type"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:if:interface-type",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Base identity from which specific interface types are derived."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "interface-type"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "urn:ietf:params:xml:ns:yang:ietf-interfaces"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:oc-eth:ETHERNET_SPEED",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "base type to specify available Ethernet link speeds"
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ETHERNET_SPEED"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "http://openconfig.net/yang/interfaces/ethernet"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:oc-eth:SPEED_10MB",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "10 Mbps Ethernet"
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "SPEED_10MB"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "http://openconfig.net/yang/interfaces/ethernet"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:oc-eth:ETHERNET_SPEED"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:oc-eth:SPEED_100MB",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "100 Mbps Ethernet"
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "SPEED_100MB"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "http://openconfig.net/yang/interfaces/ethernet"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:oc-eth:ETHERNET_SPEED"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:oc-eth:SPEED_1GB",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "1 GBps Ethernet"
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "SPEED_1GB"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "http://openconfig.net/yang/interfaces/ethernet"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:oc-eth:ETHERNET_SPEED"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:oc-eth:SPEED_10GB",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "10 GBps Ethernet"
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "SPEED_10GB"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "http://openconfig.net/yang/interfaces/ethernet"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:oc-eth:ETHERNET_SPEED"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:oc-eth:SPEED_25GB",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "25 GBps Ethernet"
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "SPEED_25GB"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "http://openconfig.net/yang/interfaces/ethernet"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:oc-eth:ETHERNET_SPEED"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:oc-eth:SPEED_40GB",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "40 GBps Ethernet"
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "SPEED_40GB"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "http://openconfig.net/yang/interfaces/ethernet"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:oc-eth:ETHERNET_SPEED"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:oc-eth:SPEED_50GB",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "50 GBps Ethernet"
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "SPEED_50GB"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "http://openconfig.net/yang/interfaces/ethernet"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:oc-eth:ETHERNET_SPEED"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:oc-eth:SPEED_100GB",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "100 GBps Ethernet"
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "SPEED_100GB"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "http://openconfig.net/yang/interfaces/ethernet"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:oc-eth:ETHERNET_SPEED"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:oc-eth:SPEED_UNKNOWN",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Interface speed is unknown.  Systems may report speed UNKNOWN when an interface is down or unpopuplated (e.g., pluggable not present)."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "SPEED_UNKNOWN"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "http://openconfig.net/yang/interfaces/ethernet"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:oc-eth:ETHERNET_SPEED"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:oc-types:ADDRESS_FAMILY",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "A base identity for all address families"
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "ADDRESS_FAMILY"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "http://openconfig.net/yang/openconfig-types"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:oc-types:IPV4",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "The IPv4 address family"
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "IPV4"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "http://openconfig.net/yang/openconfig-types"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:oc-types:ADDRESS_FAMILY"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:oc-types:IPV6",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "The IPv6 address family"
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "IPV6"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "http://openconfig.net/yang/openconfig-types"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:oc-types:ADDRESS_FAMILY"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:oc-types:MPLS",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "The MPLS address family"
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "MPLS"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "http://openconfig.net/yang/openconfig-types"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:oc-types:ADDRESS_FAMILY"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:oc-types:L2_ETHERNET",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "The 802.3 Ethernet address family"
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "L2_ETHERNET"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "http://openconfig.net/yang/openconfig-types"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:oc-types:ADDRESS_FAMILY"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:oc-vlan-types:TPID_TYPES",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Base identity for TPID values that can override the VLAN ethertype value"
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "TPID_TYPES"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "http://openconfig.net/yang/vlan-types"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:oc-vlan-types:TPID_0X8100",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Default TPID value for 802.1q single-tagged VLANs."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "TPID_0X8100"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "http://openconfig.net/yang/vlan-types"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:oc-vlan-types:TPID_TYPES"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:oc-vlan-types:TPID_0X8A88",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "TPID value for 802.1ad provider bridging, QinQ, or stacked VLANs."
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "TPID_0X8A88"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "http://openconfig.net/yang/vlan-types"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:oc-vlan-types:TPID_TYPES"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:oc-vlan-types:TPID_0X9100",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Alternate TPID value"
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "TPID_0X9100"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "http://openconfig.net/yang/vlan-types"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:oc-vlan-types:TPID_TYPES"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:YANGIdentity:oc-vlan-types:TPID_0X9200",
+        "type": "YANGIdentity",
+        "description": {
+            "type": "Property",
+            "value": "Alternate TPID value"
+        },
+        "identifier": {
+            "type": "Property",
+            "value": "TPID_0X9200"
+        },
+        "namespace": {
+            "type": "Property",
+            "value": "http://openconfig.net/yang/vlan-types"
+        },
+        "broader": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:oc-vlan-types:TPID_TYPES"
+        }
+    }
+]
