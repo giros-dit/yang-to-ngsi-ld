@@ -12,7 +12,7 @@ selected_df = df[headers]
 
 print(selected_df)
 
-selected_df.set_index('processed_notifications')
+selected_df.set_index('processed_notifications').plot()
 
 plt.title('notifier-tester -- Evaluation times per notification received')
 plt.xlabel('gnmi-json-parser-notifications-with-ngsi-ld-instantiator index')
