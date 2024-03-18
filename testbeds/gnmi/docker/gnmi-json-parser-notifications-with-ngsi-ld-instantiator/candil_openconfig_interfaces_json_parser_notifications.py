@@ -32,7 +32,7 @@ def parse_gnmi_notification(message):
                     interface_dict_buffer["type"] = "Interface"
                 if len(parent_path) - 1 == 1 or len(parent_path) - 1 == 2:
                     if interface_dict_buffer["id"].split(":")[-1] != element_text:
-                        interface_dict_buffer["id"] = interface_dict_buffer["id"] + element_text
+                        interface_dict_buffer["id"] = interface_dict_buffer["id"] + ":" + element_text
                     interface_dict_buffer["name"] = {}
                     interface_dict_buffer["name"]["type"] = "Relationship"
                     interface_dict_buffer["name"]["object"] = "urn:ngsi-ld:InterfaceConfig:" + source + ":" + interface_dict_buffer["id"].split(":")[-1]
@@ -48,7 +48,7 @@ def parse_gnmi_notification(message):
                         interface_config_dict_buffer["isPartOf"]["observedAt"] = observed_at
                         if child_node == "name":
                             if interface_config_dict_buffer["id"].split(":")[-1] != element_text:
-                                interface_config_dict_buffer["id"] = interface_config_dict_buffer["id"] + element_text
+                                interface_config_dict_buffer["id"] = interface_config_dict_buffer["id"] + ":" + element_text
                             interface_config_dict_buffer["name"] = {}
                             interface_config_dict_buffer["name"]["type"] = "Property"
                             interface_config_dict_buffer["name"]["value"] = element_text
@@ -86,7 +86,7 @@ def parse_gnmi_notification(message):
                         interface_state_dict_buffer["isPartOf"]["observedAt"] = observed_at
                         if child_node == "name":
                             if interface_state_dict_buffer["id"].split(":")[-1] != element_text:
-                                interface_state_dict_buffer["id"] = interface_state_dict_buffer["id"] + element_text
+                                interface_state_dict_buffer["id"] = interface_state_dict_buffer["id"] + ":" + element_text
                             interface_state_dict_buffer["name"] = {}
                             interface_state_dict_buffer["name"]["type"] = "Property"
                             interface_state_dict_buffer["name"]["value"] = element_text
@@ -341,7 +341,7 @@ def parse_gnmi_notification(message):
                                         interface_subinterface_state_dict_buffer["enabled"]["observedAt"] = observed_at
                                     if child_node == "name":
                                         if interface_subinterface_state_dict_buffer["id"].split(":")[-1] != element_text:
-                                            interface_subinterface_state_dict_buffer["id"] = interface_subinterface_state_dict_buffer["id"] + element_text
+                                            interface_subinterface_state_dict_buffer["id"] = interface_subinterface_state_dict_buffer["id"] + ":" + element_text
                                         interface_subinterface_state_dict_buffer["name"] = {}
                                         interface_subinterface_state_dict_buffer["name"]["type"] = "Property"
                                         interface_subinterface_state_dict_buffer["name"]["value"] = element_text
@@ -540,7 +540,7 @@ def parse_gnmi_notification(message):
                                                         interface_subinterface_address_vrrp_group_dict_buffer["isPartOf"]["observedAt"] = observed_at
                                                         if len(parent_path) - 1 == 8 or len(parent_path) - 1 == 9:
                                                             if interface_subinterface_address_vrrp_group_dict_buffer["id"].split(":")[-1] != element_text:
-                                                                interface_subinterface_address_vrrp_group_dict_buffer["id"] = interface_subinterface_address_vrrp_group_dict_buffer["id"] + element_text
+                                                                interface_subinterface_address_vrrp_group_dict_buffer["id"] = interface_subinterface_address_vrrp_group_dict_buffer["id"] + ":" + element_text
                                                             interface_subinterface_address_vrrp_group_dict_buffer["virtualRouterId"] = {}
                                                             interface_subinterface_address_vrrp_group_dict_buffer["virtualRouterId"]["type"] = "Relationship"
                                                             interface_subinterface_address_vrrp_group_dict_buffer["virtualRouterId"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressVrrpVrrpGroupConfig:" + source + ":" + interface_subinterface_address_vrrp_group_dict_buffer["id"].split(":")[-1]
@@ -556,7 +556,7 @@ def parse_gnmi_notification(message):
                                                                 interface_subinterface_address_vrrp_group_config_dict_buffer["isPartOf"]["observedAt"] = observed_at
                                                                 if child_node == "virtual-router-id":
                                                                     if interface_subinterface_address_vrrp_group_config_dict_buffer["id"].split(":")[-1] != int(element_text):
-                                                                        interface_subinterface_address_vrrp_group_config_dict_buffer["id"] = interface_subinterface_address_vrrp_group_config_dict_buffer["id"] + int(element_text)
+                                                                        interface_subinterface_address_vrrp_group_config_dict_buffer["id"] = interface_subinterface_address_vrrp_group_config_dict_buffer["id"] + ":" + int(element_text)
                                                                     interface_subinterface_address_vrrp_group_config_dict_buffer["virtualRouterId"] = {}
                                                                     interface_subinterface_address_vrrp_group_config_dict_buffer["virtualRouterId"]["type"] = "Property"
                                                                     interface_subinterface_address_vrrp_group_config_dict_buffer["virtualRouterId"]["value"] = int(element_text)
@@ -604,7 +604,7 @@ def parse_gnmi_notification(message):
                                                                 interface_subinterface_address_vrrp_group_state_dict_buffer["isPartOf"]["observedAt"] = observed_at
                                                                 if child_node == "virtual-router-id":
                                                                     if interface_subinterface_address_vrrp_group_state_dict_buffer["id"].split(":")[-1] != int(element_text):
-                                                                        interface_subinterface_address_vrrp_group_state_dict_buffer["id"] = interface_subinterface_address_vrrp_group_state_dict_buffer["id"] + int(element_text)
+                                                                        interface_subinterface_address_vrrp_group_state_dict_buffer["id"] = interface_subinterface_address_vrrp_group_state_dict_buffer["id"] + ":" + int(element_text)
                                                                     interface_subinterface_address_vrrp_group_state_dict_buffer["virtualRouterId"] = {}
                                                                     interface_subinterface_address_vrrp_group_state_dict_buffer["virtualRouterId"]["type"] = "Property"
                                                                     interface_subinterface_address_vrrp_group_state_dict_buffer["virtualRouterId"]["value"] = int(element_text)
@@ -840,7 +840,7 @@ def parse_gnmi_notification(message):
                                                                     interface_subinterface_config_dict_buffer["isPartOf"]["observedAt"] = observed_at
                                                                     if len(parent_path) - 1 == 12 or len(parent_path) - 1 == 13:
                                                                         if interface_subinterface_config_dict_buffer["id"].split(":")[-1] != element_text:
-                                                                            interface_subinterface_config_dict_buffer["id"] = interface_subinterface_config_dict_buffer["id"] + element_text
+                                                                            interface_subinterface_config_dict_buffer["id"] = interface_subinterface_config_dict_buffer["id"] + ":" + element_text
                                                                         interface_subinterface_config_dict_buffer["interface"] = {}
                                                                         interface_subinterface_config_dict_buffer["interface"]["type"] = "Relationship"
                                                                         interface_subinterface_config_dict_buffer["interface"]["object"] = "urn:ngsi-ld:Interface:" + source + ":" + interface_subinterface_config_dict_buffer["id"].split(":")[-1]
@@ -865,7 +865,7 @@ def parse_gnmi_notification(message):
                                                                         interface_subinterface_state_dict_buffer["isPartOf"]["observedAt"] = observed_at
                                                                         if len(parent_path) - 1 == 13 or len(parent_path) - 1 == 14:
                                                                             if interface_subinterface_state_dict_buffer["id"].split(":")[-1] != element_text:
-                                                                                interface_subinterface_state_dict_buffer["id"] = interface_subinterface_state_dict_buffer["id"] + element_text
+                                                                                interface_subinterface_state_dict_buffer["id"] = interface_subinterface_state_dict_buffer["id"] + ":" + element_text
                                                                             interface_subinterface_state_dict_buffer["interface"] = {}
                                                                             interface_subinterface_state_dict_buffer["interface"]["type"] = "Relationship"
                                                                             interface_subinterface_state_dict_buffer["interface"]["object"] = "urn:ngsi-ld:Interface:" + source + ":" + interface_subinterface_state_dict_buffer["id"].split(":")[-1]
@@ -1088,7 +1088,7 @@ def parse_gnmi_notification(message):
                                                         interface_subinterface_address_vrrp_group_dict_buffer["isPartOf"]["observedAt"] = observed_at
                                                         if len(parent_path) - 1 == 8 or len(parent_path) - 1 == 9:
                                                             if interface_subinterface_address_vrrp_group_dict_buffer["id"].split(":")[-1] != element_text:
-                                                                interface_subinterface_address_vrrp_group_dict_buffer["id"] = interface_subinterface_address_vrrp_group_dict_buffer["id"] + element_text
+                                                                interface_subinterface_address_vrrp_group_dict_buffer["id"] = interface_subinterface_address_vrrp_group_dict_buffer["id"] + ":" + element_text
                                                             interface_subinterface_address_vrrp_group_dict_buffer["virtualRouterId"] = {}
                                                             interface_subinterface_address_vrrp_group_dict_buffer["virtualRouterId"]["type"] = "Relationship"
                                                             interface_subinterface_address_vrrp_group_dict_buffer["virtualRouterId"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressVrrpVrrpGroupConfig:" + source + ":" + interface_subinterface_address_vrrp_group_dict_buffer["id"].split(":")[-1]
@@ -1104,7 +1104,7 @@ def parse_gnmi_notification(message):
                                                                 interface_subinterface_address_vrrp_group_config_dict_buffer["isPartOf"]["observedAt"] = observed_at
                                                                 if child_node == "virtual-router-id":
                                                                     if interface_subinterface_address_vrrp_group_config_dict_buffer["id"].split(":")[-1] != int(element_text):
-                                                                        interface_subinterface_address_vrrp_group_config_dict_buffer["id"] = interface_subinterface_address_vrrp_group_config_dict_buffer["id"] + int(element_text)
+                                                                        interface_subinterface_address_vrrp_group_config_dict_buffer["id"] = interface_subinterface_address_vrrp_group_config_dict_buffer["id"] + ":" + int(element_text)
                                                                     interface_subinterface_address_vrrp_group_config_dict_buffer["virtualRouterId"] = {}
                                                                     interface_subinterface_address_vrrp_group_config_dict_buffer["virtualRouterId"]["type"] = "Property"
                                                                     interface_subinterface_address_vrrp_group_config_dict_buffer["virtualRouterId"]["value"] = int(element_text)
@@ -1157,7 +1157,7 @@ def parse_gnmi_notification(message):
                                                                 interface_subinterface_address_vrrp_group_state_dict_buffer["isPartOf"]["observedAt"] = observed_at
                                                                 if child_node == "virtual-router-id":
                                                                     if interface_subinterface_address_vrrp_group_state_dict_buffer["id"].split(":")[-1] != int(element_text):
-                                                                        interface_subinterface_address_vrrp_group_state_dict_buffer["id"] = interface_subinterface_address_vrrp_group_state_dict_buffer["id"] + int(element_text)
+                                                                        interface_subinterface_address_vrrp_group_state_dict_buffer["id"] = interface_subinterface_address_vrrp_group_state_dict_buffer["id"] + ":" + int(element_text)
                                                                     interface_subinterface_address_vrrp_group_state_dict_buffer["virtualRouterId"] = {}
                                                                     interface_subinterface_address_vrrp_group_state_dict_buffer["virtualRouterId"]["type"] = "Property"
                                                                     interface_subinterface_address_vrrp_group_state_dict_buffer["virtualRouterId"]["value"] = int(element_text)
@@ -1428,7 +1428,7 @@ def parse_gnmi_notification(message):
                                                                     interface_subinterface_config_dict_buffer["isPartOf"]["observedAt"] = observed_at
                                                                     if len(parent_path) - 1 == 12 or len(parent_path) - 1 == 13:
                                                                         if interface_subinterface_config_dict_buffer["id"].split(":")[-1] != element_text:
-                                                                            interface_subinterface_config_dict_buffer["id"] = interface_subinterface_config_dict_buffer["id"] + element_text
+                                                                            interface_subinterface_config_dict_buffer["id"] = interface_subinterface_config_dict_buffer["id"] + ":" + element_text
                                                                         interface_subinterface_config_dict_buffer["interface"] = {}
                                                                         interface_subinterface_config_dict_buffer["interface"]["type"] = "Relationship"
                                                                         interface_subinterface_config_dict_buffer["interface"]["object"] = "urn:ngsi-ld:Interface:" + source + ":" + interface_subinterface_config_dict_buffer["id"].split(":")[-1]
@@ -1453,7 +1453,7 @@ def parse_gnmi_notification(message):
                                                                         interface_subinterface_state_dict_buffer["isPartOf"]["observedAt"] = observed_at
                                                                         if len(parent_path) - 1 == 13 or len(parent_path) - 1 == 14:
                                                                             if interface_subinterface_state_dict_buffer["id"].split(":")[-1] != element_text:
-                                                                                interface_subinterface_state_dict_buffer["id"] = interface_subinterface_state_dict_buffer["id"] + element_text
+                                                                                interface_subinterface_state_dict_buffer["id"] = interface_subinterface_state_dict_buffer["id"] + ":" + element_text
                                                                             interface_subinterface_state_dict_buffer["interface"] = {}
                                                                             interface_subinterface_state_dict_buffer["interface"]["type"] = "Relationship"
                                                                             interface_subinterface_state_dict_buffer["interface"]["object"] = "urn:ngsi-ld:Interface:" + source + ":" + interface_subinterface_state_dict_buffer["id"].split(":")[-1]

@@ -228,7 +228,7 @@ public class TopologyDriver {
                     LOG.error(errors.toString());
             }
 
-            //System.out.println("\nNetwork Topology: \n" + network_topology_json.toString());
+            //System.out.println("\nJSON Network Topology: \n" + network_topology_json.toString());
 
             Gson json_format = new GsonBuilder().setPrettyPrinting().create();
 
