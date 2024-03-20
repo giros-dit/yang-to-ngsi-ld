@@ -37,8 +37,8 @@ import org.opendaylight.yangtools.yang.data.codec.gson.JSONNormalizedNodeStreamW
 import org.opendaylight.yangtools.yang.data.codec.gson.JsonWriterFactory;
 import org.opendaylight.yangtools.yang.model.api.EffectiveModelContext;
 import org.opendaylight.yangtools.yang.model.api.SchemaPath;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
 
 import org.opendaylight.yangtools.yang.data.codec.xml.XMLStreamNormalizedNodeStreamWriter;
 import org.w3c.dom.Document;
@@ -119,7 +119,7 @@ public class TopologyDriver {
         Map<TerminationPointKey, TerminationPoint> map_tp = new HashMap<TerminationPointKey, TerminationPoint> ();
         TerminationPointBuilder tp_builder = new TerminationPointBuilder();
          
-        File input_file = new File("src/main/resources/containerlab-topology-data.json");
+        File input_file = new File(args[0] /* "src/main/resources/containerlab-topology-data.json" */);
         System.out.println(input_file.getAbsolutePath());
         try (FileReader reader = new FileReader(input_file.getAbsolutePath())){
             
@@ -225,7 +225,7 @@ public class TopologyDriver {
                     ex.printStackTrace();
                     StringWriter errors = new StringWriter();
                     ex.printStackTrace(new PrintWriter(errors));
-                    LOG.error(errors.toString());
+                    //LOG.error(errors.toString());
             }
 
             //System.out.println("\nJSON Network Topology: \n" + network_topology_json.toString());
@@ -234,7 +234,7 @@ public class TopologyDriver {
 
             System.out.println("\nJSON Network Topology: \n" + json_format.toJson(network_topology_json));
 
-            File output_file_json = new File("src/main/resources/topology-data-compliant-yang.json");
+            File output_file_json = new File(args[1] /* "src/main/resources/topology-data-compliant-yang.json"*/);
             BufferedWriter writer_json = new BufferedWriter(new FileWriter(output_file_json.getAbsoluteFile()));
             writer_json.write(json_format.toJson(network_topology_json));
             writer_json.close();
@@ -256,7 +256,7 @@ public class TopologyDriver {
 
             System.out.println("\nXML Network Topology: \n" + network_topology_xml);
 
-            File output_file_xml = new File("src/main/resources/topology-data-compliant-yang.xml");
+            File output_file_xml = new File(args[2] /* "src/main/resources/topology-data-compliant-yang.xml" */);
             BufferedWriter writer_xml = new BufferedWriter(new FileWriter(output_file_xml.getAbsoluteFile()));
             writer_xml.write(network_topology_xml);
             writer_xml.close();
@@ -301,7 +301,7 @@ public class TopologyDriver {
     // JsonConverter.java;h=ea8069c67ece073e3d9febb694c4e15b01238c10;hb=3ea331d0e57712654d9ecbf2ae2a46cb0ce02d31
     private static final String JSON_IO_ERROR = "I/O problem in JSON codec";
     private static final String XML_IO_ERROR = "I/O problem in XML codec";
-    private static final Logger LOG = LogManager.getLogger(TopologyDriver.class);
+    //private static final Logger LOG = LogManager.getLogger(TopologyDriver.class);
     private static final JSONCodecFactorySupplier CODEC_SUPPLIER = JSONCodecFactorySupplier.RFC7951;
     private static final JsonParser PARSER = new JsonParser();
 
@@ -325,7 +325,7 @@ public class TopologyDriver {
             }
             return PARSER.parse(writer.toString()).getAsJsonObject();
         } catch (IOException e) {
-            LOG.error(JSON_IO_ERROR, e);
+            //LOG.error(JSON_IO_ERROR, e);
             return null;
         }
     }
@@ -350,7 +350,7 @@ public class TopologyDriver {
             }
             return writer.toString(); 
         } catch (IOException e) {
-            LOG.error(XML_IO_ERROR, e);
+            //LOG.error(XML_IO_ERROR, e);
             return null;
         }
     }
