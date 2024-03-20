@@ -1,0 +1,7 @@
+{
+    "@context": {
+        "ietf-network": "urn:ietf:params:xml:ns:yang:ietf-network/",
+        "NetworkSupportingNetwork": "ietf-network:networks/network/supporting-network",
+        "networkRef": "ietf-network:networks/network/supporting-network/network-ref"
+    }
+}

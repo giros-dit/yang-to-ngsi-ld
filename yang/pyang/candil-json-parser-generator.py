@@ -1,5 +1,5 @@
 '''
-pyang plugin -- CANDIL JSON Parser Generator for non-gNMI data modelled according to OpenConfig YANG models.
+pyang plugin -- CANDIL JSON Parser Generator for non-gNMI data modelled according to YANG models.
 
 Given one or several YANG modules, it dynamically generates the code of an JSON parser
 that is able to read data modeled by these modules and is also capable of creating

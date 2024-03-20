@@ -171,6 +171,22 @@ services:
         condition: service_healthy
     restart: always
     
+  topology-discoverer:
+    build:
+      context: .
+      dockerfile: ./docker/topology-discoverer/Dockerfile
+    hostname: topology-discoverer
+    container_name: topology-discoverer
+    command: ["/opt/topology-discoverer/discover-topology.sh", "ceos-scenario"]
+    volumes:
+      - ./containerlab/ceos-scenario:/opt/topology-data/ceos-scenario
+    depends_on:
+      scorpio:
+        condition: service_started
+      context-catalog:
+        condition: service_started
+    restart: always
+
 networks:
   default:
     name: clab
