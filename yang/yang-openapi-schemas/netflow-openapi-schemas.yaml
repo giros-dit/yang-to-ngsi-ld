@@ -475,6 +475,8 @@ components:
           properties:
             value:
               type: array
+              items:
+                type: string
           required:
             - value
     SrcPort:
