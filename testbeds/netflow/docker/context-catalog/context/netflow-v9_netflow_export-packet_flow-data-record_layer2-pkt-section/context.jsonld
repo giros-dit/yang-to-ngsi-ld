@@ -1,0 +1,9 @@
+{
+    "@context": {
+        "netflow-v9": "http://data-aggregator.com/ns/netflow/",
+        "ExportPacketFlowDataRecordLayer2PktSection": "netflow-v9:netflow/export-packet/flow-data-record/layer2-pkt-section",
+        "offset": "netflow-v9:netflow/export-packet/flow-data-record/layer2-pkt-section/offset",
+        "size": "netflow-v9:netflow/export-packet/flow-data-record/layer2-pkt-section/size",
+        "data": "netflow-v9:netflow/export-packet/flow-data-record/layer2-pkt-section/data"
+    }
+}

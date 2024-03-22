@@ -1,0 +1,16 @@
+{
+    "@context": [
+        "http://context-catalog:8080/context/netflow-v9_netflow_collector-goflow2/context.jsonld",
+        "http://context-catalog:8080/context/netflow-v9_netflow_export-packet/context.jsonld",
+        "http://context-catalog:8080/context/netflow-v9_netflow_export-packet_flow-data-record/context.jsonld",
+        "http://context-catalog:8080/context/netflow-v9_netflow_export-packet_flow-data-record_application/context.jsonld",
+        "http://context-catalog:8080/context/netflow-v9_netflow_export-packet_flow-data-record_bgp/context.jsonld",
+        "http://context-catalog:8080/context/netflow-v9_netflow_export-packet_flow-data-record_ipv4/context.jsonld",
+        "http://context-catalog:8080/context/netflow-v9_netflow_export-packet_flow-data-record_ipv6/context.jsonld",
+        "http://context-catalog:8080/context/netflow-v9_netflow_export-packet_flow-data-record_layer2-pkt-section/context.jsonld",
+        "http://context-catalog:8080/context/netflow-v9_netflow_export-packet_flow-data-record_mpls/context.jsonld",
+        "http://context-catalog:8080/context/netflow-v9_netflow_export-packet_flow-data-record_permanent-flow/context.jsonld",
+        "http://context-catalog:8080/context/netflow-v9_netflow_export-packet_flow-data-record_vlan/context.jsonld",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
+}

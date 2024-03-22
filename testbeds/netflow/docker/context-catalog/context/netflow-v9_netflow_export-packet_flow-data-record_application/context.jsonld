@@ -1,0 +1,9 @@
+{
+    "@context": {
+        "netflow-v9": "http://data-aggregator.com/ns/netflow/",
+        "ExportPacketFlowDataRecordApplication": "netflow-v9:netflow/export-packet/flow-data-record/application",
+        "desc": "netflow-v9:netflow/export-packet/flow-data-record/application/desc",
+        "tag": "netflow-v9:netflow/export-packet/flow-data-record/application/tag",
+        "name": "netflow-v9:netflow/export-packet/flow-data-record/application/name"
+    }
+}

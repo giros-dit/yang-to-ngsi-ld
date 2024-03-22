@@ -1,0 +1,2230 @@
+openapi: 3.0.3
+info:
+  title: OpenAPI schemas for YANG data models netflow-v9.yang, netflow-v9-agg.yang, ietf-inet-types@2021-02-22.yang, ietf-yang-types@2023-01-23.yang.
+  version: 1.0.0
+  description: OpenAPI schemas for YANG data models compliant with the NGSI-LD OAS V1.6.1 metamodel according to ETSI GS CIM 009 V1.6.1.
+paths: {}
+components:
+  schemas:
+    CollectorGoflow2:
+      description: |
+        Within this container those data that are specific to the Goflow2 collector are included
+        
+        YANG module: netflow-v9.yang
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be CollectorGoflow2.
+              type: string
+              enum:
+                - CollectorGoflow2
+              default: CollectorGoflow2
+            timeReceived:
+              $ref: '#/components/schemas/TimeReceived'
+            samplerAddress:
+              $ref: '#/components/schemas/SamplerAddress'
+            samplerAddressIpv6:
+              $ref: '#/components/schemas/SamplerAddressIpv6'
+        - required:
+          - type
+          - timeReceived
+    TimeReceived:
+      description: |
+        Timestamp of when a NetFlow Export Packet was received at the collector
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    SamplerAddress:
+      description: |
+        IPv4 address of the device that generated the NetFlow Export Packet, i.e. Netflow Exporter
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              pattern: '(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?'
+          required:
+            - value
+    SamplerAddressIpv6:
+      description: |
+        IPv6 address of the device that generated the NetFlow Export Packet, i.e. Netflow Exporter
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              pattern: '((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?'
+          required:
+            - value
+    ExportPacket:
+      description: |
+        This container collects all fields that appear in the NetFlow Export Packet header and possible fields of each Flow Data Record that is transmitted in this packet
+        The names and semantics of the fields used follow the Cisco white paper (mentioned in the references section)
+        
+        YANG module: netflow-v9.yang
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be ExportPacket.
+              type: string
+              enum:
+                - ExportPacket
+              default: ExportPacket
+            sequenceNumber:
+              $ref: '#/components/schemas/SequenceNumber'
+            count:
+              $ref: '#/components/schemas/Count'
+            systemUptime:
+              $ref: '#/components/schemas/SystemUptime'
+            unixSeconds:
+              $ref: '#/components/schemas/UnixSeconds'
+            sourceId:
+              $ref: '#/components/schemas/SourceId'
+        - required:
+          - type
+          - sequenceNumber
+    SequenceNumber:
+      description: |
+        Incremental sequence counter of all Export Packets sent by this export device
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    Count:
+      description: |
+        Number of FlowSet records (both template and data) contained within this packet
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    SystemUptime:
+      description: |
+        Time in milliseconds since this device was first booted
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    UnixSeconds:
+      description: |
+        Seconds since 0000 Coordinated Universal Time (UTC) 1970 at which
+        the Export Packet leaves the Exporter.
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    SourceId:
+      description: |
+        A 32-bit value that is used to guarantee uniqueness for all flows exported from a particular device.
+        The format of this field is vendor specific. In the Cisco implementation, the first two bytes are reserved for future expansion, and will always be zero.
+        Byte 3 provides uniqueness with respect to the routing engine on the exporting device.
+        Byte 4 provides uniqueness with respect to the particular line card or Versatile Interface Processor on the exporting device
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    ExportPacketFlowDataRecord:
+      description: |
+        This list contains all possible fields of a Flow Data Record sent in a Export Packet
+        
+        YANG module: netflow-v9.yang
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be ExportPacketFlowDataRecord.
+              type: string
+              enum:
+                - ExportPacketFlowDataRecord
+              default: ExportPacketFlowDataRecord
+            flowId:
+              $ref: '#/components/schemas/FlowId'
+            bytesIn:
+              $ref: '#/components/schemas/ExportPacketFlowDataRecordBytesIn'
+            bytesOut:
+              $ref: '#/components/schemas/BytesOut'
+            pktsIn:
+              $ref: '#/components/schemas/ExportPacketFlowDataRecordPktsIn'
+            pktsOut:
+              $ref: '#/components/schemas/PktsOut'
+            flows:
+              $ref: '#/components/schemas/Flows'
+            protocol:
+              $ref: '#/components/schemas/Protocol'
+            srcTos:
+              $ref: '#/components/schemas/SrcTos'
+            dstTos:
+              $ref: '#/components/schemas/DstTos'
+            tcpFlags:
+              $ref: '#/components/schemas/TcpFlags'
+            srcPort:
+              $ref: '#/components/schemas/SrcPort'
+            dstPort:
+              $ref: '#/components/schemas/DstPort'
+            snmpIn:
+              $ref: '#/components/schemas/SnmpIn'
+            snmpOut:
+              $ref: '#/components/schemas/SnmpOut'
+            bytesOutMul:
+              $ref: '#/components/schemas/BytesOutMul'
+            pktsOutMul:
+              $ref: '#/components/schemas/PktsOutMul'
+            firstSwitched:
+              $ref: '#/components/schemas/FirstSwitched'
+            lastSwitched:
+              $ref: '#/components/schemas/LastSwitched'
+            minPktLen:
+              $ref: '#/components/schemas/MinPktLen'
+            maxPktLen:
+              $ref: '#/components/schemas/MaxPktLen'
+            icmpType:
+              $ref: '#/components/schemas/IcmpType'
+            igmpType:
+              $ref: '#/components/schemas/IgmpType'
+            samplerName:
+              $ref: '#/components/schemas/SamplerName'
+            samplingInterval:
+              $ref: '#/components/schemas/SamplingInterval'
+            samplingAlgorithm:
+              $ref: '#/components/schemas/SamplingAlgorithm'
+            flowActiveTout:
+              $ref: '#/components/schemas/FlowActiveTout'
+            flowInactiveTout:
+              $ref: '#/components/schemas/FlowInactiveTout'
+            engineType:
+              $ref: '#/components/schemas/EngineType'
+            engineId:
+              $ref: '#/components/schemas/EngineId'
+            totBytesExp:
+              $ref: '#/components/schemas/TotBytesExp'
+            totPktsExp:
+              $ref: '#/components/schemas/TotPktsExp'
+            totFlowsExp:
+              $ref: '#/components/schemas/TotFlowsExp'
+            flowSamplerId:
+              $ref: '#/components/schemas/FlowSamplerId'
+            flowSamplerMode:
+              $ref: '#/components/schemas/FlowSamplerMode'
+            flowSamplerRandom:
+              $ref: '#/components/schemas/FlowSamplerRandom'
+            minTtl:
+              $ref: '#/components/schemas/MinTtl'
+            maxTtl:
+              $ref: '#/components/schemas/MaxTtl'
+            srcMacIn:
+              $ref: '#/components/schemas/SrcMacIn'
+            dstMacIn:
+              $ref: '#/components/schemas/DstMacIn'
+            srcMacOut:
+              $ref: '#/components/schemas/SrcMacOut'
+            dstMacOut:
+              $ref: '#/components/schemas/DstMacOut'
+            ipVersion:
+              $ref: '#/components/schemas/IpVersion'
+            direction:
+              $ref: '#/components/schemas/Direction'
+            ifName:
+              $ref: '#/components/schemas/IfName'
+            ifDesc:
+              $ref: '#/components/schemas/IfDesc'
+            fragOffset:
+              $ref: '#/components/schemas/FragOffset'
+            forwardingStatus:
+              $ref: '#/components/schemas/ForwardingStatus'
+            postipDscp:
+              $ref: '#/components/schemas/PostipDscp'
+            replFactorMul:
+              $ref: '#/components/schemas/ReplFactorMul'
+            flowDuration:
+              $ref: '#/components/schemas/FlowDuration'
+            bytesInPerSecond:
+              $ref: '#/components/schemas/BytesInPerSecond'
+            bytesOutPerSecond:
+              $ref: '#/components/schemas/BytesOutPerSecond'
+            pktsInPerSecond:
+              $ref: '#/components/schemas/PktsInPerSecond'
+            pktsOutPerSecond:
+              $ref: '#/components/schemas/PktsOutPerSecond'
+            bytesInPerPacket:
+              $ref: '#/components/schemas/BytesInPerPacket'
+            bytesOutPerPacket:
+              $ref: '#/components/schemas/BytesOutPerPacket'
+            ratioBytesInPerOut:
+              $ref: '#/components/schemas/RatioBytesInPerOut'
+            ratioPktsInPerOut:
+              $ref: '#/components/schemas/RatioPktsInPerOut'
+            isPartOf:
+              $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type ExportPacket.
+        - required:
+          - type
+          - isPartOf
+          - bytesIn
+          - pktsIn
+          - protocol
+          - srcPort
+          - dstPort
+          - firstSwitched
+          - lastSwitched
+          - srcMacIn
+          - dstMacIn
+          - ipVersion
+    FlowId:
+      description: |
+        Hash code of the 5-tuple identifying a Flow Data Record according to a certain export flow format (version 9)
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+              format: int32
+          required:
+            - value
+    ExportPacketFlowDataRecordBytesIn:
+      description: |
+        Incoming counter for the number of bytes associated with an IP flow.
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    BytesOut:
+      description: |
+        Outgoing counter for the number of bytes associated with an IP flow.
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    ExportPacketFlowDataRecordPktsIn:
+      description: |
+        Incoming counter for the number of packets associated with an IP flow.
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    PktsOut:
+      description: |
+        Outgoing counter for the number of packets associated with an IP flow.
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    Flows:
+      description: |
+        Number of flows that were aggregated
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    Protocol:
+      description: |
+        IP protocol byte
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              enum:
+                - icmp
+                - igmp
+                - tcp
+                - egp
+                - igp
+                - udp
+                - icmp-ipv6
+                - pim
+                - l2tp
+                - sctp
+                - eth
+          required:
+            - value
+    SrcTos:
+      description: |
+        Type of service byte setting when entering incoming interface
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    DstTos:
+      description: |
+        Type of service byte setting when exiting outgoing interface
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    TcpFlags:
+      description: |
+        Cumulative of all the TCP flags seen in an IP flow
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: array
+              items:
+                type: string
+          required:
+            - value
+    SrcPort:
+      description: |
+        TCP/UDP source port number used in the flow
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    DstPort:
+      description: |
+        TCP/UDP destination port number used in the flow
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    SnmpIn:
+      description: |
+        Input interface index
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+              format: int32
+              minimum: 0
+              maximum: 2147483647
+          required:
+            - value
+    SnmpOut:
+      description: |
+        Output interface index
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+              format: int32
+              minimum: 0
+              maximum: 2147483647
+          required:
+            - value
+    BytesOutMul:
+      description: |
+        IP multicast outgoing byte counter associated with the IP flow
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    PktsOutMul:
+      description: |
+        IP multicast outgoing packet counter associated with the IP flow
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    FirstSwitched:
+      description: |
+        System uptime at which the first packet of this flow was switched
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    LastSwitched:
+      description: |
+        System uptime at which the last packet of this flow was switched
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    MinPktLen:
+      description: |
+        Minimum IP packet length on incoming packets of the flow
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    MaxPktLen:
+      description: |
+        Maximum IP packet length on incoming packets of the flow
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    IcmpType:
+      description: |
+        Internet Control Message Protocol (ICMP) packet type; reported as ((ICMP Type*256) + ICMP code)
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    IgmpType:
+      description: |
+        Internet Group Management Protocol (IGMP) packet type
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              enum:
+                - membership-query
+                - membership-report-v1
+                - dvmrp
+                - pim-v1
+                - trace-messages
+                - membership-report-v2
+                - leave-group-v2
+                - mul-traceroute-resp
+                - mul-traceroute
+                - membership-report-v3
+                - mul-router-advert
+                - mul-router-sol
+                - mul-router-term
+          required:
+            - value
+    SamplerName:
+      description: |
+        Name of the flow sampler
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+          required:
+            - value
+    SamplingInterval:
+      description: |
+        When using sampled NetFlow, the rate at which packets are sampled
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    SamplingAlgorithm:
+      description: |
+        The type of algorithm used for sampled NetFlow
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              enum:
+                - deterministic
+                - random
+          required:
+            - value
+    FlowActiveTout:
+      description: |
+        Timeout value (in seconds) for active flow entries in the NetFlow cache
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+              default: 1800
+          required:
+            - value
+    FlowInactiveTout:
+      description: |
+        Timeout value (in seconds) for inactive flow entries in the NetFlow cache
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+              default: 15
+          required:
+            - value
+    EngineType:
+      description: |
+        Type of flow switching engine
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              enum:
+                - rp
+                - vip-linecard
+                - pdc/dfc
+          required:
+            - value
+    EngineId:
+      description: |
+        ID number of the flow switching engine
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    TotBytesExp:
+      description: |
+        Counter for the number of bytes exported by the Observation Domain
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    TotPktsExp:
+      description: |
+        Counter for the number of packets exported by the Observation Domain
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    TotFlowsExp:
+      description: |
+        Counter for the number of flows exported by the Observation Domain
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    FlowSamplerId:
+      description: |
+        Identifier shown in 'show flow-sampler'
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    FlowSamplerMode:
+      description: |
+        The type of algorithm used for sampling data
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              enum:
+                - deterministic
+                - random
+          required:
+            - value
+    FlowSamplerRandom:
+      description: |
+        Packet interval at which to sample when Random Sampling is used
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    MinTtl:
+      description: |
+        Minimum TTL on incoming packets of the flow
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    MaxTtl:
+      description: |
+        Maximum TTL on incoming packets of the flow
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    SrcMacIn:
+      description: |
+        Incoming source MAC address
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              pattern: '[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'
+          required:
+            - value
+    DstMacIn:
+      description: |
+        Incoming destination MAC address
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              pattern: '[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'
+          required:
+            - value
+    SrcMacOut:
+      description: |
+        Outgoing source MAC address
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              pattern: '[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'
+          required:
+            - value
+    DstMacOut:
+      description: |
+        Outgoing destination MAC address
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              pattern: '[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'
+          required:
+            - value
+    IpVersion:
+      description: |
+        IP Protocol version. If not present, version 4 is assumed
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              enum:
+                - ipv4
+                - ipv6
+          required:
+            - value
+    Direction:
+      description: |
+        Flow direction
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              enum:
+                - ingress
+                - egress
+          required:
+            - value
+    IfName:
+      description: |
+        Shortened interface name
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+          required:
+            - value
+    IfDesc:
+      description: |
+        Full interface name
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+          required:
+            - value
+    FragOffset:
+      description: |
+        The fragment-offset value from fragmented IP packets
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    ForwardingStatus:
+      description: |
+        Forwarding status is encoded on 1 byte with the 2 left bits giving the status and the 6 remaining bits giving the reason code
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              enum:
+                - unknown
+                - unknown-forwarded
+                - forwarded-frag
+                - forwarded-not-frag
+                - unknown-dropped
+                - acl-deny
+                - acl-drop
+                - unroutable
+                - adjacency
+                - fragment-df
+                - bad-header-check
+                - bad-tot-len
+                - bad-header-len
+                - bad-ttl
+                - policer
+                - wred
+                - rpf
+                - for-us
+                - bad-out-interf
+                - hardware
+                - unknown-consumed
+                - term-punt-adjacency
+                - term-incomp-adjacency
+                - term-for-us
+          required:
+            - value
+    PostipDscp:
+      description: |
+        The value of a Differentiated Services Code Point (DSCP) encoded in the Differentiated Services Field, after modification
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    ReplFactorMul:
+      description: |
+        Multicast replication factor
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    ExportPacketFlowDataRecordIpv4:
+      description: |
+        This container collects all metrics related to IPv4
+        
+        YANG module: netflow-v9.yang
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be ExportPacketFlowDataRecordIpv4.
+              type: string
+              enum:
+                - ExportPacketFlowDataRecordIpv4
+              default: ExportPacketFlowDataRecordIpv4
+            srcAddress:
+              $ref: '#/components/schemas/ExportPacketFlowDataRecordIpv4SrcAddress'
+            dstAddress:
+              $ref: '#/components/schemas/ExportPacketFlowDataRecordIpv4DstAddress'
+            srcMask:
+              $ref: '#/components/schemas/ExportPacketFlowDataRecordIpv4SrcMask'
+            dstMask:
+              $ref: '#/components/schemas/ExportPacketFlowDataRecordIpv4DstMask'
+            srcPrefix:
+              $ref: '#/components/schemas/SrcPrefix'
+            dstPrefix:
+              $ref: '#/components/schemas/DstPrefix'
+            nextHop:
+              $ref: '#/components/schemas/ExportPacketFlowDataRecordIpv4NextHop'
+            identification:
+              $ref: '#/components/schemas/Identification'
+            isPartOf:
+              $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type ExportPacketFlowDataRecord.
+        - required:
+          - type
+          - isPartOf
+    ExportPacketFlowDataRecordIpv4SrcAddress:
+      description: |
+        IPv4 source address
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              pattern: '(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?'
+          required:
+            - value
+    ExportPacketFlowDataRecordIpv4DstAddress:
+      description: |
+        IPv4 destination address of the IP flow
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              pattern: '(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?'
+          required:
+            - value
+    ExportPacketFlowDataRecordIpv4SrcMask:
+      description: |
+        The number of contiguous bits in the source address subnet mask i.e.: the submask in slash notation
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    ExportPacketFlowDataRecordIpv4DstMask:
+      description: |
+        The number of contiguous bits in the destination address subnet mask i.e.: the submask in slash notation
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    SrcPrefix:
+      description: |
+        IPv4 source address prefix (specific for Catalyst architecture)
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              pattern: '(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'
+          required:
+            - value
+    DstPrefix:
+      description: |
+        IPv4 destination address prefix (specific for Catalyst architecture)
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              pattern: '(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'
+          required:
+            - value
+    ExportPacketFlowDataRecordIpv4NextHop:
+      description: |
+        IPv4 address of the next-hop router
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              pattern: '(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?'
+          required:
+            - value
+    Identification:
+      description: |
+        The IP v4 identification field
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    ExportPacketFlowDataRecordIpv6:
+      description: |
+        This container collects all metrics related to IPv6
+        
+        YANG module: netflow-v9.yang
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be ExportPacketFlowDataRecordIpv6.
+              type: string
+              enum:
+                - ExportPacketFlowDataRecordIpv6
+              default: ExportPacketFlowDataRecordIpv6
+            srcAddress:
+              $ref: '#/components/schemas/ExportPacketFlowDataRecordIpv6SrcAddress'
+            dstAddress:
+              $ref: '#/components/schemas/ExportPacketFlowDataRecordIpv6DstAddress'
+            srcMask:
+              $ref: '#/components/schemas/ExportPacketFlowDataRecordIpv6SrcMask'
+            dstMask:
+              $ref: '#/components/schemas/ExportPacketFlowDataRecordIpv6DstMask'
+            nextHop:
+              $ref: '#/components/schemas/ExportPacketFlowDataRecordIpv6NextHop'
+            flowLabel:
+              $ref: '#/components/schemas/FlowLabel'
+            optHeaders:
+              $ref: '#/components/schemas/OptHeaders'
+            isPartOf:
+              $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type ExportPacketFlowDataRecord.
+        - required:
+          - type
+          - isPartOf
+    ExportPacketFlowDataRecordIpv6SrcAddress:
+      description: |
+        IPv6 source address
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              pattern: '((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?'
+          required:
+            - value
+    ExportPacketFlowDataRecordIpv6DstAddress:
+      description: |
+        IPv6 destination address
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              pattern: '((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?'
+          required:
+            - value
+    ExportPacketFlowDataRecordIpv6SrcMask:
+      description: |
+        Length of the IPv6 source mask in contiguous bits
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    ExportPacketFlowDataRecordIpv6DstMask:
+      description: |
+        Length of the IPv6 destination mask in contiguous bits
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    ExportPacketFlowDataRecordIpv6NextHop:
+      description: |
+        IPv6 address of the next-hop router
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              pattern: '((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?'
+          required:
+            - value
+    FlowLabel:
+      description: |
+        IPv6 flow label as defined in RFC 2460
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    OptHeaders:
+      description: |
+        Bit-encoded field identifying IPv6 option headers found in the flow
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    ExportPacketFlowDataRecordMpls:
+      description: |
+        This container collects all the metrics associated with MPLS (MultiProtocol Label Switching)
+        
+        YANG module: netflow-v9.yang
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be ExportPacketFlowDataRecordMpls.
+              type: string
+              enum:
+                - ExportPacketFlowDataRecordMpls
+              default: ExportPacketFlowDataRecordMpls
+            palRd:
+              $ref: '#/components/schemas/PalRd'
+            prefixLen:
+              $ref: '#/components/schemas/PrefixLen'
+            topLabelType:
+              $ref: '#/components/schemas/TopLabelType'
+            topLabelIp:
+              $ref: '#/components/schemas/TopLabelIp'
+            label1:
+              $ref: '#/components/schemas/Label1'
+            label2:
+              $ref: '#/components/schemas/Label2'
+            label3:
+              $ref: '#/components/schemas/Label3'
+            label4:
+              $ref: '#/components/schemas/Label4'
+            label5:
+              $ref: '#/components/schemas/Label5'
+            label6:
+              $ref: '#/components/schemas/Label6'
+            label7:
+              $ref: '#/components/schemas/Label7'
+            label8:
+              $ref: '#/components/schemas/Label8'
+            label9:
+              $ref: '#/components/schemas/Label9'
+            label10:
+              $ref: '#/components/schemas/Label10'
+            isPartOf:
+              $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type ExportPacketFlowDataRecord.
+        - required:
+          - type
+          - isPartOf
+    PalRd:
+      description: |
+        MPLS PAL Route Distinguisher
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    PrefixLen:
+      description: |
+        Number of consecutive bits in the MPLS prefix length
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    TopLabelType:
+      description: |
+        MPLS Top Label Type
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              enum:
+                - unknown
+                - te-midpt
+                - atom
+                - vpn
+                - bgp
+                - ldp
+          required:
+            - value
+    TopLabelIp:
+      description: |
+        Forwarding Equivalent Class corresponding to the MPLS Top Label
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              pattern: '(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?'
+          required:
+            - value
+    Label1:
+      description: |
+        MPLS label at position 1 in the stack. This comprises 20 bits of MPLS label, 3 EXP (experimental) bits and 1 S (end-of-stack) bit
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+              minimum: 0
+              maximum: 16777215
+          required:
+            - value
+    Label2:
+      description: |
+        MPLS label at position 2 in the stack. This comprises 20 bits of MPLS label, 3 EXP (experimental) bits and 1 S (end-of-stack) bit
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+              minimum: 0
+              maximum: 16777215
+          required:
+            - value
+    Label3:
+      description: |
+        MPLS label at position 3 in the stack. This comprises 20 bits of MPLS label, 3 EXP (experimental) bits and 1 S (end-of-stack) bit
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+              minimum: 0
+              maximum: 16777215
+          required:
+            - value
+    Label4:
+      description: |
+        MPLS label at position 4 in the stack. This comprises 20 bits of MPLS label, 3 EXP (experimental) bits and 1 S (end-of-stack) bit
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+              minimum: 0
+              maximum: 16777215
+          required:
+            - value
+    Label5:
+      description: |
+        MPLS label at position 5 in the stack. This comprises 20 bits of MPLS label, 3 EXP (experimental) bits and 1 S (end-of-stack) bit
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+              minimum: 0
+              maximum: 16777215
+          required:
+            - value
+    Label6:
+      description: |
+        MPLS label at position 6 in the stack. This comprises 20 bits of MPLS label, 3 EXP (experimental) bits and 1 S (end-of-stack) bit
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+              minimum: 0
+              maximum: 16777215
+          required:
+            - value
+    Label7:
+      description: |
+        MPLS label at position 7 in the stack. This comprises 20 bits of MPLS label, 3 EXP (experimental) bits and 1 S (end-of-stack) bit
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+              minimum: 0
+              maximum: 16777215
+          required:
+            - value
+    Label8:
+      description: |
+        MPLS label at position 8 in the stack. This comprises 20 bits of MPLS label, 3 EXP (experimental) bits and 1 S (end-of-stack) bit
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+              minimum: 0
+              maximum: 16777215
+          required:
+            - value
+    Label9:
+      description: |
+        MPLS label at position 9 in the stack. This comprises 20 bits of MPLS label, 3 EXP (experimental) bits and 1 S (end-of-stack) bit
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+              minimum: 0
+              maximum: 16777215
+          required:
+            - value
+    Label10:
+      description: |
+        MPLS label at position 10 in the stack. This comprises 20 bits of MPLS label, 3 EXP (experimental) bits and 1 S (end-of-stack) bit
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+              minimum: 0
+              maximum: 16777215
+          required:
+            - value
+    ExportPacketFlowDataRecordBgp:
+      description: |
+        This container collects all the metrics associated with BGP (Border Gateway Protocol)
+        
+        YANG module: netflow-v9.yang
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be ExportPacketFlowDataRecordBgp.
+              type: string
+              enum:
+                - ExportPacketFlowDataRecordBgp
+              default: ExportPacketFlowDataRecordBgp
+            srcAs:
+              $ref: '#/components/schemas/SrcAs'
+            dstAs:
+              $ref: '#/components/schemas/DstAs'
+            nextHop:
+              $ref: '#/components/schemas/ExportPacketFlowDataRecordBgpNextHop'
+            nextHopIpv6:
+              $ref: '#/components/schemas/NextHopIpv6'
+            srcTrafficId:
+              $ref: '#/components/schemas/SrcTrafficId'
+            dstTrafficId:
+              $ref: '#/components/schemas/DstTrafficId'
+            isPartOf:
+              $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type ExportPacketFlowDataRecord.
+        - required:
+          - type
+          - isPartOf
+    SrcAs:
+      description: |
+        Source BGP autonomous system number
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    DstAs:
+      description: |
+        Destination BGP autonomous system number
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    ExportPacketFlowDataRecordBgpNextHop:
+      description: |
+        Next-hop router's IPv4 in the BGP domain
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              pattern: '(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?'
+          required:
+            - value
+    NextHopIpv6:
+      description: |
+        Next-hop router's IPv6 in the BGP domain
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              pattern: '((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?'
+          required:
+            - value
+    SrcTrafficId:
+      description: |
+        BGP Policy Accounting Source Traffic Index
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    DstTrafficId:
+      description: |
+        BGP Policy Accounting Destination Traffic Index
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    ExportPacketFlowDataRecordVlan:
+      description: |
+        This container collects the metrics related to a VLAN
+        
+        YANG module: netflow-v9.yang
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be ExportPacketFlowDataRecordVlan.
+              type: string
+              enum:
+                - ExportPacketFlowDataRecordVlan
+              default: ExportPacketFlowDataRecordVlan
+            srcId:
+              $ref: '#/components/schemas/SrcId'
+            dstId:
+              $ref: '#/components/schemas/DstId'
+            isPartOf:
+              $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type ExportPacketFlowDataRecord.
+        - required:
+          - type
+          - isPartOf
+    SrcId:
+      description: |
+        Virtual LAN identifier associated with ingress interface
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+              minimum: 0
+              maximum: 4095
+          required:
+            - value
+    DstId:
+      description: |
+        Virtual LAN identifier associated with egress interface
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+              minimum: 0
+              maximum: 4095
+          required:
+            - value
+    ExportPacketFlowDataRecordPermanentFlow:
+      description: |
+        This container collects all metrics related to a permanent flow
+        
+        YANG module: netflow-v9.yang
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be ExportPacketFlowDataRecordPermanentFlow.
+              type: string
+              enum:
+                - ExportPacketFlowDataRecordPermanentFlow
+              default: ExportPacketFlowDataRecordPermanentFlow
+            bytesIn:
+              $ref: '#/components/schemas/ExportPacketFlowDataRecordPermanentFlowBytesIn'
+            pktsIn:
+              $ref: '#/components/schemas/ExportPacketFlowDataRecordPermanentFlowPktsIn'
+            isPartOf:
+              $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type ExportPacketFlowDataRecord.
+        - required:
+          - type
+          - isPartOf
+    ExportPacketFlowDataRecordPermanentFlowBytesIn:
+      description: |
+        Running byte counter for a permanent flow
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    ExportPacketFlowDataRecordPermanentFlowPktsIn:
+      description: |
+        Running packet counter for a permanent flow
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    ExportPacketFlowDataRecordApplication:
+      description: |
+        This container collects all application-related metrics
+        
+        YANG module: netflow-v9.yang
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be ExportPacketFlowDataRecordApplication.
+              type: string
+              enum:
+                - ExportPacketFlowDataRecordApplication
+              default: ExportPacketFlowDataRecordApplication
+            desc:
+              $ref: '#/components/schemas/Desc'
+            tag:
+              $ref: '#/components/schemas/Tag'
+            name:
+              $ref: '#/components/schemas/Name'
+            isPartOf:
+              $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type ExportPacketFlowDataRecord.
+        - required:
+          - type
+          - isPartOf
+    Desc:
+      description: |
+        Application description
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+          required:
+            - value
+    Tag:
+      description: |
+        8 bits of engine ID, followed by n bits of classification
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+          required:
+            - value
+    Name:
+      description: |
+        Name associated with a classification
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+          required:
+            - value
+    ExportPacketFlowDataRecordLayer2PktSection:
+      description: |
+        This container collects all metrics related to the Layer 2 packet section
+        
+        YANG module: netflow-v9.yang
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be ExportPacketFlowDataRecordLayer2PktSection.
+              type: string
+              enum:
+                - ExportPacketFlowDataRecordLayer2PktSection
+              default: ExportPacketFlowDataRecordLayer2PktSection
+            offset:
+              $ref: '#/components/schemas/Offset'
+            size:
+              $ref: '#/components/schemas/Size'
+            data:
+              $ref: '#/components/schemas/Data'
+            isPartOf:
+              $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type ExportPacketFlowDataRecord.
+        - required:
+          - type
+          - isPartOf
+    Offset:
+      description: |
+        Layer 2 packet section offset. Potentially a generic offset
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    Size:
+      description: |
+        Layer 2 packet section size. Potentially a generic size
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    Data:
+      description: |
+        Layer 2 packet section data
+        
+        YANG module: netflow-v9.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+          required:
+            - value
+    FlowDuration:
+      description: |
+        Duration of the flow. Difference between last-switched and first-switched leafs
+        
+        YANG module: netflow-v9-agg.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    BytesInPerSecond:
+      description: |
+        Incoming counter for the number of bytes per second associated with an IP flow.
+        
+        YANG module: netflow-v9-agg.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: number
+          required:
+            - value
+    BytesOutPerSecond:
+      description: |
+        Outgoing counter for the number of bytes per second associated with an IP flow.
+        
+        YANG module: netflow-v9-agg.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: number
+          required:
+            - value
+    PktsInPerSecond:
+      description: |
+        Incoming counter for the number of packets per second associated with an IP flow.
+        
+        YANG module: netflow-v9-agg.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: number
+          required:
+            - value
+    PktsOutPerSecond:
+      description: |
+        Outgoing counter for the number of packets per second associated with an IP flow.
+        
+        YANG module: netflow-v9-agg.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: number
+          required:
+            - value
+    BytesInPerPacket:
+      description: |
+        Incoming counter for the number of bytes per packet associated with an IP flow.
+        
+        YANG module: netflow-v9-agg.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: number
+          required:
+            - value
+    BytesOutPerPacket:
+      description: |
+        Outgoing counter for the number of bytes per packet associated with an IP flow.
+        
+        YANG module: netflow-v9-agg.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: number
+          required:
+            - value
+    RatioBytesInPerOut:
+      description: |
+        Counter for the ratio between the incoming and the outcoming bytes.
+        
+        YANG module: netflow-v9-agg.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: number
+          required:
+            - value
+    RatioPktsInPerOut:
+      description: |
+        Counter for the ratio between the incoming and the outcoming packets
+        
+        YANG module: netflow-v9-agg.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: number
+          required:
+            - value
+    YANGIdentity:
+      description: A representation schema for YANG Identities.
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be YANGIdentity.
+              type: string
+              enum:
+                - YANGIdentity
+              default: YANGIdentity
+            description:
+              $ref: '#/components/schemas/YANGIdentityDescription'
+            identifier:
+              $ref: '#/components/schemas/YANGIdentityIdentifier'
+            namespace:
+              $ref: '#/components/schemas/YANGIdentityNamespace'
+            broader:
+              $ref: '#/components/schemas/YANGIdentityBroader'
+        - required:
+          - type
+          - description
+          - identifier
+          - namespace
+    YANGIdentityDescription:
+      description: NGSI-LD Relationship Type. YANG Identity description.
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+          required:
+            - value
+    YANGIdentityIdentifier:
+      description: NGSI-LD Property Type. YANG Identity identifier.
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+          required:
+            - value
+    YANGIdentityNamespace:
+      description: NGSI-LD Property Type. YANG Identity namespace.
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+          required:
+            - value
+    YANGIdentityBroader:
+      description: NGSI-LD Relationship Type. The relationship to the base YANG Identity.
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
+        - type: object
+          properties:
+            object:
+              type: string
+          required:
+            - object
+    IsPartOf:
+      description: NGSI-LD Relationship Type. A hierarchical relationship.
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
+        - type: object
+          properties:
+            object:
+              type: string
+          required:
+            - object

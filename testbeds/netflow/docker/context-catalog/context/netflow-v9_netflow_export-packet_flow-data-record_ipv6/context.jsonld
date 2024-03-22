@@ -1,0 +1,13 @@
+{
+    "@context": {
+        "netflow-v9": "http://data-aggregator.com/ns/netflow/",
+        "ExportPacketFlowDataRecordIpv6": "netflow-v9:netflow/export-packet/flow-data-record/ipv6",
+        "srcAddress": "netflow-v9:netflow/export-packet/flow-data-record/ipv6/src-address",
+        "dstAddress": "netflow-v9:netflow/export-packet/flow-data-record/ipv6/dst-address",
+        "srcMask": "netflow-v9:netflow/export-packet/flow-data-record/ipv6/src-mask",
+        "dstMask": "netflow-v9:netflow/export-packet/flow-data-record/ipv6/dst-mask",
+        "nextHop": "netflow-v9:netflow/export-packet/flow-data-record/ipv6/next-hop",
+        "flowLabel": "netflow-v9:netflow/export-packet/flow-data-record/ipv6/flow-label",
+        "optHeaders": "netflow-v9:netflow/export-packet/flow-data-record/ipv6/opt-headers"
+    }
+}
