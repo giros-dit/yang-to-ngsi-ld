@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class InterfaceSubinterfacesSubinterfaceStateCountersLastClear(BaseModel):
     """
-    Timestamp of the last time the interface counters were cleared.  The value is the timestamp in nanoseconds relative to the Unix Epoch (Jan 1, 1970 00:00:00 UTC).  YANG module: openconfig-interfaces.yang 
+    Timestamp of the last time the interface counters were cleared.  The value is the timestamp in nanoseconds relative to the Unix Epoch (Jan 1, 1970 00:00:00 UTC).  Units: nanoseconds  YANG module: openconfig-interfaces.yang 
     """ # noqa: E501
     type: Optional[StrictStr] = Field(default='Property', description="Node type. ")
     value: StrictInt

@@ -1,6 +1,6 @@
 # InterfaceHoldTimeStateUp
 
-Dampens advertisement when the interface transitions from down to up. A zero value means dampening is turned off, i.e., immediate notification.  YANG module: openconfig-interfaces.yang 
+Dampens advertisement when the interface transitions from down to up. A zero value means dampening is turned off, i.e., immediate notification.  Units: milliseconds  YANG module: openconfig-interfaces.yang 
 
 ## Properties
 

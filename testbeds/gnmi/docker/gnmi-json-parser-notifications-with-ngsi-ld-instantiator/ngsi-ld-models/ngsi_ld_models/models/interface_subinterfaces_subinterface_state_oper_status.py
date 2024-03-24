@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class InterfaceSubinterfacesSubinterfaceStateOperStatus(BaseModel):
     """
-    The current operational state of the interface.  This leaf has the same semantics as ifOperStatus.  YANG module: openconfig-interfaces.yang 
+    The current operational state of the interface.  This leaf has the same semantics as ifOperStatus.  Reference: RFC 2863: The Interfaces Group MIB - ifOperStatus  YANG module: openconfig-interfaces.yang 
     """ # noqa: E501
     type: Optional[StrictStr] = Field(default='Property', description="Node type. ")
     value: StrictStr

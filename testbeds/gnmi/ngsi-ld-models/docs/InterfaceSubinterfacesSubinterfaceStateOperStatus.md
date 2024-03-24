@@ -1,6 +1,6 @@
 # InterfaceSubinterfacesSubinterfaceStateOperStatus
 
-The current operational state of the interface.  This leaf has the same semantics as ifOperStatus.  YANG module: openconfig-interfaces.yang 
+The current operational state of the interface.  This leaf has the same semantics as ifOperStatus.  Reference: RFC 2863: The Interfaces Group MIB - ifOperStatus  YANG module: openconfig-interfaces.yang 
 
 ## Properties
 

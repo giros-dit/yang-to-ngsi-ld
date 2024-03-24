@@ -1,6 +1,6 @@
 # InterfaceRoutedVlanIpv4StateCountersOutErrorPkts
 
-Number of IP packets for the specified address family locally generated and discarded due to errors, including no route found to the IP destination.  YANG module: openconfig-if-ip.yang 
+Number of IP packets for the specified address family locally generated and discarded due to errors, including no route found to the IP destination.  Reference: RFC 4293 - Management Information Base for the Internet Protocol (IP)  YANG module: openconfig-if-ip.yang 
 
 ## Properties
 

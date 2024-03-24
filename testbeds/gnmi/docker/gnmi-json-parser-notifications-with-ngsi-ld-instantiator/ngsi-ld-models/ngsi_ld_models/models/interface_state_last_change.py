@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class InterfaceStateLastChange(BaseModel):
     """
-    This timestamp indicates the time of the last state change of the interface (e.g., up-to-down transition). This corresponds to the ifLastChange object in the standard interface MIB.  The value is the timestamp in nanoseconds relative to the Unix Epoch (Jan 1, 1970 00:00:00 UTC).  YANG module: openconfig-interfaces.yang 
+    This timestamp indicates the time of the last state change of the interface (e.g., up-to-down transition). This corresponds to the ifLastChange object in the standard interface MIB.  The value is the timestamp in nanoseconds relative to the Unix Epoch (Jan 1, 1970 00:00:00 UTC).  Reference: RFC 2863: The Interfaces Group MIB - ifLastChange  Units: nanoseconds  YANG module: openconfig-interfaces.yang 
     """ # noqa: E501
     type: Optional[StrictStr] = Field(default='Property', description="Node type. ")
     value: StrictInt

@@ -1,6 +1,6 @@
 # InterfaceStateAdminStatus
 
-The desired state of the interface. In RFC 7223 this leaf has the same read semantics as ifAdminStatus. Here, it reflects the administrative state as set by enabling or disabling the interface.  YANG module: openconfig-interfaces.yang 
+The desired state of the interface. In RFC 7223 this leaf has the same read semantics as ifAdminStatus. Here, it reflects the administrative state as set by enabling or disabling the interface.  Reference: RFC 2863: The Interfaces Group MIB - ifAdminStatus  YANG module: openconfig-interfaces.yang 
 
 ## Properties
 

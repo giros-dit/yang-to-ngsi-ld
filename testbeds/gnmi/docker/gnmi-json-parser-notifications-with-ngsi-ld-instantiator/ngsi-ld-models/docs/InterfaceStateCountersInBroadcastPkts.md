@@ -1,6 +1,6 @@
 # InterfaceStateCountersInBroadcastPkts
 
-The number of packets, delivered by this sub-layer to a higher (sub-)layer, that were addressed to a broadcast address at this sub-layer.  Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of 'last-clear'.  YANG module: openconfig-interfaces.yang 
+The number of packets, delivered by this sub-layer to a higher (sub-)layer, that were addressed to a broadcast address at this sub-layer.  Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of 'last-clear'.  Reference: RFC 2863: The Interfaces Group MIB -      ifHCInBroadcastPkts  YANG module: openconfig-interfaces.yang 
 
 ## Properties
 

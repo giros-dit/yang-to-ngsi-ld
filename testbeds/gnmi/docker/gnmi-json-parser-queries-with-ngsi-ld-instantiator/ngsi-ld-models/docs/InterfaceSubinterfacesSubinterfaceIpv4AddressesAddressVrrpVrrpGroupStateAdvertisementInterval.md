@@ -1,6 +1,6 @@
 # InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressVrrpVrrpGroupStateAdvertisementInterval
 
-Sets the interval between successive VRRP advertisements -- RFC 5798 defines this as a 12-bit value expressed as 0.1 seconds, with default 100, i.e., 1 second. Several implementation express this in units of seconds  YANG module: openconfig-if-ip.yang 
+Sets the interval between successive VRRP advertisements -- RFC 5798 defines this as a 12-bit value expressed as 0.1 seconds, with default 100, i.e., 1 second. Several implementation express this in units of seconds  Units: centiseconds  YANG module: openconfig-if-ip.yang 
 
 ## Properties
 

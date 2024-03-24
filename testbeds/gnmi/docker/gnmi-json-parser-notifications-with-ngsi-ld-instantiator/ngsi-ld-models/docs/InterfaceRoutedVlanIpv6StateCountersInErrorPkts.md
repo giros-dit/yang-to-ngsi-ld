@@ -1,6 +1,6 @@
 # InterfaceRoutedVlanIpv6StateCountersInErrorPkts
 
-Number of IP packets discarded due to errors for the specified address family, including errors in the IP header, no route found to the IP destination, invalid address, unknown protocol, etc.  YANG module: openconfig-if-ip.yang 
+Number of IP packets discarded due to errors for the specified address family, including errors in the IP header, no route found to the IP destination, invalid address, unknown protocol, etc.  Reference: RFC 4293 - Management Information Base for the Internet Protocol (IP)  YANG module: openconfig-if-ip.yang 
 
 ## Properties
 

@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class InterfaceRoutedVlanIpv6StateCountersOutForwardedOctets(BaseModel):
     """
-    The number of octets in packets for which this entity was not their final IP destination and for which it was successful in finding a path to their final destination.  YANG module: openconfig-if-ip.yang 
+    The number of octets in packets for which this entity was not their final IP destination and for which it was successful in finding a path to their final destination.  Reference: RFC 4293 - Management Information Base for the Internet Protocol (IP)  YANG module: openconfig-if-ip.yang 
     """ # noqa: E501
     type: Optional[StrictStr] = Field(default='Property', description="Node type. ")
     value: StrictInt

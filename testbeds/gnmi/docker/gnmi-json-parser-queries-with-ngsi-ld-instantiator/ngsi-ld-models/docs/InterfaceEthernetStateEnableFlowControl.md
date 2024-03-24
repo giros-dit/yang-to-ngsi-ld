@@ -1,6 +1,6 @@
 # InterfaceEthernetStateEnableFlowControl
 
-Enable or disable flow control for this interface. Ethernet flow control is a mechanism by which a receiver may send PAUSE frames to a sender to stop transmission for a specified time.  This setting should override auto-negotiated flow control settings. If left unspecified, and auto-negotiate is TRUE, flow control mode is negotiated with the peer interface.  YANG module: openconfig-if-ethernet.yang 
+Enable or disable flow control for this interface. Ethernet flow control is a mechanism by which a receiver may send PAUSE frames to a sender to stop transmission for a specified time.  This setting should override auto-negotiated flow control settings. If left unspecified, and auto-negotiate is TRUE, flow control mode is negotiated with the peer interface.  Reference: IEEE 802.3x  YANG module: openconfig-if-ethernet.yang 
 
 ## Properties
 

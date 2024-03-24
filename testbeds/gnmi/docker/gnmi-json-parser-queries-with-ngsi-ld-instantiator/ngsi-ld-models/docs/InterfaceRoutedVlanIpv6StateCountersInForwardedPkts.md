@@ -1,6 +1,6 @@
 # InterfaceRoutedVlanIpv6StateCountersInForwardedPkts
 
-The number of input packets for which the device was not their final IP destination and for which the device attempted to find a route to forward them to that final destination.  YANG module: openconfig-if-ip.yang 
+The number of input packets for which the device was not their final IP destination and for which the device attempted to find a route to forward them to that final destination.  Reference: RFC 4293 - Management Information Base for the Internet Protocol (IP)  YANG module: openconfig-if-ip.yang 
 
 ## Properties
 

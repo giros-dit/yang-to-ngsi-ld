@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class InterfaceRoutedVlanIpv4StateCountersOutErrorPkts(BaseModel):
     """
-    Number of IP packets for the specified address family locally generated and discarded due to errors, including no route found to the IP destination.  YANG module: openconfig-if-ip.yang 
+    Number of IP packets for the specified address family locally generated and discarded due to errors, including no route found to the IP destination.  Reference: RFC 4293 - Management Information Base for the Internet Protocol (IP)  YANG module: openconfig-if-ip.yang 
     """ # noqa: E501
     type: Optional[StrictStr] = Field(default='Property', description="Node type. ")
     value: StrictInt

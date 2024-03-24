@@ -1,6 +1,6 @@
 # InterfaceStateCountersLastClear
 
-Timestamp of the last time the interface counters were cleared.  The value is the timestamp in nanoseconds relative to the Unix Epoch (Jan 1, 1970 00:00:00 UTC).  YANG module: openconfig-interfaces.yang 
+Timestamp of the last time the interface counters were cleared.  The value is the timestamp in nanoseconds relative to the Unix Epoch (Jan 1, 1970 00:00:00 UTC).  Units: nanoseconds  YANG module: openconfig-interfaces.yang 
 
 ## Properties
 

@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class InterfaceSubinterfacesSubinterfaceIpv4ProxyArpConfigMode(BaseModel):
     """
-    When set to a value other than DISABLE, the local system should respond to ARP requests that are for target addresses other than those that are configured on the local subinterface using its own MAC address as the target hardware address. If the REMOTE_ONLY value is specified, replies are only sent when the target address falls outside the locally configured subnets on the interface, whereas with the ALL value, all requests, regardless of their target address are replied to.  YANG module: openconfig-if-ip.yang 
+    When set to a value other than DISABLE, the local system should respond to ARP requests that are for target addresses other than those that are configured on the local subinterface using its own MAC address as the target hardware address. If the REMOTE_ONLY value is specified, replies are only sent when the target address falls outside the locally configured subnets on the interface, whereas with the ALL value, all requests, regardless of their target address are replied to.  Reference: RFC1027: Using ARP to Implement Transparent Subnet Gateways  YANG module: openconfig-if-ip.yang 
     """ # noqa: E501
     type: Optional[StrictStr] = Field(default='Property', description="Node type. ")
     value: StrictStr

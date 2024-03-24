@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class InterfaceRoutedVlanIpv6RouterAdvertisementStateInterval(BaseModel):
     """
-    The interval between periodic router advertisement neighbor discovery messages sent on this interface expressed in seconds.  YANG module: openconfig-if-ip.yang 
+    The interval between periodic router advertisement neighbor discovery messages sent on this interface expressed in seconds.  Units: seconds  YANG module: openconfig-if-ip.yang 
     """ # noqa: E501
     type: Optional[StrictStr] = Field(default='Property', description="Node type. ")
     value: StrictInt

@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class InterfaceRoutedVlanIpv4StateCountersOutDiscardedPkts(BaseModel):
     """
-    The number of output IP packets for the specified address family for which no problem was encountered to prevent their transmission to their destination, but were discarded (e.g., for lack of buffer space).  YANG module: openconfig-if-ip.yang 
+    The number of output IP packets for the specified address family for which no problem was encountered to prevent their transmission to their destination, but were discarded (e.g., for lack of buffer space).  Reference: RFC 4293 - Management Information Base for the Internet Protocol (IP)  YANG module: openconfig-if-ip.yang 
     """ # noqa: E501
     type: Optional[StrictStr] = Field(default='Property', description="Node type. ")
     value: StrictInt

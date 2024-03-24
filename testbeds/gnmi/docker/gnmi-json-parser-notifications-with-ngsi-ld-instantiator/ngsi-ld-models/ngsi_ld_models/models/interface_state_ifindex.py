@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class InterfaceStateIfindex(BaseModel):
     """
-    System assigned number for each interface. Corresponds to ifIndex object in SNMP Interface MIB  YANG module: openconfig-interfaces.yang 
+    System assigned number for each interface. Corresponds to ifIndex object in SNMP Interface MIB  Reference: RFC 2863 - The Interfaces Group MIB  YANG module: openconfig-interfaces.yang 
     """ # noqa: E501
     type: Optional[StrictStr] = Field(default='Property', description="Node type. ")
     value: StrictInt
