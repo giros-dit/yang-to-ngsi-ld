@@ -139,6 +139,8 @@ components:
         A NETCONF server MUST reply with an rpc-error with the
         error-tag 'invalid-value' in this case.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifType
+        
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
       allOf:
@@ -213,6 +215,8 @@ components:
         be mapped to the 'description' leaf in the 'running'
         datastore.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifAlias
+        
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
       allOf:
@@ -236,6 +240,8 @@ components:
         Changes in this leaf in the 'running' datastore are
         reflected in ifAdminStatus, but if ifAdminStatus is
         changed over SNMP, this leaf is not affected.
+        
+        Reference: RFC 2863: The Interfaces Group MIB - ifAdminStatus
         
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
@@ -372,6 +378,8 @@ components:
         A NETCONF server MUST reply with an rpc-error with the
         error-tag 'invalid-value' in this case.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifType
+        
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
       allOf:
@@ -446,6 +454,8 @@ components:
         be mapped to the 'description' leaf in the 'running'
         datastore.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifAlias
+        
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
       allOf:
@@ -470,6 +480,8 @@ components:
         reflected in ifAdminStatus, but if ifAdminStatus is
         changed over SNMP, this leaf is not affected.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifAdminStatus
+        
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
       allOf:
@@ -485,6 +497,8 @@ components:
       description: |
         System assigned number for each interface. Corresponds to
         ifIndex object in SNMP Interface MIB
+        
+        Reference: RFC 2863 - The Interfaces Group MIB
         
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
@@ -502,6 +516,8 @@ components:
         has the same read semantics as ifAdminStatus. Here, it
         reflects the administrative state as set by enabling or
         disabling the interface.
+        
+        Reference: RFC 2863: The Interfaces Group MIB - ifAdminStatus
         
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
@@ -522,6 +538,8 @@ components:
         The current operational state of the interface.
         
         This leaf has the same semantics as ifOperStatus.
+        
+        Reference: RFC 2863: The Interfaces Group MIB - ifOperStatus
         
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
@@ -550,6 +568,10 @@ components:
         
         The value is the timestamp in nanoseconds relative to
         the Unix Epoch (Jan 1, 1970 00:00:00 UTC).
+        
+        Reference: RFC 2863: The Interfaces Group MIB - ifLastChange
+        
+        Units: nanoseconds
         
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
@@ -624,6 +646,8 @@ components:
         other times as indicated by the value of
         'last-clear'.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifHCInOctets
+        
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
       allOf:
@@ -645,6 +669,8 @@ components:
         other times as indicated by the value of
         'last-clear'.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifHCInUcastPkts
+        
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
       allOf:
@@ -665,6 +691,9 @@ components:
         at re-initialization of the management system, and at
         other times as indicated by the value of
         'last-clear'.
+        
+        Reference: RFC 2863: The Interfaces Group MIB -
+             ifHCInBroadcastPkts
         
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
@@ -688,6 +717,9 @@ components:
         other times as indicated by the value of
         'last-clear'.
         
+        Reference: RFC 2863: The Interfaces Group MIB -
+             ifHCInMulticastPkts
+        
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
       allOf:
@@ -710,6 +742,8 @@ components:
         at re-initialization of the management system, and at
         other times as indicated by the value of
         'last-clear'.
+        
+        Reference: RFC 2863: The Interfaces Group MIB - ifInDiscards
         
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
@@ -735,6 +769,8 @@ components:
         at re-initialization of the management system, and at
         other times as indicated by the value of
         'last-clear'.
+        
+        Reference: RFC 2863: The Interfaces Group MIB - ifInErrors
         
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
@@ -762,6 +798,8 @@ components:
         at re-initialization of the management system, and at
         other times as indicated by the value of
         'last-clear'.
+        
+        Reference: RFC 2863: The Interfaces Group MIB - ifInUnknownProtos
         
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
@@ -802,6 +840,8 @@ components:
         other times as indicated by the value of
         'last-clear'.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifHCOutOctets
+        
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
       allOf:
@@ -824,6 +864,8 @@ components:
         other times as indicated by the value of
         'last-clear'.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifHCOutUcastPkts
+        
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
       allOf:
@@ -845,6 +887,9 @@ components:
         at re-initialization of the management system, and at
         other times as indicated by the value of
         'last-clear'.
+        
+        Reference: RFC 2863: The Interfaces Group MIB -
+             ifHCOutBroadcastPkts
         
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
@@ -870,6 +915,9 @@ components:
         other times as indicated by the value of
         'last-clear'.
         
+        Reference: RFC 2863: The Interfaces Group MIB -
+             ifHCOutMulticastPkts
+        
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
       allOf:
@@ -893,6 +941,8 @@ components:
         other times as indicated by the value of
         'last-clear'.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifOutDiscards
+        
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
       allOf:
@@ -915,6 +965,8 @@ components:
         at re-initialization of the management system, and at
         other times as indicated by the value of
         'last-clear'.
+        
+        Reference: RFC 2863: The Interfaces Group MIB - ifOutErrors
         
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
@@ -949,6 +1001,8 @@ components:
         
         The value is the timestamp in nanoseconds relative to
         the Unix Epoch (Jan 1, 1970 00:00:00 UTC).
+        
+        Units: nanoseconds
         
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
@@ -1008,6 +1062,8 @@ components:
         transitions from down to up. A zero value means dampening
         is turned off, i.e., immediate notification.
         
+        Units: milliseconds
+        
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
       allOf:
@@ -1024,6 +1080,8 @@ components:
         Dampens advertisement when the interface transitions from
         up to down. A zero value means dampening is turned off,
         i.e., immediate notification.
+        
+        Units: milliseconds
         
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
@@ -1067,6 +1125,8 @@ components:
         transitions from down to up. A zero value means dampening
         is turned off, i.e., immediate notification.
         
+        Units: milliseconds
+        
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
       allOf:
@@ -1083,6 +1143,8 @@ components:
         Dampens advertisement when the interface transitions from
         up to down. A zero value means dampening is turned off,
         i.e., immediate notification.
+        
+        Units: milliseconds
         
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
@@ -1209,6 +1271,8 @@ components:
         be mapped to the 'description' leaf in the 'running'
         datastore.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifAlias
+        
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
       allOf:
@@ -1232,6 +1296,8 @@ components:
         Changes in this leaf in the 'running' datastore are
         reflected in ifAdminStatus, but if ifAdminStatus is
         changed over SNMP, this leaf is not affected.
+        
+        Reference: RFC 2863: The Interfaces Group MIB - ifAdminStatus
         
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
@@ -1330,6 +1396,8 @@ components:
         be mapped to the 'description' leaf in the 'running'
         datastore.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifAlias
+        
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
       allOf:
@@ -1353,6 +1421,8 @@ components:
         Changes in this leaf in the 'running' datastore are
         reflected in ifAdminStatus, but if ifAdminStatus is
         changed over SNMP, this leaf is not affected.
+        
+        Reference: RFC 2863: The Interfaces Group MIB - ifAdminStatus
         
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
@@ -1387,6 +1457,8 @@ components:
         System assigned number for each interface. Corresponds to
         ifIndex object in SNMP Interface MIB
         
+        Reference: RFC 2863 - The Interfaces Group MIB
+        
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
       allOf:
@@ -1403,6 +1475,8 @@ components:
         has the same read semantics as ifAdminStatus. Here, it
         reflects the administrative state as set by enabling or
         disabling the interface.
+        
+        Reference: RFC 2863: The Interfaces Group MIB - ifAdminStatus
         
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
@@ -1423,6 +1497,8 @@ components:
         The current operational state of the interface.
         
         This leaf has the same semantics as ifOperStatus.
+        
+        Reference: RFC 2863: The Interfaces Group MIB - ifOperStatus
         
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
@@ -1451,6 +1527,10 @@ components:
         
         The value is the timestamp in nanoseconds relative to
         the Unix Epoch (Jan 1, 1970 00:00:00 UTC).
+        
+        Reference: RFC 2863: The Interfaces Group MIB - ifLastChange
+        
+        Units: nanoseconds
         
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
@@ -1525,6 +1605,8 @@ components:
         other times as indicated by the value of
         'last-clear'.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifHCInOctets
+        
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
       allOf:
@@ -1546,6 +1628,8 @@ components:
         other times as indicated by the value of
         'last-clear'.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifHCInUcastPkts
+        
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
       allOf:
@@ -1566,6 +1650,9 @@ components:
         at re-initialization of the management system, and at
         other times as indicated by the value of
         'last-clear'.
+        
+        Reference: RFC 2863: The Interfaces Group MIB -
+             ifHCInBroadcastPkts
         
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
@@ -1589,6 +1676,9 @@ components:
         other times as indicated by the value of
         'last-clear'.
         
+        Reference: RFC 2863: The Interfaces Group MIB -
+             ifHCInMulticastPkts
+        
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
       allOf:
@@ -1611,6 +1701,8 @@ components:
         at re-initialization of the management system, and at
         other times as indicated by the value of
         'last-clear'.
+        
+        Reference: RFC 2863: The Interfaces Group MIB - ifInDiscards
         
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
@@ -1636,6 +1728,8 @@ components:
         at re-initialization of the management system, and at
         other times as indicated by the value of
         'last-clear'.
+        
+        Reference: RFC 2863: The Interfaces Group MIB - ifInErrors
         
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
@@ -1663,6 +1757,8 @@ components:
         at re-initialization of the management system, and at
         other times as indicated by the value of
         'last-clear'.
+        
+        Reference: RFC 2863: The Interfaces Group MIB - ifInUnknownProtos
         
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
@@ -1703,6 +1799,8 @@ components:
         other times as indicated by the value of
         'last-clear'.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifHCOutOctets
+        
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
       allOf:
@@ -1725,6 +1823,8 @@ components:
         other times as indicated by the value of
         'last-clear'.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifHCOutUcastPkts
+        
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
       allOf:
@@ -1746,6 +1846,9 @@ components:
         at re-initialization of the management system, and at
         other times as indicated by the value of
         'last-clear'.
+        
+        Reference: RFC 2863: The Interfaces Group MIB -
+             ifHCOutBroadcastPkts
         
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
@@ -1771,6 +1874,9 @@ components:
         other times as indicated by the value of
         'last-clear'.
         
+        Reference: RFC 2863: The Interfaces Group MIB -
+             ifHCOutMulticastPkts
+        
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
       allOf:
@@ -1794,6 +1900,8 @@ components:
         other times as indicated by the value of
         'last-clear'.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifOutDiscards
+        
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
       allOf:
@@ -1816,6 +1924,8 @@ components:
         at re-initialization of the management system, and at
         other times as indicated by the value of
         'last-clear'.
+        
+        Reference: RFC 2863: The Interfaces Group MIB - ifOutErrors
         
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
@@ -1850,6 +1960,8 @@ components:
         
         The value is the timestamp in nanoseconds relative to
         the Unix Epoch (Jan 1, 1970 00:00:00 UTC).
+        
+        Units: nanoseconds
         
         YANG module: openconfig-interfaces.yang
       additionalProperties: false
@@ -2301,6 +2413,8 @@ components:
         1 second. Several implementation express this in units of
         seconds
         
+        Units: centiseconds
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -2461,6 +2575,8 @@ components:
         value expressed as 0.1 seconds, with default 100, i.e.,
         1 second. Several implementation express this in units of
         seconds
+        
+        Units: centiseconds
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -2654,6 +2770,8 @@ components:
         whereas with the ALL value, all requests, regardless of their
         target address are replied to.
         
+        Reference: RFC1027: Using ARP to Implement Transparent Subnet Gateways
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -2703,6 +2821,8 @@ components:
         whereas with the ALL value, all requests, regardless of their
         target address are replied to.
         
+        Reference: RFC1027: Using ARP to Implement Transparent Subnet Gateways
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -2725,6 +2845,8 @@ components:
         
         Entries in this list are used as static entries in the
         ARP Cache.
+        
+        Reference: RFC 826: An Ethernet Address Resolution Protocol
         
         YANG module: openconfig-if-ip.yang
       allOf:
@@ -3150,6 +3272,10 @@ components:
         If this leaf is not configured, the operationally used MTU
         depends on the interface's type.
         
+        Reference: RFC 791: Internet Protocol
+        
+        Units: octets
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -3234,6 +3360,10 @@ components:
         If this leaf is not configured, the operationally used MTU
         depends on the interface's type.
         
+        Reference: RFC 791: Internet Protocol
+        
+        Units: octets
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -3313,6 +3443,9 @@ components:
         The total number of IP packets received for the specified
         address family, including those received in error
         
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -3328,6 +3461,9 @@ components:
         The total number of octets received in input IP packets
         for the specified address family, including those received
         in error.
+        
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -3346,6 +3482,9 @@ components:
         header, no route found to the IP destination, invalid
         address, unknown protocol, etc.
         
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -3362,6 +3501,9 @@ components:
         their final IP destination and for which the device
         attempted to find a route to forward them to that final
         destination.
+        
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -3381,6 +3523,9 @@ components:
         device attempted to find a route to forward them to that
         final destination.
         
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -3397,6 +3542,9 @@ components:
         specified address family, for which no problems were
         encountered to prevent their continued processing, but
         were discarded (e.g., for lack of buffer space).
+        
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -3416,6 +3564,9 @@ components:
         packets generated locally and those forwarded by the
         device.
         
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -3434,6 +3585,9 @@ components:
         includes packets generated locally and those forwarded by
         the device.
         
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -3449,6 +3603,9 @@ components:
         Number of IP packets for the specified address family
         locally generated and discarded due to errors, including
         no route found to the IP destination.
+        
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -3466,6 +3623,9 @@ components:
         final IP destination and for which it was successful in
         finding a path to their final destination.
         
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -3481,6 +3641,9 @@ components:
         The number of octets in packets for which this entity was
         not their final IP destination and for which it was
         successful in finding a path to their final destination.
+        
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -3499,6 +3662,9 @@ components:
         encountered to prevent their transmission to their
         destination, but were discarded (e.g., for lack of
         buffer space).
+        
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -3693,6 +3859,11 @@ components:
         The status of an address. Most of the states correspond
         to states from the IPv6 Stateless Address
         Autoconfiguration protocol.
+        
+        Reference: RFC 4293: Management Information Base for the
+              Internet Protocol (IP)
+              - IpAddressStatusTC
+         RFC 4862: IPv6 Stateless Address Autoconfiguration
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -3900,6 +4071,8 @@ components:
         1 second. Several implementation express this in units of
         seconds
         
+        Units: centiseconds
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -4077,6 +4250,8 @@ components:
         value expressed as 0.1 seconds, with default 100, i.e.,
         1 second. Several implementation express this in units of
         seconds
+        
+        Units: centiseconds
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -4285,6 +4460,8 @@ components:
         discovery messages sent on this interface expressed in
         seconds.
         
+        Units: seconds
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -4299,6 +4476,8 @@ components:
       description: |
         The lifetime advertised in the router advertisement neighbor
         discovery message on this interface.
+        
+        Units: seconds
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -4360,6 +4539,8 @@ components:
         discovery messages sent on this interface expressed in
         seconds.
         
+        Units: seconds
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -4374,6 +4555,8 @@ components:
       description: |
         The lifetime advertised in the router advertisement neighbor
         discovery message on this interface.
+        
+        Units: seconds
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -4595,6 +4778,9 @@ components:
       description: |
         The Neighbor Unreachability Detection state of this
         entry.
+        
+        Reference: RFC 4861: Neighbor Discovery for IP version 6 (IPv6)
+          Section 7.3.2
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -4870,6 +5056,11 @@ components:
         If this leaf is not configured, the operationally used MTU
         depends on the interface's type.
         
+        Reference: RFC 2460: Internet Protocol, Version 6 (IPv6) Specification
+             Section 5
+        
+        Units: octets
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -4890,6 +5081,8 @@ components:
         Duplicate Address Detection is not performed on
         tentative addresses. A value of one indicates a single
         transmission with no follow-up retransmissions.
+        
+        Reference: RFC 4862: IPv6 Stateless Address Autoconfiguration
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -4976,6 +5169,11 @@ components:
         If this leaf is not configured, the operationally used MTU
         depends on the interface's type.
         
+        Reference: RFC 2460: Internet Protocol, Version 6 (IPv6) Specification
+             Section 5
+        
+        Units: octets
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -4996,6 +5194,8 @@ components:
         Duplicate Address Detection is not performed on
         tentative addresses. A value of one indicates a single
         transmission with no follow-up retransmissions.
+        
+        Reference: RFC 4862: IPv6 Stateless Address Autoconfiguration
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -5075,6 +5275,9 @@ components:
         The total number of IP packets received for the specified
         address family, including those received in error
         
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -5090,6 +5293,9 @@ components:
         The total number of octets received in input IP packets
         for the specified address family, including those received
         in error.
+        
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -5108,6 +5314,9 @@ components:
         header, no route found to the IP destination, invalid
         address, unknown protocol, etc.
         
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -5124,6 +5333,9 @@ components:
         their final IP destination and for which the device
         attempted to find a route to forward them to that final
         destination.
+        
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -5143,6 +5355,9 @@ components:
         device attempted to find a route to forward them to that
         final destination.
         
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -5159,6 +5374,9 @@ components:
         specified address family, for which no problems were
         encountered to prevent their continued processing, but
         were discarded (e.g., for lack of buffer space).
+        
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -5178,6 +5396,9 @@ components:
         packets generated locally and those forwarded by the
         device.
         
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -5196,6 +5417,9 @@ components:
         includes packets generated locally and those forwarded by
         the device.
         
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -5211,6 +5435,9 @@ components:
         Number of IP packets for the specified address family
         locally generated and discarded due to errors, including
         no route found to the IP destination.
+        
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -5228,6 +5455,9 @@ components:
         final IP destination and for which it was successful in
         finding a path to their final destination.
         
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -5243,6 +5473,9 @@ components:
         The number of octets in packets for which this entity was
         not their final IP destination and for which it was
         successful in finding a path to their final destination.
+        
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -5261,6 +5494,9 @@ components:
         encountered to prevent their transmission to their
         destination, but were discarded (e.g., for lack of
         buffer space).
+        
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -5329,6 +5565,8 @@ components:
         set to FALSE, the transmission parameters are specified
         manually.
         
+        Reference: IEEE 802.3-2012 auto-negotiation transmission parameters
+        
         YANG module: openconfig-if-ethernet.yang
       additionalProperties: false
       allOf:
@@ -5392,6 +5630,8 @@ components:
         This setting should override auto-negotiated flow control
         settings. If left unspecified, and auto-negotiate is TRUE,
         flow control mode is negotiated with the peer interface.
+        
+        Reference: IEEE 802.3x
         
         YANG module: openconfig-if-ethernet.yang
       additionalProperties: false
@@ -5483,6 +5723,8 @@ components:
         set to FALSE, the transmission parameters are specified
         manually.
         
+        Reference: IEEE 802.3-2012 auto-negotiation transmission parameters
+        
         YANG module: openconfig-if-ethernet.yang
       additionalProperties: false
       allOf:
@@ -5546,6 +5788,8 @@ components:
         This setting should override auto-negotiated flow control
         settings. If left unspecified, and auto-negotiate is TRUE,
         flow control mode is negotiated with the peer interface.
+        
+        Reference: IEEE 802.3x
         
         YANG module: openconfig-if-ethernet.yang
       additionalProperties: false
@@ -6134,6 +6378,8 @@ components:
       description: |
         Reports effective speed of the aggregate interface,
         based on speed of active member interfaces
+        
+        Units: Mbps
         
         YANG module: openconfig-if-aggregate.yang
       additionalProperties: false
@@ -6795,6 +7041,8 @@ components:
         1 second. Several implementation express this in units of
         seconds
         
+        Units: centiseconds
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -6955,6 +7203,8 @@ components:
         value expressed as 0.1 seconds, with default 100, i.e.,
         1 second. Several implementation express this in units of
         seconds
+        
+        Units: centiseconds
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -7148,6 +7398,8 @@ components:
         whereas with the ALL value, all requests, regardless of their
         target address are replied to.
         
+        Reference: RFC1027: Using ARP to Implement Transparent Subnet Gateways
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -7197,6 +7449,8 @@ components:
         whereas with the ALL value, all requests, regardless of their
         target address are replied to.
         
+        Reference: RFC1027: Using ARP to Implement Transparent Subnet Gateways
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -7219,6 +7473,8 @@ components:
         
         Entries in this list are used as static entries in the
         ARP Cache.
+        
+        Reference: RFC 826: An Ethernet Address Resolution Protocol
         
         YANG module: openconfig-if-ip.yang
       allOf:
@@ -7644,6 +7900,10 @@ components:
         If this leaf is not configured, the operationally used MTU
         depends on the interface's type.
         
+        Reference: RFC 791: Internet Protocol
+        
+        Units: octets
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -7728,6 +7988,10 @@ components:
         If this leaf is not configured, the operationally used MTU
         depends on the interface's type.
         
+        Reference: RFC 791: Internet Protocol
+        
+        Units: octets
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -7807,6 +8071,9 @@ components:
         The total number of IP packets received for the specified
         address family, including those received in error
         
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -7822,6 +8089,9 @@ components:
         The total number of octets received in input IP packets
         for the specified address family, including those received
         in error.
+        
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -7840,6 +8110,9 @@ components:
         header, no route found to the IP destination, invalid
         address, unknown protocol, etc.
         
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -7856,6 +8129,9 @@ components:
         their final IP destination and for which the device
         attempted to find a route to forward them to that final
         destination.
+        
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -7875,6 +8151,9 @@ components:
         device attempted to find a route to forward them to that
         final destination.
         
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -7891,6 +8170,9 @@ components:
         specified address family, for which no problems were
         encountered to prevent their continued processing, but
         were discarded (e.g., for lack of buffer space).
+        
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -7910,6 +8192,9 @@ components:
         packets generated locally and those forwarded by the
         device.
         
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -7928,6 +8213,9 @@ components:
         includes packets generated locally and those forwarded by
         the device.
         
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -7943,6 +8231,9 @@ components:
         Number of IP packets for the specified address family
         locally generated and discarded due to errors, including
         no route found to the IP destination.
+        
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -7960,6 +8251,9 @@ components:
         final IP destination and for which it was successful in
         finding a path to their final destination.
         
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -7975,6 +8269,9 @@ components:
         The number of octets in packets for which this entity was
         not their final IP destination and for which it was
         successful in finding a path to their final destination.
+        
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -7993,6 +8290,9 @@ components:
         encountered to prevent their transmission to their
         destination, but were discarded (e.g., for lack of
         buffer space).
+        
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -8187,6 +8487,11 @@ components:
         The status of an address. Most of the states correspond
         to states from the IPv6 Stateless Address
         Autoconfiguration protocol.
+        
+        Reference: RFC 4293: Management Information Base for the
+              Internet Protocol (IP)
+              - IpAddressStatusTC
+         RFC 4862: IPv6 Stateless Address Autoconfiguration
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -8394,6 +8699,8 @@ components:
         1 second. Several implementation express this in units of
         seconds
         
+        Units: centiseconds
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -8571,6 +8878,8 @@ components:
         value expressed as 0.1 seconds, with default 100, i.e.,
         1 second. Several implementation express this in units of
         seconds
+        
+        Units: centiseconds
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -8779,6 +9088,8 @@ components:
         discovery messages sent on this interface expressed in
         seconds.
         
+        Units: seconds
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -8793,6 +9104,8 @@ components:
       description: |
         The lifetime advertised in the router advertisement neighbor
         discovery message on this interface.
+        
+        Units: seconds
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -8854,6 +9167,8 @@ components:
         discovery messages sent on this interface expressed in
         seconds.
         
+        Units: seconds
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -8868,6 +9183,8 @@ components:
       description: |
         The lifetime advertised in the router advertisement neighbor
         discovery message on this interface.
+        
+        Units: seconds
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -9089,6 +9406,9 @@ components:
       description: |
         The Neighbor Unreachability Detection state of this
         entry.
+        
+        Reference: RFC 4861: Neighbor Discovery for IP version 6 (IPv6)
+          Section 7.3.2
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -9364,6 +9684,11 @@ components:
         If this leaf is not configured, the operationally used MTU
         depends on the interface's type.
         
+        Reference: RFC 2460: Internet Protocol, Version 6 (IPv6) Specification
+             Section 5
+        
+        Units: octets
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -9384,6 +9709,8 @@ components:
         Duplicate Address Detection is not performed on
         tentative addresses. A value of one indicates a single
         transmission with no follow-up retransmissions.
+        
+        Reference: RFC 4862: IPv6 Stateless Address Autoconfiguration
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -9470,6 +9797,11 @@ components:
         If this leaf is not configured, the operationally used MTU
         depends on the interface's type.
         
+        Reference: RFC 2460: Internet Protocol, Version 6 (IPv6) Specification
+             Section 5
+        
+        Units: octets
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -9490,6 +9822,8 @@ components:
         Duplicate Address Detection is not performed on
         tentative addresses. A value of one indicates a single
         transmission with no follow-up retransmissions.
+        
+        Reference: RFC 4862: IPv6 Stateless Address Autoconfiguration
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -9569,6 +9903,9 @@ components:
         The total number of IP packets received for the specified
         address family, including those received in error
         
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -9584,6 +9921,9 @@ components:
         The total number of octets received in input IP packets
         for the specified address family, including those received
         in error.
+        
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -9602,6 +9942,9 @@ components:
         header, no route found to the IP destination, invalid
         address, unknown protocol, etc.
         
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -9618,6 +9961,9 @@ components:
         their final IP destination and for which the device
         attempted to find a route to forward them to that final
         destination.
+        
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -9637,6 +9983,9 @@ components:
         device attempted to find a route to forward them to that
         final destination.
         
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -9653,6 +10002,9 @@ components:
         specified address family, for which no problems were
         encountered to prevent their continued processing, but
         were discarded (e.g., for lack of buffer space).
+        
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -9672,6 +10024,9 @@ components:
         packets generated locally and those forwarded by the
         device.
         
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -9690,6 +10045,9 @@ components:
         includes packets generated locally and those forwarded by
         the device.
         
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -9705,6 +10063,9 @@ components:
         Number of IP packets for the specified address family
         locally generated and discarded due to errors, including
         no route found to the IP destination.
+        
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -9722,6 +10083,9 @@ components:
         final IP destination and for which it was successful in
         finding a path to their final destination.
         
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
+        
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
       allOf:
@@ -9737,6 +10101,9 @@ components:
         The number of octets in packets for which this entity was
         not their final IP destination and for which it was
         successful in finding a path to their final destination.
+        
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
@@ -9755,6 +10122,9 @@ components:
         encountered to prevent their transmission to their
         destination, but were discarded (e.g., for lack of
         buffer space).
+        
+        Reference: RFC 4293 - Management Information Base for the
+        Internet Protocol (IP)
         
         YANG module: openconfig-if-ip.yang
       additionalProperties: false
