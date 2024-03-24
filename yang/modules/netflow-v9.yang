@@ -1017,7 +1017,7 @@ module netflow-v9 {
                 "This container collects all metrics related to IPv4";
 
             leaf src-address {
-                type inet:ipv4-address;
+                type inet:ipv4-address-no-zone;
                 description
                     "IPv4 source address";
                 reference
@@ -1026,7 +1026,7 @@ module netflow-v9 {
             }
 
             leaf dst-address {
-                type inet:ipv4-address;
+                type inet:ipv4-address-no-zone;
                 description
                     "IPv4 destination address of the IP flow";
                 reference
@@ -1072,7 +1072,7 @@ module netflow-v9 {
 
 
             leaf next-hop {
-                type inet:ipv4-address;
+                type inet:ipv4-address-no-zone;
                 description
                     "IPv4 address of the next-hop router";
                 reference
@@ -1098,7 +1098,7 @@ module netflow-v9 {
                 "This container collects all metrics related to IPv6";
 
             leaf src-address {
-                type inet:ipv6-address;
+                type inet:ipv6-address-no-zone;
                 description
                     "IPv6 source address";
                 reference
@@ -1107,7 +1107,7 @@ module netflow-v9 {
             }
 
             leaf dst-address {
-                type inet:ipv6-address;
+                type inet:ipv6-address-no-zone;
                 description
                     "IPv6 destination address";
                 reference
@@ -1134,7 +1134,7 @@ module netflow-v9 {
             }
 
             leaf next-hop {
-                type inet:ipv6-address;
+                type inet:ipv6-address-no-zone;
                 description
                     "IPv6 address of the next-hop router";
                 reference
@@ -1196,7 +1196,7 @@ module netflow-v9 {
             }
 
             leaf top-label-ip {
-                type inet:ipv4-address;
+                type inet:ipv4-address-no-zone;
                 description
                     "Forwarding Equivalent Class corresponding to the MPLS Top Label";
                 reference
@@ -1341,7 +1341,7 @@ module netflow-v9 {
             }
 
             leaf next-hop {
-                type inet:ipv4-address;
+                type inet:ipv4-address-no-zone;
                 description
                     "Next-hop router's IPv4 in the BGP domain";
                 reference
@@ -1350,7 +1350,7 @@ module netflow-v9 {
             }
 
             leaf next-hop-ipv6 {
-                type inet:ipv6-address;
+                type inet:ipv6-address-no-zone;
                 description
                     "Next-hop router's IPv6 in the BGP domain";
                 reference
@@ -1534,7 +1534,7 @@ module netflow-v9 {
             }
 
             leaf sampler-address {
-                type inet:ipv4-address;
+                type inet:ipv4-address-no-zone;
                 description
                     "IPv4 address of the device that generated the NetFlow Export Packet, i.e. Netflow Exporter";
 
@@ -1543,7 +1543,7 @@ module netflow-v9 {
             }
 
             leaf sampler-address-ipv6 {
-                type inet:ipv6-address;
+                type inet:ipv6-address-no-zone;
                 description
                     "IPv6 address of the device that generated the NetFlow Export Packet, i.e. Netflow Exporter";
 
