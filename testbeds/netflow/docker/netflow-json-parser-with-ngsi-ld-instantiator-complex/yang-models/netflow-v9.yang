@@ -1524,8 +1524,12 @@ module netflow-v9 {
             leaf time-received {
                 mandatory true;
 
-                type yang:timestamp;
-                units "seconds";
+                type uint64;
+                units "milliseconds";
+
+                /*** type yang:timestamp; ***/
+                /*** units "seconds"; ***/
+
                 description
                     "Timestamp of when a NetFlow Export Packet was received at the collector";
 

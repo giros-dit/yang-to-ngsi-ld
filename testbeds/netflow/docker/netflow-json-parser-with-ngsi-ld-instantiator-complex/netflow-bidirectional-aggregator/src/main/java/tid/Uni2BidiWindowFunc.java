@@ -62,7 +62,7 @@ public class Uni2BidiWindowFunc
 
 				Netflow nfinal;
 				// Take the lower time-received of both flows
-				if(netflow1.getCollectorGoflow2().getTimeReceived().getValue().compareTo(netflow2.getCollectorGoflow2().getTimeReceived().getValue()) <= 0){
+				if(Float.valueOf(netflow1.getCollectorGoflow2().getTimeReceived().longValue()).compareTo(Float.valueOf(netflow2.getCollectorGoflow2().getTimeReceived().longValue())) <= 0){
 					// netflow1 has lower or equal time-received
 					nfinal = NetflowUni2Bidi(netflow1, netflow2);
 				}else{

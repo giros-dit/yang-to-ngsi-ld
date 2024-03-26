@@ -326,7 +326,8 @@ public class NetflowDriver {
 
             // Map fields
             // GOFLOW2 COLLECTOR INFORMATION
-            goflow2_builder.setTimeReceived(Timestamp.getDefaultInstance(data.get("TimeReceived").getAsString()));
+            //goflow2_builder.setTimeReceived(Timestamp.getDefaultInstance(data.get("TimeReceived").getAsString()));
+            goflow2_builder.setTimeReceived(Uint64.valueOf(data.get("TimeReceived").getAsString()));
 
             // Check if sampler address is an IPv4 or IPv6
             String sampler_address = data.get("SamplerAddress").getAsString();

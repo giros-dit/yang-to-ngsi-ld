@@ -99,9 +99,9 @@ func (s *StateNetFlow) DecodeFlow(msg interface{}) error {
 		s.samplinglock.Unlock()
 	}
 
-	ts := uint64(time.Now().UTC().Unix())
+	ts := uint64(time.Now().UTC().UnixMilli())
 	if pkt.SetTime {
-		ts = uint64(pkt.RecvTime.UTC().Unix())
+		ts = uint64(pkt.RecvTime.UTC().UnixMilli())
 	}
 
 	timeTrackStart := time.Now()

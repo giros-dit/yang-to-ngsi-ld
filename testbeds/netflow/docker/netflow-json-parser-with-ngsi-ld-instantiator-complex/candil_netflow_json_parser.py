@@ -6,8 +6,8 @@ def parse_netflow(message):
     data = message.value
 
     timestamp = data["netflow-v9:netflow"]["collector-goflow2"]["time-received"]
-    datetime_ns = np.datetime64(timestamp, 's')
-    observed_at = str(datetime_ns.astype('datetime64[s]')) + 'Z'
+    datetime_ns = np.datetime64(timestamp, 'ms')
+    observed_at = str(datetime_ns.astype('datetime64[ms]')) + 'Z'
 
     if data.get("netflow")is not None:
         netflow = data.get("netflow")

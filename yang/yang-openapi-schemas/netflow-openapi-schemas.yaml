@@ -36,7 +36,7 @@ components:
         
         Reference: NetSampler, GoFlow2, (2021), GitHub repository
         
-        Units: seconds
+        Units: milliseconds
         
         YANG module: netflow-v9.yang
       additionalProperties: false

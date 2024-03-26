@@ -36,6 +36,8 @@ message FlowMessage {
   uint64 TimeFlowEnd = 12;
   uint64 TimeFlowStartMs = 91;
   uint64 TimeFlowEndMs = 92;
+  uint64 TimeFlowStartNs = 93;
+  uint64 TimeFlowEndNs = 94;
 
   // Size of the sampled packet
   uint64 BytesIn = 13;

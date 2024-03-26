@@ -394,14 +394,16 @@ func ConvertNetFlowDataSet(version uint16, baseTime uint32, uptime uint32, recor
 					var timeFirstSwitched uint32
 					DecodeUNumber(v, &timeFirstSwitched)
 					timeDiff := (uptime - timeFirstSwitched)
-					flowMessage.TimeFlowStart = uint64(baseTime - timeDiff / 1000)
+					flowMessage.TimeFlowStart = uint64(baseTime - timeDiff/1000)
 					flowMessage.TimeFlowStartMs = uint64(baseTime)*1000 - uint64(timeDiff)
+					flowMessage.TimeFlowStartNs = uint64(baseTime)*1000000000 - uint64(timeDiff)*1000000
 				case netflow.NFV9_FIELD_LAST_SWITCHED:
 					var timeLastSwitched uint32
 					DecodeUNumber(v, &timeLastSwitched)
 					timeDiff := (uptime - timeLastSwitched)
-					flowMessage.TimeFlowEnd = uint64(baseTime - timeDiff / 1000)
+					flowMessage.TimeFlowEnd = uint64(baseTime - timeDiff/1000)
 					flowMessage.TimeFlowEndMs = uint64(baseTime)*1000 - uint64(timeDiff)
+					flowMessage.TimeFlowEndNs = uint64(baseTime)*1000000000 - uint64(timeDiff)*1000000
 				}
 			} else if version == 10 {
 				switch df.Type {
@@ -409,42 +411,52 @@ func ConvertNetFlowDataSet(version uint16, baseTime uint32, uptime uint32, recor
 					DecodeUNumber(v, &time)
 					flowMessage.TimeFlowStart = time
 					flowMessage.TimeFlowStartMs = time * 1000
+					flowMessage.TimeFlowStartNs = time * 1000000000
 				case netflow.IPFIX_FIELD_flowStartMilliseconds:
 					DecodeUNumber(v, &time)
 					flowMessage.TimeFlowStart = time / 1000
 					flowMessage.TimeFlowStartMs = time
+					flowMessage.TimeFlowStartNs = time * 1000000
 				case netflow.IPFIX_FIELD_flowStartMicroseconds:
 					DecodeUNumber(v, &time)
 					flowMessage.TimeFlowStart = time / 1000000
 					flowMessage.TimeFlowStartMs = time / 1000
+					flowMessage.TimeFlowStartNs = time * 1000
 				case netflow.IPFIX_FIELD_flowStartNanoseconds:
 					DecodeUNumber(v, &time)
 					flowMessage.TimeFlowStart = time / 1000000000
 					flowMessage.TimeFlowStartMs = time / 1000000
+					flowMessage.TimeFlowStartNs = time
 				case netflow.IPFIX_FIELD_flowEndSeconds:
 					DecodeUNumber(v, &time)
 					flowMessage.TimeFlowEnd = time
 					flowMessage.TimeFlowEndMs = time * 1000
+					flowMessage.TimeFlowEndNs = time * 1000000000
 				case netflow.IPFIX_FIELD_flowEndMilliseconds:
 					DecodeUNumber(v, &time)
 					flowMessage.TimeFlowEnd = time / 1000
 					flowMessage.TimeFlowEndMs = time
+					flowMessage.TimeFlowEndNs = time * 1000000
 				case netflow.IPFIX_FIELD_flowEndMicroseconds:
 					DecodeUNumber(v, &time)
 					flowMessage.TimeFlowEnd = time / 1000000
 					flowMessage.TimeFlowEndMs = time / 1000
+					flowMessage.TimeFlowEndNs = time * 1000
 				case netflow.IPFIX_FIELD_flowEndNanoseconds:
 					DecodeUNumber(v, &time)
 					flowMessage.TimeFlowEnd = time / 1000000000
 					flowMessage.TimeFlowEndMs = time / 1000000
+					flowMessage.TimeFlowEndNs = time
 				case netflow.IPFIX_FIELD_flowStartDeltaMicroseconds:
 					DecodeUNumber(v, &time)
 					flowMessage.TimeFlowStart = uint64(baseTime) - time/1000000
 					flowMessage.TimeFlowStartMs = uint64(baseTime)*1000 - time/1000
+					flowMessage.TimeFlowStartNs = uint64(baseTime)*1000000000 - time*1000
 				case netflow.IPFIX_FIELD_flowEndDeltaMicroseconds:
 					DecodeUNumber(v, &time)
 					flowMessage.TimeFlowEnd = uint64(baseTime) - time/1000000
 					flowMessage.TimeFlowEndMs = uint64(baseTime)*1000 - time/1000
+					flowMessage.TimeFlowEndNs = uint64(baseTime)*1000000000 - time*1000
 				// RFC7133
 				case netflow.IPFIX_FIELD_dataLinkFrameSize:
 					DecodeUNumber(v, &(flowMessage.BytesIn))

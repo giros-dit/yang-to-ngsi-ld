@@ -16,10 +16,12 @@ func ConvertNetFlowLegacyRecord(baseTime uint32, uptime uint32, record netflowle
 
 	timeDiffFirst := (uptime - record.First)
 	timeDiffLast := (uptime - record.Last)
-	flowMessage.TimeFlowStart = uint64(baseTime - timeDiffFirst / 1000)
+	flowMessage.TimeFlowStart = uint64(baseTime - timeDiffFirst/1000)
 	flowMessage.TimeFlowStartMs = uint64(baseTime)*1000 - uint64(timeDiffFirst)
-	flowMessage.TimeFlowEnd = uint64(baseTime - timeDiffLast / 1000)
+	flowMessage.TimeFlowStartNs = uint64(baseTime)*1000000000 - uint64(timeDiffFirst)*1000000
+	flowMessage.TimeFlowEnd = uint64(baseTime - timeDiffLast/1000)
 	flowMessage.TimeFlowEndMs = uint64(baseTime)*1000 - uint64(timeDiffLast)
+	flowMessage.TimeFlowEndNs = uint64(baseTime)*1000000000 - uint64(timeDiffLast)*1000000
 
 	v := make(net.IP, 4)
 	binary.BigEndian.PutUint32(v, record.NextHop)
