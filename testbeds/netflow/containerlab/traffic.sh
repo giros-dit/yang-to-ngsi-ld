@@ -1,7 +1,6 @@
 #!/bin/bash
 
 while true; do
-    echo 'Injecting traffic from pc11 to r1 ...'
     ping 10.0.1.1 -i 0.1 -c 5
     nmap -p 80 10.0.1.1
     nmap -p 443 10.0.1.1
