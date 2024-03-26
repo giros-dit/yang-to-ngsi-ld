@@ -1,5 +1,5 @@
 # How to rebuild the GoFlow2 microservice:
-Recipe to follow once substantial changes have been made to the `GoFlow2` source code:
+Recipe to follow once substantial changes have been made to the `GoFlow2` source code. Follow the following steps:
 
 1. Install [protocol buffer compiler](https://grpc.io/docs/protoc-installation/) (i.e., `protoc`):
 ```bash
