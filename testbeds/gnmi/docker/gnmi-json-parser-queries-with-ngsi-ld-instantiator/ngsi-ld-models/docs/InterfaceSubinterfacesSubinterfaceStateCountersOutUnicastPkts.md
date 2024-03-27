@@ -1,6 +1,6 @@
 # InterfaceSubinterfacesSubinterfaceStateCountersOutUnicastPkts
 
-The total number of packets that higher-level protocols requested be transmitted, and that were not addressed to a multicast or broadcast address at this sub-layer, including those that were discarded or not sent.  Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of 'last-clear'.  YANG module: openconfig-interfaces.yang 
+The total number of packets that higher-level protocols requested be transmitted, and that were not addressed to a multicast or broadcast address at this sub-layer, including those that were discarded or not sent.  Discontinuities in the value of this counter can occur at re-initialization of the management system, and at other times as indicated by the value of 'last-clear'.  Reference: RFC 2863: The Interfaces Group MIB - ifHCOutUcastPkts  YANG module: openconfig-interfaces.yang 
 
 ## Properties
 

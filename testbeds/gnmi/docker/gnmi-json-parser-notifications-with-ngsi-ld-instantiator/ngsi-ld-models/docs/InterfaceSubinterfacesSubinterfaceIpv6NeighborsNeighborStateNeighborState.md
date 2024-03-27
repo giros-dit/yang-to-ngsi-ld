@@ -1,6 +1,6 @@
 # InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborStateNeighborState
 
-The Neighbor Unreachability Detection state of this entry.  YANG module: openconfig-if-ip.yang 
+The Neighbor Unreachability Detection state of this entry.  Reference: RFC 4861: Neighbor Discovery for IP version 6 (IPv6)   Section 7.3.2  YANG module: openconfig-if-ip.yang 
 
 ## Properties
 

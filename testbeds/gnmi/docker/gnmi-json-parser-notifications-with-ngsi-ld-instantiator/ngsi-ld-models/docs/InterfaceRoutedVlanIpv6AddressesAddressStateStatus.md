@@ -1,6 +1,6 @@
 # InterfaceRoutedVlanIpv6AddressesAddressStateStatus
 
-The status of an address. Most of the states correspond to states from the IPv6 Stateless Address Autoconfiguration protocol.  YANG module: openconfig-if-ip.yang 
+The status of an address. Most of the states correspond to states from the IPv6 Stateless Address Autoconfiguration protocol.  Reference: RFC 4293: Management Information Base for the       Internet Protocol (IP)       - IpAddressStatusTC  RFC 4862: IPv6 Stateless Address Autoconfiguration  YANG module: openconfig-if-ip.yang 
 
 ## Properties
 

@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class InterfaceHoldTimeStateUp(BaseModel):
     """
-    Dampens advertisement when the interface transitions from down to up. A zero value means dampening is turned off, i.e., immediate notification.  YANG module: openconfig-interfaces.yang 
+    Dampens advertisement when the interface transitions from down to up. A zero value means dampening is turned off, i.e., immediate notification.  Units: milliseconds  YANG module: openconfig-interfaces.yang 
     """ # noqa: E501
     type: Optional[StrictStr] = Field(default='Property', description="Node type. ")
     value: StrictInt

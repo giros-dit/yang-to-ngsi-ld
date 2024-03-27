@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class InterfaceSubinterfacesSubinterfaceIpv6RouterAdvertisementConfigLifetime(BaseModel):
     """
-    The lifetime advertised in the router advertisement neighbor discovery message on this interface.  YANG module: openconfig-if-ip.yang 
+    The lifetime advertised in the router advertisement neighbor discovery message on this interface.  Units: seconds  YANG module: openconfig-if-ip.yang 
     """ # noqa: E501
     type: Optional[StrictStr] = Field(default='Property', description="Node type. ")
     value: StrictInt

@@ -1,6 +1,6 @@
 # InterfaceEthernetConfigAutoNegotiate
 
-Set to TRUE to request the interface to auto-negotiate transmission parameters with its peer interface. When set to FALSE, the transmission parameters are specified manually.  YANG module: openconfig-if-ethernet.yang 
+Set to TRUE to request the interface to auto-negotiate transmission parameters with its peer interface. When set to FALSE, the transmission parameters are specified manually.  Reference: IEEE 802.3-2012 auto-negotiation transmission parameters  YANG module: openconfig-if-ethernet.yang 
 
 ## Properties
 

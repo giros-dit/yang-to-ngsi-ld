@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class InterfaceRoutedVlanIpv6StateCountersInPkts(BaseModel):
     """
-    The total number of IP packets received for the specified address family, including those received in error  YANG module: openconfig-if-ip.yang 
+    The total number of IP packets received for the specified address family, including those received in error  Reference: RFC 4293 - Management Information Base for the Internet Protocol (IP)  YANG module: openconfig-if-ip.yang 
     """ # noqa: E501
     type: Optional[StrictStr] = Field(default='Property', description="Node type. ")
     value: StrictInt

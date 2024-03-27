@@ -1,6 +1,6 @@
 # InterfaceRoutedVlanIpv6StateCountersOutForwardedPkts
 
-The number of packets for which this entity was not their final IP destination and for which it was successful in finding a path to their final destination.  YANG module: openconfig-if-ip.yang 
+The number of packets for which this entity was not their final IP destination and for which it was successful in finding a path to their final destination.  Reference: RFC 4293 - Management Information Base for the Internet Protocol (IP)  YANG module: openconfig-if-ip.yang 
 
 ## Properties
 

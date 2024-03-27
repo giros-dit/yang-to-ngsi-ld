@@ -1,6 +1,6 @@
 # LagSpeed
 
-Reports effective speed of the aggregate interface, based on speed of active member interfaces  YANG module: openconfig-if-aggregate.yang 
+Reports effective speed of the aggregate interface, based on speed of active member interfaces  Units: Mbps  YANG module: openconfig-if-aggregate.yang 
 
 ## Properties
 

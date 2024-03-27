@@ -1,0 +1,1114 @@
+[
+    {
+        "id": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology",
+        "type": "Network",
+        "networkId": {
+            "type": "Property",
+            "value": "telemetry-testbed-l3-topology"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:pc12-eth1-s1-eth2",
+        "type": "NetworkLink",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "pc12-eth1-s1-eth2"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkDestination:telemetry-testbed-l3-topology:pc12-eth1-s1-eth2:pc12:eth1",
+        "type": "NetworkLinkDestination",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:pc12-eth1-s1-eth2"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:pc12-eth1-s1-eth2:pc12"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:TerminationPoint:telemetry-testbed-l3-topology:pc12-eth1-s1-eth2:pc12:eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkSource:telemetry-testbed-l3-topology:pc12-eth1-s1-eth2:s1:eth2",
+        "type": "NetworkLinkSource",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:pc12-eth1-s1-eth2"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:pc12-eth1-s1-eth2:s1"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:TerminationPoint:telemetry-testbed-l3-topology:pc12-eth1-s1-eth2:s1:eth2"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r1-eth3-r3-eth2",
+        "type": "NetworkLink",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "r1-eth3-r3-eth2"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkDestination:telemetry-testbed-l3-topology:r1-eth3-r3-eth2:r1:eth3",
+        "type": "NetworkLinkDestination",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r1-eth3-r3-eth2"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:r1-eth3-r3-eth2:r1"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:TerminationPoint:telemetry-testbed-l3-topology:r1-eth3-r3-eth2:r1:eth3"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkSource:telemetry-testbed-l3-topology:r1-eth3-r3-eth2:r3:eth2",
+        "type": "NetworkLinkSource",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r1-eth3-r3-eth2"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:r1-eth3-r3-eth2:r3"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:TerminationPoint:telemetry-testbed-l3-topology:r1-eth3-r3-eth2:r3:eth2"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r1-eth2-r2-eth2",
+        "type": "NetworkLink",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "r1-eth2-r2-eth2"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkDestination:telemetry-testbed-l3-topology:r1-eth2-r2-eth2:r1:eth2",
+        "type": "NetworkLinkDestination",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r1-eth2-r2-eth2"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:r1-eth2-r2-eth2:r1"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:TerminationPoint:telemetry-testbed-l3-topology:r1-eth2-r2-eth2:r1:eth2"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkSource:telemetry-testbed-l3-topology:r1-eth2-r2-eth2:r2:eth2",
+        "type": "NetworkLinkSource",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r1-eth2-r2-eth2"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:r1-eth2-r2-eth2:r2"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:TerminationPoint:telemetry-testbed-l3-topology:r1-eth2-r2-eth2:r2:eth2"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r2-eth1-s2-eth3",
+        "type": "NetworkLink",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "r2-eth1-s2-eth3"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkDestination:telemetry-testbed-l3-topology:r2-eth1-s2-eth3:r2:eth1",
+        "type": "NetworkLinkDestination",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r2-eth1-s2-eth3"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:r2-eth1-s2-eth3:r2"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:TerminationPoint:telemetry-testbed-l3-topology:r2-eth1-s2-eth3:r2:eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkSource:telemetry-testbed-l3-topology:r2-eth1-s2-eth3:s2:eth3",
+        "type": "NetworkLinkSource",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r2-eth1-s2-eth3"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:r2-eth1-s2-eth3:s2"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:TerminationPoint:telemetry-testbed-l3-topology:r2-eth1-s2-eth3:s2:eth3"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s2-eth1-pc21-eth1",
+        "type": "NetworkLink",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "s2-eth1-pc21-eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkDestination:telemetry-testbed-l3-topology:s2-eth1-pc21-eth1:pc21:eth1",
+        "type": "NetworkLinkDestination",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s2-eth1-pc21-eth1"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:s2-eth1-pc21-eth1:pc21"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:TerminationPoint:telemetry-testbed-l3-topology:s2-eth1-pc21-eth1:pc21:eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkSource:telemetry-testbed-l3-topology:s2-eth1-pc21-eth1:s2:eth1",
+        "type": "NetworkLinkSource",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s2-eth1-pc21-eth1"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:s2-eth1-pc21-eth1:s2"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:TerminationPoint:telemetry-testbed-l3-topology:s2-eth1-pc21-eth1:s2:eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r2-eth3-r3-eth3",
+        "type": "NetworkLink",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "r2-eth3-r3-eth3"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkDestination:telemetry-testbed-l3-topology:r2-eth3-r3-eth3:r2:eth3",
+        "type": "NetworkLinkDestination",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r2-eth3-r3-eth3"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:r2-eth3-r3-eth3:r2"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:TerminationPoint:telemetry-testbed-l3-topology:r2-eth3-r3-eth3:r2:eth3"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkSource:telemetry-testbed-l3-topology:r2-eth3-r3-eth3:r3:eth3",
+        "type": "NetworkLinkSource",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r2-eth3-r3-eth3"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:r2-eth3-r3-eth3:r3"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:TerminationPoint:telemetry-testbed-l3-topology:r2-eth3-r3-eth3:r3:eth3"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s2-eth2-pc22-eth1",
+        "type": "NetworkLink",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "s2-eth2-pc22-eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkDestination:telemetry-testbed-l3-topology:s2-eth2-pc22-eth1:pc22:eth1",
+        "type": "NetworkLinkDestination",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s2-eth2-pc22-eth1"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:s2-eth2-pc22-eth1:pc22"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:TerminationPoint:telemetry-testbed-l3-topology:s2-eth2-pc22-eth1:pc22:eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkSource:telemetry-testbed-l3-topology:s2-eth2-pc22-eth1:s2:eth2",
+        "type": "NetworkLinkSource",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s2-eth2-pc22-eth1"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:s2-eth2-pc22-eth1:s2"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:TerminationPoint:telemetry-testbed-l3-topology:s2-eth2-pc22-eth1:s2:eth2"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r3-eth1-s3-eth3",
+        "type": "NetworkLink",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "r3-eth1-s3-eth3"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkDestination:telemetry-testbed-l3-topology:r3-eth1-s3-eth3:r3:eth1",
+        "type": "NetworkLinkDestination",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r3-eth1-s3-eth3"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:r3-eth1-s3-eth3:r3"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:TerminationPoint:telemetry-testbed-l3-topology:r3-eth1-s3-eth3:r3:eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkSource:telemetry-testbed-l3-topology:r3-eth1-s3-eth3:s3:eth3",
+        "type": "NetworkLinkSource",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r3-eth1-s3-eth3"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:r3-eth1-s3-eth3:s3"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:TerminationPoint:telemetry-testbed-l3-topology:r3-eth1-s3-eth3:s3:eth3"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s3-eth1-pc31-eth1",
+        "type": "NetworkLink",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "s3-eth1-pc31-eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkDestination:telemetry-testbed-l3-topology:s3-eth1-pc31-eth1:pc31:eth1",
+        "type": "NetworkLinkDestination",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s3-eth1-pc31-eth1"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:s3-eth1-pc31-eth1:pc31"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:TerminationPoint:telemetry-testbed-l3-topology:s3-eth1-pc31-eth1:pc31:eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkSource:telemetry-testbed-l3-topology:s3-eth1-pc31-eth1:s3:eth1",
+        "type": "NetworkLinkSource",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s3-eth1-pc31-eth1"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:s3-eth1-pc31-eth1:s3"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:TerminationPoint:telemetry-testbed-l3-topology:s3-eth1-pc31-eth1:s3:eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s1-eth3-r1-eth1",
+        "type": "NetworkLink",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "s1-eth3-r1-eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkDestination:telemetry-testbed-l3-topology:s1-eth3-r1-eth1:r1:eth1",
+        "type": "NetworkLinkDestination",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s1-eth3-r1-eth1"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:s1-eth3-r1-eth1:r1"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:TerminationPoint:telemetry-testbed-l3-topology:s1-eth3-r1-eth1:r1:eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkSource:telemetry-testbed-l3-topology:s1-eth3-r1-eth1:s1:eth3",
+        "type": "NetworkLinkSource",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s1-eth3-r1-eth1"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:s1-eth3-r1-eth1:s1"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:TerminationPoint:telemetry-testbed-l3-topology:s1-eth3-r1-eth1:s1:eth3"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s3-eth2-pc32-eth1",
+        "type": "NetworkLink",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "s3-eth2-pc32-eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkDestination:telemetry-testbed-l3-topology:s3-eth2-pc32-eth1:pc32:eth1",
+        "type": "NetworkLinkDestination",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s3-eth2-pc32-eth1"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:s3-eth2-pc32-eth1:pc32"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:TerminationPoint:telemetry-testbed-l3-topology:s3-eth2-pc32-eth1:pc32:eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkSource:telemetry-testbed-l3-topology:s3-eth2-pc32-eth1:s3:eth2",
+        "type": "NetworkLinkSource",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s3-eth2-pc32-eth1"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:s3-eth2-pc32-eth1:s3"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:TerminationPoint:telemetry-testbed-l3-topology:s3-eth2-pc32-eth1:s3:eth2"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:pc11-eth1-s1-eth1",
+        "type": "NetworkLink",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "pc11-eth1-s1-eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkDestination:telemetry-testbed-l3-topology:pc11-eth1-s1-eth1:pc11:eth1",
+        "type": "NetworkLinkDestination",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:pc11-eth1-s1-eth1"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:pc11-eth1-s1-eth1:pc11"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:TerminationPoint:telemetry-testbed-l3-topology:pc11-eth1-s1-eth1:pc11:eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkSource:telemetry-testbed-l3-topology:pc11-eth1-s1-eth1:s1:eth1",
+        "type": "NetworkLinkSource",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:pc11-eth1-s1-eth1"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Node:telemetry-testbed-l3-topology:pc11-eth1-s1-eth1:s1"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:TerminationPoint:telemetry-testbed-l3-topology:pc11-eth1-s1-eth1:s1:eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc12",
+        "type": "NetworkNode",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "nodeId": {
+            "type": "Property",
+            "value": "pc12"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:pc12:eth3",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc12"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth3"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:pc12:eth2",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc12"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth2"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:pc12:eth1",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc12"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s3",
+        "type": "NetworkNode",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "nodeId": {
+            "type": "Property",
+            "value": "s3"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:s3:eth3",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s3"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth3"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:s3:eth2",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s3"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth2"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:s3:eth1",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s3"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:r2",
+        "type": "NetworkNode",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "nodeId": {
+            "type": "Property",
+            "value": "r2"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:r2:eth3",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:r2"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth3"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:r2:eth2",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:r2"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth2"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:r2:eth1",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:r2"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:r3",
+        "type": "NetworkNode",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "nodeId": {
+            "type": "Property",
+            "value": "r3"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:r3:eth3",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:r3"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth3"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:r3:eth2",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:r3"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth2"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:r3:eth1",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:r3"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s1",
+        "type": "NetworkNode",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "nodeId": {
+            "type": "Property",
+            "value": "s1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:s1:eth3",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s1"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth3"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:s1:eth2",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s1"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth2"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:s1:eth1",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s1"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc31",
+        "type": "NetworkNode",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "nodeId": {
+            "type": "Property",
+            "value": "pc31"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:pc31:eth3",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc31"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth3"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:pc31:eth2",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc31"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth2"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:pc31:eth1",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc31"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s2",
+        "type": "NetworkNode",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "nodeId": {
+            "type": "Property",
+            "value": "s2"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:s2:eth3",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s2"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth3"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:s2:eth2",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s2"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth2"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:s2:eth1",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s2"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:r1",
+        "type": "NetworkNode",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "nodeId": {
+            "type": "Property",
+            "value": "r1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:r1:eth3",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:r1"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth3"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:r1:eth2",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:r1"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth2"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:r1:eth1",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:r1"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc22",
+        "type": "NetworkNode",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "nodeId": {
+            "type": "Property",
+            "value": "pc22"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:pc22:eth3",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc22"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth3"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:pc22:eth2",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc22"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth2"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:pc22:eth1",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc22"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc11",
+        "type": "NetworkNode",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "nodeId": {
+            "type": "Property",
+            "value": "pc11"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:pc11:eth3",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc11"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth3"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:pc11:eth2",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc11"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth2"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:pc11:eth1",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc11"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc32",
+        "type": "NetworkNode",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "nodeId": {
+            "type": "Property",
+            "value": "pc32"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:pc32:eth3",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc32"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth3"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:pc32:eth2",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc32"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth2"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:pc32:eth1",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc32"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth1"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc21",
+        "type": "NetworkNode",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "nodeId": {
+            "type": "Property",
+            "value": "pc21"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:pc21:eth3",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc21"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth3"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:pc21:eth2",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc21"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth2"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:pc21:eth1",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc21"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth1"
+        }
+    }
+]

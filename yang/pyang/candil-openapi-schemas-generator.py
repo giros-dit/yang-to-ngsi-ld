@@ -430,6 +430,8 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
+                    if element.search_one('reference') != None:
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'Reference: ' + str(element.search_one('reference').arg).replace('\n', '\n                ').replace('  ', ' '))
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + yang_module_name + '.yang')
                     depth_level -= 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
@@ -500,6 +502,8 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
+                    if element.search_one('reference') != None:
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'Reference: ' + str(element.search_one('reference').arg).replace('\n', '\n                ').replace('  ', ' '))
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + yang_module_name + '.yang')
                     depth_level -= 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
@@ -572,6 +576,8 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
+                    if element.search_one('reference') != None:
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'Reference: ' + str(element.search_one('reference').arg).replace('\n', '\n                ').replace('  ', ' '))
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + yang_module_name + '.yang')
                     depth_level -= 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
@@ -666,6 +672,8 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
+                    if element.search_one('reference') != None:
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'Reference: ' + str(element.search_one('reference').arg).replace('\n', '\n                ').replace('  ', ' '))
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + yang_module_name + '.yang')
                     depth_level -= 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "allOf:")
@@ -767,6 +775,10 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
             depth_level += 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
+            if element.search_one('reference') != None:
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'Reference: ' + str(element.search_one('reference').arg).replace('\n', '\n                ').replace('  ', ' '))
+            if element.search_one('units') != None:
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'Units: ' + str(element.search_one('units').arg).replace('\n', '\n                ').replace('  ', ' '))
             fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + yang_module_name + '.yang')
             depth_level -= 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "oneOf:")
@@ -817,6 +829,10 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
             depth_level += 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
+            if element.search_one('reference') != None:
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'Reference: ' + str(element.search_one('reference').arg).replace('\n', '\n                ').replace('  ', ' '))
+            if element.search_one('units') != None:
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'Units: ' + str(element.search_one('units').arg).replace('\n', '\n                ').replace('  ', ' '))
             fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + yang_module_name + '.yang')
             depth_level -= 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "additionalProperties: false")
@@ -846,7 +862,13 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                 if element.search_one('default') is not None:
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "default: " + str(element.search_one('default').arg))
             else:
-                fd.write('\n' + INDENTATION_BLOCK * depth_level + "type: " + str(openapi_schema_type))
+                if str(openapi_schema_type) == "array":
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "type: " + str(openapi_schema_type))
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "items:" )
+                    depth_level += 1
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "type: string")
+                else:
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "type: " + str(openapi_schema_type))
                 if is_datetime(element) == True:
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "format: datetime") 
                 if openapi_schema_format is not None:
@@ -869,6 +891,8 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     maximum = element_type_range.split("..")[1]
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "maximum: " + maximum)
 
+            if str(openapi_schema_type) == "array":
+                depth_level -=1
             depth_level -= 2
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "required:")
             depth_level += 1
@@ -932,6 +956,10 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
             depth_level += 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
+            if element.search_one('reference') != None:
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'Reference: ' + str(element.search_one('reference').arg).replace('\n', '\n                ').replace('  ', ' '))
+            if element.search_one('units') != None:
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'Units: ' + str(element.search_one('units').arg).replace('\n', '\n                ').replace('  ', ' '))
             fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + yang_module_name + '.yang')
             depth_level -= 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "additionalProperties: false")
@@ -962,7 +990,13 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                 if element.search_one('default') is not None:
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "default: " + str(element.search_one('default').arg))
             else:
-                fd.write('\n' + INDENTATION_BLOCK * depth_level + "type: " + str(openapi_schema_type))
+                if str(openapi_schema_type) == "array":
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "type: " + str(openapi_schema_type))
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "items:" )
+                    depth_level += 1
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "type: string")
+                else:
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "type: " + str(openapi_schema_type))
                 if is_datetime(element) == True:
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "format: datetime") 
                 if openapi_schema_format is not None:
@@ -984,7 +1018,9 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "minimum: " + minimum) 
                     maximum = element_type_range.split("..")[1]
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "maximum: " + maximum)
-
+            
+            if str(openapi_schema_type) == "array":
+                depth_level -=1
             depth_level -= 2
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "required:")
             depth_level += 1
@@ -1011,6 +1047,10 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
             depth_level += 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
+            if element.search_one('reference') != None:
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'Reference: ' + str(element.search_one('reference').arg).replace('\n', '\n                ').replace('  ', ' '))
+            if element.search_one('units') != None:
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'Units: ' + str(element.search_one('units').arg).replace('\n', '\n                ').replace('  ', ' '))
             fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + yang_module_name + '.yang')
             depth_level -= 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "additionalProperties: false")

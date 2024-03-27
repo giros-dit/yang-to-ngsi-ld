@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "netflow-v9": "http://data-aggregator.com/ns/netflow/",
+        "ExportPacketFlowDataRecordPermanentFlow": "netflow-v9:netflow/export-packet/flow-data-record/permanent-flow",
+        "bytesIn": "netflow-v9:netflow/export-packet/flow-data-record/permanent-flow/bytes-in",
+        "pktsIn": "netflow-v9:netflow/export-packet/flow-data-record/permanent-flow/pkts-in"
+    }
+}

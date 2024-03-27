@@ -1,0 +1,601 @@
+openapi: 3.0.3
+info:
+  title: OpenAPI schemas for YANG data models ietf-network@2018-02-26.yang, ietf-network-topology@2018-02-26.yang, ietf-inet-types@2021-02-22.yang.
+  version: 1.0.0
+  description: OpenAPI schemas for YANG data models compliant with the NGSI-LD OAS V1.6.1 metamodel according to ETSI GS CIM 009 V1.6.1.
+paths: {}
+components:
+  schemas:
+    Network:
+      description: |
+        Describes a network.
+        A network typically contains an inventory of nodes,
+        topological information (augmented through the
+        network-topology data model), and layering information.
+        
+        YANG module: ietf-network.yang
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be Network.
+              type: string
+              enum:
+                - Network
+              default: Network
+            networkId:
+              $ref: '#/components/schemas/NetworkId'
+        - required:
+          - type
+    NetworkId:
+      description: |
+        Identifies a network.
+        
+        YANG module: ietf-network.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+          required:
+            - value
+    NetworkSupportingNetwork:
+      description: |
+        An underlay network, used to represent layered network
+        topologies.
+        
+        YANG module: ietf-network.yang
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be NetworkSupportingNetwork.
+              type: string
+              enum:
+                - NetworkSupportingNetwork
+              default: NetworkSupportingNetwork
+            networkRef:
+              $ref: '#/components/schemas/NetworkSupportingNetworkNetworkRef'
+            isPartOf:
+              $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Network.
+        - required:
+          - type
+          - isPartOf
+    NetworkSupportingNetworkNetworkRef:
+      description: |
+        References the underlay network.
+        
+        YANG module: ietf-network.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
+        - type: object
+          properties:
+            object:
+              description: Relationship with Entity type Network.
+              type: string
+          required:
+            - object
+    NetworkNode:
+      description: |
+        The inventory of nodes of this network.
+        
+        YANG module: ietf-network.yang
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be NetworkNode.
+              type: string
+              enum:
+                - NetworkNode
+              default: NetworkNode
+            nodeId:
+              $ref: '#/components/schemas/NodeId'
+            isPartOf:
+              $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Network.
+        - required:
+          - type
+          - isPartOf
+    NodeId:
+      description: |
+        Uniquely identifies a node within the containing
+        network.
+        
+        YANG module: ietf-network.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+          required:
+            - value
+    NetworkNodeSupportingNode:
+      description: |
+        Represents another node that is in an underlay network
+        and that supports this node. Used to represent layering
+        structure.
+        
+        YANG module: ietf-network.yang
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be NetworkNodeSupportingNode.
+              type: string
+              enum:
+                - NetworkNodeSupportingNode
+              default: NetworkNodeSupportingNode
+            networkRef:
+              $ref: '#/components/schemas/NetworkNodeSupportingNodeNetworkRef'
+            nodeRef:
+              $ref: '#/components/schemas/NetworkNodeSupportingNodeNodeRef'
+            isPartOf:
+              $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type NetworkNode.
+        - required:
+          - type
+          - isPartOf
+    NetworkNodeSupportingNodeNetworkRef:
+      description: |
+        References the underlay network of which the
+        underlay node is a part.
+        
+        YANG module: ietf-network.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
+        - type: object
+          properties:
+            object:
+              description: Relationship with Entity type SupportingNetwork.
+              type: string
+          required:
+            - object
+    NetworkNodeSupportingNodeNodeRef:
+      description: |
+        References the underlay node itself.
+        
+        YANG module: ietf-network.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
+        - type: object
+          properties:
+            object:
+              description: Relationship with Entity type Node.
+              type: string
+          required:
+            - object
+    NetworkNodeTerminationPoint:
+      description: |
+        A termination point can terminate a link.
+        Depending on the type of topology, a termination point
+        could, for example, refer to a port or an interface.
+        
+        YANG module: ietf-network-topology.yang
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be NetworkNodeTerminationPoint.
+              type: string
+              enum:
+                - NetworkNodeTerminationPoint
+              default: NetworkNodeTerminationPoint
+            tpId:
+              $ref: '#/components/schemas/TpId'
+            isPartOf:
+              $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type NetworkNode.
+        - required:
+          - type
+          - isPartOf
+    TpId:
+      description: |
+        Termination point identifier.
+        
+        YANG module: ietf-network-topology.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+          required:
+            - value
+    NetworkNodeTerminationPointSupportingTerminationPoint:
+      description: |
+        This list identifies any termination points on which a
+        given termination point depends or onto which it maps.
+        Those termination points will themselves be contained
+        in a supporting node. This dependency information can be
+        inferred from the dependencies between links. Therefore,
+        this item is not separately configurable. Hence, no
+        corresponding constraint needs to be articulated.
+        The corresponding information is simply provided by the
+        implementing system.
+        
+        YANG module: ietf-network-topology.yang
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be NetworkNodeTerminationPointSupportingTerminationPoint.
+              type: string
+              enum:
+                - NetworkNodeTerminationPointSupportingTerminationPoint
+              default: NetworkNodeTerminationPointSupportingTerminationPoint
+            networkRef:
+              $ref: '#/components/schemas/NetworkNodeTerminationPointSupportingTerminationPointNetworkRef'
+            nodeRef:
+              $ref: '#/components/schemas/NetworkNodeTerminationPointSupportingTerminationPointNodeRef'
+            tpRef:
+              $ref: '#/components/schemas/TpRef'
+            isPartOf:
+              $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type NetworkNodeTerminationPoint.
+        - required:
+          - type
+          - isPartOf
+    NetworkNodeTerminationPointSupportingTerminationPointNetworkRef:
+      description: |
+        This leaf identifies in which topology the
+        supporting termination point is present.
+        
+        YANG module: ietf-network-topology.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
+        - type: object
+          properties:
+            object:
+              description: Relationship with Entity type SupportingNode.
+              type: string
+          required:
+            - object
+    NetworkNodeTerminationPointSupportingTerminationPointNodeRef:
+      description: |
+        This leaf identifies in which node the supporting
+        termination point is present.
+        
+        YANG module: ietf-network-topology.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
+        - type: object
+          properties:
+            object:
+              description: Relationship with Entity type SupportingNode.
+              type: string
+          required:
+            - object
+    TpRef:
+      description: |
+        Reference to the underlay node (the underlay node must
+        be in a different topology).
+        
+        YANG module: ietf-network-topology.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
+        - type: object
+          properties:
+            object:
+              description: Relationship with Entity type TerminationPoint.
+              type: string
+          required:
+            - object
+    NetworkLink:
+      description: |
+        A network link connects a local (source) node and
+        a remote (destination) node via a set of the respective
+        node's termination points. It is possible to have several
+        links between the same source and destination nodes.
+        Likewise, a link could potentially be re-homed between
+        termination points. Therefore, in order to ensure that we
+        would always know to distinguish between links, every link
+        is identified by a dedicated link identifier. Note that a
+        link models a point-to-point link, not a multipoint link.
+        
+        YANG module: ietf-network-topology.yang
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be NetworkLink.
+              type: string
+              enum:
+                - NetworkLink
+              default: NetworkLink
+            linkId:
+              $ref: '#/components/schemas/LinkId'
+            isPartOf:
+              $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type Network.
+        - required:
+          - type
+          - isPartOf
+    LinkId:
+      description: |
+        The identifier of a link in the topology.
+        A link is specific to a topology to which it belongs.
+        
+        YANG module: ietf-network-topology.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+          required:
+            - value
+    NetworkLinkSource:
+      description: |
+        This container holds the logical source of a particular
+        link.
+        
+        YANG module: ietf-network-topology.yang
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be NetworkLinkSource.
+              type: string
+              enum:
+                - NetworkLinkSource
+              default: NetworkLinkSource
+            sourceNode:
+              $ref: '#/components/schemas/SourceNode'
+            sourceTp:
+              $ref: '#/components/schemas/SourceTp'
+            isPartOf:
+              $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type NetworkLink.
+        - required:
+          - type
+          - isPartOf
+    SourceNode:
+      description: |
+        Source node identifier. Must be in the same topology.
+        
+        YANG module: ietf-network-topology.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
+        - type: object
+          properties:
+            object:
+              description: Relationship with Entity type Node.
+              type: string
+          required:
+            - object
+    SourceTp:
+      description: |
+        This termination point is located within the source node
+        and terminates the link.
+        
+        YANG module: ietf-network-topology.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
+        - type: object
+          properties:
+            object:
+              description: Relationship with Entity type TerminationPoint.
+              type: string
+          required:
+            - object
+    NetworkLinkDestination:
+      description: |
+        This container holds the logical destination of a
+        particular link.
+        
+        YANG module: ietf-network-topology.yang
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be NetworkLinkDestination.
+              type: string
+              enum:
+                - NetworkLinkDestination
+              default: NetworkLinkDestination
+            destNode:
+              $ref: '#/components/schemas/DestNode'
+            destTp:
+              $ref: '#/components/schemas/DestTp'
+            isPartOf:
+              $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type NetworkLink.
+        - required:
+          - type
+          - isPartOf
+    DestNode:
+      description: |
+        Destination node identifier. Must be in the same
+        network.
+        
+        YANG module: ietf-network-topology.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
+        - type: object
+          properties:
+            object:
+              description: Relationship with Entity type Node.
+              type: string
+          required:
+            - object
+    DestTp:
+      description: |
+        This termination point is located within the
+        destination node and terminates the link.
+        
+        YANG module: ietf-network-topology.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
+        - type: object
+          properties:
+            object:
+              description: Relationship with Entity type TerminationPoint.
+              type: string
+          required:
+            - object
+    NetworkLinkSupportingLink:
+      description: |
+        Identifies the link or links on which this link depends.
+        
+        YANG module: ietf-network-topology.yang
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be NetworkLinkSupportingLink.
+              type: string
+              enum:
+                - NetworkLinkSupportingLink
+              default: NetworkLinkSupportingLink
+            networkRef:
+              $ref: '#/components/schemas/NetworkLinkSupportingLinkNetworkRef'
+            linkRef:
+              $ref: '#/components/schemas/LinkRef'
+            isPartOf:
+              $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type NetworkLink.
+        - required:
+          - type
+          - isPartOf
+    NetworkLinkSupportingLinkNetworkRef:
+      description: |
+        This leaf identifies in which underlay topology
+        the supporting link is present.
+        
+        YANG module: ietf-network-topology.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
+        - type: object
+          properties:
+            object:
+              description: Relationship with Entity type SupportingNetwork.
+              type: string
+          required:
+            - object
+    LinkRef:
+      description: |
+        This leaf identifies a link that is a part
+        of this link's underlay. Reference loops in which
+        a link identifies itself as its underlay, either
+        directly or transitively, are not allowed.
+        
+        YANG module: ietf-network-topology.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
+        - type: object
+          properties:
+            object:
+              description: Relationship with Entity type Link.
+              type: string
+          required:
+            - object
+    YANGIdentity:
+      description: A representation schema for YANG Identities.
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be YANGIdentity.
+              type: string
+              enum:
+                - YANGIdentity
+              default: YANGIdentity
+            description:
+              $ref: '#/components/schemas/YANGIdentityDescription'
+            identifier:
+              $ref: '#/components/schemas/YANGIdentityIdentifier'
+            namespace:
+              $ref: '#/components/schemas/YANGIdentityNamespace'
+            broader:
+              $ref: '#/components/schemas/YANGIdentityBroader'
+        - required:
+          - type
+          - description
+          - identifier
+          - namespace
+    YANGIdentityDescription:
+      description: NGSI-LD Relationship Type. YANG Identity description.
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+          required:
+            - value
+    YANGIdentityIdentifier:
+      description: NGSI-LD Property Type. YANG Identity identifier.
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+          required:
+            - value
+    YANGIdentityNamespace:
+      description: NGSI-LD Property Type. YANG Identity namespace.
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+          required:
+            - value
+    YANGIdentityBroader:
+      description: NGSI-LD Relationship Type. The relationship to the base YANG Identity.
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
+        - type: object
+          properties:
+            object:
+              type: string
+          required:
+            - object
+    IsPartOf:
+      description: NGSI-LD Relationship Type. A hierarchical relationship.
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
+        - type: object
+          properties:
+            object:
+              type: string
+          required:
+            - object

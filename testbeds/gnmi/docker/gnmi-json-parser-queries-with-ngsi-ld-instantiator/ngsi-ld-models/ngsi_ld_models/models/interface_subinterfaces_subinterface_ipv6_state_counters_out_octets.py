@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class InterfaceSubinterfacesSubinterfaceIpv6StateCountersOutOctets(BaseModel):
     """
-    The total number of octets in IP packets for the specified address family that the device supplied to the lower layers for transmission. This includes packets generated locally and those forwarded by the device.  YANG module: openconfig-if-ip.yang 
+    The total number of octets in IP packets for the specified address family that the device supplied to the lower layers for transmission. This includes packets generated locally and those forwarded by the device.  Reference: RFC 4293 - Management Information Base for the Internet Protocol (IP)  YANG module: openconfig-if-ip.yang 
     """ # noqa: E501
     type: Optional[StrictStr] = Field(default='Property', description="Node type. ")
     value: StrictInt

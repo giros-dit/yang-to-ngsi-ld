@@ -1,0 +1,46 @@
+!!! CISCO CSR1000v r1 configuration !!!
+
+! NetFlow v9 configuration
+
+! Loopback0 (for NetFlow v9 Exporter)
+interface Loopback0
+ ip address 1.1.1.1 255.255.255.255
+ no shutdown
+!
+
+flow exporter netflow_exporter
+ description Export NetFlow v9 to GoFlow2 Collector
+ destination 10.0.1.3
+ source Loopback0
+ transport udp 9995
+ version 9
+!
+flow monitor netflow_v9
+ exporter netflow_exporter
+ cache timeout active 30
+ cache timeout inactive 15
+ record netflow-original
+
+! Interfaces configuration
+
+! GigabitEthernet2 (c1 <-> r1)
+interface GigabitEthernet2
+ ip address 10.0.1.1 255.255.255.0
+ ip flow monitor netflow_v9 input
+ ip flow monitor netflow_v9 output
+ no shutdown
+!
+
+! GigabitEthernet3 (r1 <-> r2)
+interface GigabitEthernet3
+ ip address 192.168.254.1 255.255.255.0
+ ip flow monitor netflow_v9 input
+ ip flow monitor netflow_v9 output
+ no shutdown
+!
+
+! Static route
+ip route 10.0.2.0 255.255.255.0 192.168.254.2
+!
+
+!!! END CONFIG !!!

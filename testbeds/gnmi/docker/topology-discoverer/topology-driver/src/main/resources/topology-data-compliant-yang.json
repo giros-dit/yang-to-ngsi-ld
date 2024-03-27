@@ -1,0 +1,313 @@
+{
+  "ietf-network:networks": {
+    "network": [
+      {
+        "network-id": "telemetry-testbed-l3-topology",
+        "ietf-network-topology:link": [
+          {
+            "link-id": "pc11-eth1-s1-eth1",
+            "source": {
+              "source-node": "s1",
+              "source-tp": "eth1"
+            },
+            "destination": {
+              "dest-tp": "eth1",
+              "dest-node": "pc11"
+            }
+          },
+          {
+            "link-id": "s3-eth2-pc32-eth1",
+            "source": {
+              "source-node": "s3",
+              "source-tp": "eth2"
+            },
+            "destination": {
+              "dest-tp": "eth1",
+              "dest-node": "pc32"
+            }
+          },
+          {
+            "link-id": "s1-eth3-r1-eth1",
+            "source": {
+              "source-node": "s1",
+              "source-tp": "eth3"
+            },
+            "destination": {
+              "dest-tp": "eth1",
+              "dest-node": "r1"
+            }
+          },
+          {
+            "link-id": "s3-eth1-pc31-eth1",
+            "source": {
+              "source-node": "s3",
+              "source-tp": "eth1"
+            },
+            "destination": {
+              "dest-tp": "eth1",
+              "dest-node": "pc31"
+            }
+          },
+          {
+            "link-id": "r3-eth1-s3-eth3",
+            "source": {
+              "source-node": "s3",
+              "source-tp": "eth3"
+            },
+            "destination": {
+              "dest-tp": "eth1",
+              "dest-node": "r3"
+            }
+          },
+          {
+            "link-id": "s2-eth2-pc22-eth1",
+            "source": {
+              "source-node": "s2",
+              "source-tp": "eth2"
+            },
+            "destination": {
+              "dest-tp": "eth1",
+              "dest-node": "pc22"
+            }
+          },
+          {
+            "link-id": "r2-eth3-r3-eth3",
+            "source": {
+              "source-node": "r3",
+              "source-tp": "eth3"
+            },
+            "destination": {
+              "dest-tp": "eth3",
+              "dest-node": "r2"
+            }
+          },
+          {
+            "link-id": "s2-eth1-pc21-eth1",
+            "source": {
+              "source-node": "s2",
+              "source-tp": "eth1"
+            },
+            "destination": {
+              "dest-tp": "eth1",
+              "dest-node": "pc21"
+            }
+          },
+          {
+            "link-id": "r2-eth1-s2-eth3",
+            "source": {
+              "source-node": "s2",
+              "source-tp": "eth3"
+            },
+            "destination": {
+              "dest-tp": "eth1",
+              "dest-node": "r2"
+            }
+          },
+          {
+            "link-id": "r1-eth2-r2-eth2",
+            "source": {
+              "source-node": "r2",
+              "source-tp": "eth2"
+            },
+            "destination": {
+              "dest-tp": "eth2",
+              "dest-node": "r1"
+            }
+          },
+          {
+            "link-id": "r1-eth3-r3-eth2",
+            "source": {
+              "source-node": "r3",
+              "source-tp": "eth2"
+            },
+            "destination": {
+              "dest-tp": "eth3",
+              "dest-node": "r1"
+            }
+          },
+          {
+            "link-id": "pc12-eth1-s1-eth2",
+            "source": {
+              "source-node": "s1",
+              "source-tp": "eth2"
+            },
+            "destination": {
+              "dest-tp": "eth1",
+              "dest-node": "pc12"
+            }
+          }
+        ],
+        "node": [
+          {
+            "node-id": "pc21",
+            "ietf-network-topology:termination-point": [
+              {
+                "tp-id": "eth1"
+              },
+              {
+                "tp-id": "eth2"
+              },
+              {
+                "tp-id": "eth3"
+              }
+            ]
+          },
+          {
+            "node-id": "pc32",
+            "ietf-network-topology:termination-point": [
+              {
+                "tp-id": "eth1"
+              },
+              {
+                "tp-id": "eth2"
+              },
+              {
+                "tp-id": "eth3"
+              }
+            ]
+          },
+          {
+            "node-id": "pc11",
+            "ietf-network-topology:termination-point": [
+              {
+                "tp-id": "eth1"
+              },
+              {
+                "tp-id": "eth2"
+              },
+              {
+                "tp-id": "eth3"
+              }
+            ]
+          },
+          {
+            "node-id": "pc22",
+            "ietf-network-topology:termination-point": [
+              {
+                "tp-id": "eth1"
+              },
+              {
+                "tp-id": "eth2"
+              },
+              {
+                "tp-id": "eth3"
+              }
+            ]
+          },
+          {
+            "node-id": "r1",
+            "ietf-network-topology:termination-point": [
+              {
+                "tp-id": "eth1"
+              },
+              {
+                "tp-id": "eth2"
+              },
+              {
+                "tp-id": "eth3"
+              }
+            ]
+          },
+          {
+            "node-id": "s2",
+            "ietf-network-topology:termination-point": [
+              {
+                "tp-id": "eth1"
+              },
+              {
+                "tp-id": "eth2"
+              },
+              {
+                "tp-id": "eth3"
+              }
+            ]
+          },
+          {
+            "node-id": "pc31",
+            "ietf-network-topology:termination-point": [
+              {
+                "tp-id": "eth1"
+              },
+              {
+                "tp-id": "eth2"
+              },
+              {
+                "tp-id": "eth3"
+              }
+            ]
+          },
+          {
+            "node-id": "s1",
+            "ietf-network-topology:termination-point": [
+              {
+                "tp-id": "eth1"
+              },
+              {
+                "tp-id": "eth2"
+              },
+              {
+                "tp-id": "eth3"
+              }
+            ]
+          },
+          {
+            "node-id": "r3",
+            "ietf-network-topology:termination-point": [
+              {
+                "tp-id": "eth1"
+              },
+              {
+                "tp-id": "eth2"
+              },
+              {
+                "tp-id": "eth3"
+              }
+            ]
+          },
+          {
+            "node-id": "r2",
+            "ietf-network-topology:termination-point": [
+              {
+                "tp-id": "eth1"
+              },
+              {
+                "tp-id": "eth2"
+              },
+              {
+                "tp-id": "eth3"
+              }
+            ]
+          },
+          {
+            "node-id": "s3",
+            "ietf-network-topology:termination-point": [
+              {
+                "tp-id": "eth1"
+              },
+              {
+                "tp-id": "eth2"
+              },
+              {
+                "tp-id": "eth3"
+              }
+            ]
+          },
+          {
+            "node-id": "pc12",
+            "ietf-network-topology:termination-point": [
+              {
+                "tp-id": "eth1"
+              },
+              {
+                "tp-id": "eth2"
+              },
+              {
+                "tp-id": "eth3"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressStateStatus(BaseModel):
     """
-    The status of an address. Most of the states correspond to states from the IPv6 Stateless Address Autoconfiguration protocol.  YANG module: openconfig-if-ip.yang 
+    The status of an address. Most of the states correspond to states from the IPv6 Stateless Address Autoconfiguration protocol.  Reference: RFC 4293: Management Information Base for the       Internet Protocol (IP)       - IpAddressStatusTC  RFC 4862: IPv6 Stateless Address Autoconfiguration  YANG module: openconfig-if-ip.yang 
     """ # noqa: E501
     type: Optional[StrictStr] = Field(default='Property', description="Node type. ")
     value: StrictStr

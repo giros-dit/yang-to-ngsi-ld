@@ -29,7 +29,7 @@ from typing_extensions import Self
 
 class InterfaceRoutedVlanIpv4NeighborsNeighbor(BaseModel):
     """
-    A list of mappings from IPv4 addresses to link-layer addresses.  Entries in this list are used as static entries in the ARP Cache.  YANG module: openconfig-if-ip.yang 
+    A list of mappings from IPv4 addresses to link-layer addresses.  Entries in this list are used as static entries in the ARP Cache.  Reference: RFC 826: An Ethernet Address Resolution Protocol  YANG module: openconfig-if-ip.yang 
     """ # noqa: E501
     id: Optional[StrictStr] = Field(default=None, description="Entity id. ")
     type: StrictStr = Field(description="NGSI-LD Entity identifier. It has to be InterfaceRoutedVlanIpv4NeighborsNeighbor.")

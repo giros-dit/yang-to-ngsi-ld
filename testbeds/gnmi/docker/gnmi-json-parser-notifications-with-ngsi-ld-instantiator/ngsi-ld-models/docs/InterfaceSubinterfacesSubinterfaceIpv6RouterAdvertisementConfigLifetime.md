@@ -1,6 +1,6 @@
 # InterfaceSubinterfacesSubinterfaceIpv6RouterAdvertisementConfigLifetime
 
-The lifetime advertised in the router advertisement neighbor discovery message on this interface.  YANG module: openconfig-if-ip.yang 
+The lifetime advertised in the router advertisement neighbor discovery message on this interface.  Units: seconds  YANG module: openconfig-if-ip.yang 
 
 ## Properties
 

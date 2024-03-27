@@ -1,0 +1,20 @@
+{
+    "@context": {
+        "netflow-v9": "http://data-aggregator.com/ns/netflow/",
+        "ExportPacketFlowDataRecordMpls": "netflow-v9:netflow/export-packet/flow-data-record/mpls",
+        "palRd": "netflow-v9:netflow/export-packet/flow-data-record/mpls/pal-rd",
+        "prefixLen": "netflow-v9:netflow/export-packet/flow-data-record/mpls/prefix-len",
+        "topLabelType": "netflow-v9:netflow/export-packet/flow-data-record/mpls/top-label-type",
+        "topLabelIp": "netflow-v9:netflow/export-packet/flow-data-record/mpls/top-label-ip",
+        "label1": "netflow-v9:netflow/export-packet/flow-data-record/mpls/label-1",
+        "label2": "netflow-v9:netflow/export-packet/flow-data-record/mpls/label-2",
+        "label3": "netflow-v9:netflow/export-packet/flow-data-record/mpls/label-3",
+        "label4": "netflow-v9:netflow/export-packet/flow-data-record/mpls/label-4",
+        "label5": "netflow-v9:netflow/export-packet/flow-data-record/mpls/label-5",
+        "label6": "netflow-v9:netflow/export-packet/flow-data-record/mpls/label-6",
+        "label7": "netflow-v9:netflow/export-packet/flow-data-record/mpls/label-7",
+        "label8": "netflow-v9:netflow/export-packet/flow-data-record/mpls/label-8",
+        "label9": "netflow-v9:netflow/export-packet/flow-data-record/mpls/label-9",
+        "label10": "netflow-v9:netflow/export-packet/flow-data-record/mpls/label-10"
+    }
+}

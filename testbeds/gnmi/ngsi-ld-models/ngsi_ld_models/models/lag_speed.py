@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class LagSpeed(BaseModel):
     """
-    Reports effective speed of the aggregate interface, based on speed of active member interfaces  YANG module: openconfig-if-aggregate.yang 
+    Reports effective speed of the aggregate interface, based on speed of active member interfaces  Units: Mbps  YANG module: openconfig-if-aggregate.yang 
     """ # noqa: E501
     type: Optional[StrictStr] = Field(default='Property', description="Node type. ")
     value: StrictInt

@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "openconfig-ngsi-ld-instantiator-queries"
+name = "gnmi-json-parser-notifications-with-ngsi-ld-instantiator"
 version = "1.0.0"
-description = "NGSI-LD instantiator for openconfig-interfaces and derived modules (Query RPCs)"
+description = "gNMI JSON parser and NGSI-LD instantiator for openconfig-interfaces and derived modules (Subscribe RPCs)"
 authors = ["GIROS-DIT UPM <gi.giros@upm.es>"]
 
 [tool.poetry.dependencies]

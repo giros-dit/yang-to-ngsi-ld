@@ -1,6 +1,6 @@
 # InterfaceSubinterfacesSubinterfaceIpv6RouterAdvertisementConfigInterval
 
-The interval between periodic router advertisement neighbor discovery messages sent on this interface expressed in seconds.  YANG module: openconfig-if-ip.yang 
+The interval between periodic router advertisement neighbor discovery messages sent on this interface expressed in seconds.  Units: seconds  YANG module: openconfig-if-ip.yang 
 
 ## Properties
 
