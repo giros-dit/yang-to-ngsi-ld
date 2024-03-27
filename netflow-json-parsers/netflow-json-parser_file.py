@@ -1,5 +1,6 @@
 import json
 import numpy as np
+from datetime import datetime
 import sys
 
 json_payload = sys.argv[1]
@@ -7,8 +8,9 @@ dict_buffers = []
 with open(json_payload) as f:
     data = json.load(f)
     timestamp = data["netflow-v9:netflow"]["collector-goflow2"]["time-received"]
-    datetime_ns = np.datetime64(timestamp, 's')
-    observed_at = str(datetime_ns.astype('datetime64[s]')) + 'Z'
+    timestamp_sec = int(timestamp) / 1000.0
+    datetime_ms = datetime.fromtimestamp(timestamp_sec)
+    observed_at = str(datetime_ms)[:-3] + 'Z'
 
 if data.get("netflow")is not None:
     netflow = data.get("netflow")

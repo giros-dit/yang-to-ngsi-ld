@@ -19,6 +19,8 @@
 package tid;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -107,6 +109,7 @@ import org.opendaylight.yangtools.yang.common.Uint16;
 import org.opendaylight.yangtools.yang.common.Uint32;
 import org.opendaylight.yangtools.yang.common.Uint64;
 import org.opendaylight.yangtools.yang.common.Uint8;
+import org.opendaylight.yang.gen.v1.urn.ietf.params.xml.ns.yang.ietf.yang.types.rev230123.Milliseconds32;
 import org.opendaylight.yangtools.yang.data.api.YangInstanceIdentifier;
 import org.opendaylight.yangtools.yang.data.api.schema.MapEntryNode;
 import org.opendaylight.yangtools.yang.data.api.schema.NormalizedNode;
@@ -133,7 +136,12 @@ public class NetflowDriver {
             if(args.length == 3){
               singletenant(args);
             }else{
-                System.exit(1);
+                File file = new File("src/main/resources/input-sample.json");
+                System.out.println(file.getAbsolutePath());
+                try (FileReader reader = new FileReader(file.getAbsolutePath())){
+                    JsonStreamParser jsp = new JsonStreamParser(reader);
+                    System.out.println(driver(jsp));
+                }
             }
         }
     
@@ -328,7 +336,7 @@ public class NetflowDriver {
             // GOFLOW2 COLLECTOR INFORMATION
             //goflow2_builder.setTimeReceived(Timestamp.getDefaultInstance(data.get("TimeReceived").getAsString()));
             goflow2_builder.setTimeReceived(Uint64.valueOf(data.get("TimeReceived").getAsString()));
-
+            
             // Check if sampler address is an IPv4 or IPv6
             String sampler_address = data.get("SamplerAddress").getAsString();
             if (Pattern.matches(pattern, sampler_address)) {

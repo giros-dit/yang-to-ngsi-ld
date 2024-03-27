@@ -1,6 +1,6 @@
 {
     "Type":"NETFLOW_V9",
-    "TimeReceived":1646565661,
+    "TimeReceived":1646565661111,
     "SamplerAddress":"192.168.165.138",
     "SamplingRate":1,
     "SequenceNum":1172678,

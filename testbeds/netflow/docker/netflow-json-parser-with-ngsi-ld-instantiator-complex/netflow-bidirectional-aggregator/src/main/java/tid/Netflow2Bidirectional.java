@@ -26,8 +26,11 @@ import org.opendaylight.yang.gen.v1.http.data.aggregator.com.ns.netflow.rev21100
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonStreamParser;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -118,7 +121,7 @@ public class Netflow2Bidirectional {
 			if (args.length == 3) {
 				singletenant(args);
 			} else {
-				System.exit(1);
+                System.exit(1);
 			}
 		}
 

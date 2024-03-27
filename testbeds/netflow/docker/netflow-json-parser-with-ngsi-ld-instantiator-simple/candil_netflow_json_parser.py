@@ -1,13 +1,15 @@
 import json
 import numpy as np
+from datetime import datetime
 
 def parse_netflow(message):
     dict_buffers = []
     data = message.value
 
     timestamp = data["netflow-v9:netflow"]["collector-goflow2"]["time-received"]
-    datetime_ns = np.datetime64(timestamp, 'ms')
-    observed_at = str(datetime_ns.astype('datetime64[ms]')) + 'Z'
+    timestamp_sec = int(timestamp) / 1000.0
+    datetime_ms = datetime.fromtimestamp(timestamp_sec)
+    observed_at = str(datetime_ms)[:-3] + 'Z'
 
     if data.get("netflow")is not None:
         netflow = data.get("netflow")

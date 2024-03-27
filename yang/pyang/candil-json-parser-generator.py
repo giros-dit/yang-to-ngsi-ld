@@ -136,7 +136,8 @@ def generate_python_json_parser_code(ctx, modules, fd):
 
     BASE_IMPORT_STATEMENTS = [
         'import json\n',
-        'import numpy as np'
+        'import numpy as np\n',
+        'from datetime import datetime'
     ]
 
     FILE_IMPORT_STATEMENTS = [
@@ -822,9 +823,11 @@ def generate_python_json_parser_code(ctx, modules, fd):
     if (ctx.opts.candil_json_parser_generator_timestamp == "ON") and (ctx.opts.candil_json_parser_generator_source == "netflow"):
         #fd.write('\n' + depth_level * INDENTATION_BLOCK + 'timestamp = data["netflow-v9:netflow"]["export-packet"]["unix-seconds"]')
         fd.write('\n' + depth_level * INDENTATION_BLOCK + 'timestamp = data["netflow-v9:netflow"]["collector-goflow2"]["time-received"]')
-        fd.write('\n' + depth_level * INDENTATION_BLOCK + 'datetime_ns = np.datetime64(timestamp, \'s\')')
-        fd.write('\n' + depth_level * INDENTATION_BLOCK + 'observed_at = str(datetime_ns.astype(\'datetime64[s]\')) + \'Z\'\n')
-
+        #fd.write('\n' + depth_level * INDENTATION_BLOCK + 'datetime_ns = np.datetime64(timestamp, \'s\')')
+        #fd.write('\n' + depth_level * INDENTATION_BLOCK + 'observed_at = str(datetime_ns.astype(\'datetime64[s]\')) + \'Z\'\n')
+        fd.write('\n' + depth_level * INDENTATION_BLOCK + 'timestamp_sec = int(timestamp) / 1000.0')
+        fd.write('\n' + depth_level * INDENTATION_BLOCK + 'datetime_ms = datetime.fromtimestamp(timestamp_sec)')
+        fd.write('\n' + depth_level * INDENTATION_BLOCK + 'observed_at = str(datetime_ms)[:-3] + \'Z\'\n')
 
     # Find typedefs, including those from modules in import sentences:
     typedef_modules = []

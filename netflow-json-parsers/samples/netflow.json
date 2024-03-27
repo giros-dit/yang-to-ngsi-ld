@@ -1,7 +1,7 @@
 {
     "netflow-v9:netflow": {
       "collector-goflow2": {
-        "time-received": 1646565661,
+        "time-received": "1646565661111",
         "sampler-address": "192.168.165.138"
       },
       "export-packet": {

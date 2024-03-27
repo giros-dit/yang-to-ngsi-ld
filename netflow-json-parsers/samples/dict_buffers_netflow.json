@@ -5,27 +5,27 @@
         "sequenceNumber": {
             "type": "Property",
             "value": 1172678,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "count": {
             "type": "Property",
             "value": 104,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "systemUptime": {
             "type": "Property",
             "value": 746774518,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "unixSeconds": {
             "type": "Property",
             "value": 1646564761,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "sourceId": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         }
     },
     {
@@ -34,147 +34,147 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:ExportPacket:0:1172678",
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "flowId": {
             "type": "Property",
             "value": 1443777365,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "bytesIn": {
             "type": "Property",
             "value": 228,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "bytesOut": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "pktsIn": {
             "type": "Property",
             "value": 3,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "pktsOut": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "protocol": {
             "type": "Property",
             "value": "udp",
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "srcTos": {
             "type": "Property",
             "value": 184,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "dstTos": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "tcpFlags": {
             "type": "Property",
             "value": [],
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "srcPort": {
             "type": "Property",
             "value": 123,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "dstPort": {
             "type": "Property",
             "value": 123,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "snmpIn": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "snmpOut": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "firstSwitched": {
             "type": "Property",
             "value": 1646564299574023,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "lastSwitched": {
             "type": "Property",
             "value": 1646564427756762,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "icmpType": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "samplingInterval": {
             "type": "Property",
             "value": 1,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "engineType": {
             "type": "Property",
             "value": "rp",
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "engineId": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "minTtl": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "maxTtl": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "srcMacIn": {
             "type": "Property",
             "value": "00:00:00:00:00:00",
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "dstMacIn": {
             "type": "Property",
             "value": "00:00:00:00:00:00",
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "srcMacOut": {
             "type": "Property",
             "value": "00:00:00:00:00:00",
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "dstMacOut": {
             "type": "Property",
             "value": "00:00:00:00:00:00",
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "ipVersion": {
             "type": "Property",
             "value": "ipv4",
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "direction": {
             "type": "Property",
             "value": "ingress",
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "forwardingStatus": {
             "type": "Property",
             "value": "unknown",
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         }
     },
     {
@@ -183,17 +183,17 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:ExportPacketFlowDataRecord:0:1172678:1443777365",
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "srcId": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "dstId": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         }
     },
     {
@@ -202,22 +202,22 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:ExportPacketFlowDataRecord:0:1172678:1443777365",
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "srcAs": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "dstAs": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "nextHop": {
             "type": "Property",
             "value": "0.0.0.0",
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         }
     },
     {
@@ -226,77 +226,77 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:ExportPacketFlowDataRecord:0:1172678:1443777365",
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "palRd": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "prefixLen": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "topLabelType": {
             "type": "Property",
             "value": "unknown",
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "topLabelIp": {
             "type": "Property",
             "value": "0.0.0.0",
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "label1": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "label2": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "label3": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "label4": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "label5": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "label6": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "label7": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "label8": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "label9": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "label10": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         }
     },
     {
@@ -305,37 +305,37 @@
         "isPartOf": {
             "type": "Relationship",
             "object": "urn:ngsi-ld:ExportPacketFlowDataRecord:0:1172678:1443777365",
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "srcAddress": {
             "type": "Property",
             "value": "10.0.27.116",
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "dstAddress": {
             "type": "Property",
             "value": "37.235.53.152",
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "srcMask": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "dstMask": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "nextHop": {
             "type": "Property",
             "value": "0.0.0.0",
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "identification": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         }
     },
     {
@@ -343,13 +343,13 @@
         "type": "CollectorGoflow2",
         "timeReceived": {
             "type": "Property",
-            "value": 1646565661,
-            "observedAt": "2022-03-06T11:21:01Z"
+            "value": 1646565661111,
+            "observedAt": "2022-03-06 12:21:01.111Z"
         },
         "samplerAddress": {
             "type": "Property",
             "value": "192.168.165.138",
-            "observedAt": "2022-03-06T11:21:01Z"
+            "observedAt": "2022-03-06 12:21:01.111Z"
         }
     }
 ]

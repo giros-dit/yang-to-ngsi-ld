@@ -22,6 +22,6 @@ docker cp traffic.sh $1:.
 
 sleep 1
 
-docker exec clab-telemetry-testbed-xe-ceos-3hosts-gf2-pc11 bash -c "./traffic.sh"
+docker exec $1 bash -c "./traffic.sh"
 
 sleep 1

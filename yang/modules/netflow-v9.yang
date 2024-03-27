@@ -1526,9 +1526,9 @@ module netflow-v9 {
 
                 type uint64;
                 units "milliseconds";
-
+                
                 /*** type yang:timestamp; ***/
-                /*** units "seconds"; ***/
+                /***  units "seconds"; ***/
 
                 description
                     "Timestamp of when a NetFlow Export Packet was received at the collector";
