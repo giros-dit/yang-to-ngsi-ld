@@ -26,13 +26,13 @@ topology:
       startup-config: s2-config.txt
     r1:
       kind: nokia_srlinux
-      image: ghcr.io/nokia/srlinux
+      image: ghcr.io/nokia/srlinux:23.10.1
       type: ixr6
       group: router
       startup-config: srl1.cfg
     r2:
       kind: nokia_srlinux
-      image: ghcr.io/nokia/srlinux
+      image: ghcr.io/nokia/srlinux:23.10.1
       type: ixr6
       group: router
       startup-config: srl2.cfg

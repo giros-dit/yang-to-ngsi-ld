@@ -98,7 +98,7 @@ outputs:
     # Comma separated brokers addresses
     address: kafka:9092
     # Kafka topic name
-    topic: interfaces-state-notifications-mask
+    topic: interfaces-state-notifications
     max-retry: 2
     # Kafka connection timeout
     timeout: 5s

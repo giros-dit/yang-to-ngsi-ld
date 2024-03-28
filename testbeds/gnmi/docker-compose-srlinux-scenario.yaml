@@ -80,7 +80,7 @@ services:
       dockerfile: Dockerfile
     hostname: gnmic-collector-queries
     container_name: gnmic-collector-queries
-    command: ["python3", "-u", "/opt/gnmic-collector-queries/gnmic-collector-queries-kafka-srl-scenario.py"]
+    command: ["python3", "-u", "/opt/gnmic-collector-queries/gnmic-collector-queries-kafka-srl-scenario.py", "30"]
     volumes:
       - ./docker/gnmic-collector-queries:/opt/gnmic-collector-queries
     depends_on:
