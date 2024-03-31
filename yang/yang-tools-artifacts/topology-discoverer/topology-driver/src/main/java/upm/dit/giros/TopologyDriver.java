@@ -119,7 +119,7 @@ public class TopologyDriver {
         Map<TerminationPointKey, TerminationPoint> map_tp = new HashMap<TerminationPointKey, TerminationPoint> ();
         TerminationPointBuilder tp_builder = new TerminationPointBuilder();
          
-        File input_file = new File(args[0] /* "src/main/resources/containerlab-topology-data.json" */);
+        File input_file = new File("src/main/resources/containerlab-topology-data.json");
         System.out.println(input_file.getAbsolutePath());
         try (FileReader reader = new FileReader(input_file.getAbsolutePath())){
             
@@ -234,7 +234,7 @@ public class TopologyDriver {
 
             System.out.println("\nJSON Network Topology: \n" + json_format.toJson(network_topology_json));
 
-            File output_file_json = new File(args[1] /* "src/main/resources/topology-data-compliant-yang.json"*/);
+            File output_file_json = new File("src/main/resources/topology-data-compliant-yang.json");
             BufferedWriter writer_json = new BufferedWriter(new FileWriter(output_file_json.getAbsoluteFile()));
             writer_json.write(json_format.toJson(network_topology_json));
             writer_json.close();
@@ -256,7 +256,7 @@ public class TopologyDriver {
 
             System.out.println("\nXML Network Topology: \n" + network_topology_xml);
 
-            File output_file_xml = new File(args[2] /* "src/main/resources/topology-data-compliant-yang.xml" */);
+            File output_file_xml = new File("src/main/resources/topology-data-compliant-yang.xml");
             BufferedWriter writer_xml = new BufferedWriter(new FileWriter(output_file_xml.getAbsoluteFile()));
             writer_xml.write(network_topology_xml);
             writer_xml.close();

@@ -1,6 +1,6 @@
 org.opendaylight.yang.gen.v1.urn.ietf.params.xml.ns.yang.ietf.inet.types.rev210222.$YangModelBindingProvider
-org.opendaylight.yang.gen.v1.urn.ietf.params.xml.ns.yang.ietf.network.rev180226.$YangModelBindingProvider
 org.opendaylight.yang.gen.v1.urn.ietf.params.xml.ns.yang.ietf.l3.unicast.topology.rev180226.$YangModelBindingProvider
 org.opendaylight.yang.gen.v1.urn.ietf.params.xml.ns.yang.ietf.network.topology.rev180226.$YangModelBindingProvider
-org.opendaylight.yang.gen.v1.urn.ietf.params.xml.ns.yang.ietf.yang.types.rev230123.$YangModelBindingProvider
 org.opendaylight.yang.gen.v1.urn.ietf.params.xml.ns.yang.ietf.routing.types.rev171204.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.ietf.params.xml.ns.yang.ietf.yang.types.rev230123.$YangModelBindingProvider
+org.opendaylight.yang.gen.v1.urn.ietf.params.xml.ns.yang.ietf.network.rev180226.$YangModelBindingProvider

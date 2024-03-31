@@ -136,12 +136,7 @@ public class NetflowDriver {
             if(args.length == 3){
               singletenant(args);
             }else{
-                File file = new File("src/main/resources/input-sample.json");
-                System.out.println(file.getAbsolutePath());
-                try (FileReader reader = new FileReader(file.getAbsolutePath())){
-                    JsonStreamParser jsp = new JsonStreamParser(reader);
-                    System.out.println(driver(jsp));
-                }
+                System.exit(1);
             }
         }
     

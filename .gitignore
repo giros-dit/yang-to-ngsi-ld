@@ -137,7 +137,7 @@ dmypy.json
 cython_debug/
 
 # VSCode
-.vscode
+# .vscode
 
 # Desktop Services Store macOS
 .DS_Store
