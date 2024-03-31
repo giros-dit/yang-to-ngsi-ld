@@ -33,7 +33,7 @@ Build and compile the Java project of each application:
 $ cd <json/xml>/<application_name>
 $ mvn generate-sources
 $ mvn clean install
-$ mvn clean install
+$ mvn install
 ```
 
 ## Kafka service name resolution on localhost
