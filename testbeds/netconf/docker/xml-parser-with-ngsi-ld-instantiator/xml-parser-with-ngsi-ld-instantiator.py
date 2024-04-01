@@ -697,7 +697,7 @@ ngsi_ld = init_ngsi_ld_client()
 
 print("Done!")
 
-print("First, I will process YANG Identities within OpenConfig YANG modules and generates the data structures of their corresponding NGSI-LD Entities to be published.")
+print("I am going to process YANG Identities within OpenConfig YANG modules and generate the data structures of their corresponding NGSI-LD Entities.")
 
 with open("YANGIdentities.json", 'r') as file:
     dict_buffers = json.load(file)
@@ -713,6 +713,10 @@ for dict_buffer in dict_buffers:
             print("Entity " + entity_id + " COULD NOT BE CREATED")
         else:
             print("Entity " + entity_id + " WAS SUCCESSFULLY CREATED")
+
+print("Processing of YANG Identities done!")
+
+print("Proceeding with notifications...")
 
 performance_measurements_file = open("performance_measurements.csv", "w", newline='')
 csv_writer = csv.writer(performance_measurements_file)
