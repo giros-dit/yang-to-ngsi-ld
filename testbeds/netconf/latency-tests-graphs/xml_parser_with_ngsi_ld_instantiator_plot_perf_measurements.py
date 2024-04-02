@@ -19,3 +19,6 @@ plt.title('xml-parser-with-ngsi-ld-instantiator -- Execution times per processed
 plt.xlabel('processed notifications')
 plt.ylabel('time (in ms)')
 plt.show()
+
+plt.savefig("xml_parser_with_ngsi-ld_instantiator_perf_graph.png")
+

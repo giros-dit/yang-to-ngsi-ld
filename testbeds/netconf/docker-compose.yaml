@@ -94,6 +94,13 @@ services:
       kafka:
         condition: service_healthy
     restart: always
+  
+  ncclient-collector-builder:
+    image: testbeds-netconf-ncclient-collector:latest
+    command: ["echo", "Build completed"]
+    build:
+      context: ./docker/ncclient-collector/
+      dockerfile: Dockerfile
 
   ncclient-collector-1:
     image: testbeds-netconf-ncclient-collector:latest
@@ -103,6 +110,8 @@ services:
     volumes:
       - ./docker/ncclient-collector:/opt/ncclient-collector
     depends_on:
+      ncclient-collector-builder:
+        condition: service_completed_successfully
       kafka:
         condition: service_healthy
 
@@ -114,6 +123,8 @@ services:
     volumes:
       - ./docker/ncclient-collector:/opt/ncclient-collector
     depends_on:
+      ncclient-collector-builder:
+        condition: service_completed_successfully
       kafka:
         condition: service_healthy
 
@@ -125,6 +136,8 @@ services:
     volumes:
       - ./docker/ncclient-collector:/opt/ncclient-collector
     depends_on:
+      ncclient-collector-builder:
+        condition: service_completed_successfully
       kafka:
         condition: service_healthy
 
@@ -136,6 +149,8 @@ services:
     volumes:
       - ./docker/ncclient-collector:/opt/ncclient-collector
     depends_on:
+      ncclient-collector-builder:
+        condition: service_completed_successfully
       kafka:
         condition: service_healthy
 

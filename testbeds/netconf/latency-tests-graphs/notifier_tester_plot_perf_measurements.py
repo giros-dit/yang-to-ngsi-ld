@@ -16,3 +16,6 @@ plt.title('notifier-tester -- Evaluation times per notification received')
 plt.xlabel('notification index')
 plt.ylabel('time (in ms)')
 plt.show()
+
+plt.savefig("notifier_tester_perf_graph.png")
+
