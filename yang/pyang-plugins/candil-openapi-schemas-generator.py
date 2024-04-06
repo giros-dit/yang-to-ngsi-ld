@@ -3,7 +3,7 @@ pyang plugin -- CANDIL OpenAPI Schemas Generator.
 
 Given one or several YANG modules, it dynamically generates the relative OpenAPI Schemas according to the OpenAPI specification for NGSI-LD API V1.6.1.
 
-Version: 1.0.5.
+Version: 1.0.6.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -924,28 +924,64 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                 childs = element.parent.i_children
                 matched_childs = 0
                 if (childs is not None) and (camelcase_entity_path + camelcase_pointer_parent) != current_camelcase_path:
-                    for child in childs:
-                        if child.arg == str(pointer_parent.arg):
-                            matched_childs += 1 
-                    
-                    if matched_childs > 0:    
-                        relationship_camelcase_path = camelcase_entity_path + camelcase_pointer_parent
-                        ENTITY_TYPE_LIST.append(relationship_camelcase_path)
-                    else:
-                        relationship_camelcase_path = camelcase_pointer_parent
+                    has_childs = True
+                    element_aux = element
+                    iterations = 0
+                    while has_childs == True:
+                        for child in childs:
+                            if child.arg == str(pointer_parent.arg):
+                                matched_childs += 1
+                                break
+                        
+                        if matched_childs == 0:
+                            for child in childs:
+                                    if is_entity(child) == True:
+                                        subchilds = child.i_children
+                                        if (subchilds is not None):
+                                            iterations += 1
+                                            for subchild in subchilds:
+                                                if subchild.arg == str(pointer_parent.arg):
+                                                    matched_childs += 1
+                        
+                        if matched_childs > 0:    
+                            if iterations > 0:
+                                for camelcase_entity in ENTITY_TYPE_LIST:
+                                    
+                                    if camelcase_pointer_parent == camelcase_entity or camelcase_pointer_parent in camelcase_entity:
+                                        matches.append(camelcase_entity)
+
+                                if len(matches) == 0:
+                                    relationship_camelcase_path = camelcase_pointer_parent
+                                else:
+                                    relationship_camelcase_path = matches[0]  
+
+                            else:
+                                relationship_camelcase_path = camelcase_entity_path + camelcase_pointer_parent
+                                ENTITY_TYPE_LIST.append(relationship_camelcase_path)
+                            
+                            has_childs = False
+                        else:
+                            iterations += 1
+                            element_aux = element_aux.parent
+                            if element_aux.parent is not None:
+                                childs = element_aux.parent.i_children
+                                if (childs is None):
+                                    has_childs = False
+                                    relationship_camelcase_path = camelcase_pointer_parent
+                            else: 
+                                has_childs = False
+                                relationship_camelcase_path = camelcase_pointer_parent
                 else:
                     for camelcase_entity in ENTITY_TYPE_LIST:
                         if camelcase_pointer_parent == camelcase_entity or camelcase_pointer_parent in camelcase_entity:
                             matches.append(camelcase_entity)
 
-                    relationship_camelcase_path = camelcase_pointer_parent
                     if len(matches) == 0:
                         relationship_camelcase_path = camelcase_pointer_parent
                     else:
                         relationship_camelcase_path = matches[0]
             else:
                 relationship_camelcase_path = matches[0]
-
 
             openapi_schema_type = yang_to_openapi_schemas_types_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1], typedefs_dict)
             openapi_schema_format = yang_to_openapi_schemas_formats_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1])

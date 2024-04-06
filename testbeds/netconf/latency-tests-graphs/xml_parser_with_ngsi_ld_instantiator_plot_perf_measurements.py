@@ -18,7 +18,5 @@ df.set_index('Processed notifications').plot()
 plt.title('xml-parser-with-ngsi-ld-instantiator -- Execution times per processed notification')
 plt.xlabel('processed notifications')
 plt.ylabel('time (in ms)')
-plt.show()
-
 plt.savefig("xml_parser_with_ngsi-ld_instantiator_perf_graph.png")
-
+plt.show()

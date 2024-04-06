@@ -40,11 +40,11 @@ while True:
                             interface_dict_buffer["id"] = interface_dict_buffer["id"] + ":" + element_text
                         interface_dict_buffer["name"] = {}
                         interface_dict_buffer["name"]["type"] = "Relationship"
-                        interface_dict_buffer["name"]["object"] = "urn:ngsi-ld:InterfaceConfig:" + source + ":" + interface_dict_buffer["id"].split(":")[-1]
+                        interface_dict_buffer["name"]["object"] = "urn:ngsi-ld:InterfaceConfig:" + ":".join(interface_dict_buffer["id"].split(":")[3:])
                         interface_dict_buffer["name"]["observedAt"] = observed_at
                     if parent_path[2] == "config":
                         interface_config_dict_buffer = {}
-                        interface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceConfig:" + source + ":" +interface_dict_buffer["id"].split(":")[-1]
+                        interface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceConfig:" + ":".join(interface_dict_buffer["id"].split(":")[3:])
                         interface_config_dict_buffer["type"] = "InterfaceConfig"
                         if len(parent_path) - 1 == 2 or len(parent_path) - 1 == 3:
                             interface_config_dict_buffer["isPartOf"] = {}
@@ -82,7 +82,7 @@ while True:
                                 dict_buffers.append(interface_config_dict_buffer)
                     if parent_path[2] == "state":
                         interface_state_dict_buffer = {}
-                        interface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceState:" + source + ":" +interface_dict_buffer["id"].split(":")[-1]
+                        interface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceState:" + ":".join(interface_dict_buffer["id"].split(":")[3:])
                         interface_state_dict_buffer["type"] = "InterfaceState"
                         if len(parent_path) - 1 == 2 or len(parent_path) - 1 == 3:
                             interface_state_dict_buffer["isPartOf"] = {}
@@ -138,7 +138,7 @@ while True:
                                 interface_state_dict_buffer["lastChange"]["observedAt"] = observed_at
                             if parent_path[3] == "counters":
                                 interface_state_counters_dict_buffer = {}
-                                interface_state_counters_dict_buffer["id"] = "urn:ngsi-ld:InterfaceStateCounters:" + source + ":" +interface_state_dict_buffer["id"].split(":")[-1]
+                                interface_state_counters_dict_buffer["id"] = "urn:ngsi-ld:InterfaceStateCounters:" + ":".join(interface_state_dict_buffer["id"].split(":")[3:])
                                 interface_state_counters_dict_buffer["type"] = "InterfaceStateCounters"
                                 if len(parent_path) - 1 == 3 or len(parent_path) - 1 == 4:
                                     interface_state_counters_dict_buffer["isPartOf"] = {}
@@ -232,7 +232,7 @@ while True:
                     if parent_path[2] == "hold-time":
                         if parent_path[3] == "config":
                             interface_config_dict_buffer = {}
-                            interface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceHoldTimeConfig:" + source + ":" +interface_dict_buffer["id"].split(":")[-1]
+                            interface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceHoldTimeConfig:" + ":".join(interface_dict_buffer["id"].split(":")[3:])
                             interface_config_dict_buffer["type"] = "InterfaceHoldTimeConfig"
                             if len(parent_path) - 1 == 3 or len(parent_path) - 1 == 4:
                                 interface_config_dict_buffer["isPartOf"] = {}
@@ -253,7 +253,7 @@ while True:
                                     dict_buffers.append(interface_config_dict_buffer)
                             if parent_path[4] == "state":
                                 interface_state_dict_buffer = {}
-                                interface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceHoldTimeState:" + source + ":" +interface_dict_buffer["id"].split(":")[-1]
+                                interface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceHoldTimeState:" + ":".join(interface_dict_buffer["id"].split(":")[3:])
                                 interface_state_dict_buffer["type"] = "InterfaceHoldTimeState"
                                 if len(parent_path) - 1 == 4 or len(parent_path) - 1 == 5:
                                     interface_state_dict_buffer["isPartOf"] = {}
@@ -288,11 +288,11 @@ while True:
                                         interface_subinterface_dict_buffer["id"] = interface_subinterface_dict_buffer["id"] + "." + str(element_text)
                                     interface_subinterface_dict_buffer["index"] = {}
                                     interface_subinterface_dict_buffer["index"]["type"] = "Relationship"
-                                    interface_subinterface_dict_buffer["index"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:" + source + ":" + interface_subinterface_dict_buffer["id"].split(":")[-1]
+                                    interface_subinterface_dict_buffer["index"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:" + ":".join(interface_subinterface_dict_buffer["id"].split(":")[3:])
                                     interface_subinterface_dict_buffer["index"]["observedAt"] = observed_at
                                 if parent_path[4] == "config":
                                     interface_subinterface_config_dict_buffer = {}
-                                    interface_subinterface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:" + source + ":" +interface_subinterface_dict_buffer["id"].split(":")[-1]
+                                    interface_subinterface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:" + ":".join(interface_subinterface_dict_buffer["id"].split(":")[3:])
                                     interface_subinterface_config_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceConfig"
                                     if len(parent_path) - 1 == 4 or len(parent_path) - 1 == 5:
                                         interface_subinterface_config_dict_buffer["isPartOf"] = {}
@@ -320,7 +320,7 @@ while True:
                                             dict_buffers.append(interface_subinterface_config_dict_buffer)
                                 if parent_path[4] == "state":
                                     interface_subinterface_state_dict_buffer = {}
-                                    interface_subinterface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceState:" + source + ":" +interface_subinterface_dict_buffer["id"].split(":")[-1]
+                                    interface_subinterface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceState:" + ":".join(interface_subinterface_dict_buffer["id"].split(":")[3:])
                                     interface_subinterface_state_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceState"
                                     if len(parent_path) - 1 == 4 or len(parent_path) - 1 == 5:
                                         interface_subinterface_state_dict_buffer["isPartOf"] = {}
@@ -373,7 +373,7 @@ while True:
                                             interface_subinterface_state_dict_buffer["lastChange"]["observedAt"] = observed_at
                                         if parent_path[5] == "counters":
                                             interface_subinterface_state_counters_dict_buffer = {}
-                                            interface_subinterface_state_counters_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceStateCounters:" + source + ":" +interface_subinterface_state_dict_buffer["id"].split(":")[-1]
+                                            interface_subinterface_state_counters_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceStateCounters:" + ":".join(interface_subinterface_state_dict_buffer["id"].split(":")[3:])
                                             interface_subinterface_state_counters_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceStateCounters"
                                             if len(parent_path) - 1 == 5 or len(parent_path) - 1 == 6:
                                                 interface_subinterface_state_counters_dict_buffer["isPartOf"] = {}
@@ -483,11 +483,11 @@ while True:
                                                         interface_subinterface_address_dict_buffer["id"] = interface_subinterface_address_dict_buffer["id"] + ":" + element_text
                                                     interface_subinterface_address_dict_buffer["ip"] = {}
                                                     interface_subinterface_address_dict_buffer["ip"]["type"] = "Relationship"
-                                                    interface_subinterface_address_dict_buffer["ip"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:" + source + ":" + interface_subinterface_address_dict_buffer["id"].split(":")[-1]
+                                                    interface_subinterface_address_dict_buffer["ip"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:" + ":".join(interface_subinterface_address_dict_buffer["id"].split(":")[3:])
                                                     interface_subinterface_address_dict_buffer["ip"]["observedAt"] = observed_at
                                                 if parent_path[7] == "config":
                                                     interface_subinterface_address_config_dict_buffer = {}
-                                                    interface_subinterface_address_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:" + source + ":" +interface_subinterface_address_dict_buffer["id"].split(":")[-1]
+                                                    interface_subinterface_address_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:" + ":".join(interface_subinterface_address_dict_buffer["id"].split(":")[3:])
                                                     interface_subinterface_address_config_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig"
                                                     if len(parent_path) - 1 == 7 or len(parent_path) - 1 == 8:
                                                         interface_subinterface_address_config_dict_buffer["isPartOf"] = {}
@@ -508,7 +508,7 @@ while True:
                                                             dict_buffers.append(interface_subinterface_address_config_dict_buffer)
                                                 if parent_path[7] == "state":
                                                     interface_subinterface_address_state_dict_buffer = {}
-                                                    interface_subinterface_address_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressState:" + source + ":" +interface_subinterface_address_dict_buffer["id"].split(":")[-1]
+                                                    interface_subinterface_address_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressState:" + ":".join(interface_subinterface_address_dict_buffer["id"].split(":")[3:])
                                                     interface_subinterface_address_state_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressState"
                                                     if len(parent_path) - 1 == 7 or len(parent_path) - 1 == 8:
                                                         interface_subinterface_address_state_dict_buffer["isPartOf"] = {}
@@ -548,11 +548,11 @@ while True:
                                                                     interface_subinterface_address_vrrp_group_dict_buffer["id"] = interface_subinterface_address_vrrp_group_dict_buffer["id"] + ":" + element_text
                                                                 interface_subinterface_address_vrrp_group_dict_buffer["virtualRouterId"] = {}
                                                                 interface_subinterface_address_vrrp_group_dict_buffer["virtualRouterId"]["type"] = "Relationship"
-                                                                interface_subinterface_address_vrrp_group_dict_buffer["virtualRouterId"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressVrrpVrrpGroupConfig:" + source + ":" + interface_subinterface_address_vrrp_group_dict_buffer["id"].split(":")[-1]
+                                                                interface_subinterface_address_vrrp_group_dict_buffer["virtualRouterId"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressVrrpVrrpGroupConfig:" + ":".join(interface_subinterface_address_vrrp_group_dict_buffer["id"].split(":")[3:])
                                                                 interface_subinterface_address_vrrp_group_dict_buffer["virtualRouterId"]["observedAt"] = observed_at
                                                             if parent_path[9] == "config":
                                                                 interface_subinterface_address_vrrp_group_config_dict_buffer = {}
-                                                                interface_subinterface_address_vrrp_group_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressVrrpVrrpGroupConfig:" + source + ":" +interface_subinterface_address_vrrp_group_dict_buffer["id"].split(":")[-1]
+                                                                interface_subinterface_address_vrrp_group_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressVrrpVrrpGroupConfig:" + ":".join(interface_subinterface_address_vrrp_group_dict_buffer["id"].split(":")[3:])
                                                                 interface_subinterface_address_vrrp_group_config_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressVrrpVrrpGroupConfig"
                                                                 if len(parent_path) - 1 == 9 or len(parent_path) - 1 == 10:
                                                                     interface_subinterface_address_vrrp_group_config_dict_buffer["isPartOf"] = {}
@@ -600,7 +600,7 @@ while True:
                                                                         dict_buffers.append(interface_subinterface_address_vrrp_group_config_dict_buffer)
                                                             if parent_path[9] == "state":
                                                                 interface_subinterface_address_vrrp_group_state_dict_buffer = {}
-                                                                interface_subinterface_address_vrrp_group_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressVrrpVrrpGroupState:" + source + ":" +interface_subinterface_address_vrrp_group_dict_buffer["id"].split(":")[-1]
+                                                                interface_subinterface_address_vrrp_group_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressVrrpVrrpGroupState:" + ":".join(interface_subinterface_address_vrrp_group_dict_buffer["id"].split(":")[3:])
                                                                 interface_subinterface_address_vrrp_group_state_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressVrrpVrrpGroupState"
                                                                 if len(parent_path) - 1 == 9 or len(parent_path) - 1 == 10:
                                                                     interface_subinterface_address_vrrp_group_state_dict_buffer["isPartOf"] = {}
@@ -654,7 +654,7 @@ while True:
                                                             if parent_path[9] == "interface-tracking":
                                                                 if parent_path[10] == "config":
                                                                     interface_subinterface_address_vrrp_group_config_dict_buffer = {}
-                                                                    interface_subinterface_address_vrrp_group_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressVrrpVrrpGroupInterfaceTrackingConfig:" + source + ":" +interface_subinterface_address_vrrp_group_dict_buffer["id"].split(":")[-1]
+                                                                    interface_subinterface_address_vrrp_group_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressVrrpVrrpGroupInterfaceTrackingConfig:" + ":".join(interface_subinterface_address_vrrp_group_dict_buffer["id"].split(":")[3:])
                                                                     interface_subinterface_address_vrrp_group_config_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressVrrpVrrpGroupInterfaceTrackingConfig"
                                                                     if len(parent_path) - 1 == 10 or len(parent_path) - 1 == 11:
                                                                         interface_subinterface_address_vrrp_group_config_dict_buffer["isPartOf"] = {}
@@ -664,7 +664,7 @@ while True:
                                                                         if len(parent_path) - 1 == 10 or len(parent_path) - 1 == 11:
                                                                             interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"] = {}
                                                                             interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"]["type"] = "Relationship"
-                                                                            interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:Interface:" + source + ":" + interface_subinterface_address_vrrp_group_config_dict_buffer["id"].split(":")[-1]
+                                                                            interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:Interface:" + ":".join(interface_subinterface_address_vrrp_group_config_dict_buffer["id"].split(":")[3:])
                                                                             interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"]["observedAt"] = observed_at
                                                                         if child_node == "priority-decrement":
                                                                             interface_subinterface_address_vrrp_group_config_dict_buffer["priorityDecrement"] = {}
@@ -675,7 +675,7 @@ while True:
                                                                             dict_buffers.append(interface_subinterface_address_vrrp_group_config_dict_buffer)
                                                                     if parent_path[11] == "state":
                                                                         interface_subinterface_address_vrrp_group_state_dict_buffer = {}
-                                                                        interface_subinterface_address_vrrp_group_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressVrrpVrrpGroupInterfaceTrackingState:" + source + ":" +interface_subinterface_address_vrrp_group_dict_buffer["id"].split(":")[-1]
+                                                                        interface_subinterface_address_vrrp_group_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressVrrpVrrpGroupInterfaceTrackingState:" + ":".join(interface_subinterface_address_vrrp_group_dict_buffer["id"].split(":")[3:])
                                                                         interface_subinterface_address_vrrp_group_state_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressVrrpVrrpGroupInterfaceTrackingState"
                                                                         if len(parent_path) - 1 == 11 or len(parent_path) - 1 == 12:
                                                                             interface_subinterface_address_vrrp_group_state_dict_buffer["isPartOf"] = {}
@@ -685,7 +685,7 @@ while True:
                                                                             if len(parent_path) - 1 == 11 or len(parent_path) - 1 == 12:
                                                                                 interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"] = {}
                                                                                 interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"]["type"] = "Relationship"
-                                                                                interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:Interface:" + source + ":" + interface_subinterface_address_vrrp_group_state_dict_buffer["id"].split(":")[-1]
+                                                                                interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:Interface:" + ":".join(interface_subinterface_address_vrrp_group_state_dict_buffer["id"].split(":")[3:])
                                                                                 interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"]["observedAt"] = observed_at
                                                                             if child_node == "priority-decrement":
                                                                                 interface_subinterface_address_vrrp_group_state_dict_buffer["priorityDecrement"] = {}
@@ -701,7 +701,7 @@ while True:
                                         if parent_path[6] == "proxy-arp":
                                             if parent_path[7] == "config":
                                                 interface_subinterface_config_dict_buffer = {}
-                                                interface_subinterface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4ProxyArpConfig:" + source + ":" +interface_subinterface_dict_buffer["id"].split(":")[-1]
+                                                interface_subinterface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4ProxyArpConfig:" + ":".join(interface_subinterface_dict_buffer["id"].split(":")[3:])
                                                 interface_subinterface_config_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv4ProxyArpConfig"
                                                 if len(parent_path) - 1 == 7 or len(parent_path) - 1 == 8:
                                                     interface_subinterface_config_dict_buffer["isPartOf"] = {}
@@ -717,7 +717,7 @@ while True:
                                                         dict_buffers.append(interface_subinterface_config_dict_buffer)
                                                 if parent_path[8] == "state":
                                                     interface_subinterface_state_dict_buffer = {}
-                                                    interface_subinterface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4ProxyArpState:" + source + ":" +interface_subinterface_dict_buffer["id"].split(":")[-1]
+                                                    interface_subinterface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4ProxyArpState:" + ":".join(interface_subinterface_dict_buffer["id"].split(":")[3:])
                                                     interface_subinterface_state_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv4ProxyArpState"
                                                     if len(parent_path) - 1 == 8 or len(parent_path) - 1 == 9:
                                                         interface_subinterface_state_dict_buffer["isPartOf"] = {}
@@ -749,11 +749,11 @@ while True:
                                                                 interface_subinterface_neighbor_dict_buffer["id"] = interface_subinterface_neighbor_dict_buffer["id"] + ":" + element_text
                                                             interface_subinterface_neighbor_dict_buffer["ip"] = {}
                                                             interface_subinterface_neighbor_dict_buffer["ip"]["type"] = "Relationship"
-                                                            interface_subinterface_neighbor_dict_buffer["ip"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborConfig:" + source + ":" + interface_subinterface_neighbor_dict_buffer["id"].split(":")[-1]
+                                                            interface_subinterface_neighbor_dict_buffer["ip"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborConfig:" + ":".join(interface_subinterface_neighbor_dict_buffer["id"].split(":")[3:])
                                                             interface_subinterface_neighbor_dict_buffer["ip"]["observedAt"] = observed_at
                                                         if parent_path[9] == "config":
                                                             interface_subinterface_neighbor_config_dict_buffer = {}
-                                                            interface_subinterface_neighbor_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborConfig:" + source + ":" +interface_subinterface_neighbor_dict_buffer["id"].split(":")[-1]
+                                                            interface_subinterface_neighbor_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborConfig:" + ":".join(interface_subinterface_neighbor_dict_buffer["id"].split(":")[3:])
                                                             interface_subinterface_neighbor_config_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborConfig"
                                                             if len(parent_path) - 1 == 9 or len(parent_path) - 1 == 10:
                                                                 interface_subinterface_neighbor_config_dict_buffer["isPartOf"] = {}
@@ -774,7 +774,7 @@ while True:
                                                                     dict_buffers.append(interface_subinterface_neighbor_config_dict_buffer)
                                                         if parent_path[9] == "state":
                                                             interface_subinterface_neighbor_state_dict_buffer = {}
-                                                            interface_subinterface_neighbor_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborState:" + source + ":" +interface_subinterface_neighbor_dict_buffer["id"].split(":")[-1]
+                                                            interface_subinterface_neighbor_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborState:" + ":".join(interface_subinterface_neighbor_dict_buffer["id"].split(":")[3:])
                                                             interface_subinterface_neighbor_state_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborState"
                                                             if len(parent_path) - 1 == 9 or len(parent_path) - 1 == 10:
                                                                 interface_subinterface_neighbor_state_dict_buffer["isPartOf"] = {}
@@ -803,7 +803,7 @@ while True:
                                                 if parent_path[8] == "unnumbered":
                                                     if parent_path[9] == "config":
                                                         interface_subinterface_config_dict_buffer = {}
-                                                        interface_subinterface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4UnnumberedConfig:" + source + ":" +interface_subinterface_dict_buffer["id"].split(":")[-1]
+                                                        interface_subinterface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4UnnumberedConfig:" + ":".join(interface_subinterface_dict_buffer["id"].split(":")[3:])
                                                         interface_subinterface_config_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv4UnnumberedConfig"
                                                         if len(parent_path) - 1 == 9 or len(parent_path) - 1 == 10:
                                                             interface_subinterface_config_dict_buffer["isPartOf"] = {}
@@ -819,7 +819,7 @@ while True:
                                                                 dict_buffers.append(interface_subinterface_config_dict_buffer)
                                                         if parent_path[10] == "state":
                                                             interface_subinterface_state_dict_buffer = {}
-                                                            interface_subinterface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4UnnumberedState:" + source + ":" +interface_subinterface_dict_buffer["id"].split(":")[-1]
+                                                            interface_subinterface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4UnnumberedState:" + ":".join(interface_subinterface_dict_buffer["id"].split(":")[3:])
                                                             interface_subinterface_state_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv4UnnumberedState"
                                                             if len(parent_path) - 1 == 10 or len(parent_path) - 1 == 11:
                                                                 interface_subinterface_state_dict_buffer["isPartOf"] = {}
@@ -836,7 +836,7 @@ while True:
                                                             if parent_path[11] == "interface-ref":
                                                                 if parent_path[12] == "config":
                                                                     interface_subinterface_config_dict_buffer = {}
-                                                                    interface_subinterface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4UnnumberedInterfaceRefConfig:" + source + ":" +interface_subinterface_dict_buffer["id"].split(":")[-1]
+                                                                    interface_subinterface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4UnnumberedInterfaceRefConfig:" + ":".join(interface_subinterface_dict_buffer["id"].split(":")[3:])
                                                                     interface_subinterface_config_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv4UnnumberedInterfaceRefConfig"
                                                                     if len(parent_path) - 1 == 12 or len(parent_path) - 1 == 13:
                                                                         interface_subinterface_config_dict_buffer["isPartOf"] = {}
@@ -848,20 +848,20 @@ while True:
                                                                                 interface_subinterface_config_dict_buffer["id"] = interface_subinterface_config_dict_buffer["id"] + ":" + element_text
                                                                             interface_subinterface_config_dict_buffer["interface"] = {}
                                                                             interface_subinterface_config_dict_buffer["interface"]["type"] = "Relationship"
-                                                                            interface_subinterface_config_dict_buffer["interface"]["object"] = "urn:ngsi-ld:Interface:" + source + ":" + interface_subinterface_config_dict_buffer["id"].split(":")[-1]
+                                                                            interface_subinterface_config_dict_buffer["interface"]["object"] = "urn:ngsi-ld:Interface:" + ":".join(interface_subinterface_config_dict_buffer["id"].split(":")[3:])
                                                                             interface_subinterface_config_dict_buffer["interface"]["observedAt"] = observed_at
                                                                         if len(parent_path) - 1 == 12 or len(parent_path) - 1 == 13:
                                                                             if "." + str(element_text) not in interface_subinterface_config_dict_buffer["id"].split(":")[-1]:
                                                                                 interface_subinterface_config_dict_buffer["id"] = interface_subinterface_config_dict_buffer["id"] + "." + str(element_text)
                                                                             interface_subinterface_config_dict_buffer["subinterface"] = {}
                                                                             interface_subinterface_config_dict_buffer["subinterface"]["type"] = "Relationship"
-                                                                            interface_subinterface_config_dict_buffer["subinterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:" + source + ":" + interface_subinterface_config_dict_buffer["id"].split(":")[-1]
+                                                                            interface_subinterface_config_dict_buffer["subinterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:" + ":".join(interface_subinterface_config_dict_buffer["id"].split(":")[3:])
                                                                             interface_subinterface_config_dict_buffer["subinterface"]["observedAt"] = observed_at
                                                                         if len(parent_path) - 1 == 12:
                                                                             dict_buffers.append(interface_subinterface_config_dict_buffer)
                                                                     if parent_path[13] == "state":
                                                                         interface_subinterface_state_dict_buffer = {}
-                                                                        interface_subinterface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4UnnumberedInterfaceRefState:" + source + ":" +interface_subinterface_dict_buffer["id"].split(":")[-1]
+                                                                        interface_subinterface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4UnnumberedInterfaceRefState:" + ":".join(interface_subinterface_dict_buffer["id"].split(":")[3:])
                                                                         interface_subinterface_state_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv4UnnumberedInterfaceRefState"
                                                                         if len(parent_path) - 1 == 13 or len(parent_path) - 1 == 14:
                                                                             interface_subinterface_state_dict_buffer["isPartOf"] = {}
@@ -873,20 +873,20 @@ while True:
                                                                                     interface_subinterface_state_dict_buffer["id"] = interface_subinterface_state_dict_buffer["id"] + ":" + element_text
                                                                                 interface_subinterface_state_dict_buffer["interface"] = {}
                                                                                 interface_subinterface_state_dict_buffer["interface"]["type"] = "Relationship"
-                                                                                interface_subinterface_state_dict_buffer["interface"]["object"] = "urn:ngsi-ld:Interface:" + source + ":" + interface_subinterface_state_dict_buffer["id"].split(":")[-1]
+                                                                                interface_subinterface_state_dict_buffer["interface"]["object"] = "urn:ngsi-ld:Interface:" + ":".join(interface_subinterface_state_dict_buffer["id"].split(":")[3:])
                                                                                 interface_subinterface_state_dict_buffer["interface"]["observedAt"] = observed_at
                                                                             if len(parent_path) - 1 == 13 or len(parent_path) - 1 == 14:
                                                                                 if "." + str(element_text) not in interface_subinterface_state_dict_buffer["id"].split(":")[-1]:
                                                                                     interface_subinterface_state_dict_buffer["id"] = interface_subinterface_state_dict_buffer["id"] + "." + str(element_text)
                                                                                 interface_subinterface_state_dict_buffer["subinterface"] = {}
                                                                                 interface_subinterface_state_dict_buffer["subinterface"]["type"] = "Relationship"
-                                                                                interface_subinterface_state_dict_buffer["subinterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:" + source + ":" + interface_subinterface_state_dict_buffer["id"].split(":")[-1]
+                                                                                interface_subinterface_state_dict_buffer["subinterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:" + ":".join(interface_subinterface_state_dict_buffer["id"].split(":")[3:])
                                                                                 interface_subinterface_state_dict_buffer["subinterface"]["observedAt"] = observed_at
                                                                             if len(parent_path) - 1 == 13:
                                                                                 dict_buffers.append(interface_subinterface_state_dict_buffer)
                                                     if parent_path[9] == "config":
                                                         interface_subinterface_config_dict_buffer = {}
-                                                        interface_subinterface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4Config:" + source + ":" +interface_subinterface_dict_buffer["id"].split(":")[-1]
+                                                        interface_subinterface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4Config:" + ":".join(interface_subinterface_dict_buffer["id"].split(":")[3:])
                                                         interface_subinterface_config_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv4Config"
                                                         if len(parent_path) - 1 == 9 or len(parent_path) - 1 == 10:
                                                             interface_subinterface_config_dict_buffer["isPartOf"] = {}
@@ -912,7 +912,7 @@ while True:
                                                                 dict_buffers.append(interface_subinterface_config_dict_buffer)
                                                         if parent_path[10] == "state":
                                                             interface_subinterface_state_dict_buffer = {}
-                                                            interface_subinterface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4State:" + source + ":" +interface_subinterface_dict_buffer["id"].split(":")[-1]
+                                                            interface_subinterface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4State:" + ":".join(interface_subinterface_dict_buffer["id"].split(":")[3:])
                                                             interface_subinterface_state_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv4State"
                                                             if len(parent_path) - 1 == 10 or len(parent_path) - 1 == 11:
                                                                 interface_subinterface_state_dict_buffer["isPartOf"] = {}
@@ -936,7 +936,7 @@ while True:
                                                                     interface_subinterface_state_dict_buffer["dhcpClient"]["observedAt"] = observed_at
                                                                 if parent_path[11] == "counters":
                                                                     interface_subinterface_state_counters_dict_buffer = {}
-                                                                    interface_subinterface_state_counters_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4StateCounters:" + source + ":" +interface_subinterface_state_dict_buffer["id"].split(":")[-1]
+                                                                    interface_subinterface_state_counters_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4StateCounters:" + ":".join(interface_subinterface_state_dict_buffer["id"].split(":")[3:])
                                                                     interface_subinterface_state_counters_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv4StateCounters"
                                                                     if len(parent_path) - 1 == 11 or len(parent_path) - 1 == 12:
                                                                         interface_subinterface_state_counters_dict_buffer["isPartOf"] = {}
@@ -1026,11 +1026,11 @@ while True:
                                                         interface_subinterface_address_dict_buffer["id"] = interface_subinterface_address_dict_buffer["id"] + ":" + element_text
                                                     interface_subinterface_address_dict_buffer["ip"] = {}
                                                     interface_subinterface_address_dict_buffer["ip"]["type"] = "Relationship"
-                                                    interface_subinterface_address_dict_buffer["ip"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressConfig:" + source + ":" + interface_subinterface_address_dict_buffer["id"].split(":")[-1]
+                                                    interface_subinterface_address_dict_buffer["ip"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressConfig:" + ":".join(interface_subinterface_address_dict_buffer["id"].split(":")[3:])
                                                     interface_subinterface_address_dict_buffer["ip"]["observedAt"] = observed_at
                                                 if parent_path[7] == "config":
                                                     interface_subinterface_address_config_dict_buffer = {}
-                                                    interface_subinterface_address_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressConfig:" + source + ":" +interface_subinterface_address_dict_buffer["id"].split(":")[-1]
+                                                    interface_subinterface_address_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressConfig:" + ":".join(interface_subinterface_address_dict_buffer["id"].split(":")[3:])
                                                     interface_subinterface_address_config_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressConfig"
                                                     if len(parent_path) - 1 == 7 or len(parent_path) - 1 == 8:
                                                         interface_subinterface_address_config_dict_buffer["isPartOf"] = {}
@@ -1051,7 +1051,7 @@ while True:
                                                             dict_buffers.append(interface_subinterface_address_config_dict_buffer)
                                                 if parent_path[7] == "state":
                                                     interface_subinterface_address_state_dict_buffer = {}
-                                                    interface_subinterface_address_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressState:" + source + ":" +interface_subinterface_address_dict_buffer["id"].split(":")[-1]
+                                                    interface_subinterface_address_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressState:" + ":".join(interface_subinterface_address_dict_buffer["id"].split(":")[3:])
                                                     interface_subinterface_address_state_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressState"
                                                     if len(parent_path) - 1 == 7 or len(parent_path) - 1 == 8:
                                                         interface_subinterface_address_state_dict_buffer["isPartOf"] = {}
@@ -1096,11 +1096,11 @@ while True:
                                                                     interface_subinterface_address_vrrp_group_dict_buffer["id"] = interface_subinterface_address_vrrp_group_dict_buffer["id"] + ":" + element_text
                                                                 interface_subinterface_address_vrrp_group_dict_buffer["virtualRouterId"] = {}
                                                                 interface_subinterface_address_vrrp_group_dict_buffer["virtualRouterId"]["type"] = "Relationship"
-                                                                interface_subinterface_address_vrrp_group_dict_buffer["virtualRouterId"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressVrrpVrrpGroupConfig:" + source + ":" + interface_subinterface_address_vrrp_group_dict_buffer["id"].split(":")[-1]
+                                                                interface_subinterface_address_vrrp_group_dict_buffer["virtualRouterId"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressVrrpVrrpGroupConfig:" + ":".join(interface_subinterface_address_vrrp_group_dict_buffer["id"].split(":")[3:])
                                                                 interface_subinterface_address_vrrp_group_dict_buffer["virtualRouterId"]["observedAt"] = observed_at
                                                             if parent_path[9] == "config":
                                                                 interface_subinterface_address_vrrp_group_config_dict_buffer = {}
-                                                                interface_subinterface_address_vrrp_group_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressVrrpVrrpGroupConfig:" + source + ":" +interface_subinterface_address_vrrp_group_dict_buffer["id"].split(":")[-1]
+                                                                interface_subinterface_address_vrrp_group_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressVrrpVrrpGroupConfig:" + ":".join(interface_subinterface_address_vrrp_group_dict_buffer["id"].split(":")[3:])
                                                                 interface_subinterface_address_vrrp_group_config_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressVrrpVrrpGroupConfig"
                                                                 if len(parent_path) - 1 == 9 or len(parent_path) - 1 == 10:
                                                                     interface_subinterface_address_vrrp_group_config_dict_buffer["isPartOf"] = {}
@@ -1153,7 +1153,7 @@ while True:
                                                                         dict_buffers.append(interface_subinterface_address_vrrp_group_config_dict_buffer)
                                                             if parent_path[9] == "state":
                                                                 interface_subinterface_address_vrrp_group_state_dict_buffer = {}
-                                                                interface_subinterface_address_vrrp_group_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressVrrpVrrpGroupState:" + source + ":" +interface_subinterface_address_vrrp_group_dict_buffer["id"].split(":")[-1]
+                                                                interface_subinterface_address_vrrp_group_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressVrrpVrrpGroupState:" + ":".join(interface_subinterface_address_vrrp_group_dict_buffer["id"].split(":")[3:])
                                                                 interface_subinterface_address_vrrp_group_state_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressVrrpVrrpGroupState"
                                                                 if len(parent_path) - 1 == 9 or len(parent_path) - 1 == 10:
                                                                     interface_subinterface_address_vrrp_group_state_dict_buffer["isPartOf"] = {}
@@ -1212,7 +1212,7 @@ while True:
                                                             if parent_path[9] == "interface-tracking":
                                                                 if parent_path[10] == "config":
                                                                     interface_subinterface_address_vrrp_group_config_dict_buffer = {}
-                                                                    interface_subinterface_address_vrrp_group_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressVrrpVrrpGroupInterfaceTrackingConfig:" + source + ":" +interface_subinterface_address_vrrp_group_dict_buffer["id"].split(":")[-1]
+                                                                    interface_subinterface_address_vrrp_group_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressVrrpVrrpGroupInterfaceTrackingConfig:" + ":".join(interface_subinterface_address_vrrp_group_dict_buffer["id"].split(":")[3:])
                                                                     interface_subinterface_address_vrrp_group_config_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressVrrpVrrpGroupInterfaceTrackingConfig"
                                                                     if len(parent_path) - 1 == 10 or len(parent_path) - 1 == 11:
                                                                         interface_subinterface_address_vrrp_group_config_dict_buffer["isPartOf"] = {}
@@ -1222,7 +1222,7 @@ while True:
                                                                         if len(parent_path) - 1 == 10 or len(parent_path) - 1 == 11:
                                                                             interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"] = {}
                                                                             interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"]["type"] = "Relationship"
-                                                                            interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:Interface:" + source + ":" + interface_subinterface_address_vrrp_group_config_dict_buffer["id"].split(":")[-1]
+                                                                            interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:Interface:" + ":".join(interface_subinterface_address_vrrp_group_config_dict_buffer["id"].split(":")[3:])
                                                                             interface_subinterface_address_vrrp_group_config_dict_buffer["trackInterface"]["observedAt"] = observed_at
                                                                         if child_node == "priority-decrement":
                                                                             interface_subinterface_address_vrrp_group_config_dict_buffer["priorityDecrement"] = {}
@@ -1233,7 +1233,7 @@ while True:
                                                                             dict_buffers.append(interface_subinterface_address_vrrp_group_config_dict_buffer)
                                                                     if parent_path[11] == "state":
                                                                         interface_subinterface_address_vrrp_group_state_dict_buffer = {}
-                                                                        interface_subinterface_address_vrrp_group_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressVrrpVrrpGroupInterfaceTrackingState:" + source + ":" +interface_subinterface_address_vrrp_group_dict_buffer["id"].split(":")[-1]
+                                                                        interface_subinterface_address_vrrp_group_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressVrrpVrrpGroupInterfaceTrackingState:" + ":".join(interface_subinterface_address_vrrp_group_dict_buffer["id"].split(":")[3:])
                                                                         interface_subinterface_address_vrrp_group_state_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv6AddressesAddressVrrpVrrpGroupInterfaceTrackingState"
                                                                         if len(parent_path) - 1 == 11 or len(parent_path) - 1 == 12:
                                                                             interface_subinterface_address_vrrp_group_state_dict_buffer["isPartOf"] = {}
@@ -1243,7 +1243,7 @@ while True:
                                                                             if len(parent_path) - 1 == 11 or len(parent_path) - 1 == 12:
                                                                                 interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"] = {}
                                                                                 interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"]["type"] = "Relationship"
-                                                                                interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:Interface:" + source + ":" + interface_subinterface_address_vrrp_group_state_dict_buffer["id"].split(":")[-1]
+                                                                                interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"]["object"] = "urn:ngsi-ld:Interface:" + ":".join(interface_subinterface_address_vrrp_group_state_dict_buffer["id"].split(":")[3:])
                                                                                 interface_subinterface_address_vrrp_group_state_dict_buffer["trackInterface"]["observedAt"] = observed_at
                                                                             if child_node == "priority-decrement":
                                                                                 interface_subinterface_address_vrrp_group_state_dict_buffer["priorityDecrement"] = {}
@@ -1259,7 +1259,7 @@ while True:
                                         if parent_path[6] == "router-advertisement":
                                             if parent_path[7] == "config":
                                                 interface_subinterface_config_dict_buffer = {}
-                                                interface_subinterface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6RouterAdvertisementConfig:" + source + ":" +interface_subinterface_dict_buffer["id"].split(":")[-1]
+                                                interface_subinterface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6RouterAdvertisementConfig:" + ":".join(interface_subinterface_dict_buffer["id"].split(":")[3:])
                                                 interface_subinterface_config_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv6RouterAdvertisementConfig"
                                                 if len(parent_path) - 1 == 7 or len(parent_path) - 1 == 8:
                                                     interface_subinterface_config_dict_buffer["isPartOf"] = {}
@@ -1285,7 +1285,7 @@ while True:
                                                         dict_buffers.append(interface_subinterface_config_dict_buffer)
                                                 if parent_path[8] == "state":
                                                     interface_subinterface_state_dict_buffer = {}
-                                                    interface_subinterface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6RouterAdvertisementState:" + source + ":" +interface_subinterface_dict_buffer["id"].split(":")[-1]
+                                                    interface_subinterface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6RouterAdvertisementState:" + ":".join(interface_subinterface_dict_buffer["id"].split(":")[3:])
                                                     interface_subinterface_state_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv6RouterAdvertisementState"
                                                     if len(parent_path) - 1 == 8 or len(parent_path) - 1 == 9:
                                                         interface_subinterface_state_dict_buffer["isPartOf"] = {}
@@ -1327,11 +1327,11 @@ while True:
                                                                 interface_subinterface_neighbor_dict_buffer["id"] = interface_subinterface_neighbor_dict_buffer["id"] + ":" + element_text
                                                             interface_subinterface_neighbor_dict_buffer["ip"] = {}
                                                             interface_subinterface_neighbor_dict_buffer["ip"]["type"] = "Relationship"
-                                                            interface_subinterface_neighbor_dict_buffer["ip"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborConfig:" + source + ":" + interface_subinterface_neighbor_dict_buffer["id"].split(":")[-1]
+                                                            interface_subinterface_neighbor_dict_buffer["ip"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborConfig:" + ":".join(interface_subinterface_neighbor_dict_buffer["id"].split(":")[3:])
                                                             interface_subinterface_neighbor_dict_buffer["ip"]["observedAt"] = observed_at
                                                         if parent_path[9] == "config":
                                                             interface_subinterface_neighbor_config_dict_buffer = {}
-                                                            interface_subinterface_neighbor_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborConfig:" + source + ":" +interface_subinterface_neighbor_dict_buffer["id"].split(":")[-1]
+                                                            interface_subinterface_neighbor_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborConfig:" + ":".join(interface_subinterface_neighbor_dict_buffer["id"].split(":")[3:])
                                                             interface_subinterface_neighbor_config_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborConfig"
                                                             if len(parent_path) - 1 == 9 or len(parent_path) - 1 == 10:
                                                                 interface_subinterface_neighbor_config_dict_buffer["isPartOf"] = {}
@@ -1352,7 +1352,7 @@ while True:
                                                                     dict_buffers.append(interface_subinterface_neighbor_config_dict_buffer)
                                                         if parent_path[9] == "state":
                                                             interface_subinterface_neighbor_state_dict_buffer = {}
-                                                            interface_subinterface_neighbor_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborState:" + source + ":" +interface_subinterface_neighbor_dict_buffer["id"].split(":")[-1]
+                                                            interface_subinterface_neighbor_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborState:" + ":".join(interface_subinterface_neighbor_dict_buffer["id"].split(":")[3:])
                                                             interface_subinterface_neighbor_state_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv6NeighborsNeighborState"
                                                             if len(parent_path) - 1 == 9 or len(parent_path) - 1 == 10:
                                                                 interface_subinterface_neighbor_state_dict_buffer["isPartOf"] = {}
@@ -1391,7 +1391,7 @@ while True:
                                                 if parent_path[8] == "unnumbered":
                                                     if parent_path[9] == "config":
                                                         interface_subinterface_config_dict_buffer = {}
-                                                        interface_subinterface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6UnnumberedConfig:" + source + ":" +interface_subinterface_dict_buffer["id"].split(":")[-1]
+                                                        interface_subinterface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6UnnumberedConfig:" + ":".join(interface_subinterface_dict_buffer["id"].split(":")[3:])
                                                         interface_subinterface_config_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv6UnnumberedConfig"
                                                         if len(parent_path) - 1 == 9 or len(parent_path) - 1 == 10:
                                                             interface_subinterface_config_dict_buffer["isPartOf"] = {}
@@ -1407,7 +1407,7 @@ while True:
                                                                 dict_buffers.append(interface_subinterface_config_dict_buffer)
                                                         if parent_path[10] == "state":
                                                             interface_subinterface_state_dict_buffer = {}
-                                                            interface_subinterface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6UnnumberedState:" + source + ":" +interface_subinterface_dict_buffer["id"].split(":")[-1]
+                                                            interface_subinterface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6UnnumberedState:" + ":".join(interface_subinterface_dict_buffer["id"].split(":")[3:])
                                                             interface_subinterface_state_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv6UnnumberedState"
                                                             if len(parent_path) - 1 == 10 or len(parent_path) - 1 == 11:
                                                                 interface_subinterface_state_dict_buffer["isPartOf"] = {}
@@ -1424,7 +1424,7 @@ while True:
                                                             if parent_path[11] == "interface-ref":
                                                                 if parent_path[12] == "config":
                                                                     interface_subinterface_config_dict_buffer = {}
-                                                                    interface_subinterface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6UnnumberedInterfaceRefConfig:" + source + ":" +interface_subinterface_dict_buffer["id"].split(":")[-1]
+                                                                    interface_subinterface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6UnnumberedInterfaceRefConfig:" + ":".join(interface_subinterface_dict_buffer["id"].split(":")[3:])
                                                                     interface_subinterface_config_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv6UnnumberedInterfaceRefConfig"
                                                                     if len(parent_path) - 1 == 12 or len(parent_path) - 1 == 13:
                                                                         interface_subinterface_config_dict_buffer["isPartOf"] = {}
@@ -1436,20 +1436,20 @@ while True:
                                                                                 interface_subinterface_config_dict_buffer["id"] = interface_subinterface_config_dict_buffer["id"] + ":" + element_text
                                                                             interface_subinterface_config_dict_buffer["interface"] = {}
                                                                             interface_subinterface_config_dict_buffer["interface"]["type"] = "Relationship"
-                                                                            interface_subinterface_config_dict_buffer["interface"]["object"] = "urn:ngsi-ld:Interface:" + source + ":" + interface_subinterface_config_dict_buffer["id"].split(":")[-1]
+                                                                            interface_subinterface_config_dict_buffer["interface"]["object"] = "urn:ngsi-ld:Interface:" + ":".join(interface_subinterface_config_dict_buffer["id"].split(":")[3:])
                                                                             interface_subinterface_config_dict_buffer["interface"]["observedAt"] = observed_at
                                                                         if len(parent_path) - 1 == 12 or len(parent_path) - 1 == 13:
                                                                             if "." + str(element_text) not in interface_subinterface_config_dict_buffer["id"].split(":")[-1]:
                                                                                 interface_subinterface_config_dict_buffer["id"] = interface_subinterface_config_dict_buffer["id"] + "." + str(element_text)
                                                                             interface_subinterface_config_dict_buffer["subinterface"] = {}
                                                                             interface_subinterface_config_dict_buffer["subinterface"]["type"] = "Relationship"
-                                                                            interface_subinterface_config_dict_buffer["subinterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:" + source + ":" + interface_subinterface_config_dict_buffer["id"].split(":")[-1]
+                                                                            interface_subinterface_config_dict_buffer["subinterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:" + ":".join(interface_subinterface_config_dict_buffer["id"].split(":")[3:])
                                                                             interface_subinterface_config_dict_buffer["subinterface"]["observedAt"] = observed_at
                                                                         if len(parent_path) - 1 == 12:
                                                                             dict_buffers.append(interface_subinterface_config_dict_buffer)
                                                                     if parent_path[13] == "state":
                                                                         interface_subinterface_state_dict_buffer = {}
-                                                                        interface_subinterface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6UnnumberedInterfaceRefState:" + source + ":" +interface_subinterface_dict_buffer["id"].split(":")[-1]
+                                                                        interface_subinterface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6UnnumberedInterfaceRefState:" + ":".join(interface_subinterface_dict_buffer["id"].split(":")[3:])
                                                                         interface_subinterface_state_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv6UnnumberedInterfaceRefState"
                                                                         if len(parent_path) - 1 == 13 or len(parent_path) - 1 == 14:
                                                                             interface_subinterface_state_dict_buffer["isPartOf"] = {}
@@ -1461,20 +1461,20 @@ while True:
                                                                                     interface_subinterface_state_dict_buffer["id"] = interface_subinterface_state_dict_buffer["id"] + ":" + element_text
                                                                                 interface_subinterface_state_dict_buffer["interface"] = {}
                                                                                 interface_subinterface_state_dict_buffer["interface"]["type"] = "Relationship"
-                                                                                interface_subinterface_state_dict_buffer["interface"]["object"] = "urn:ngsi-ld:Interface:" + source + ":" + interface_subinterface_state_dict_buffer["id"].split(":")[-1]
+                                                                                interface_subinterface_state_dict_buffer["interface"]["object"] = "urn:ngsi-ld:Interface:" + ":".join(interface_subinterface_state_dict_buffer["id"].split(":")[3:])
                                                                                 interface_subinterface_state_dict_buffer["interface"]["observedAt"] = observed_at
                                                                             if len(parent_path) - 1 == 13 or len(parent_path) - 1 == 14:
                                                                                 if "." + str(element_text) not in interface_subinterface_state_dict_buffer["id"].split(":")[-1]:
                                                                                     interface_subinterface_state_dict_buffer["id"] = interface_subinterface_state_dict_buffer["id"] + "." + str(element_text)
                                                                                 interface_subinterface_state_dict_buffer["subinterface"] = {}
                                                                                 interface_subinterface_state_dict_buffer["subinterface"]["type"] = "Relationship"
-                                                                                interface_subinterface_state_dict_buffer["subinterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:" + source + ":" + interface_subinterface_state_dict_buffer["id"].split(":")[-1]
+                                                                                interface_subinterface_state_dict_buffer["subinterface"]["object"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:" + ":".join(interface_subinterface_state_dict_buffer["id"].split(":")[3:])
                                                                                 interface_subinterface_state_dict_buffer["subinterface"]["observedAt"] = observed_at
                                                                             if len(parent_path) - 1 == 13:
                                                                                 dict_buffers.append(interface_subinterface_state_dict_buffer)
                                                     if parent_path[9] == "config":
                                                         interface_subinterface_config_dict_buffer = {}
-                                                        interface_subinterface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6Config:" + source + ":" +interface_subinterface_dict_buffer["id"].split(":")[-1]
+                                                        interface_subinterface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6Config:" + ":".join(interface_subinterface_dict_buffer["id"].split(":")[3:])
                                                         interface_subinterface_config_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv6Config"
                                                         if len(parent_path) - 1 == 9 or len(parent_path) - 1 == 10:
                                                             interface_subinterface_config_dict_buffer["isPartOf"] = {}
@@ -1505,7 +1505,7 @@ while True:
                                                                 dict_buffers.append(interface_subinterface_config_dict_buffer)
                                                         if parent_path[10] == "state":
                                                             interface_subinterface_state_dict_buffer = {}
-                                                            interface_subinterface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6State:" + source + ":" +interface_subinterface_dict_buffer["id"].split(":")[-1]
+                                                            interface_subinterface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6State:" + ":".join(interface_subinterface_dict_buffer["id"].split(":")[3:])
                                                             interface_subinterface_state_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv6State"
                                                             if len(parent_path) - 1 == 10 or len(parent_path) - 1 == 11:
                                                                 interface_subinterface_state_dict_buffer["isPartOf"] = {}
@@ -1534,7 +1534,7 @@ while True:
                                                                     interface_subinterface_state_dict_buffer["dhcpClient"]["observedAt"] = observed_at
                                                                 if parent_path[11] == "counters":
                                                                     interface_subinterface_state_counters_dict_buffer = {}
-                                                                    interface_subinterface_state_counters_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6StateCounters:" + source + ":" +interface_subinterface_state_dict_buffer["id"].split(":")[-1]
+                                                                    interface_subinterface_state_counters_dict_buffer["id"] = "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv6StateCounters:" + ":".join(interface_subinterface_state_dict_buffer["id"].split(":")[3:])
                                                                     interface_subinterface_state_counters_dict_buffer["type"] = "InterfaceSubinterfacesSubinterfaceIpv6StateCounters"
                                                                     if len(parent_path) - 1 == 11 or len(parent_path) - 1 == 12:
                                                                         interface_subinterface_state_counters_dict_buffer["isPartOf"] = {}
@@ -1610,7 +1610,7 @@ while True:
                     if parent_path[2] == "openconfig-if-ethernet:ethernet" or parent_path[2] == "ethernet":
                         if parent_path[3] == "config":
                             interface_config_dict_buffer = {}
-                            interface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceEthernetConfig:" + source + ":" +interface_dict_buffer["id"].split(":")[-1]
+                            interface_config_dict_buffer["id"] = "urn:ngsi-ld:InterfaceEthernetConfig:" + ":".join(interface_dict_buffer["id"].split(":")[3:])
                             interface_config_dict_buffer["type"] = "InterfaceEthernetConfig"
                             if len(parent_path) - 1 == 3 or len(parent_path) - 1 == 4:
                                 interface_config_dict_buffer["isPartOf"] = {}
@@ -1641,7 +1641,7 @@ while True:
                                     dict_buffers.append(interface_config_dict_buffer)
                             if parent_path[4] == "state":
                                 interface_state_dict_buffer = {}
-                                interface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceEthernetState:" + source + ":" +interface_dict_buffer["id"].split(":")[-1]
+                                interface_state_dict_buffer["id"] = "urn:ngsi-ld:InterfaceEthernetState:" + ":".join(interface_dict_buffer["id"].split(":")[3:])
                                 interface_state_dict_buffer["type"] = "InterfaceEthernetState"
                                 if len(parent_path) - 1 == 4 or len(parent_path) - 1 == 5:
                                     interface_state_dict_buffer["isPartOf"] = {}
@@ -1680,7 +1680,7 @@ while True:
                                         interface_state_dict_buffer["negotiatedDuplexMode"]["observedAt"] = observed_at
                                     if parent_path[5] == "counters":
                                         interface_state_counters_dict_buffer = {}
-                                        interface_state_counters_dict_buffer["id"] = "urn:ngsi-ld:InterfaceEthernetStateCounters:" + source + ":" +interface_state_dict_buffer["id"].split(":")[-1]
+                                        interface_state_counters_dict_buffer["id"] = "urn:ngsi-ld:InterfaceEthernetStateCounters:" + ":".join(interface_state_dict_buffer["id"].split(":")[3:])
                                         interface_state_counters_dict_buffer["type"] = "InterfaceEthernetStateCounters"
                                         if len(parent_path) - 1 == 5 or len(parent_path) - 1 == 6:
                                             interface_state_counters_dict_buffer["isPartOf"] = {}

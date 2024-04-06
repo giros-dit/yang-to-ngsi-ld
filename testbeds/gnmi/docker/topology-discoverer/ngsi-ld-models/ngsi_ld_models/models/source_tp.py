@@ -28,7 +28,7 @@ class SourceTp(BaseModel):
     This termination point is located within the source node and terminates the link.  YANG module: ietf-network-topology.yang 
     """ # noqa: E501
     type: Optional[StrictStr] = Field(default='Relationship', description="Node type. ")
-    object: StrictStr = Field(description="Relationship with Entity type TerminationPoint.")
+    object: StrictStr = Field(description="Relationship with Entity type NetworkNodeTerminationPoint.")
     observed_at: Optional[datetime] = Field(default=None, description="Is defined as the temporal Property at which a certain Property or Relationship became valid or was observed. For example, a temperature Value was measured by the sensor at this point in time. ", alias="observedAt")
     dataset_id: Optional[StrictStr] = Field(default=None, description="It allows identifying a set or group of target relationship objects. ", alias="datasetId")
     created_at: Optional[datetime] = Field(default=None, description="Is defined as the temporal Property at which the Entity, Property or Relationship was entered into an NGSI-LD system. ", alias="createdAt")

@@ -25,5 +25,3 @@ WORKDIR /opt/topology-discoverer
 RUN poetry install
 
 RUN chmod +x discover-topology.sh
-
-#ENTRYPOINT ["./discover-topology.sh"]

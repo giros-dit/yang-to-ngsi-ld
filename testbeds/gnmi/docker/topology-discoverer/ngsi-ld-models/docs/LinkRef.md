@@ -7,7 +7,7 @@ This leaf identifies a link that is a part of this link's underlay. Reference lo
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **str** | Node type.  | [optional] [default to 'Relationship']
-**object** | **str** | Relationship with Entity type Link. | 
+**object** | **str** | Relationship with Entity type NetworkLink. | 
 **observed_at** | **datetime** | Is defined as the temporal Property at which a certain Property or Relationship became valid or was observed. For example, a temperature Value was measured by the sensor at this point in time.  | [optional] 
 **dataset_id** | **str** | It allows identifying a set or group of target relationship objects.  | [optional] 
 **created_at** | **datetime** | Is defined as the temporal Property at which the Entity, Property or Relationship was entered into an NGSI-LD system.  | [optional] [readonly] 

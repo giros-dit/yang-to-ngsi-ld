@@ -7,7 +7,7 @@ References the underlay node itself.  YANG module: ietf-network.yang
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **str** | Node type.  | [optional] [default to 'Relationship']
-**object** | **str** | Relationship with Entity type Node. | 
+**object** | **str** | Relationship with Entity type NetworkNode. | 
 **observed_at** | **datetime** | Is defined as the temporal Property at which a certain Property or Relationship became valid or was observed. For example, a temperature Value was measured by the sensor at this point in time.  | [optional] 
 **dataset_id** | **str** | It allows identifying a set or group of target relationship objects.  | [optional] 
 **created_at** | **datetime** | Is defined as the temporal Property at which the Entity, Property or Relationship was entered into an NGSI-LD system.  | [optional] [readonly] 

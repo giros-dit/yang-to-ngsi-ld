@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an JSON 
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 1.0.0.
+Version: 1.0.1.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -645,7 +645,6 @@ def generate_python_json_parser_code(ctx, modules, fd):
             else:
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + camelcase_element_arg + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
             
-            #fd.write('\n' + INDENTATION_BLOCK * depth_level + camelcase_element_arg + ' ' + '=' + ' ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
             fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + camelcase_element_arg + ' is not None:')
             ngsi_ld_type = yang_to_ngsi_ld_types_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1], typedefs_dict)
             text_format = element_text_type_formatting(ngsi_ld_type, 'element_text')
@@ -702,21 +701,58 @@ def generate_python_json_parser_code(ctx, modules, fd):
                 childs = element.parent.i_children
                 matched_childs = 0
                 if (childs is not None) and (camelcase_entity_path + camelcase_pointer_parent) != current_camelcase_path:
-                    for child in childs:
-                        if child.arg == str(pointer_parent.arg):
-                            matched_childs += 1 
-                    
-                    if matched_childs > 0:    
-                        relationship_camelcase_path = camelcase_entity_path + camelcase_pointer_parent
-                        ENTITY_TYPE_LIST.append(relationship_camelcase_path)
-                    else:
-                        relationship_camelcase_path = camelcase_pointer_parent
+                    has_childs = True
+                    element_aux = element
+                    iterations = 0
+                    while has_childs == True:
+                        for child in childs:
+                            if child.arg == str(pointer_parent.arg):
+                                matched_childs += 1
+                                break
+                        
+                        if matched_childs == 0:
+                            for child in childs:
+                                    if is_entity(child) == True:
+                                        subchilds = child.i_children
+                                        if (subchilds is not None):
+                                            iterations += 1
+                                            for subchild in subchilds:
+                                                if subchild.arg == str(pointer_parent.arg):
+                                                    matched_childs += 1
+                        
+                        if matched_childs > 0:    
+                            if iterations > 0:
+                                for camelcase_entity in ENTITY_TYPE_LIST:
+                                    
+                                    if camelcase_pointer_parent == camelcase_entity or camelcase_pointer_parent in camelcase_entity:
+                                        matches.append(camelcase_entity)
+
+                                if len(matches) == 0:
+                                    relationship_camelcase_path = camelcase_pointer_parent
+                                else:
+                                    relationship_camelcase_path = matches[0]  
+
+                            else:
+                                relationship_camelcase_path = camelcase_entity_path + camelcase_pointer_parent
+                                ENTITY_TYPE_LIST.append(relationship_camelcase_path)
+                            
+                            has_childs = False
+                        else:
+                            iterations += 1
+                            element_aux = element_aux.parent
+                            if element_aux.parent is not None:
+                                childs = element_aux.parent.i_children
+                                if (childs is None):
+                                    has_childs = False
+                                    relationship_camelcase_path = camelcase_pointer_parent
+                            else: 
+                                has_childs = False
+                                relationship_camelcase_path = camelcase_pointer_parent
                 else:
                     for camelcase_entity in ENTITY_TYPE_LIST:
                         if camelcase_pointer_parent == camelcase_entity or camelcase_pointer_parent in camelcase_entity:
                             matches.append(camelcase_entity)
 
-                    relationship_camelcase_path = camelcase_pointer_parent
                     if len(matches) == 0:
                         relationship_camelcase_path = camelcase_pointer_parent
                     else:
@@ -736,7 +772,6 @@ def generate_python_json_parser_code(ctx, modules, fd):
             else:
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + camelcase_element_arg + ' = ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
             
-            #fd.write('\n' + INDENTATION_BLOCK * depth_level + camelcase_element_arg + ' ' + '=' + ' ' + str(parent_element_arg).replace('-', '_') + '.get("' + str(element.arg) + '")')
             fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + camelcase_element_arg + ' is not None:')
             ngsi_ld_type = yang_to_ngsi_ld_types_conversion(str(element.search_one('type')).replace('type ', '').split(":")[-1], typedefs_dict)
             text_format = element_text_type_formatting(ngsi_ld_type, 'element_text')
@@ -762,7 +797,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
             else:
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Relationship\"')
-                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + relationship_camelcase_path + ':\" + ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + relationship_camelcase_path + ':\" + ":".join(' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[3:])')
                 if (ctx.opts.candil_json_parser_generator_timestamp == "ON"):
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"observedAt\"] = observed_at')
         ### --- ###
