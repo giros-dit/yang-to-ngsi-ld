@@ -5,7 +5,6 @@ from datetime import datetime
 def parse_netflow(message):
     dict_buffers = []
     data = message.value
-
     timestamp = data["netflow-v9:netflow"]["collector-goflow2"]["time-received"]
     timestamp_sec = int(timestamp) / 1000.0
     datetime_ms = datetime.fromtimestamp(timestamp_sec)
