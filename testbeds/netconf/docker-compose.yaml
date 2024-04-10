@@ -9,7 +9,7 @@ services:
       driver: none
 
   kafka:
-    image: wurstmeister/kafka:latest
+    image: bitnami/kafka:latest
     hostname: kafka
     container_name: kafka
     ports:
@@ -18,8 +18,9 @@ services:
       KAFKA_ADVERTISED_HOST_NAME: kafka
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_ADVERTISED_PORT: 9092
-      KAFKA_LOG_DIRS: "/tmp/kafka-logs"
-      KAFKA_CREATE_TOPICS: "interfaces-state-subscriptions:1:1"
+      KAFKA_LOG_RETENTION_MS: 10000
+      KAFKA_LOG_RETENTION_CHECK_INTERVAL_MS: 5000
+      ALLOW_PLAINTEXT_LISTENER: "yes"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
@@ -92,7 +93,7 @@ services:
       context-catalog:
         condition: service_started
       kafka:
-        condition: service_healthy
+        condition: service_started
     restart: always
   
   ncclient-collector-builder:
@@ -113,7 +114,7 @@ services:
       ncclient-collector-builder:
         condition: service_completed_successfully
       kafka:
-        condition: service_healthy
+        condition: service_started
 
   ncclient-collector-2:
     image: testbeds-netconf-ncclient-collector:latest
@@ -126,7 +127,7 @@ services:
       ncclient-collector-builder:
         condition: service_completed_successfully
       kafka:
-        condition: service_healthy
+        condition: service_started
 
   ncclient-collector-3:
     image: testbeds-netconf-ncclient-collector:latest
@@ -139,7 +140,7 @@ services:
       ncclient-collector-builder:
         condition: service_completed_successfully
       kafka:
-        condition: service_healthy
+        condition: service_started
 
   ncclient-collector-4:
     image: testbeds-netconf-ncclient-collector:latest
@@ -152,7 +153,7 @@ services:
       ncclient-collector-builder:
         condition: service_completed_successfully
       kafka:
-        condition: service_healthy
+        condition: service_started
 
   xml-parser-with-ngsi-ld-instantiator:
     build:
@@ -169,7 +170,7 @@ services:
       context-catalog:
         condition: service_started
       kafka:
-        condition: service_healthy
+        condition: service_started
     restart: always
 
 networks:
