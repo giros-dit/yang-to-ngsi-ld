@@ -33,7 +33,7 @@ topology:
       image: ceos:4.31.2F
       startup-config: s2-config.txt
     r1:
-      kind: vr-csr
+      kind: vr-cisco_csr1000v
       image: giros-dit/xe-csr1000v:latest
       type: cisco-xe-csr1000v
       group: router
