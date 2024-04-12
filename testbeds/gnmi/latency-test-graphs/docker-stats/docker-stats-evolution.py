@@ -1,9 +1,11 @@
+'''
+Code based on: https://naartti.medium.com/analyse-docker-stats-with-python-pandas-2c2ed735cfcd
+'''
 import os
 import re
 import matplotlib.pylab as plt
 import pandas as pd
 import seaborn as sns
-ROOT_PATH = os.path.abspath("..")
 
 # Read data and create DataFrame
 df = pd.read_csv('docker-stats-gnmi-testbed.csv', delimiter=r"\s\s+", engine="python")
@@ -69,6 +71,32 @@ plt.title(f"CPU [%] stats from kafka and zookeeper services")
 plt.tick_params(axis='x', which='both', bottom=False, top=False, labelbottom=False)
 plt.grid()
 plt.savefig('docker-stats-kafka-cpu.png')
+plt.close()
+
+df_scorpio = df.query('NAME == "scorpio" | NAME == "postgres" | NAME == "context-catalog"')
+
+fig, ax = plt.subplots(1, 1, figsize=(18, 7))
+
+sns.lineplot(x=df_scorpio.index, y="mem_percentage", hue="NAME", data=df_scorpio, drawstyle="steps")
+plt.legend()
+plt.ylabel("RAM [%]")
+plt.xlabel("Timeline")
+plt.title(f"Memory [%] stats from scorpio, postgres, and context-catalog services")
+plt.tick_params(axis='x', which='both', bottom=False, top=False, labelbottom=False)
+plt.grid()
+plt.savefig('docker-stats-scorpio-ram.png')
+plt.close()
+
+fig, ax = plt.subplots(1, 1, figsize=(18, 7))
+
+sns.lineplot(x=df_scorpio.index, y="cpu_percentage", hue="NAME", data=df_scorpio, drawstyle="steps")
+plt.legend()
+plt.ylabel("CPU [%]")
+plt.xlabel("Timeline")
+plt.title(f"CPU [%] stats from scorpio, postgres, and context-catalog services")
+plt.tick_params(axis='x', which='both', bottom=False, top=False, labelbottom=False)
+plt.grid()
+plt.savefig('docker-stats-scorpio-cpu.png')
 plt.close()
 
 df_gnmi_collectors = df.query('NAME == "gnmic-collector-queries" | NAME == "gnmic-collector-subscriptions"')
@@ -149,30 +177,160 @@ plt.grid()
 plt.savefig('docker-stats-notifications-parser-cpu.png')
 plt.close()
 
-df_r1= df[df['NAME'] == 'clab-telemetry-testbed-xrv9k-ceos-4hosts-r1']
+df_queries_parser= df[df['NAME'] == 'gnmi-json-parser-queries-with-ngsi-ld-instantiator']
 
 fig, ax = plt.subplots(1, 1, figsize=(18, 7))
 
-sns.lineplot(x=df_r1.index, y="mem_percentage", hue="NAME", data=df_r1, drawstyle="steps")
+sns.lineplot(x=df_queries_parser.index, y="mem_percentage", hue="NAME", data=df_queries_parser, drawstyle="steps")
 plt.legend(fontsize="xx-small")
 plt.ylabel("RAM [%]")
 plt.xlabel("Timeline")
-plt.title(f"Memory [%] stats from clab-telemetry-testbed-xrv9k-ceos-4hosts-r1 service")
+plt.title(f"Memory [%] stats from gnmi-json-parser-queries-with-ngsi-ld-instantiator service")
 plt.tick_params(axis='x', which='both', bottom=False, top=False, labelbottom=False)
 plt.grid()
-plt.savefig('docker-stats-r1-ram.png')
+plt.savefig('docker-stats-queries-parser-ram.png')
 plt.close()
 
 fig, ax = plt.subplots(1, 1, figsize=(18, 7))
 
-sns.lineplot(x=df_r1.index, y="cpu_percentage", hue="NAME", data=df_r1, drawstyle="steps")
+sns.lineplot(x=df_queries_parser.index, y="cpu_percentage", hue="NAME", data=df_queries_parser, drawstyle="steps")
 plt.legend(fontsize="xx-small")
 plt.ylabel("CPU [%]")
 plt.xlabel("Timeline")
-plt.title(f"CPU [%] stats from clab-telemetry-testbed-xrv9k-ceos-4hosts-r1 service")
+plt.title(f"CPU [%] stats from gnmi-json-parser-queries-with-ngsi-ld-instantiator service")
 plt.tick_params(axis='x', which='both', bottom=False, top=False, labelbottom=False)
 plt.grid()
-plt.savefig('docker-stats-r1-cpu.png')
+plt.savefig('docker-stats-queries-parser-cpu.png')
+plt.close()
+
+df_clab_nodes = df.query('NAME.str.startswith("clab")')
+
+fig, ax = plt.subplots(1, 1, figsize=(18, 7))
+
+sns.lineplot(x=df_clab_nodes.index, y="mem_percentage", hue="NAME", data=df_clab_nodes, drawstyle="steps")
+plt.legend(fontsize="xx-small")
+plt.ylabel("RAM [%]")
+plt.xlabel("Timeline")
+plt.title(f"Memory [%] stats from ContainerLab services")
+plt.tick_params(axis='x', which='both', bottom=False, top=False, labelbottom=False)
+plt.grid()
+plt.savefig('docker-stats-clab-nodes-ram.png')
+plt.close()
+
+fig, ax = plt.subplots(1, 1, figsize=(18, 7))
+
+sns.lineplot(x=df_clab_nodes.index, y="cpu_percentage", hue="NAME", data=df_clab_nodes, drawstyle="steps")
+plt.legend(fontsize="xx-small")
+plt.ylabel("CPU [%]")
+plt.xlabel("Timeline")
+plt.title(f"CPU [%] stats from ContainerLab services")
+plt.tick_params(axis='x', which='both', bottom=False, top=False, labelbottom=False)
+plt.grid()
+plt.savefig('docker-stats-clab-nodes-cpu.png')
+plt.close()
+
+df_xrv9k= df[df['NAME'] == 'clab-telemetry-testbed-xrv9k-ceos-4hosts-r1']
+
+fig, ax = plt.subplots(1, 1, figsize=(18, 7))
+
+sns.lineplot(x=df_xrv9k.index, y="mem_percentage", hue="NAME", data=df_xrv9k, drawstyle="steps")
+plt.legend(fontsize="xx-small")
+plt.ylabel("RAM [%]")
+plt.xlabel("Timeline")
+plt.title(f"Memory [%] stats from clab-telemetry-testbed-xrv9k-ceos-4hosts-r1 service (Cisco XRv9K)")
+plt.tick_params(axis='x', which='both', bottom=False, top=False, labelbottom=False)
+plt.grid()
+plt.savefig('docker-stats-xrv9k-ram.png')
+plt.close()
+
+fig, ax = plt.subplots(1, 1, figsize=(18, 7))
+
+sns.lineplot(x=df_xrv9k.index, y="cpu_percentage", hue="NAME", data=df_xrv9k, drawstyle="steps")
+plt.legend(fontsize="xx-small")
+plt.ylabel("CPU [%]")
+plt.xlabel("Timeline")
+plt.title(f"CPU [%] stats from clab-telemetry-testbed-xrv9k-ceos-4hosts-r1 service (Cisco XRv9K)")
+plt.tick_params(axis='x', which='both', bottom=False, top=False, labelbottom=False)
+plt.grid()
+plt.savefig('docker-stats-xrv9k-cpu.png')
+plt.close()
+
+df_clab_pc_nodes = df.query('NAME.str.startswith("clab") & NAME.str.contains("pc")')
+
+fig, ax = plt.subplots(1, 1, figsize=(18, 7))
+
+sns.lineplot(x=df_clab_pc_nodes.index, y="mem_percentage", hue="NAME", data=df_clab_pc_nodes, drawstyle="steps")
+plt.legend(fontsize="xx-small")
+plt.ylabel("RAM [%]")
+plt.xlabel("Timeline")
+plt.title(f"Memory [%] stats from ContainerLab PC nodes services")
+plt.tick_params(axis='x', which='both', bottom=False, top=False, labelbottom=False)
+plt.grid()
+plt.savefig('docker-stats-clab-pc-nodes-ram.png')
+plt.close()
+
+fig, ax = plt.subplots(1, 1, figsize=(18, 7))
+
+sns.lineplot(x=df_clab_pc_nodes.index, y="cpu_percentage", hue="NAME", data=df_clab_pc_nodes, drawstyle="steps")
+plt.legend(fontsize="xx-small")
+plt.ylabel("CPU [%]")
+plt.xlabel("Timeline")
+plt.title(f"CPU [%] stats from ContainerLab PC nodes services")
+plt.tick_params(axis='x', which='both', bottom=False, top=False, labelbottom=False)
+plt.grid()
+plt.savefig('docker-stats-clab-pc-nodes-cpu.png')
+plt.close()
+
+df_clab_ceos_nodes = df.query('NAME.str.startswith("clab") & ~NAME.str.contains("pc") & NAME != "clab-telemetry-testbed-xrv9k-ceos-4hosts-r1"')
+
+fig, ax = plt.subplots(1, 1, figsize=(18, 7))
+
+sns.lineplot(x=df_clab_ceos_nodes.index, y="mem_percentage", hue="NAME", data=df_clab_ceos_nodes, drawstyle="steps")
+plt.legend(fontsize="xx-small")
+plt.ylabel("RAM [%]")
+plt.xlabel("Timeline")
+plt.title(f"Memory [%] stats from ContainerLab Arista cEOS nodes services")
+plt.tick_params(axis='x', which='both', bottom=False, top=False, labelbottom=False)
+plt.grid()
+plt.savefig('docker-stats-clab-ceos-nodes-ram.png')
+plt.close()
+
+fig, ax = plt.subplots(1, 1, figsize=(18, 7))
+
+sns.lineplot(x=df_clab_ceos_nodes.index, y="cpu_percentage", hue="NAME", data=df_clab_ceos_nodes, drawstyle="steps")
+plt.legend(fontsize="xx-small")
+plt.ylabel("CPU [%]")
+plt.xlabel("Timeline")
+plt.title(f"CPU [%] stats from ContainerLab Arista cEOS nodes services")
+plt.tick_params(axis='x', which='both', bottom=False, top=False, labelbottom=False)
+plt.grid()
+plt.savefig('docker-stats-clab-ceos-nodes-cpu.png')
+plt.close()
+
+df_topology_discoverer= df[df['NAME'] == 'topology-discoverer']
+
+fig, ax = plt.subplots(1, 1, figsize=(18, 7))
+
+sns.lineplot(x=df_topology_discoverer.index, y="mem_percentage", hue="NAME", data=df_topology_discoverer, drawstyle="steps")
+plt.legend()
+plt.ylabel("RAM [%]")
+plt.xlabel("Timeline")
+plt.title(f"Memory [%] stats from df_topology_discoverer service")
+plt.tick_params(axis='x', which='both', bottom=False, top=False, labelbottom=False)
+plt.grid()
+plt.savefig('docker-stats-topology-discoverer-ram.png')
+plt.close()
+
+fig, ax = plt.subplots(1, 1, figsize=(18, 7))
+
+sns.lineplot(x=df_topology_discoverer.index, y="cpu_percentage", hue="NAME", data=df_topology_discoverer, drawstyle="steps")
+plt.legend()
+plt.ylabel("CPU [%]")
+plt.xlabel("Timeline")
+plt.title(f"CPU [%] stats from df_topology_discoverer service")
+plt.tick_params(axis='x', which='both', bottom=False, top=False, labelbottom=False)
+plt.grid()
+plt.savefig('docker-stats-topology-discoverer-cpu.png')
 plt.close()
 
 fig, ax = plt.subplots(1, 1, figsize=(18, 7))
