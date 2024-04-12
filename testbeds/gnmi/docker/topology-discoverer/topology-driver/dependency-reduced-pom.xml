@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>upm.dit.giros</groupId>
   <artifactId>topology-driver</artifactId>
-  <name>Flink Job with IETF Network Topology YANGTools Driver</name>
+  <name>Java Application with IETF Network Topology YANGTools Driver</name>
   <version>1.0</version>
   <build>
     <plugins>

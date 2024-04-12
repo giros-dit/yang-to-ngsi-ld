@@ -2,65 +2,54 @@
     <network>
         <network-id>telemetry-testbed-l3-topology</network-id>
         <link xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-            <link-id>pc11-eth1-s1-eth1</link-id>
+            <link-id>pc12-eth1-s1-Ethernet2</link-id>
             <source>
-                <source-node>s1</source-node>
+                <source-node>pc12</source-node>
                 <source-tp>eth1</source-tp>
             </source>
             <destination>
-                <dest-tp>eth1</dest-tp>
-                <dest-node>pc11</dest-node>
+                <dest-tp>Ethernet2</dest-tp>
+                <dest-node>s1</dest-node>
             </destination>
         </link>
         <link xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-            <link-id>s3-eth2-pc32-eth1</link-id>
-            <source>
-                <source-node>s3</source-node>
-                <source-tp>eth2</source-tp>
-            </source>
-            <destination>
-                <dest-tp>eth1</dest-tp>
-                <dest-node>pc32</dest-node>
-            </destination>
-        </link>
-        <link xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-            <link-id>s1-eth3-r1-eth1</link-id>
+            <link-id>s1-Ethernet3-r1-GigabitEthernet2</link-id>
             <source>
                 <source-node>s1</source-node>
-                <source-tp>eth3</source-tp>
+                <source-tp>Ethernet3</source-tp>
             </source>
             <destination>
-                <dest-tp>eth1</dest-tp>
+                <dest-tp>GigabitEthernet2</dest-tp>
                 <dest-node>r1</dest-node>
             </destination>
         </link>
         <link xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-            <link-id>s3-eth1-pc31-eth1</link-id>
+            <link-id>r3-GigabitEthernet2-s3-Ethernet3</link-id>
             <source>
-                <source-node>s3</source-node>
-                <source-tp>eth1</source-tp>
+                <source-node>r3</source-node>
+                <source-tp>GigabitEthernet2</source-tp>
             </source>
             <destination>
-                <dest-tp>eth1</dest-tp>
-                <dest-node>pc31</dest-node>
+                <dest-tp>Ethernet3</dest-tp>
+                <dest-node>s3</dest-node>
             </destination>
         </link>
         <link xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-            <link-id>r3-eth1-s3-eth3</link-id>
+            <link-id>r1-GigabitEthernet4-r3-GigabitEthernet3</link-id>
             <source>
-                <source-node>s3</source-node>
-                <source-tp>eth3</source-tp>
+                <source-node>r1</source-node>
+                <source-tp>GigabitEthernet4</source-tp>
             </source>
             <destination>
-                <dest-tp>eth1</dest-tp>
+                <dest-tp>GigabitEthernet3</dest-tp>
                 <dest-node>r3</dest-node>
             </destination>
         </link>
         <link xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-            <link-id>s2-eth2-pc22-eth1</link-id>
+            <link-id>s2-Ethernet2-pc22-eth1</link-id>
             <source>
                 <source-node>s2</source-node>
-                <source-tp>eth2</source-tp>
+                <source-tp>Ethernet2</source-tp>
             </source>
             <destination>
                 <dest-tp>eth1</dest-tp>
@@ -68,21 +57,54 @@
             </destination>
         </link>
         <link xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-            <link-id>r2-eth3-r3-eth3</link-id>
+            <link-id>r1-GigabitEthernet3-r2-GigabitEthernet3</link-id>
             <source>
-                <source-node>r3</source-node>
-                <source-tp>eth3</source-tp>
+                <source-node>r1</source-node>
+                <source-tp>GigabitEthernet3</source-tp>
             </source>
             <destination>
-                <dest-tp>eth3</dest-tp>
+                <dest-tp>GigabitEthernet3</dest-tp>
                 <dest-node>r2</dest-node>
             </destination>
         </link>
         <link xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-            <link-id>s2-eth1-pc21-eth1</link-id>
+            <link-id>pc11-eth1-s1-Ethernet1</link-id>
+            <source>
+                <source-node>pc11</source-node>
+                <source-tp>eth1</source-tp>
+            </source>
+            <destination>
+                <dest-tp>Ethernet1</dest-tp>
+                <dest-node>s1</dest-node>
+            </destination>
+        </link>
+        <link xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
+            <link-id>s3-Ethernet1-pc31-eth1</link-id>
+            <source>
+                <source-node>s3</source-node>
+                <source-tp>Ethernet1</source-tp>
+            </source>
+            <destination>
+                <dest-tp>eth1</dest-tp>
+                <dest-node>pc31</dest-node>
+            </destination>
+        </link>
+        <link xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
+            <link-id>r2-GigabitEthernet2-s2-Ethernet3</link-id>
+            <source>
+                <source-node>r2</source-node>
+                <source-tp>GigabitEthernet2</source-tp>
+            </source>
+            <destination>
+                <dest-tp>Ethernet3</dest-tp>
+                <dest-node>s2</dest-node>
+            </destination>
+        </link>
+        <link xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
+            <link-id>s2-Ethernet1-pc21-eth1</link-id>
             <source>
                 <source-node>s2</source-node>
-                <source-tp>eth1</source-tp>
+                <source-tp>Ethernet1</source-tp>
             </source>
             <destination>
                 <dest-tp>eth1</dest-tp>
@@ -90,47 +112,25 @@
             </destination>
         </link>
         <link xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-            <link-id>r2-eth1-s2-eth3</link-id>
+            <link-id>s3-Ethernet2-pc32-eth1</link-id>
             <source>
-                <source-node>s2</source-node>
-                <source-tp>eth3</source-tp>
+                <source-node>s3</source-node>
+                <source-tp>Ethernet2</source-tp>
             </source>
             <destination>
                 <dest-tp>eth1</dest-tp>
-                <dest-node>r2</dest-node>
+                <dest-node>pc32</dest-node>
             </destination>
         </link>
         <link xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-            <link-id>r1-eth2-r2-eth2</link-id>
+            <link-id>r2-GigabitEthernet4-r3-GigabitEthernet4</link-id>
             <source>
                 <source-node>r2</source-node>
-                <source-tp>eth2</source-tp>
+                <source-tp>GigabitEthernet4</source-tp>
             </source>
             <destination>
-                <dest-tp>eth2</dest-tp>
-                <dest-node>r1</dest-node>
-            </destination>
-        </link>
-        <link xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-            <link-id>r1-eth3-r3-eth2</link-id>
-            <source>
-                <source-node>r3</source-node>
-                <source-tp>eth2</source-tp>
-            </source>
-            <destination>
-                <dest-tp>eth3</dest-tp>
-                <dest-node>r1</dest-node>
-            </destination>
-        </link>
-        <link xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-            <link-id>pc12-eth1-s1-eth2</link-id>
-            <source>
-                <source-node>s1</source-node>
-                <source-tp>eth2</source-tp>
-            </source>
-            <destination>
-                <dest-tp>eth1</dest-tp>
-                <dest-node>pc12</dest-node>
+                <dest-tp>GigabitEthernet4</dest-tp>
+                <dest-node>r3</dest-node>
             </destination>
         </link>
         <node>
@@ -138,23 +138,11 @@
             <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
                 <tp-id>eth1</tp-id>
             </termination-point>
-            <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth2</tp-id>
-            </termination-point>
-            <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth3</tp-id>
-            </termination-point>
         </node>
         <node>
             <node-id>pc32</node-id>
             <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
                 <tp-id>eth1</tp-id>
-            </termination-point>
-            <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth2</tp-id>
-            </termination-point>
-            <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth3</tp-id>
             </termination-point>
         </node>
         <node>
@@ -162,47 +150,35 @@
             <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
                 <tp-id>eth1</tp-id>
             </termination-point>
-            <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth2</tp-id>
-            </termination-point>
-            <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth3</tp-id>
-            </termination-point>
         </node>
         <node>
             <node-id>pc22</node-id>
             <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
                 <tp-id>eth1</tp-id>
             </termination-point>
-            <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth2</tp-id>
-            </termination-point>
-            <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth3</tp-id>
-            </termination-point>
         </node>
         <node>
             <node-id>r1</node-id>
             <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth1</tp-id>
+                <tp-id>GigabitEthernet4</tp-id>
             </termination-point>
             <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth2</tp-id>
+                <tp-id>GigabitEthernet3</tp-id>
             </termination-point>
             <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth3</tp-id>
+                <tp-id>GigabitEthernet2</tp-id>
             </termination-point>
         </node>
         <node>
             <node-id>s2</node-id>
             <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth1</tp-id>
+                <tp-id>Ethernet1</tp-id>
             </termination-point>
             <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth2</tp-id>
+                <tp-id>Ethernet2</tp-id>
             </termination-point>
             <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth3</tp-id>
+                <tp-id>Ethernet3</tp-id>
             </termination-point>
         </node>
         <node>
@@ -210,71 +186,59 @@
             <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
                 <tp-id>eth1</tp-id>
             </termination-point>
-            <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth2</tp-id>
-            </termination-point>
-            <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth3</tp-id>
-            </termination-point>
         </node>
         <node>
             <node-id>s1</node-id>
             <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth1</tp-id>
+                <tp-id>Ethernet1</tp-id>
             </termination-point>
             <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth2</tp-id>
+                <tp-id>Ethernet2</tp-id>
             </termination-point>
             <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth3</tp-id>
+                <tp-id>Ethernet3</tp-id>
             </termination-point>
         </node>
         <node>
             <node-id>r3</node-id>
             <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth1</tp-id>
+                <tp-id>GigabitEthernet4</tp-id>
             </termination-point>
             <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth2</tp-id>
+                <tp-id>GigabitEthernet3</tp-id>
             </termination-point>
             <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth3</tp-id>
+                <tp-id>GigabitEthernet2</tp-id>
             </termination-point>
         </node>
         <node>
             <node-id>r2</node-id>
             <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth1</tp-id>
+                <tp-id>GigabitEthernet4</tp-id>
             </termination-point>
             <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth2</tp-id>
+                <tp-id>GigabitEthernet3</tp-id>
             </termination-point>
             <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth3</tp-id>
+                <tp-id>GigabitEthernet2</tp-id>
             </termination-point>
         </node>
         <node>
             <node-id>s3</node-id>
             <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth1</tp-id>
+                <tp-id>Ethernet1</tp-id>
             </termination-point>
             <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth2</tp-id>
+                <tp-id>Ethernet2</tp-id>
             </termination-point>
             <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth3</tp-id>
+                <tp-id>Ethernet3</tp-id>
             </termination-point>
         </node>
         <node>
             <node-id>pc12</node-id>
             <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
                 <tp-id>eth1</tp-id>
-            </termination-point>
-            <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth2</tp-id>
-            </termination-point>
-            <termination-point xmlns="urn:ietf:params:xml:ns:yang:ietf-network-topology">
-                <tp-id>eth3</tp-id>
             </termination-point>
         </node>
     </network>

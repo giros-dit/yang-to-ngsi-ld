@@ -98,6 +98,7 @@ public class TopologyDriver {
 
         String network_id = new String();
         ArrayList<String> nodes_id = new ArrayList<String>();
+        ArrayList<String> nodes_kind = new ArrayList<String>();
 
         //JSON parser object to parse read file
         JsonParser jsonParser = new JsonParser();
@@ -116,7 +117,6 @@ public class TopologyDriver {
         LinkBuilder link_builder = new LinkBuilder();
         SourceBuilder link_source_builder = new SourceBuilder();
         DestinationBuilder link_destination_builder = new DestinationBuilder();
-        Map<TerminationPointKey, TerminationPoint> map_tp = new HashMap<TerminationPointKey, TerminationPoint> ();
         TerminationPointBuilder tp_builder = new TerminationPointBuilder();
          
         File input_file = new File("src/main/resources/containerlab-topology-data.json");
@@ -136,6 +136,8 @@ public class TopologyDriver {
 
             for (Map.Entry<String, JsonElement> entry : nodes.entrySet()) {
                 nodes_id.add(entry.getKey().toString());
+                JsonObject node = entry.getValue().getAsJsonObject();
+                nodes_kind.add(node.get("kind").getAsString());
 			}
 
             JsonArray links = (JsonArray) topo.get("links");
@@ -143,6 +145,8 @@ public class TopologyDriver {
             for (int i = 0; i < nodes_id.size(); i++){
                 ArrayList<String> n_links = new ArrayList<String>();
                 ArrayList<String> n_tp = new ArrayList<String>();
+                Map<TerminationPointKey, TerminationPoint> map_tp = new HashMap<TerminationPointKey, TerminationPoint>();
+                String destination_node_kind = new String();
                 for(int j = 0; j < links.size(); j++) {
                     JsonObject link = links.get(j).getAsJsonObject();
                     JsonObject link_tp_a = link.get("a").getAsJsonObject();
@@ -150,33 +154,33 @@ public class TopologyDriver {
                     for (Map.Entry<String, JsonElement> entry : link.entrySet()){
                         if (nodes_id.get(i).equals(entry.getValue().getAsJsonObject().get("node").getAsString())){
                             if (entry.getKey().equals("a")){
+                                destination_node_kind = nodes.getAsJsonObject(link_tp_z.get("node").getAsString()).get("kind").getAsString();
                                 link_source_builder.setSourceNode(NodeId.getDefaultInstance(link_tp_a.get("node").getAsString()));
                                 //node_builder.setNodeId(NodeId.getDefaultInstance(link_tp_a.get("node").getAsString()));
-                                link_source_builder.setSourceTp((Object)link_tp_a.get("interface").getAsString());
+                                link_source_builder.setSourceTp((Object)getInterfaceId(nodes_kind.get(i).toString(), link_tp_a.get("interface").getAsString()));
                                 link_destination_builder.setDestNode(NodeId.getDefaultInstance(link_tp_z.get("node").getAsString()));
-                                link_destination_builder.setDestTp((Object)link_tp_z.get("interface").getAsString());
-                                tp_builder.setTpId(TpId.getDefaultInstance(link_tp_a.get("interface").getAsString()));
-
-                                n_tp.add(link_tp_a.get("interface").getAsString());
-                                n_links.add(link_tp_a.get("node").getAsString()+","+link_tp_a.get("interface").getAsString()+","+link_tp_z.get("node").getAsString()+","+link_tp_z.get("interface").getAsString());
+                                link_destination_builder.setDestTp((Object)getInterfaceId(destination_node_kind, link_tp_z.get("interface").getAsString()));
+                                tp_builder.setTpId(TpId.getDefaultInstance(getInterfaceId(nodes_kind.get(i).toString(), link_tp_a.get("interface").getAsString())));
+                                n_tp.add(getInterfaceId(nodes_kind.get(i).toString(), link_tp_a.get("interface").getAsString()));
+                                n_links.add(link_tp_a.get("node").getAsString()+","+getInterfaceId(nodes_kind.get(i).toString(), link_tp_a.get("interface").getAsString())+","+link_tp_z.get("node").getAsString()+","+getInterfaceId(destination_node_kind, link_tp_z.get("interface").getAsString()));
+                                link_builder.setLinkId(LinkId.getDefaultInstance(link_tp_a.get("node").getAsString()+"-"+getInterfaceId(nodes_kind.get(i).toString(), link_tp_a.get("interface").getAsString())+"-"+link_tp_z.get("node").getAsString()+"-"+getInterfaceId(destination_node_kind, link_tp_z.get("interface").getAsString())));
                             } else {
-                                link_source_builder.setSourceNode(NodeId.getDefaultInstance(link_tp_z.get("node").getAsString()));
+                                destination_node_kind = nodes.getAsJsonObject(link_tp_a.get("node").getAsString()).get("kind").getAsString();
+                                link_destination_builder.setDestNode(NodeId.getDefaultInstance(link_tp_z.get("node").getAsString()));
                                 //node_builder.setNodeId(NodeId.getDefaultInstance(link_tp_z.get("node").getAsString()));
-                                link_source_builder.setSourceTp((Object)link_tp_z.get("interface").getAsString());
-                                link_destination_builder.setDestNode(NodeId.getDefaultInstance(link_tp_a.get("node").getAsString()));
-                                link_destination_builder.setDestTp((Object)link_tp_a.get("interface").getAsString());
-                                tp_builder.setTpId(TpId.getDefaultInstance(link_tp_z.get("interface").getAsString()));
-
-                                n_tp.add(link_tp_z.get("interface").getAsString());
-                                n_links.add(link_tp_z.get("node").getAsString()+","+link_tp_z.get("interface").getAsString()+","+link_tp_a.get("node").getAsString()+","+link_tp_a.get("interface").getAsString());
+                                link_destination_builder.setDestTp((Object)getInterfaceId(nodes_kind.get(i).toString(), link_tp_z.get("interface").getAsString()));
+                                link_source_builder.setSourceNode(NodeId.getDefaultInstance(link_tp_a.get("node").getAsString()));
+                                link_source_builder.setSourceTp((Object)getInterfaceId(destination_node_kind, link_tp_a.get("interface").getAsString()));
+                                tp_builder.setTpId(TpId.getDefaultInstance(getInterfaceId(nodes_kind.get(i).toString(), link_tp_z.get("interface").getAsString())));
+                                n_tp.add(getInterfaceId(nodes_kind.get(i).toString(), link_tp_z.get("interface").getAsString()));
+                                n_links.add(link_tp_a.get("node").getAsString()+","+getInterfaceId(destination_node_kind, link_tp_a.get("interface").getAsString())+","+link_tp_z.get("node").getAsString()+","+getInterfaceId(nodes_kind.get(i).toString(), link_tp_z.get("interface").getAsString()));
+                                link_builder.setLinkId(LinkId.getDefaultInstance(link_tp_a.get("node").getAsString()+"-"+getInterfaceId(destination_node_kind, link_tp_a.get("interface").getAsString())+"-"+link_tp_z.get("node").getAsString()+"-"+getInterfaceId(nodes_kind.get(i).toString(), link_tp_z.get("interface").getAsString())));
                             }
 
                             TerminationPoint tp = tp_builder.build();
                             map_tp.put(tp.key(), tp);
                             Source link_source = link_source_builder.build();
                             Destination link_destination = link_destination_builder.build();
-
-                            link_builder.setLinkId(LinkId.getDefaultInstance(link_tp_a.get("node").getAsString()+"-"+link_tp_a.get("interface").getAsString()+"-"+link_tp_z.get("node").getAsString()+"-"+link_tp_z.get("interface").getAsString()));
                             link_builder.setSource(link_source);
                             link_builder.setDestination(link_destination);
                             Link link_instance = link_builder.build();
@@ -288,6 +292,31 @@ public class TopologyDriver {
         }
     }
 
+    private static String getInterfaceId(String node_kind, String node_iface_id){
+        String node_iface_name = new String();
+        String node_iface_index = new String();
+        switch (node_kind) {
+            case "vr-cisco_csr1000v":
+                node_iface_index = node_iface_id.replace("eth", "");
+                node_iface_name = "GigabitEthernet" + String.valueOf(Integer.parseInt(node_iface_index) + 1);
+                break;
+            case "vr-cisco_xrv9k":
+                node_iface_index = node_iface_id.replace("eth", "");
+                node_iface_name = "GigabitEthernet0/0/0/" + String.valueOf(Integer.parseInt(node_iface_index) - 1);
+                break;
+            case "ceos":
+                node_iface_index = node_iface_id.replace("eth", "");
+                node_iface_name = "Ethernet" + String.valueOf(Integer.parseInt(node_iface_index));
+                break;
+            case "nokia_srlinux":
+                node_iface_index = node_iface_id.replace("e", "");
+                node_iface_name = "ethernet-" + node_iface_index.split("-")[0] + "/" + node_iface_index.split("-")[1];
+                break;
+            default:
+                node_iface_name = node_iface_id;
+        }
+        return node_iface_name;
+    }
     // Schema context initialization
     // Code borrowed from:
     // https://github.com/opendaylight/jsonrpc/blob/1331a9f73db2fe308e3bbde00ff42359431dbc7f/
