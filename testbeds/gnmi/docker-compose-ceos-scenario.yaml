@@ -80,7 +80,7 @@ services:
       dockerfile: Dockerfile
     hostname: gnmic-collector-queries
     container_name: gnmic-collector-queries
-    command: ["python3", "-u", "/opt/gnmic-collector-queries/gnmic-collector-queries-kafka-ceos-scenario.py", "60"]
+    command: ["python3", "-u", "/opt/gnmic-collector-queries/gnmic-collector-queries-kafka-ceos-scenario.py", "900"]
     volumes:
       - ./docker/gnmic-collector-queries:/opt/gnmic-collector-queries
     depends_on:
@@ -95,7 +95,7 @@ services:
     container_name: gnmic-collector-subscriptions
     volumes:
       - ./docker/gnmic-collector-subscriptions/gnmic-subs-ceos-ceos.yaml:/app/gnmic-subs-ceos-ceos.yaml
-    command: "subscribe --config /app/gnmic-subs-ceos-ceos.yaml --name ceos1_traffic_stats --name ceos1_port_stats --name ceos2_traffic_stats --name ceos2_port_stats"
+    command: "subscribe --config /app/gnmic-subs-ceos-ceos.yaml"
     depends_on:
       kafka:
         condition: service_healthy
@@ -177,7 +177,7 @@ services:
       dockerfile: ./docker/topology-discoverer/Dockerfile
     hostname: topology-discoverer
     container_name: topology-discoverer
-    command: ["/opt/topology-discoverer/discover-topology.sh", "ceos-scenario", "30"]
+    command: ["/opt/topology-discoverer/discover-topology.sh", "ceos-scenario", "3600"]
     volumes:
       - ./containerlab/ceos-scenario:/opt/topology-data/ceos-scenario
     depends_on:

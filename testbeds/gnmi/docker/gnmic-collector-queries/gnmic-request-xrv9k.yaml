@@ -1,0 +1,7 @@
+address: "clab-telemetry-testbed-xrv9k-ceos-4hosts-r1:57400"
+username: clab
+password: clab@123
+insecure: true
+encoding: JSON_IETF
+get-path: 
+    - /openconfig-interfaces:interfaces  # `get` command local flag

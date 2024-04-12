@@ -19,4 +19,4 @@ while True:
     time.sleep(int(sys.argv[1]))
 
 # Subscribe RPC to get all the counters information about openconfig-interfaces YANG model from cEOS routers:
-# subprocess.run(["gnmic", "subscribe", "--config", "gnmic-subs-ceos-ceos.yaml", "--target", "ceos1"])
+# subprocess.run(["gnmic", "subscribe", "--config", "gnmic-subs-ceos-ceos.yaml", "--target", "clab-telemetry-testbed-ceos-ceos-4hosts-r1"])

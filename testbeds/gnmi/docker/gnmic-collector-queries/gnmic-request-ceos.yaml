@@ -1,4 +1,4 @@
-address: "clab-telemetry-testbed-ceos-ceos-4hosts-r2:6030"
+address: "clab-telemetry-testbed-xrv9k-ceos-4hosts-r2:6030"
 username: admin
 password: admin
 insecure: true

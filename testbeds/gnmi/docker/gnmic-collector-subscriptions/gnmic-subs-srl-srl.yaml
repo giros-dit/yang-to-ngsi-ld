@@ -1,5 +1,5 @@
 targets:
-  srl1:
+  clab-telemetry-testbed-srl-srl-4hosts-r1:
     # gNMI target address; CLI flag `--address`
     address: "clab-telemetry-testbed-srl-srl-4hosts-r1"
     # gNMI target user name; CLI flag `--username`
@@ -13,7 +13,7 @@ targets:
     subscriptions:
       - srl1_traffic_stats
       - srl1_port_stats
-  srl2:
+  clab-telemetry-testbed-srl-srl-4hosts-r2:
     # gNMI target address; CLI flag `--address`
     address: "clab-telemetry-testbed-srl-srl-4hosts-r2"
     # gNMI target user name; CLI flag `--username`

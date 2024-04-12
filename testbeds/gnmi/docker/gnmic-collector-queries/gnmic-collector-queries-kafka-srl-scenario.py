@@ -19,4 +19,4 @@ while True:
     time.sleep(int(sys.argv[1]))
 
 # Subscribe RPC to get all the counters information about openconfig-interfaces YANG model from SRLinux routers:
-# subprocess.run(["gnmic", "subscribe", "--config", "gnmic-subs-srl-srl.yaml", "--target", "srl1"])
+# subprocess.run(["gnmic", "subscribe", "--config", "gnmic-subs-srl-srl.yaml", "--target", "clab-telemetry-testbed-srl-srl-4hosts-r1"])

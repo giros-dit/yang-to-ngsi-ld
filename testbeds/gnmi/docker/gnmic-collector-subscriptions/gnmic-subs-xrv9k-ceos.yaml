@@ -1,67 +1,75 @@
 targets:
-  clab-telemetry-testbed-srl-srl-4hosts-r1:
+  clab-telemetry-testbed-xrv9k-ceos-4hosts-r1:
     # gNMI target address; CLI flag `--address`
-    address: "clab-telemetry-testbed-srl-srl-4hosts-r1"
+    address: "clab-telemetry-testbed-xrv9k-ceos-4hosts-r1:57400"
     # gNMI target user name; CLI flag `--username`
-    username: admin
+    username: clab
     # gNMI target user password; CLI flag `--password`
-    password: NokiaSrl1!
-    # do not verify the target certificate when using tls; CLI flag `--skip-verify`
-    skip-verify: true
+    password: clab@123
+    # connection mode; CLI flag `--insecure`
+    insecure: true
     # log file location; CLI flag `--log-file`
     log-file: /tmp/gnmic-1.log
     subscriptions:
-      - srl1_traffic_stats
-      - srl1_port_stats
-  clab-telemetry-testbed-srl-srl-4hosts-r2:
+      - xrv9k_traffic_stats
+      - xrv9k_port_stats
+  clab-telemetry-testbed-xrv9k-ceos-4hosts-r2:
     # gNMI target address; CLI flag `--address`
-    address: "clab-telemetry-testbed-srl-srl-4hosts-r2"
+    address: "clab-telemetry-testbed-xrv9k-ceos-4hosts-r2:6030"
     # gNMI target user name; CLI flag `--username`
     username: admin
     # gNMI target user password; CLI flag `--password`
-    password: NokiaSrl1!
-    # do not verify the target certificate when using tls; CLI flag `--skip-verify`
-    skip-verify: true
+    password: admin
+    # connection mode; CLI flag `--insecure`
+    insecure: true
     # log file location; CLI flag `--log-file`
     log-file: /tmp/gnmic-2.log
     subscriptions:
-      - srl2_traffic_stats
-      - srl2_port_stats
+      - ceos_traffic_stats
+      - ceos_port_stats
 subscriptions:
-  srl1_traffic_stats:
+  xrv9k_traffic_stats:
     paths:
-       - "/interfaces/interface[name=ethernet-1/1]/state/counters"
+      - "/interfaces/interface[name=Ethernet1]/state/counters"
+    #  - "/interfaces/interface[name=Ethernet1]/state/counters/in-octets"
+    #  - "/interfaces/interface[name=Ethernet1]/state/counters/in-pkts"
+    #  - "/interfaces/interface[name=Ethernet1]/state/counters/out-octets"
+    #  - "/interfaces/interface[name=Ethernet1]/state/counters/out-pkts"
     stream-mode: sample
     sample-interval: 5s
     encoding: JSON_IETF
     outputs: 
-      - output1-srl1
-  srl1_port_stats:
+      - output1-xrv9k
+  xrv9k_port_stats:
     paths:
-      - "/interfaces/interface[name=ethernet-1/1]/state/admin-status"
-      - "/interfaces/interface[name=ethernet-1/1]/state/oper-status"
+      - "/interfaces/interface[name=Ethernet1]/state/admin-status"
+      - "/interfaces/interface[name=Ethernet1]/state/oper-status"
     stream-mode: on-change
     encoding: JSON_IETF
     outputs: 
-      - output2-srl1
-  srl2_traffic_stats:
+      - output2-xrv9k
+  ceos_traffic_stats:
     paths:
-       - "/interfaces/interface[name=ethernet-1/1]/state/counters"
+    #  - "/interfaces/interface[name=Ethernet1]/state/counters"
+      - "/interfaces/interface[name=Ethernet1]/state/counters/in-octets"
+    #  - "/interfaces/interface[name=Ethernet1]/state/counters/in-pkts"
+    #  - "/interfaces/interface[name=Ethernet1]/state/counters/out-octets"
+    #  - "/interfaces/interface[name=Ethernet1]/state/counters/out-pkts"
     stream-mode: sample
     sample-interval: 5s
     encoding: JSON_IETF
     outputs: 
-      - output1-srl2
-  srl2_port_stats:
+      - output1-ceos
+  ceos_port_stats:
     paths:
-      - "/interfaces/interface[name=ethernet-1/1]/state/admin-status"
-      - "/interfaces/interface[name=ethernet-1/1]/state/oper-status"
+      - "/interfaces/interface[name=Ethernet1]/state/admin-status"
+      - "/interfaces/interface[name=Ethernet1]/state/oper-status"
     stream-mode: on-change
     encoding: JSON_IETF
     outputs: 
-      - output2-srl2
+      - output2-ceos
 outputs:
-  output1-srl1:
+  output1-xrv9k:
     # required
     type: kafka
     # Comma separated brokers addresses
@@ -78,7 +86,7 @@ outputs:
     event-processors:
     #  - group-by-processor
       - merge-processor
-  output2-srl1:
+  output2-xrv9k:
     # required
     type: kafka
     # Comma separated brokers addresses
@@ -92,7 +100,7 @@ outputs:
     recovery-wait-time: 10s
     # Exported msg format, json, protojson, prototext, proto, event
     format: event
-  output1-srl2:
+  output1-ceos:
     # required
     type: kafka
     # Comma separated brokers addresses
@@ -106,10 +114,10 @@ outputs:
     recovery-wait-time: 10s
     # Exported msg format, json, protojson, prototext, proto, event
     format: event
-    event-processors:
+    #event-processors:
     #  - group-by-processor
-      - merge-processor
-  output2-srl2:
+    #  - merge-processor
+  output2-ceos:
     # required
     type: kafka
     # Comma separated brokers addresses

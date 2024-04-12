@@ -1,0 +1,88 @@
+targets:
+  clab-telemetry-testbed-xrv9k-ceos-4hosts-r1:
+    # gNMI target address; CLI flag `--address`
+    address: "clab-telemetry-testbed-xrv9k-ceos-4hosts-r1:57400"
+    # gNMI target user name; CLI flag `--username`
+    username: clab
+    # gNMI target user password; CLI flag `--password`
+    password: clab@123
+    # connection mode; CLI flag `--insecure`
+    insecure: true
+    # log file location; CLI flag `--log-file`
+    log-file: /tmp/gnmic-1.log
+    subscriptions:
+      - xrv9k_traffic_stats
+      - xrv9k_port_stats
+subscriptions:
+  xrv9k_traffic_stats:
+    paths:
+      - "/interfaces/interface[name=GigabitEthernet0/0/0/0]/state/counters"
+      - "/interfaces/interface[name=GigabitEthernet0/0/0/1]/state/counters"
+    #  - "/interfaces/interface[name=GigabitEthernet0/0/0/1]/state/counters/in-octets"
+    #  - "/interfaces/interface[name=GigabitEthernet0/0/0/1]/state/counters/in-pkts"
+    #  - "/interfaces/interface[name=GigabitEthernet0/0/0/1]/state/counters/out-octets"
+    #  - "/interfaces/interface[name=GigabitEthernet0/0/0/1]/state/counters/out-pkts"
+    stream-mode: sample
+    sample-interval: 5s
+    encoding: JSON_IETF
+    outputs: 
+      - output1-xrv9k
+  xrv9k_port_stats:
+    paths:
+      - "/interfaces/interface[name=GigabitEthernet0/0/0/0]/state/admin-status"
+      - "/interfaces/interface[name=GigabitEthernet0/0/0/0]/state/oper-status"
+      - "/interfaces/interface[name=GigabitEthernet0/0/0/1]/state/admin-status"
+      - "/interfaces/interface[name=GigabitEthernet0/0/0/1]/state/oper-status"
+    stream-mode: on-change
+    encoding: JSON_IETF
+    outputs: 
+      - output2-xrv9k
+
+outputs:
+  output1-xrv9k:
+    # required
+    type: kafka
+    # Comma separated brokers addresses
+    address: kafka:9092
+    # Kafka topic name
+    topic: interfaces-state-notifications
+    max-retry: 2
+    # Kafka connection timeout
+    timeout: 5s
+    # Wait time to reestablish the kafka producer connection after a failure
+    recovery-wait-time: 10s
+    # Exported msg format, json, protojson, prototext, proto, event
+    format: event
+    event-processors:
+    #  - group-by-processor
+      - merge-processor
+  output2-xrv9k:
+    # required
+    type: kafka
+    # Comma separated brokers addresses
+    address: kafka:9092
+    # Kafka topic name
+    topic: interfaces-oper-notifications
+    max-retry: 2
+    # Kafka connection timeout
+    timeout: 5s
+    # Wait time to reestablish the kafka producer connection after a failure
+    recovery-wait-time: 10s
+    # Exported msg format, json, protojson, prototext, proto, event
+    format: event
+      
+processors:
+  # processor name
+  group-by-processor:
+    # processor type
+    event-group-by:
+      tags:
+        - source
+  # processor name
+  merge-processor:
+    # processor type
+    event-merge:
+      # if always is set to true, 
+      # the updates are merged regardless of the timestamp values
+      always: true
+      debug: false

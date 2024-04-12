@@ -5,5 +5,3 @@ skip-verify: true
 encoding: JSON_IETF
 get-path: 
     - /interfaces  # `get` command local flag
-
-
