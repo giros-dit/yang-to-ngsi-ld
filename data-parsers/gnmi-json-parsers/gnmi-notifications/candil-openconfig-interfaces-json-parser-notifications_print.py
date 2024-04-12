@@ -18,7 +18,7 @@ for item in data:
         parent_paths.append(key.split("/")[1:-1])
         child_nodes.append(key.split("/")[-1])
         values.append(value)
-    source = item['tags']['source']
+    source = "-".join(item['tags']['source'].split("-")[1:-1]) + ":" + str(item['tags']['source'].split("-")[-1])
     timestamp_data = int(item['timestamp'])
     datetime_ns = np.datetime64(timestamp_data, 'ns')
     observed_at = str(datetime_ns.astype('datetime64[ms]')) + 'Z'

@@ -150,7 +150,7 @@ print("Hello, I am the JSON parser for gNMI queries and the NGSI-LD instantiator
 
 print("I will consume messages (gNMI queries) from a Kafka topic named interfaces-state-queries")
 
-consumer = KafkaConsumer('interfaces-state-queries', bootstrap_servers=['kafka:9092'], value_deserializer=lambda x: json.loads(x.decode('utf-8')))
+consumer = KafkaConsumer('interfaces-state-queries', bootstrap_servers=['kafka:9092'], auto_offset_reset='earliest', value_deserializer=lambda x: json.loads(x.decode('utf-8')))
 
 print("I will process every single notification, parse them and create/update NGSI-LD entities accordingly")
 print("These entities will be uploaded to the NGSI-LD broker")

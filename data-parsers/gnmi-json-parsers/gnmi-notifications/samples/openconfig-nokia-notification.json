@@ -3,7 +3,7 @@
         "name": "srl_traffic_stats",
         "tags": {
             "interface_name": "ethernet-1/1",
-            "source": "srl",
+            "source": "clab-telemetry-testbed-srl-ceos-4hosts-r1",
             "subscription-name": "srl_traffic_stats"
         },
         "timestamp": 1709208539332762572,

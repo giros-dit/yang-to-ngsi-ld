@@ -145,7 +145,7 @@ if networks is not None and len(networks) != 0:
                                 network_link_source_dict_buffer["id"] = network_link_source_dict_buffer["id"] + ":" + element_text
                             network_link_source_dict_buffer["sourceNode"] = {}
                             network_link_source_dict_buffer["sourceNode"]["type"] = "Relationship"
-                            network_link_source_dict_buffer["sourceNode"]["object"] = "urn:ngsi-ld:NetworkNode:" + ":".join(network_link_source_dict_buffer["id"].split(":")[3:])
+                            network_link_source_dict_buffer["sourceNode"]["object"] = "urn:ngsi-ld:NetworkNode:" + network_link_source_dict_buffer["id"].split(":")[3] + ':' + ":".join(network_link_source_dict_buffer["id"].split(":")[5:])
                         sourceTp = source.get("source-tp")
                         if sourceTp is not None:
                             element_text = sourceTp
@@ -153,7 +153,7 @@ if networks is not None and len(networks) != 0:
                                 network_link_source_dict_buffer["id"] = network_link_source_dict_buffer["id"] + ":" + element_text
                             network_link_source_dict_buffer["sourceTp"] = {}
                             network_link_source_dict_buffer["sourceTp"]["type"] = "Relationship"
-                            network_link_source_dict_buffer["sourceTp"]["object"] = "urn:ngsi-ld:NetworkNodeTerminationPoint:" + ":".join(network_link_source_dict_buffer["id"].split(":")[3:])
+                            network_link_source_dict_buffer["sourceTp"]["object"] = "urn:ngsi-ld:NetworkNodeTerminationPoint:" + network_link_source_dict_buffer["id"].split(":")[3] + ':' + ":".join(network_link_source_dict_buffer["id"].split(":")[5:])
                         dict_buffers.append(network_link_source_dict_buffer)
                     destination = link.get("destination")
                     if destination is not None and len(destination) != 0:
@@ -170,7 +170,7 @@ if networks is not None and len(networks) != 0:
                                 network_link_destination_dict_buffer["id"] = network_link_destination_dict_buffer["id"] + ":" + element_text
                             network_link_destination_dict_buffer["destNode"] = {}
                             network_link_destination_dict_buffer["destNode"]["type"] = "Relationship"
-                            network_link_destination_dict_buffer["destNode"]["object"] = "urn:ngsi-ld:NetworkNode:" + ":".join(network_link_destination_dict_buffer["id"].split(":")[3:])
+                            network_link_destination_dict_buffer["destNode"]["object"] = "urn:ngsi-ld:NetworkNode:" + network_link_destination_dict_buffer["id"].split(":")[3] + ':' + ":".join(network_link_destination_dict_buffer["id"].split(":")[5:])
                         destTp = destination.get("dest-tp")
                         if destTp is not None:
                             element_text = destTp
@@ -178,7 +178,7 @@ if networks is not None and len(networks) != 0:
                                 network_link_destination_dict_buffer["id"] = network_link_destination_dict_buffer["id"] + ":" + element_text
                             network_link_destination_dict_buffer["destTp"] = {}
                             network_link_destination_dict_buffer["destTp"]["type"] = "Relationship"
-                            network_link_destination_dict_buffer["destTp"]["object"] = "urn:ngsi-ld:NetworkNodeTerminationPoint:" + ":".join(network_link_destination_dict_buffer["id"].split(":")[3:])
+                            network_link_destination_dict_buffer["destTp"]["object"] = "urn:ngsi-ld:NetworkNodeTerminationPoint:" + network_link_destination_dict_buffer["id"].split(":")[3] + ':' + ":".join(network_link_destination_dict_buffer["id"].split(":")[5:])
                         dict_buffers.append(network_link_destination_dict_buffer)
                     link_supporting_link = link.get("supporting-link")
                     if link_supporting_link is not None and len(link_supporting_link) != 0:

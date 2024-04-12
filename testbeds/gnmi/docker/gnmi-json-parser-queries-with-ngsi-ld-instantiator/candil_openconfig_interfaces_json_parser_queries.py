@@ -8,7 +8,7 @@ def parse_gnmi_query(message):
     timestamp_data = int(data[0]["timestamp"])
     datetime_ns = np.datetime64(timestamp_data, 'ns')
     observed_at = str(datetime_ns.astype('datetime64[ms]')) + 'Z'
-    source = str(data[0]["source"])
+    source = "-".join(data[0]["source"].split(":")[0].split("-")[1:-1]) + ":" + str(data[0]["source"].split(":")[0].split("-")[-1])
 
     if json_data.get("interfaces")is not None:
         interfaces = json_data.get("interfaces")

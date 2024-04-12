@@ -156,7 +156,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
         INDENTATION_BLOCK + 'timestamp_data = int(data[0]["timestamp"])\n',
         INDENTATION_BLOCK + 'datetime_ns = np.datetime64(timestamp_data, \'ns\')\n',
         INDENTATION_BLOCK + 'observed_at = str(datetime_ns.astype(\'datetime64[ms]\')) + \'Z\'\n',
-        INDENTATION_BLOCK + 'source = str(data[0]["source"])'
+        INDENTATION_BLOCK + 'source = "-".join(data[0]["source"].split(":")[0].split("-")[1:-1]) + ":" + str(data[0]["source"].split(":")[0].split("-")[-1])'
     ]
 
     if (ctx.opts.candil_json_parser_generator_queries_kafka_server is not None) and \
@@ -171,7 +171,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
             2 * INDENTATION_BLOCK + 'timestamp_data = int(data[0]["timestamp"])\n',
             2 * INDENTATION_BLOCK + 'datetime_ns = np.datetime64(timestamp_data, \'ns\')\n',
             2 * INDENTATION_BLOCK + 'observed_at = str(datetime_ns.astype(\'datetime64[ms]\')) + \'Z\'\n',
-            2 * INDENTATION_BLOCK + 'source = str(data[0]["source"])'
+            2 * INDENTATION_BLOCK + 'source = "-".join(data[0]["source"].split(":")[0].split("-")[1:-1]) + ":" + str(data[0]["source"].split(":")[0].split("-")[-1])'
         ]
 
     WRITING_INSTRUCTIONS_PRINT = [

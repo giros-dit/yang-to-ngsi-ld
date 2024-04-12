@@ -858,7 +858,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
     fd.write('\n' + depth_level * INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + "parent_paths.append(key.split(\"/\")[1:-1])")
     fd.write('\n' + depth_level * INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + "child_nodes.append(key.split(\"/\")[-1])")
     fd.write('\n' + depth_level * INDENTATION_BLOCK + INDENTATION_BLOCK + INDENTATION_BLOCK + "values.append(value)")
-    fd.write('\n' + depth_level * INDENTATION_BLOCK + INDENTATION_BLOCK + "source = item[\'tags\'][\'source\']") 
+    fd.write('\n' + depth_level * INDENTATION_BLOCK + INDENTATION_BLOCK + 'source = "-".join(item[\'tags\'][\'source\'].split("-")[1:-1]) + ":" + str(item[\'tags\'][\'source\'].split("-")[-1])')
     fd.write('\n' + depth_level * INDENTATION_BLOCK + INDENTATION_BLOCK + "timestamp_data = int(item[\'timestamp\'])")
     fd.write('\n' + depth_level * INDENTATION_BLOCK + INDENTATION_BLOCK + "datetime_ns = np.datetime64(timestamp_data, \'ns\')")
     fd.write('\n' + depth_level * INDENTATION_BLOCK + INDENTATION_BLOCK + "observed_at = str(datetime_ns.astype(\'datetime64[ms]\')) + \'Z\'")

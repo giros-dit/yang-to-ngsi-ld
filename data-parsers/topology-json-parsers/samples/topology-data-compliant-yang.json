@@ -5,65 +5,54 @@
         "network-id": "telemetry-testbed-l3-topology",
         "ietf-network-topology:link": [
           {
-            "link-id": "pc11-eth1-s1-eth1",
+            "link-id": "pc12-eth1-s1-Ethernet2",
             "source": {
-              "source-node": "s1",
+              "source-node": "pc12",
               "source-tp": "eth1"
             },
             "destination": {
-              "dest-tp": "eth1",
-              "dest-node": "pc11"
+              "dest-tp": "Ethernet2",
+              "dest-node": "s1"
             }
           },
           {
-            "link-id": "s3-eth2-pc32-eth1",
-            "source": {
-              "source-node": "s3",
-              "source-tp": "eth2"
-            },
-            "destination": {
-              "dest-tp": "eth1",
-              "dest-node": "pc32"
-            }
-          },
-          {
-            "link-id": "s1-eth3-r1-eth1",
+            "link-id": "s1-Ethernet3-r1-GigabitEthernet2",
             "source": {
               "source-node": "s1",
-              "source-tp": "eth3"
+              "source-tp": "Ethernet3"
             },
             "destination": {
-              "dest-tp": "eth1",
+              "dest-tp": "GigabitEthernet2",
               "dest-node": "r1"
             }
           },
           {
-            "link-id": "s3-eth1-pc31-eth1",
+            "link-id": "r3-GigabitEthernet2-s3-Ethernet3",
             "source": {
-              "source-node": "s3",
-              "source-tp": "eth1"
+              "source-node": "r3",
+              "source-tp": "GigabitEthernet2"
             },
             "destination": {
-              "dest-tp": "eth1",
-              "dest-node": "pc31"
+              "dest-tp": "Ethernet3",
+              "dest-node": "s3"
             }
           },
           {
-            "link-id": "r3-eth1-s3-eth3",
+            "link-id": "r1-GigabitEthernet4-r3-GigabitEthernet3",
             "source": {
-              "source-node": "s3",
-              "source-tp": "eth3"
+              "source-node": "r1",
+              "source-tp": "GigabitEthernet4"
             },
             "destination": {
-              "dest-tp": "eth1",
+              "dest-tp": "GigabitEthernet3",
               "dest-node": "r3"
             }
           },
           {
-            "link-id": "s2-eth2-pc22-eth1",
+            "link-id": "s2-Ethernet2-pc22-eth1",
             "source": {
               "source-node": "s2",
-              "source-tp": "eth2"
+              "source-tp": "Ethernet2"
             },
             "destination": {
               "dest-tp": "eth1",
@@ -71,21 +60,54 @@
             }
           },
           {
-            "link-id": "r2-eth3-r3-eth3",
+            "link-id": "r1-GigabitEthernet3-r2-GigabitEthernet3",
             "source": {
-              "source-node": "r3",
-              "source-tp": "eth3"
+              "source-node": "r1",
+              "source-tp": "GigabitEthernet3"
             },
             "destination": {
-              "dest-tp": "eth3",
+              "dest-tp": "GigabitEthernet3",
               "dest-node": "r2"
             }
           },
           {
-            "link-id": "s2-eth1-pc21-eth1",
+            "link-id": "pc11-eth1-s1-Ethernet1",
+            "source": {
+              "source-node": "pc11",
+              "source-tp": "eth1"
+            },
+            "destination": {
+              "dest-tp": "Ethernet1",
+              "dest-node": "s1"
+            }
+          },
+          {
+            "link-id": "s3-Ethernet1-pc31-eth1",
+            "source": {
+              "source-node": "s3",
+              "source-tp": "Ethernet1"
+            },
+            "destination": {
+              "dest-tp": "eth1",
+              "dest-node": "pc31"
+            }
+          },
+          {
+            "link-id": "r2-GigabitEthernet2-s2-Ethernet3",
+            "source": {
+              "source-node": "r2",
+              "source-tp": "GigabitEthernet2"
+            },
+            "destination": {
+              "dest-tp": "Ethernet3",
+              "dest-node": "s2"
+            }
+          },
+          {
+            "link-id": "s2-Ethernet1-pc21-eth1",
             "source": {
               "source-node": "s2",
-              "source-tp": "eth1"
+              "source-tp": "Ethernet1"
             },
             "destination": {
               "dest-tp": "eth1",
@@ -93,47 +115,25 @@
             }
           },
           {
-            "link-id": "r2-eth1-s2-eth3",
+            "link-id": "s3-Ethernet2-pc32-eth1",
             "source": {
-              "source-node": "s2",
-              "source-tp": "eth3"
+              "source-node": "s3",
+              "source-tp": "Ethernet2"
             },
             "destination": {
               "dest-tp": "eth1",
-              "dest-node": "r2"
+              "dest-node": "pc32"
             }
           },
           {
-            "link-id": "r1-eth2-r2-eth2",
+            "link-id": "r2-GigabitEthernet4-r3-GigabitEthernet4",
             "source": {
               "source-node": "r2",
-              "source-tp": "eth2"
+              "source-tp": "GigabitEthernet4"
             },
             "destination": {
-              "dest-tp": "eth2",
-              "dest-node": "r1"
-            }
-          },
-          {
-            "link-id": "r1-eth3-r3-eth2",
-            "source": {
-              "source-node": "r3",
-              "source-tp": "eth2"
-            },
-            "destination": {
-              "dest-tp": "eth3",
-              "dest-node": "r1"
-            }
-          },
-          {
-            "link-id": "pc12-eth1-s1-eth2",
-            "source": {
-              "source-node": "s1",
-              "source-tp": "eth2"
-            },
-            "destination": {
-              "dest-tp": "eth1",
-              "dest-node": "pc12"
+              "dest-tp": "GigabitEthernet4",
+              "dest-node": "r3"
             }
           }
         ],
@@ -143,12 +143,6 @@
             "ietf-network-topology:termination-point": [
               {
                 "tp-id": "eth1"
-              },
-              {
-                "tp-id": "eth2"
-              },
-              {
-                "tp-id": "eth3"
               }
             ]
           },
@@ -157,12 +151,6 @@
             "ietf-network-topology:termination-point": [
               {
                 "tp-id": "eth1"
-              },
-              {
-                "tp-id": "eth2"
-              },
-              {
-                "tp-id": "eth3"
               }
             ]
           },
@@ -171,12 +159,6 @@
             "ietf-network-topology:termination-point": [
               {
                 "tp-id": "eth1"
-              },
-              {
-                "tp-id": "eth2"
-              },
-              {
-                "tp-id": "eth3"
               }
             ]
           },
@@ -185,12 +167,6 @@
             "ietf-network-topology:termination-point": [
               {
                 "tp-id": "eth1"
-              },
-              {
-                "tp-id": "eth2"
-              },
-              {
-                "tp-id": "eth3"
               }
             ]
           },
@@ -198,13 +174,13 @@
             "node-id": "r1",
             "ietf-network-topology:termination-point": [
               {
-                "tp-id": "eth1"
+                "tp-id": "GigabitEthernet4"
               },
               {
-                "tp-id": "eth2"
+                "tp-id": "GigabitEthernet3"
               },
               {
-                "tp-id": "eth3"
+                "tp-id": "GigabitEthernet2"
               }
             ]
           },
@@ -212,13 +188,13 @@
             "node-id": "s2",
             "ietf-network-topology:termination-point": [
               {
-                "tp-id": "eth1"
+                "tp-id": "Ethernet1"
               },
               {
-                "tp-id": "eth2"
+                "tp-id": "Ethernet2"
               },
               {
-                "tp-id": "eth3"
+                "tp-id": "Ethernet3"
               }
             ]
           },
@@ -227,12 +203,6 @@
             "ietf-network-topology:termination-point": [
               {
                 "tp-id": "eth1"
-              },
-              {
-                "tp-id": "eth2"
-              },
-              {
-                "tp-id": "eth3"
               }
             ]
           },
@@ -240,13 +210,13 @@
             "node-id": "s1",
             "ietf-network-topology:termination-point": [
               {
-                "tp-id": "eth1"
+                "tp-id": "Ethernet1"
               },
               {
-                "tp-id": "eth2"
+                "tp-id": "Ethernet2"
               },
               {
-                "tp-id": "eth3"
+                "tp-id": "Ethernet3"
               }
             ]
           },
@@ -254,13 +224,13 @@
             "node-id": "r3",
             "ietf-network-topology:termination-point": [
               {
-                "tp-id": "eth1"
+                "tp-id": "GigabitEthernet4"
               },
               {
-                "tp-id": "eth2"
+                "tp-id": "GigabitEthernet3"
               },
               {
-                "tp-id": "eth3"
+                "tp-id": "GigabitEthernet2"
               }
             ]
           },
@@ -268,13 +238,13 @@
             "node-id": "r2",
             "ietf-network-topology:termination-point": [
               {
-                "tp-id": "eth1"
+                "tp-id": "GigabitEthernet4"
               },
               {
-                "tp-id": "eth2"
+                "tp-id": "GigabitEthernet3"
               },
               {
-                "tp-id": "eth3"
+                "tp-id": "GigabitEthernet2"
               }
             ]
           },
@@ -282,13 +252,13 @@
             "node-id": "s3",
             "ietf-network-topology:termination-point": [
               {
-                "tp-id": "eth1"
+                "tp-id": "Ethernet1"
               },
               {
-                "tp-id": "eth2"
+                "tp-id": "Ethernet2"
               },
               {
-                "tp-id": "eth3"
+                "tp-id": "Ethernet3"
               }
             ]
           },
@@ -297,12 +267,6 @@
             "ietf-network-topology:termination-point": [
               {
                 "tp-id": "eth1"
-              },
-              {
-                "tp-id": "eth2"
-              },
-              {
-                "tp-id": "eth3"
               }
             ]
           }
