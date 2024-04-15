@@ -1,0 +1,91 @@
+[
+    {
+        "id": "urn:ngsi-ld:InterfaceStatistics:telemetry-testbed-srl-srl:r1:mgmt0-standby",
+        "type": "InterfaceStatistics",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:mgmt0-standby",
+            "observedAt": "2024-04-13T20:10:55.904Z"
+        },
+        "carrierTransitions": {
+            "type": "Property",
+            "value": 1,
+            "observedAt": "2024-04-13T20:10:55.904Z"
+        },
+        "inBroadcastPackets": {
+            "type": "Property",
+            "value": 7,
+            "observedAt": "2024-04-13T20:10:55.904Z"
+        },
+        "inDiscardedPackets": {
+            "type": "Property",
+            "value": 15,
+            "observedAt": "2024-04-13T20:10:55.904Z"
+        },
+        "inErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T20:10:55.904Z"
+        },
+        "inFcsErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T20:10:55.904Z"
+        },
+        "inMulticastPackets": {
+            "type": "Property",
+            "value": 18,
+            "observedAt": "2024-04-13T20:10:55.904Z"
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 17784,
+            "observedAt": "2024-04-13T20:10:55.904Z"
+        },
+        "inPackets": {
+            "type": "Property",
+            "value": 152,
+            "observedAt": "2024-04-13T20:10:55.904Z"
+        },
+        "inUnicastPackets": {
+            "type": "Property",
+            "value": 112,
+            "observedAt": "2024-04-13T20:10:55.904Z"
+        },
+        "outBroadcastPackets": {
+            "type": "Property",
+            "value": 6,
+            "observedAt": "2024-04-13T20:10:55.904Z"
+        },
+        "outDiscardedPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T20:10:55.904Z"
+        },
+        "outErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T20:10:55.904Z"
+        },
+        "outMulticastPackets": {
+            "type": "Property",
+            "value": 20,
+            "observedAt": "2024-04-13T20:10:55.904Z"
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 115628,
+            "observedAt": "2024-04-13T20:10:55.904Z"
+        },
+        "outPackets": {
+            "type": "Property",
+            "value": 177,
+            "observedAt": "2024-04-13T20:10:55.904Z"
+        },
+        "outUnicastPackets": {
+            "type": "Property",
+            "value": 151,
+            "observedAt": "2024-04-13T20:10:55.904Z"
+        }
+    }
+]

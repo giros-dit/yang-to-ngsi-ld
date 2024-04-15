@@ -1,0 +1,29 @@
+[
+    {
+        "name": "srl1_traffic_stats",
+        "tags": {
+            "interface_name": "mgmt0-standby",
+            "source": "clab-telemetry-testbed-srl-srl-r1",
+            "subscription-name": "srl1_traffic_stats"
+        },
+        "timestamp": 1713039055904760600,
+        "values": {
+            "/srl_nokia-interfaces:interface/statistics/carrier-transitions": "1",
+            "/srl_nokia-interfaces:interface/statistics/in-broadcast-packets": "7",
+            "/srl_nokia-interfaces:interface/statistics/in-discarded-packets": "15",
+            "/srl_nokia-interfaces:interface/statistics/in-error-packets": "0",
+            "/srl_nokia-interfaces:interface/statistics/in-fcs-error-packets": "0",
+            "/srl_nokia-interfaces:interface/statistics/in-multicast-packets": "18",
+            "/srl_nokia-interfaces:interface/statistics/in-octets": "17784",
+            "/srl_nokia-interfaces:interface/statistics/in-packets": "152",
+            "/srl_nokia-interfaces:interface/statistics/in-unicast-packets": "112",
+            "/srl_nokia-interfaces:interface/statistics/out-broadcast-packets": "6",
+            "/srl_nokia-interfaces:interface/statistics/out-discarded-packets": "0",
+            "/srl_nokia-interfaces:interface/statistics/out-error-packets": "0",
+            "/srl_nokia-interfaces:interface/statistics/out-multicast-packets": "20",
+            "/srl_nokia-interfaces:interface/statistics/out-octets": "115628",
+            "/srl_nokia-interfaces:interface/statistics/out-packets": "177",
+            "/srl_nokia-interfaces:interface/statistics/out-unicast-packets": "151"
+        }
+    }
+]

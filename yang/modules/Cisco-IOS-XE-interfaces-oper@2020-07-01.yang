@@ -21,12 +21,12 @@ module Cisco-IOS-XE-interfaces-oper {
   contact
     "Cisco Systems, Inc.
      Customer Service
-
+     
      Postal: 170 W Tasman Drive
      San Jose, CA 95134
-
+     
      Tel: +1 1800 553-NETS
-
+     
      E-mail: cs-yang@cisco.com";
   description
     "This module contains a collection of YANG definitions for
@@ -34,21 +34,12 @@ module Cisco-IOS-XE-interfaces-oper {
      Copyright (c) 2016-2020 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2021-03-01 {
-    description
-      "- Added detected upstream bandwidth,
-       - Added detected downstream bandwidth";
-    reference
-      "3.6.0";
-    cisco-semver:module-version "3.6.0";
-  }
   revision 2020-07-01 {
     description
       "- Added storm control for broadcast, multicast, unicast,
          and unknown unicast
        - Added storm control for level shared case";
-    reference
-      "3.5.0";
+    reference "3.5.0";
     cisco-semver:module-version "3.5.0";
   }
   revision 2020-03-01 {
@@ -56,74 +47,67 @@ module Cisco-IOS-XE-interfaces-oper {
       "- Added in-discards-64, in-errors-64, in-unknown-protocol-64,
          out-octets-64 to increase the storage class to 64 bits
        - Added has-child in classifier stats";
-    reference
-      "3.4.0";
+    reference "3.4.0";
     cisco-semver:module-version "3.4.0";
   }
   revision 2019-11-01 {
     description
       "- Added media type to interface
        - Added more interface speed values";
-    reference
-      "3.3.0";
+    reference "3.3.0";
     cisco-semver:module-version "3.3.0";
   }
   revision 2019-05-01 {
     description
       "- Added ethernet error counters.
        - Added semantic version";
-    reference
-      "3.2.0";
+    reference "3.2.0";
     cisco-semver:module-version "3.2.0";
   }
   revision 2018-10-29 {
     description
       "Cleaned up spelling errors in descriptions.";
-    reference
-      "3.1.0";
+    reference "3.1.0";
     cisco-semver:module-version "3.1.0";
   }
   revision 2018-06-29 {
     description
       "- Add switching interface speed values
        - Add synchronous serial interface model";
-    reference
-      "3.0.0";
+    reference "3.0.0";
     cisco-semver:module-version "3.0.0";
   }
   revision 2018-02-01 {
     description
       "IPv6 addresses";
-    reference
-      "2.0.0";
+    reference "2.0.0";
     cisco-semver:module-version "2.0.0";
   }
   revision 2017-10-10 {
     description
       "Initial revision";
-    reference
-      "1.0.0";
+    reference "1.0.0";
     cisco-semver:module-version "1.0.0";
   }
 
   typedef qos-match-type {
     type enumeration {
-      enum qos-match-dscp {
+      enum "qos-match-dscp" {
         value 0;
       }
-      enum qos-match-src-ip {
+      enum "qos-match-src-ip" {
         value 1;
       }
-      enum qos-match-dst-ip {
+      enum "qos-match-dst-ip" {
         value 2;
       }
-      enum qos-match-src-port {
+      enum "qos-match-src-port" {
         value 3;
       }
-      enum qos-match-dst-port {
+      enum "qos-match-dst-port" {
         value 4;
       }
-      enum qos-match-proto {
+      enum "qos-match-proto" {
         value 5;
       }
     }
@@ -133,22 +117,22 @@ module Cisco-IOS-XE-interfaces-oper {
 
   typedef thresh-unit {
     type enumeration {
-      enum thresh-units-default {
+      enum "thresh-units-default" {
         value 0;
       }
-      enum thresh-units-bytes {
+      enum "thresh-units-bytes" {
         value 1;
       }
-      enum thresh-units-sec {
+      enum "thresh-units-sec" {
         value 2;
       }
-      enum thresh-units-packets {
+      enum "thresh-units-packets" {
         value 3;
       }
-      enum thresh-units-cells {
+      enum "thresh-units-cells" {
         value 4;
       }
-      enum thresh-units-percent {
+      enum "thresh-units-percent" {
         value 5;
       }
     }
@@ -158,12 +142,12 @@ module Cisco-IOS-XE-interfaces-oper {
 
   typedef qos-direction {
     type enumeration {
-      enum qos-inbound {
+      enum "qos-inbound" {
         value 0;
         description
           "Direction of traffic coming into the network entry";
       }
-      enum qos-outbound {
+      enum "qos-outbound" {
         value 1;
         description
           "Direction of traffic going out of the network entry";
@@ -175,22 +159,22 @@ module Cisco-IOS-XE-interfaces-oper {
 
   typedef aggregation-type {
     type enumeration {
-      enum lag-off {
+      enum "lag-off" {
         value 0;
         description
           "LAG mode is off";
       }
-      enum lag-auto {
+      enum "lag-auto" {
         value 1;
         description
           "LAG mode is auto";
       }
-      enum lag-active {
+      enum "lag-active" {
         value 2;
         description
           "LAG mode is active";
       }
-      enum lag-passive {
+      enum "lag-passive" {
         value 3;
         description
           "LAG mode is passive";
@@ -203,16 +187,16 @@ module Cisco-IOS-XE-interfaces-oper {
 
   typedef intf-state {
     type enumeration {
-      enum if-state-unknown {
+      enum "if-state-unknown" {
         value 0;
       }
-      enum if-state-up {
+      enum "if-state-up" {
         value 1;
       }
-      enum if-state-down {
+      enum "if-state-down" {
         value 2;
       }
-      enum if-state-test {
+      enum "if-state-test" {
         value 3;
       }
     }
@@ -225,16 +209,16 @@ module Cisco-IOS-XE-interfaces-oper {
 
   typedef ether-duplex {
     type enumeration {
-      enum full-duplex {
+      enum "full-duplex" {
         value 0;
       }
-      enum half-duplex {
+      enum "half-duplex" {
         value 1;
       }
-      enum auto-duplex {
+      enum "auto-duplex" {
         value 2;
       }
-      enum unknown-duplex {
+      enum "unknown-duplex" {
         value 3;
       }
     }
@@ -244,47 +228,47 @@ module Cisco-IOS-XE-interfaces-oper {
 
   typedef ether-speed {
     type enumeration {
-      enum speed-10mb {
+      enum "speed-10mb" {
         value 0;
       }
-      enum speed-100mb {
+      enum "speed-100mb" {
         value 1;
       }
-      enum speed-1gb {
+      enum "speed-1gb" {
         value 2;
       }
-      enum speed-10gb {
+      enum "speed-10gb" {
         value 3;
       }
-      enum speed-25gb {
+      enum "speed-25gb" {
         value 4;
       }
-      enum speed-40gb {
+      enum "speed-40gb" {
         value 5;
       }
-      enum speed-50gb {
+      enum "speed-50gb" {
         value 6;
       }
-      enum speed-100gb {
+      enum "speed-100gb" {
         value 7;
       }
-      enum speed-unknown {
+      enum "speed-unknown" {
         value 8;
       }
-      enum speed-auto {
+      enum "speed-auto" {
         value 9;
       }
-      enum speed-2500mb {
+      enum "speed-2500mb" {
         value 10;
         description
           "Ethernet Speed 2500 MBPS";
       }
-      enum speed-5gb {
+      enum "speed-5gb" {
         value 11;
         description
           "Ethernet Speed 5 GBPS";
       }
-      enum speed-400gb {
+      enum "speed-400gb" {
         value 12;
         description
           "Ethernet Speed 400 GBPS";
@@ -296,28 +280,28 @@ module Cisco-IOS-XE-interfaces-oper {
 
   typedef oper-state {
     type enumeration {
-      enum if-oper-state-invalid {
+      enum "if-oper-state-invalid" {
         value 0;
       }
-      enum if-oper-state-ready {
+      enum "if-oper-state-ready" {
         value 1;
       }
-      enum if-oper-state-no-pass {
+      enum "if-oper-state-no-pass" {
         value 2;
       }
-      enum if-oper-state-test {
+      enum "if-oper-state-test" {
         value 3;
       }
-      enum if-oper-state-unknown {
+      enum "if-oper-state-unknown" {
         value 4;
       }
-      enum if-oper-state-dormant {
+      enum "if-oper-state-dormant" {
         value 5;
       }
-      enum if-oper-state-not-present {
+      enum "if-oper-state-not-present" {
         value 6;
       }
-      enum if-oper-state-lower-layer-down {
+      enum "if-oper-state-lower-layer-down" {
         value 7;
       }
     }
@@ -330,838 +314,838 @@ module Cisco-IOS-XE-interfaces-oper {
 
   typedef ietf-intf-type {
     type enumeration {
-      enum iana-iftype-other {
+      enum "iana-iftype-other" {
         value 1;
       }
-      enum iana-iftype-regular1822 {
+      enum "iana-iftype-regular1822" {
         value 2;
       }
-      enum iana-iftype-hdh1822 {
+      enum "iana-iftype-hdh1822" {
         value 3;
       }
-      enum iana-iftype-ddnx25 {
+      enum "iana-iftype-ddnx25" {
         value 4;
       }
-      enum iana-iftype-rfc877x25 {
+      enum "iana-iftype-rfc877x25" {
         value 5;
       }
-      enum iana-iftype-ethernet-csmacd {
+      enum "iana-iftype-ethernet-csmacd" {
         value 6;
       }
-      enum iana-iftype-iso88023-csmacd {
+      enum "iana-iftype-iso88023-csmacd" {
         value 7;
       }
-      enum iana-iftype-iso88024-tokenbus {
+      enum "iana-iftype-iso88024-tokenbus" {
         value 8;
       }
-      enum iana-iftype-iso88025-tokenring {
+      enum "iana-iftype-iso88025-tokenring" {
         value 9;
       }
-      enum iana-iftype-iso88026-man {
+      enum "iana-iftype-iso88026-man" {
         value 10;
       }
-      enum iana-iftype-starlan {
+      enum "iana-iftype-starlan" {
         value 11;
       }
-      enum iana-iftype-proteon10mbit {
+      enum "iana-iftype-proteon10mbit" {
         value 12;
       }
-      enum iana-iftype-proteon80mbit {
+      enum "iana-iftype-proteon80mbit" {
         value 13;
       }
-      enum iana-iftype-hyperchannel {
+      enum "iana-iftype-hyperchannel" {
         value 14;
       }
-      enum iana-iftype-fddi {
+      enum "iana-iftype-fddi" {
         value 15;
       }
-      enum iana-iftype-lapb {
+      enum "iana-iftype-lapb" {
         value 16;
       }
-      enum iana-iftype-sdlc {
+      enum "iana-iftype-sdlc" {
         value 17;
       }
-      enum iana-iftype-ds1 {
+      enum "iana-iftype-ds1" {
         value 18;
       }
-      enum iana-iftype-e1 {
+      enum "iana-iftype-e1" {
         value 19;
       }
-      enum iana-iftype-basicisdn {
+      enum "iana-iftype-basicisdn" {
         value 20;
       }
-      enum iana-iftype-primaryisdn {
+      enum "iana-iftype-primaryisdn" {
         value 21;
       }
-      enum iana-iftype-prop-p2p-serial {
+      enum "iana-iftype-prop-p2p-serial" {
         value 22;
       }
-      enum iana-iftype-ppp {
+      enum "iana-iftype-ppp" {
         value 23;
       }
-      enum iana-iftype-sw-loopback {
+      enum "iana-iftype-sw-loopback" {
         value 24;
       }
-      enum iana-iftype-eon {
+      enum "iana-iftype-eon" {
         value 25;
       }
-      enum iana-iftype-ethernet3mbit {
+      enum "iana-iftype-ethernet3mbit" {
         value 26;
       }
-      enum iana-iftype-nsip {
+      enum "iana-iftype-nsip" {
         value 27;
       }
-      enum iana-iftype-slip {
+      enum "iana-iftype-slip" {
         value 28;
       }
-      enum iana-iftype-ultra {
+      enum "iana-iftype-ultra" {
         value 29;
       }
-      enum iana-iftype-ds3 {
+      enum "iana-iftype-ds3" {
         value 30;
       }
-      enum iana-iftype-sip {
+      enum "iana-iftype-sip" {
         value 31;
       }
-      enum iana-iftype-framerelay {
+      enum "iana-iftype-framerelay" {
         value 32;
       }
-      enum iana-iftype-rs232 {
+      enum "iana-iftype-rs232" {
         value 33;
       }
-      enum iana-iftype-para {
+      enum "iana-iftype-para" {
         value 34;
       }
-      enum iana-iftype-arcnet {
+      enum "iana-iftype-arcnet" {
         value 35;
       }
-      enum iana-iftype-arcnetplus {
+      enum "iana-iftype-arcnetplus" {
         value 36;
       }
-      enum iana-iftype-atm {
+      enum "iana-iftype-atm" {
         value 37;
       }
-      enum iana-iftype-miox25 {
+      enum "iana-iftype-miox25" {
         value 38;
       }
-      enum iana-iftype-sonet {
+      enum "iana-iftype-sonet" {
         value 39;
       }
-      enum iana-iftype-x25ple {
+      enum "iana-iftype-x25ple" {
         value 40;
       }
-      enum iana-iftype-iso88022-llc {
+      enum "iana-iftype-iso88022-llc" {
         value 41;
       }
-      enum iana-iftype-localtalk {
+      enum "iana-iftype-localtalk" {
         value 42;
       }
-      enum iana-iftype-smdsdxi {
+      enum "iana-iftype-smdsdxi" {
         value 43;
       }
-      enum iana-iftype-framerelay-service {
+      enum "iana-iftype-framerelay-service" {
         value 44;
       }
-      enum iana-iftype-v35 {
+      enum "iana-iftype-v35" {
         value 45;
       }
-      enum iana-iftype-hssi {
+      enum "iana-iftype-hssi" {
         value 46;
       }
-      enum iana-iftype-hippi {
+      enum "iana-iftype-hippi" {
         value 47;
       }
-      enum iana-iftype-modem {
+      enum "iana-iftype-modem" {
         value 48;
       }
-      enum iana-iftype-aal5 {
+      enum "iana-iftype-aal5" {
         value 49;
       }
-      enum iana-iftype-sonetpath {
+      enum "iana-iftype-sonetpath" {
         value 50;
       }
-      enum iana-iftype-sonetvt {
+      enum "iana-iftype-sonetvt" {
         value 51;
       }
-      enum iana-iftype-smdsicip {
+      enum "iana-iftype-smdsicip" {
         value 52;
       }
-      enum iana-iftype-propvirtual {
+      enum "iana-iftype-propvirtual" {
         value 53;
       }
-      enum iana-iftype-propmultiplexor {
+      enum "iana-iftype-propmultiplexor" {
         value 54;
       }
-      enum iana-iftype-ieee80212 {
+      enum "iana-iftype-ieee80212" {
         value 55;
       }
-      enum iana-iftype-fiberchannel {
+      enum "iana-iftype-fiberchannel" {
         value 56;
       }
-      enum iana-iftype-hippi-interface {
+      enum "iana-iftype-hippi-interface" {
         value 57;
       }
-      enum iana-iftype-framerelay-interconnect {
+      enum "iana-iftype-framerelay-interconnect" {
         value 58;
       }
-      enum iana-iftype-aflane8023 {
+      enum "iana-iftype-aflane8023" {
         value 59;
       }
-      enum iana-iftype-aflane8025 {
+      enum "iana-iftype-aflane8025" {
         value 60;
       }
-      enum iana-iftype-cctemul {
+      enum "iana-iftype-cctemul" {
         value 61;
       }
-      enum iana-iftype-fastether {
+      enum "iana-iftype-fastether" {
         value 62;
       }
-      enum iana-iftype-isdn {
+      enum "iana-iftype-isdn" {
         value 63;
       }
-      enum iana-iftype-v11 {
+      enum "iana-iftype-v11" {
         value 64;
       }
-      enum iana-iftype-v36 {
+      enum "iana-iftype-v36" {
         value 65;
       }
-      enum iana-iftype-g703at64k {
+      enum "iana-iftype-g703at64k" {
         value 66;
       }
-      enum iana-iftype-g703at2mb {
+      enum "iana-iftype-g703at2mb" {
         value 67;
       }
-      enum iana-iftype-qllc {
+      enum "iana-iftype-qllc" {
         value 68;
       }
-      enum iana-iftype-fastetherfx {
+      enum "iana-iftype-fastetherfx" {
         value 69;
       }
-      enum iana-iftype-channel {
+      enum "iana-iftype-channel" {
         value 70;
       }
-      enum iana-iftype-ieee80211 {
+      enum "iana-iftype-ieee80211" {
         value 71;
       }
-      enum iana-iftype-ibm370parchan {
+      enum "iana-iftype-ibm370parchan" {
         value 72;
       }
-      enum iana-iftype-escon {
+      enum "iana-iftype-escon" {
         value 73;
       }
-      enum iana-iftype-dlsw {
+      enum "iana-iftype-dlsw" {
         value 74;
       }
-      enum iana-iftype-isdns {
+      enum "iana-iftype-isdns" {
         value 75;
       }
-      enum iana-iftype-isdnu {
+      enum "iana-iftype-isdnu" {
         value 76;
       }
-      enum iana-iftype-lapd {
+      enum "iana-iftype-lapd" {
         value 77;
       }
-      enum iana-iftype-ipswitch {
+      enum "iana-iftype-ipswitch" {
         value 78;
       }
-      enum iana-iftype-rsrb {
+      enum "iana-iftype-rsrb" {
         value 79;
       }
-      enum iana-iftype-atmlogical {
+      enum "iana-iftype-atmlogical" {
         value 80;
       }
-      enum iana-iftype-ds0 {
+      enum "iana-iftype-ds0" {
         value 81;
       }
-      enum iana-iftype-ds0bundle {
+      enum "iana-iftype-ds0bundle" {
         value 82;
       }
-      enum iana-iftype-bsc {
+      enum "iana-iftype-bsc" {
         value 83;
       }
-      enum iana-iftype-async {
+      enum "iana-iftype-async" {
         value 84;
       }
-      enum iana-iftype-cnr {
+      enum "iana-iftype-cnr" {
         value 85;
       }
-      enum iana-iftype-iso88025-dtr {
+      enum "iana-iftype-iso88025-dtr" {
         value 86;
       }
-      enum iana-iftype-eplrs {
+      enum "iana-iftype-eplrs" {
         value 87;
       }
-      enum iana-iftype-arap {
+      enum "iana-iftype-arap" {
         value 88;
       }
-      enum iana-iftype-propcnls {
+      enum "iana-iftype-propcnls" {
         value 89;
       }
-      enum iana-iftype-hostpad {
+      enum "iana-iftype-hostpad" {
         value 90;
       }
-      enum iana-iftype-termpad {
+      enum "iana-iftype-termpad" {
         value 91;
       }
-      enum iana-iftype-framerelay-mpi {
+      enum "iana-iftype-framerelay-mpi" {
         value 92;
       }
-      enum iana-iftype-x213 {
+      enum "iana-iftype-x213" {
         value 93;
       }
-      enum iana-iftype-adsl {
+      enum "iana-iftype-adsl" {
         value 94;
       }
-      enum iana-iftype-radsl {
+      enum "iana-iftype-radsl" {
         value 95;
       }
-      enum iana-iftype-sdsl {
+      enum "iana-iftype-sdsl" {
         value 96;
       }
-      enum iana-iftype-vdsl {
+      enum "iana-iftype-vdsl" {
         value 97;
       }
-      enum iana-iftype-iso88025-crfpint {
+      enum "iana-iftype-iso88025-crfpint" {
         value 98;
       }
-      enum iana-iftype-myrinet {
+      enum "iana-iftype-myrinet" {
         value 99;
       }
-      enum iana-iftype-voiceem {
+      enum "iana-iftype-voiceem" {
         value 100;
       }
-      enum iana-iftype-voicefxo {
+      enum "iana-iftype-voicefxo" {
         value 101;
       }
-      enum iana-iftype-voicefxs {
+      enum "iana-iftype-voicefxs" {
         value 102;
       }
-      enum iana-iftype-voiceencap {
+      enum "iana-iftype-voiceencap" {
         value 103;
       }
-      enum iana-iftype-voip {
+      enum "iana-iftype-voip" {
         value 104;
       }
-      enum iana-iftype-atmdxi {
+      enum "iana-iftype-atmdxi" {
         value 105;
       }
-      enum iana-iftype-atmfuni {
+      enum "iana-iftype-atmfuni" {
         value 106;
       }
-      enum iana-iftype-atmima {
+      enum "iana-iftype-atmima" {
         value 107;
       }
-      enum iana-iftype-ppp-multilinkbundle {
+      enum "iana-iftype-ppp-multilinkbundle" {
         value 108;
       }
-      enum iana-iftype-ipovercdlc {
+      enum "iana-iftype-ipovercdlc" {
         value 109;
       }
-      enum iana-iftype-ipoverclaw {
+      enum "iana-iftype-ipoverclaw" {
         value 110;
       }
-      enum iana-iftype-stack2stack {
+      enum "iana-iftype-stack2stack" {
         value 111;
       }
-      enum iana-iftype-virtualipaddress {
+      enum "iana-iftype-virtualipaddress" {
         value 112;
       }
-      enum iana-iftype-mpc {
+      enum "iana-iftype-mpc" {
         value 113;
       }
-      enum iana-iftype-ipoveratm {
+      enum "iana-iftype-ipoveratm" {
         value 114;
       }
-      enum iana-iftype-iso88025-fiber {
+      enum "iana-iftype-iso88025-fiber" {
         value 115;
       }
-      enum iana-iftype-tdlc {
+      enum "iana-iftype-tdlc" {
         value 116;
       }
-      enum iana-iftype-gige {
+      enum "iana-iftype-gige" {
         value 117;
       }
-      enum iana-iftype-hdlc {
+      enum "iana-iftype-hdlc" {
         value 118;
       }
-      enum iana-iftype-lapf {
+      enum "iana-iftype-lapf" {
         value 119;
       }
-      enum iana-iftype-v37 {
+      enum "iana-iftype-v37" {
         value 120;
       }
-      enum iana-iftype-x25mlp {
+      enum "iana-iftype-x25mlp" {
         value 121;
       }
-      enum iana-iftype-x25huntgroup {
+      enum "iana-iftype-x25huntgroup" {
         value 122;
       }
-      enum iana-iftype-transphdlc {
+      enum "iana-iftype-transphdlc" {
         value 123;
       }
-      enum iana-iftype-interleave {
+      enum "iana-iftype-interleave" {
         value 124;
       }
-      enum iana-iftype-fast {
+      enum "iana-iftype-fast" {
         value 125;
       }
-      enum iana-iftype-ip {
+      enum "iana-iftype-ip" {
         value 126;
       }
-      enum iana-iftype-docs-cable-maclayer {
+      enum "iana-iftype-docs-cable-maclayer" {
         value 127;
       }
-      enum iana-iftype-docs-cable-downstream {
+      enum "iana-iftype-docs-cable-downstream" {
         value 128;
       }
-      enum iana-iftype-docs-cable-upstream {
+      enum "iana-iftype-docs-cable-upstream" {
         value 129;
       }
-      enum iana-iftype-a12mppswitch {
+      enum "iana-iftype-a12mppswitch" {
         value 130;
       }
-      enum iana-iftype-tunnel {
+      enum "iana-iftype-tunnel" {
         value 131;
       }
-      enum iana-iftype-coffee {
+      enum "iana-iftype-coffee" {
         value 132;
       }
-      enum iana-iftype-ces {
+      enum "iana-iftype-ces" {
         value 133;
       }
-      enum iana-iftype-atmsubinterface {
+      enum "iana-iftype-atmsubinterface" {
         value 134;
       }
-      enum iana-iftype-l2vlan {
+      enum "iana-iftype-l2vlan" {
         value 135;
       }
-      enum iana-iftype-l3ipvlan {
+      enum "iana-iftype-l3ipvlan" {
         value 136;
       }
-      enum iana-iftype-l3ipxvlan {
+      enum "iana-iftype-l3ipxvlan" {
         value 137;
       }
-      enum iana-iftype-digital-powerline {
+      enum "iana-iftype-digital-powerline" {
         value 138;
       }
-      enum iana-iftype-media-mailoverip {
+      enum "iana-iftype-media-mailoverip" {
         value 139;
       }
-      enum iana-iftype-dtm {
+      enum "iana-iftype-dtm" {
         value 140;
       }
-      enum iana-iftype-dcn {
+      enum "iana-iftype-dcn" {
         value 141;
       }
-      enum iana-iftype-ipforward {
+      enum "iana-iftype-ipforward" {
         value 142;
       }
-      enum iana-iftype-msdsl {
+      enum "iana-iftype-msdsl" {
         value 143;
       }
-      enum iana-iftype-ieee1394 {
+      enum "iana-iftype-ieee1394" {
         value 144;
       }
-      enum iana-iftype-gsn {
+      enum "iana-iftype-gsn" {
         value 145;
       }
-      enum iana-iftype-dvbrcc-maclayer {
+      enum "iana-iftype-dvbrcc-maclayer" {
         value 146;
       }
-      enum iana-iftype-dvbrcc-downstream {
+      enum "iana-iftype-dvbrcc-downstream" {
         value 147;
       }
-      enum iana-iftype-dvbrcc-upstream {
+      enum "iana-iftype-dvbrcc-upstream" {
         value 148;
       }
-      enum iana-iftype-atmvirtual {
+      enum "iana-iftype-atmvirtual" {
         value 149;
       }
-      enum iana-iftype-mplstunnel {
+      enum "iana-iftype-mplstunnel" {
         value 150;
       }
-      enum iana-iftype-srp {
+      enum "iana-iftype-srp" {
         value 151;
       }
-      enum iana-iftype-voiceoveratm {
+      enum "iana-iftype-voiceoveratm" {
         value 152;
       }
-      enum iana-iftype-voiceoverframerelay {
+      enum "iana-iftype-voiceoverframerelay" {
         value 153;
       }
-      enum iana-iftype-idsl {
+      enum "iana-iftype-idsl" {
         value 154;
       }
-      enum iana-iftype-compositelink {
+      enum "iana-iftype-compositelink" {
         value 155;
       }
-      enum iana-iftype-ss7siglink {
+      enum "iana-iftype-ss7siglink" {
         value 156;
       }
-      enum iana-iftype-propwireless-p2p {
+      enum "iana-iftype-propwireless-p2p" {
         value 157;
       }
-      enum iana-iftype-frforward {
+      enum "iana-iftype-frforward" {
         value 158;
       }
-      enum iana-iftype-rfc1483 {
+      enum "iana-iftype-rfc1483" {
         value 159;
       }
-      enum iana-iftype-usb {
+      enum "iana-iftype-usb" {
         value 160;
       }
-      enum iana-iftype-ieee8023-adlag {
+      enum "iana-iftype-ieee8023-adlag" {
         value 161;
       }
-      enum iana-iftype-bgppolicy-accounting {
+      enum "iana-iftype-bgppolicy-accounting" {
         value 162;
       }
-      enum iana-iftype-frf16mfrbundle {
+      enum "iana-iftype-frf16mfrbundle" {
         value 163;
       }
-      enum iana-iftype-h323gatekeeper {
+      enum "iana-iftype-h323gatekeeper" {
         value 164;
       }
-      enum iana-iftype-h323proxy {
+      enum "iana-iftype-h323proxy" {
         value 165;
       }
-      enum iana-iftype-mpls {
+      enum "iana-iftype-mpls" {
         value 166;
       }
-      enum iana-iftype-mfsiglink {
+      enum "iana-iftype-mfsiglink" {
         value 167;
       }
-      enum iana-iftype-hdsl2 {
+      enum "iana-iftype-hdsl2" {
         value 168;
       }
-      enum iana-iftype-shdsl {
+      enum "iana-iftype-shdsl" {
         value 169;
       }
-      enum iana-iftype-ds1fdl {
+      enum "iana-iftype-ds1fdl" {
         value 170;
       }
-      enum iana-iftype-pos {
+      enum "iana-iftype-pos" {
         value 171;
       }
-      enum iana-iftype-dvbasiin {
+      enum "iana-iftype-dvbasiin" {
         value 172;
       }
-      enum iana-iftype-dvbasiout {
+      enum "iana-iftype-dvbasiout" {
         value 173;
       }
-      enum iana-iftype-plc {
+      enum "iana-iftype-plc" {
         value 174;
       }
-      enum iana-iftype-nfas {
+      enum "iana-iftype-nfas" {
         value 175;
       }
-      enum iana-iftype-tr008 {
+      enum "iana-iftype-tr008" {
         value 176;
       }
-      enum iana-iftype-gr303rdt {
+      enum "iana-iftype-gr303rdt" {
         value 177;
       }
-      enum iana-iftype-gr303idt {
+      enum "iana-iftype-gr303idt" {
         value 178;
       }
-      enum iana-iftype-isup {
+      enum "iana-iftype-isup" {
         value 179;
       }
-      enum iana-iftype-prop-docs-wireless-maclayer {
+      enum "iana-iftype-prop-docs-wireless-maclayer" {
         value 180;
       }
-      enum iana-iftype-prop-docs-wireless-downstream {
+      enum "iana-iftype-prop-docs-wireless-downstream" {
         value 181;
       }
-      enum iana-iftype-prop-docs-wireless-upstream {
+      enum "iana-iftype-prop-docs-wireless-upstream" {
         value 182;
       }
-      enum iana-iftype-hiperlan2 {
+      enum "iana-iftype-hiperlan2" {
         value 183;
       }
-      enum iana-iftype-prop-bwap2mp {
+      enum "iana-iftype-prop-bwap2mp" {
         value 184;
       }
-      enum iana-iftype-sonetoverheadchannel {
+      enum "iana-iftype-sonetoverheadchannel" {
         value 185;
       }
-      enum iana-iftype-digital-wrapperoverheadchannel {
+      enum "iana-iftype-digital-wrapperoverheadchannel" {
         value 186;
       }
-      enum iana-iftype-aal2 {
+      enum "iana-iftype-aal2" {
         value 187;
       }
-      enum iana-iftype-radiomac {
+      enum "iana-iftype-radiomac" {
         value 188;
       }
-      enum iana-iftype-atmradio {
+      enum "iana-iftype-atmradio" {
         value 189;
       }
-      enum iana-iftype-imt {
+      enum "iana-iftype-imt" {
         value 190;
       }
-      enum iana-iftype-mvl {
+      enum "iana-iftype-mvl" {
         value 191;
       }
-      enum iana-iftype-reachhdsl {
+      enum "iana-iftype-reachhdsl" {
         value 192;
       }
-      enum iana-iftype-frdlciendpt {
+      enum "iana-iftype-frdlciendpt" {
         value 193;
       }
-      enum iana-iftype-atmvciendpt {
+      enum "iana-iftype-atmvciendpt" {
         value 194;
       }
-      enum iana-iftype-opticalchannel {
+      enum "iana-iftype-opticalchannel" {
         value 195;
       }
-      enum iana-iftype-opticaltransport {
+      enum "iana-iftype-opticaltransport" {
         value 196;
       }
-      enum iana-iftype-propatm {
+      enum "iana-iftype-propatm" {
         value 197;
       }
-      enum iana-iftype-voiceovercable {
+      enum "iana-iftype-voiceovercable" {
         value 198;
       }
-      enum iana-iftype-infiniband {
+      enum "iana-iftype-infiniband" {
         value 199;
       }
-      enum iana-iftype-telink {
+      enum "iana-iftype-telink" {
         value 200;
       }
-      enum iana-iftype-q2931 {
+      enum "iana-iftype-q2931" {
         value 201;
       }
-      enum iana-iftype-virtualatg {
+      enum "iana-iftype-virtualatg" {
         value 202;
       }
-      enum iana-iftype-siptg {
+      enum "iana-iftype-siptg" {
         value 203;
       }
-      enum iana-iftype-sipsig {
+      enum "iana-iftype-sipsig" {
         value 204;
       }
-      enum iana-iftype-docs-cable-upstreamchannel {
+      enum "iana-iftype-docs-cable-upstreamchannel" {
         value 205;
       }
-      enum iana-iftype-econet {
+      enum "iana-iftype-econet" {
         value 206;
       }
-      enum iana-iftype-pon155 {
+      enum "iana-iftype-pon155" {
         value 207;
       }
-      enum iana-iftype-pon622 {
+      enum "iana-iftype-pon622" {
         value 208;
       }
-      enum iana-iftype-bridge-if {
+      enum "iana-iftype-bridge-if" {
         value 209;
       }
-      enum iana-iftype-linegroup {
+      enum "iana-iftype-linegroup" {
         value 210;
       }
-      enum iana-iftype-voiceemfgd {
+      enum "iana-iftype-voiceemfgd" {
         value 211;
       }
-      enum iana-iftype-voiceefgdeana {
+      enum "iana-iftype-voiceefgdeana" {
         value 212;
       }
-      enum iana-iftype-voicedid {
+      enum "iana-iftype-voicedid" {
         value 213;
       }
-      enum iana-iftype-mpegtransport {
+      enum "iana-iftype-mpegtransport" {
         value 214;
       }
-      enum iana-iftype-sixtofour {
+      enum "iana-iftype-sixtofour" {
         value 215;
       }
-      enum iana-iftype-gtp {
+      enum "iana-iftype-gtp" {
         value 216;
       }
-      enum iana-iftype-pdnetherloop1 {
+      enum "iana-iftype-pdnetherloop1" {
         value 217;
       }
-      enum iana-iftype-pdnetherloop2 {
+      enum "iana-iftype-pdnetherloop2" {
         value 218;
       }
-      enum iana-iftype-opticalchannel-group {
+      enum "iana-iftype-opticalchannel-group" {
         value 219;
       }
-      enum iana-iftype-homepna {
+      enum "iana-iftype-homepna" {
         value 220;
       }
-      enum iana-iftype-gfp {
+      enum "iana-iftype-gfp" {
         value 221;
       }
-      enum iana-iftype-ciscoislvlan {
+      enum "iana-iftype-ciscoislvlan" {
         value 222;
       }
-      enum iana-iftype-actelismetaloop {
+      enum "iana-iftype-actelismetaloop" {
         value 223;
       }
-      enum iana-iftype-fciplink {
+      enum "iana-iftype-fciplink" {
         value 224;
       }
-      enum iana-iftype-rpr {
+      enum "iana-iftype-rpr" {
         value 225;
       }
-      enum iana-iftype-qam {
+      enum "iana-iftype-qam" {
         value 226;
       }
-      enum iana-iftype-lmp {
+      enum "iana-iftype-lmp" {
         value 227;
       }
-      enum iana-iftype-cblvectastar {
+      enum "iana-iftype-cblvectastar" {
         value 228;
       }
-      enum iana-iftype-docs-cable-mcmts-downtream {
+      enum "iana-iftype-docs-cable-mcmts-downtream" {
         value 229;
       }
-      enum iana-iftype-adsl2 {
+      enum "iana-iftype-adsl2" {
         value 230;
       }
-      enum iana-iftype-macseccontrolledif {
+      enum "iana-iftype-macseccontrolledif" {
         value 231;
       }
-      enum iana-iftype-macsecuncontrolledif {
+      enum "iana-iftype-macsecuncontrolledif" {
         value 232;
       }
-      enum iana-iftype-aviciopticalether {
+      enum "iana-iftype-aviciopticalether" {
         value 233;
       }
-      enum iana-iftype-atmbond {
+      enum "iana-iftype-atmbond" {
         value 234;
       }
-      enum iana-iftype-voicefgdos {
+      enum "iana-iftype-voicefgdos" {
         value 235;
       }
-      enum iana-iftype-mocaversion1 {
+      enum "iana-iftype-mocaversion1" {
         value 236;
       }
-      enum iana-iftype-ieee80216-wman {
+      enum "iana-iftype-ieee80216-wman" {
         value 237;
       }
-      enum iana-iftype-adsl2plus {
+      enum "iana-iftype-adsl2plus" {
         value 238;
       }
-      enum iana-iftype-dvbrcsmaclayer {
+      enum "iana-iftype-dvbrcsmaclayer" {
         value 239;
       }
-      enum iana-iftype-dvbtdm {
+      enum "iana-iftype-dvbtdm" {
         value 240;
       }
-      enum iana-iftype-dvbrcstdma {
+      enum "iana-iftype-dvbrcstdma" {
         value 241;
       }
-      enum iana-iftype-x86laps {
+      enum "iana-iftype-x86laps" {
         value 242;
       }
-      enum iana-iftype-wwanpp {
+      enum "iana-iftype-wwanpp" {
         value 243;
       }
-      enum iana-iftype-wwanpp2 {
+      enum "iana-iftype-wwanpp2" {
         value 244;
       }
-      enum iana-iftype-voiceebs {
+      enum "iana-iftype-voiceebs" {
         value 245;
       }
-      enum iana-iftype-ifpwtype {
+      enum "iana-iftype-ifpwtype" {
         value 246;
       }
-      enum iana-iftype-ilan {
+      enum "iana-iftype-ilan" {
         value 247;
       }
-      enum iana-iftype-pip {
+      enum "iana-iftype-pip" {
         value 248;
       }
-      enum iana-iftype-aluelp {
+      enum "iana-iftype-aluelp" {
         value 249;
       }
-      enum iana-iftype-gpon {
+      enum "iana-iftype-gpon" {
         value 250;
       }
-      enum iana-iftype-vdsl2 {
+      enum "iana-iftype-vdsl2" {
         value 251;
       }
-      enum iana-iftype-capwapdot11-profile {
+      enum "iana-iftype-capwapdot11-profile" {
         value 252;
       }
-      enum iana-iftype-capwapdot11-bss {
+      enum "iana-iftype-capwapdot11-bss" {
         value 253;
       }
-      enum iana-iftype-capwapwtp-virtualradio {
+      enum "iana-iftype-capwapwtp-virtualradio" {
         value 254;
       }
-      enum iana-iftype-bits {
+      enum "iana-iftype-bits" {
         value 255;
       }
-      enum iana-iftype-docs-cable-upstreamrfport {
+      enum "iana-iftype-docs-cable-upstreamrfport" {
         value 256;
       }
-      enum iana-iftype-cable-downstreamrfport {
+      enum "iana-iftype-cable-downstreamrfport" {
         value 257;
       }
-      enum iana-iftype-vmware-virtualnic {
+      enum "iana-iftype-vmware-virtualnic" {
         value 258;
       }
-      enum iana-iftype-ieee802154 {
+      enum "iana-iftype-ieee802154" {
         value 259;
       }
-      enum iana-iftype-otnodu {
+      enum "iana-iftype-otnodu" {
         value 260;
       }
-      enum iana-iftype-otnotu {
+      enum "iana-iftype-otnotu" {
         value 261;
       }
-      enum iana-iftype-ifvfitype {
+      enum "iana-iftype-ifvfitype" {
         value 262;
       }
-      enum iana-iftype-g9981 {
+      enum "iana-iftype-g9981" {
         value 263;
       }
-      enum iana-iftype-g9982 {
+      enum "iana-iftype-g9982" {
         value 264;
       }
-      enum iana-iftype-g9983 {
+      enum "iana-iftype-g9983" {
         value 265;
       }
-      enum iana-iftype-aluepon {
+      enum "iana-iftype-aluepon" {
         value 266;
       }
-      enum iana-iftype-aluepon-onu {
+      enum "iana-iftype-aluepon-onu" {
         value 267;
       }
-      enum iana-iftype-aluepon-physicaluni {
+      enum "iana-iftype-aluepon-physicaluni" {
         value 268;
       }
-      enum iana-iftype-aluepon-logicalink {
+      enum "iana-iftype-aluepon-logicalink" {
         value 269;
       }
-      enum iana-iftype-alugpon-onu {
+      enum "iana-iftype-alugpon-onu" {
         value 270;
       }
-      enum iana-iftype-alugpon-physicaluni {
+      enum "iana-iftype-alugpon-physicaluni" {
         value 271;
       }
-      enum iana-iftype-vmwarenicteam {
+      enum "iana-iftype-vmwarenicteam" {
         value 272;
       }
-      enum iana-iftype-docs-ofdm-downstream {
+      enum "iana-iftype-docs-ofdm-downstream" {
         value 277;
       }
-      enum iana-iftype-docs-ofdma-upstream {
+      enum "iana-iftype-docs-ofdma-upstream" {
         value 278;
       }
-      enum iana-iftype-gfast {
+      enum "iana-iftype-gfast" {
         value 279;
       }
-      enum iana-iftype-sdci {
+      enum "iana-iftype-sdci" {
         value 280;
       }
-      enum iana-iftype-xbox-wireless {
+      enum "iana-iftype-xbox-wireless" {
         value 281;
       }
-      enum iana-iftype-fastdsl {
+      enum "iana-iftype-fastdsl" {
         value 282;
       }
     }
@@ -1173,1240 +1157,1240 @@ module Cisco-IOS-XE-interfaces-oper {
 
   typedef media-type-class {
     type enumeration {
-      enum ether-media-type-none {
+      enum "ether-media-type-none" {
         value 0;
       }
-      enum ether-media-type-aui {
+      enum "ether-media-type-aui" {
         value 1;
       }
-      enum ether-media-type-10baset {
+      enum "ether-media-type-10baset" {
         value 2;
       }
-      enum ether-media-type-nothing-here {
+      enum "ether-media-type-nothing-here" {
         value 3;
       }
-      enum ether-media-type-rj45 {
+      enum "ether-media-type-rj45" {
         value 4;
       }
-      enum ether-media-type-mii {
+      enum "ether-media-type-mii" {
         value 5;
       }
-      enum ether-media-type-auto-select {
+      enum "ether-media-type-auto-select" {
         value 6;
       }
-      enum ether-media-type-epif-utp {
+      enum "ether-media-type-epif-utp" {
         value 7;
       }
-      enum ether-media-type-epif-fx {
+      enum "ether-media-type-epif-fx" {
         value 8;
       }
-      enum ether-media-type-gpif-lx {
+      enum "ether-media-type-gpif-lx" {
         value 9;
       }
-      enum ether-media-type-gpif-sx {
+      enum "ether-media-type-gpif-sx" {
         value 10;
       }
-      enum ether-media-type-parallel {
+      enum "ether-media-type-parallel" {
         value 11;
       }
-      enum ether-media-type-serial10km {
+      enum "ether-media-type-serial10km" {
         value 12;
       }
-      enum ether-media-type-vsr300m {
+      enum "ether-media-type-vsr300m" {
         value 13;
       }
-      enum ether-media-type-metrowdm50km {
+      enum "ether-media-type-metrowdm50km" {
         value 14;
       }
-      enum ether-media-type-not-connected {
+      enum "ether-media-type-not-connected" {
         value 15;
       }
-      enum ether-media-type-port-missing {
+      enum "ether-media-type-port-missing" {
         value 16;
       }
-      enum ether-media-type-gbic-missing {
+      enum "ether-media-type-gbic-missing" {
         value 17;
       }
-      enum ether-media-type-feip-mmf-st {
+      enum "ether-media-type-feip-mmf-st" {
         value 18;
       }
-      enum ether-media-type-feip-mmf-sc {
+      enum "ether-media-type-feip-mmf-sc" {
         value 19;
       }
-      enum ether-media-type-1000basecx-gigstack {
+      enum "ether-media-type-1000basecx-gigstack" {
         value 20;
       }
-      enum ether-media-type-serial40km {
+      enum "ether-media-type-serial40km" {
         value 21;
       }
-      enum ether-media-type-serial50km {
+      enum "ether-media-type-serial50km" {
         value 22;
       }
-      enum ether-media-type-unapproved {
+      enum "ether-media-type-unapproved" {
         value 23;
       }
-      enum ether-media-type-unsupported {
+      enum "ether-media-type-unsupported" {
         value 24;
       }
-      enum ether-media-type-bad-eeprom {
+      enum "ether-media-type-bad-eeprom" {
         value 25;
       }
-      enum ether-media-type-gbic {
+      enum "ether-media-type-gbic" {
         value 26;
       }
-      enum ether-media-type-sfp {
+      enum "ether-media-type-sfp" {
         value 27;
       }
-      enum ether-media-type-xenpak {
+      enum "ether-media-type-xenpak" {
         value 28;
       }
-      enum ether-media-type-100base-fx {
+      enum "ether-media-type-100base-fx" {
         value 29;
       }
-      enum ether-media-type-100base-tx {
+      enum "ether-media-type-100base-tx" {
         value 30;
       }
-      enum ether-media-type-rj21 {
+      enum "ether-media-type-rj21" {
         value 31;
       }
-      enum ether-media-type-100mtrj-fx {
+      enum "ether-media-type-100mtrj-fx" {
         value 32;
       }
-      enum ether-media-type-100mtrj-lx {
+      enum "ether-media-type-100mtrj-lx" {
         value 33;
       }
-      enum ether-media-type-internal {
+      enum "ether-media-type-internal" {
         value 34;
       }
-      enum ether-media-type-1000baset {
+      enum "ether-media-type-1000baset" {
         value 35;
       }
-      enum ether-media-type-gpif-zx {
+      enum "ether-media-type-gpif-zx" {
         value 36;
       }
-      enum ether-media-type-1000base-cwdm-1470 {
+      enum "ether-media-type-1000base-cwdm-1470" {
         value 37;
       }
-      enum ether-media-type-1000base-cwdm-1490 {
+      enum "ether-media-type-1000base-cwdm-1490" {
         value 38;
       }
-      enum ether-media-type-1000base-cwdm-1510 {
+      enum "ether-media-type-1000base-cwdm-1510" {
         value 39;
       }
-      enum ether-media-type-1000base-cwdm-1530 {
+      enum "ether-media-type-1000base-cwdm-1530" {
         value 40;
       }
-      enum ether-media-type-1000base-cwdm-1550 {
+      enum "ether-media-type-1000base-cwdm-1550" {
         value 41;
       }
-      enum ether-media-type-1000base-cwdm-1570 {
+      enum "ether-media-type-1000base-cwdm-1570" {
         value 42;
       }
-      enum ether-media-type-1000base-cwdm-1590 {
+      enum "ether-media-type-1000base-cwdm-1590" {
         value 43;
       }
-      enum ether-media-type-1000base-cwdm-1610 {
+      enum "ether-media-type-1000base-cwdm-1610" {
         value 44;
       }
-      enum ether-media-type-1000base-dwdm-6061 {
+      enum "ether-media-type-1000base-dwdm-6061" {
         value 45;
       }
-      enum ether-media-type-1000base-dwdm-5979 {
+      enum "ether-media-type-1000base-dwdm-5979" {
         value 46;
       }
-      enum ether-media-type-1000base-dwdm-5898 {
+      enum "ether-media-type-1000base-dwdm-5898" {
         value 47;
       }
-      enum ether-media-type-1000base-dwdm-5817 {
+      enum "ether-media-type-1000base-dwdm-5817" {
         value 48;
       }
-      enum ether-media-type-1000base-dwdm-5655 {
+      enum "ether-media-type-1000base-dwdm-5655" {
         value 49;
       }
-      enum ether-media-type-1000base-dwdm-5575 {
+      enum "ether-media-type-1000base-dwdm-5575" {
         value 50;
       }
-      enum ether-media-type-1000base-dwdm-5494 {
+      enum "ether-media-type-1000base-dwdm-5494" {
         value 51;
       }
-      enum ether-media-type-1000base-dwdm-5413 {
+      enum "ether-media-type-1000base-dwdm-5413" {
         value 52;
       }
-      enum ether-media-type-1000base-dwdm-5252 {
+      enum "ether-media-type-1000base-dwdm-5252" {
         value 53;
       }
-      enum ether-media-type-1000base-dwdm-5172 {
+      enum "ether-media-type-1000base-dwdm-5172" {
         value 54;
       }
-      enum ether-media-type-1000base-dwdm-5092 {
+      enum "ether-media-type-1000base-dwdm-5092" {
         value 55;
       }
-      enum ether-media-type-1000base-dwdm-5012 {
+      enum "ether-media-type-1000base-dwdm-5012" {
         value 56;
       }
-      enum ether-media-type-1000base-dwdm-4851 {
+      enum "ether-media-type-1000base-dwdm-4851" {
         value 57;
       }
-      enum ether-media-type-1000base-dwdm-4772 {
+      enum "ether-media-type-1000base-dwdm-4772" {
         value 58;
       }
-      enum ether-media-type-1000base-dwdm-4692 {
+      enum "ether-media-type-1000base-dwdm-4692" {
         value 59;
       }
-      enum ether-media-type-1000base-dwdm-4612 {
+      enum "ether-media-type-1000base-dwdm-4612" {
         value 60;
       }
-      enum ether-media-type-1000base-dwdm-4453 {
+      enum "ether-media-type-1000base-dwdm-4453" {
         value 61;
       }
-      enum ether-media-type-1000base-dwdm-4373 {
+      enum "ether-media-type-1000base-dwdm-4373" {
         value 62;
       }
-      enum ether-media-type-1000base-dwdm-4294 {
+      enum "ether-media-type-1000base-dwdm-4294" {
         value 63;
       }
-      enum ether-media-type-1000base-dwdm-4214 {
+      enum "ether-media-type-1000base-dwdm-4214" {
         value 64;
       }
-      enum ether-media-type-1000base-dwdm-4056 {
+      enum "ether-media-type-1000base-dwdm-4056" {
         value 65;
       }
-      enum ether-media-type-1000base-dwdm-3977 {
+      enum "ether-media-type-1000base-dwdm-3977" {
         value 66;
       }
-      enum ether-media-type-1000base-dwdm-3898 {
+      enum "ether-media-type-1000base-dwdm-3898" {
         value 67;
       }
-      enum ether-media-type-1000base-dwdm-3819 {
+      enum "ether-media-type-1000base-dwdm-3819" {
         value 68;
       }
-      enum ether-media-type-1000base-dwdm-3661 {
+      enum "ether-media-type-1000base-dwdm-3661" {
         value 69;
       }
-      enum ether-media-type-1000base-dwdm-3582 {
+      enum "ether-media-type-1000base-dwdm-3582" {
         value 70;
       }
-      enum ether-media-type-1000base-dwdm-3504 {
+      enum "ether-media-type-1000base-dwdm-3504" {
         value 71;
       }
-      enum ether-media-type-1000base-dwdm-3425 {
+      enum "ether-media-type-1000base-dwdm-3425" {
         value 72;
       }
-      enum ether-media-type-1000base-dwdm-3268 {
+      enum "ether-media-type-1000base-dwdm-3268" {
         value 73;
       }
-      enum ether-media-type-1000base-dwdm-3190 {
+      enum "ether-media-type-1000base-dwdm-3190" {
         value 74;
       }
-      enum ether-media-type-1000base-dwdm-3112 {
+      enum "ether-media-type-1000base-dwdm-3112" {
         value 75;
       }
-      enum ether-media-type-1000base-dwdm-3033 {
+      enum "ether-media-type-1000base-dwdm-3033" {
         value 76;
       }
-      enum ether-media-type-1000base-dwdm-6141 {
+      enum "ether-media-type-1000base-dwdm-6141" {
         value 77;
       }
-      enum ether-media-type-1000base-dwdm-5736 {
+      enum "ether-media-type-1000base-dwdm-5736" {
         value 78;
       }
-      enum ether-media-type-1000base-dwdm-5332 {
+      enum "ether-media-type-1000base-dwdm-5332" {
         value 79;
       }
-      enum ether-media-type-1000base-dwdm-4931 {
+      enum "ether-media-type-1000base-dwdm-4931" {
         value 80;
       }
-      enum ether-media-type-1000base-dwdm-4532 {
+      enum "ether-media-type-1000base-dwdm-4532" {
         value 81;
       }
-      enum ether-media-type-1000base-dwdm-4134 {
+      enum "ether-media-type-1000base-dwdm-4134" {
         value 82;
       }
-      enum ether-media-type-1000base-dwdm-3739 {
+      enum "ether-media-type-1000base-dwdm-3739" {
         value 83;
       }
-      enum ether-media-type-1000base-dwdm-3346 {
+      enum "ether-media-type-1000base-dwdm-3346" {
         value 84;
       }
-      enum ether-media-type-unknown {
+      enum "ether-media-type-unknown" {
         value 85;
       }
-      enum ether-media-type-1000base-bx10u {
+      enum "ether-media-type-1000base-bx10u" {
         value 86;
       }
-      enum ether-media-type-1000base-bx10d {
+      enum "ether-media-type-1000base-bx10d" {
         value 87;
       }
-      enum ether-media-type-1000base-tdwdm {
+      enum "ether-media-type-1000base-tdwdm" {
         value 88;
       }
-      enum ether-media-type-10gbase-sr {
+      enum "ether-media-type-10gbase-sr" {
         value 89;
       }
-      enum ether-media-type-10gbase-sr-sw {
+      enum "ether-media-type-10gbase-sr-sw" {
         value 90;
       }
-      enum ether-media-type-sfp-plus {
+      enum "ether-media-type-sfp-plus" {
         value 91;
       }
-      enum ether-media-type-gpif-ex {
+      enum "ether-media-type-gpif-ex" {
         value 92;
       }
-      enum ether-media-type-100base-bx10u {
+      enum "ether-media-type-100base-bx10u" {
         value 93;
       }
-      enum ether-media-type-100base-bx10d {
+      enum "ether-media-type-100base-bx10d" {
         value 94;
       }
-      enum ether-media-type-10gbase-dwdm-3033 {
+      enum "ether-media-type-10gbase-dwdm-3033" {
         value 95;
       }
-      enum ether-media-type-10gbase-dwdm-3112 {
+      enum "ether-media-type-10gbase-dwdm-3112" {
         value 96;
       }
-      enum ether-media-type-10gbase-dwdm-3190 {
+      enum "ether-media-type-10gbase-dwdm-3190" {
         value 97;
       }
-      enum ether-media-type-10gbase-dwdm-3268 {
+      enum "ether-media-type-10gbase-dwdm-3268" {
         value 98;
       }
-      enum ether-media-type-10gbase-dwdm-3425 {
+      enum "ether-media-type-10gbase-dwdm-3425" {
         value 99;
       }
-      enum ether-media-type-10gbase-dwdm-3504 {
+      enum "ether-media-type-10gbase-dwdm-3504" {
         value 100;
       }
-      enum ether-media-type-10gbase-dwdm-3582 {
+      enum "ether-media-type-10gbase-dwdm-3582" {
         value 101;
       }
-      enum ether-media-type-10gbase-dwdm-3661 {
+      enum "ether-media-type-10gbase-dwdm-3661" {
         value 102;
       }
-      enum ether-media-type-10gbase-dwdm-3819 {
+      enum "ether-media-type-10gbase-dwdm-3819" {
         value 103;
       }
-      enum ether-media-type-10gbase-dwdm-3898 {
+      enum "ether-media-type-10gbase-dwdm-3898" {
         value 104;
       }
-      enum ether-media-type-10gbase-dwdm-3977 {
+      enum "ether-media-type-10gbase-dwdm-3977" {
         value 105;
       }
-      enum ether-media-type-10gbase-dwdm-4056 {
+      enum "ether-media-type-10gbase-dwdm-4056" {
         value 106;
       }
-      enum ether-media-type-10gbase-dwdm-4214 {
+      enum "ether-media-type-10gbase-dwdm-4214" {
         value 107;
       }
-      enum ether-media-type-10gbase-dwdm-4294 {
+      enum "ether-media-type-10gbase-dwdm-4294" {
         value 108;
       }
-      enum ether-media-type-10gbase-dwdm-4373 {
+      enum "ether-media-type-10gbase-dwdm-4373" {
         value 109;
       }
-      enum ether-media-type-10gbase-dwdm-4453 {
+      enum "ether-media-type-10gbase-dwdm-4453" {
         value 110;
       }
-      enum ether-media-type-10gbase-dwdm-4612 {
+      enum "ether-media-type-10gbase-dwdm-4612" {
         value 111;
       }
-      enum ether-media-type-10gbase-dwdm-4692 {
+      enum "ether-media-type-10gbase-dwdm-4692" {
         value 112;
       }
-      enum ether-media-type-10gbase-dwdm-4772 {
+      enum "ether-media-type-10gbase-dwdm-4772" {
         value 113;
       }
-      enum ether-media-type-10gbase-dwdm-4851 {
+      enum "ether-media-type-10gbase-dwdm-4851" {
         value 114;
       }
-      enum ether-media-type-10gbase-dwdm-5012 {
+      enum "ether-media-type-10gbase-dwdm-5012" {
         value 115;
       }
-      enum ether-media-type-10gbase-dwdm-5092 {
+      enum "ether-media-type-10gbase-dwdm-5092" {
         value 116;
       }
-      enum ether-media-type-10gbase-dwdm-5172 {
+      enum "ether-media-type-10gbase-dwdm-5172" {
         value 117;
       }
-      enum ether-media-type-10gbase-dwdm-5252 {
+      enum "ether-media-type-10gbase-dwdm-5252" {
         value 118;
       }
-      enum ether-media-type-10gbase-dwdm-5413 {
+      enum "ether-media-type-10gbase-dwdm-5413" {
         value 119;
       }
-      enum ether-media-type-10gbase-dwdm-5494 {
+      enum "ether-media-type-10gbase-dwdm-5494" {
         value 120;
       }
-      enum ether-media-type-10gbase-dwdm-5575 {
+      enum "ether-media-type-10gbase-dwdm-5575" {
         value 121;
       }
-      enum ether-media-type-10gbase-dwdm-5655 {
+      enum "ether-media-type-10gbase-dwdm-5655" {
         value 122;
       }
-      enum ether-media-type-10gbase-dwdm-5817 {
+      enum "ether-media-type-10gbase-dwdm-5817" {
         value 123;
       }
-      enum ether-media-type-10gbase-dwdm-5898 {
+      enum "ether-media-type-10gbase-dwdm-5898" {
         value 124;
       }
-      enum ether-media-type-10gbase-dwdm-5979 {
+      enum "ether-media-type-10gbase-dwdm-5979" {
         value 125;
       }
-      enum ether-media-type-10gbase-dwdm-6061 {
+      enum "ether-media-type-10gbase-dwdm-6061" {
         value 126;
       }
-      enum ether-media-type-10gbase-tdwdm {
+      enum "ether-media-type-10gbase-tdwdm" {
         value 127;
       }
-      enum ether-media-type-100base-zx {
+      enum "ether-media-type-100base-zx" {
         value 128;
       }
-      enum ether-media-type-100base-ex {
+      enum "ether-media-type-100base-ex" {
         value 129;
       }
-      enum ether-media-type-sfp-plus-10ge-sr {
+      enum "ether-media-type-sfp-plus-10ge-sr" {
         value 130;
       }
-      enum ether-media-type-sfp-plus-10ge-lr {
+      enum "ether-media-type-sfp-plus-10ge-lr" {
         value 131;
       }
-      enum ether-media-type-sfp-plus-10ge-lrm {
+      enum "ether-media-type-sfp-plus-10ge-lrm" {
         value 132;
       }
-      enum ether-media-type-sfp-plus-10ge-er {
+      enum "ether-media-type-sfp-plus-10ge-er" {
         value 133;
       }
-      enum ether-media-type-10gbase-cu1m {
+      enum "ether-media-type-10gbase-cu1m" {
         value 134;
       }
-      enum ether-media-type-10gbase-cu3m {
+      enum "ether-media-type-10gbase-cu3m" {
         value 135;
       }
-      enum ether-media-type-10gbase-cu5m {
+      enum "ether-media-type-10gbase-cu5m" {
         value 136;
       }
-      enum ether-media-type-10gbase-cu7m {
+      enum "ether-media-type-10gbase-cu7m" {
         value 137;
       }
-      enum ether-media-type-10gbase-cwdm-1470 {
+      enum "ether-media-type-10gbase-cwdm-1470" {
         value 138;
       }
-      enum ether-media-type-10gbase-cwdm-1490 {
+      enum "ether-media-type-10gbase-cwdm-1490" {
         value 139;
       }
-      enum ether-media-type-10gbase-cwdm-1510 {
+      enum "ether-media-type-10gbase-cwdm-1510" {
         value 140;
       }
-      enum ether-media-type-10gbase-cwdm-1530 {
+      enum "ether-media-type-10gbase-cwdm-1530" {
         value 141;
       }
-      enum ether-media-type-10gbase-cwdm-1550 {
+      enum "ether-media-type-10gbase-cwdm-1550" {
         value 142;
       }
-      enum ether-media-type-10gbase-cwdm-1570 {
+      enum "ether-media-type-10gbase-cwdm-1570" {
         value 143;
       }
-      enum ether-media-type-10gbase-cwdm-1590 {
+      enum "ether-media-type-10gbase-cwdm-1590" {
         value 144;
       }
-      enum ether-media-type-10gbase-cwdm-1610 {
+      enum "ether-media-type-10gbase-cwdm-1610" {
         value 145;
       }
-      enum ether-media-type-100base-lx {
+      enum "ether-media-type-100base-lx" {
         value 146;
       }
-      enum ether-media-type-100lc-bx10-d {
+      enum "ether-media-type-100lc-bx10-d" {
         value 147;
       }
-      enum ether-media-type-100lc-bx10-u {
+      enum "ether-media-type-100lc-bx10-u" {
         value 148;
       }
-      enum ether-media-type-100base-bx10-d {
+      enum "ether-media-type-100base-bx10-d" {
         value 149;
       }
-      enum ether-media-type-100base-bx10-u {
+      enum "ether-media-type-100base-bx10-u" {
         value 150;
       }
-      enum ether-media-type-x2 {
+      enum "ether-media-type-x2" {
         value 151;
       }
-      enum ether-media-type-x2-missing {
+      enum "ether-media-type-x2-missing" {
         value 152;
       }
-      enum ether-media-type-xg-draught {
+      enum "ether-media-type-xg-draught" {
         value 153;
       }
-      enum ether-media-type-1g-10gbaset {
+      enum "ether-media-type-1g-10gbaset" {
         value 154;
       }
-      enum ether-media-type-xg-arcadia {
+      enum "ether-media-type-xg-arcadia" {
         value 155;
       }
-      enum ether-media-type-sfp-plus-10ge-zr {
+      enum "ether-media-type-sfp-plus-10ge-zr" {
         value 156;
       }
-      enum ether-media-type-sfpp-10g-dwdm-61-41 {
+      enum "ether-media-type-sfpp-10g-dwdm-61-41" {
         value 157;
       }
-      enum ether-media-type-sfpp-10g-dwdm-60-61 {
+      enum "ether-media-type-sfpp-10g-dwdm-60-61" {
         value 158;
       }
-      enum ether-media-type-sfpp-10g-dwdm-59-79 {
+      enum "ether-media-type-sfpp-10g-dwdm-59-79" {
         value 159;
       }
-      enum ether-media-type-sfpp-10g-dwdm-58-98 {
+      enum "ether-media-type-sfpp-10g-dwdm-58-98" {
         value 160;
       }
-      enum ether-media-type-sfpp-10g-dwdm-58-17 {
+      enum "ether-media-type-sfpp-10g-dwdm-58-17" {
         value 161;
       }
-      enum ether-media-type-sfpp-10g-dwdm-57-36 {
+      enum "ether-media-type-sfpp-10g-dwdm-57-36" {
         value 162;
       }
-      enum ether-media-type-sfpp-10g-dwdm-56-55 {
+      enum "ether-media-type-sfpp-10g-dwdm-56-55" {
         value 163;
       }
-      enum ether-media-type-sfpp-10g-dwdm-55-75 {
+      enum "ether-media-type-sfpp-10g-dwdm-55-75" {
         value 164;
       }
-      enum ether-media-type-sfpp-10g-dwdm-54-94 {
+      enum "ether-media-type-sfpp-10g-dwdm-54-94" {
         value 165;
       }
-      enum ether-media-type-sfpp-10g-dwdm-54-13 {
+      enum "ether-media-type-sfpp-10g-dwdm-54-13" {
         value 166;
       }
-      enum ether-media-type-sfpp-10g-dwdm-53-33 {
+      enum "ether-media-type-sfpp-10g-dwdm-53-33" {
         value 167;
       }
-      enum ether-media-type-sfpp-10g-dwdm-52-52 {
+      enum "ether-media-type-sfpp-10g-dwdm-52-52" {
         value 168;
       }
-      enum ether-media-type-sfpp-10g-dwdm-51-72 {
+      enum "ether-media-type-sfpp-10g-dwdm-51-72" {
         value 169;
       }
-      enum ether-media-type-sfpp-10g-dwdm-50-92 {
+      enum "ether-media-type-sfpp-10g-dwdm-50-92" {
         value 170;
       }
-      enum ether-media-type-sfpp-10g-dwdm-50-12 {
+      enum "ether-media-type-sfpp-10g-dwdm-50-12" {
         value 171;
       }
-      enum ether-media-type-sfpp-10g-dwdm-49-32 {
+      enum "ether-media-type-sfpp-10g-dwdm-49-32" {
         value 172;
       }
-      enum ether-media-type-sfpp-10g-dwdm-48-51 {
+      enum "ether-media-type-sfpp-10g-dwdm-48-51" {
         value 173;
       }
-      enum ether-media-type-sfpp-10g-dwdm-47-72 {
+      enum "ether-media-type-sfpp-10g-dwdm-47-72" {
         value 174;
       }
-      enum ether-media-type-sfpp-10g-dwdm-46-92 {
+      enum "ether-media-type-sfpp-10g-dwdm-46-92" {
         value 175;
       }
-      enum ether-media-type-sfpp-10g-dwdm-46-12 {
+      enum "ether-media-type-sfpp-10g-dwdm-46-12" {
         value 176;
       }
-      enum ether-media-type-sfpp-10g-dwdm-45-32 {
+      enum "ether-media-type-sfpp-10g-dwdm-45-32" {
         value 177;
       }
-      enum ether-media-type-sfpp-10g-dwdm-44-53 {
+      enum "ether-media-type-sfpp-10g-dwdm-44-53" {
         value 178;
       }
-      enum ether-media-type-sfpp-10g-dwdm-43-73 {
+      enum "ether-media-type-sfpp-10g-dwdm-43-73" {
         value 179;
       }
-      enum ether-media-type-sfpp-10g-dwdm-42-94 {
+      enum "ether-media-type-sfpp-10g-dwdm-42-94" {
         value 180;
       }
-      enum ether-media-type-sfpp-10g-dwdm-42-14 {
+      enum "ether-media-type-sfpp-10g-dwdm-42-14" {
         value 181;
       }
-      enum ether-media-type-sfpp-10g-dwdm-41-35 {
+      enum "ether-media-type-sfpp-10g-dwdm-41-35" {
         value 182;
       }
-      enum ether-media-type-sfpp-10g-dwdm-40-56 {
+      enum "ether-media-type-sfpp-10g-dwdm-40-56" {
         value 183;
       }
-      enum ether-media-type-sfpp-10g-dwdm-39-77 {
+      enum "ether-media-type-sfpp-10g-dwdm-39-77" {
         value 184;
       }
-      enum ether-media-type-sfpp-10g-dwdm-38-98 {
+      enum "ether-media-type-sfpp-10g-dwdm-38-98" {
         value 185;
       }
-      enum ether-media-type-sfpp-10g-dwdm-38-19 {
+      enum "ether-media-type-sfpp-10g-dwdm-38-19" {
         value 186;
       }
-      enum ether-media-type-sfpp-10g-dwdm-37-40 {
+      enum "ether-media-type-sfpp-10g-dwdm-37-40" {
         value 187;
       }
-      enum ether-media-type-sfpp-10g-dwdm-36-61 {
+      enum "ether-media-type-sfpp-10g-dwdm-36-61" {
         value 188;
       }
-      enum ether-media-type-sfpp-10g-dwdm-35-82 {
+      enum "ether-media-type-sfpp-10g-dwdm-35-82" {
         value 189;
       }
-      enum ether-media-type-sfpp-10g-dwdm-35-04 {
+      enum "ether-media-type-sfpp-10g-dwdm-35-04" {
         value 190;
       }
-      enum ether-media-type-sfpp-10g-dwdm-34-25 {
+      enum "ether-media-type-sfpp-10g-dwdm-34-25" {
         value 191;
       }
-      enum ether-media-type-sfpp-10g-dwdm-33-47 {
+      enum "ether-media-type-sfpp-10g-dwdm-33-47" {
         value 192;
       }
-      enum ether-media-type-sfpp-10g-dwdm-32-68 {
+      enum "ether-media-type-sfpp-10g-dwdm-32-68" {
         value 193;
       }
-      enum ether-media-type-sfpp-10g-dwdm-31-90 {
+      enum "ether-media-type-sfpp-10g-dwdm-31-90" {
         value 194;
       }
-      enum ether-media-type-sfpp-10g-dwdm-31-12 {
+      enum "ether-media-type-sfpp-10g-dwdm-31-12" {
         value 195;
       }
-      enum ether-media-type-sfpp-10g-dwdm-30-33 {
+      enum "ether-media-type-sfpp-10g-dwdm-30-33" {
         value 196;
       }
-      enum ether-media-type-1000base-bx40da {
+      enum "ether-media-type-1000base-bx40da" {
         value 197;
       }
-      enum ether-media-type-1000base-bx80u {
+      enum "ether-media-type-1000base-bx80u" {
         value 198;
       }
-      enum ether-media-type-1000base-bx80d {
+      enum "ether-media-type-1000base-bx80d" {
         value 199;
       }
-      enum ether-media-type-1000base-bx40u {
+      enum "ether-media-type-1000base-bx40u" {
         value 200;
       }
-      enum ether-media-type-1000base-bx40d {
+      enum "ether-media-type-1000base-bx40d" {
         value 201;
       }
-      enum ether-media-type-sfp-plus-10ge-bxd {
+      enum "ether-media-type-sfp-plus-10ge-bxd" {
         value 202;
       }
-      enum ether-media-type-sfp-plus-10ge-bxu {
+      enum "ether-media-type-sfp-plus-10ge-bxu" {
         value 203;
       }
-      enum ether-media-type-sfp-plus-10ge-bx40d {
+      enum "ether-media-type-sfp-plus-10ge-bx40d" {
         value 204;
       }
-      enum ether-media-type-sfp-plus-10ge-bx40u {
+      enum "ether-media-type-sfp-plus-10ge-bx40u" {
         value 205;
       }
-      enum ether-media-type-sfpp-10g-cwdm-14-70 {
+      enum "ether-media-type-sfpp-10g-cwdm-14-70" {
         value 206;
       }
-      enum ether-media-type-sfpp-10g-cwdm-14-90 {
+      enum "ether-media-type-sfpp-10g-cwdm-14-90" {
         value 207;
       }
-      enum ether-media-type-sfpp-10g-cwdm-15-10 {
+      enum "ether-media-type-sfpp-10g-cwdm-15-10" {
         value 208;
       }
-      enum ether-media-type-sfpp-10g-cwdm-15-30 {
+      enum "ether-media-type-sfpp-10g-cwdm-15-30" {
         value 209;
       }
-      enum ether-media-type-sfpp-10g-cwdm-15-50 {
+      enum "ether-media-type-sfpp-10g-cwdm-15-50" {
         value 210;
       }
-      enum ether-media-type-sfpp-10g-cwdm-15-70 {
+      enum "ether-media-type-sfpp-10g-cwdm-15-70" {
         value 211;
       }
-      enum ether-media-type-sfpp-10g-cwdm-15-90 {
+      enum "ether-media-type-sfpp-10g-cwdm-15-90" {
         value 212;
       }
-      enum ether-media-type-sfpp-10g-cwdm-16-10 {
+      enum "ether-media-type-sfpp-10g-cwdm-16-10" {
         value 213;
       }
-      enum ether-media-type-sfpp-10g-acu7m {
+      enum "ether-media-type-sfpp-10g-acu7m" {
         value 214;
       }
-      enum ether-media-type-sfpp-10g-acu10m {
+      enum "ether-media-type-sfpp-10g-acu10m" {
         value 215;
       }
-      enum ether-media-type-cpak-100ge-sr10 {
+      enum "ether-media-type-cpak-100ge-sr10" {
         value 216;
       }
-      enum ether-media-type-cpak-100ge-lr4 {
+      enum "ether-media-type-cpak-100ge-lr4" {
         value 217;
       }
-      enum ether-media-type-cpak-100ge-sr4 {
+      enum "ether-media-type-cpak-100ge-sr4" {
         value 218;
       }
-      enum ether-media-type-cfp-40g {
+      enum "ether-media-type-cfp-40g" {
         value 219;
       }
-      enum ether-media-type-qsfp-40ge-lr {
+      enum "ether-media-type-qsfp-40ge-lr" {
         value 220;
       }
-      enum ether-media-type-qsfp-40ge-sr {
+      enum "ether-media-type-qsfp-40ge-sr" {
         value 221;
       }
-      enum ether-media-type-1000base-dr-lx {
+      enum "ether-media-type-1000base-dr-lx" {
         value 222;
       }
-      enum ether-media-type-sfpp-10g-tdwdm {
+      enum "ether-media-type-sfpp-10g-tdwdm" {
         value 223;
       }
-      enum ether-media-type-qsfp-40ge-er4 {
+      enum "ether-media-type-qsfp-40ge-er4" {
         value 224;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-61-83 {
+      enum "ether-media-type-sfpp-dwdm-10gep-61-83" {
         value 225;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-61-41 {
+      enum "ether-media-type-sfpp-dwdm-10gep-61-41" {
         value 226;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-61-01 {
+      enum "ether-media-type-sfpp-dwdm-10gep-61-01" {
         value 227;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-60-61 {
+      enum "ether-media-type-sfpp-dwdm-10gep-60-61" {
         value 228;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-60-20 {
+      enum "ether-media-type-sfpp-dwdm-10gep-60-20" {
         value 229;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-59-79 {
+      enum "ether-media-type-sfpp-dwdm-10gep-59-79" {
         value 230;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-59-39 {
+      enum "ether-media-type-sfpp-dwdm-10gep-59-39" {
         value 231;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-58-98 {
+      enum "ether-media-type-sfpp-dwdm-10gep-58-98" {
         value 232;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-58-58 {
+      enum "ether-media-type-sfpp-dwdm-10gep-58-58" {
         value 233;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-58-17 {
+      enum "ether-media-type-sfpp-dwdm-10gep-58-17" {
         value 234;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-57-77 {
+      enum "ether-media-type-sfpp-dwdm-10gep-57-77" {
         value 235;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-57-36 {
+      enum "ether-media-type-sfpp-dwdm-10gep-57-36" {
         value 236;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-56-96 {
+      enum "ether-media-type-sfpp-dwdm-10gep-56-96" {
         value 237;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-56-55 {
+      enum "ether-media-type-sfpp-dwdm-10gep-56-55" {
         value 238;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-56-15 {
+      enum "ether-media-type-sfpp-dwdm-10gep-56-15" {
         value 239;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-55-75 {
+      enum "ether-media-type-sfpp-dwdm-10gep-55-75" {
         value 240;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-55-34 {
+      enum "ether-media-type-sfpp-dwdm-10gep-55-34" {
         value 241;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-54-94 {
+      enum "ether-media-type-sfpp-dwdm-10gep-54-94" {
         value 242;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-54-54 {
+      enum "ether-media-type-sfpp-dwdm-10gep-54-54" {
         value 243;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-54-13 {
+      enum "ether-media-type-sfpp-dwdm-10gep-54-13" {
         value 244;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-53-73 {
+      enum "ether-media-type-sfpp-dwdm-10gep-53-73" {
         value 245;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-53-33 {
+      enum "ether-media-type-sfpp-dwdm-10gep-53-33" {
         value 246;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-52-93 {
+      enum "ether-media-type-sfpp-dwdm-10gep-52-93" {
         value 247;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-52-52 {
+      enum "ether-media-type-sfpp-dwdm-10gep-52-52" {
         value 248;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-52-12 {
+      enum "ether-media-type-sfpp-dwdm-10gep-52-12" {
         value 249;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-51-72 {
+      enum "ether-media-type-sfpp-dwdm-10gep-51-72" {
         value 250;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-51-32 {
+      enum "ether-media-type-sfpp-dwdm-10gep-51-32" {
         value 251;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-50-92 {
+      enum "ether-media-type-sfpp-dwdm-10gep-50-92" {
         value 252;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-50-52 {
+      enum "ether-media-type-sfpp-dwdm-10gep-50-52" {
         value 253;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-50-12 {
+      enum "ether-media-type-sfpp-dwdm-10gep-50-12" {
         value 254;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-49-72 {
+      enum "ether-media-type-sfpp-dwdm-10gep-49-72" {
         value 255;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-49-32 {
+      enum "ether-media-type-sfpp-dwdm-10gep-49-32" {
         value 256;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-48-91 {
+      enum "ether-media-type-sfpp-dwdm-10gep-48-91" {
         value 257;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-48-51 {
+      enum "ether-media-type-sfpp-dwdm-10gep-48-51" {
         value 258;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-48-11 {
+      enum "ether-media-type-sfpp-dwdm-10gep-48-11" {
         value 259;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-47-72 {
+      enum "ether-media-type-sfpp-dwdm-10gep-47-72" {
         value 260;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-47-32 {
+      enum "ether-media-type-sfpp-dwdm-10gep-47-32" {
         value 261;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-46-92 {
+      enum "ether-media-type-sfpp-dwdm-10gep-46-92" {
         value 262;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-46-52 {
+      enum "ether-media-type-sfpp-dwdm-10gep-46-52" {
         value 263;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-46-12 {
+      enum "ether-media-type-sfpp-dwdm-10gep-46-12" {
         value 264;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-45-72 {
+      enum "ether-media-type-sfpp-dwdm-10gep-45-72" {
         value 265;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-45-32 {
+      enum "ether-media-type-sfpp-dwdm-10gep-45-32" {
         value 266;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-44-92 {
+      enum "ether-media-type-sfpp-dwdm-10gep-44-92" {
         value 267;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-44-53 {
+      enum "ether-media-type-sfpp-dwdm-10gep-44-53" {
         value 268;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-44-13 {
+      enum "ether-media-type-sfpp-dwdm-10gep-44-13" {
         value 269;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-43-73 {
+      enum "ether-media-type-sfpp-dwdm-10gep-43-73" {
         value 270;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-43-33 {
+      enum "ether-media-type-sfpp-dwdm-10gep-43-33" {
         value 271;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-42-94 {
+      enum "ether-media-type-sfpp-dwdm-10gep-42-94" {
         value 272;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-42-54 {
+      enum "ether-media-type-sfpp-dwdm-10gep-42-54" {
         value 273;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-42-14 {
+      enum "ether-media-type-sfpp-dwdm-10gep-42-14" {
         value 274;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-41-75 {
+      enum "ether-media-type-sfpp-dwdm-10gep-41-75" {
         value 275;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-41-35 {
+      enum "ether-media-type-sfpp-dwdm-10gep-41-35" {
         value 276;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-40-95 {
+      enum "ether-media-type-sfpp-dwdm-10gep-40-95" {
         value 277;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-40-56 {
+      enum "ether-media-type-sfpp-dwdm-10gep-40-56" {
         value 278;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-40-16 {
+      enum "ether-media-type-sfpp-dwdm-10gep-40-16" {
         value 279;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-39-77 {
+      enum "ether-media-type-sfpp-dwdm-10gep-39-77" {
         value 280;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-39-37 {
+      enum "ether-media-type-sfpp-dwdm-10gep-39-37" {
         value 281;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-38-98 {
+      enum "ether-media-type-sfpp-dwdm-10gep-38-98" {
         value 282;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-38-58 {
+      enum "ether-media-type-sfpp-dwdm-10gep-38-58" {
         value 283;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-38-19 {
+      enum "ether-media-type-sfpp-dwdm-10gep-38-19" {
         value 284;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-37-79 {
+      enum "ether-media-type-sfpp-dwdm-10gep-37-79" {
         value 285;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-37-40 {
+      enum "ether-media-type-sfpp-dwdm-10gep-37-40" {
         value 286;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-37-00 {
+      enum "ether-media-type-sfpp-dwdm-10gep-37-00" {
         value 287;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-36-61 {
+      enum "ether-media-type-sfpp-dwdm-10gep-36-61" {
         value 288;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-36-22 {
+      enum "ether-media-type-sfpp-dwdm-10gep-36-22" {
         value 289;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-35-82 {
+      enum "ether-media-type-sfpp-dwdm-10gep-35-82" {
         value 290;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-35-43 {
+      enum "ether-media-type-sfpp-dwdm-10gep-35-43" {
         value 291;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-35-04 {
+      enum "ether-media-type-sfpp-dwdm-10gep-35-04" {
         value 292;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-34-64 {
+      enum "ether-media-type-sfpp-dwdm-10gep-34-64" {
         value 293;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-34-25 {
+      enum "ether-media-type-sfpp-dwdm-10gep-34-25" {
         value 294;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-33-86 {
+      enum "ether-media-type-sfpp-dwdm-10gep-33-86" {
         value 295;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-33-47 {
+      enum "ether-media-type-sfpp-dwdm-10gep-33-47" {
         value 296;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-33-07 {
+      enum "ether-media-type-sfpp-dwdm-10gep-33-07" {
         value 297;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-32-68 {
+      enum "ether-media-type-sfpp-dwdm-10gep-32-68" {
         value 298;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-32-29 {
+      enum "ether-media-type-sfpp-dwdm-10gep-32-29" {
         value 299;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-31-90 {
+      enum "ether-media-type-sfpp-dwdm-10gep-31-90" {
         value 300;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-31-51 {
+      enum "ether-media-type-sfpp-dwdm-10gep-31-51" {
         value 301;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-31-12 {
+      enum "ether-media-type-sfpp-dwdm-10gep-31-12" {
         value 302;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-30-72 {
+      enum "ether-media-type-sfpp-dwdm-10gep-30-72" {
         value 303;
       }
-      enum ether-media-type-sfpp-dwdm-10gep-30-33 {
+      enum "ether-media-type-sfpp-dwdm-10gep-30-33" {
         value 304;
       }
-      enum ether-media-type-ons-se-z1 {
+      enum "ether-media-type-ons-se-z1" {
         value 305;
       }
-      enum ether-media-type-qsfp-100ge-lr {
+      enum "ether-media-type-qsfp-100ge-lr" {
         value 306;
       }
-      enum ether-media-type-qsfp-100ge-sr {
+      enum "ether-media-type-qsfp-100ge-sr" {
         value 307;
       }
-      enum ether-media-type-sfpp-10g-aoc1m {
+      enum "ether-media-type-sfpp-10g-aoc1m" {
         value 308;
       }
-      enum ether-media-type-sfpp-10g-aoc2m {
+      enum "ether-media-type-sfpp-10g-aoc2m" {
         value 309;
       }
-      enum ether-media-type-sfpp-10g-aoc3m {
+      enum "ether-media-type-sfpp-10g-aoc3m" {
         value 310;
       }
-      enum ether-media-type-sfpp-10g-aoc5m {
+      enum "ether-media-type-sfpp-10g-aoc5m" {
         value 311;
       }
-      enum ether-media-type-sfpp-10g-aoc7m {
+      enum "ether-media-type-sfpp-10g-aoc7m" {
         value 312;
       }
-      enum ether-media-type-sfpp-10g-aoc10m {
+      enum "ether-media-type-sfpp-10g-aoc10m" {
         value 313;
       }
-      enum ether-media-type-cpak-100ge-er4l {
+      enum "ether-media-type-cpak-100ge-er4l" {
         value 314;
       }
-      enum ether-media-type-qsfp-40ge-sr-bd {
+      enum "ether-media-type-qsfp-40ge-sr-bd" {
         value 315;
       }
-      enum ether-media-type-qsfp-40ge-bd-rx {
+      enum "ether-media-type-qsfp-40ge-bd-rx" {
         value 316;
       }
-      enum ether-media-type-tunable-dwdm-sfpp {
+      enum "ether-media-type-tunable-dwdm-sfpp" {
         value 317;
       }
-      enum ether-media-type-qsfp-40ge-sr-s {
+      enum "ether-media-type-qsfp-40ge-sr-s" {
         value 318;
       }
-      enum ether-media-type-qsfp-40ge-lr-s {
+      enum "ether-media-type-qsfp-40ge-lr-s" {
         value 319;
       }
-      enum ether-media-type-qsfp-h40ge-aoc1m {
+      enum "ether-media-type-qsfp-h40ge-aoc1m" {
         value 320;
       }
-      enum ether-media-type-qsfp-h40ge-aoc2m {
+      enum "ether-media-type-qsfp-h40ge-aoc2m" {
         value 321;
       }
-      enum ether-media-type-qsfp-h40ge-aoc3m {
+      enum "ether-media-type-qsfp-h40ge-aoc3m" {
         value 322;
       }
-      enum ether-media-type-qsfp-h40ge-aoc5m {
+      enum "ether-media-type-qsfp-h40ge-aoc5m" {
         value 323;
       }
-      enum ether-media-type-qsfp-h40ge-aoc7m {
+      enum "ether-media-type-qsfp-h40ge-aoc7m" {
         value 324;
       }
-      enum ether-media-type-qsfp-h40ge-aoc10m {
+      enum "ether-media-type-qsfp-h40ge-aoc10m" {
         value 325;
       }
-      enum ether-media-type-qsfp-h40ge-aoc15m {
+      enum "ether-media-type-qsfp-h40ge-aoc15m" {
         value 326;
       }
-      enum ether-media-type-qsfp-h40ge-aoc20m {
+      enum "ether-media-type-qsfp-h40ge-aoc20m" {
         value 327;
       }
-      enum ether-media-type-qsfp-40ge-csr4 {
+      enum "ether-media-type-qsfp-40ge-csr4" {
         value 328;
       }
-      enum ether-media-type-qsfp-40ge-sr4 {
+      enum "ether-media-type-qsfp-40ge-sr4" {
         value 329;
       }
-      enum ether-media-type-qsfp-40ge-lr4 {
+      enum "ether-media-type-qsfp-40ge-lr4" {
         value 330;
       }
-      enum ether-media-type-wsp-40ge-lr4l {
+      enum "ether-media-type-wsp-40ge-lr4l" {
         value 331;
       }
-      enum ether-media-type-qsfp-h40ge-cu1m {
+      enum "ether-media-type-qsfp-h40ge-cu1m" {
         value 332;
       }
-      enum ether-media-type-qsfp-h40ge-cu3m {
+      enum "ether-media-type-qsfp-h40ge-cu3m" {
         value 333;
       }
-      enum ether-media-type-qsfp-h40ge-cu5m {
+      enum "ether-media-type-qsfp-h40ge-cu5m" {
         value 334;
       }
-      enum ether-media-type-qsfp-h40ge-acu7m {
+      enum "ether-media-type-qsfp-h40ge-acu7m" {
         value 335;
       }
-      enum ether-media-type-qsfp-h40ge-acu10m {
+      enum "ether-media-type-qsfp-h40ge-acu10m" {
         value 336;
       }
-      enum ether-media-type-qsfp-100ge-psm4 {
+      enum "ether-media-type-qsfp-100ge-psm4" {
         value 337;
       }
-      enum ether-media-type-qsfp-100ge-cwdm4 {
+      enum "ether-media-type-qsfp-100ge-cwdm4" {
         value 338;
       }
-      enum ether-media-type-qsfp-100ge-cu1m {
+      enum "ether-media-type-qsfp-100ge-cu1m" {
         value 339;
       }
-      enum ether-media-type-qsfp-100ge-cu2m {
+      enum "ether-media-type-qsfp-100ge-cu2m" {
         value 340;
       }
-      enum ether-media-type-qsfp-100ge-cu3m {
+      enum "ether-media-type-qsfp-100ge-cu3m" {
         value 341;
       }
-      enum ether-media-type-qsfp-100ge-cu5m {
+      enum "ether-media-type-qsfp-100ge-cu5m" {
         value 342;
       }
-      enum ether-media-type-qsfp-100ge-aoc1m {
+      enum "ether-media-type-qsfp-100ge-aoc1m" {
         value 343;
       }
-      enum ether-media-type-qsfp-100ge-aoc2m {
+      enum "ether-media-type-qsfp-100ge-aoc2m" {
         value 344;
       }
-      enum ether-media-type-qsfp-100ge-aoc3m {
+      enum "ether-media-type-qsfp-100ge-aoc3m" {
         value 345;
       }
-      enum ether-media-type-qsfp-100ge-aoc5m {
+      enum "ether-media-type-qsfp-100ge-aoc5m" {
         value 346;
       }
-      enum ether-media-type-qsfp-100ge-aoc7m {
+      enum "ether-media-type-qsfp-100ge-aoc7m" {
         value 347;
       }
-      enum ether-media-type-qsfp-100ge-aoc10m {
+      enum "ether-media-type-qsfp-100ge-aoc10m" {
         value 348;
       }
-      enum ether-media-type-qsfp-100ge-aoc15m {
+      enum "ether-media-type-qsfp-100ge-aoc15m" {
         value 349;
       }
-      enum ether-media-type-qsfp-100ge-aoc20m {
+      enum "ether-media-type-qsfp-100ge-aoc20m" {
         value 350;
       }
-      enum ether-media-type-qsfp-100ge-aoc25m {
+      enum "ether-media-type-qsfp-100ge-aoc25m" {
         value 351;
       }
-      enum ether-media-type-qsfp-100ge-aoc30m {
+      enum "ether-media-type-qsfp-100ge-aoc30m" {
         value 352;
       }
-      enum ether-media-type-qsfp-100ge-sm-sr {
+      enum "ether-media-type-qsfp-100ge-sm-sr" {
         value 353;
       }
-      enum ether-media-type-qsfp-100ge-csr4 {
+      enum "ether-media-type-qsfp-100ge-csr4" {
         value 354;
       }
-      enum ether-media-type-1000base-2bxd {
+      enum "ether-media-type-1000base-2bxd" {
         value 355;
       }
-      enum ether-media-type-qsfp-h40ge-cudot5m {
+      enum "ether-media-type-qsfp-h40ge-cudot5m" {
         value 356;
       }
-      enum ether-media-type-qsfp-h40ge-cu2m {
+      enum "ether-media-type-qsfp-h40ge-cu2m" {
         value 357;
       }
-      enum ether-media-type-qsfp-h40ge-cu4m {
+      enum "ether-media-type-qsfp-h40ge-cu4m" {
         value 358;
       }
-      enum ether-media-type-virtual {
+      enum "ether-media-type-virtual" {
         value 359;
       }
-      enum ether-media-type-sfp-25ge-sr-s {
+      enum "ether-media-type-sfp-25ge-sr-s" {
         value 360;
       }
-      enum ether-media-type-sfp-25ge-lr-s {
+      enum "ether-media-type-sfp-25ge-lr-s" {
         value 361;
       }
-      enum ether-media-type-sfp-25ge-cu1m {
+      enum "ether-media-type-sfp-25ge-cu1m" {
         value 362;
       }
-      enum ether-media-type-sfp-25ge-cu2m {
+      enum "ether-media-type-sfp-25ge-cu2m" {
         value 363;
       }
-      enum ether-media-type-sfp-25ge-cu3m {
+      enum "ether-media-type-sfp-25ge-cu3m" {
         value 364;
       }
-      enum ether-media-type-sfp-25ge-cu5m {
+      enum "ether-media-type-sfp-25ge-cu5m" {
         value 365;
       }
-      enum ether-media-type-sfp-25ge-aoc1m {
+      enum "ether-media-type-sfp-25ge-aoc1m" {
         value 366;
       }
-      enum ether-media-type-sfp-25ge-aoc2m {
+      enum "ether-media-type-sfp-25ge-aoc2m" {
         value 367;
       }
-      enum ether-media-type-sfp-25ge-aoc3m {
+      enum "ether-media-type-sfp-25ge-aoc3m" {
         value 368;
       }
-      enum ether-media-type-sfp-25ge-aoc5m {
+      enum "ether-media-type-sfp-25ge-aoc5m" {
         value 369;
       }
-      enum ether-media-type-sfp-25ge-aoc7m {
+      enum "ether-media-type-sfp-25ge-aoc7m" {
         value 370;
       }
-      enum ether-media-type-sfp-25ge-aoc10m {
+      enum "ether-media-type-sfp-25ge-aoc10m" {
         value 371;
       }
-      enum ether-media-type-cvr-qsfp-sfp10g {
+      enum "ether-media-type-cvr-qsfp-sfp10g" {
         value 372;
       }
-      enum ether-media-type-qsfp-h40ge-aoc25m {
+      enum "ether-media-type-qsfp-h40ge-aoc25m" {
         value 373;
       }
-      enum ether-media-type-qsfp-h40ge-aoc30m {
+      enum "ether-media-type-qsfp-h40ge-aoc30m" {
         value 374;
       }
-      enum ether-media-type-sfp-gpon {
+      enum "ether-media-type-sfp-gpon" {
         value 375;
       }
-      enum ether-media-type-sfp-25ge-csr {
+      enum "ether-media-type-sfp-25ge-csr" {
         value 376;
       }
-      enum ether-media-type-10gbase-cu2m {
+      enum "ether-media-type-10gbase-cu2m" {
         value 377;
       }
-      enum ether-media-type-qsfp-100ge-er4l {
+      enum "ether-media-type-qsfp-100ge-er4l" {
         value 378;
       }
-      enum ether-media-type-sfp-10ge-csr-s {
+      enum "ether-media-type-sfp-10ge-csr-s" {
         value 379;
       }
-      enum ether-media-type-qsfp-40ge-csr-s {
+      enum "ether-media-type-qsfp-40ge-csr-s" {
         value 380;
       }
-      enum ether-media-type-qsfp28-4sfp25g-cu1m {
+      enum "ether-media-type-qsfp28-4sfp25g-cu1m" {
         value 381;
       }
-      enum ether-media-type-qsfp28-4sfp25g-cu2m {
+      enum "ether-media-type-qsfp28-4sfp25g-cu2m" {
         value 382;
       }
-      enum ether-media-type-qsfp28-4sfp25g-cu3m {
+      enum "ether-media-type-qsfp28-4sfp25g-cu3m" {
         value 383;
       }
-      enum ether-media-type-qsfp28-4sfp25g-cu5m {
+      enum "ether-media-type-qsfp28-4sfp25g-cu5m" {
         value 384;
       }
-      enum ether-media-type-10gbase-cu1-5m {
+      enum "ether-media-type-10gbase-cu1-5m" {
         value 385;
       }
-      enum ether-media-type-10gbase-cu2-5m {
+      enum "ether-media-type-10gbase-cu2-5m" {
         value 386;
       }
-      enum ether-media-type-qsfp-4x10g-lr-s {
+      enum "ether-media-type-qsfp-4x10g-lr-s" {
         value 387;
       }
-      enum ether-media-type-qsfp-4x10g-aoc1m {
+      enum "ether-media-type-qsfp-4x10g-aoc1m" {
         value 388;
       }
-      enum ether-media-type-qsfp-4x10g-aoc2m {
+      enum "ether-media-type-qsfp-4x10g-aoc2m" {
         value 389;
       }
-      enum ether-media-type-qsfp-4x10g-aoc3m {
+      enum "ether-media-type-qsfp-4x10g-aoc3m" {
         value 390;
       }
-      enum ether-media-type-qsfp-4x10g-aoc5m {
+      enum "ether-media-type-qsfp-4x10g-aoc5m" {
         value 391;
       }
-      enum ether-media-type-qsfp-4x10g-aoc7m {
+      enum "ether-media-type-qsfp-4x10g-aoc7m" {
         value 392;
       }
-      enum ether-media-type-qsfp-4x10g-aoc10m {
+      enum "ether-media-type-qsfp-4x10g-aoc10m" {
         value 393;
       }
-      enum ether-media-type-qsfp-4x10g-aoc15m {
+      enum "ether-media-type-qsfp-4x10g-aoc15m" {
         value 394;
       }
-      enum ether-media-type-qsfp-4sfp10g-cu0-5m {
+      enum "ether-media-type-qsfp-4sfp10g-cu0-5m" {
         value 395;
       }
-      enum ether-media-type-qsfp-4sfp10g-cu1m {
+      enum "ether-media-type-qsfp-4sfp10g-cu1m" {
         value 396;
       }
-      enum ether-media-type-qsfp-4sfp10g-cu2m {
+      enum "ether-media-type-qsfp-4sfp10g-cu2m" {
         value 397;
       }
-      enum ether-media-type-qsfp-4sfp10g-cu3m {
+      enum "ether-media-type-qsfp-4sfp10g-cu3m" {
         value 398;
       }
-      enum ether-media-type-qsfp-4sfp10g-cu4m {
+      enum "ether-media-type-qsfp-4sfp10g-cu4m" {
         value 399;
       }
-      enum ether-media-type-qsfp-4sfp10g-cu5m {
+      enum "ether-media-type-qsfp-4sfp10g-cu5m" {
         value 400;
       }
-      enum ether-media-type-qsfp-4x10g-ac1m {
+      enum "ether-media-type-qsfp-4x10g-ac1m" {
         value 401;
       }
-      enum ether-media-type-qsfp-4x10g-ac3m {
+      enum "ether-media-type-qsfp-4x10g-ac3m" {
         value 402;
       }
-      enum ether-media-type-qsfp-4x10g-ac5m {
+      enum "ether-media-type-qsfp-4x10g-ac5m" {
         value 403;
       }
-      enum ether-media-type-qsfp-4x10g-ac7m {
+      enum "ether-media-type-qsfp-4x10g-ac7m" {
         value 404;
       }
-      enum ether-media-type-qsfp-4x10g-ac10m {
+      enum "ether-media-type-qsfp-4x10g-ac10m" {
         value 405;
       }
-      enum ether-media-type-qsfp-100ge-sr4 {
+      enum "ether-media-type-qsfp-100ge-sr4" {
         value 406;
       }
-      enum ether-media-type-qsfp-100ge-lr4 {
+      enum "ether-media-type-qsfp-100ge-lr4" {
         value 407;
       }
-      enum ether-media-type-10gbase-cu0-5m {
+      enum "ether-media-type-10gbase-cu0-5m" {
         value 408;
       }
-      enum ether-media-type-10gbase-cu4m {
+      enum "ether-media-type-10gbase-cu4m" {
         value 409;
       }
-      enum ether-media-type-qsfp-40g-100g-srbd {
+      enum "ether-media-type-qsfp-40g-100g-srbd" {
         value 410;
       }
-      enum ether-media-type-qsfp-h40ge-cu0-5m {
+      enum "ether-media-type-qsfp-h40ge-cu0-5m" {
         value 411;
       }
     }
@@ -2416,12 +2400,12 @@ module Cisco-IOS-XE-interfaces-oper {
 
   typedef dot3-stats-versions {
     type enumeration {
-      enum not-supported {
+      enum "not-supported" {
         value 0;
         description
           "Dot 3 error counters are not supported";
       }
-      enum dot3-version-2 {
+      enum "dot3-version-2" {
         value 1;
         description
           "Version 2 dot 3 error counters";
@@ -2433,12 +2417,12 @@ module Cisco-IOS-XE-interfaces-oper {
 
   typedef serial-crc {
     type enumeration {
-      enum serial-crc32 {
+      enum "serial-crc32" {
         value 0;
         description
           "32-bit Cyclic Redundancy Code";
       }
-      enum serial-crc16 {
+      enum "serial-crc16" {
         value 1;
         description
           "16 bit Cyclic Redundancy Code";
@@ -2450,12 +2434,12 @@ module Cisco-IOS-XE-interfaces-oper {
 
   typedef subrate-speed {
     type enumeration {
-      enum dsx1-subrate-56kbps {
+      enum "dsx1-subrate-56kbps" {
         value 0;
         description
           "56 kilobits per second subrate";
       }
-      enum dsx1-subrate-64kbps {
+      enum "dsx1-subrate-64kbps" {
         value 1;
         description
           "64 kilobits per second subrate";
@@ -2467,82 +2451,82 @@ module Cisco-IOS-XE-interfaces-oper {
 
   typedef t1e1-loopback-mode {
     type enumeration {
-      enum t1e1-no-loopback {
+      enum "t1e1-no-loopback" {
         value 0;
         description
           "No loopback mode";
       }
-      enum t1e1-cli-local-loopback {
+      enum "t1e1-cli-local-loopback" {
         value 1;
         description
           "Command line interface enforced local loopback";
       }
-      enum t1e1-line-cli-local-loopback {
+      enum "t1e1-line-cli-local-loopback" {
         value 2;
         description
           "Command line interface enforced line local loopback";
       }
-      enum t1e1-payload-cli-local-loopback {
+      enum "t1e1-payload-cli-local-loopback" {
         value 3;
         description
           "Command line interface enforced payload local loopback";
       }
-      enum t1e1-local-line-loopback {
+      enum "t1e1-local-line-loopback" {
         value 4;
         description
           "Local line loopback";
       }
-      enum t1e1-local-payload-loopback {
+      enum "t1e1-local-payload-loopback" {
         value 5;
         description
           "Local payload loopback";
       }
-      enum t1e1-local-ansi-fdl-remote-loopback {
+      enum "t1e1-local-ansi-fdl-remote-loopback" {
         value 6;
         description
           "Line ANSI FDL remote loopback";
       }
-      enum t1e1-line-att-fdl-remote-loopback {
+      enum "t1e1-line-att-fdl-remote-loopback" {
         value 7;
         description
           "Line ATT FDL remote loopback";
       }
-      enum t1e1-payload-ansi-fdl-remote-loopback {
+      enum "t1e1-payload-ansi-fdl-remote-loopback" {
         value 8;
         description
           "Payload ANSI FDL remote loopback";
       }
-      enum t1e1-payload-att-fdl-remote-loopback {
+      enum "t1e1-payload-att-fdl-remote-loopback" {
         value 9;
         description
           "Payload ATT FDL remote loopback";
       }
-      enum t1e1-line-iboc-remote-loopback {
+      enum "t1e1-line-iboc-remote-loopback" {
         value 10;
         description
           "Line IBOC remote loopback";
       }
-      enum t1e1-line-ansi-fdl-local-loopback {
+      enum "t1e1-line-ansi-fdl-local-loopback" {
         value 11;
         description
           "Line ANSI FDL local loopback";
       }
-      enum t1e1-line-att-fdl-local-loopback {
+      enum "t1e1-line-att-fdl-local-loopback" {
         value 12;
         description
           "Line ATT FDL local loopback";
       }
-      enum t1e1-payload-ansi-fdl-local-loopback {
+      enum "t1e1-payload-ansi-fdl-local-loopback" {
         value 13;
         description
           "Payload ANSI FDL local loopback";
       }
-      enum t1e1-payload-att-fdl-local-loopback {
+      enum "t1e1-payload-att-fdl-local-loopback" {
         value 14;
         description
           "Payload ATT FDL local loopback";
       }
-      enum t1e1-line-iboc-local-loopback {
+      enum "t1e1-line-iboc-local-loopback" {
         value 15;
         description
           "Line IBOC local loopback";
@@ -2554,12 +2538,12 @@ module Cisco-IOS-XE-interfaces-oper {
 
   typedef signal-status {
     type enumeration {
-      enum down {
+      enum "down" {
         value 0;
         description
           "Signal is down";
       }
-      enum up {
+      enum "up" {
         value 1;
         description
           "Signal is up";
@@ -2571,12 +2555,12 @@ module Cisco-IOS-XE-interfaces-oper {
 
   typedef idle-character-type {
     type enumeration {
-      enum flag {
+      enum "flag" {
         value 0;
         description
           "Send HDLC flag characters between packets";
       }
-      enum marks {
+      enum "marks" {
         value 1;
         description
           "Send mark characters between packets";
@@ -2588,22 +2572,22 @@ module Cisco-IOS-XE-interfaces-oper {
 
   typedef sc-filter-state {
     type enumeration {
-      enum inactive {
+      enum "inactive" {
         value 0;
         description
           "Storm control filter is inactive";
       }
-      enum link-down {
+      enum "link-down" {
         value 1;
         description
           "Storm control filter link is down";
       }
-      enum blocking {
+      enum "blocking" {
         value 2;
         description
           "Storm control filter is blocking";
       }
-      enum forwarding {
+      enum "forwarding" {
         value 3;
         description
           "Storm control filter is forwarding";
@@ -2615,17 +2599,17 @@ module Cisco-IOS-XE-interfaces-oper {
 
   typedef sc-suppress-type {
     type enumeration {
-      enum bandwidth {
+      enum "bandwidth" {
         value 0;
         description
           "Storm control suppression is in bandwidth";
       }
-      enum bits-per-second {
+      enum "bits-per-second" {
         value 1;
         description
           "Storm control suppression is in bits-per-second";
       }
-      enum packets-per-second {
+      enum "packets-per-second" {
         value 2;
         description
           "Storm control suppression is in packets-per-second";
@@ -4050,38 +4034,38 @@ module Cisco-IOS-XE-interfaces-oper {
     leaf negotiated-duplex-mode {
       type interfaces-ios-xe-oper:ether-duplex;
       description
-        "When auto-negotiate is set to TRUE, and the
-         interface has completed auto-negotiation with the
-         remote peer, this value shows the duplex mode that
+        "When auto-negotiate is set to TRUE, and the 
+         interface has completed auto-negotiation with the 
+         remote peer, this value shows the duplex mode that 
          has been negotiated.";
     }
     leaf negotiated-port-speed {
       type interfaces-ios-xe-oper:ether-speed;
       description
-        "When auto-negotiate is set to TRUE, and
-         the interface has completed auto-negotiation with
-         the remote peer, this value shows the interface
+        "When auto-negotiate is set to TRUE, and 
+         the interface has completed auto-negotiation with 
+         the remote peer, this value shows the interface 
          speed that has been negotiated.";
     }
     leaf auto-negotiate {
       type boolean;
       description
-        "Set to TRUE to request the interface to
-         auto-negotiate transmission parameters with its
+        "Set to TRUE to request the interface to 
+         auto-negotiate transmission parameters with its 
          peer interface. When set to FALSE, the transmission
          parameters are specified manually.";
     }
     leaf enable-flow-control {
       type boolean;
       description
-        "Enable or disable flow control for this
-         interface. Ethernet flow control is a mechanism by
+        "Enable or disable flow control for this 
+         interface. Ethernet flow control is a mechanism by 
          which a receiver may send PAUSE frames to a sender
          to stop transmission for a specified time.
-
-         This setting should override auto-negotiated flow
-         control settings. If left unspecified, and
-         auto-negotiate is TRUE, flow control mode is
+         
+         This setting should override auto-negotiated flow 
+         control settings. If left unspecified, and 
+         auto-negotiate is TRUE, flow control mode is 
          negotiated with the peer interface.";
     }
     leaf media-type {
@@ -4198,7 +4182,7 @@ module Cisco-IOS-XE-interfaces-oper {
       type uint64;
       description
         "A count of frames received that are not an integral number of
-         octets in length and do not pass the FCS check on interfaces
+         octets in length and do not pass the FCS check on interfaces 
          operating at 10 Gb/s or faster.";
     }
     leaf dot3-hc-inpause-frames {
@@ -4215,7 +4199,7 @@ module Cisco-IOS-XE-interfaces-oper {
       type uint64;
       description
         "A count of frames received that are an integral number of
-         octets in length and do not pass the FCS check on interfaces
+         octets in length and do not pass the FCS check on interfaces 
          operating at 10 Gb/s or faster.";
     }
     leaf dot3-hc-frame-too-longs {
@@ -4230,7 +4214,7 @@ module Cisco-IOS-XE-interfaces-oper {
       description
         "A count of frames for which transmission on a
          particular interface fails due to an internal
-         MAC sublayer transmit error on interfaces
+         MAC sublayer transmit error on interfaces 
          operating at 10 Gb/s or faster.";
     }
     leaf dot3-hc-internal-mac-receive-errors {
@@ -4238,7 +4222,7 @@ module Cisco-IOS-XE-interfaces-oper {
       description
         "A count of frames for which reception on a
          particular interface fails due to an internal
-         MAC sublayer receive error on interfaces
+         MAC sublayer receive error on interfaces 
          operating at 10 Gb/s or faster.";
     }
     leaf dot3-hc-symbol-errors {
@@ -4327,7 +4311,7 @@ module Cisco-IOS-XE-interfaces-oper {
          are valid";
     }
     container dot3-counters {
-      when 'boolean(../dot3-counters-supported)';
+      when "boolean(../dot3-counters-supported)";
       description
         "dot 3 error counters";
       uses interfaces-ios-xe-oper:dot3-counters;
@@ -4390,8 +4374,8 @@ module Cisco-IOS-XE-interfaces-oper {
     leaf auto-mdix-enabled {
       type boolean;
       description
-        "Either straight through or crossover cable can be used to connect the
-         devices with auto MDI crossover enabled on the interfaces and the
+        "Either straight through or crossover cable can be used to connect the 
+         devices with auto MDI crossover enabled on the interfaces and the 
          interfaces automatically adjusts the medium to communicate successfully.";
     }
     leaf mdix-oper-status-enabled {
@@ -4403,15 +4387,15 @@ module Cisco-IOS-XE-interfaces-oper {
     leaf fec-enabled {
       type boolean;
       description
-        "Forward error correction is used for controlling errors in data
-         transmission over unreliable or noisy communication channels.
-         It will track whether fec is enabled on a interface. if enabled
+        "Forward error correction is used for controlling errors in data 
+         transmission over unreliable or noisy communication channels. 
+         It will track whether fec is enabled on a interface. if enabled 
          show as true and take care noisy issues.if not enabled show as false ";
     }
     leaf mgig-downshift-enabled {
       type boolean;
       description
-        "The port is not able to operate at its max speed and the speed
+        "The port is not able to operate at its max speed and the speed 
          is down shifted.";
     }
   }
@@ -4622,7 +4606,7 @@ module Cisco-IOS-XE-interfaces-oper {
         "Flag for level shared storm control support";
     }
     container level-shared {
-      when 'boolean(../level-shared-support)';
+      when "boolean(../level-shared-support)";
       description
         "Level shared storm control state";
       uses interfaces-ios-xe-oper:sc-state;
@@ -4728,7 +4712,7 @@ module Cisco-IOS-XE-interfaces-oper {
     leaf vrf {
       type string;
       description
-        "VRF to which this interface belongs to. If the
+        "VRF to which this interface belongs to. If the 
          interface is not in a VRF then it is 'Global'";
     }
     leaf ipv4 {
@@ -4776,7 +4760,7 @@ module Cisco-IOS-XE-interfaces-oper {
       description
         "The burnt-in mac address that was associated with this
          interface from manufacturing. This is only relevant for
-         interfaces that have the concept of burnt in ethernet
+         interfaces that have the concept of burnt in ethernet 
          addresses, otherwise it is zero.";
     }
     leaf-list ipv6-addrs {
@@ -4812,7 +4796,7 @@ module Cisco-IOS-XE-interfaces-oper {
         "When present the interface extended state is valid";
     }
     container intf-ext-state {
-      when 'boolean(../intf-ext-state-support)';
+      when "boolean(../intf-ext-state-support)";
       description
         "Interface extended state object";
       uses interfaces-ios-xe-oper:interface-ext-state;
@@ -4821,16 +4805,6 @@ module Cisco-IOS-XE-interfaces-oper {
       description
         "Broadcast, multicast, unicast, and unknown unicast storm control state";
       uses interfaces-ios-xe-oper:interface-sc-state;
-    }
-    leaf auto-upstream-bandwidth {
-      type uint64;
-      description
-        "Detected upstream bandwidth";
-    }
-    leaf auto-downstream-bandwidth {
-      type uint64;
-      description
-        "Detected downstream bandwidth";
     }
     choice interface-class-choice {
       description

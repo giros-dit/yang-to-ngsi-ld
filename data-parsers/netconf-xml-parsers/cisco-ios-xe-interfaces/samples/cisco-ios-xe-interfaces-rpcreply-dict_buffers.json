@@ -1,0 +1,1895 @@
+[
+    {
+        "id": "urn:ngsi-ld:Interface:Loopback0",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "Loopback0",
+            "observedAt": "\n    "
+        },
+        "interfaceType": {
+            "type": "Property",
+            "value": "iana-iftype-sw-loopback",
+            "observedAt": "\n    "
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "if-state-up",
+            "observedAt": "\n    "
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "if-oper-state-ready",
+            "observedAt": "\n    "
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T09:18:57.694+00:00",
+            "observedAt": "\n    "
+        },
+        "ifIndex": {
+            "type": "Property",
+            "value": 6,
+            "observedAt": "\n    "
+        },
+        "physAddress": {
+            "type": "Property",
+            "value": "00:1e:bd:73:e8:00",
+            "observedAt": "\n    "
+        },
+        "speed": {
+            "type": "Property",
+            "value": 8000000000,
+            "observedAt": "\n    "
+        },
+        "ipv4": {
+            "type": "Property",
+            "value": "0.0.0.0",
+            "observedAt": "\n    "
+        },
+        "ipv4SubnetMask": {
+            "type": "Property",
+            "value": "0.0.0.0",
+            "observedAt": "\n    "
+        },
+        "mtu": {
+            "type": "Property",
+            "value": 1514,
+            "observedAt": "\n    "
+        },
+        "biaAddress": {
+            "type": "Property",
+            "value": "00:00:00:00:00:00",
+            "observedAt": "\n    "
+        },
+        "ipv4TcpAdjustMss": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "ipv6TcpAdjustMss": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "intfClassUnspecified": {
+            "type": "Property",
+            "value": true,
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStormControl:Loopback0",
+        "type": "InterfaceStormControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:Loopback0",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStormControlUnknownUnicast:Loopback0",
+        "type": "InterfaceStormControlUnknownUnicast",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceStormControl:Loopback0",
+            "observedAt": "\n    "
+        },
+        "filterState": {
+            "type": "Property",
+            "value": "inactive",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStormControlUnicast:Loopback0",
+        "type": "InterfaceStormControlUnicast",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceStormControl:Loopback0",
+            "observedAt": "\n    "
+        },
+        "filterState": {
+            "type": "Property",
+            "value": "inactive",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStormControlMulticast:Loopback0",
+        "type": "InterfaceStormControlMulticast",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceStormControl:Loopback0",
+            "observedAt": "\n    "
+        },
+        "filterState": {
+            "type": "Property",
+            "value": "inactive",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStormControlBroadcast:Loopback0",
+        "type": "InterfaceStormControlBroadcast",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceStormControl:Loopback0",
+            "observedAt": "\n    "
+        },
+        "filterState": {
+            "type": "Property",
+            "value": "inactive",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceV6ProtocolStats:Loopback0",
+        "type": "InterfaceV6ProtocolStats",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:Loopback0",
+            "observedAt": "\n    "
+        },
+        "inPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inErrorPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inForwardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inForwardedOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inDiscardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outErrorPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outForwardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outForwardedOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outDiscardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceV4ProtocolStats:Loopback0",
+        "type": "InterfaceV4ProtocolStats",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:Loopback0",
+            "observedAt": "\n    "
+        },
+        "inPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inErrorPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inForwardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inForwardedOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inDiscardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outErrorPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outForwardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outForwardedOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outDiscardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStatistics:Loopback0",
+        "type": "InterfaceStatistics",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:Loopback0",
+            "observedAt": "\n    "
+        },
+        "discontinuityTime": {
+            "type": "Property",
+            "value": "2024-04-13T09:17:31+00:00",
+            "observedAt": "\n    "
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inUnicastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inBroadcastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inMulticastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inDiscards": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inUnknownProtos": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outUnicastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outBroadcastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outMulticastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outDiscards": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "rxPps": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "rxKbps": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "txPps": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "txKbps": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "numFlaps": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inCrcErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inDiscards64": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inErrors64": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inUnknownProtos64": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outOctets64": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:GigabitEthernet3",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "GigabitEthernet3",
+            "observedAt": "\n    "
+        },
+        "interfaceType": {
+            "type": "Property",
+            "value": "iana-iftype-ethernet-csmacd",
+            "observedAt": "\n    "
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "if-state-up",
+            "observedAt": "\n    "
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "if-oper-state-ready",
+            "observedAt": "\n    "
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T09:19:07.607+00:00",
+            "observedAt": "\n    "
+        },
+        "ifIndex": {
+            "type": "Property",
+            "value": 3,
+            "observedAt": "\n    "
+        },
+        "physAddress": {
+            "type": "Property",
+            "value": "0c:00:c5:fa:59:02",
+            "observedAt": "\n    "
+        },
+        "speed": {
+            "type": "Property",
+            "value": 1000000000,
+            "observedAt": "\n    "
+        },
+        "ipv4": {
+            "type": "Property",
+            "value": "192.168.254.1",
+            "observedAt": "\n    "
+        },
+        "ipv4SubnetMask": {
+            "type": "Property",
+            "value": "255.255.255.0",
+            "observedAt": "\n    "
+        },
+        "mtu": {
+            "type": "Property",
+            "value": 1500,
+            "observedAt": "\n    "
+        },
+        "biaAddress": {
+            "type": "Property",
+            "value": "0c:00:c5:fa:59:02",
+            "observedAt": "\n    "
+        },
+        "ipv4TcpAdjustMss": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "ipv6TcpAdjustMss": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEtherStats:GigabitEthernet3",
+        "type": "InterfaceEtherStats",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet3",
+            "observedAt": "\n    "
+        },
+        "inMacControlFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inMacPauseFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inOversizeFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inJabberFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inFragmentFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "in8021qFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outMacControlFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outMacPauseFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "out8021qFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEtherState:GigabitEthernet3",
+        "type": "InterfaceEtherState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet3",
+            "observedAt": "\n    "
+        },
+        "negotiatedDuplexMode": {
+            "type": "Property",
+            "value": "full-duplex",
+            "observedAt": "\n    "
+        },
+        "negotiatedPortSpeed": {
+            "type": "Property",
+            "value": "speed-1gb",
+            "observedAt": "\n    "
+        },
+        "autoNegotiate": {
+            "type": "Property",
+            "value": true,
+            "observedAt": "\n    "
+        },
+        "enableFlowControl": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "\n    "
+        },
+        "mediaType": {
+            "type": "Property",
+            "value": "ether-media-type-virtual",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet3",
+        "type": "InterfaceStormControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet3",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStormControlUnknownUnicast:GigabitEthernet3",
+        "type": "InterfaceStormControlUnknownUnicast",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet3",
+            "observedAt": "\n    "
+        },
+        "filterState": {
+            "type": "Property",
+            "value": "inactive",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStormControlUnicast:GigabitEthernet3",
+        "type": "InterfaceStormControlUnicast",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet3",
+            "observedAt": "\n    "
+        },
+        "filterState": {
+            "type": "Property",
+            "value": "inactive",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStormControlMulticast:GigabitEthernet3",
+        "type": "InterfaceStormControlMulticast",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet3",
+            "observedAt": "\n    "
+        },
+        "filterState": {
+            "type": "Property",
+            "value": "inactive",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStormControlBroadcast:GigabitEthernet3",
+        "type": "InterfaceStormControlBroadcast",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet3",
+            "observedAt": "\n    "
+        },
+        "filterState": {
+            "type": "Property",
+            "value": "inactive",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceV6ProtocolStats:GigabitEthernet3",
+        "type": "InterfaceV6ProtocolStats",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet3",
+            "observedAt": "\n    "
+        },
+        "inPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inErrorPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inForwardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inForwardedOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inDiscardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outErrorPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outForwardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outForwardedOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outDiscardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceV4ProtocolStats:GigabitEthernet3",
+        "type": "InterfaceV4ProtocolStats",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet3",
+            "observedAt": "\n    "
+        },
+        "inPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inErrorPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inForwardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inForwardedOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inDiscardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outPkts": {
+            "type": "Property",
+            "value": 20,
+            "observedAt": "\n    "
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 1840,
+            "observedAt": "\n    "
+        },
+        "outErrorPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outForwardedPkts": {
+            "type": "Property",
+            "value": 20,
+            "observedAt": "\n    "
+        },
+        "outForwardedOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outDiscardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStatistics:GigabitEthernet3",
+        "type": "InterfaceStatistics",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet3",
+            "observedAt": "\n    "
+        },
+        "discontinuityTime": {
+            "type": "Property",
+            "value": "2024-04-13T09:17:31+00:00",
+            "observedAt": "\n    "
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 5916,
+            "observedAt": "\n    "
+        },
+        "inUnicastPkts": {
+            "type": "Property",
+            "value": 72,
+            "observedAt": "\n    "
+        },
+        "inBroadcastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inMulticastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inDiscards": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inUnknownProtos": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 1764,
+            "observedAt": "\n    "
+        },
+        "outUnicastPkts": {
+            "type": "Property",
+            "value": 20,
+            "observedAt": "\n    "
+        },
+        "outBroadcastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outMulticastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outDiscards": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "rxPps": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "rxKbps": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "txPps": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "txKbps": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "numFlaps": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inCrcErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inDiscards64": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inErrors64": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inUnknownProtos64": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outOctets64": {
+            "type": "Property",
+            "value": 1764,
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:GigabitEthernet2",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "GigabitEthernet2",
+            "observedAt": "\n    "
+        },
+        "interfaceType": {
+            "type": "Property",
+            "value": "iana-iftype-ethernet-csmacd",
+            "observedAt": "\n    "
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "if-state-up",
+            "observedAt": "\n    "
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "if-oper-state-ready",
+            "observedAt": "\n    "
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T09:19:07.587+00:00",
+            "observedAt": "\n    "
+        },
+        "ifIndex": {
+            "type": "Property",
+            "value": 2,
+            "observedAt": "\n    "
+        },
+        "physAddress": {
+            "type": "Property",
+            "value": "0c:00:0b:f8:b1:01",
+            "observedAt": "\n    "
+        },
+        "speed": {
+            "type": "Property",
+            "value": 1000000000,
+            "observedAt": "\n    "
+        },
+        "ipv4": {
+            "type": "Property",
+            "value": "10.0.1.1",
+            "observedAt": "\n    "
+        },
+        "ipv4SubnetMask": {
+            "type": "Property",
+            "value": "255.255.255.0",
+            "observedAt": "\n    "
+        },
+        "mtu": {
+            "type": "Property",
+            "value": 1500,
+            "observedAt": "\n    "
+        },
+        "biaAddress": {
+            "type": "Property",
+            "value": "0c:00:0b:f8:b1:01",
+            "observedAt": "\n    "
+        },
+        "ipv4TcpAdjustMss": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "ipv6TcpAdjustMss": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEtherStats:GigabitEthernet2",
+        "type": "InterfaceEtherStats",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet2",
+            "observedAt": "\n    "
+        },
+        "inMacControlFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inMacPauseFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inOversizeFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inJabberFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inFragmentFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "in8021qFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outMacControlFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outMacPauseFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "out8021qFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEtherState:GigabitEthernet2",
+        "type": "InterfaceEtherState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet2",
+            "observedAt": "\n    "
+        },
+        "negotiatedDuplexMode": {
+            "type": "Property",
+            "value": "full-duplex",
+            "observedAt": "\n    "
+        },
+        "negotiatedPortSpeed": {
+            "type": "Property",
+            "value": "speed-1gb",
+            "observedAt": "\n    "
+        },
+        "autoNegotiate": {
+            "type": "Property",
+            "value": true,
+            "observedAt": "\n    "
+        },
+        "enableFlowControl": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "\n    "
+        },
+        "mediaType": {
+            "type": "Property",
+            "value": "ether-media-type-virtual",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet2",
+        "type": "InterfaceStormControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet2",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStormControlUnknownUnicast:GigabitEthernet2",
+        "type": "InterfaceStormControlUnknownUnicast",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet2",
+            "observedAt": "\n    "
+        },
+        "filterState": {
+            "type": "Property",
+            "value": "inactive",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStormControlUnicast:GigabitEthernet2",
+        "type": "InterfaceStormControlUnicast",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet2",
+            "observedAt": "\n    "
+        },
+        "filterState": {
+            "type": "Property",
+            "value": "inactive",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStormControlMulticast:GigabitEthernet2",
+        "type": "InterfaceStormControlMulticast",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet2",
+            "observedAt": "\n    "
+        },
+        "filterState": {
+            "type": "Property",
+            "value": "inactive",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStormControlBroadcast:GigabitEthernet2",
+        "type": "InterfaceStormControlBroadcast",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet2",
+            "observedAt": "\n    "
+        },
+        "filterState": {
+            "type": "Property",
+            "value": "inactive",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceV6ProtocolStats:GigabitEthernet2",
+        "type": "InterfaceV6ProtocolStats",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet2",
+            "observedAt": "\n    "
+        },
+        "inPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inErrorPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inForwardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inForwardedOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inDiscardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outErrorPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outForwardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outForwardedOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outDiscardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceV4ProtocolStats:GigabitEthernet2",
+        "type": "InterfaceV4ProtocolStats",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet2",
+            "observedAt": "\n    "
+        },
+        "inPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inErrorPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inForwardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inForwardedOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inDiscardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outPkts": {
+            "type": "Property",
+            "value": 45,
+            "observedAt": "\n    "
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 5586,
+            "observedAt": "\n    "
+        },
+        "outErrorPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outForwardedPkts": {
+            "type": "Property",
+            "value": 45,
+            "observedAt": "\n    "
+        },
+        "outForwardedOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outDiscardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStatistics:GigabitEthernet2",
+        "type": "InterfaceStatistics",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet2",
+            "observedAt": "\n    "
+        },
+        "discontinuityTime": {
+            "type": "Property",
+            "value": "2024-04-13T09:17:31+00:00",
+            "observedAt": "\n    "
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 2154,
+            "observedAt": "\n    "
+        },
+        "inUnicastPkts": {
+            "type": "Property",
+            "value": 29,
+            "observedAt": "\n    "
+        },
+        "inBroadcastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inMulticastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inDiscards": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inUnknownProtos": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 5510,
+            "observedAt": "\n    "
+        },
+        "outUnicastPkts": {
+            "type": "Property",
+            "value": 45,
+            "observedAt": "\n    "
+        },
+        "outBroadcastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outMulticastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outDiscards": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "rxPps": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "rxKbps": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "txPps": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "txKbps": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "numFlaps": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inCrcErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inDiscards64": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inErrors64": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inUnknownProtos64": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outOctets64": {
+            "type": "Property",
+            "value": 5510,
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:GigabitEthernet1",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "GigabitEthernet1",
+            "observedAt": "\n    "
+        },
+        "interfaceType": {
+            "type": "Property",
+            "value": "iana-iftype-ethernet-csmacd",
+            "observedAt": "\n    "
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "if-state-up",
+            "observedAt": "\n    "
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "if-oper-state-ready",
+            "observedAt": "\n    "
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T09:19:07.586+00:00",
+            "observedAt": "\n    "
+        },
+        "ifIndex": {
+            "type": "Property",
+            "value": 1,
+            "observedAt": "\n    "
+        },
+        "physAddress": {
+            "type": "Property",
+            "value": "0c:00:3e:a1:6f:00",
+            "observedAt": "\n    "
+        },
+        "speed": {
+            "type": "Property",
+            "value": 1000000000,
+            "observedAt": "\n    "
+        },
+        "ipv4": {
+            "type": "Property",
+            "value": "10.0.0.15",
+            "observedAt": "\n    "
+        },
+        "ipv4SubnetMask": {
+            "type": "Property",
+            "value": "255.255.255.0",
+            "observedAt": "\n    "
+        },
+        "mtu": {
+            "type": "Property",
+            "value": 1500,
+            "observedAt": "\n    "
+        },
+        "biaAddress": {
+            "type": "Property",
+            "value": "0c:00:3e:a1:6f:00",
+            "observedAt": "\n    "
+        },
+        "ipv4TcpAdjustMss": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "ipv6TcpAdjustMss": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEtherStats:GigabitEthernet1",
+        "type": "InterfaceEtherStats",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet1",
+            "observedAt": "\n    "
+        },
+        "inMacControlFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inMacPauseFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inOversizeFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inJabberFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inFragmentFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "in8021qFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outMacControlFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outMacPauseFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "out8021qFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEtherState:GigabitEthernet1",
+        "type": "InterfaceEtherState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet1",
+            "observedAt": "\n    "
+        },
+        "negotiatedDuplexMode": {
+            "type": "Property",
+            "value": "full-duplex",
+            "observedAt": "\n    "
+        },
+        "negotiatedPortSpeed": {
+            "type": "Property",
+            "value": "speed-1gb",
+            "observedAt": "\n    "
+        },
+        "autoNegotiate": {
+            "type": "Property",
+            "value": true,
+            "observedAt": "\n    "
+        },
+        "enableFlowControl": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "\n    "
+        },
+        "mediaType": {
+            "type": "Property",
+            "value": "ether-media-type-virtual",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet1",
+        "type": "InterfaceStormControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet1",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStormControlUnknownUnicast:GigabitEthernet1",
+        "type": "InterfaceStormControlUnknownUnicast",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet1",
+            "observedAt": "\n    "
+        },
+        "filterState": {
+            "type": "Property",
+            "value": "inactive",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStormControlUnicast:GigabitEthernet1",
+        "type": "InterfaceStormControlUnicast",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet1",
+            "observedAt": "\n    "
+        },
+        "filterState": {
+            "type": "Property",
+            "value": "inactive",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStormControlMulticast:GigabitEthernet1",
+        "type": "InterfaceStormControlMulticast",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet1",
+            "observedAt": "\n    "
+        },
+        "filterState": {
+            "type": "Property",
+            "value": "inactive",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStormControlBroadcast:GigabitEthernet1",
+        "type": "InterfaceStormControlBroadcast",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet1",
+            "observedAt": "\n    "
+        },
+        "filterState": {
+            "type": "Property",
+            "value": "inactive",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceV6ProtocolStats:GigabitEthernet1",
+        "type": "InterfaceV6ProtocolStats",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet1",
+            "observedAt": "\n    "
+        },
+        "inPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inErrorPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inForwardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inForwardedOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inDiscardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outErrorPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outForwardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outForwardedOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outDiscardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceV4ProtocolStats:GigabitEthernet1",
+        "type": "InterfaceV4ProtocolStats",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet1",
+            "observedAt": "\n    "
+        },
+        "inPkts": {
+            "type": "Property",
+            "value": 254,
+            "observedAt": "\n    "
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 26120,
+            "observedAt": "\n    "
+        },
+        "inErrorPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inForwardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inForwardedOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inDiscardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outPkts": {
+            "type": "Property",
+            "value": 257,
+            "observedAt": "\n    "
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 238271,
+            "observedAt": "\n    "
+        },
+        "outErrorPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outForwardedPkts": {
+            "type": "Property",
+            "value": 257,
+            "observedAt": "\n    "
+        },
+        "outForwardedOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outDiscardedPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStatistics:GigabitEthernet1",
+        "type": "InterfaceStatistics",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet1",
+            "observedAt": "\n    "
+        },
+        "discontinuityTime": {
+            "type": "Property",
+            "value": "2024-04-13T09:17:31+00:00",
+            "observedAt": "\n    "
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 26184,
+            "observedAt": "\n    "
+        },
+        "inUnicastPkts": {
+            "type": "Property",
+            "value": 255,
+            "observedAt": "\n    "
+        },
+        "inBroadcastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inMulticastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inDiscards": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inUnknownProtos": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 238195,
+            "observedAt": "\n    "
+        },
+        "outUnicastPkts": {
+            "type": "Property",
+            "value": 257,
+            "observedAt": "\n    "
+        },
+        "outBroadcastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outMulticastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outDiscards": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "rxPps": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "rxKbps": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "txPps": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "txKbps": {
+            "type": "Property",
+            "value": 1,
+            "observedAt": "\n    "
+        },
+        "numFlaps": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inCrcErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inDiscards64": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inErrors64": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "inUnknownProtos64": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "\n    "
+        },
+        "outOctets64": {
+            "type": "Property",
+            "value": 238195,
+            "observedAt": "\n    "
+        }
+    }
+]
