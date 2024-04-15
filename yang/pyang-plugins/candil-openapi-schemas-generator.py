@@ -157,7 +157,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     if typedef is not None:
                         typedef_name = str(typedef.arg)
                         typedef_type = str(typedef.search_one('type').arg).split(':')[-1]
-                        if (typedef_type not in YANG_PRIMITIVE_TYPES) and ('ref' not in typedef_type):
+                        if (typedef_type not in YANG_PRIMITIVE_TYPES) and ('-ref' not in typedef_type):
                             primitive_typedefs_dict[typedef_name] = defined_typedefs_dict[typedef_type]
                         else:
                             primitive_typedefs_dict[typedef_name] = typedef_type
@@ -195,7 +195,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                         typedef_name = str(typedef.arg)
                         typedef_type = str(typedef.search_one('type').arg).split(':')[-1]
                         typedef_pattern = typedef.search_one('type').search_one('pattern')
-                        if (typedef_type not in YANG_PRIMITIVE_TYPES) and ('ref' not in typedef_type):
+                        if (typedef_type not in YANG_PRIMITIVE_TYPES) and ('-ref' not in typedef_type):
                             primitive_typedefs_dict[typedef_name] = defined_typedefs_dict[typedef_type]
                             if typedef_pattern != None:
                                 typedef_pattern = str(typedef_pattern.arg)
@@ -294,7 +294,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
         if (element.keyword in ['leaf-list', 'leaf']):
             element_type = str(element.search_one('type')).replace('type ', '').split(':')[-1]
             if (element_type in YANG_PRIMITIVE_TYPES) or \
-                ((typedefs_dict.get(element_type) is not None) and ('ref' not in typedefs_dict.get(element_type))):
+                ((typedefs_dict.get(element_type) is not None) and ('-ref' not in typedefs_dict.get(element_type))):
                 result = True
         return result
     
@@ -341,21 +341,30 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
         Auxiliary recursive function.
         Recursively gets all YANG data nodes.
         '''
-        if element.keyword in ['container', 'list', "choice"]:
+        if element.keyword in ['container', 'list', 'choice']:
             subelements = element.i_children
             if (subelements is not None):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords) and (is_deprecated(subelement) == False):  
-                        if str(subelement.keyword) == "choice":
+                        if str(subelement.keyword) == 'choice':
+                            yang_data_nodes_list.append(subelement.arg)
                             cases = subelement.i_children
                             if (cases is not None):
                                 for case in cases:
                                     if (case is not None) and (case.keyword in statements.data_definition_keywords) and (is_deprecated(case) == False):
-                                        yang_data_nodes_list.append(case.arg)
-                                        get_yang_module_data_nodes(case, yang_data_nodes_list)
-                        else:
+                                        case_subelements = case.i_children
+                                        if (case_subelements is not None):
+                                            for case_subelement in case_subelements:
+                                                if (case_subelement is not None) and (case_subelement.keyword in statements.data_definition_keywords):
+                                                    yang_data_nodes_list.append(case_subelement.arg)
+                                                    get_yang_module_data_nodes(case_subelement, yang_data_nodes_list)
+                        elif str(subelement.keyword) in ['container', 'list']:
                             yang_data_nodes_list.append(subelement.arg) 
                             get_yang_module_data_nodes(subelement, yang_data_nodes_list)
+                        else:
+                            yang_data_nodes_list.append(subelement.arg) 
+        elif element.keyword in ['leaf-list', 'leaf']:
+            yang_data_nodes_list.append(element.arg) 
         
         return yang_data_nodes_list
 
@@ -429,7 +438,8 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
 
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
                     depth_level += 1
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
+                    if element.search_one('description') != None:
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
                     if element.search_one('reference') != None:
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'Reference: ' + str(element.search_one('reference').arg).replace('\n', '\n                ').replace('  ', ' '))
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + yang_module_name + '.yang')
@@ -501,7 +511,8 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                                         
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
                     depth_level += 1
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
+                    if element.search_one('description') != None:
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
                     if element.search_one('reference') != None:
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'Reference: ' + str(element.search_one('reference').arg).replace('\n', '\n                ').replace('  ', ' '))
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + yang_module_name + '.yang')
@@ -575,7 +586,8 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
 
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
                     depth_level += 1
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
+                    if element.search_one('description') != None:
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
                     if element.search_one('reference') != None:
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'Reference: ' + str(element.search_one('reference').arg).replace('\n', '\n                ').replace('  ', ' '))
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + yang_module_name + '.yang')
@@ -671,7 +683,8 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                                         
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
                     depth_level += 1
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
+                    if element.search_one('description') != None:
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
                     if element.search_one('reference') != None:
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'Reference: ' + str(element.search_one('reference').arg).replace('\n', '\n                ').replace('  ', ' '))
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'YANG module: ' + yang_module_name + '.yang')
@@ -774,7 +787,8 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
             depth_level += 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
             depth_level += 1
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
+            if element.search_one('description') != None:
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
             if element.search_one('reference') != None:
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'Reference: ' + str(element.search_one('reference').arg).replace('\n', '\n                ').replace('  ', ' '))
             if element.search_one('units') != None:
@@ -788,14 +802,17 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
             if (cases is not None):
                 for case in cases:
                     if (case is not None) and (case.keyword in statements.data_definition_keywords) and (str(case.keyword) == "case"):
-                        choice_camelcase_path = ''
-
-                        if (yang_data_nodes_list.count(str(case.arg)) > 1) or (str(case.arg) == 'type'):
-                            choice_camelcase_path = current_camelcase_path + str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), case.arg.capitalize()))
-                        else:
-                            choice_camelcase_path = str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), case.arg.capitalize()))
-
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level +  "- $ref: \'#/components/schemas/" + choice_camelcase_path + "\'")
+                        subelements = case.i_children
+                        if (subelements is not None):
+                            for subelement in subelements:
+                                if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
+                                    choice_camelcase_path = ''
+                                    if (yang_data_nodes_list.count(str(subelement.arg)) > 1) or (str(subelement.arg) == 'type') or (is_entity(subelement) == True):
+                                        choice_camelcase_path = current_camelcase_path + str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), subelement.arg.capitalize()))
+                                    else:
+                                        choice_camelcase_path = str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), subelement.arg.capitalize()))
+                        
+                                    fd.write('\n' + INDENTATION_BLOCK * depth_level +  "- $ref: \'#/components/schemas/" + choice_camelcase_path + "\'")
 
             depth_level -= 1
             if (cases is not None):
@@ -828,7 +845,8 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                         
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
             depth_level += 1
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
+            if element.search_one('description') != None:
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
             if element.search_one('reference') != None:
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'Reference: ' + str(element.search_one('reference').arg).replace('\n', '\n                ').replace('  ', ' '))
             if element.search_one('units') != None:
@@ -887,8 +905,12 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                 if element.search_one('type').search_one('range') != None:
                     element_type_range = str(element.search_one('type').search_one('range').arg)
                     minimum = element_type_range.split("..")[0]
+                    if '|' in minimum:
+                        minimum = minimum.split("|")[0]
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "minimum: " + minimum) 
                     maximum = element_type_range.split("..")[1]
+                    if '|' in maximum:
+                        maximum = maximum.split("|")[1]
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "maximum: " + maximum)
 
             if str(openapi_schema_type) == "array":
@@ -991,7 +1013,8 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
             depth_level += 1
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
+            if element.search_one('description') != None:
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
             if element.search_one('reference') != None:
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'Reference: ' + str(element.search_one('reference').arg).replace('\n', '\n                ').replace('  ', ' '))
             if element.search_one('units') != None:
@@ -1051,8 +1074,12 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                 if element.search_one('type').search_one('range') != None:
                     element_type_range = str(element.search_one('type').search_one('range'))
                     minimum = element_type_range.split("..")[0]
+                    if '|' in minimum:
+                        minimum = minimum.split("|")[0]
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "minimum: " + minimum) 
                     maximum = element_type_range.split("..")[1]
+                    if '|' in maximum:
+                        maximum = maximum.split("|")[1]
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "maximum: " + maximum)
             
             if str(openapi_schema_type) == "array":
@@ -1082,7 +1109,8 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                                 
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "description: |")
             depth_level += 1
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
+            if element.search_one('description') != None:
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.search_one('description').arg).replace('\n', '\n                ').replace('  ', ' '))
             if element.search_one('reference') != None:
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + '\n        ' + 'Reference: ' + str(element.search_one('reference').arg).replace('\n', '\n                ').replace('  ', ' '))
             if element.search_one('units') != None:
@@ -1146,7 +1174,6 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
 
     # Get all data nodes for the evaluated YANG modules
     yang_data_nodes_list = []
-    #full_yang_data_nodes_list = []
     for module in modules:
         elements = module.i_children
         if (elements is not None):
@@ -1154,8 +1181,6 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                 if (element is not None) and (element.keyword in statements.data_definition_keywords):
                     yang_data_nodes_list.append(element.arg)
                     get_yang_module_data_nodes(element, yang_data_nodes_list)
-                    #full_yang_data_nodes_list.append(element.arg)
-                    #full_yang_data_nodes_list.append(get_yang_module_data_nodes(element, yang_data_nodes_list))
                     
     # Generate OpenAPI generator code (element data retrieval and transformation to generate OpenAPI schemas):
     depth_level = 2
