@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an JSON 
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 1.0.1.
+Version: 1.0.2.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -256,7 +256,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     if typedef is not None:
                         typedef_name = str(typedef.arg)
                         typedef_type = str(typedef.search_one('type').arg).split(':')[-1]
-                        if (typedef_type not in YANG_PRIMITIVE_TYPES) and ('ref' not in typedef_type):
+                        if (typedef_type not in YANG_PRIMITIVE_TYPES) and ('-ref' not in typedef_type):
                             primitive_typedefs_dict[typedef_name] = defined_typedefs_dict[typedef_type]
                         else:
                             primitive_typedefs_dict[typedef_name] = typedef_type
@@ -355,7 +355,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
         if (element.keyword in ['leaf-list', 'leaf']):
             element_type = str(element.search_one('type')).replace('type ', '').split(':')[-1]
             if (element_type in YANG_PRIMITIVE_TYPES) or \
-                ((typedefs_dict.get(element_type) is not None) and ('ref' not in typedefs_dict.get(element_type))):
+                ((typedefs_dict.get(element_type) is not None) and ('-ref' not in typedefs_dict.get(element_type))):
                 result = True
         return result
     
@@ -368,7 +368,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
         if (element.keyword in ['leaf-list', 'leaf']):
             element_type = str(element.search_one('type')).replace('type ', '').split(':')[-1]
             if (element_type == 'leafref') or \
-                ((typedefs_dict.get(element_type) is not None) and ('ref' in typedefs_dict.get(element_type))):
+                ((typedefs_dict.get(element_type) is not None) and ('-ref' in typedefs_dict.get(element_type))):
                 result = True
         return result
 
@@ -377,22 +377,31 @@ def generate_python_json_parser_code(ctx, modules, fd):
         Auxiliary recursive function.
         Recursively gets all YANG data nodes.
         '''
-        if element.keyword in ['container', 'list', "choice"]:
+        if element.keyword in ['container', 'list', 'choice']:
             subelements = element.i_children
             if (subelements is not None):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords) and (is_deprecated(subelement) == False):  
-                        if str(subelement.keyword) == "choice":
+                        if str(subelement.keyword) == 'choice':
+                            yang_data_nodes_list.append(subelement.arg)
                             cases = subelement.i_children
                             if (cases is not None):
                                 for case in cases:
                                     if (case is not None) and (case.keyword in statements.data_definition_keywords) and (is_deprecated(case) == False):
-                                        yang_data_nodes_list.append(case.arg)
-                                        get_yang_module_data_nodes(case, yang_data_nodes_list)
-                        else:
+                                        case_subelements = case.i_children
+                                        if (case_subelements is not None):
+                                            for case_subelement in case_subelements:
+                                                if (case_subelement is not None) and (case_subelement.keyword in statements.data_definition_keywords):
+                                                    yang_data_nodes_list.append(case_subelement.arg)
+                                                    get_yang_module_data_nodes(case_subelement, yang_data_nodes_list)
+                        elif str(subelement.keyword) in ['container', 'list']:
                             yang_data_nodes_list.append(subelement.arg) 
                             get_yang_module_data_nodes(subelement, yang_data_nodes_list)
-                            
+                        else:
+                            yang_data_nodes_list.append(subelement.arg) 
+        elif element.keyword in ['leaf-list', 'leaf']:
+            yang_data_nodes_list.append(element.arg) 
+        
         return yang_data_nodes_list
     
     def generate_parser_code(element, parent_element_arg, entity_path: str, camelcase_entity_path: str, depth_level: int, typedefs_dict: dict, transition_element, modules_name: list, position: int):
@@ -490,12 +499,12 @@ def generate_python_json_parser_code(ctx, modules, fd):
                 if element.keyword in ['container']:
                     actual_position = 0
                     if(transition_element is not None):
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if parent_path[' + position + '] == "' + str(transition_element.arg) + '":')
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if parent_path[' + position + '] == "' + str(transition_element.arg) + '" or ' + 'parent_path[' + str(position) + '] == "' + str(yang_module_name) + ':' + str(transition_element.arg) + '":')
                         depth_level += 1
                         actual_position = position
                         position += 1
                     else:
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if parent_path[' + str(position) + '] == "' + str(element.arg) + '":')
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if parent_path[' + str(position) + '] == "' + str(element.arg) + '" or ' + 'parent_path[' + str(position) + '] == "' + str(yang_module_name) + ':' + str(element.arg) + '":')
                         depth_level += 1
                         actual_position = position
                         position += 1
@@ -521,7 +530,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'dict_buffers.append(' + current_path.replace('-', '_') + 'dict_buffer)')
                 elif element.keyword in ['list']:
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if parent_path[' + str(position) + '] == "' + str(element.arg) + '":')
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if parent_path[' + str(position) + '] == "' + str(element.arg) + '" or ' + 'parent_path[' + str(position) + '] == "' + str(yang_module_name) + ':' + str(element.arg) + '":')
                     actual_position = position
                     position += 1      
                     depth_level += 1 
@@ -684,10 +693,10 @@ def generate_python_json_parser_code(ctx, modules, fd):
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if ' + '\".\"' + ' + str(element_text) not in ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[-1]:')
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] = ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] + ' + '\".\"' + ' + str(element_text)')
             
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Property\"')
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"value\"] = ' + text_format)
-            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"observedAt\"] = observed_at')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace('_' + str(element.arg) + '_', '_', 1).replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace('_' + str(element.arg) + '_', '_', 1).replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Property\"')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace('_' + str(element.arg) + '_', '_', 1).replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"value\"] = ' + text_format)
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace('_' + str(element.arg) + '_', '_', 1).replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"observedAt\"] = observed_at')
         ### --- ###
         
         ### NGSI-LD RELATIONSHIP IDENTIFICATION ###
@@ -805,10 +814,10 @@ def generate_python_json_parser_code(ctx, modules, fd):
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + entity_path.replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + relationship_camelcase_path + ':\" + ":".join(' + entity_path.replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[3:])')
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + entity_path.replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"observedAt\"] = observed_at')
             else:
-                fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
-                fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Relationship\"')
-                fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + relationship_camelcase_path + ':\" + ":".join(' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[3:])')
-                fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"observedAt\"] = observed_at')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('_' + str(element.arg) + '_', '_', 1).replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('_' + str(element.arg) + '_', '_', 1).replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Relationship\"')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('_' + str(element.arg) + '_', '_', 1).replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + relationship_camelcase_path + ':\" + ":".join(' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[3:])')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('_' + str(element.arg) + '_', '_', 1).replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"observedAt\"] = observed_at')
         ### --- ###
 
     
