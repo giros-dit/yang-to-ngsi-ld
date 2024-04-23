@@ -3,7 +3,7 @@ pyang plugin -- CANDIL OpenAPI Schemas Generator.
 
 Given one or several YANG modules, it dynamically generates the relative OpenAPI Schemas according to the OpenAPI specification for NGSI-LD API V1.6.1.
 
-Version: 1.0.6.
+Version: 1.0.8.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -157,7 +157,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     if typedef is not None:
                         typedef_name = str(typedef.arg)
                         typedef_type = str(typedef.search_one('type').arg).split(':')[-1]
-                        if (typedef_type not in YANG_PRIMITIVE_TYPES) and ('-ref' not in typedef_type):
+                        if (typedef_type not in YANG_PRIMITIVE_TYPES) and ('-ref' not in typedef_type ) and (typedef_type != 'leafref'):
                             primitive_typedefs_dict[typedef_name] = defined_typedefs_dict[typedef_type]
                         else:
                             primitive_typedefs_dict[typedef_name] = typedef_type
@@ -195,7 +195,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                         typedef_name = str(typedef.arg)
                         typedef_type = str(typedef.search_one('type').arg).split(':')[-1]
                         typedef_pattern = typedef.search_one('type').search_one('pattern')
-                        if (typedef_type not in YANG_PRIMITIVE_TYPES) and ('-ref' not in typedef_type):
+                        if (typedef_type not in YANG_PRIMITIVE_TYPES) and ('-ref' not in typedef_type) and (typedef_type != 'leafref'):
                             primitive_typedefs_dict[typedef_name] = defined_typedefs_dict[typedef_type]
                             if typedef_pattern != None:
                                 typedef_pattern = str(typedef_pattern.arg)
@@ -294,7 +294,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
         if (element.keyword in ['leaf-list', 'leaf']):
             element_type = str(element.search_one('type')).replace('type ', '').split(':')[-1]
             if (element_type in YANG_PRIMITIVE_TYPES) or \
-                ((typedefs_dict.get(element_type) is not None) and ('-ref' not in typedefs_dict.get(element_type))):
+                ((typedefs_dict.get(element_type) is not None) and (('-ref' not in typedefs_dict.get(element_type)) and (typedefs_dict.get(element_type) != 'leafref'))):
                 result = True
         return result
     
@@ -308,7 +308,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
         if (element.keyword in ['leaf-list', 'leaf']):
             element_type = str(element.search_one('type')).replace('type ', '').split(':')[-1]
             if (element_type == 'leafref') or \
-                ((typedefs_dict.get(element_type) is not None) and ('ref' in typedefs_dict.get(element_type))):
+                ((typedefs_dict.get(element_type) is not None) and (('-ref' in typedefs_dict.get(element_type) or (typedefs_dict.get(element_type) == 'leafref')))):
                 result = True
         return result
 

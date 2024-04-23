@@ -234,7 +234,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     if typedef is not None:
                         typedef_name = str(typedef.arg)
                         typedef_type = str(typedef.search_one('type').arg).split(':')[-1]
-                        if (typedef_type not in YANG_PRIMITIVE_TYPES) and ('-ref' not in typedef_type):
+                        if (typedef_type not in YANG_PRIMITIVE_TYPES) and ('-ref' not in typedef_type ) and (typedef_type != 'leafref'):
                             primitive_typedefs_dict[typedef_name] = defined_typedefs_dict[typedef_type]
                         else:
                             primitive_typedefs_dict[typedef_name] = typedef_type
@@ -333,7 +333,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
         if (element.keyword in ['leaf-list', 'leaf']):
             element_type = str(element.search_one('type')).replace('type ', '').split(':')[-1]
             if (element_type in YANG_PRIMITIVE_TYPES) or \
-                ((typedefs_dict.get(element_type) is not None) and ('-ref' not in typedefs_dict.get(element_type))):
+                ((typedefs_dict.get(element_type) is not None) and (('-ref' not in typedefs_dict.get(element_type)) and (typedefs_dict.get(element_type) != 'leafref'))):
                 result = True
         return result
     
@@ -346,7 +346,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
         if (element.keyword in ['leaf-list', 'leaf']):
             element_type = str(element.search_one('type')).replace('type ', '').split(':')[-1]
             if (element_type == 'leafref') or \
-                ((typedefs_dict.get(element_type) is not None) and ('-ref' in typedefs_dict.get(element_type))):
+                ((typedefs_dict.get(element_type) is not None) and (('-ref' in typedefs_dict.get(element_type) or (typedefs_dict.get(element_type) == 'leafref')))):
                 result = True
         return result
 
