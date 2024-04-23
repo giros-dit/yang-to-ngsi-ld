@@ -1,6 +1,6 @@
 # InterfaceIpv6Mtu
 
-The size, in octets, of the largest IPv6 packet that the interface will send and receive.  The server may restrict the allowed values for this leaf, depending on the interface's type.  If this leaf is not configured, the operationally used MTU depends on the interface's type.  YANG module: ietf-ip.yang 
+The size, in octets, of the largest IPv6 packet that the interface will send and receive.  The server may restrict the allowed values for this leaf, depending on the interface's type.  If this leaf is not configured, the operationally used MTU depends on the interface's type.  Reference: RFC 8200: Internet Protocol, Version 6 (IPv6)      Specification      Section 5  Units: octets  YANG module: ietf-ip.yang 
 
 ## Properties
 

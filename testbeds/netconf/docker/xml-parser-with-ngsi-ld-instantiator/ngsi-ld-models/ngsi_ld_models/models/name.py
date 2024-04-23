@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    OpenAPI schemas for YANG data models ietf-interfaces@2018-02-20.yang, ietf-yang-types@2023-01-23.yang, ietf-ip@2018-02-22.yang, ietf-inet-types@2021-02-22.yang, iana-if-type@2014-05-08.yang.
+    OpenAPI schemas for YANG data models ietf-interfaces@2018-02-20.yang, ietf-yang-types@2023-01-23.yang, ietf-ip@2018-02-22.yang, ietf-inet-types@2013-07-15.yang, iana-if-type@2014-05-08.yang.
 
     OpenAPI schemas for YANG data models compliant with the NGSI-LD OAS V1.6.1 metamodel according to ETSI GS CIM 009 V1.6.1.
 
@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class Name(BaseModel):
     """
-    The name of the interface.  A device MAY restrict the allowed values for this leaf, possibly depending on the type of the interface. For system-controlled interfaces, this leaf is the device-specific name of the interface.  If a client tries to create configuration for a system-controlled interface that is not present in the operational state, the server MAY reject the request if the implementation does not support pre-provisioning of interfaces or if the name refers to an interface that can never exist in the system. A Network Configuration Protocol (NETCONF) server MUST reply with an rpc-error with the error-tag 'invalid-value' in this case.  If the device supports pre-provisioning of interface configuration, the 'pre-provisioning' feature is advertised.  If the device allows arbitrarily named user-controlled interfaces, the 'arbitrary-names' feature is advertised.  When a configured user-controlled interface is created by the system, it is instantiated with the same name in the operational state.  A server implementation MAY map this leaf to the ifName MIB object. Such an implementation needs to use some mechanism to handle the differences in size and characters allowed between this leaf and ifName. The definition of such a mechanism is outside the scope of this document.  YANG module: ietf-interfaces.yang 
+    The name of the interface.  A device MAY restrict the allowed values for this leaf, possibly depending on the type of the interface. For system-controlled interfaces, this leaf is the device-specific name of the interface.  If a client tries to create configuration for a system-controlled interface that is not present in the operational state, the server MAY reject the request if the implementation does not support pre-provisioning of interfaces or if the name refers to an interface that can never exist in the system. A Network Configuration Protocol (NETCONF) server MUST reply with an rpc-error with the error-tag 'invalid-value' in this case.  If the device supports pre-provisioning of interface configuration, the 'pre-provisioning' feature is advertised.  If the device allows arbitrarily named user-controlled interfaces, the 'arbitrary-names' feature is advertised.  When a configured user-controlled interface is created by the system, it is instantiated with the same name in the operational state.  A server implementation MAY map this leaf to the ifName MIB object. Such an implementation needs to use some mechanism to handle the differences in size and characters allowed between this leaf and ifName. The definition of such a mechanism is outside the scope of this document.  Reference: RFC 2863: The Interfaces Group MIB - ifName  YANG module: ietf-interfaces.yang 
     """ # noqa: E501
     type: Optional[StrictStr] = Field(default='Property', description="Node type. ")
     value: StrictStr

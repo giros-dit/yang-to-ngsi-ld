@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    OpenAPI schemas for YANG data models ietf-interfaces@2018-02-20.yang, ietf-yang-types@2023-01-23.yang, ietf-ip@2018-02-22.yang, ietf-inet-types@2021-02-22.yang, iana-if-type@2014-05-08.yang.
+    OpenAPI schemas for YANG data models ietf-interfaces@2018-02-20.yang, ietf-yang-types@2023-01-23.yang, ietf-ip@2018-02-22.yang, ietf-inet-types@2013-07-15.yang, iana-if-type@2014-05-08.yang.
 
     OpenAPI schemas for YANG data models compliant with the NGSI-LD OAS V1.6.1 metamodel according to ETSI GS CIM 009 V1.6.1.
 
@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class Description(BaseModel):
     """
-    A textual description of the interface.  A server implementation MAY map this leaf to the ifAlias MIB object. Such an implementation needs to use some mechanism to handle the differences in size and characters allowed between this leaf and ifAlias. The definition of such a mechanism is outside the scope of this document.  Since ifAlias is defined to be stored in non-volatile storage, the MIB implementation MUST map ifAlias to the value of 'description' in the persistently stored configuration.  YANG module: ietf-interfaces.yang 
+    A textual description of the interface.  A server implementation MAY map this leaf to the ifAlias MIB object. Such an implementation needs to use some mechanism to handle the differences in size and characters allowed between this leaf and ifAlias. The definition of such a mechanism is outside the scope of this document.  Since ifAlias is defined to be stored in non-volatile storage, the MIB implementation MUST map ifAlias to the value of 'description' in the persistently stored configuration.  Reference: RFC 2863: The Interfaces Group MIB - ifAlias  YANG module: ietf-interfaces.yang 
     """ # noqa: E501
     type: Optional[StrictStr] = Field(default='Property', description="Node type. ")
     value: StrictStr

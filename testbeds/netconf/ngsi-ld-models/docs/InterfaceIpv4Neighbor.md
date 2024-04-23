@@ -1,6 +1,6 @@
 # InterfaceIpv4Neighbor
 
-A list of mappings from IPv4 addresses to link-layer addresses.  Entries in this list in the intended configuration are used as static entries in the ARP Cache.  In the operational state, this list represents the ARP Cache.  YANG module: ietf-ip.yang 
+A list of mappings from IPv4 addresses to link-layer addresses.  Entries in this list in the intended configuration are used as static entries in the ARP Cache.  In the operational state, this list represents the ARP Cache.  Reference: RFC 826: An Ethernet Address Resolution Protocol  YANG module: ietf-ip.yang 
 
 ## Properties
 

@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    OpenAPI schemas for YANG data models ietf-interfaces@2018-02-20.yang, ietf-yang-types@2023-01-23.yang, ietf-ip@2018-02-22.yang, ietf-inet-types@2021-02-22.yang, iana-if-type@2014-05-08.yang.
+    OpenAPI schemas for YANG data models ietf-interfaces@2018-02-20.yang, ietf-yang-types@2023-01-23.yang, ietf-ip@2018-02-22.yang, ietf-inet-types@2013-07-15.yang, iana-if-type@2014-05-08.yang.
 
     OpenAPI schemas for YANG data models compliant with the NGSI-LD OAS V1.6.1 metamodel according to ETSI GS CIM 009 V1.6.1.
 
@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class InterfaceEnabled(BaseModel):
     """
-    This leaf contains the configured, desired state of the interface.  Systems that implement the IF-MIB use the value of this leaf in the intended configuration to set IF-MIB.ifAdminStatus to 'up' or 'down' after an ifEntry has been initialized, as described in RFC 2863.  Changes in this leaf in the intended configuration are reflected in ifAdminStatus.  YANG module: ietf-interfaces.yang 
+    This leaf contains the configured, desired state of the interface.  Systems that implement the IF-MIB use the value of this leaf in the intended configuration to set IF-MIB.ifAdminStatus to 'up' or 'down' after an ifEntry has been initialized, as described in RFC 2863.  Changes in this leaf in the intended configuration are reflected in ifAdminStatus.  Reference: RFC 2863: The Interfaces Group MIB - ifAdminStatus  YANG module: ietf-interfaces.yang 
     """ # noqa: E501
     type: Optional[StrictStr] = Field(default='Property', description="Node type. ")
     value: StrictBool

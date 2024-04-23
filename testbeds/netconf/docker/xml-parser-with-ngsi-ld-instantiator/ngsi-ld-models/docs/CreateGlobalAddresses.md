@@ -1,6 +1,6 @@
 # CreateGlobalAddresses
 
-If enabled, the host creates global addresses as described in RFC 4862.  YANG module: ietf-ip.yang 
+If enabled, the host creates global addresses as described in RFC 4862.  Reference: RFC 4862: IPv6 Stateless Address Autoconfiguration      Section 5.5  YANG module: ietf-ip.yang 
 
 ## Properties
 

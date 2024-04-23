@@ -1,6 +1,6 @@
 # OutBroadcastPkts
 
-The total number of packets that higher-level protocols requested be transmitted and that were addressed to a broadcast address at this sub-layer, including those that were discarded or not sent.  Discontinuities in the value of this counter can occur at re-initialization of the management system and at other times as indicated by the value of 'discontinuity-time'.  YANG module: ietf-interfaces.yang 
+The total number of packets that higher-level protocols requested be transmitted and that were addressed to a broadcast address at this sub-layer, including those that were discarded or not sent.  Discontinuities in the value of this counter can occur at re-initialization of the management system and at other times as indicated by the value of 'discontinuity-time'.  Reference: RFC 2863: The Interfaces Group MIB -      ifHCOutBroadcastPkts  YANG module: ietf-interfaces.yang 
 
 ## Properties
 

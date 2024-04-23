@@ -1,6 +1,6 @@
 # OutDiscards
 
-The number of outbound packets that were chosen to be discarded even though no errors had been detected to prevent their being transmitted. One possible reason for discarding such a packet could be to free up buffer space.  Discontinuities in the value of this counter can occur at re-initialization of the management system and at other times as indicated by the value of 'discontinuity-time'.  YANG module: ietf-interfaces.yang 
+The number of outbound packets that were chosen to be discarded even though no errors had been detected to prevent their being transmitted. One possible reason for discarding such a packet could be to free up buffer space.  Discontinuities in the value of this counter can occur at re-initialization of the management system and at other times as indicated by the value of 'discontinuity-time'.  Reference: RFC 2863: The Interfaces Group MIB - ifOutDiscards  YANG module: ietf-interfaces.yang 
 
 ## Properties
 

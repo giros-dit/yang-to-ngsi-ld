@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    OpenAPI schemas for YANG data models ietf-interfaces@2018-02-20.yang, ietf-yang-types@2023-01-23.yang, ietf-ip@2018-02-22.yang, ietf-inet-types@2021-02-22.yang, iana-if-type@2014-05-08.yang.
+    OpenAPI schemas for YANG data models ietf-interfaces@2018-02-20.yang, ietf-yang-types@2023-01-23.yang, ietf-ip@2018-02-22.yang, ietf-inet-types@2013-07-15.yang, iana-if-type@2014-05-08.yang.
 
     OpenAPI schemas for YANG data models compliant with the NGSI-LD OAS V1.6.1 metamodel according to ETSI GS CIM 009 V1.6.1.
 
@@ -14,10 +14,10 @@
 
 import unittest
 
-from ngsi_ld_models.models.netmask import Netmask
+from ngsi_ld_models.models.subnet_netmask import SubnetNetmask
 
-class TestNetmask(unittest.TestCase):
-    """Netmask unit test stubs"""
+class TestSubnetNetmask(unittest.TestCase):
+    """SubnetNetmask unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,16 +25,16 @@ class TestNetmask(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> Netmask:
-        """Test Netmask
+    def make_instance(self, include_optional) -> SubnetNetmask:
+        """Test SubnetNetmask
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `Netmask`
+        # uncomment below to create an instance of `SubnetNetmask`
         """
-        model = Netmask()
+        model = SubnetNetmask()
         if include_optional:
-            return Netmask(
+            return SubnetNetmask(
                 type = 'Property',
                 value = '4.207.188.200',
                 observed_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
@@ -47,13 +47,13 @@ class TestNetmask(unittest.TestCase):
                 previous_value = None
             )
         else:
-            return Netmask(
+            return SubnetNetmask(
                 value = '4.207.188.200',
         )
         """
 
-    def testNetmask(self):
-        """Test Netmask"""
+    def testSubnetNetmask(self):
+        """Test SubnetNetmask"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

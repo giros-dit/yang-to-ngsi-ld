@@ -1,6 +1,6 @@
 # LastChange
 
-The time the interface entered its current operational state. If the current state was entered prior to the last re-initialization of the local network management subsystem, then this node is not present.  YANG module: ietf-interfaces.yang 
+The time the interface entered its current operational state. If the current state was entered prior to the last re-initialization of the local network management subsystem, then this node is not present.  Reference: RFC 2863: The Interfaces Group MIB - ifLastChange  YANG module: ietf-interfaces.yang 
 
 ## Properties
 

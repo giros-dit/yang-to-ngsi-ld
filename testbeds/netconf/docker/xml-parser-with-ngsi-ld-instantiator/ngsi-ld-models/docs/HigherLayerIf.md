@@ -1,6 +1,6 @@
 # HigherLayerIf
 
-A list of references to interfaces layered on top of this interface.  YANG module: ietf-interfaces.yang 
+A list of references to interfaces layered on top of this interface.  Reference: RFC 2863: The Interfaces Group MIB - ifStackTable  YANG module: ietf-interfaces.yang 
 
 ## Properties
 

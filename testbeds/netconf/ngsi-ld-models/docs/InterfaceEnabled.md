@@ -1,6 +1,6 @@
 # InterfaceEnabled
 
-This leaf contains the configured, desired state of the interface.  Systems that implement the IF-MIB use the value of this leaf in the intended configuration to set IF-MIB.ifAdminStatus to 'up' or 'down' after an ifEntry has been initialized, as described in RFC 2863.  Changes in this leaf in the intended configuration are reflected in ifAdminStatus.  YANG module: ietf-interfaces.yang 
+This leaf contains the configured, desired state of the interface.  Systems that implement the IF-MIB use the value of this leaf in the intended configuration to set IF-MIB.ifAdminStatus to 'up' or 'down' after an ifEntry has been initialized, as described in RFC 2863.  Changes in this leaf in the intended configuration are reflected in ifAdminStatus.  Reference: RFC 2863: The Interfaces Group MIB - ifAdminStatus  YANG module: ietf-interfaces.yang 
 
 ## Properties
 

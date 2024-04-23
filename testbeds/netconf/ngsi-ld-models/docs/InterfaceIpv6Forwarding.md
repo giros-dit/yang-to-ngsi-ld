@@ -1,6 +1,6 @@
 # InterfaceIpv6Forwarding
 
-Controls IPv6 packet forwarding of datagrams received by, but not addressed to, this interface. IPv6 routers forward datagrams. IPv6 hosts do not (except those source-routed via the host).  YANG module: ietf-ip.yang 
+Controls IPv6 packet forwarding of datagrams received by, but not addressed to, this interface. IPv6 routers forward datagrams. IPv6 hosts do not (except those source-routed via the host).  Reference: RFC 4861: Neighbor Discovery for IP version 6 (IPv6)      Section 6.2.1, IsRouter  YANG module: ietf-ip.yang 
 
 ## Properties
 

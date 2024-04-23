@@ -1,6 +1,6 @@
 # LinkUpDownTrapEnable
 
-Controls whether linkUp/linkDown SNMP notifications should be generated for this interface.  If this node is not configured, the value 'enabled' is operationally used by the server for interfaces that do not operate on top of any other interface (i.e., there are no 'lower-layer-if' entries), and 'disabled' otherwise.  YANG module: ietf-interfaces.yang 
+Controls whether linkUp/linkDown SNMP notifications should be generated for this interface.  If this node is not configured, the value 'enabled' is operationally used by the server for interfaces that do not operate on top of any other interface (i.e., there are no 'lower-layer-if' entries), and 'disabled' otherwise.  Reference: RFC 2863: The Interfaces Group MIB -      ifLinkUpDownTrapEnable  YANG module: ietf-interfaces.yang 
 
 ## Properties
 

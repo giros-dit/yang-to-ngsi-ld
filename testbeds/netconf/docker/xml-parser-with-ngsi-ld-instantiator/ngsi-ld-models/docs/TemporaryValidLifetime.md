@@ -1,6 +1,6 @@
 # TemporaryValidLifetime
 
-The time period during which the temporary address is valid.  YANG module: ietf-ip.yang 
+The time period during which the temporary address is valid.  Reference: RFC 4941: Privacy Extensions for Stateless Address      Autoconfiguration in IPv6      - TEMP_VALID_LIFETIME  Units: seconds  YANG module: ietf-ip.yang 
 
 ## Properties
 

@@ -1,6 +1,6 @@
 # AdminStatus
 
-The desired state of the interface.  This leaf has the same read semantics as ifAdminStatus.  YANG module: ietf-interfaces.yang 
+The desired state of the interface.  This leaf has the same read semantics as ifAdminStatus.  Reference: RFC 2863: The Interfaces Group MIB - ifAdminStatus  YANG module: ietf-interfaces.yang 
 
 ## Properties
 

@@ -1,6 +1,6 @@
 # IfIndex
 
-The ifIndex value for the ifEntry represented by this interface.  YANG module: ietf-interfaces.yang 
+The ifIndex value for the ifEntry represented by this interface.  Reference: RFC 2863: The Interfaces Group MIB - ifIndex  YANG module: ietf-interfaces.yang 
 
 ## Properties
 

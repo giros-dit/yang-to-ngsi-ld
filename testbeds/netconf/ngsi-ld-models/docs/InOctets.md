@@ -1,6 +1,6 @@
 # InOctets
 
-The total number of octets received on the interface, including framing characters.  Discontinuities in the value of this counter can occur at re-initialization of the management system and at other times as indicated by the value of 'discontinuity-time'.  YANG module: ietf-interfaces.yang 
+The total number of octets received on the interface, including framing characters.  Discontinuities in the value of this counter can occur at re-initialization of the management system and at other times as indicated by the value of 'discontinuity-time'.  Reference: RFC 2863: The Interfaces Group MIB - ifHCInOctets  YANG module: ietf-interfaces.yang 
 
 ## Properties
 

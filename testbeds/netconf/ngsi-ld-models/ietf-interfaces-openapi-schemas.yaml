@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: OpenAPI schemas for YANG data models ietf-interfaces@2018-02-20.yang, ietf-yang-types@2023-01-23.yang, ietf-ip@2018-02-22.yang, ietf-inet-types@2021-02-22.yang, iana-if-type@2014-05-08.yang.
+  title: OpenAPI schemas for YANG data models ietf-interfaces@2018-02-20.yang, ietf-yang-types@2023-01-23.yang, ietf-ip@2018-02-22.yang, ietf-inet-types@2013-07-15.yang, iana-if-type@2014-05-08.yang.
   version: 1.0.0
   description: OpenAPI schemas for YANG data models compliant with the NGSI-LD OAS V1.6.1 metamodel according to ETSI GS CIM 009 V1.6.1.
 paths: {}
@@ -103,6 +103,8 @@ components:
         allowed between this leaf and ifName. The definition of
         such a mechanism is outside the scope of this document.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifName
+        
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
@@ -127,6 +129,8 @@ components:
         storage, the MIB implementation MUST map ifAlias to the
         value of 'description' in the persistently stored
         configuration.
+        
+        Reference: RFC 2863: The Interfaces Group MIB - ifAlias
         
         YANG module: ietf-interfaces.yang
       additionalProperties: false
@@ -154,6 +158,8 @@ components:
         A NETCONF server MUST reply with an rpc-error with the
         error-tag 'invalid-value' in this case.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifType
+        
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
@@ -178,6 +184,8 @@ components:
         Changes in this leaf in the intended configuration are
         reflected in ifAdminStatus.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifAdminStatus
+        
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
@@ -199,6 +207,9 @@ components:
         not operate on top of any other interface (i.e., there are
         no 'lower-layer-if' entries), and 'disabled' otherwise.
         
+        Reference: RFC 2863: The Interfaces Group MIB -
+             ifLinkUpDownTrapEnable
+        
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
@@ -217,6 +228,8 @@ components:
         The desired state of the interface.
         
         This leaf has the same read semantics as ifAdminStatus.
+        
+        Reference: RFC 2863: The Interfaces Group MIB - ifAdminStatus
         
         YANG module: ietf-interfaces.yang
       additionalProperties: false
@@ -237,6 +250,8 @@ components:
         The current operational state of the interface.
         
         This leaf has the same semantics as ifOperStatus.
+        
+        Reference: RFC 2863: The Interfaces Group MIB - ifOperStatus
         
         YANG module: ietf-interfaces.yang
       additionalProperties: false
@@ -263,6 +278,8 @@ components:
         last re-initialization of the local network management
         subsystem, then this node is not present.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifLastChange
+        
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
@@ -279,6 +296,8 @@ components:
       description: |
         The ifIndex value for the ifEntry represented by this
         interface.
+        
+        Reference: RFC 2863: The Interfaces Group MIB - ifIndex
         
         YANG module: ietf-interfaces.yang
       additionalProperties: false
@@ -303,6 +322,8 @@ components:
         object. For interfaces that do not have such an address
         (e.g., a serial line), this node is not present.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifPhysAddress
+        
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
@@ -319,6 +340,8 @@ components:
         A list of references to interfaces layered on top of this
         interface.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifStackTable
+        
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
@@ -334,6 +357,8 @@ components:
       description: |
         A list of references to interfaces layered underneath this
         interface.
+        
+        Reference: RFC 2863: The Interfaces Group MIB - ifStackTable
         
         YANG module: ietf-interfaces.yang
       additionalProperties: false
@@ -354,6 +379,11 @@ components:
         be made, this node should contain the nominal bandwidth.
         For interfaces that have no concept of bandwidth, this
         node is not present.
+        
+        Reference: RFC 2863: The Interfaces Group MIB -
+             ifSpeed, ifHighSpeed
+        
+        Units: bits/second
         
         YANG module: ietf-interfaces.yang
       additionalProperties: false
@@ -446,6 +476,8 @@ components:
         other times as indicated by the value of
         'discontinuity-time'.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifHCInOctets
+        
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
@@ -467,6 +499,8 @@ components:
         other times as indicated by the value of
         'discontinuity-time'.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifHCInUcastPkts
+        
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
@@ -487,6 +521,9 @@ components:
         at re-initialization of the management system and at
         other times as indicated by the value of
         'discontinuity-time'.
+        
+        Reference: RFC 2863: The Interfaces Group MIB -
+             ifHCInBroadcastPkts
         
         YANG module: ietf-interfaces.yang
       additionalProperties: false
@@ -510,6 +547,9 @@ components:
         other times as indicated by the value of
         'discontinuity-time'.
         
+        Reference: RFC 2863: The Interfaces Group MIB -
+             ifHCInMulticastPkts
+        
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
@@ -532,6 +572,8 @@ components:
         at re-initialization of the management system and at
         other times as indicated by the value of
         'discontinuity-time'.
+        
+        Reference: RFC 2863: The Interfaces Group MIB - ifInDiscards
         
         YANG module: ietf-interfaces.yang
       additionalProperties: false
@@ -557,6 +599,8 @@ components:
         at re-initialization of the management system and at
         other times as indicated by the value of
         'discontinuity-time'.
+        
+        Reference: RFC 2863: The Interfaces Group MIB - ifInErrors
         
         YANG module: ietf-interfaces.yang
       additionalProperties: false
@@ -585,6 +629,8 @@ components:
         other times as indicated by the value of
         'discontinuity-time'.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifInUnknownProtos
+        
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
@@ -604,6 +650,8 @@ components:
         at re-initialization of the management system and at
         other times as indicated by the value of
         'discontinuity-time'.
+        
+        Reference: RFC 2863: The Interfaces Group MIB - ifHCOutOctets
         
         YANG module: ietf-interfaces.yang
       additionalProperties: false
@@ -627,6 +675,8 @@ components:
         other times as indicated by the value of
         'discontinuity-time'.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifHCOutUcastPkts
+        
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
@@ -648,6 +698,9 @@ components:
         at re-initialization of the management system and at
         other times as indicated by the value of
         'discontinuity-time'.
+        
+        Reference: RFC 2863: The Interfaces Group MIB -
+             ifHCOutBroadcastPkts
         
         YANG module: ietf-interfaces.yang
       additionalProperties: false
@@ -673,6 +726,9 @@ components:
         other times as indicated by the value of
         'discontinuity-time'.
         
+        Reference: RFC 2863: The Interfaces Group MIB -
+             ifHCOutMulticastPkts
+        
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
@@ -696,6 +752,8 @@ components:
         other times as indicated by the value of
         'discontinuity-time'.
         
+        Reference: RFC 2863: The Interfaces Group MIB - ifOutDiscards
+        
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
@@ -718,6 +776,8 @@ components:
         at re-initialization of the management system and at
         other times as indicated by the value of
         'discontinuity-time'.
+        
+        Reference: RFC 2863: The Interfaces Group MIB - ifOutErrors
         
         YANG module: ietf-interfaces.yang
       additionalProperties: false
@@ -803,6 +863,10 @@ components:
         If this leaf is not configured, the operationally used MTU
         depends on the interface's type.
         
+        Reference: RFC 791: Internet Protocol
+        
+        Units: octets
+        
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
@@ -867,7 +931,7 @@ components:
         YANG module: ietf-ip.yang
       oneOf:
         - $ref: '#/components/schemas/SubnetPrefixLength'
-        - $ref: '#/components/schemas/Netmask'
+        - $ref: '#/components/schemas/SubnetNetmask'
     SubnetPrefixLength:
       description: |
         The length of the subnet prefix.
@@ -884,7 +948,7 @@ components:
               maximum: 32
           required:
             - value
-    Netmask:
+    SubnetNetmask:
       description: |
         The subnet specified as a netmask.
         
@@ -929,6 +993,8 @@ components:
         
         In the operational state, this list represents the ARP
         Cache.
+        
+        Reference: RFC 826: An Ethernet Address Resolution Protocol
         
         YANG module: ietf-ip.yang
       allOf:
@@ -1056,6 +1122,9 @@ components:
         forward datagrams. IPv6 hosts do not (except those
         source-routed via the host).
         
+        Reference: RFC 4861: Neighbor Discovery for IP version 6 (IPv6)
+             Section 6.2.1, IsRouter
+        
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
@@ -1077,6 +1146,12 @@ components:
         
         If this leaf is not configured, the operationally used MTU
         depends on the interface's type.
+        
+        Reference: RFC 8200: Internet Protocol, Version 6 (IPv6)
+             Specification
+             Section 5
+        
+        Units: octets
         
         YANG module: ietf-ip.yang
       additionalProperties: false
@@ -1177,6 +1252,11 @@ components:
         to states from the IPv6 Stateless Address
         Autoconfiguration protocol.
         
+        Reference: RFC 4293: Management Information Base for the
+             Internet Protocol (IP)
+             - IpAddressStatusTC
+        RFC 4862: IPv6 Stateless Address Autoconfiguration
+        
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
@@ -1206,6 +1286,8 @@ components:
         
         In the operational state, this list represents the
         Neighbor Cache.
+        
+        Reference: RFC 4861: Neighbor Discovery for IP version 6 (IPv6)
         
         YANG module: ietf-ip.yang
       allOf:
@@ -1305,6 +1387,9 @@ components:
         The Neighbor Unreachability Detection state of this
         entry.
         
+        Reference: RFC 4861: Neighbor Discovery for IP version 6 (IPv6)
+             Section 7.3.2
+        
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
@@ -1330,6 +1415,8 @@ components:
         tentative addresses. A value of one indicates a single
         transmission with no follow-up retransmissions.
         
+        Reference: RFC 4862: IPv6 Stateless Address Autoconfiguration
+        
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
@@ -1345,6 +1432,8 @@ components:
       description: |
         Parameters to control the autoconfiguration of IPv6
         addresses, as described in RFC 4862.
+        
+        Reference: RFC 4862: IPv6 Stateless Address Autoconfiguration
         
         YANG module: ietf-ip.yang
       allOf:
@@ -1376,6 +1465,9 @@ components:
         If enabled, the host creates global addresses as
         described in RFC 4862.
         
+        Reference: RFC 4862: IPv6 Stateless Address Autoconfiguration
+             Section 5.5
+        
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
@@ -1391,6 +1483,9 @@ components:
       description: |
         If enabled, the host creates temporary addresses as
         described in RFC 4941.
+        
+        Reference: RFC 4941: Privacy Extensions for Stateless Address
+             Autoconfiguration in IPv6
         
         YANG module: ietf-ip.yang
       additionalProperties: false
@@ -1408,6 +1503,12 @@ components:
         The time period during which the temporary address
         is valid.
         
+        Reference: RFC 4941: Privacy Extensions for Stateless Address
+             Autoconfiguration in IPv6
+             - TEMP_VALID_LIFETIME
+        
+        Units: seconds
+        
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
@@ -1423,6 +1524,12 @@ components:
       description: |
         The time period during which the temporary address is
         preferred.
+        
+        Reference: RFC 4941: Privacy Extensions for Stateless Address
+             Autoconfiguration in IPv6
+             - TEMP_PREFERRED_LIFETIME
+        
+        Units: seconds
         
         YANG module: ietf-ip.yang
       additionalProperties: false

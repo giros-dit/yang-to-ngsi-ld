@@ -1,6 +1,6 @@
 # Description
 
-A textual description of the interface.  A server implementation MAY map this leaf to the ifAlias MIB object. Such an implementation needs to use some mechanism to handle the differences in size and characters allowed between this leaf and ifAlias. The definition of such a mechanism is outside the scope of this document.  Since ifAlias is defined to be stored in non-volatile storage, the MIB implementation MUST map ifAlias to the value of 'description' in the persistently stored configuration.  YANG module: ietf-interfaces.yang 
+A textual description of the interface.  A server implementation MAY map this leaf to the ifAlias MIB object. Such an implementation needs to use some mechanism to handle the differences in size and characters allowed between this leaf and ifAlias. The definition of such a mechanism is outside the scope of this document.  Since ifAlias is defined to be stored in non-volatile storage, the MIB implementation MUST map ifAlias to the value of 'description' in the persistently stored configuration.  Reference: RFC 2863: The Interfaces Group MIB - ifAlias  YANG module: ietf-interfaces.yang 
 
 ## Properties
 

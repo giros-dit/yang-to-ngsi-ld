@@ -1,6 +1,6 @@
 # State
 
-The Neighbor Unreachability Detection state of this entry.  YANG module: ietf-ip.yang 
+The Neighbor Unreachability Detection state of this entry.  Reference: RFC 4861: Neighbor Discovery for IP version 6 (IPv6)      Section 7.3.2  YANG module: ietf-ip.yang 
 
 ## Properties
 

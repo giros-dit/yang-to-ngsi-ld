@@ -2,7 +2,7 @@
 
 FROM ubuntu:latest
 
-RUN apt update && apt -y dist-upgrade && apt -y autoremove && apt autoclean
+RUN apt update --fix-missing && apt -y dist-upgrade && apt -y autoremove && apt autoclean
 
 RUN apt install --no-install-recommends -y bash net-tools iputils-ping default-jre default-jdk python3 python3-pip
 

@@ -1,6 +1,6 @@
 # CreateTemporaryAddresses
 
-If enabled, the host creates temporary addresses as described in RFC 4941.  YANG module: ietf-ip.yang 
+If enabled, the host creates temporary addresses as described in RFC 4941.  Reference: RFC 4941: Privacy Extensions for Stateless Address      Autoconfiguration in IPv6  YANG module: ietf-ip.yang 
 
 ## Properties
 

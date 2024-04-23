@@ -1,6 +1,6 @@
 # TemporaryPreferredLifetime
 
-The time period during which the temporary address is preferred.  YANG module: ietf-ip.yang 
+The time period during which the temporary address is preferred.  Reference: RFC 4941: Privacy Extensions for Stateless Address      Autoconfiguration in IPv6      - TEMP_PREFERRED_LIFETIME  Units: seconds  YANG module: ietf-ip.yang 
 
 ## Properties
 

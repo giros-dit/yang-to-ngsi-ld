@@ -1,6 +1,6 @@
 # InterfaceIpv6Neighbor
 
-A list of mappings from IPv6 addresses to link-layer addresses.  Entries in this list in the intended configuration are used as static entries in the Neighbor Cache.  In the operational state, this list represents the Neighbor Cache.  YANG module: ietf-ip.yang 
+A list of mappings from IPv6 addresses to link-layer addresses.  Entries in this list in the intended configuration are used as static entries in the Neighbor Cache.  In the operational state, this list represents the Neighbor Cache.  Reference: RFC 4861: Neighbor Discovery for IP version 6 (IPv6)  YANG module: ietf-ip.yang 
 
 ## Properties
 

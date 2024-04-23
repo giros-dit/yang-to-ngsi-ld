@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    OpenAPI schemas for YANG data models ietf-interfaces@2018-02-20.yang, ietf-yang-types@2023-01-23.yang, ietf-ip@2018-02-22.yang, ietf-inet-types@2021-02-22.yang, iana-if-type@2014-05-08.yang.
+    OpenAPI schemas for YANG data models ietf-interfaces@2018-02-20.yang, ietf-yang-types@2023-01-23.yang, ietf-ip@2018-02-22.yang, ietf-inet-types@2013-07-15.yang, iana-if-type@2014-05-08.yang.
 
     OpenAPI schemas for YANG data models compliant with the NGSI-LD OAS V1.6.1 metamodel according to ETSI GS CIM 009 V1.6.1.
 
@@ -25,7 +25,7 @@ from ngsi_ld_models.models.property_previous_value import PropertyPreviousValue
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Netmask(BaseModel):
+class SubnetNetmask(BaseModel):
     """
     The subnet specified as a netmask.  YANG module: ietf-ip.yang 
     """ # noqa: E501
@@ -76,7 +76,7 @@ class Netmask(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Netmask from a JSON string"""
+        """Create an instance of SubnetNetmask from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -112,7 +112,7 @@ class Netmask(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Netmask from a dict"""
+        """Create an instance of SubnetNetmask from a dict"""
         if obj is None:
             return None
 
@@ -122,7 +122,7 @@ class Netmask(BaseModel):
         # raise errors for additional fields in the input
         for _key in obj.keys():
             if _key not in cls.__properties:
-                raise ValueError("Error due to additional fields (not defined in Netmask) in the input: " + _key)
+                raise ValueError("Error due to additional fields (not defined in SubnetNetmask) in the input: " + _key)
 
         _obj = cls.model_validate({
             "type": obj.get("type") if obj.get("type") is not None else 'Property',

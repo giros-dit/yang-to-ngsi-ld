@@ -158,7 +158,7 @@ components:
         - type: object
           properties:
             object:
-              description: Relationship with Entity type SupportingNetwork.
+              description: Relationship with Entity type NetworkSupportingNetwork.
               type: string
           required:
             - object
@@ -173,7 +173,7 @@ components:
         - type: object
           properties:
             object:
-              description: Relationship with Entity type Node.
+              description: Relationship with Entity type NetworkNode.
               type: string
           required:
             - object
@@ -263,7 +263,7 @@ components:
         - type: object
           properties:
             object:
-              description: Relationship with Entity type SupportingNode.
+              description: Relationship with Entity type NetworkNodeSupportingNode.
               type: string
           required:
             - object
@@ -279,7 +279,7 @@ components:
         - type: object
           properties:
             object:
-              description: Relationship with Entity type SupportingNode.
+              description: Relationship with Entity type NetworkNodeSupportingNode.
               type: string
           required:
             - object
@@ -295,7 +295,7 @@ components:
         - type: object
           properties:
             object:
-              description: Relationship with Entity type TerminationPoint.
+              description: Relationship with Entity type NetworkNodeTerminationPoint.
               type: string
           required:
             - object
@@ -382,7 +382,7 @@ components:
         - type: object
           properties:
             object:
-              description: Relationship with Entity type Node.
+              description: Relationship with Entity type NetworkNode.
               type: string
           required:
             - object
@@ -398,7 +398,7 @@ components:
         - type: object
           properties:
             object:
-              description: Relationship with Entity type TerminationPoint.
+              description: Relationship with Entity type NetworkNodeTerminationPoint.
               type: string
           required:
             - object
@@ -440,7 +440,7 @@ components:
         - type: object
           properties:
             object:
-              description: Relationship with Entity type Node.
+              description: Relationship with Entity type NetworkNode.
               type: string
           required:
             - object
@@ -456,7 +456,7 @@ components:
         - type: object
           properties:
             object:
-              description: Relationship with Entity type TerminationPoint.
+              description: Relationship with Entity type NetworkNodeTerminationPoint.
               type: string
           required:
             - object
@@ -497,7 +497,7 @@ components:
         - type: object
           properties:
             object:
-              description: Relationship with Entity type SupportingNetwork.
+              description: Relationship with Entity type NetworkSupportingNetwork.
               type: string
           required:
             - object
@@ -515,7 +515,7 @@ components:
         - type: object
           properties:
             object:
-              description: Relationship with Entity type Link.
+              description: Relationship with Entity type NetworkLink.
               type: string
           required:
             - object

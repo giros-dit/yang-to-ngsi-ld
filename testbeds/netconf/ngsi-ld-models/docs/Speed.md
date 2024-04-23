@@ -1,6 +1,6 @@
 # Speed
 
-An estimate of the interface's current bandwidth in bits per second. For interfaces that do not vary in bandwidth or for those where no accurate estimation can be made, this node should contain the nominal bandwidth. For interfaces that have no concept of bandwidth, this node is not present.  YANG module: ietf-interfaces.yang 
+An estimate of the interface's current bandwidth in bits per second. For interfaces that do not vary in bandwidth or for those where no accurate estimation can be made, this node should contain the nominal bandwidth. For interfaces that have no concept of bandwidth, this node is not present.  Reference: RFC 2863: The Interfaces Group MIB -      ifSpeed, ifHighSpeed  Units: bits/second  YANG module: ietf-interfaces.yang 
 
 ## Properties
 

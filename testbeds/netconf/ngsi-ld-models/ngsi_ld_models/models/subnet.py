@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    OpenAPI schemas for YANG data models ietf-interfaces@2018-02-20.yang, ietf-yang-types@2023-01-23.yang, ietf-ip@2018-02-22.yang, ietf-inet-types@2021-02-22.yang, iana-if-type@2014-05-08.yang.
+    OpenAPI schemas for YANG data models ietf-interfaces@2018-02-20.yang, ietf-yang-types@2023-01-23.yang, ietf-ip@2018-02-22.yang, ietf-inet-types@2013-07-15.yang, iana-if-type@2014-05-08.yang.
 
     OpenAPI schemas for YANG data models compliant with the NGSI-LD OAS V1.6.1 metamodel according to ETSI GS CIM 009 V1.6.1.
 
@@ -17,13 +17,13 @@ import json
 import pprint
 from pydantic import BaseModel, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
-from ngsi_ld_models.models.netmask import Netmask
+from ngsi_ld_models.models.subnet_netmask import SubnetNetmask
 from ngsi_ld_models.models.subnet_prefix_length import SubnetPrefixLength
 from pydantic import StrictStr, Field
 from typing import Union, List, Optional, Dict
 from typing_extensions import Literal, Self
 
-SUBNET_ONE_OF_SCHEMAS = ["Netmask", "SubnetPrefixLength"]
+SUBNET_ONE_OF_SCHEMAS = ["SubnetNetmask", "SubnetPrefixLength"]
 
 class Subnet(BaseModel):
     """
@@ -31,10 +31,10 @@ class Subnet(BaseModel):
     """
     # data type: SubnetPrefixLength
     oneof_schema_1_validator: Optional[SubnetPrefixLength] = None
-    # data type: Netmask
-    oneof_schema_2_validator: Optional[Netmask] = None
-    actual_instance: Optional[Union[Netmask, SubnetPrefixLength]] = None
-    one_of_schemas: List[str] = Field(default=Literal["Netmask", "SubnetPrefixLength"])
+    # data type: SubnetNetmask
+    oneof_schema_2_validator: Optional[SubnetNetmask] = None
+    actual_instance: Optional[Union[SubnetNetmask, SubnetPrefixLength]] = None
+    one_of_schemas: List[str] = Field(default=Literal["SubnetNetmask", "SubnetPrefixLength"])
 
     model_config = {
         "validate_assignment": True,
@@ -62,17 +62,17 @@ class Subnet(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `SubnetPrefixLength`")
         else:
             match += 1
-        # validate data type: Netmask
-        if not isinstance(v, Netmask):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `Netmask`")
+        # validate data type: SubnetNetmask
+        if not isinstance(v, SubnetNetmask):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `SubnetNetmask`")
         else:
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in Subnet with oneOf schemas: Netmask, SubnetPrefixLength. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in Subnet with oneOf schemas: SubnetNetmask, SubnetPrefixLength. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in Subnet with oneOf schemas: Netmask, SubnetPrefixLength. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in Subnet with oneOf schemas: SubnetNetmask, SubnetPrefixLength. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -93,19 +93,19 @@ class Subnet(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into Netmask
+        # deserialize data into SubnetNetmask
         try:
-            instance.actual_instance = Netmask.from_json(json_str)
+            instance.actual_instance = SubnetNetmask.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into Subnet with oneOf schemas: Netmask, SubnetPrefixLength. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into Subnet with oneOf schemas: SubnetNetmask, SubnetPrefixLength. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into Subnet with oneOf schemas: Netmask, SubnetPrefixLength. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into Subnet with oneOf schemas: SubnetNetmask, SubnetPrefixLength. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -119,7 +119,7 @@ class Subnet(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], Netmask, SubnetPrefixLength]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], SubnetNetmask, SubnetPrefixLength]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

@@ -1,4 +1,4 @@
-# Netmask
+# SubnetNetmask
 
 The subnet specified as a netmask.  YANG module: ietf-ip.yang 
 
@@ -20,19 +20,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from ngsi_ld_models.models.netmask import Netmask
+from ngsi_ld_models.models.subnet_netmask import SubnetNetmask
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of Netmask from a JSON string
-netmask_instance = Netmask.from_json(json)
+# create an instance of SubnetNetmask from a JSON string
+subnet_netmask_instance = SubnetNetmask.from_json(json)
 # print the JSON string representation of the object
-print Netmask.to_json()
+print SubnetNetmask.to_json()
 
 # convert the object into a dict
-netmask_dict = netmask_instance.to_dict()
-# create an instance of Netmask from a dict
-netmask_form_dict = netmask.from_dict(netmask_dict)
+subnet_netmask_dict = subnet_netmask_instance.to_dict()
+# create an instance of SubnetNetmask from a dict
+subnet_netmask_form_dict = subnet_netmask.from_dict(subnet_netmask_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

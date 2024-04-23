@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    OpenAPI schemas for YANG data models ietf-interfaces@2018-02-20.yang, ietf-yang-types@2023-01-23.yang, ietf-ip@2018-02-22.yang, ietf-inet-types@2021-02-22.yang, iana-if-type@2014-05-08.yang.
+    OpenAPI schemas for YANG data models ietf-interfaces@2018-02-20.yang, ietf-yang-types@2023-01-23.yang, ietf-ip@2018-02-22.yang, ietf-inet-types@2013-07-15.yang, iana-if-type@2014-05-08.yang.
 
     OpenAPI schemas for YANG data models compliant with the NGSI-LD OAS V1.6.1 metamodel according to ETSI GS CIM 009 V1.6.1.
 
@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class PhysAddress(BaseModel):
     """
-    The interface's address at its protocol sub-layer. For example, for an 802.x interface, this object normally contains a Media Access Control (MAC) address. The interface's media-specific modules must define the bit and byte ordering and the format of the value of this object. For interfaces that do not have such an address (e.g., a serial line), this node is not present.  YANG module: ietf-interfaces.yang 
+    The interface's address at its protocol sub-layer. For example, for an 802.x interface, this object normally contains a Media Access Control (MAC) address. The interface's media-specific modules must define the bit and byte ordering and the format of the value of this object. For interfaces that do not have such an address (e.g., a serial line), this node is not present.  Reference: RFC 2863: The Interfaces Group MIB - ifPhysAddress  YANG module: ietf-interfaces.yang 
     """ # noqa: E501
     type: Optional[StrictStr] = Field(default='Property', description="Node type. ")
     value: Annotated[str, Field(strict=True)]

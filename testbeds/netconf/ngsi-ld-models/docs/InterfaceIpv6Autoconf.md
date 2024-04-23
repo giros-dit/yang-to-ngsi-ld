@@ -1,6 +1,6 @@
 # InterfaceIpv6Autoconf
 
-Parameters to control the autoconfiguration of IPv6 addresses, as described in RFC 4862.  YANG module: ietf-ip.yang 
+Parameters to control the autoconfiguration of IPv6 addresses, as described in RFC 4862.  Reference: RFC 4862: IPv6 Stateless Address Autoconfiguration  YANG module: ietf-ip.yang 
 
 ## Properties
 

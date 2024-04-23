@@ -1,6 +1,6 @@
 # PhysAddress
 
-The interface's address at its protocol sub-layer. For example, for an 802.x interface, this object normally contains a Media Access Control (MAC) address. The interface's media-specific modules must define the bit and byte ordering and the format of the value of this object. For interfaces that do not have such an address (e.g., a serial line), this node is not present.  YANG module: ietf-interfaces.yang 
+The interface's address at its protocol sub-layer. For example, for an 802.x interface, this object normally contains a Media Access Control (MAC) address. The interface's media-specific modules must define the bit and byte ordering and the format of the value of this object. For interfaces that do not have such an address (e.g., a serial line), this node is not present.  Reference: RFC 2863: The Interfaces Group MIB - ifPhysAddress  YANG module: ietf-interfaces.yang 
 
 ## Properties
 

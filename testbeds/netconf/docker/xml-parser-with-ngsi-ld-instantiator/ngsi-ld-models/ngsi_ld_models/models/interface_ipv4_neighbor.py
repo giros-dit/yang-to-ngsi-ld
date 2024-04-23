@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    OpenAPI schemas for YANG data models ietf-interfaces@2018-02-20.yang, ietf-yang-types@2023-01-23.yang, ietf-ip@2018-02-22.yang, ietf-inet-types@2021-02-22.yang, iana-if-type@2014-05-08.yang.
+    OpenAPI schemas for YANG data models ietf-interfaces@2018-02-20.yang, ietf-yang-types@2023-01-23.yang, ietf-ip@2018-02-22.yang, ietf-inet-types@2013-07-15.yang, iana-if-type@2014-05-08.yang.
 
     OpenAPI schemas for YANG data models compliant with the NGSI-LD OAS V1.6.1 metamodel according to ETSI GS CIM 009 V1.6.1.
 
@@ -31,7 +31,7 @@ from typing_extensions import Self
 
 class InterfaceIpv4Neighbor(BaseModel):
     """
-    A list of mappings from IPv4 addresses to link-layer addresses.  Entries in this list in the intended configuration are used as static entries in the ARP Cache.  In the operational state, this list represents the ARP Cache.  YANG module: ietf-ip.yang 
+    A list of mappings from IPv4 addresses to link-layer addresses.  Entries in this list in the intended configuration are used as static entries in the ARP Cache.  In the operational state, this list represents the ARP Cache.  Reference: RFC 826: An Ethernet Address Resolution Protocol  YANG module: ietf-ip.yang 
     """ # noqa: E501
     id: Optional[StrictStr] = Field(default=None, description="Entity id. ")
     type: StrictStr = Field(description="NGSI-LD Entity identifier. It has to be InterfaceIpv4Neighbor.")
