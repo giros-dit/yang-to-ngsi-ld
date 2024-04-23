@@ -25,7 +25,7 @@ def parse_gnmi_notification(message):
 
         for element_text, child_node, parent_path in zip(values, child_nodes, parent_paths):
             if parent_path[0] == "openconfig-interfaces:interfaces" or parent_path[0] == "interfaces":
-                if parent_path[1] == "interface":
+                if parent_path[1] == "interface" or parent_path[1] == "openconfig-interfaces:interface":
                     interface_dict_buffer = {}
                     if "interface_name" in iteration_keys:
                         interface_dict_buffer["id"] = "urn:ngsi-ld:Interface:" + source + ":" +  iteration_keys.get("interface_name")

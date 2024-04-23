@@ -12,6 +12,10 @@ with open(json_payload) as f:
     observed_at = str(datetime_ns.astype('datetime64[ms]')) + 'Z'
     source = "-".join(data[0]["source"].split(":")[0].split("-")[1:-1]) + ":" + str(data[0]["source"].split(":")[0].split("-")[-1])
 
+if "" in json_data:
+    json_data = json_data[""]
+
+interfaces = None
 if json_data.get("interfaces")is not None:
     interfaces = json_data.get("interfaces")
 elif json_data.get("openconfig-interfaces:interfaces")is not None:
