@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "notifier-tester"
+version = "1.0.0"
+description = "NGSI-LD notifier consumer tester"
+authors = ["GIROS-DIT UPM <gi.giros@upm.es>"]
+
+[tool.poetry.dependencies]
+python = "^3.9.5"
+fastapi = {extras = ["all"], version = "^0.103.2"}
+urllib3 = ">=1.25.3,<2.1.0"
+markupsafe = ">=2.1.0,<2.1.5"
+ngsi_ld_models = ">=1.0.0"
+ngsi_ld_client = { git = "https://github.com/giros-dit/python-ngsi-ld-client.git", branch = "1.6.1" }
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+flake8 = ">=4.0.1"
+ngsi_ld_models = { path = "../../ngsi-ld-models", develop = true }
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

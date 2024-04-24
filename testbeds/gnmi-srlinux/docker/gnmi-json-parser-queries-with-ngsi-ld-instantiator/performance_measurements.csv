@@ -1,0 +1,3 @@
+observed_at,iteration_started_at,iteration_finished_at,processing_time_since_observed_at,iteration_execution_time,mean_execution_time,min_execution_time,max_execution_time,processed_notifications
+2024-04-24T11:19:02.509Z,2024-04-24T11:19:02.741991Z,2024-04-24T11:19:03.367424Z,858.424 ms,625.43305 ms,625.43305 ms,625.43305 ms,625.43305 ms,1
+2024-04-24T11:19:02.785Z,2024-04-24T11:19:03.371441Z,2024-04-24T11:19:03.963358Z,1178.358 ms,591.915163 ms,608.6741065 ms,591.915163 ms,625.43305 ms,2

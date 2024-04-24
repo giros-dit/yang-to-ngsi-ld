@@ -1,0 +1,13 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceEthernetStormControl": "srl_nokia-interfaces:interface/ethernet/storm-control",
+        "units": "srl_nokia-interfaces:interface/ethernet/storm-control/units",
+        "broadcastRate": "srl_nokia-interfaces:interface/ethernet/storm-control/broadcast-rate",
+        "multicastRate": "srl_nokia-interfaces:interface/ethernet/storm-control/multicast-rate",
+        "unknownUnicastRate": "srl_nokia-interfaces:interface/ethernet/storm-control/unknown-unicast-rate",
+        "operationalBroadcastRate": "srl_nokia-interfaces:interface/ethernet/storm-control/operational-broadcast-rate",
+        "operationalMulticastRate": "srl_nokia-interfaces:interface/ethernet/storm-control/operational-multicast-rate",
+        "operationalUnknownUnicastRate": "srl_nokia-interfaces:interface/ethernet/storm-control/operational-unknown-unicast-rate"
+    }
+}

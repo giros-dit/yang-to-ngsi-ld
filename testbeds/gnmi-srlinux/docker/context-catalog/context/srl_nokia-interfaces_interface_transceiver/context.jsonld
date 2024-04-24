@@ -1,0 +1,22 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceTransceiver": "srl_nokia-interfaces:interface/transceiver",
+        "txLaser": "srl_nokia-interfaces:interface/transceiver/tx-laser",
+        "operState": "srl_nokia-interfaces:interface/transceiver/oper-state",
+        "operDownReason": "srl_nokia-interfaces:interface/transceiver/oper-down-reason",
+        "ddmEvents": "srl_nokia-interfaces:interface/transceiver/ddm-events",
+        "forwardErrorCorrection": "srl_nokia-interfaces:interface/transceiver/forward-error-correction",
+        "formFactor": "srl_nokia-interfaces:interface/transceiver/form-factor",
+        "ethernetPmd": "srl_nokia-interfaces:interface/transceiver/ethernet-pmd",
+        "connectorType": "srl_nokia-interfaces:interface/transceiver/connector-type",
+        "vendor": "srl_nokia-interfaces:interface/transceiver/vendor",
+        "vendorPartNumber": "srl_nokia-interfaces:interface/transceiver/vendor-part-number",
+        "vendorRevision": "srl_nokia-interfaces:interface/transceiver/vendor-revision",
+        "vendorLotNumber": "srl_nokia-interfaces:interface/transceiver/vendor-lot-number",
+        "serialNumber": "srl_nokia-interfaces:interface/transceiver/serial-number",
+        "dateCode": "srl_nokia-interfaces:interface/transceiver/date-code",
+        "faultCondition": "srl_nokia-interfaces:interface/transceiver/fault-condition",
+        "wavelength": "srl_nokia-interfaces:interface/transceiver/wavelength"
+    }
+}

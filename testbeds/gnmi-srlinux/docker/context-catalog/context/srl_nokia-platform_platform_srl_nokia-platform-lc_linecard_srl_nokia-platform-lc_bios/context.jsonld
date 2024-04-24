@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "srl_nokia-platform": "urn:nokia.com:srlinux:chassis:platform/",
+        "LinecardBios": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/srl_nokia-platform-lc:bios",
+        "manufacturer": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/srl_nokia-platform-lc:bios/srl_nokia-platform-lc:manufacturer",
+        "softwareVersion": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/srl_nokia-platform-lc:bios/srl_nokia-platform-lc:software-version"
+    }
+}

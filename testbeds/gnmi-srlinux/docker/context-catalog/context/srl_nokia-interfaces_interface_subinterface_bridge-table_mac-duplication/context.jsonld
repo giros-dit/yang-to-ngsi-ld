@@ -1,0 +1,7 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceSubinterfaceBridgeTableMacDuplication": "srl_nokia-interfaces:interface/subinterface/bridge-table/mac-duplication",
+        "action": "srl_nokia-interfaces:interface/subinterface/bridge-table/mac-duplication/action"
+    }
+}

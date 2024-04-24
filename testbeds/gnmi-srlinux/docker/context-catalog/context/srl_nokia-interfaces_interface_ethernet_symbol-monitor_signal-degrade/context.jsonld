@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceEthernetSymbolMonitorSignalDegrade": "srl_nokia-interfaces:interface/ethernet/symbol-monitor/signal-degrade",
+        "exponent": "srl_nokia-interfaces:interface/ethernet/symbol-monitor/signal-degrade/exponent",
+        "multiplier": "srl_nokia-interfaces:interface/ethernet/symbol-monitor/signal-degrade/multiplier"
+    }
+}
