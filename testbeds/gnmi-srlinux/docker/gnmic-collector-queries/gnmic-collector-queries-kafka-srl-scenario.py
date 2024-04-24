@@ -7,13 +7,13 @@ while True:
     # Get Query RPC to get all the information about openconfig-interfaces YANG model from SRLinux routers:
     query = subprocess.run(["gnmic", "get", "--config", "gnmic-request-srl1.yaml"], capture_output=True, text=True)
 
-    producer = KafkaProducer(bootstrap_servers=['kafka-remote:9094'])
+    producer = KafkaProducer(bootstrap_servers=['kafka:9092'])
     producer.send('interfaces-state-queries', value=query.stdout.strip().encode('utf-8'))
     producer.flush()
 
     query = subprocess.run(["gnmic", "get", "--config", "gnmic-request-srl2.yaml"], capture_output=True, text=True)
 
-    producer = KafkaProducer(bootstrap_servers=['kafka-remote:9094'])
+    producer = KafkaProducer(bootstrap_servers=['kafka:9092'])
     producer.send('interfaces-state-queries', value=query.stdout.strip().encode('utf-8'))
     producer.flush()
     time.sleep(int(sys.argv[1]))
