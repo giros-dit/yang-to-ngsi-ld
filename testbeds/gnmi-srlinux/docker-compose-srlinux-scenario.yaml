@@ -85,7 +85,7 @@ services:
       - ./docker/gnmic-collector-queries:/opt/gnmic-collector-queries
     depends_on:
       kafka:
-        condition: service_started
+        condition: service_healthy
       gnmi-json-parser-queries-with-ngsi-ld-instantiator:
         condition: service_healthy
         
@@ -98,7 +98,7 @@ services:
     command: "subscribe --config /app/gnmic-subs-srl-srl.yaml"
     depends_on:
       kafka:
-        condition: service_started
+        condition: service_healthy
       gnmi-json-parser-notifications-with-ngsi-ld-instantiator:
         condition: service_healthy
 
@@ -121,7 +121,7 @@ services:
       context-catalog:
         condition: service_started
       kafka:
-        condition: service_started
+        condition: service_healthy
     restart: always
     
   gnmi-json-parser-notifications-with-ngsi-ld-instantiator:
@@ -143,7 +143,7 @@ services:
       context-catalog:
         condition: service_started
       kafka:
-        condition: service_started
+        condition: service_healthy
       gnmi-json-parser-queries-with-ngsi-ld-instantiator:
         condition: service_healthy
     restart: always
@@ -166,7 +166,7 @@ services:
       context-catalog:
         condition: service_started
       kafka:
-        condition: service_started
+        condition: service_healthy
       gnmi-json-parser-notifications-with-ngsi-ld-instantiator:
         condition: service_healthy
     restart: always

@@ -9,7 +9,7 @@ services:
       driver: none
 
   kafka:
-    image: bitnami/kafka:latest
+    image: wurstmeister/kafka:latest
     hostname: kafka
     container_name: kafka
     ports:
@@ -18,9 +18,8 @@ services:
       KAFKA_ADVERTISED_HOST_NAME: kafka
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_ADVERTISED_PORT: 9092
-      KAFKA_LOG_RETENTION_MS: 10000
-      KAFKA_LOG_RETENTION_CHECK_INTERVAL_MS: 5000
-      ALLOW_PLAINTEXT_LISTENER: "yes"
+      KAFKA_LOG_DIRS: "/tmp/kafka-logs"
+      KAFKA_CREATE_TOPICS: "interfaces-state-subscriptions:1:1"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
@@ -107,53 +106,53 @@ services:
     image: testbeds-netconf-ncclient-collector:latest
     hostname: ncclient-collector-1
     container_name: ncclient-collector-1
-    command: ["python3", "-u", "/opt/ncclient-collector/ncclient-collector-kafka.py", "clab-telemetry-ixiac-lab-r1", "GigabitEthernet2", "1000"]
+    command: ["python3", "-u", "/opt/ncclient-collector/ncclient-collector-kafka.py", "clab-telemetry-ixiac-lab-r1", "GigabitEthernet2", "5000"]
     volumes:
       - ./docker/ncclient-collector:/opt/ncclient-collector
     depends_on:
       ncclient-collector-builder:
         condition: service_completed_successfully
       kafka:
-        condition: service_started
+        condition: service_healthy
 
   ncclient-collector-2:
     image: testbeds-netconf-ncclient-collector:latest
     hostname: ncclient-collector-2
     container_name: ncclient-collector-2
-    command: ["python3", "-u", "/opt/ncclient-collector/ncclient-collector-kafka.py", "clab-telemetry-ixiac-lab-r1", "GigabitEthernet3", "1000"]
+    command: ["python3", "-u", "/opt/ncclient-collector/ncclient-collector-kafka.py", "clab-telemetry-ixiac-lab-r1", "GigabitEthernet3", "5000"]
     volumes:
       - ./docker/ncclient-collector:/opt/ncclient-collector
     depends_on:
       ncclient-collector-builder:
         condition: service_completed_successfully
       kafka:
-        condition: service_started
+        condition: service_healthy
 
   ncclient-collector-3:
     image: testbeds-netconf-ncclient-collector:latest
     hostname: ncclient-collector-3
     container_name: ncclient-collector-3
-    command: ["python3", "-u", "/opt/ncclient-collector/ncclient-collector-kafka.py", "clab-telemetry-ixiac-lab-r2", "GigabitEthernet2", "1000"]
+    command: ["python3", "-u", "/opt/ncclient-collector/ncclient-collector-kafka.py", "clab-telemetry-ixiac-lab-r2", "GigabitEthernet2", "5000"]
     volumes:
       - ./docker/ncclient-collector:/opt/ncclient-collector
     depends_on:
       ncclient-collector-builder:
         condition: service_completed_successfully
       kafka:
-        condition: service_started
+        condition: service_healthy
 
   ncclient-collector-4:
     image: testbeds-netconf-ncclient-collector:latest
     hostname: ncclient-collector-4
     container_name: ncclient-collector-4
-    command: ["python3", "-u", "/opt/ncclient-collector/ncclient-collector-kafka.py", "clab-telemetry-ixiac-lab-r2", "GigabitEthernet3", "1000"]
+    command: ["python3", "-u", "/opt/ncclient-collector/ncclient-collector-kafka.py", "clab-telemetry-ixiac-lab-r2", "GigabitEthernet3", "5000"]
     volumes:
       - ./docker/ncclient-collector:/opt/ncclient-collector
     depends_on:
       ncclient-collector-builder:
         condition: service_completed_successfully
       kafka:
-        condition: service_started
+        condition: service_healthy
 
   xml-parser-with-ngsi-ld-instantiator:
     build:
@@ -170,7 +169,7 @@ services:
       context-catalog:
         condition: service_started
       kafka:
-        condition: service_started
+        condition: service_healthy
     restart: always
 
 networks:
