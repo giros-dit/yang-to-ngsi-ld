@@ -15,10 +15,10 @@ while True:
 
     data[0]['timestamp'] = current_time
 
-    print("NOTIFICATION DATA: " + str(json.dumps(data)) + "\n")
-    print("NOTIFICATION TIMESTAMP: " + current_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
-
     producer.send('interfaces-state-notifications', value=json.dumps(data).encode('utf-8'))
     producer.flush()
+
+    print("NOTIFICATION DATA: " + str(json.dumps(data)) + "\n")
+    print("NOTIFICATION TIMESTAMP: " + current_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
     
     time.sleep(int(sys.argv[1]))

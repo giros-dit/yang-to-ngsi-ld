@@ -38,11 +38,11 @@ while True:
 
     notification_xml = et.tostring(root, encoding='unicode')
 
-    print("NOTIFICATION DATA R1 Ethernet2: " + str(notification_xml) + "\n")
-    print("NOTIFICATION TIMESTAMP R1 Ethernet2: " + current_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
-
     producer.send('interfaces-state-subscriptions', value=notification_xml.encode('utf-8'))
     producer.flush()
+
+    print("NOTIFICATION DATA R1 Ethernet2: " + str(notification_xml) + "\n")
+    print("NOTIFICATION TIMESTAMP R1 Ethernet2: " + current_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
 
     data = original_data_r1_eth3
     root = data.getroot()
@@ -54,11 +54,11 @@ while True:
 
     notification_xml = et.tostring(root, encoding='unicode')
 
-    print("NOTIFICATION DATA R1 Ethernet3: " + str(notification_xml) + "\n")
-    print("NOTIFICATION TIMESTAMP R1 Ethernet3: " + current_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
-
     producer.send('interfaces-state-subscriptions', value=notification_xml.encode('utf-8'))
     producer.flush()
+
+    print("NOTIFICATION DATA R1 Ethernet3: " + str(notification_xml) + "\n")
+    print("NOTIFICATION TIMESTAMP R1 Ethernet3: " + current_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
 
     data = original_data_r2_eth2
     root = data.getroot()
@@ -70,11 +70,11 @@ while True:
 
     notification_xml = et.tostring(root, encoding='unicode')
 
-    print("NOTIFICATION DATA R2 Ethernet2: " + str(notification_xml) + "\n")
-    print("NOTIFICATION TIMESTAMP R2 Ethernet2: " + current_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
-
     producer.send('interfaces-state-subscriptions', value=notification_xml.encode('utf-8'))
     producer.flush()
+
+    print("NOTIFICATION DATA R2 Ethernet2: " + str(notification_xml) + "\n")
+    print("NOTIFICATION TIMESTAMP R2 Ethernet2: " + current_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
 
     data = original_data_r2_eth3
     root = data.getroot()
@@ -86,10 +86,10 @@ while True:
 
     notification_xml = et.tostring(root, encoding='unicode')
 
-    print("NOTIFICATION DATA R2 Ethernet3: " + str(notification_xml) + "\n")
-    print("NOTIFICATION TIMESTAMP R2 Ethernet3: " + current_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
-
     producer.send('interfaces-state-subscriptions', value=notification_xml.encode('utf-8'))
     producer.flush()
+
+    print("NOTIFICATION DATA R2 Ethernet3: " + str(notification_xml) + "\n")
+    print("NOTIFICATION TIMESTAMP R2 Ethernet3: " + current_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
 
     time.sleep(int(sys.argv[2]))

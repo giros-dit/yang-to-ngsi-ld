@@ -22,11 +22,11 @@ while True:
     data_r1[0]['timestamp'] = current_time
     data_r1[0]['time'] = str(current_datetime)
 
-    print("QUERY DATA R1: " + str(json.dumps(data_r1)) + "\n")
-    print("QUERY TIMESTAMP R1: " + current_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
-
     producer.send('interfaces-state-queries', value=json.dumps(data_r1).encode('utf-8'))
     producer.flush()
+
+    print("QUERY DATA R1: " + str(json.dumps(data_r1)) + "\n")
+    print("QUERY TIMESTAMP R1: " + current_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
 
     current_time = time.time_ns()
     current_datetime = datetime.datetime.now(datetime.timezone.utc)
@@ -34,11 +34,11 @@ while True:
     data_r2[0]['timestamp'] = current_time
     data_r2[0]['time'] = str(current_datetime)
 
-    print("QUERY DATA R2: " + str(json.dumps(data_r2)) + "\n")
-    print("QUERY TIMESTAMP R2: " + current_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
-
     producer.send('interfaces-state-queries', value=json.dumps(data_r2).encode('utf-8'))
     producer.flush()
+
+    print("QUERY DATA R2: " + str(json.dumps(data_r2)) + "\n")
+    print("QUERY TIMESTAMP R2: " + current_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
     
     current_time = time.time_ns()
     current_datetime = datetime.datetime.now(datetime.timezone.utc)
@@ -46,10 +46,10 @@ while True:
     data_r3[0]['timestamp'] = current_time
     data_r3[0]['time'] = str(current_datetime)
 
-    print("QUERY DATA R3: " + str(json.dumps(data_r3)) + "\n")
-    print("QUERY TIMESTAMP R3: " + current_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
-
     producer.send('interfaces-state-queries', value=json.dumps(data_r3).encode('utf-8'))
     producer.flush()
+
+    print("QUERY DATA R3: " + str(json.dumps(data_r3)) + "\n")
+    print("QUERY TIMESTAMP R3: " + current_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
 
     time.sleep(int(sys.argv[1]))
