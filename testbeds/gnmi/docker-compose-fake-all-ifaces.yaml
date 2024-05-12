@@ -80,7 +80,7 @@ services:
       dockerfile: Dockerfile
     hostname: fake-gnmic-collector-queries
     container_name: fake-gnmic-collector-queries
-    command: ["python3", "-u", "/opt/fake-gnmic-collector-queries/gnmic-collector-queries-kafka.py", "100"]
+    command: ["python3", "-u", "/opt/fake-gnmic-collector-queries/gnmic-collector-queries-kafka-all.py", "110"]
     volumes:
       - ./docker/fake-gnmic-collector-queries:/opt/fake-gnmic-collector-queries
     depends_on:
@@ -95,7 +95,7 @@ services:
       dockerfile: Dockerfile
     hostname: fake-gnmic-collector-subscriptions
     container_name: fake-gnmic-collector-subscriptions
-    command: ["python3", "-u", "/opt/fake-gnmic-collector-subscriptions/gnmic-collector-subscriptions-kafka.py", "1"]
+    command: ["python3", "-u", "/opt/fake-gnmic-collector-subscriptions/gnmic-collector-subscriptions-kafka-all.py", "5.5"]
     volumes:
       - ./docker/fake-gnmic-collector-subscriptions:/opt/fake-gnmic-collector-subscriptions
     depends_on:

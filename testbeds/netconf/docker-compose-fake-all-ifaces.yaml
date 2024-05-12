@@ -119,7 +119,7 @@ services:
       dockerfile: Dockerfile
     hostname: fake-ncclient-collector
     container_name: fake-ncclient-collector
-    command: ["python3", "-u", "/opt/fake-ncclient-collector/ncclient-collector-kafka.py", "clab-telemetry-ixiac-lab-r1", "1"]
+    command: ["python3", "-u", "/opt/fake-ncclient-collector/ncclient-collector-kafka-all.py", "clab-telemetry-ixiac-lab-r1", "5.5"]
     volumes:
       - ./docker/fake-ncclient-collector:/opt/fake-ncclient-collector
     depends_on:

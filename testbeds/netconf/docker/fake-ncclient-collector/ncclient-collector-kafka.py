@@ -1,6 +1,7 @@
 import sys
 from kafka import KafkaProducer
 import xml.etree.ElementTree as et
+import random
 import time
 import datetime
 
@@ -92,4 +93,7 @@ while True:
     print("NOTIFICATION DATA R2 Ethernet3: " + str(notification_xml) + "\n")
     print("NOTIFICATION TIMESTAMP R2 Ethernet3: " + current_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
 
-    time.sleep(int(sys.argv[2]))
+    timeout = random.uniform(0.1, float(sys.argv[2]))
+    print("Time sleep of: " + str(timeout) + " seconds \n")
+    
+    time.sleep(timeout)

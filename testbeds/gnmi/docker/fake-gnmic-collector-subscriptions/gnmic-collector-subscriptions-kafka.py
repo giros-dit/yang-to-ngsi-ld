@@ -1,6 +1,7 @@
 import sys
 from kafka import KafkaProducer
 import time
+import random
 import datetime
 import json
 
@@ -49,4 +50,7 @@ while True:
     print("NOTIFICATION DATA R3: " + str(json.dumps(data_r3)) + "\n")
     print("NOTIFICATION TIMESTAMP R3: " + current_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
     
-    time.sleep(int(sys.argv[1]))
+    timeout = random.uniform(0.1, float(sys.argv[1]))
+    print("Time sleep of: " + str(timeout) + " seconds \n")
+
+    time.sleep(timeout)

@@ -1,0 +1,4514 @@
+[
+    {
+      "source": "clab-telemetry-testbed-xrv9k-ceos-4hosts-r1:57400",
+      "timestamp": 1713867157782621895,
+      "time": "2024-04-23T10:12:37.782621895Z",
+      "updates": [
+        {
+          "Path": "openconfig-interfaces:interfaces",
+          "values": {
+            "openconfig-interfaces:interfaces": {
+              "interface": [
+                {
+                  "config": {
+                    "name": "MgmtEth0/RP0/CPU0/0",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "MgmtEth0/RP0/CPU0/0",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false,
+                      "counters": {
+                        "in-8021q-frames": 0,
+                        "in-crc-errors": 0,
+                        "in-fragment-frames": 0,
+                        "in-jabber-frames": 0,
+                        "in-mac-pause-frames": 0,
+                        "in-oversize-frames": 0,
+                        "in-undersize-frames": 0,
+                        "out-8021q-frames": 0,
+                        "out-mac-pause-frames": 0
+                      }
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 1,
+                      "in-broadcast-pkts": 0,
+                      "in-discards": 0,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 732,
+                      "in-pkts": 8,
+                      "in-unicast-pkts": 8,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 0,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 466,
+                      "out-pkts": 8,
+                      "out-unicast-pkts": 8
+                    },
+                    "enabled": true,
+                    "ifindex": 3,
+                    "last-change": 1713860636351542800,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "MgmtEth0/RP0/CPU0/0",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "10.0.0.15",
+                                  "prefix-length": 24
+                                },
+                                "ip": "10.0.0.15",
+                                "state": {
+                                  "ip": "10.0.0.15",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "10.0.0.2",
+                                "state": {
+                                  "ip": "10.0.0.2",
+                                  "link-layer-address": "52:55:0a:00:00:02",
+                                  "origin": "DYNAMIC"
+                                }
+                              },
+                              {
+                                "ip": "10.0.0.15",
+                                "state": {
+                                  "ip": "10.0.0.15",
+                                  "link-layer-address": "0c:00:99:79:3b:00",
+                                  "origin": "OTHER"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/0",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/0",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/0",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/1",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/1",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 0,
+                      "in-discards": 15,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 485219,
+                      "in-pkts": 3738,
+                      "in-unicast-pkts": 3738,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 84,
+                      "out-pkts": 2,
+                      "out-unicast-pkts": 1
+                    },
+                    "enabled": true,
+                    "ifindex": 7,
+                    "last-change": 1713860641499791000,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/1",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "10.0.1.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "10.0.1.1",
+                                "state": {
+                                  "ip": "10.0.1.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "10.0.1.1",
+                                "state": {
+                                  "ip": "10.0.1.1",
+                                  "link-layer-address": "0c:00:13:75:7c:02",
+                                  "origin": "OTHER"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/2",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/2",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/2",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/3",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/3",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/3",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/4",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/4",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/4",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/5",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/5",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/5",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/6",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/6",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/6",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/7",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/7",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/7",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/8",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/8",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/8",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/9",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/9",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/9",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/10",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/10",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/10",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/11",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/11",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/11",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/12",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/12",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/12",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/13",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/13",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/13",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/14",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/14",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/14",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/15",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/15",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/15",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/16",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/16",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/16",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/17",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/17",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/17",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/18",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/18",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/18",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/19",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/19",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/19",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/20",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/20",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/20",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/21",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/21",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/21",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/22",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/22",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/22",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/23",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/23",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/23",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/24",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/24",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/24",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/25",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/25",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/25",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/26",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/26",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/26",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/27",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/27",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/27",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/28",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/28",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/28",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/29",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/29",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/29",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/30",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/30",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/30",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/31",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/31",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/31",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/32",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/32",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/32",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/33",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/33",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/33",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/34",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/34",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/34",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/35",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/35",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/35",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/36",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/36",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/36",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/37",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/37",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/37",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/38",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/38",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/38",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/39",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/39",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/39",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/40",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/40",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/40",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/41",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/41",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/41",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/42",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/42",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/42",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/43",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/43",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/43",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/44",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/44",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/44",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/45",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/45",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/45",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/46",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/46",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/46",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "config": {
+                    "name": "GigabitEthernet0/0/0/47",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "name": "GigabitEthernet0/0/0/47",
+                  "openconfig-if-ethernet:ethernet": {
+                    "config": {
+                      "auto-negotiate": false
+                    },
+                    "state": {
+                      "auto-negotiate": false
+                    }
+                  },
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 82,
+                      "in-discards": 8,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 70295,
+                      "in-pkts": 415,
+                      "in-unicast-pkts": 333,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 1,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 3402,
+                      "out-pkts": 81,
+                      "out-unicast-pkts": 80
+                    },
+                    "enabled": true,
+                    "ifindex": 6,
+                    "last-change": 1713860641556827400,
+                    "logical": false,
+                    "loopback-mode": false,
+                    "mtu": 1514,
+                    "name": "GigabitEthernet0/0/0/47",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:ethernetCsmacd"
+                  },
+                  "subinterfaces": {
+                    "subinterface": [
+                      {
+                        "index": 0,
+                        "openconfig-if-ip:ipv4": {
+                          "addresses": {
+                            "address": [
+                              {
+                                "config": {
+                                  "ip": "192.168.254.1",
+                                  "prefix-length": 24
+                                },
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "origin": "STATIC",
+                                  "prefix-length": 24
+                                }
+                              }
+                            ]
+                          },
+                          "neighbors": {
+                            "neighbor": [
+                              {
+                                "ip": "192.168.254.1",
+                                "state": {
+                                  "ip": "192.168.254.1",
+                                  "link-layer-address": "0c:00:ec:97:60:01",
+                                  "origin": "OTHER"
+                                }
+                              },
+                              {
+                                "ip": "192.168.254.2",
+                                "state": {
+                                  "ip": "192.168.254.2",
+                                  "link-layer-address": "aa:c1:ab:19:b4:23",
+                                  "origin": "DYNAMIC"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "Null0",
+                  "state": {
+                    "admin-status": "UP",
+                    "counters": {
+                      "carrier-transitions": 0,
+                      "in-broadcast-pkts": 0,
+                      "in-discards": 0,
+                      "in-errors": 0,
+                      "in-fcs-errors": 0,
+                      "in-multicast-pkts": 0,
+                      "in-octets": 0,
+                      "in-pkts": 0,
+                      "in-unicast-pkts": 0,
+                      "in-unknown-protos": 0,
+                      "out-broadcast-pkts": 0,
+                      "out-discards": 0,
+                      "out-errors": 0,
+                      "out-multicast-pkts": 0,
+                      "out-octets": 0,
+                      "out-pkts": 0,
+                      "out-unicast-pkts": 0
+                    },
+                    "enabled": true,
+                    "ifindex": 2,
+                    "last-change": 1713860391317279000,
+                    "logical": true,
+                    "loopback-mode": false,
+                    "mtu": 1500,
+                    "name": "Null0",
+                    "oper-status": "UP",
+                    "type": "iana-if-type:other"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
