@@ -61,13 +61,13 @@ print("\n")
 
 fig, (ax_gnmi, ax_netconf) = plt.subplots(1, 2, figsize=(10, 5))
 
-gnmi_plot1 = gnmi_df1.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "red", linewidth = 1.5), ax=ax_gnmi, positions=[1])
+gnmi_plot1 = gnmi_df1.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "red", linewidth = 1.5), boxprops = dict(facecolor = "blue"), ax=ax_gnmi, positions=[1])
 
-gnmi_plot2 = gnmi_df2.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "red", linewidth = 1.5), ax=ax_gnmi, positions=[2])
+gnmi_plot2 = gnmi_df2.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "red", linewidth = 1.5), boxprops = dict(facecolor = "blue"), ax=ax_gnmi, positions=[2])
 
-gnmi_plot3 = gnmi_df3.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "red", linewidth = 1.5), ax=ax_gnmi, positions=[3])
+gnmi_plot3 = gnmi_df3.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "red", linewidth = 1.5), boxprops = dict(facecolor = "blue"), ax=ax_gnmi, positions=[3])
 
-gnmi_plot4 = gnmi_df4.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "red", linewidth = 1.5), ax=ax_gnmi, positions=[4])
+gnmi_plot4 = gnmi_df4.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "red", linewidth = 1.5), boxprops = dict(facecolor = "blue"), ax=ax_gnmi, positions=[4])
 
 
 netconf_df1 = pd.read_csv('netconf_performance_measurements_translation_12ifaces.csv')
