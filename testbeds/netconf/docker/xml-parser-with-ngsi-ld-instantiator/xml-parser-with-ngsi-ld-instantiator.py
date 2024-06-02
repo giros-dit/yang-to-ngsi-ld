@@ -46,6 +46,7 @@ logger = logging.getLogger(__name__)
 
 # NGSI-LD Context Broker:
 BROKER_URI = os.getenv("BROKER_URI", "http://scorpio:9090/ngsi-ld/v1")
+#BROKER_URI = os.getenv("BROKER_URI", "http://orion:1026/ngsi-ld/v1")
 
 # Context Catalog:
 CONTEXT_CATALOG_URI = os.getenv("CONTEXT_CATALOG_URI", "http://context-catalog:8080/context.jsonld")
@@ -597,13 +598,53 @@ def init_ngsi_ld_client():
                     'rel="http://www.w3.org/ns/json-ld#context"; '
                     'type="application/ld+json"'.format(CONTEXT_CATALOG_URI)
     )
-
+    
     ngsi_ld.set_default_header(
         header_name="Accept",
         header_value="application/json"
     )
 
     return ngsi_ld
+
+def batch_upsert_ngsi_ld_entities(ngsi_ld, dict_buffers) -> bool:
+    result = False
+    
+    api_instance = ngsi_ld_client.ContextInformationProvisionApi(ngsi_ld)
+
+    query_entity_inputs = []
+
+    test_start_time = time.perf_counter_ns()
+    test_start_datetime = datetime.datetime.now(datetime.timezone.utc)
+    
+    for dict_buffer in dict_buffers:
+        entity = get_entity_class_object_by_type(dict_buffer)
+        entity_input = entity.to_dict()
+        #logger.info("Entity object representation: %s\n" % Entity.from_dict(entity_input))
+        #logger.info("QueryEntity200ResponseInner object representation: %s\n" % QueryEntity200ResponseInner.from_dict(entity_input))
+        query_entity_inputs.append(QueryEntity200ResponseInner.from_dict(entity_input))
+
+    test_stop_time = time.perf_counter_ns()
+    test_stop_datetime = datetime.datetime.now(datetime.timezone.utc)
+    test_exec_time = test_stop_time - test_start_time
+    print("UPSERT ITERATION PHASE 1 STARTED AT: " + test_start_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
+    print("UPSERT ITERATION PHASE 1 FINISHED AT: " + test_stop_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
+    print(f"UPSERT ITERATION PHASE 1 EXECUTION TIME: {test_exec_time/1e6} ms\n")
+    try:
+        # Create NGSI-LD entities of type Interface: POST /entityOperations/upsert
+        test_start_time = time.perf_counter_ns()
+        test_start_datetime = datetime.datetime.now(datetime.timezone.utc)
+        api_response = api_instance.upsert_batch(query_entity200_response_inner=query_entity_inputs)
+        test_stop_time = time.perf_counter_ns()
+        test_stop_datetime = datetime.datetime.now(datetime.timezone.utc)
+        test_exec_time = test_stop_time - test_start_time
+        print("UPSERT ITERATION PHASE 2 STARTED AT: " + test_start_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
+        print("UPSERT ITERATION PHASE 2 FINISHED AT: " + test_stop_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
+        print(f"UPSERT ITERATION PHASE 2 EXECUTION TIME: {test_exec_time/1e6} ms\n")
+        #logger.info(api_response.to_dict())
+        result = True
+    except Exception as e:
+        logger.exception("Exception when calling ContextInformationProvisionApi->create_entity: %s\n" % e)
+        result = False  
 
 def upsert_ngsi_ld_entity(ngsi_ld, entity) -> bool:
     result = False
@@ -622,7 +663,7 @@ def upsert_ngsi_ld_entity(ngsi_ld, entity) -> bool:
     entities_input.append(query_entity_input)
 
     try:
-        # Create NGSI-LD entities of type Interface and Sensor: POST /entityOperations/upsert
+        # Create NGSI-LD entities of type Interface: POST /entityOperations/upsert
         api_response = api_instance.upsert_batch(query_entity200_response_inner=entities_input)
         #logger.info(api_response.to_dict())
         result = True
@@ -643,12 +684,12 @@ def create_ngsi_ld_entity(ngsi_ld, entity) -> bool:
     query_entity_input = QueryEntity200ResponseInner.from_dict(entity_input)
 
     try:
-        # Create NGSI-LD entity of type Sensor: POST /entities
+        # Create NGSI-LD entity of particular type: POST /entities
         api_response = api_instance.create_entity(query_entity200_response_inner=query_entity_input)
         #logger.info(api_response.to_dict())
         result = True
     except Exception as e:
-        logger.exception("Exception when calling ContextInformationProvisionApi->create_entity: %s\n" % e)
+        logger.exception("Exception when calling ContextInformationProvisionApi->upsert_entity: %s\n" % e)
         result = False
 
     return result
@@ -781,7 +822,8 @@ while True:
         print("I have parsed the XML and created the associated NGSI-LD-compliant data structures/dictionary buffers")
 
         print("I will now create the NGSI-LD entities from the data structures/dictionary buffers")
-
+        
+        '''
         for dict_buffer in dict_buffers:
             entity_id = dict_buffer['id']
             
@@ -794,8 +836,8 @@ while True:
                 print("Entity " + entity_id + " COULD NOT BE UPSERTED")
             else:
                 print("Entity " + entity_id + " WAS SUCCESSFULLY UPSERTED")
-
-            '''
+        '''
+        '''
             exists = retrieve_ngsi_ld_entity(ngsi_ld, entity_id)
             if exists == False:
                 print("Entity " + entity_id + " DOES NOT EXIST. Trying to create it...")
@@ -811,8 +853,14 @@ while True:
                     print("Entity " + entity_id + " COULD NOT BE UPDATED")
                 else:
                     print("Entity " + entity_id + " WAS SUCCESSFULLY UPDATED")
-            '''
-
+        '''
+        
+        upserted = batch_upsert_ngsi_ld_entities(ngsi_ld, dict_buffers)
+        if upserted == False:
+            print("ENTITIES COULD NOT BE UPSERTED")
+        else:
+            print("ENTITIES WAS SUCCESSFULLY UPSERTED")
+        
         stop_time = time.perf_counter_ns()
         stop_datetime = datetime.datetime.now(datetime.timezone.utc)
         
