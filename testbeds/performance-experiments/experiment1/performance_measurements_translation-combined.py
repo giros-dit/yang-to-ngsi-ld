@@ -8,7 +8,6 @@ legend_handles = [
     Patch(facecolor='blue', edgecolor='red', label='gNMI')
 ]
 
-
 raw_gnmi_df1 = pd.read_csv('gnmi_performance_measurements_translation_12ifaces.csv')
 sum_by_12_rows = raw_gnmi_df1.groupby(raw_gnmi_df1.index // 12)['iteration_execution_time'].sum()
 gnmi_df1 = pd.DataFrame({'iteration_execution_time': sum_by_12_rows})

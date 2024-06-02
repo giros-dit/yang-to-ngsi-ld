@@ -113,8 +113,6 @@ ax_netflow_2.set_ylabel('Latency (milliseconds)')
 ax_netflow_2.set_title('YANG to NGSI-LD translation and materialization \n performance for NetFlow')
 ax_netflow_2.set_xticks([1, 2, 3], ['10', '20', '50'])
 
-#plt.xticks([1, 2, 3], ['10', '20', '50'])
 plt.tight_layout()
-
 plt.savefig("netflow_performance_measurements.png", format="png", dpi=1500)
 plt.show()
