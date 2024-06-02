@@ -42,6 +42,7 @@ logger = logging.getLogger(__name__)
 
 # NGSI-LD Context Broker:
 BROKER_URI = os.getenv("BROKER_URI", "http://scorpio:9090/ngsi-ld/v1")
+#BROKER_URI = os.getenv("BROKER_URI", "http://orion:1026/ngsi-ld/v1")
 
 # Context Catalog:
 CONTEXT_CATALOG_URI = os.getenv("CONTEXT_CATALOG_URI", "http://context-catalog:8080/context.jsonld")
@@ -61,7 +62,7 @@ def init_ngsi_ld_client():
                     'rel="http://www.w3.org/ns/json-ld#context"; '
                     'type="application/ld+json"'.format(CONTEXT_CATALOG_URI)
     )
-
+    
     ngsi_ld.set_default_header(
         header_name="Accept",
         header_value="application/json"
