@@ -4,8 +4,8 @@ from matplotlib.patches import Patch
 
 # Create custom legend handles
 legend_handles = [
-    Patch(facecolor='grey', edgecolor='yellow', label='NETCONF'),
-    Patch(facecolor='blue', edgecolor='red', label='gNMI')
+    Patch(facecolor='white', edgecolor='cyan', label='NETCONF'),
+    Patch(facecolor='white', edgecolor='orange', label='gNMI')
 ]
 
 raw_gnmi_df1 = pd.read_csv('gnmi_performance_measurements_translation_12ifaces.csv')
@@ -68,13 +68,13 @@ print("\n")
 
 fig, ax = plt.subplots()
 
-gnmi_plot1 = gnmi_df1.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "red", linewidth = 1.5), boxprops = dict(facecolor = "blue"), ax=ax, positions=[1])
+gnmi_plot1 = gnmi_df1.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "cyan", linewidth = 1.5), boxprops = dict(facecolor = "white"), ax=ax, positions=[1])
 
-gnmi_plot2 = gnmi_df2.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "red", linewidth = 1.5), boxprops = dict(facecolor = "blue"), ax=ax, positions=[2])
+gnmi_plot2 = gnmi_df2.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "cyan", linewidth = 1.5), boxprops = dict(facecolor = "white"), ax=ax, positions=[2])
 
-gnmi_plot3 = gnmi_df3.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "red", linewidth = 1.5), boxprops = dict(facecolor = "blue"), ax=ax, positions=[3])
+gnmi_plot3 = gnmi_df3.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "cyan", linewidth = 1.5), boxprops = dict(facecolor = "white"), ax=ax, positions=[3])
 
-gnmi_plot4 = gnmi_df4.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "red", linewidth = 1.5), boxprops = dict(facecolor = "blue"), ax=ax, positions=[4])
+gnmi_plot4 = gnmi_df4.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "cyan", linewidth = 1.5), boxprops = dict(facecolor = "white"), ax=ax, positions=[4])
 
 
 netconf_df1 = pd.read_csv('netconf_performance_measurements_translation_12ifaces.csv')
@@ -108,13 +108,13 @@ print("48 Interfaces - Mean:", netconf_mean_4)
 print("48 Interfaces - Standard deviation:", netconf_standard_deviation_4)
 print("\n")
 
-netconf_plot1 = netconf_df1.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "yellow", linewidth = 1.5), boxprops = dict(facecolor = "grey"), ax=ax, positions=[1])
+netconf_plot1 = netconf_df1.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "orange", linewidth = 1.5), boxprops = dict(facecolor = "white"), ax=ax, positions=[1])
 
-netconf_plot2 = netconf_df2.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "yellow", linewidth = 1.5), boxprops = dict(facecolor = "grey"), ax=ax, positions=[2])
+netconf_plot2 = netconf_df2.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "orange", linewidth = 1.5), boxprops = dict(facecolor = "white"), ax=ax, positions=[2])
 
-netconf_plot3 = netconf_df3.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "yellow", linewidth = 1.5), boxprops = dict(facecolor = "grey"), ax=ax, positions=[3])
+netconf_plot3 = netconf_df3.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "orange", linewidth = 1.5), boxprops = dict(facecolor = "white"), ax=ax, positions=[3])
 
-netconf_plot4 = netconf_df4.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "yellow", linewidth = 1.5), boxprops = dict(facecolor = "grey"), ax=ax, positions=[4])
+netconf_plot4 = netconf_df4.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "orange", linewidth = 1.5), boxprops = dict(facecolor = "white"), ax=ax, positions=[4])
 
 plt.legend(handles=legend_handles)
 plt.xlabel('Number of network interfaces')
