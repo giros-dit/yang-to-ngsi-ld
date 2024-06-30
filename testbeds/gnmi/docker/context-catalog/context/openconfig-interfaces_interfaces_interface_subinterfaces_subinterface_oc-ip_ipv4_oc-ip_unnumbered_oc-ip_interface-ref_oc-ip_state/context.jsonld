@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
+        "State": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/oc-ip:ipv4/oc-ip:unnumbered/oc-ip:interface-ref/oc-ip:state",
+        "interface": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/oc-ip:ipv4/oc-ip:unnumbered/oc-ip:interface-ref/oc-ip:state/oc-ip:interface",
+        "subinterface": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/oc-ip:ipv4/oc-ip:unnumbered/oc-ip:interface-ref/oc-ip:state/oc-ip:subinterface"
+    }
+}

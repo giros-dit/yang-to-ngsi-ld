@@ -1,0 +1,13 @@
+{
+    "@context": [
+        {
+            "ietf-yang": "http://ietf.yang.org#",
+            "YANGIdentity": "ietf-yang:YANGIdentity",
+            "description": "ietf-yang:description",
+            "identifier": "ietf-yang:identifier",
+            "namespace": "ietf-yang:namespace",
+            "broader": "http://www.w3.org/2004/02/skos/core#broader"
+        },
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.6.jsonld"
+    ]
+}

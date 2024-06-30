@@ -1,0 +1,27 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceEthernetStatistics": "srl_nokia-interfaces:interface/ethernet/statistics",
+        "inMacPauseFrames": "srl_nokia-interfaces:interface/ethernet/statistics/in-mac-pause-frames",
+        "inOversizeFrames": "srl_nokia-interfaces:interface/ethernet/statistics/in-oversize-frames",
+        "inJabberFrames": "srl_nokia-interfaces:interface/ethernet/statistics/in-jabber-frames",
+        "inFragmentFrames": "srl_nokia-interfaces:interface/ethernet/statistics/in-fragment-frames",
+        "inCrcErrorFrames": "srl_nokia-interfaces:interface/ethernet/statistics/in-crc-error-frames",
+        "outMacPauseFrames": "srl_nokia-interfaces:interface/ethernet/statistics/out-mac-pause-frames",
+        "in64bFrames": "srl_nokia-interfaces:interface/ethernet/statistics/in-64b-frames",
+        "in65bTo127bFrames": "srl_nokia-interfaces:interface/ethernet/statistics/in-65b-to-127b-frames",
+        "in128bTo255bFrames": "srl_nokia-interfaces:interface/ethernet/statistics/in-128b-to-255b-frames",
+        "in256bTo511bFrames": "srl_nokia-interfaces:interface/ethernet/statistics/in-256b-to-511b-frames",
+        "in512bTo1023bFrames": "srl_nokia-interfaces:interface/ethernet/statistics/in-512b-to-1023b-frames",
+        "in1024bTo1518bFrames": "srl_nokia-interfaces:interface/ethernet/statistics/in-1024b-to-1518b-frames",
+        "in1519bOrLongerFrames": "srl_nokia-interfaces:interface/ethernet/statistics/in-1519b-or-longer-frames",
+        "out64bFrames": "srl_nokia-interfaces:interface/ethernet/statistics/out-64b-frames",
+        "out65bTo127bFrames": "srl_nokia-interfaces:interface/ethernet/statistics/out-65b-to-127b-frames",
+        "out128bTo255bFrames": "srl_nokia-interfaces:interface/ethernet/statistics/out-128b-to-255b-frames",
+        "out256bTo511bFrames": "srl_nokia-interfaces:interface/ethernet/statistics/out-256b-to-511b-frames",
+        "out512bTo1023bFrames": "srl_nokia-interfaces:interface/ethernet/statistics/out-512b-to-1023b-frames",
+        "out1024bTo1518bFrames": "srl_nokia-interfaces:interface/ethernet/statistics/out-1024b-to-1518b-frames",
+        "out1519bOrLongerFrames": "srl_nokia-interfaces:interface/ethernet/statistics/out-1519b-or-longer-frames",
+        "lastClear": "srl_nokia-interfaces:interface/ethernet/statistics/last-clear"
+    }
+}

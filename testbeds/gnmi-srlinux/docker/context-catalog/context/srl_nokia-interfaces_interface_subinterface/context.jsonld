@@ -1,0 +1,17 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceSubinterface": "srl_nokia-interfaces:interface/subinterface",
+        "index": "srl_nokia-interfaces:interface/subinterface/index",
+        "description": "srl_nokia-interfaces:interface/subinterface/description",
+        "adminState": "srl_nokia-interfaces:interface/subinterface/admin-state",
+        "ipMtu": "srl_nokia-interfaces:interface/subinterface/ip-mtu",
+        "l2Mtu": "srl_nokia-interfaces:interface/subinterface/l2-mtu",
+        "mplsMtu": "srl_nokia-interfaces:interface/subinterface/mpls-mtu",
+        "name": "srl_nokia-interfaces:interface/subinterface/name",
+        "ifindex": "srl_nokia-interfaces:interface/subinterface/ifindex",
+        "operState": "srl_nokia-interfaces:interface/subinterface/oper-state",
+        "operDownReason": "srl_nokia-interfaces:interface/subinterface/oper-down-reason",
+        "lastChange": "srl_nokia-interfaces:interface/subinterface/last-change"
+    }
+}

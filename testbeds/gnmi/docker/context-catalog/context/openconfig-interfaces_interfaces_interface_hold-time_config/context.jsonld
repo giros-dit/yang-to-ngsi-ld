@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
+        "Config": "openconfig-interfaces:interfaces/interface/hold-time/config",
+        "up": "openconfig-interfaces:interfaces/interface/hold-time/config/up",
+        "down": "openconfig-interfaces:interfaces/interface/hold-time/config/down"
+    }
+}

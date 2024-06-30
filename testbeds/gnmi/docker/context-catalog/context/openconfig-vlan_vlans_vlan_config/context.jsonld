@@ -1,0 +1,9 @@
+{
+    "@context": {
+        "openconfig-vlan": "http://openconfig.net/yang/vlan/",
+        "VlanConfig": "openconfig-vlan:vlans/vlan/config",
+        "vlanId": "openconfig-vlan:vlans/vlan/config/vlan-id",
+        "name": "openconfig-vlan:vlans/vlan/config/name",
+        "status": "openconfig-vlan:vlans/vlan/config/status"
+    }
+}

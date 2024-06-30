@@ -1,0 +1,12 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceAdapter": "srl_nokia-interfaces:interface/adapter",
+        "modelNumber": "srl_nokia-interfaces:interface/adapter/model-number",
+        "type": "srl_nokia-interfaces:interface/adapter/type",
+        "vendorManufactureDate": "srl_nokia-interfaces:interface/adapter/vendor-manufacture-date",
+        "vendorOui": "srl_nokia-interfaces:interface/adapter/vendor-oui",
+        "vendorPartNumber": "srl_nokia-interfaces:interface/adapter/vendor-part-number",
+        "vendorSerialNumber": "srl_nokia-interfaces:interface/adapter/vendor-serial-number"
+    }
+}

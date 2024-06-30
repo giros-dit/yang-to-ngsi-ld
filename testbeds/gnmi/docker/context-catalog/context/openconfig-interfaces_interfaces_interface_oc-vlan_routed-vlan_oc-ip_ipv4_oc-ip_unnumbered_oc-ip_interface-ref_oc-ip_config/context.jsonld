@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
+        "Config": "openconfig-interfaces:interfaces/interface/oc-vlan:routed-vlan/oc-ip:ipv4/oc-ip:unnumbered/oc-ip:interface-ref/oc-ip:config",
+        "interface": "openconfig-interfaces:interfaces/interface/oc-vlan:routed-vlan/oc-ip:ipv4/oc-ip:unnumbered/oc-ip:interface-ref/oc-ip:config/oc-ip:interface",
+        "subinterface": "openconfig-interfaces:interfaces/interface/oc-vlan:routed-vlan/oc-ip:ipv4/oc-ip:unnumbered/oc-ip:interface-ref/oc-ip:config/oc-ip:subinterface"
+    }
+}

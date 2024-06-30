@@ -1,0 +1,11 @@
+{
+    "@context": {
+        "netflow-v9": "http://data-aggregator.com/ns/netflow/",
+        "ExportPacket": "netflow-v9:netflow/export-packet",
+        "sequenceNumber": "netflow-v9:netflow/export-packet/sequence-number",
+        "count": "netflow-v9:netflow/export-packet/count",
+        "systemUptime": "netflow-v9:netflow/export-packet/system-uptime",
+        "unixSeconds": "netflow-v9:netflow/export-packet/unix-seconds",
+        "sourceId": "netflow-v9:netflow/export-packet/source-id"
+    }
+}

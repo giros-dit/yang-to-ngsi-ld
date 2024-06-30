@@ -1,0 +1,5542 @@
+[
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:mgmt0-standby",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "mgmt0-standby",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 1080049662,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.511Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:mgmt0-standby",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:mgmt0-standby",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:mgmt0-standby",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:mgmt0-standby",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "1G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:mgmt0-standby",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:mgmt0-standby",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:mgmt0",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "mgmt0",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "enable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "mtu": {
+            "type": "Property",
+            "value": 1514,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 1077952510,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "up",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:59.684Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:mgmt0",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:mgmt0",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterface:telemetry-testbed-srl-srl:r1:mgmt0.0",
+        "type": "InterfaceSubinterface",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:mgmt0",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "index": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "enable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ipMtu": {
+            "type": "Property",
+            "value": 1500,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "mgmt0.0",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 1077936129,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "up",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:59.684Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfaceStatistics:telemetry-testbed-srl-srl:r1:mgmt0.0",
+        "type": "InterfaceSubinterfaceStatistics",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterface:telemetry-testbed-srl-srl:r1:mgmt0.0",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inPackets": {
+            "type": "Property",
+            "value": 83,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 9443,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inDiscardedPackets": {
+            "type": "Property",
+            "value": 23,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inTerminatedPackets": {
+            "type": "Property",
+            "value": 60,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inTerminatedOctets": {
+            "type": "Property",
+            "value": 7540,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inForwardedPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inForwardedOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inMatchedRaPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outForwardedPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outForwardedOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outOriginatedPackets": {
+            "type": "Property",
+            "value": 78,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outOriginatedOctets": {
+            "type": "Property",
+            "value": 43590,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outDiscardedPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outPackets": {
+            "type": "Property",
+            "value": 78,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 43590,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfaceIpv6:telemetry-testbed-srl-srl:r1:mgmt0.0",
+        "type": "InterfaceSubinterfaceIpv6",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterface:telemetry-testbed-srl-srl:r1:mgmt0.0",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "enable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfaceIpv6Statistics:telemetry-testbed-srl-srl:r1:mgmt0.0",
+        "type": "InterfaceSubinterfaceIpv6Statistics",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfaceIpv6:telemetry-testbed-srl-srl:r1:mgmt0.0",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inPackets": {
+            "type": "Property",
+            "value": 81,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 9269,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inDiscardedPackets": {
+            "type": "Property",
+            "value": 21,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inTerminatedPackets": {
+            "type": "Property",
+            "value": 60,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inTerminatedOctets": {
+            "type": "Property",
+            "value": 7540,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inForwardedPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inForwardedOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inMatchedRaPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outForwardedPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outForwardedOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outOriginatedPackets": {
+            "type": "Property",
+            "value": 78,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outOriginatedOctets": {
+            "type": "Property",
+            "value": 43590,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outDiscardedPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outPackets": {
+            "type": "Property",
+            "value": 78,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 43590,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfaceIpv6Address:telemetry-testbed-srl-srl:r1:mgmt0.0",
+        "type": {
+            "type": "Property",
+            "value": "link-local-unicast",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfaceIpv6:telemetry-testbed-srl-srl:r1:mgmt0.0",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ipPrefix": {
+            "type": "Property",
+            "value": "fe80::1828:2ff:fe00:0/64",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "origin": {
+            "type": "Property",
+            "value": "link-layer",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "status": {
+            "type": "Property",
+            "value": "preferred",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfaceIpv6Address:telemetry-testbed-srl-srl:r1:mgmt0.0",
+        "type": {
+            "type": "Property",
+            "value": "global-unicast",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfaceIpv6:telemetry-testbed-srl-srl:r1:mgmt0.0",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ipPrefix": {
+            "type": "Property",
+            "value": "2001:172:20:20::3/64",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "origin": {
+            "type": "Property",
+            "value": "dhcp",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "status": {
+            "type": "Property",
+            "value": "preferred",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfaceIpv4:telemetry-testbed-srl-srl:r1:mgmt0.0",
+        "type": "InterfaceSubinterfaceIpv4",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterface:telemetry-testbed-srl-srl:r1:mgmt0.0",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "enable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "allowDirectedBroadcast": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfaceIpv4Statistics:telemetry-testbed-srl-srl:r1:mgmt0.0",
+        "type": "InterfaceSubinterfaceIpv4Statistics",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfaceIpv4:telemetry-testbed-srl-srl:r1:mgmt0.0",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inPackets": {
+            "type": "Property",
+            "value": 2,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 174,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inDiscardedPackets": {
+            "type": "Property",
+            "value": 2,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inTerminatedPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inTerminatedOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inForwardedPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inForwardedOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inMatchedRaPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outForwardedPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outForwardedOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outOriginatedPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outOriginatedOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outDiscardedPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfaceIpv4Unnumbered:telemetry-testbed-srl-srl:r1:mgmt0.0",
+        "type": "InterfaceSubinterfaceIpv4Unnumbered",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfaceIpv4:telemetry-testbed-srl-srl:r1:mgmt0.0",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfaceIpv4Address:telemetry-testbed-srl-srl:r1:mgmt0.0",
+        "type": "InterfaceSubinterfaceIpv4Address",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfaceIpv4:telemetry-testbed-srl-srl:r1:mgmt0.0",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ipPrefix": {
+            "type": "Property",
+            "value": "172.20.20.3/24",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "origin": {
+            "type": "Property",
+            "value": "dhcp",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "status": {
+            "type": "Property",
+            "value": "preferred",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfaceUnidirectionalLinkDelay:telemetry-testbed-srl-srl:r1:mgmt0.0",
+        "type": "InterfaceSubinterfaceUnidirectionalLinkDelay",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterface:telemetry-testbed-srl-srl:r1:mgmt0.0",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "staticDelay": {
+            "type": "Property",
+            "value": "none",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:mgmt0",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:mgmt0",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "1G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:00:00:00",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetStatistics:telemetry-testbed-srl-srl:r1:mgmt0",
+        "type": "InterfaceEthernetStatistics",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:mgmt0",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inMacPauseFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inOversizeFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inJabberFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inFragmentFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inCrcErrorFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outMacPauseFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "in64bFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "in65bTo127bFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "in128bTo255bFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "in256bTo511bFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "in512bTo1023bFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "in1024bTo1518bFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "in1519bOrLongerFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "out64bFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "out65bTo127bFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "out128bTo255bFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "out256bTo511bFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "out512bTo1023bFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "out1024bTo1518bFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "out1519bOrLongerFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetHoldTime:telemetry-testbed-srl-srl:r1:mgmt0",
+        "type": "InterfaceEthernetHoldTime",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:mgmt0",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "up": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "down": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:mgmt0",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:mgmt0",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTrafficRate:telemetry-testbed-srl-srl:r1:mgmt0",
+        "type": "InterfaceTrafficRate",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:mgmt0",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inBps": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outBps": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStatistics:telemetry-testbed-srl-srl:r1:mgmt0",
+        "type": "InterfaceStatistics",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:mgmt0",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inPackets": {
+            "type": "Property",
+            "value": 91,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 9915,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inUnicastPackets": {
+            "type": "Property",
+            "value": 46,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inBroadcastPackets": {
+            "type": "Property",
+            "value": 6,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inMulticastPackets": {
+            "type": "Property",
+            "value": 16,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inDiscardedPackets": {
+            "type": "Property",
+            "value": 23,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "inFcsErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outPackets": {
+            "type": "Property",
+            "value": 84,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 43950,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outUnicastPackets": {
+            "type": "Property",
+            "value": 60,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outBroadcastPackets": {
+            "type": "Property",
+            "value": 6,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outMulticastPackets": {
+            "type": "Property",
+            "value": 18,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outDiscardedPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "outErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "carrierTransitions": {
+            "type": "Property",
+            "value": 1,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/36",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/36",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 1163262,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.456Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/36",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/36",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/36",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/36",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/36",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/36",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:23",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:23",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/36",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/36",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/36",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/36",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/35",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/35",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 1130494,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.456Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/35",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/35",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/35",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/35",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/35",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/35",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:22",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:22",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/35",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/35",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/35",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/35",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/34",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/34",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 1097726,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.456Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/34",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/34",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/34",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/34",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/34",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/34",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:21",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:21",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/34",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/34",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/34",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/34",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/33",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/33",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 1064958,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.456Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/33",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/33",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/33",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/33",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/33",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/33",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:20",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:20",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/33",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/33",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/33",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/33",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/32",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/32",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 1032190,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.456Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/32",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/32",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/32",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/32",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/32",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/32",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:1F",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:1F",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/32",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/32",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/32",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/32",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/31",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/31",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 999422,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.456Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/31",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/31",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/31",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/31",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/31",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/31",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:1E",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:1E",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/31",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/31",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/31",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/31",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/30",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/30",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 966654,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.456Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/30",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/30",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/30",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/30",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/30",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/30",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:1D",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:1D",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/30",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/30",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/30",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/30",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/29",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/29",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 933886,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/29",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/29",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/29",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/29",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/29",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/29",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:1C",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:1C",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/29",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/29",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/29",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/29",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/28",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/28",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 901118,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/28",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/28",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/28",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/28",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/28",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/28",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:1B",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:1B",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/28",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/28",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/28",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/28",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/27",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/27",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 868350,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/27",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/27",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/27",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/27",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/27",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/27",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:1A",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:1A",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/27",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/27",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/27",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/27",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/26",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/26",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 835582,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/26",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/26",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/26",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/26",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/26",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/26",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:19",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:19",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/26",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/26",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/26",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/26",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/25",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/25",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 802814,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/25",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/25",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/25",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/25",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/25",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/25",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:18",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:18",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/25",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/25",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/25",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/25",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/24",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/24",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 770046,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/24",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/24",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/24",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/24",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/24",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/24",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:17",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:17",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/24",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/24",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/24",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/24",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/23",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/23",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 737278,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/23",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/23",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/23",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/23",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/23",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/23",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:16",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:16",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/23",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/23",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/23",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/23",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/22",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/22",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 704510,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/22",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/22",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/22",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/22",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/22",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/22",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:15",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:15",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/22",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/22",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/22",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/22",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/21",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/21",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 671742,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/21",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/21",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/21",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/21",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/21",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/21",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:14",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:14",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/21",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/21",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/21",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/21",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/20",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/20",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 638974,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/20",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/20",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/20",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/20",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/20",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/20",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:13",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:13",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/20",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/20",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/20",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/20",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/19",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/19",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 606206,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/19",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/19",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/19",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/19",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/19",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/19",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:12",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:12",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/19",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/19",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/19",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/19",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/18",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/18",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 573438,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/18",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/18",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/18",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/18",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/18",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/18",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:11",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:11",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/18",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/18",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/18",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/18",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/17",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/17",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 540670,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/17",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/17",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/17",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/17",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/17",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/17",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:10",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:10",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/17",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/17",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/17",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/17",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/16",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/16",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 507902,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/16",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/16",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/16",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/16",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/16",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/16",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:0F",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:0F",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/16",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/16",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/16",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/16",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/15",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/15",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 475134,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/15",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/15",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/15",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/15",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/15",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/15",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:0E",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:0E",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/15",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/15",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/15",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/15",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/14",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/14",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 442366,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/14",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/14",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/14",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/14",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/14",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/14",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:0D",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:0D",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/14",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/14",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/14",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/14",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/13",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/13",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 409598,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/13",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/13",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/13",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/13",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/13",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/13",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:0C",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:0C",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/13",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/13",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/13",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/13",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/12",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/12",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 376830,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/12",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/12",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/12",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/12",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/12",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/12",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:0B",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:0B",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/12",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/12",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/12",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/12",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/11",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/11",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 344062,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/11",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/11",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/11",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/11",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/11",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/11",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:0A",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:0A",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/11",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/11",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/11",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/11",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/10",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/10",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 311294,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/10",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/10",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/10",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/10",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/10",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/10",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:09",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:09",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/10",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/10",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/10",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/10",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/9",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/9",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 278526,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/9",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/9",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/9",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/9",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/9",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/9",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:08",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:08",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/9",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/9",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/9",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/9",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/8",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/8",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 245758,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/8",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/8",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/8",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/8",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/8",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/8",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:07",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:07",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/8",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/8",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/8",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/8",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/7",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/7",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 212990,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/7",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/7",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/7",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/7",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/7",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/7",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:06",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:06",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/7",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/7",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/7",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/7",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/6",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/6",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 180222,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/6",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/6",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/6",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/6",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/6",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/6",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:05",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:05",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/6",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/6",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/6",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/6",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/5",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/5",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 147454,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/5",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/5",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/5",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/5",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/5",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/5",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:04",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:04",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/5",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/5",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/5",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/5",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/4",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/4",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 114686,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/4",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/4",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/4",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/4",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/4",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/4",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:03",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:03",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/4",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/4",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/4",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/4",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/3",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/3",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 81918,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/3",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/3",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/3",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/3",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/3",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/3",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:02",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:02",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/3",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/3",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/3",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/3",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/2",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/2",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 49150,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/2",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/2",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/2",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/2",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/2",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/2",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:01",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:01",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/2",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/2",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/2",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/2",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/1",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/1",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 16382,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "port-admin-disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2024-04-13T19:41:57.455Z",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "linecard": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Linecard:telemetry-testbed-srl-srl:r1:ethernet-1/1",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardingComplex": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ForwardingComplex:telemetry-testbed-srl-srl:r1:ethernet-1/1",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSflow:telemetry-testbed-srl-srl:r1:ethernet-1/1",
+        "type": "InterfaceSflow",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/1",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "disable",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/1",
+        "type": "InterfaceEthernet",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/1",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "portSpeed": {
+            "type": "Property",
+            "value": "100G",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "hwMacAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:00",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "macAddress": {
+            "type": "Property",
+            "value": "1A:28:02:FF:00:00",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetFlowControl:telemetry-testbed-srl-srl:r1:ethernet-1/1",
+        "type": "InterfaceEthernetFlowControl",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernet:telemetry-testbed-srl-srl:r1:ethernet-1/1",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "receive": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceTransceiver:telemetry-testbed-srl-srl:r1:ethernet-1/1",
+        "type": "InterfaceTransceiver",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-srl-srl:r1:ethernet-1/1",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "txLaser": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operState": {
+            "type": "Property",
+            "value": "down",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "operDownReason": {
+            "type": "Property",
+            "value": "not-present",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "ddmEvents": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        },
+        "forwardErrorCorrection": {
+            "type": "Property",
+            "value": "disabled",
+            "observedAt": "2024-04-13T19:45:20.622Z"
+        }
+    }
+]

@@ -137,11 +137,24 @@ dmypy.json
 cython_debug/
 
 # VSCode
-.vscode
+# .vscode
 
 # Desktop Services Store macOS
 .DS_Store
 
-#
+# Others
 yang/modules/*/
-
+target/
+poetry.lock
+.telemetry-ixiac-lab.yaml.bak
+.telemetry-testbed-srl-srl-4hosts.yaml.bak
+.telemetry-testbed-ceos-ceos-4hosts.yaml.bak
+.telemetry-testbed-xe-ceos-4hosts.yaml.bak
+.telemetry-testbed-xe-ceos-3hosts-gf2.yaml.bak
+.telemetry-testbed-xrv9k-ceos-4hosts.yaml.bak
+clab-telemetry-ixiac-lab
+clab-telemetry-testbed-srl-srl-4hosts
+clab-telemetry-testbed-ceos-ceos-4hosts
+clab-telemetry-testbed-xe-ceos-4hosts
+clab-telemetry-testbed-xe-ceos-3hosts-gf2
+clab-telemetry-testbed-xrv9k-ceos-4hosts

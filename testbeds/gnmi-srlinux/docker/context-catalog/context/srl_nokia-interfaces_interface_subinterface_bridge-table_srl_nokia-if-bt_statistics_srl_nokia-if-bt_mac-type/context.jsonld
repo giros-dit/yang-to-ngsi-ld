@@ -1,0 +1,10 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceSubinterfaceBridgeTableStatisticsMacType": "srl_nokia-interfaces:interface/subinterface/bridge-table/srl_nokia-if-bt:statistics/srl_nokia-if-bt:mac-type",
+        "type": "srl_nokia-interfaces:interface/subinterface/bridge-table/srl_nokia-if-bt:statistics/srl_nokia-if-bt:mac-type/srl_nokia-if-bt:type",
+        "activeEntries": "srl_nokia-interfaces:interface/subinterface/bridge-table/srl_nokia-if-bt:statistics/srl_nokia-if-bt:mac-type/srl_nokia-if-bt:active-entries",
+        "totalEntries": "srl_nokia-interfaces:interface/subinterface/bridge-table/srl_nokia-if-bt:statistics/srl_nokia-if-bt:mac-type/srl_nokia-if-bt:total-entries",
+        "failedEntries": "srl_nokia-interfaces:interface/subinterface/bridge-table/srl_nokia-if-bt:statistics/srl_nokia-if-bt:mac-type/srl_nokia-if-bt:failed-entries"
+    }
+}

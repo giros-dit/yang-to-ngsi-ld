@@ -1,0 +1,10 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceSubinterfaceIpv4Unnumbered": "srl_nokia-interfaces:interface/subinterface/ipv4/unnumbered",
+        "adminState": "srl_nokia-interfaces:interface/subinterface/ipv4/unnumbered/admin-state",
+        "interface": "srl_nokia-interfaces:interface/subinterface/ipv4/unnumbered/interface",
+        "address": "srl_nokia-interfaces:interface/subinterface/ipv4/unnumbered/address",
+        "unavailableAddressReason": "srl_nokia-interfaces:interface/subinterface/ipv4/unnumbered/unavailable-address-reason"
+    }
+}

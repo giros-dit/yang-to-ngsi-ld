@@ -1,0 +1,26 @@
+[
+    {
+        "name": "ceos_traffic_stats",
+        "tags": {
+            "interface_name": "Ethernet1",
+            "source": "clab-telemetry-testbed-srl-ceos-4hosts-r2",
+            "subscription-name": "ceos_traffic_stats"
+        },
+        "timestamp": 1709039121636676490,
+        "values": {
+            "/interfaces/interface/state/counters/in-octets": 1076
+        }
+    },
+    {
+        "name": "ceos_traffic_stats",
+        "tags": {
+            "interface_name": "Ethernet2",
+            "source": "clab-telemetry-testbed-srl-ceos-4hosts-r2",
+            "subscription-name": "ceos_traffic_stats"
+        },
+        "timestamp": 1709029121636676490,
+        "values": {
+            "/interfaces/interface/state/counters/in-unicast-pkts": 9
+        }
+    }
+]

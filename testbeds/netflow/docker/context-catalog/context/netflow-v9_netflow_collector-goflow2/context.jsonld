@@ -1,0 +1,9 @@
+{
+    "@context": {
+        "netflow-v9": "http://data-aggregator.com/ns/netflow/",
+        "CollectorGoflow2": "netflow-v9:netflow/collector-goflow2",
+        "timeReceived": "netflow-v9:netflow/collector-goflow2/time-received",
+        "samplerAddress": "netflow-v9:netflow/collector-goflow2/sampler-address",
+        "samplerAddressIpv6": "netflow-v9:netflow/collector-goflow2/sampler-address-ipv6"
+    }
+}

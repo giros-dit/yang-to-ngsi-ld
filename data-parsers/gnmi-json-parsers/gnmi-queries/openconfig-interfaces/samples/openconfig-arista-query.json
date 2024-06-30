@@ -1,0 +1,643 @@
+[
+  {
+    "source": "clab-telemetry-testbed-srl-ceos-4hosts-r2",
+    "timestamp": 1708629898302788766,
+    "time": "2024-02-22T20:24:58.302788766+01:00",
+    "updates": [
+      {
+        "Path": "interfaces",
+        "values": {
+          "interfaces": {
+            "openconfig-interfaces:interface": [
+              {
+                "config": {
+                  "mtu": 0,
+                  "name": "Management0",
+                  "type": "iana-if-type:ethernetCsmacd"
+                },
+                "name": "Management0",
+                "openconfig-if-ethernet:ethernet": {
+                  "arista-intf-augments:pfc": {
+                    "priorities": {
+                      "priority": [
+                        {
+                          "index": 0,
+                          "state": {
+                            "in-frames": "0",
+                            "index": 0,
+                            "out-frames": "0"
+                          }
+                        },
+                        {
+                          "index": 1,
+                          "state": {
+                            "in-frames": "0",
+                            "index": 1,
+                            "out-frames": "0"
+                          }
+                        },
+                        {
+                          "index": 2,
+                          "state": {
+                            "in-frames": "0",
+                            "index": 2,
+                            "out-frames": "0"
+                          }
+                        },
+                        {
+                          "index": 3,
+                          "state": {
+                            "in-frames": "0",
+                            "index": 3,
+                            "out-frames": "0"
+                          }
+                        },
+                        {
+                          "index": 4,
+                          "state": {
+                            "in-frames": "0",
+                            "index": 4,
+                            "out-frames": "0"
+                          }
+                        },
+                        {
+                          "index": 5,
+                          "state": {
+                            "in-frames": "0",
+                            "index": 5,
+                            "out-frames": "0"
+                          }
+                        },
+                        {
+                          "index": 6,
+                          "state": {
+                            "in-frames": "0",
+                            "index": 6,
+                            "out-frames": "0"
+                          }
+                        },
+                        {
+                          "index": 7,
+                          "state": {
+                            "in-frames": "0",
+                            "index": 7,
+                            "out-frames": "0"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "config": {
+                    "arista-intf-augments:fec-encoding": {
+                      "disabled": false,
+                      "fire-code": false,
+                      "reed-solomon": false,
+                      "reed-solomon544": false
+                    },
+                    "arista-intf-augments:sfp-1000base-t": false,
+                    "mac-address": "00:00:00:00:00:00",
+                    "port-speed": "SPEED_UNKNOWN"
+                  },
+                  "state": {
+                    "arista-intf-augments:supported-speeds": [
+                      "SPEED_AUTO",
+                      "SPEED_1GB"
+                    ],
+                    "counters": {
+                      "in-crc-errors": "0",
+                      "in-fragment-frames": "0",
+                      "in-jabber-frames": "0",
+                      "in-mac-control-frames": "0",
+                      "in-mac-pause-frames": "0",
+                      "in-maxsize-exceeded": "0",
+                      "in-oversize-frames": "0",
+                      "out-mac-control-frames": "0",
+                      "out-mac-pause-frames": "0"
+                    },
+                    "duplex-mode": "FULL",
+                    "hw-mac-address": "00:1c:73:48:83:ad",
+                    "mac-address": "00:1c:73:48:83:ad",
+                    "negotiated-duplex-mode": "FULL",
+                    "negotiated-port-speed": "SPEED_1GB",
+                    "port-speed": "SPEED_1GB"
+                  }
+                },
+                "state": {
+                  "admin-status": "UP",
+                  "arista-intf-augments:inactive": false,
+                  "counters": {
+                    "carrier-transitions": "3",
+                    "in-broadcast-pkts": "0",
+                    "in-discards": "0",
+                    "in-errors": "0",
+                    "in-fcs-errors": "0",
+                    "in-multicast-pkts": "0",
+                    "in-octets": "22496",
+                    "in-pkts": "210",
+                    "in-unicast-pkts": "210",
+                    "out-broadcast-pkts": "0",
+                    "out-discards": "0",
+                    "out-errors": "0",
+                    "out-multicast-pkts": "0",
+                    "out-octets": "34831",
+                    "out-pkts": "72",
+                    "out-unicast-pkts": "72"
+                  },
+                  "ifindex": 999999,
+                  "last-change": "1708629695930466304",
+                  "management": true,
+                  "mtu": 0,
+                  "name": "Management0",
+                  "oper-status": "UP",
+                  "type": "iana-if-type:ethernetCsmacd"
+                },
+                "subinterfaces": {
+                  "subinterface": [
+                    {
+                      "index": 0,
+                      "openconfig-if-ip:ipv4": {
+                        "addresses": {
+                          "address": [
+                            {
+                              "config": {
+                                "ip": "172.20.20.8",
+                                "prefix-length": 24
+                              },
+                              "ip": "172.20.20.8",
+                              "state": {
+                                "ip": "172.20.20.8",
+                                "origin": "STATIC",
+                                "prefix-length": 24
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "openconfig-if-ip:ipv6": {
+                        "addresses": {
+                          "address": [
+                            {
+                              "config": {
+                                "ip": "2001:172:20:20::8",
+                                "prefix-length": 64
+                              },
+                              "ip": "2001:172:20:20::8",
+                              "state": {
+                                "ip": "2001:172:20:20::8",
+                                "origin": "STATIC",
+                                "prefix-length": 64,
+                                "status": "PREFERRED"
+                              }
+                            }
+                          ]
+                        },
+                        "config": {},
+                        "neighbors": {
+                          "neighbor": [
+                            {
+                              "config": {
+                                "ip": "2001:172:20:20::1"
+                              },
+                              "ip": "2001:172:20:20::1",
+                              "state": {
+                                "ip": "2001:172:20:20::1",
+                                "link-layer-address": "02:42:34:6f:44:44",
+                                "neighbor-state": "REACHABLE",
+                                "origin": "DYNAMIC"
+                              }
+                            },
+                            {
+                              "config": {
+                                "ip": "fe80::1"
+                              },
+                              "ip": "fe80::1",
+                              "state": {
+                                "ip": "fe80::1",
+                                "link-layer-address": "02:42:34:6f:44:44",
+                                "neighbor-state": "REACHABLE",
+                                "origin": "DYNAMIC"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "config": {
+                  "description": "\"LAN-2 interface (c2 \u003c-\u003e r2)\"",
+                  "mtu": 0,
+                  "name": "Ethernet2",
+                  "type": "iana-if-type:ethernetCsmacd"
+                },
+                "name": "Ethernet2",
+                "openconfig-if-ethernet:ethernet": {
+                  "arista-intf-augments:pfc": {
+                    "priorities": {
+                      "priority": [
+                        {
+                          "index": 0,
+                          "state": {
+                            "in-frames": "0",
+                            "index": 0,
+                            "out-frames": "0"
+                          }
+                        },
+                        {
+                          "index": 1,
+                          "state": {
+                            "in-frames": "0",
+                            "index": 1,
+                            "out-frames": "0"
+                          }
+                        },
+                        {
+                          "index": 2,
+                          "state": {
+                            "in-frames": "0",
+                            "index": 2,
+                            "out-frames": "0"
+                          }
+                        },
+                        {
+                          "index": 3,
+                          "state": {
+                            "in-frames": "0",
+                            "index": 3,
+                            "out-frames": "0"
+                          }
+                        },
+                        {
+                          "index": 4,
+                          "state": {
+                            "in-frames": "0",
+                            "index": 4,
+                            "out-frames": "0"
+                          }
+                        },
+                        {
+                          "index": 5,
+                          "state": {
+                            "in-frames": "0",
+                            "index": 5,
+                            "out-frames": "0"
+                          }
+                        },
+                        {
+                          "index": 6,
+                          "state": {
+                            "in-frames": "0",
+                            "index": 6,
+                            "out-frames": "0"
+                          }
+                        },
+                        {
+                          "index": 7,
+                          "state": {
+                            "in-frames": "0",
+                            "index": 7,
+                            "out-frames": "0"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "config": {
+                    "arista-intf-augments:fec-encoding": {
+                      "disabled": false,
+                      "fire-code": false,
+                      "reed-solomon": false,
+                      "reed-solomon544": false
+                    },
+                    "arista-intf-augments:sfp-1000base-t": false,
+                    "mac-address": "00:00:00:00:00:00",
+                    "port-speed": "SPEED_UNKNOWN"
+                  },
+                  "state": {
+                    "arista-intf-augments:supported-speeds": [
+                      "SPEED_10GB",
+                      "SPEED_5GB",
+                      "SPEED_2500MB",
+                      "SPEED_200GB_4LANE",
+                      "SPEED_200GB_8LANE",
+                      "SPEED_10MB",
+                      "SPEED_40GB",
+                      "SPEED_1GB",
+                      "SPEED_50GB_1LANE",
+                      "SPEED_100MB",
+                      "SPEED_400GB",
+                      "SPEED_100GB_2LANE",
+                      "SPEED_25GB",
+                      "SPEED_100GB",
+                      "SPEED_50GB"
+                    ],
+                    "auto-negotiate": false,
+                    "counters": {
+                      "in-crc-errors": "0",
+                      "in-fragment-frames": "0",
+                      "in-jabber-frames": "0",
+                      "in-mac-control-frames": "0",
+                      "in-mac-pause-frames": "0",
+                      "in-maxsize-exceeded": "0",
+                      "in-oversize-frames": "0",
+                      "out-mac-control-frames": "0",
+                      "out-mac-pause-frames": "0"
+                    },
+                    "duplex-mode": "FULL",
+                    "hw-mac-address": "aa:c1:ab:14:2a:d8",
+                    "mac-address": "aa:c1:ab:14:2a:d8",
+                    "negotiated-port-speed": "SPEED_UNKNOWN",
+                    "port-speed": "SPEED_1GB"
+                  }
+                },
+                "state": {
+                  "admin-status": "UP",
+                  "arista-intf-augments:inactive": false,
+                  "counters": {
+                    "carrier-transitions": "2",
+                    "in-broadcast-pkts": "0",
+                    "in-discards": "0",
+                    "in-errors": "0",
+                    "in-fcs-errors": "0",
+                    "in-multicast-pkts": "109",
+                    "in-octets": "14091",
+                    "in-pkts": "109",
+                    "in-unicast-pkts": "0",
+                    "out-broadcast-pkts": "0",
+                    "out-discards": "0",
+                    "out-errors": "0",
+                    "out-multicast-pkts": "0",
+                    "out-octets": "0",
+                    "out-pkts": "0",
+                    "out-unicast-pkts": "0"
+                  },
+                  "description": "\"LAN-2 interface (c2 \u003c-\u003e r2)\"",
+                  "ifindex": 2,
+                  "last-change": "1708629700893144064",
+                  "management": false,
+                  "mtu": 0,
+                  "name": "Ethernet2",
+                  "openconfig-platform-port:hardware-port": "Ethernet2-Port",
+                  "openconfig-platform-transceiver:transceiver": "Ethernet2",
+                  "oper-status": "UP",
+                  "type": "iana-if-type:ethernetCsmacd"
+                },
+                "subinterfaces": {
+                  "subinterface": [
+                    {
+                      "config": {
+                        "description": "\"LAN-2 interface (c2 \u003c-\u003e r2)\""
+                      },
+                      "index": 0,
+                      "openconfig-if-ip:ipv4": {
+                        "addresses": {
+                          "address": [
+                            {
+                              "config": {
+                                "ip": "10.0.2.1",
+                                "prefix-length": 24
+                              },
+                              "ip": "10.0.2.1",
+                              "state": {
+                                "ip": "10.0.2.1",
+                                "origin": "STATIC",
+                                "prefix-length": 24
+                              }
+                            }
+                          ]
+                        },
+                        "config": {
+                          "enabled": true
+                        },
+                        "state": {
+                          "enabled": true
+                        }
+                      },
+                      "state": {
+                        "description": "\"LAN-2 interface (c2 \u003c-\u003e r2)\""
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "config": {
+                  "description": "\"Peering interface with router r1 (r1 \u003c-\u003e r2)\"",
+                  "mtu": 0,
+                  "name": "Ethernet1",
+                  "type": "iana-if-type:ethernetCsmacd"
+                },
+                "name": "Ethernet1",
+                "openconfig-if-ethernet:ethernet": {
+                  "arista-intf-augments:pfc": {
+                    "priorities": {
+                      "priority": [
+                        {
+                          "index": 0,
+                          "state": {
+                            "in-frames": "0",
+                            "index": 0,
+                            "out-frames": "0"
+                          }
+                        },
+                        {
+                          "index": 1,
+                          "state": {
+                            "in-frames": "0",
+                            "index": 1,
+                            "out-frames": "0"
+                          }
+                        },
+                        {
+                          "index": 2,
+                          "state": {
+                            "in-frames": "0",
+                            "index": 2,
+                            "out-frames": "0"
+                          }
+                        },
+                        {
+                          "index": 3,
+                          "state": {
+                            "in-frames": "0",
+                            "index": 3,
+                            "out-frames": "0"
+                          }
+                        },
+                        {
+                          "index": 4,
+                          "state": {
+                            "in-frames": "0",
+                            "index": 4,
+                            "out-frames": "0"
+                          }
+                        },
+                        {
+                          "index": 5,
+                          "state": {
+                            "in-frames": "0",
+                            "index": 5,
+                            "out-frames": "0"
+                          }
+                        },
+                        {
+                          "index": 6,
+                          "state": {
+                            "in-frames": "0",
+                            "index": 6,
+                            "out-frames": "0"
+                          }
+                        },
+                        {
+                          "index": 7,
+                          "state": {
+                            "in-frames": "0",
+                            "index": 7,
+                            "out-frames": "0"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "config": {
+                    "arista-intf-augments:fec-encoding": {
+                      "disabled": false,
+                      "fire-code": false,
+                      "reed-solomon": false,
+                      "reed-solomon544": false
+                    },
+                    "arista-intf-augments:sfp-1000base-t": false,
+                    "mac-address": "00:00:00:00:00:00",
+                    "port-speed": "SPEED_UNKNOWN"
+                  },
+                  "state": {
+                    "arista-intf-augments:supported-speeds": [
+                      "SPEED_2500MB",
+                      "SPEED_100GB_2LANE",
+                      "SPEED_200GB_8LANE",
+                      "SPEED_40GB",
+                      "SPEED_200GB_4LANE",
+                      "SPEED_10MB",
+                      "SPEED_400GB",
+                      "SPEED_1GB",
+                      "SPEED_100GB",
+                      "SPEED_100MB",
+                      "SPEED_5GB",
+                      "SPEED_50GB_1LANE",
+                      "SPEED_25GB",
+                      "SPEED_10GB",
+                      "SPEED_50GB"
+                    ],
+                    "auto-negotiate": false,
+                    "counters": {
+                      "in-crc-errors": "0",
+                      "in-fragment-frames": "0",
+                      "in-jabber-frames": "0",
+                      "in-mac-control-frames": "0",
+                      "in-mac-pause-frames": "0",
+                      "in-maxsize-exceeded": "0",
+                      "in-oversize-frames": "0",
+                      "out-mac-control-frames": "0",
+                      "out-mac-pause-frames": "0"
+                    },
+                    "duplex-mode": "FULL",
+                    "hw-mac-address": "aa:c1:ab:34:7a:df",
+                    "mac-address": "aa:c1:ab:34:7a:df",
+                    "negotiated-port-speed": "SPEED_UNKNOWN",
+                    "port-speed": "SPEED_1GB"
+                  }
+                },
+                "state": {
+                  "admin-status": "UP",
+                  "arista-intf-augments:inactive": false,
+                  "counters": {
+                    "carrier-transitions": "2",
+                    "in-broadcast-pkts": "0",
+                    "in-discards": "0",
+                    "in-errors": "0",
+                    "in-fcs-errors": "0",
+                    "in-multicast-pkts": "10",
+                    "in-octets": "1476",
+                    "in-pkts": "11",
+                    "in-unicast-pkts": "1",
+                    "out-broadcast-pkts": "0",
+                    "out-discards": "0",
+                    "out-errors": "0",
+                    "out-multicast-pkts": "0",
+                    "out-octets": "0",
+                    "out-pkts": "0",
+                    "out-unicast-pkts": "0"
+                  },
+                  "description": "\"Peering interface with router r1 (r1 \u003c-\u003e r2)\"",
+                  "ifindex": 1,
+                  "last-change": "1708629700893365504",
+                  "management": false,
+                  "mtu": 0,
+                  "name": "Ethernet1",
+                  "openconfig-platform-port:hardware-port": "Ethernet1-Port",
+                  "openconfig-platform-transceiver:transceiver": "Ethernet1",
+                  "oper-status": "UP",
+                  "type": "iana-if-type:ethernetCsmacd"
+                },
+                "subinterfaces": {
+                  "subinterface": [
+                    {
+                      "config": {
+                        "description": "\"Peering interface with router r1 (r1 \u003c-\u003e r2)\""
+                      },
+                      "index": 0,
+                      "openconfig-if-ip:ipv4": {
+                        "addresses": {
+                          "address": [
+                            {
+                              "config": {
+                                "ip": "192.168.254.2",
+                                "prefix-length": 24
+                              },
+                              "ip": "192.168.254.2",
+                              "state": {
+                                "ip": "192.168.254.2",
+                                "origin": "STATIC",
+                                "prefix-length": 24
+                              }
+                            }
+                          ]
+                        },
+                        "config": {
+                          "enabled": true
+                        },
+                        "neighbors": {
+                          "neighbor": [
+                            {
+                              "config": {
+                                "ip": "192.168.254.1"
+                              },
+                              "ip": "192.168.254.1",
+                              "state": {
+                                "ip": "192.168.254.1",
+                                "link-layer-address": "1a:7e:04:ff:00:01",
+                                "origin": "DYNAMIC"
+                              }
+                            }
+                          ]
+                        },
+                        "state": {
+                          "enabled": true
+                        }
+                      },
+                      "state": {
+                        "description": "\"Peering interface with router r1 (r1 \u003c-\u003e r2)\""
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+]

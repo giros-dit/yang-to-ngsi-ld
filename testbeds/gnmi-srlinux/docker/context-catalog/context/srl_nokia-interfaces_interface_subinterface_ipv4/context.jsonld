@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceSubinterfaceIpv4": "srl_nokia-interfaces:interface/subinterface/ipv4",
+        "adminState": "srl_nokia-interfaces:interface/subinterface/ipv4/admin-state",
+        "allowDirectedBroadcast": "srl_nokia-interfaces:interface/subinterface/ipv4/allow-directed-broadcast"
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "@context": {
+        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
+        "NeighborState": "openconfig-interfaces:interfaces/interface/oc-vlan:routed-vlan/oc-ip:ipv6/oc-ip:neighbors/oc-ip:neighbor/oc-ip:state",
+        "ip": "openconfig-interfaces:interfaces/interface/oc-vlan:routed-vlan/oc-ip:ipv6/oc-ip:neighbors/oc-ip:neighbor/oc-ip:state/oc-ip:ip",
+        "linkLayerAddress": "openconfig-interfaces:interfaces/interface/oc-vlan:routed-vlan/oc-ip:ipv6/oc-ip:neighbors/oc-ip:neighbor/oc-ip:state/oc-ip:link-layer-address",
+        "origin": "openconfig-interfaces:interfaces/interface/oc-vlan:routed-vlan/oc-ip:ipv6/oc-ip:neighbors/oc-ip:neighbor/oc-ip:state/oc-ip:origin",
+        "isRouter": "openconfig-interfaces:interfaces/interface/oc-vlan:routed-vlan/oc-ip:ipv6/oc-ip:neighbors/oc-ip:neighbor/oc-ip:state/oc-ip:is-router",
+        "neighborState": "openconfig-interfaces:interfaces/interface/oc-vlan:routed-vlan/oc-ip:ipv6/oc-ip:neighbors/oc-ip:neighbor/oc-ip:state/oc-ip:neighbor-state"
+    }
+}

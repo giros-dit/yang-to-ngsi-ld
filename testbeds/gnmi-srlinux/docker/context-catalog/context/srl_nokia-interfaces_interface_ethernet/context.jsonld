@@ -1,0 +1,20 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceEthernet": "srl_nokia-interfaces:interface/ethernet",
+        "aggregateId": "srl_nokia-interfaces:interface/ethernet/aggregate-id",
+        "forwardingViable": "srl_nokia-interfaces:interface/ethernet/forwarding-viable",
+        "autoNegotiate": "srl_nokia-interfaces:interface/ethernet/auto-negotiate",
+        "duplexMode": "srl_nokia-interfaces:interface/ethernet/duplex-mode",
+        "dacLinkTraining": "srl_nokia-interfaces:interface/ethernet/dac-link-training",
+        "lacpPortPriority": "srl_nokia-interfaces:interface/ethernet/lacp-port-priority",
+        "portSpeed": "srl_nokia-interfaces:interface/ethernet/port-speed",
+        "hwMacAddress": "srl_nokia-interfaces:interface/ethernet/hw-mac-address",
+        "macAddress": "srl_nokia-interfaces:interface/ethernet/mac-address",
+        "physicalMedium": "srl_nokia-interfaces:interface/ethernet/physical-medium",
+        "ptpAsymmetry": "srl_nokia-interfaces:interface/ethernet/ptp-asymmetry",
+        "standbySignaling": "srl_nokia-interfaces:interface/ethernet/standby-signaling",
+        "reloadDelay": "srl_nokia-interfaces:interface/ethernet/reload-delay",
+        "reloadDelayExpires": "srl_nokia-interfaces:interface/ethernet/reload-delay-expires"
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "@context": [
+        "http://context-catalog:8080/context/srl_nokia-interfaces_interface/context.jsonld",
+        "http://context-catalog:8080/context/srl_nokia-interfaces_interface_statistics/context.jsonld",
+        "http://context-catalog:8080/context/ietf-network_networks_network/context.jsonld",
+        "http://context-catalog:8080/context/ietf-network_networks_network_node/context.jsonld",
+        "http://context-catalog:8080/context/ietf-network_networks_network_node_nt_termination-point/context.jsonld",
+        "http://context-catalog:8080/context/ietf-network_networks_network_nt_link/context.jsonld",
+        "http://context-catalog:8080/context/ietf-network_networks_network_nt_link_nt_source/context.jsonld",
+        "http://context-catalog:8080/context/ietf-network_networks_network_nt_link_nt_destination/context.jsonld",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
+}

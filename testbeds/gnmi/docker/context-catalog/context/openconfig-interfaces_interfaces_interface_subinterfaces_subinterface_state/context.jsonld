@@ -1,0 +1,14 @@
+{
+    "@context": {
+        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
+        "SubinterfaceState": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/state",
+        "index": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/state/index",
+        "description": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/state/description",
+        "enabled": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/state/enabled",
+        "name": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/state/name",
+        "ifindex": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/state/ifindex",
+        "adminStatus": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/state/admin-status",
+        "operStatus": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/state/oper-status",
+        "lastChange": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/state/last-change"
+    }
+}

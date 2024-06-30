@@ -1,0 +1,12 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceSubinterfaceIpv6Address": "srl_nokia-interfaces:interface/subinterface/ipv6/address",
+        "ipPrefix": "srl_nokia-interfaces:interface/subinterface/ipv6/address/ip-prefix",
+        "type": "srl_nokia-interfaces:interface/subinterface/ipv6/address/type",
+        "anycastGw": "srl_nokia-interfaces:interface/subinterface/ipv6/address/anycast-gw",
+        "origin": "srl_nokia-interfaces:interface/subinterface/ipv6/address/origin",
+        "primary": "srl_nokia-interfaces:interface/subinterface/ipv6/address/primary",
+        "status": "srl_nokia-interfaces:interface/subinterface/ipv6/address/status"
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "ietf-network": "urn:ietf:params:xml:ns:yang:ietf-network/",
+        "NetworkLinkSupportingLink": "ietf-network:networks/network/nt:link/nt:supporting-link",
+        "networkRef": "ietf-network:networks/network/nt:link/nt:supporting-link/nt:network-ref",
+        "linkRef": "ietf-network:networks/network/nt:link/nt:supporting-link/nt:link-ref"
+    }
+}

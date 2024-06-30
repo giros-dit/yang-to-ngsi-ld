@@ -1,0 +1,7 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceSflow": "srl_nokia-interfaces:interface/sflow",
+        "adminState": "srl_nokia-interfaces:interface/sflow/admin-state"
+    }
+}

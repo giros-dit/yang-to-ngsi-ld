@@ -1,0 +1,9 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceEthernetCrcMonitor": "srl_nokia-interfaces:interface/ethernet/crc-monitor",
+        "adminState": "srl_nokia-interfaces:interface/ethernet/crc-monitor/admin-state",
+        "windowSize": "srl_nokia-interfaces:interface/ethernet/crc-monitor/window-size",
+        "currentAlarms": "srl_nokia-interfaces:interface/ethernet/crc-monitor/current-alarms"
+    }
+}

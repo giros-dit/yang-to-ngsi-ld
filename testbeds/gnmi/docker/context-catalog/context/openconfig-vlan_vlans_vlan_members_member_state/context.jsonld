@@ -1,0 +1,7 @@
+{
+    "@context": {
+        "openconfig-vlan": "http://openconfig.net/yang/vlan/",
+        "MemberState": "openconfig-vlan:vlans/vlan/members/member/state",
+        "interface": "openconfig-vlan:vlans/vlan/members/member/state/interface"
+    }
+}

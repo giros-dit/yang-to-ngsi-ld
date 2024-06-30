@@ -1,0 +1,15 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceTransceiverVoltage": "srl_nokia-interfaces:interface/transceiver/voltage",
+        "latestValue": "srl_nokia-interfaces:interface/transceiver/voltage/latest-value",
+        "highAlarmCondition": "srl_nokia-interfaces:interface/transceiver/voltage/high-alarm-condition",
+        "highAlarmThreshold": "srl_nokia-interfaces:interface/transceiver/voltage/high-alarm-threshold",
+        "lowAlarmCondition": "srl_nokia-interfaces:interface/transceiver/voltage/low-alarm-condition",
+        "lowAlarmThreshold": "srl_nokia-interfaces:interface/transceiver/voltage/low-alarm-threshold",
+        "highWarningCondition": "srl_nokia-interfaces:interface/transceiver/voltage/high-warning-condition",
+        "highWarningThreshold": "srl_nokia-interfaces:interface/transceiver/voltage/high-warning-threshold",
+        "lowWarningCondition": "srl_nokia-interfaces:interface/transceiver/voltage/low-warning-condition",
+        "lowWarningThreshold": "srl_nokia-interfaces:interface/transceiver/voltage/low-warning-threshold"
+    }
+}

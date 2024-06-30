@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceBreakoutMode": "srl_nokia-interfaces:interface/breakout-mode",
+        "numBreakoutPorts": "srl_nokia-interfaces:interface/breakout-mode/num-breakout-ports",
+        "breakoutPortSpeed": "srl_nokia-interfaces:interface/breakout-mode/breakout-port-speed"
+    }
+}

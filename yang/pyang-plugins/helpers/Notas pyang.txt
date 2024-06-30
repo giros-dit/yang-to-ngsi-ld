@@ -1,0 +1,183 @@
+import pdb; pdb.set_trace() en el punto donde se quiera hacer una traza
+
+search_one('type') -> tipo de dato: string, etc...
+
+dir() para obtener métodos
+
+cp ngsi-ld-context.py ~/.local/lib/<python_version>/site-packages/pyang/plugins/ngsi-ld-context.py
+
+>>> context = {}
+>>> context['hola'] = 'texto'
+>>> context['array'] = []
+>>> context['array'][0] = 'texto_en_array'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list assignment index out of range
+>>> context['array']['pos_1'] = 'texto_en_array'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: list indices must be integers or slices, not str
+>>> context['array'][0] = 'texto_en_array'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list assignment index out of range
+>>> context['array'] = {}
+>>> context['array']['pos_1'] = 'texto_en_array'
+>>> print(context)
+{'hola': 'texto', 'array': {'pos_1': 'texto_en_array'}}
+>>> import json
+>>> out = json.dumps(context)
+>>> print(out)
+{"hola": "texto", "array": {"pos_1": "texto_en_array"}}
+>>> context['array'] = []
+>>> print(context)
+{'hola': 'texto', 'array': []}
+>>> context['array'][1] = 'texto_en_array'
+Traceback (most recent ca# Generate NGSI-LD Entity import statements:
+    entity_import_statements = []
+    for module in modules:
+        elements = module.i_children
+        if (elements is not None):
+            for element in elements:
+                if (element is not None) and (element.keyword in statements.data_definition_keywords):
+                    generate_entity_import_statements(element, None, entity_import_statements)
+    classes = []
+    for entity_import_statement in entity_import_statements:
+            classes.append(entity_import_statement.split(' ')[-1])
+    for entity_import_statement in entity_import_statements:
+            if (classes.count(entity_import_statement.split(' ')[-1]) > 1):
+                fd.write('\n' + entity_import_statement + ' as ' + entity_import_statement.split(' ')[1].split('.')[-2].capitalize() + '_' + entity_import_statement.split(' ')[-1])
+            else:
+                fd.write('\n' + entity_import_statement)ll last):
+  File "<stdin>", line 1, in <module>
+IndexError: list assignment index out of range
+>>> context_array = {}
+>>> context_array['hola1'] = 'hola1'
+>>> context_array['hola2'] = 'hola2'
+>>> context['array'].append(context_array)
+>>> print(context)
+{'hola': 'texto', 'array': [{'hola1': 'hola1', 'hola2': 'hola2'}]}
+
+Si un container de YANG sólo tiene una lista, se obvia el container en la representación del contexto (enclosing container).
+
+Método con propia variable de contexto ngsi_ld_context = {}
+json_ld sería diccionario de diccionarios, con cada Entity nueva en un diccionario.
+
+generate_context -> generate_context_file que crea nuevo ngsi_ld_context y añade un nuevo json_ld["@context"]
+
+Por cada Entity hacer un fichero por separado.
+
+### CÓDIGO PARA GENERAR SENTENCIAS DE IMPORTACIÓN DE ENTIDADES NGSI-LD ###
+
+    def generate_entity_import_statements(element, entity_path: str, entity_import_statements: list):
+        '''
+        Auxiliary function.
+        Recursively generates import statements for identified NGSI-LD Entities within the YANG module.
+        '''
+        camelcase_element_arg = to_camelcase(str(element.keyword), str(element.arg))
+        element_module_name = str(element.i_module.i_modulename)
+        current_path = ''
+        if (entity_path is None):
+            current_path = str(element.arg).replace('-', '_') + '.'
+        else:
+            current_path = entity_path + str(element.arg).replace('-', '_') + '.'
+        if (is_enclosing_container(element) == True) and (is_deprecated(element) == False):
+            subelements = element.i_children
+            if (subelements is not None):
+                for subelement in subelements:
+                    if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
+                        generate_entity_import_statements(subelement, None, entity_import_statements)
+        elif (is_entity(element) == True) and (is_deprecated(element) == False):
+            entity_import_statements.append('from ngsi_ld_models.models.' + element_module_name.replace('-', '_') + '.' + current_path[:-1] + ' import ' + camelcase_element_arg)
+            subelements = element.i_children
+            if (subelements is not None):
+                for subelement in subelements:
+                    if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
+                        generate_entity_import_statements(subelement, current_path, entity_import_statements)
+
+    # Generate NGSI-LD Entity import statements:
+    entity_import_statements = []
+    for module in modules:
+        elements = module.i_children
+        if (elements is not None):
+            for element in elements:
+                if (element is not None) and (element.keyword in statements.data_definition_keywords):
+                    generate_entity_import_statements(element, None, entity_import_statements)
+    classes = []
+    for entity_import_statement in entity_import_statements:
+            classes.append(entity_import_statement.split(' ')[-1])
+    for entity_import_statement in entity_import_statements:
+            if (classes.count(entity_import_statement.split(' ')[-1]) > 1):
+                fd.write('\n' + entity_import_statement + ' as ' + entity_import_statement.split(' ')[1].split('.')[-2].capitalize() + '_' + entity_import_statement.split(' ')[-1])
+            else:
+                fd.write('\n' + entity_import_statement)
+
+### - ###
+
+### - PUNTEROS CON LEAFREF - ###
+
+(Pdb) print(sourcenode.i_leafref)
+<pyang.types.PathTypeSpec object at 0x7f0aec4228f0>
+(Pdb) print(sourcenode.i_leafref_ptr)
+(<pyang.LeafLeaflistStatement 'leaf node-id' at 0x7f0aec3c1470>, <pyang.error.Position object at 0x7f0aec3f27c0>)
+(Pdb) print(sourcenode.i_leafref_expanded)
+True
+(Pdb) print(sourcenode.i_leafref_ptr)
+(<pyang.LeafLeaflistStatement 'leaf node-id' at 0x7f0aec3c1470>, <pyang.error.Position object at 0x7f0aec3f27c0>)
+(Pdb) module.search_one(sourcenode.i_leafref_ptr[0])
+(Pdb) print(module.search_one(sourcenode.i_leafref_ptr[0]))
+None
+(Pdb) pointer = sourcenode.i_leafref_ptr[0]
+(Pdb) print(pointer)
+leaf node-id
+(Pdb) dir(pointer)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__slotnames__', '__slots__', '__str__', '__subclasshook__', 'arg', 'copy', 'ext_mod', 'i_augment', 'i_children', 'i_config', 'i_default', 'i_default_str', 'i_derefed_leaf', 'i_extension', 'i_extension_modulename', 'i_extension_revision', 'i_groupings', 'i_is_key', 'i_is_validated', 'i_leafref', 'i_leafref_expanded', 'i_leafref_ptr', 'i_module', 'i_not_implemented', 'i_orig_module', 'i_this_not_supported', 'i_typedefs', 'i_uniques', 'i_uses', 'i_uses_pos', 'i_uses_top', 'internal_reset', 'is_grammatically_valid', 'keyword', 'main_module', 'parent', 'pos', 'pprint', 'raw_keyword', 'search', 'search_one', 'stmt_parent', 'substmts', 'top']
+(Pdb) print(pointer.arg)
+node-id
+(Pdb) print(pointer.parent.arg)
+node
+(Pdb) print(pointer.parent.parent.arg)
+network
+
+### - - ###
+
+### IMPORTAR MÓDULOS EN TIEMPO DE EJECUCIÓN ###
+
+(Pdb) i = modules[0].search("import")[0]
+(Pdb) print(i.arg)
+ietf-yang-types
+(Pdb) subm = ctx.get_module(i.arg)
+(Pdb) print(subm)
+module ietf-yang-types
+(Pdb) dir(subm)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__slots__', '__str__', '__subclasshook__', '_init_i_attrs', 'arg', 'copy', 'ext_mod', 'i_children', 'i_config', 'i_ctx', 'i_extension', 'i_extension_modulename', 'i_extension_revision', 'i_extensions', 'i_features', 'i_groupings', 'i_identities', 'i_including_modulename', 'i_is_primary_module', 'i_is_validated', 'i_latest_revision', 'i_missing_prefixes', 'i_module', 'i_modulename', 'i_not_implemented', 'i_orig_module', 'i_prefix', 'i_prefixes', 'i_typedefs', 'i_undefined_augment_nodes', 'i_uniques', 'i_unused_prefixes', 'i_uses', 'i_uses_pos', 'i_uses_top', 'i_version', 'internal_reset', 'is_grammatically_valid', 'keyword', 'main_module', 'parent', 'pos', 'pprint', 'prune', 'raw_keyword', 'search', 'search_one', 'stmt_parent', 'substmts', 'top']
+(Pdb) print(subm.i_typedefs)
+{'counter32': <pyang.TypedefStatement 'typedef counter32' at 0x7f70e8e2ae60>, 'zero-based-counter32': <pyang.TypedefStatement 'typedef zero-based-counter32' at 0x7f70e8e2af80>, 'counter64': <pyang.TypedefStatement 'typedef counter64' at 0x7f70e8e2b0a0>, 'zero-based-counter64': <pyang.TypedefStatement 'typedef zero-based-counter64' at 0x7f70e8e2b1c0>, 'gauge32': <pyang.TypedefStatement 'typedef gauge32' at 0x7f70e8e2b2e0>, 'gauge64': <pyang.TypedefStatement 'typedef gauge64' at 0x7f70e8e2b400>, 'object-identifier': <pyang.TypedefStatement 'typedef object-identifier' at 0x7f70e8e2b520>, 'object-identifier-128': <pyang.TypedefStatement 'typedef object-identifier-128' at 0x7f70e8e2b640>, 'date-and-time': <pyang.TypedefStatement 'typedef date-and-time' at 0x7f70e8e2b760>, 'date-with-zone-offset': <pyang.TypedefStatement 'typedef date-with-zone-offset' at 0x7f70e8e2b880>, 'date-no-zone': <pyang.TypedefStatement 'typedef date-no-zone' at 0x7f70e8e2b9a0>, 'time-with-zone-offset': <pyang.TypedefStatement 'typedef time-with-zone-offset' at 0x7f70e8e2bac0>, 'time-no-zone': <pyang.TypedefStatement 'typedef time-no-zone' at 0x7f70e8e2bbe0>, 'hours32': <pyang.TypedefStatement 'typedef hours32' at 0x7f70e8e2bd00>, 'minutes32': <pyang.TypedefStatement 'typedef minutes32' at 0x7f70e8e2be20>, 'seconds32': <pyang.TypedefStatement 'typedef seconds32' at 0x7f70e8a68040>, 'centiseconds32': <pyang.TypedefStatement 'typedef centiseconds32' at 0x7f70e8a68160>, 'milliseconds32': <pyang.TypedefStatement 'typedef milliseconds32' at 0x7f70e8a68280>, 'microseconds32': <pyang.TypedefStatement 'typedef microseconds32' at 0x7f70e8a683a0>, 'microseconds64': <pyang.TypedefStatement 'typedef microseconds64' at 0x7f70e8a684c0>, 'nanoseconds32': <pyang.TypedefStatement 'typedef nanoseconds32' at 0x7f70e8a685e0>, 'nanoseconds64': <pyang.TypedefStatement 'typedef nanoseconds64' at 0x7f70e8a68700>, 'timeticks': <pyang.TypedefStatement 'typedef timeticks' at 0x7f70e8a68820>, 'timestamp': <pyang.TypedefStatement 'typedef timestamp' at 0x7f70e8a68940>, 'phys-address': <pyang.TypedefStatement 'typedef phys-address' at 0x7f70e8a68a60>, 'mac-address': <pyang.TypedefStatement 'typedef mac-address' at 0x7f70e8a68b80>, 'xpath1.0': <pyang.TypedefStatement 'typedef xpath1.0' at 0x7f70e8a68dc0>, 'hex-string': <pyang.TypedefStatement 'typedef hex-string' at 0x7f70e8a68ee0>, 'uuid': <pyang.TypedefStatement 'typedef uuid' at 0x7f70e8a69000>, 'dotted-quad': <pyang.TypedefStatement 'typedef dotted-quad' at 0x7f70e8a69120>, 'language-tag': <pyang.TypedefStatement 'typedef language-tag' at 0x7f70e8a69240>, 'yang-identifier': <pyang.TypedefStatement 'typedef yang-identifier' at 0x7f70e8a69360>}
+
+### - ###
+
+### IDENTIFICACIÓN DE YANG IDENTITIES ###
+
+(Pdb) print(modules)
+[<pyang.ModSubmodStatement 'module ietf-interfaces' at 0x7efd87a45220>]
+(Pdb) module = modules[0]
+(Pdb) dir(module)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__slots__', '__str__', '__subclasshook__', '_init_i_attrs', 'arg', 'copy', 'ext_mod', 'i_children', 'i_config', 'i_ctx', 'i_extension', 'i_extension_modulename', 'i_extension_revision', 'i_extensions', 'i_features', 'i_groupings', 'i_identities', 'i_including_modulename', 'i_is_primary_module', 'i_is_validated', 'i_latest_revision', 'i_missing_prefixes', 'i_module', 'i_modulename', 'i_not_implemented', 'i_orig_module', 'i_prefix', 'i_prefixes', 'i_typedefs', 'i_undefined_augment_nodes', 'i_uniques', 'i_unused_prefixes', 'i_uses', 'i_uses_pos', 'i_uses_top', 'i_version', 'internal_reset', 'is_grammatically_valid', 'keyword', 'main_module', 'parent', 'pos', 'pprint', 'prune', 'raw_keyword', 'search', 'search_one', 'stmt_parent', 'substmts', 'top']
+(Pdb) identities = module.i_identities
+(Pdb) print(identities)
+{'interface-type': <pyang.Statement 'identity interface-type' at 0x7efd871f88b0>}
+(Pdb) dir(identities)
+['__class__', '__class_getitem__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__ior__', '__iter__', '__le__', '__len__', '__lt__', '__ne__', '__new__', '__or__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__ror__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'clear', 'copy', 'fromkeys', 'get', 'items', 'keys', 'pop', 'popitem', 'setdefault', 'update', 'values']
+(Pdb) identity = identities['interface-type']
+(Pdb) dir(identity)
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__slots__', '__str__', '__subclasshook__', 'arg', 'copy', 'ext_mod', 'i_children', 'i_config', 'i_extension', 'i_extension_modulename', 'i_extension_revision', 'i_groupings', 'i_is_validated', 'i_module', 'i_not_implemented', 'i_orig_module', 'i_typedefs', 'i_uniques', 'i_uses', 'i_uses_pos', 'i_uses_top', 'internal_reset', 'is_grammatically_valid', 'keyword', 'main_module', 'parent', 'pos', 'pprint', 'raw_keyword', 'search', 'search_one', 'stmt_parent', 'substmts', 'top']
+(Pdb) print(identity)
+identity interface-type
+(Pdb) description = identity.search_one('description)
+*** SyntaxError: unterminated string literal (detected at line 1)
+(Pdb) description = identity.search_one('description')
+(Pdb) print(str(description))
+description Base identity from which specific interface types are
+derived.
+
+### --- ###

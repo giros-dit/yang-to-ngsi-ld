@@ -1,0 +1,25 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceStatistics": "srl_nokia-interfaces:interface/statistics",
+        "inPackets": "srl_nokia-interfaces:interface/statistics/in-packets",
+        "inOctets": "srl_nokia-interfaces:interface/statistics/in-octets",
+        "inUnicastPackets": "srl_nokia-interfaces:interface/statistics/in-unicast-packets",
+        "inBroadcastPackets": "srl_nokia-interfaces:interface/statistics/in-broadcast-packets",
+        "inMulticastPackets": "srl_nokia-interfaces:interface/statistics/in-multicast-packets",
+        "inDiscardedPackets": "srl_nokia-interfaces:interface/statistics/in-discarded-packets",
+        "inErrorPackets": "srl_nokia-interfaces:interface/statistics/in-error-packets",
+        "inFcsErrorPackets": "srl_nokia-interfaces:interface/statistics/in-fcs-error-packets",
+        "outPackets": "srl_nokia-interfaces:interface/statistics/out-packets",
+        "outOctets": "srl_nokia-interfaces:interface/statistics/out-octets",
+        "outMirrorOctets": "srl_nokia-interfaces:interface/statistics/out-mirror-octets",
+        "outUnicastPackets": "srl_nokia-interfaces:interface/statistics/out-unicast-packets",
+        "outBroadcastPackets": "srl_nokia-interfaces:interface/statistics/out-broadcast-packets",
+        "outMulticastPackets": "srl_nokia-interfaces:interface/statistics/out-multicast-packets",
+        "outDiscardedPackets": "srl_nokia-interfaces:interface/statistics/out-discarded-packets",
+        "outErrorPackets": "srl_nokia-interfaces:interface/statistics/out-error-packets",
+        "outMirrorPackets": "srl_nokia-interfaces:interface/statistics/out-mirror-packets",
+        "carrierTransitions": "srl_nokia-interfaces:interface/statistics/carrier-transitions",
+        "lastClear": "srl_nokia-interfaces:interface/statistics/last-clear"
+    }
+}

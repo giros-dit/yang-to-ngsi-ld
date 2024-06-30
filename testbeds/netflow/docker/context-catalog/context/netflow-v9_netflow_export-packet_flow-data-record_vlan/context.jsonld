@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "netflow-v9": "http://data-aggregator.com/ns/netflow/",
+        "ExportPacketFlowDataRecordVlan": "netflow-v9:netflow/export-packet/flow-data-record/vlan",
+        "srcId": "netflow-v9:netflow/export-packet/flow-data-record/vlan/src-id",
+        "dstId": "netflow-v9:netflow/export-packet/flow-data-record/vlan/dst-id"
+    }
+}

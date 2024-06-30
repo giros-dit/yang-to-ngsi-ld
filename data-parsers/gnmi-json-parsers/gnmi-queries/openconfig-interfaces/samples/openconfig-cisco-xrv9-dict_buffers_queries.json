@@ -1,0 +1,1183 @@
+[
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-xrv9k-ceos-4hosts:r1:Null0",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:telemetry-testbed-xrv9k-ceos-4hosts:r1:Null0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:telemetry-testbed-xrv9k-ceos-4hosts:r1:Null0",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-xrv9k-ceos-4hosts:r1:Null0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "Null0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:other",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "mtu": {
+            "type": "Property",
+            "value": 1500,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "enabled": {
+            "type": "Property",
+            "value": true,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 2,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "UP",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "UP",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1713860391317279000,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:telemetry-testbed-xrv9k-ceos-4hosts:r1:Null0",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:telemetry-testbed-xrv9k-ceos-4hosts:r1:Null0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inUnicastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inBroadcastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inMulticastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inDiscards": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inUnknownProtos": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inFcsErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "outUnicastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "outBroadcastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "outMulticastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "outDiscards": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "outErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "carrierTransitions": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetState:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1",
+        "type": "InterfaceEthernetState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "autoNegotiate": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetConfig:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1",
+        "type": "InterfaceEthernetConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "autoNegotiate": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1.0",
+        "type": "InterfaceSubinterfacesSubinterface",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "index": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1.0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1.0:10.0.1.1",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1.0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "ip": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborConfig:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1.0:10.0.1.1",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborState:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1.0:10.0.1.1",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1.0:10.0.1.1",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "ip": {
+            "type": "Property",
+            "value": "10.0.1.1",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "linkLayerAddress": {
+            "type": "Property",
+            "value": "0c:00:13:75:7c:02",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "origin": {
+            "type": "Property",
+            "value": "OTHER",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1.0:10.0.1.1",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1.0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "ip": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1.0:10.0.1.1",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressState:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1.0:10.0.1.1",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1.0:10.0.1.1",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "ip": {
+            "type": "Property",
+            "value": "10.0.1.1",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "prefixLength": {
+            "type": "Property",
+            "value": 24,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "origin": {
+            "type": "Property",
+            "value": "STATIC",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1.0:10.0.1.1",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1.0:10.0.1.1",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "ip": {
+            "type": "Property",
+            "value": "10.0.1.1",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "prefixLength": {
+            "type": "Property",
+            "value": 24,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "GigabitEthernet0/0/0/1",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "mtu": {
+            "type": "Property",
+            "value": 1514,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "enabled": {
+            "type": "Property",
+            "value": true,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 7,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "UP",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "UP",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1713860641499791000,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 485219,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inUnicastPkts": {
+            "type": "Property",
+            "value": 3738,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inBroadcastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inMulticastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inDiscards": {
+            "type": "Property",
+            "value": 15,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inUnknownProtos": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inFcsErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 84,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "outUnicastPkts": {
+            "type": "Property",
+            "value": 1,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "outBroadcastPkts": {
+            "type": "Property",
+            "value": 1,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "outMulticastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "outDiscards": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "outErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "carrierTransitions": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceConfig:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1",
+        "type": "InterfaceConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "GigabitEthernet0/0/0/1",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "configType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetState:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0",
+        "type": "InterfaceEthernetState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "autoNegotiate": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetConfig:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0",
+        "type": "InterfaceEthernetConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "autoNegotiate": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0.0",
+        "type": "InterfaceSubinterfacesSubinterface",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "index": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0.0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0.0:192.168.254.2",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0.0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "ip": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborConfig:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0.0:192.168.254.2",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborState:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0.0:192.168.254.2",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0.0:192.168.254.2",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "ip": {
+            "type": "Property",
+            "value": "192.168.254.2",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "linkLayerAddress": {
+            "type": "Property",
+            "value": "aa:c1:ab:19:b4:23",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "origin": {
+            "type": "Property",
+            "value": "DYNAMIC",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0.0:192.168.254.1",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0.0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "ip": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborConfig:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0.0:192.168.254.1",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborState:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0.0:192.168.254.1",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0.0:192.168.254.1",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "ip": {
+            "type": "Property",
+            "value": "192.168.254.1",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "linkLayerAddress": {
+            "type": "Property",
+            "value": "0c:00:ec:97:60:01",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "origin": {
+            "type": "Property",
+            "value": "OTHER",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0.0:192.168.254.1",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0.0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "ip": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0.0:192.168.254.1",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressState:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0.0:192.168.254.1",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0.0:192.168.254.1",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "ip": {
+            "type": "Property",
+            "value": "192.168.254.1",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "prefixLength": {
+            "type": "Property",
+            "value": 24,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "origin": {
+            "type": "Property",
+            "value": "STATIC",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0.0:192.168.254.1",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0.0:192.168.254.1",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "ip": {
+            "type": "Property",
+            "value": "192.168.254.1",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "prefixLength": {
+            "type": "Property",
+            "value": 24,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "GigabitEthernet0/0/0/0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "mtu": {
+            "type": "Property",
+            "value": 1514,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "enabled": {
+            "type": "Property",
+            "value": true,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 6,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "UP",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "UP",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1713860641556827400,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 70295,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inUnicastPkts": {
+            "type": "Property",
+            "value": 333,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inBroadcastPkts": {
+            "type": "Property",
+            "value": 82,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inMulticastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inDiscards": {
+            "type": "Property",
+            "value": 8,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inUnknownProtos": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inFcsErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 3402,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "outUnicastPkts": {
+            "type": "Property",
+            "value": 80,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "outBroadcastPkts": {
+            "type": "Property",
+            "value": 1,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "outMulticastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "outDiscards": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "outErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "carrierTransitions": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceConfig:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0",
+        "type": "InterfaceConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "GigabitEthernet0/0/0/0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "configType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0",
+        "type": "Interface",
+        "name": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceConfig:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetState:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0",
+        "type": "InterfaceEthernetState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "autoNegotiate": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetStateCounters:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0",
+        "type": "InterfaceEthernetStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceEthernetState:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inMacPauseFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inOversizeFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inJabberFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inFragmentFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "in8021qFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inCrcErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "outMacPauseFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "out8021qFrames": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceEthernetConfig:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0",
+        "type": "InterfaceEthernetConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "autoNegotiate": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0.0",
+        "type": "InterfaceSubinterfacesSubinterface",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "index": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceConfig:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0.0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0.0:10.0.0.15",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0.0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "ip": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborConfig:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0.0:10.0.0.15",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborState:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0.0:10.0.0.15",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0.0:10.0.0.15",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "ip": {
+            "type": "Property",
+            "value": "10.0.0.15",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "linkLayerAddress": {
+            "type": "Property",
+            "value": "0c:00:99:79:3b:00",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "origin": {
+            "type": "Property",
+            "value": "OTHER",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0.0:10.0.0.2",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0.0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "ip": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborConfig:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0.0:10.0.0.2",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborState:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0.0:10.0.0.2",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighborState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4NeighborsNeighbor:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0.0:10.0.0.2",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "ip": {
+            "type": "Property",
+            "value": "10.0.0.2",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "linkLayerAddress": {
+            "type": "Property",
+            "value": "52:55:0a:00:00:02",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "origin": {
+            "type": "Property",
+            "value": "DYNAMIC",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0.0:10.0.0.15",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterface:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0.0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "ip": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0.0:10.0.0.15",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressState:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0.0:10.0.0.15",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0.0:10.0.0.15",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "ip": {
+            "type": "Property",
+            "value": "10.0.0.15",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "prefixLength": {
+            "type": "Property",
+            "value": 24,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "origin": {
+            "type": "Property",
+            "value": "STATIC",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0.0:10.0.0.15",
+        "type": "InterfaceSubinterfacesSubinterfaceIpv4AddressesAddressConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceSubinterfacesSubinterfaceIpv4AddressesAddress:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0.0:10.0.0.15",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "ip": {
+            "type": "Property",
+            "value": "10.0.0.15",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "prefixLength": {
+            "type": "Property",
+            "value": 24,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceState:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0",
+        "type": "InterfaceState",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "MgmtEth0/RP0/CPU0/0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "stateType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "mtu": {
+            "type": "Property",
+            "value": 1514,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "loopbackMode": {
+            "type": "Property",
+            "value": false,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "enabled": {
+            "type": "Property",
+            "value": true,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "ifindex": {
+            "type": "Property",
+            "value": 3,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "UP",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "UP",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": 1713860636351542800,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStateCounters:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0",
+        "type": "InterfaceStateCounters",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceState:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 732,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inUnicastPkts": {
+            "type": "Property",
+            "value": 8,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inBroadcastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inMulticastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inDiscards": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inUnknownProtos": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "inFcsErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 466,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "outUnicastPkts": {
+            "type": "Property",
+            "value": 8,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "outBroadcastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "outMulticastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "outDiscards": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "outErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "carrierTransitions": {
+            "type": "Property",
+            "value": 1,
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceConfig:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0",
+        "type": "InterfaceConfig",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:telemetry-testbed-xrv9k-ceos-4hosts:r1:MgmtEth0/RP0/CPU0/0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "MgmtEth0/RP0/CPU0/0",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        },
+        "configType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd",
+            "observedAt": "2024-04-23T10:12:37.782Z"
+        }
+    }
+]

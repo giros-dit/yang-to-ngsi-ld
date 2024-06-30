@@ -1,0 +1,141 @@
+targets:
+  clab-telemetry-testbed-srl-srl-4hosts-r1:
+    # gNMI target address; CLI flag `--address`
+    address: "clab-telemetry-testbed-srl-srl-4hosts-r1"
+    # gNMI target user name; CLI flag `--username`
+    username: admin
+    # gNMI target user password; CLI flag `--password`
+    password: NokiaSrl1!
+    # do not verify the target certificate when using tls; CLI flag `--skip-verify`
+    skip-verify: true
+    # log file location; CLI flag `--log-file`
+    log-file: /tmp/gnmic-1.log
+    subscriptions:
+      - srl1_traffic_stats
+      - srl1_port_stats
+  clab-telemetry-testbed-srl-srl-4hosts-r2:
+    # gNMI target address; CLI flag `--address`
+    address: "clab-telemetry-testbed-srl-srl-4hosts-r2"
+    # gNMI target user name; CLI flag `--username`
+    username: admin
+    # gNMI target user password; CLI flag `--password`
+    password: NokiaSrl1!
+    # do not verify the target certificate when using tls; CLI flag `--skip-verify`
+    skip-verify: true
+    # log file location; CLI flag `--log-file`
+    log-file: /tmp/gnmic-2.log
+    subscriptions:
+      - srl2_traffic_stats
+      - srl2_port_stats
+subscriptions:
+  srl1_traffic_stats:
+    paths:
+       - "/interfaces/interface[name=ethernet-1/1]/state/counters"
+    stream-mode: sample
+    sample-interval: 5s
+    encoding: JSON_IETF
+    outputs: 
+      - output1-srl1
+  srl1_port_stats:
+    paths:
+      - "/interfaces/interface[name=ethernet-1/1]/state/admin-status"
+      - "/interfaces/interface[name=ethernet-1/1]/state/oper-status"
+    stream-mode: on-change
+    encoding: JSON_IETF
+    outputs: 
+      - output2-srl1
+  srl2_traffic_stats:
+    paths:
+       - "/interfaces/interface[name=ethernet-1/1]/state/counters"
+    stream-mode: sample
+    sample-interval: 5s
+    encoding: JSON_IETF
+    outputs: 
+      - output1-srl2
+  srl2_port_stats:
+    paths:
+      - "/interfaces/interface[name=ethernet-1/1]/state/admin-status"
+      - "/interfaces/interface[name=ethernet-1/1]/state/oper-status"
+    stream-mode: on-change
+    encoding: JSON_IETF
+    outputs: 
+      - output2-srl2
+outputs:
+  output1-srl1:
+    # required
+    type: kafka
+    # Comma separated brokers addresses
+    address: kafka:9092
+    # Kafka topic name
+    topic: interfaces-state-notifications
+    max-retry: 2
+    # Kafka connection timeout
+    timeout: 5s
+    # Wait time to reestablish the kafka producer connection after a failure
+    recovery-wait-time: 10s
+    # Exported msg format, json, protojson, prototext, proto, event
+    format: event
+    event-processors:
+    #  - group-by-processor
+      - merge-processor
+  output2-srl1:
+    # required
+    type: kafka
+    # Comma separated brokers addresses
+    address: kafka:9092
+    # Kafka topic name
+    topic: interfaces-oper-notifications
+    max-retry: 2
+    # Kafka connection timeout
+    timeout: 5s
+    # Wait time to reestablish the kafka producer connection after a failure
+    recovery-wait-time: 10s
+    # Exported msg format, json, protojson, prototext, proto, event
+    format: event
+  output1-srl2:
+    # required
+    type: kafka
+    # Comma separated brokers addresses
+    address: kafka:9092
+    # Kafka topic name
+    topic: interfaces-state-notifications
+    max-retry: 2
+    # Kafka connection timeout
+    timeout: 5s
+    # Wait time to reestablish the kafka producer connection after a failure
+    recovery-wait-time: 10s
+    # Exported msg format, json, protojson, prototext, proto, event
+    format: event
+    event-processors:
+    #  - group-by-processor
+      - merge-processor
+  output2-srl2:
+    # required
+    type: kafka
+    # Comma separated brokers addresses
+    address: kafka:9092
+    # Kafka topic name
+    topic: interfaces-oper-notifications
+    max-retry: 2
+    # Kafka connection timeout
+    timeout: 5s
+    # Wait time to reestablish the kafka producer connection after a failure
+    recovery-wait-time: 10s
+    # Exported msg format, json, protojson, prototext, proto, event
+    format: event
+      
+processors:
+  # processor name
+  group-by-processor:
+    # processor type
+    event-group-by:
+      tags:
+        - source
+  # processor name
+  merge-processor:
+    # processor type
+    event-merge:
+      # if always is set to true, 
+      # the updates are merged regardless of the timestamp values
+      always: true
+      debug: false

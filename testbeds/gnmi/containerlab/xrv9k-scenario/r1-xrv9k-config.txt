@@ -1,0 +1,22 @@
+!!! CISCO XRv9K r1 configuration !!!
+
+! Interfaces configuration
+
+! GigabitEthernet0/0/0/1 (c1 <-> r1)
+interface GigabitEthernet0/0/0/1
+ ip address 10.0.1.1 255.255.255.0
+ no shutdown
+!
+
+! GigabitEthernet0/0/0/0 (r1 <-> r2)
+interface GigabitEthernet0/0/0/0
+ ip address 192.168.254.1 255.255.255.0
+ no shutdown
+!
+
+! Static route
+router static address-family ipv4 unicast 10.0.2.0/24 192.168.254.2
+router static address-family ipv4 multicast 10.0.2.0/24 192.168.254.2
+!
+
+!!! END CONFIG !!!

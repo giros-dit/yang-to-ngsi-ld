@@ -1,0 +1,12 @@
+{
+    "@context": {
+        "netflow-v9": "http://data-aggregator.com/ns/netflow/",
+        "ExportPacketFlowDataRecordBgp": "netflow-v9:netflow/export-packet/flow-data-record/bgp",
+        "srcAs": "netflow-v9:netflow/export-packet/flow-data-record/bgp/src-as",
+        "dstAs": "netflow-v9:netflow/export-packet/flow-data-record/bgp/dst-as",
+        "nextHop": "netflow-v9:netflow/export-packet/flow-data-record/bgp/next-hop",
+        "nextHopIpv6": "netflow-v9:netflow/export-packet/flow-data-record/bgp/next-hop-ipv6",
+        "srcTrafficId": "netflow-v9:netflow/export-packet/flow-data-record/bgp/src-traffic-id",
+        "dstTrafficId": "netflow-v9:netflow/export-packet/flow-data-record/bgp/dst-traffic-id"
+    }
+}

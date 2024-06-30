@@ -1,0 +1,17 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "Interface": "srl_nokia-interfaces:interface",
+        "name": "srl_nokia-interfaces:interface/name",
+        "description": "srl_nokia-interfaces:interface/description",
+        "adminState": "srl_nokia-interfaces:interface/admin-state",
+        "mtu": "srl_nokia-interfaces:interface/mtu",
+        "ifindex": "srl_nokia-interfaces:interface/ifindex",
+        "operState": "srl_nokia-interfaces:interface/oper-state",
+        "operDownReason": "srl_nokia-interfaces:interface/oper-down-reason",
+        "lastChange": "srl_nokia-interfaces:interface/last-change",
+        "linecard": "srl_nokia-interfaces:interface/linecard",
+        "forwardingComplex": "srl_nokia-interfaces:interface/forwarding-complex",
+        "phyGroupMembers": "srl_nokia-interfaces:interface/phy-group-members"
+    }
+}

@@ -1,0 +1,26 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Netflow2Bidirectional",
+            "request": "launch",
+            "mainClass": "tid.Netflow2Bidirectional",
+            "projectName": "netflow-bidirectional-aggregator",            
+            "args": [
+                "kafka:9092",
+                "netflow-driver-output",
+                "netflow-bidiagg-output"
+            ]
+        }
+    ]
+}
