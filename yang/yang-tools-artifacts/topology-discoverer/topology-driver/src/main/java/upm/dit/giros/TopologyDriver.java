@@ -90,7 +90,8 @@ import java.lang.String;
 
 /**
  * Java application based on the YANG Tools library for parsing data from network topology descriptor based on the 
- * ContainerLab simulation testbed and mapping it to YANG-compliant data according to the ietf-network and ietf-network YANG data models.
+ * ContainerLab simulation testbed and mapping it to YANG-compliant data according to the ietf-network and ietf-network-topology 
+ * YANG data models (RFC 8345: https://datatracker.ietf.org/doc/html/rfc8345).
  */
 public class TopologyDriver {
 
