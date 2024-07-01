@@ -7,7 +7,7 @@ The proposed *Descriptive NDT* architecture covers the core elements of NDT desc
 ![DescriptiveNDT-Arch-DataMaterialization](resources/images/DescriptiveNDT-Arch-DataMaterialization.png)
 
 ### Descriptive NDT prototype implementation
-The implementation of this *Descriptive NDT* architecture is mainly based on the use of the OpenAPI Specification (OAS) compatible with the NGSI-LD API [6]. The OAS allows modeling the NDT data schemas, as well as generate a client library with programmable code that makes use of the NGSI-LD API and the generated schemas for instantiating the resulting NDT data. The related programming code is implemented in Python, a language that also facilitates the libraries (e.g., *pyang* [7], *yangtools* [8], and *pydantic* [9]) to parse the YANG Modeled Data to complete the mapping process to NGSI-LD Modeled Data. 
+The implementation of this *Descriptive NDT* architecture is mainly based on the use of the OpenAPI Specification (OAS) compatible with the NGSI-LD API [6]. The OAS allows modeling the NDT data schemas, as well as generate a client library with programmable code that makes use of the NGSI-LD API and the generated schemas for instantiating the resulting NDT data. The related programming code is implemented in Python, a language that also facilitates the main libraries (e.g., *pyang* [7] and *pydantic* [8]) to parse the YANG modeled data to complete the mapping process to NGSI-LD modeled data and also to instantiate the NDT data. 
 
 ![YANG-to-NGSI-LD-translation](resources/images/YANG-to-NGSI-LD-translation.png)
 
@@ -23,7 +23,7 @@ The prototype separates its functionality into two main planes: *NDT Generator P
 - [candil-json-parser-generator.py](yang/pyang-plugins/candil-json-parser-generator.py): given one or several YANG modules, it generates the Python code of an JSON parser that reads data modeled by these modules and generates the corresponding NGSI-LD Entity data structures (dictionary buffers). JSON Parser Generator for non-gNMI data modeled according to YANG modules. This means it is valid for data in JSON format that does not come from the gNMI protocol but is supported by IETF YANG models, OpenConfig YANG models, or vendor proprietary YANG models. ```Supported extra data sources: NetFlow v9 and Network Topologies```.
 
 ## Developed _yangtools_ artifacts:
-- [TopologyDriver.java](yang/yang-tools-artifacts/topology-discoverer/topology-driver/src/main/java/upm/dit/giros/TopologyDriver.java): Java application based on the YANG Tools library for parsing data from network topology descriptor based on the ContainerLab [10] simulation testbed and mapping it to YANG-compliant data according to the ietf-network and ietf-network-topology YANG data models ([RFC 8345](https://datatracker.ietf.org/doc/html/rfc8345)).
+- [TopologyDriver.java](yang/yang-tools-artifacts/topology-discoverer/topology-driver/src/main/java/upm/dit/giros/TopologyDriver.java): Java application based on the *YANG Tools* [9], library for parsing data from network topology descriptor based on the ContainerLab [10] simulation testbed and mapping it to YANG-compliant data according to the ietf-network and ietf-network-topology YANG data models ([RFC 8345](https://datatracker.ietf.org/doc/html/rfc8345)).
   
 ## Documentation and links
 1. M. Björklund, “The YANG 1.1 Data Modeling Language,” *RFC 7950*, Internet Engineering Task Force, Aug. 2016.
@@ -33,8 +33,8 @@ The prototype separates its functionality into two main planes: *NDT Generator P
 5. B. Claise, J. Clarke, and J. Lindblad, *Network Programmability with YANG: The Structure of Network Automation with YANG, NETCONF, RESTCONF, and gNMI*. Addison-Wesley Professional, 2019, isbn:9780135180617
 6. OpenAPI specification for the NGSI-LD API specified by ETSI ISG CIM 009: https://forge.etsi.org/rep/cim/ngsi-ld-openapi/-/tree/1.6.1
 7. pyang: https://github.com/mbj4668/pyang
-8. YANG Tools: https://github.com/opendaylight/yangtools
-9.  pydantic: https://docs.pydantic.dev/latest/
+8. pydantic: https://docs.pydantic.dev/latest/
+9. YANG Tools: https://github.com/opendaylight/yangtools
 10. ContainerLab: https://containerlab.dev/
 11. pyangbind: https://github.com/robshakir/pyangbind
 12. poetry: https://python-poetry.org
