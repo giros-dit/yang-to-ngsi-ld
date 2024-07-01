@@ -7,7 +7,7 @@ The proposed *Descriptive NDT* architecture covers the core elements of NDT desc
 ![DescriptiveNDT-Arch-DataMaterialization](resources/images/DescriptiveNDT-Arch-DataMaterialization.png)
 
 ### Descriptive NDT prototype implementation
-The implementation of this *Descriptive NDT* architecture is mainly based on the use of the OpenAPI Specification (OAS) compatible with the NGSI-LD API [6]. The OAS allows modeling the NDT data schemas, as well as generate a client library with programmable code that makes use of the NGSI-LD API and the generated schemas for instantiating the resulting NDT data. The related programming code is implemented in Python, a language that also facilitates the main libraries (e.g., *pyang* [7] and *pydantic* [8]) for parsing the YANG modeled data and completing the mapping process to NGSI-LD modeled data, as well as for instantiating the NDT data. 
+The implementation of this *Descriptive NDT* architecture is mainly based on the use of the OpenAPI Specification (OAS) compatible with the NGSI-LD API [6]. The OAS allows modeling the NDT data schemas (i.e., *NDT Data Models* in the Descriptive NDT architecture), as well as generate a client library with programmable code that makes use of the NGSI-LD API and the generated schemas for instantiating the resulting NDT data. The related programming code is implemented in Python, a language that also facilitates the main libraries (e.g., *pyang* [7] and *pydantic* [8]) for parsing the YANG modeled data and completing the mapping process to NGSI-LD modeled data, as well as for instantiating the NDT data. 
 
 ![YANG-to-NGSI-LD-translation](resources/images/YANG-to-NGSI-LD-translation.png)
 
