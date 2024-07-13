@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2024-06-30T09:49:53.579Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.5.3 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="oqI8r43Ip08GdzI-H26v" version="24.5.3" type="device" pages="13">
+<mxfile host="Electron" modified="2024-07-01T09:33:46.297Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.5.3 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="Gt7g_mITQaz-qjxmIUQK" version="24.5.3" type="device" pages="13">
   <diagram name="data-materialization-workflow" id="F7MqV6mRHY583K2qxNko">
     <mxGraphModel dx="1026" dy="772" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -3246,7 +3246,7 @@
     </mxGraphModel>
   </diagram>
   <diagram name="NDT-solution-Arch-v2.5" id="5Duafa-hPWl-oblfV7T-">
-    <mxGraphModel dx="2034" dy="908" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1853" dy="772" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="BrfsbUjFQG7KN27oJf1K-0" />
         <mxCell id="BrfsbUjFQG7KN27oJf1K-1" parent="BrfsbUjFQG7KN27oJf1K-0" />
@@ -3341,7 +3341,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="BrfsbUjFQG7KN27oJf1K-43" value="&lt;span style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;NGSI-LD&amp;nbsp;&lt;/font&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;&amp;nbsp;Modelled Data&amp;nbsp;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;labelBorderColor=default;labelBackgroundColor=#FFFFFF;rotation=0;" parent="BrfsbUjFQG7KN27oJf1K-42" vertex="1" connectable="0">
+        <mxCell id="BrfsbUjFQG7KN27oJf1K-43" value="&lt;span style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;NGSI-LD&amp;nbsp;&lt;/font&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;&amp;nbsp;Modeled Data&amp;nbsp;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;labelBorderColor=default;labelBackgroundColor=#FFFFFF;rotation=0;" parent="BrfsbUjFQG7KN27oJf1K-42" vertex="1" connectable="0">
           <mxGeometry x="-0.15" relative="1" as="geometry">
             <mxPoint y="-15" as="offset" />
           </mxGeometry>
@@ -3424,7 +3424,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="BrfsbUjFQG7KN27oJf1K-61" value="&lt;div&gt;&lt;span style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;YANG&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;&amp;nbsp;Modelled Data&amp;nbsp;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;labelBorderColor=default;labelBackgroundColor=#FFFFFF;rotation=0;" parent="BrfsbUjFQG7KN27oJf1K-1" vertex="1" connectable="0">
+        <mxCell id="BrfsbUjFQG7KN27oJf1K-61" value="&lt;div&gt;&lt;span style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;YANG&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;&amp;nbsp;Modeled Data&amp;nbsp;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;labelBorderColor=default;labelBackgroundColor=#FFFFFF;rotation=0;" parent="BrfsbUjFQG7KN27oJf1K-1" vertex="1" connectable="0">
           <mxGeometry x="244.66" y="581" as="geometry">
             <mxPoint x="-14" y="-1" as="offset" />
           </mxGeometry>
