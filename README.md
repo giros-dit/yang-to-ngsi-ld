@@ -11,7 +11,7 @@ The implementation of this *Descriptive NDT* architecture is mainly based on the
 
 ![YANG-to-NGSI-LD-translation](resources/images/YANG-to-NGSI-LD-translation.png)
 
-The prototype separates its functionality into two main planes: *NDT Generator Plane* and *Data Pipeline Plane*. The *NDT Generator Plane* general functionality consists in processing the native data models of the MDT Network Assets (i.e., *YANG Schemas*) in order to generate different programmed artifacts that allow performing the YANG to NGSI-LD translation in an autonomous way. Then, the *Data Pipeline Plane* makes use of the programmed artifacts to be able to parse the raw configuration and operational data coming from network assets and generate NGSI-LD modeled data to be instantiated within a compliant NGSI-LD Context Broker.
+The prototype separates its functionality into two main planes: *Descriptive NDT Generator Plane* and *Data Pipeline Plane*. The *Descriptive NDT Generator Plane* general functionality consists in processing the native data models of the MDT Network Assets (i.e., *YANG Schemas*) in order to generate different programmed artifacts that allow performing the YANG to NGSI-LD translation in an autonomous way. Then, the *Data Pipeline Plane* makes use of the programmed artifacts to be able to parse the raw configuration and operational data coming from network assets and generate NGSI-LD modeled data to be instantiated within a compliant NGSI-LD Context Broker.
 
 ### Developed _pyang_ plugins:
 - [candil-ngsi-ld-context-generator.py](yang/pyang-plugins/candil-ngsi-ld-context-generator.py): given one or several YANG modules, it generates the corresponding NGSI-LD context files in ```.jsonld``` format.
