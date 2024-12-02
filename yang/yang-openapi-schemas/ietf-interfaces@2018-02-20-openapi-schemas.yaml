@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: OpenAPI schemas for YANG data models ietf-interfaces@2018-02-20.yang, ietf-yang-types@2023-01-23.yang, ietf-ip@2018-02-22.yang, ietf-inet-types@2013-07-15.yang, iana-if-type@2014-05-08.yang.
+  title: OpenAPI schemas for YANG data models ngsi-ld-api.yaml, ietf-interfaces@2018-02-20.yang, ietf-yang-types@2023-01-23.yang, ietf-ip@2018-02-22.yang, ietf-inet-types@2021-02-22.yang, iana-if-type@2014-05-08.yang.
   version: 1.0.0
   description: OpenAPI schemas for YANG data models compliant with the NGSI-LD OAS V1.6.1 metamodel according to ETSI GS CIM 009 V1.6.1.
 paths: {}
@@ -876,7 +876,6 @@ components:
             value:
               type: integer
               minimum: 68
-              maximum: max
           required:
             - value
     InterfaceIpv4Address:
@@ -896,8 +895,10 @@ components:
               default: InterfaceIpv4Address
             ip:
               $ref: '#/components/schemas/InterfaceIpv4AddressIp'
-            subnet:
-              $ref: '#/components/schemas/Subnet'
+            prefixLength:
+              $ref: '#/components/schemas/InterfaceIpv4AddressSubnetPrefixLength'
+            netmask:
+              $ref: '#/components/schemas/InterfaceIpv4AddressSubnetNetmask'
             origin:
               $ref: '#/components/schemas/InterfaceIpv4AddressOrigin'
             isPartOf:
@@ -906,7 +907,12 @@ components:
         - required:
           - type
           - isPartOf
-          - subnet
+        - type: object
+          oneOf:
+            - required:
+              - prefixLength
+            - required:
+              - netmask
     InterfaceIpv4AddressIp:
       description: |
         The IPv4 address on the interface.
@@ -922,16 +928,6 @@ components:
               pattern: '[0-9\.]*'
           required:
             - value
-    Subnet:
-      description: |
-        The subnet can be specified as a prefix length or,
-        if the server supports non-contiguous netmasks, as
-        a netmask.
-        
-        YANG module: ietf-ip.yang
-      oneOf:
-        - $ref: '#/components/schemas/SubnetPrefixLength'
-        - $ref: '#/components/schemas/SubnetNetmask'
     SubnetPrefixLength:
       description: |
         The length of the subnet prefix.
@@ -1162,7 +1158,6 @@ components:
             value:
               type: integer
               minimum: 1280
-              maximum: max
           required:
             - value
     InterfaceIpv6Address:
