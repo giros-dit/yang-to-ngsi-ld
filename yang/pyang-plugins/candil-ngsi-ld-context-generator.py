@@ -4,7 +4,7 @@ pyang plugin -- CANDIL NGSI-LD Context Generator.
 Generates the NGSI-LD context files associated with a YANG module file following the defined guidelines and conventions.
 The results are written to individual .jsonld files: one for every NGSI-LD Entity.
 
-Version: 0.3.7.
+Version: 0.3.8.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -99,7 +99,7 @@ def generate_ngsi_ld_context(ctx, modules, fd):
                 return element_name
             if (keyword == 'container') or (keyword == 'list'):
                 return re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element_name.capitalize())
-            if (keyword == 'leaf') or (keyword == 'leaf-list'):
+            if (keyword == 'leaf') or (keyword == 'leaf-list') or (keyword == 'choice'):
                 return re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element_name)
     
     def is_enclosing_container(element) -> bool:
@@ -141,6 +141,16 @@ def generate_ngsi_ld_context(ctx, modules, fd):
         '''
         result = False
         if (element.keyword in ['container', 'list']):
+            result = True
+        return result
+    
+    def is_choice(element) -> bool:
+        '''
+        Auxiliary function.
+        Checks if an element is a YANG choice.
+        '''
+        result = False
+        if (element.keyword == 'choice'):
             result = True
         return result
     
@@ -189,7 +199,11 @@ def generate_ngsi_ld_context(ctx, modules, fd):
         if element.i_module.i_modulename == module.i_modulename:
             name = str(element.arg)
         else:
-            name = element.i_module.i_prefix + ':' + str(element.arg)
+            if element.parent.i_module.i_modulename != element.i_module.i_modulename:
+                name = element.i_module.i_modulename + ':' + str(element.arg)
+                #name = element.i_module.i_prefix + ':' + str(element.arg)
+            else:
+                 name = str(element.arg)
         
         ### ENCLOSING CONTAINER IDENTIFICATION ###
         if (is_enclosing_container(element) == True) and (is_deprecated(element) == False):
@@ -202,26 +216,42 @@ def generate_ngsi_ld_context(ctx, modules, fd):
 
         ### NGSI-LD ENTITY IDENTIFICATION ###
         elif (is_entity(element) == True) and (is_deprecated(element) == False):
-                current_camelcase_path = ''
-                if (camelcase_entity_path is None):
-                    current_camelcase_path = to_camelcase(str(element.keyword), str(element.arg))
-                else:
-                    current_camelcase_path = camelcase_entity_path + to_camelcase(str(element.keyword), str(element.arg))
-                json_ld = {}
-                ngsi_ld_context = {}
-                ngsi_ld_context[module_name] = module_urn + '/'
-                ngsi_ld_context[current_camelcase_path] = xpath + name
-                subelements = element.i_children
-                if (subelements is not None):
-                    for subelement in subelements:
-                        if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                            generate_context(subelement, module_name, module_urn, xpath + name + '/', current_camelcase_path, ngsi_ld_context)
-                json_ld["@context"] = ngsi_ld_context
-                filename = 'ngsi-ld-context/' + xpath.replace('/', '_').replace(':', '_') + name.replace(':', '_') + '.jsonld'
-                os.makedirs(os.path.dirname(filename), exist_ok=True)
-                file = open(filename, 'w')
-                file.write(json.dumps(json_ld, indent=4) + '\n')
-                fd.write('NGSI-LD Context written to ' + file.name + '\n')
+            current_camelcase_path = ''
+            if (camelcase_entity_path is None):
+                current_camelcase_path = to_camelcase(str(element.keyword), str(element.arg))
+            else:
+                current_camelcase_path = camelcase_entity_path + to_camelcase(str(element.keyword), str(element.arg))
+            json_ld = {}
+            ngsi_ld_context = {}
+            ngsi_ld_context[module_name] = module_urn + '/'
+            if element.i_module.i_modulename != module.i_modulename:
+                ngsi_ld_context[str(element.i_module.i_modulename)] = element.i_module.search_one('namespace').arg + '/'
+            ngsi_ld_context[current_camelcase_path] = xpath + name
+            subelements = element.i_children
+            if (subelements is not None):
+                for subelement in subelements:
+                    if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
+                        generate_context(subelement, module_name, module_urn, xpath + name + '/', current_camelcase_path, ngsi_ld_context)
+            json_ld["@context"] = ngsi_ld_context
+            filename = 'ngsi-ld-context/' + xpath.replace('/', '_').replace(':', '_') + name.replace(':', '_') + '.jsonld'
+            os.makedirs(os.path.dirname(filename), exist_ok=True)
+            file = open(filename, 'w')
+            file.write(json.dumps(json_ld, indent=4) + '\n')
+            fd.write('NGSI-LD Context written to ' + file.name + '\n')
+        ### --- ###
+
+        ### YANG CHOICE IDENTIFICATION: IT CONTAINS NGSI-LD PROPERTIES ###
+        elif (is_choice(element) == True) and (is_deprecated(element) == False):
+            current_camelcase_path = to_camelcase(str(element.keyword), str(element.arg))
+            subelements = element.i_children
+            #ngsi_ld_context[to_camelcase(str(element.keyword), str(element.arg))] = xpath + name
+            if (subelements is not None):
+                for subelement in subelements:
+                    subelements = subelement.i_children
+                    if (subelements is not None):
+                        for subelement in subelements:
+                            if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
+                                generate_context(subelement, module_name, module_urn, xpath + name + '/', current_camelcase_path, ngsi_ld_context)
         ### --- ###
 
         ### NGSI-LD PROPERTY IDENTIFICATION ###
