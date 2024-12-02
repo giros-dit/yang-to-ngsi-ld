@@ -201,7 +201,7 @@ def generate_ngsi_ld_context(ctx, modules, fd):
         else:
             if element.parent.i_module.i_modulename != element.i_module.i_modulename:
                 name = element.i_module.i_modulename + ':' + str(element.arg)
-                #name = element.i_module.i_prefix + ':' + str(element.arg)
+                # name = element.i_module.i_prefix + ':' + str(element.arg)
             else:
                  name = str(element.arg)
         
@@ -244,7 +244,7 @@ def generate_ngsi_ld_context(ctx, modules, fd):
         elif (is_choice(element) == True) and (is_deprecated(element) == False):
             current_camelcase_path = to_camelcase(str(element.keyword), str(element.arg))
             subelements = element.i_children
-            #ngsi_ld_context[to_camelcase(str(element.keyword), str(element.arg))] = xpath + name
+            # ngsi_ld_context[to_camelcase(str(element.keyword), str(element.arg))] = xpath + name
             if (subelements is not None):
                 for subelement in subelements:
                     subelements = subelement.i_children
