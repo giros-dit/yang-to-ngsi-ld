@@ -1,0 +1,228 @@
+openapi: 3.0.3
+info:
+  title: Schemas for NETCONF client using data materialization approach
+  version: 0.0.1
+  description: |
+    Schemas for NETCONF client using data materialization approach compliant with the NGSI-LD OAS metamodel according to ETSI GS CIM 009.
+paths: {}
+components:
+  schemas:
+    NETCONF:
+      description: | 
+        NGSI-LD Entity Type that represents a NETCONF client.
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be NETCONF.
+              type: string
+              enum:
+                - NETCONF
+              default: NETCONF
+            host:
+              $ref: '#/components/schemas/Host'
+            port:
+              $ref: '#/components/schemas/Port'
+            username:
+              $ref: '#/components/schemas/Username'
+            password:
+              $ref: '#/components/schemas/Password'
+            hostFamily:
+              $ref: '#/components/schemas/HostFamily'
+            hostKeyVerify:
+              $ref: '#/components/schemas/HostKeyVerify'
+            operation:
+              $ref: '#/components/schemas/Operation'
+        - required:
+            - type
+            - host
+            - port
+            - username
+            - password
+            - hostFamily
+            - operation
+    Host:
+      description: | 
+        NGSI-LD Property Type. The hostname or address of the NETCONF server.
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties: 
+            value:
+              type: string
+          required:
+            - value 
+      additionalProperties: false
+    Port:
+      description: | 
+        NGSI-LD Property Type. The port of the NETCONF server.
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties: 
+            value:
+              type: number
+          required:
+            - value 
+      additionalProperties: false
+    Username:
+      description: | 
+        NGSI-LD Property Type. The administration username of the NETCONF server.
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties: 
+            value:
+              type: string
+          required:
+            - value 
+      additionalProperties: false
+    Password:
+      description: | 
+        NGSI-LD Property Type. The administration password of the NETCONF server.
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties: 
+            value:
+              type: string
+          required:
+            - value 
+      additionalProperties: false
+    HostKeyVerify:
+      description: | 
+        NGSI-LD Property Type. Whether or not to enable hostkey verification (if SSL is used).
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties: 
+            value:
+              type: boolean
+              default: false
+          required:
+            - value 
+      additionalProperties: false
+    HostFamily:
+      description: | 
+        NGSI-LD Property Type. The family name of the NETCONF device.
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties: 
+            value:
+              type: string
+              enum:
+                - junos
+                - csr
+                - nexus
+                - iosxr
+                - iosxe
+                - huawei
+                - huaweiyang
+                - alu
+                - h3c
+                - hpconware
+                - default
+              default: default
+          required:
+            - value 
+      additionalProperties: false
+    Operation:
+      description: | 
+        NGSI-LD Property Type. The NETCONF RPC operation (i.e., GET, SET or SUBSCRIBE).
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties: 
+            value:
+              type: string
+              enum:
+                - GET
+                - SUBSCRIBE
+            getOption:
+              $ref: '#/components/schemas/GetOption'
+            subscriptionMode:
+              $ref: '#/components/schemas/SubscriptionMode'
+            subscriptionState:
+              $ref: '#/components/schemas/SubscriptionState'
+            xpath:
+              $ref: '#/components/schemas/Xpath'
+          required:
+            - value 
+      additionalProperties: false
+    GetOption:
+      description: | 
+        NGSI-LD Property Type. The option for the NETCONF RPC GET operation. There are 3 options: 1) 'state' for NETCONF RPC Get operation, 
+        2) 'config' for NETCONF RPC Get-Config operation, and 3) 'edit-config' for NETCONF RPC Get-Config operation triggering an 
+        NETCONF Set RPC operation.
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties: 
+            value:
+              type: string
+              enum:
+                - state
+                - config
+                - edit-config
+          required:
+            - value 
+      additionalProperties: false
+    SubscriptionMode:
+      description: | 
+        NGSI-LD Property Type. The subscription mode for the NETCONF RPC SUBSCRIBE operation (i.e., on-change or period).
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties: 
+            value:
+              type: string
+              enum:
+                - on-change
+                - periodic
+            period:
+              $ref: '#/components/schemas/Period'    
+          required:
+            - value 
+      additionalProperties: false
+    SubscriptionState:
+      description: | 
+        NGSI-LD Property Type. The state for controlling the operation lifecycle for NETCONF RPC SUBSCRIBE operation.
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties: 
+            value:
+              type: string
+              enum:
+                - ON
+                - IDLE
+                - OFF
+          required:
+            - value 
+      additionalProperties: false
+    Xpath:
+      description: | 
+        NGSI-LD Property Type. The XPath for NETCONF RPC operation.
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties: 
+            value:
+              type: string
+          required:
+            - value 
+      additionalProperties: false
+    Period:
+      description: | 
+        NGSI-LD Property Type. The period for NETCONF RPC SUBSCRIBE operation there is a periodic subscription.
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties: 
+            value:
+              type: number
+          required:
+            - value 
+      additionalProperties: false
