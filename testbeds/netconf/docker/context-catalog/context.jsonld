@@ -1,14 +1,22 @@
 {
     "@context": [
-        "http://context-catalog:8080/context/interface/context.jsonld",
-        "http://context-catalog:8080/context/interface-statistics/context.jsonld",
-        "http://context-catalog:8080/context/interface-ipv4/context.jsonld",
-        "http://context-catalog:8080/context/interface-ipv4-address/context.jsonld",
-        "http://context-catalog:8080/context/interface-ipv4-neighbor/context.jsonld",
-        "http://context-catalog:8080/context/interface-ipv6/context.jsonld",
-        "http://context-catalog:8080/context/interface-ipv6-address/context.jsonld",
-        "http://context-catalog:8080/context/interface-ipv6-neighbor/context.jsonld",
-        "http://context-catalog:8080/context/interface-ipv6-autoconf/context.jsonld",
+        "http://context-catalog:8080/context/interface-state/context.jsonld",
+        "http://context-catalog:8080/context/interface-state-statistics/context.jsonld",
+        "http://context-catalog:8080/context/interface-state-ipv4/context.jsonld",
+        "http://context-catalog:8080/context/interface-state-ipv4-address/context.jsonld",
+        "http://context-catalog:8080/context/interface-state-ipv4-neighbor/context.jsonld",
+        "http://context-catalog:8080/context/interface-state-ipv6/context.jsonld",
+        "http://context-catalog:8080/context/interface-state-ipv6-address/context.jsonld",
+        "http://context-catalog:8080/context/interface-state-ipv6-neighbor/context.jsonld",
+        "http://context-catalog:8080/context/interface-config/context.jsonld",
+        "http://context-catalog:8080/context/interface-config-ipv4/context.jsonld",
+        "http://context-catalog:8080/context/interface-config-ipv4-address/context.jsonld",
+        "http://context-catalog:8080/context/interface-config-ipv4-neighbor/context.jsonld",
+        "http://context-catalog:8080/context/interface-config-ipv6/context.jsonld",
+        "http://context-catalog:8080/context/interface-config-ipv6-address/context.jsonld",
+        "http://context-catalog:8080/context/interface-config-ipv6-neighbor/context.jsonld",
+        "http://context-catalog:8080/context/interface-config-ipv6-autoconf/context.jsonld",
+        "http://context-catalog:8080/context/interface-type/context.jsonld",
         "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
     ]
 }

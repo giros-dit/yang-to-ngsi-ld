@@ -1,0 +1,18 @@
+{
+    "@context": {
+        "ietf-interfaces": "urn:ietf:params:xml:ns:yang:ietf-interfaces/",
+        "Interface": "ietf-interfaces:interfaces-state/interface",
+        "name": "ietf-interfaces:interfaces-state/interface/name",
+        "description": "ietf-interfaces:interfaces/interface/description",
+        "enabled": "ietf-interfaces:interfaces/interface/enabled",
+        "linkUpDownTrapEnable": "ietf-interfaces:interfaces/interface/link-up-down-trap-enable",
+        "adminStatus": "ietf-interfaces:interfaces-state/interface/admin-status",
+        "operStatus": "ietf-interfaces:interfaces-state/interface/oper-status",
+        "lastChange": "ietf-interfaces:interfaces-state/interface/last-change",
+        "ifIndex": "ietf-interfaces:interfaces-state/interface/if-index",
+        "physAddress": "ietf-interfaces:interfaces-state/interface/phys-address",
+        "higherLayerIf": "ietf-interfaces:interfaces-state/interface/higher-layer-if",
+        "lowerLayerIf": "ietf-interfaces:interfaces-state/interface/lower-layer-if",
+        "speed": "ietf-interfaces:interfaces-state/interface/speed"
+    }
+}
