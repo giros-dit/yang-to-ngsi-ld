@@ -9,6 +9,7 @@ Repository with source code, artifacts and documentation about YANG [[1](https:/
     - [Developed _pyang_ plugins](#developed-pyang-plugins)
     - [Developed _yangtools_ artifacts](#developed-yangtools-artifacts)
   - [Performance experiments](#performance-experiments)
+  - [Postman Collections](#postman-collections)
   - [Documentation and links](#documentation-and-links)
   - [License](#license)
   
@@ -22,6 +23,11 @@ There is a prototype implementation for completing the *Descriptive NDT* archite
 ![YANG-to-NGSI-LD-translation](resources/images/YANG-to-NGSI-LD-translation.png)
 
 The prototype separates its functionality into two main planes: *Descriptive NDT Generator Plane* and *Data Materialization Pipeline Plane*. The *Descriptive NDT Generator Plane* general functionality consists in processing the native data models of the MDT Network Assets (i.e., *YANG Schemas*) in order to generate different programmed artifacts that allow performing the YANG to NGSI-LD translation in an autonomous way. Then, the *Data Materialization Pipeline Plane* makes use of the programmed artifacts to be able to parse the raw configuration and operational data coming from network assets and generate NGSI-LD modeled data to be instantiated within a compliant NGSI-LD Context Broker. The network configuration and telemetry data is collected by using MDT network management protocol such as NETCONF or gNMI. For a NETCONF client working as a data collector, a Python library called *ncclient* [[10](https://github.com/ncclient/ncclient)] has been selected that supports all operations and capabilities defined by the NETCONF management protocol. Meanwhile, for gNMIc a CLI client called *gNMIc* [[11](https://github.com/openconfig/gnmic)] has been selected that provides full support for Capabilities, Get, Set and Subscribe RPCs with collector capabilities and is also the gNMI client reference implementation provided by the OpenConfig consortium.
+
+There is a prototype implementation for completing the Descriptive NDT architecture for network automation purposes which is built on a Docker microservices-based solution. The prototype covers actuation mechanisms based on NGSI-LD API to obtain configuration and state information from real networks, apply configuration changes, and request telemetry data on demand by using data integration approaches, thus closing the loop for network automation.
+![YANG-to-NGSI-LD-translation-actuation](resources/images/YANG-to-NGSI-LD-translation-actuation.png)
+
+>*Note: DETAILED DOCUMENTATION COMING SOON*!
 
 ### Developed _pyang_ plugins
 - [candil-ngsi-ld-context-generator.py](yang/pyang-plugins/candil-ngsi-ld-context-generator.py): given one or several YANG schemas, it generates the corresponding NGSI-LD context files in ```.jsonld``` format.
@@ -38,6 +44,11 @@ The prototype separates its functionality into two main planes: *Descriptive NDT
 ## Performance experiments
 The repository includes [experimental results](testbeds/performance-experiments) about the performance of the Descriptive NDT prototype solution. The experimental results allows determining the performance of the [YANG to NGSI-LD translation](testbeds/performance-experiments/experiment1) and [data materialization](testbeds/performance-experiments/experiment2) processes in terms of latency. Both experiments have been performed for telemetry statistics from network interfaces encoded in both XML and JSON formats according to notifications received by the NETCONF and gNMI management protocols.
 
+## Postman Collections
+This repository contains Postman collections that you can use to play with the REST APIs of some of the components present in the prototype for completing the Descriptive NDT architecture for network automation purposes. We recommend downloading [Postman Desktop](https://www.postman.com/downloads/) for an better user experience.
+
+- [NDT Network Controller API using NGSI-LD standard](resources/postman_collections/NDT_Network_Controller_API_using_NGSI-LD_standard.postman_collection.json) Postman collection has a set of requests that can be used to cover network actuation mechanisms by applying both data materialization and data virtualization approaches. The REST API requests are based on the NGSI-LD standard.
+  
 ## Documentation and links
 1. M. Björklund, “The YANG 1.1 Data Modeling Language,” *RFC 7950*, Internet Engineering Task Force, Aug. 2016.
 2. ETSI, “Context Information Management (CIM); NGSI-LD API,” *GS CIM 009 V1.8.1*, ETSI, Mar. 2024.
