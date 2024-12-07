@@ -1,0 +1,6 @@
+<establish-subscription xmlns="urn:ietf:params:xml:ns:yang:ietf-event-notifications"
+xmlns:yp="urn:ietf:params:xml:ns:yang:ietf-yang-push">
+    <stream>yp:yang-push</stream>
+    <yp:xpath-filter>{{ XPATH }}</yp:xpath-filter>
+    <yp:{{ SUBS_TYPE }}>{{ SUBS_PERIOD }}</yp:{{ SUBS_TYPE }}>
+</establish-subscription>
