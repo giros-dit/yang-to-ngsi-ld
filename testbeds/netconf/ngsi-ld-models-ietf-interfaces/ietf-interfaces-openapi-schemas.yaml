@@ -1,8 +1,8 @@
 openapi: 3.0.3
 info:
-  title: OpenAPI schemas for YANG data models ngsi-ld-api.yaml, ietf-interfaces@2014-05-08.yang, ietf-yang-types@2013-07-15.yang, ietf-ip@2014-06-16.yang, ietf-inet-types@2013-07-15.yang, iana-if-type@2014-05-08.yang.
+  title: OpenAPI schemas for YANG data models ietf-interfaces@2014-05-08.yang, ietf-yang-types@2023-01-23.yang, ietf-ip@2014-06-16.yang, ietf-inet-types@2021-02-22.yang.
   version: 1.0.0
-  description: OpenAPI schemas for YANG data models compliant with the NGSI-LD OAS V1.6.1 metamodel according to ETSI GS CIM 009 V1.6.1.
+  description: OpenAPI schemas for YANG data models compliant with the NGSI-LD OAS V1.8.1 metamodel according to ETSI GS CIM 009 V1.8.1.
 paths: {}
 components:
   schemas:
@@ -23,7 +23,7 @@ components:
         
         YANG module: ietf-interfaces.yang
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
         - type: object
           properties:
             type:
@@ -80,7 +80,7 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -121,7 +121,7 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -149,7 +149,7 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
         - type: object
           properties:
             object:
@@ -176,7 +176,7 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -200,7 +200,7 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -216,7 +216,7 @@ components:
         
         YANG module: ietf-ip.yang
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
         - type: object
           properties:
             type:
@@ -247,7 +247,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -265,7 +265,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -291,7 +291,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -305,7 +305,7 @@ components:
         
         YANG module: ietf-ip.yang
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
         - type: object
           properties:
             type:
@@ -339,7 +339,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -354,7 +354,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -370,7 +370,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -390,7 +390,7 @@ components:
         
         YANG module: ietf-ip.yang
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
         - type: object
           properties:
             type:
@@ -417,7 +417,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -432,7 +432,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -446,7 +446,7 @@ components:
         
         YANG module: ietf-ip.yang
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
         - type: object
           properties:
             type:
@@ -479,7 +479,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -500,7 +500,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -527,7 +527,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -541,7 +541,7 @@ components:
         
         YANG module: ietf-ip.yang
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
         - type: object
           properties:
             type:
@@ -568,7 +568,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -583,7 +583,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -604,7 +604,7 @@ components:
         
         YANG module: ietf-ip.yang
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
         - type: object
           properties:
             type:
@@ -631,7 +631,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -646,7 +646,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -668,7 +668,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -685,7 +685,7 @@ components:
         
         YANG module: ietf-ip.yang
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
         - type: object
           properties:
             type:
@@ -719,7 +719,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -738,7 +738,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -760,7 +760,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -782,7 +782,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -800,7 +800,7 @@ components:
         
         YANG module: ietf-interfaces.yang
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
         - type: object
           properties:
             type:
@@ -851,7 +851,7 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -867,7 +867,7 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
         - type: object
           properties:
             object:
@@ -886,7 +886,7 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -908,7 +908,7 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -935,13 +935,13 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
               type: string
               format: datetime
-              pattern: '\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2})'
+              pattern: '[0-9]{4}-(1[0-2]|0[1-9])-(0[1-9]|[1-2][0-9]|3[0-1])T(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?(Z|[\+\-]((1[0-3]|0[0-9]):([0-5][0-9])|14:00))?'
           required:
             - value
     IfIndex:
@@ -954,7 +954,7 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -980,7 +980,7 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -998,7 +998,7 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
         - type: object
           properties:
             object:
@@ -1016,7 +1016,7 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
         - type: object
           properties:
             object:
@@ -1041,7 +1041,7 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1054,7 +1054,7 @@ components:
         
         YANG module: ietf-interfaces.yang
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
         - type: object
           properties:
             type:
@@ -1110,13 +1110,13 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
               type: string
               format: datetime
-              pattern: '\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2})'
+              pattern: '[0-9]{4}-(1[0-2]|0[1-9])-(0[1-9]|[1-2][0-9]|3[0-1])T(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?(Z|[\+\-]((1[0-3]|0[0-9]):([0-5][0-9])|14:00))?'
           required:
             - value
     InOctets:
@@ -1134,7 +1134,7 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1157,7 +1157,7 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1181,7 +1181,7 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1206,7 +1206,7 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1231,7 +1231,7 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1258,7 +1258,7 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1287,7 +1287,7 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1309,7 +1309,7 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1333,7 +1333,7 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1358,7 +1358,7 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1385,7 +1385,7 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1410,7 +1410,7 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1435,7 +1435,7 @@ components:
         YANG module: ietf-interfaces.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1448,7 +1448,7 @@ components:
         
         YANG module: ietf-ip.yang
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
         - type: object
           properties:
             type:
@@ -1475,7 +1475,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1494,7 +1494,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1508,7 +1508,7 @@ components:
         
         YANG module: ietf-ip.yang
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
         - type: object
           properties:
             type:
@@ -1538,7 +1538,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1553,7 +1553,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1569,7 +1569,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1584,7 +1584,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1608,7 +1608,7 @@ components:
         
         YANG module: ietf-ip.yang
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
         - type: object
           properties:
             type:
@@ -1636,7 +1636,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1651,7 +1651,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1666,7 +1666,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1683,7 +1683,7 @@ components:
         
         YANG module: ietf-ip.yang
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
         - type: object
           properties:
             type:
@@ -1713,7 +1713,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1734,7 +1734,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1748,7 +1748,7 @@ components:
         
         YANG module: ietf-ip.yang
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
         - type: object
           properties:
             type:
@@ -1779,7 +1779,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1794,7 +1794,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1810,7 +1810,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1837,7 +1837,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1864,7 +1864,7 @@ components:
         
         YANG module: ietf-ip.yang
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
         - type: object
           properties:
             type:
@@ -1896,7 +1896,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1911,7 +1911,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1926,7 +1926,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1944,7 +1944,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1962,7 +1962,7 @@ components:
         YANG module: ietf-ip.yang
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -1978,7 +1978,7 @@ components:
     YANGIdentity:
       description: A representation schema for YANG Identities.
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
         - type: object
           properties:
             type:
@@ -2004,7 +2004,7 @@ components:
       description: NGSI-LD Relationship Type. YANG Identity description.
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -2015,7 +2015,7 @@ components:
       description: NGSI-LD Property Type. YANG Identity identifier.
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -2026,7 +2026,7 @@ components:
       description: NGSI-LD Property Type. YANG Identity namespace.
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
         - type: object
           properties:
             value:
@@ -2037,7 +2037,7 @@ components:
       description: NGSI-LD Relationship Type. The relationship to the base YANG Identity.
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
         - type: object
           properties:
             object:
@@ -2048,7 +2048,7 @@ components:
       description: NGSI-LD Relationship Type. A hierarchical relationship.
       additionalProperties: false
       allOf:
-        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.8.1/schemas/ngsi-ld-api.yaml#/components/schemas/Relationship'
         - type: object
           properties:
             object:
