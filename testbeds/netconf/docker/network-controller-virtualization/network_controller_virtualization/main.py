@@ -1,5 +1,6 @@
 import logging
 import os
+import socket
 from time import sleep
 import time
 from typing import Optional
@@ -8,6 +9,7 @@ from fastapi import FastAPI, Request, Response, status, HTTPException
 from fastapi.responses import JSONResponse
 import json
 import csv
+import gzip
 import ngsi_ld_client
 import ngsi_ld_models_1_8_1
 import ngsi_ld_models_ietf_interfaces
@@ -42,7 +44,7 @@ from jinja2 import Template
 import time
 import numpy as np
 import httpx
-
+import snappy
 from kafka import KafkaProducer, KafkaConsumer
 
 from ncclient import manager
@@ -485,10 +487,11 @@ Function for starting a Kafka Consumer for processing query responses coming fro
 '''
 def listen_to_kafka_queries():
     global kafka_message
+    # Kafka Consumer for processing query responses coming from NETCONF Get/Get-Config RPC operations
     consumer = KafkaConsumer('interfaces-state-subscriptions-dictionary-buffers', bootstrap_servers=['kafka:9092'], auto_offset_reset='latest')
-    
     for message in consumer:
-        kafka_message = str(message.value.decode('utf-8'))
+        kafka_message =  str(message.value.decode('utf-8')) #json.loads(message.value.decode('utf-8'))
+        #kafka_message = str(message.value)
         break 
 
     consumer.close()
@@ -497,18 +500,32 @@ def listen_to_kafka_queries():
 Function for starting a Kafka Consumer for processing notifications coming from NETCONF Subcription RPC operations.
 '''
 async def listen_to_kafka_subscriptions(notification_endpoint, subscription_id, entity_type, entity_id = None):
+    #consumer = KafkaConsumer('interfaces-state-subscriptions-dictionary-buffers', bootstrap_servers=['kafka:9092'], value_deserializer=lambda v: json.loads(v.decode('utf-8')))
     consumer = KafkaConsumer('interfaces-state-subscriptions-dictionary-buffers', bootstrap_servers=['kafka:9092'])
     logger.info(f"Starting new Kafka Consumer for {subscription_id}") 
     stop_event_kafka = kafka_consumer_threads[subscription_id]["stop_event"]
+    exec_times = []
+    performance_measurements_file = open("/opt/network-controller-virtualization/network_controller_virtualization/performance_measurements.csv", "w", newline='')
+    csv_writer = csv.writer(performance_measurements_file)
+    csv_header = ["observed_at", "iteration_started_at", "iteration_finished_at", "processing_time_since_observed_at", 
+                "iteration_execution_time", "mean_execution_time", "min_execution_time", "max_execution_time", "processed_notifications"]
+    csv_writer.writerow(csv_header)
+    limits = httpx.Limits(max_keepalive_connections=5, max_connections=10)
+    timeout = httpx.Timeout(10.0, read=10.0, write=10.0)
     try:
+        #async with httpx.AsyncClient(http2=True, limits=limits, timeout=timeout) as client:
+        client = httpx.AsyncClient(http2=True, limits=limits, timeout=timeout)
         while not stop_event_kafka.is_set(): # True:
 
             for message in consumer:
+                start_datetime = None
 
                 if stop_event_kafka.is_set():
                     break
 
                 kafka_message_json = json.loads(message.value.decode('utf-8'))    
+                #kafka_message_json = json.loads(message.value)    
+                
                 logging.info(f"Kafka message for {subscription_id} is: {kafka_message_json}")
 
                 if entity_id is not None:
@@ -519,17 +536,28 @@ async def listen_to_kafka_subscriptions(notification_endpoint, subscription_id, 
                 logging.info(f"Kafka message for {subscription_id} after filter is: {kafka_message}")
 
                 if str(kafka_message) != "[]":
-                    current_time = time.time_ns()
-                    logger.info(f"Current time in nanoseconds in epoch time format: {current_time}") 
-                    datetime_ns = np.datetime64(current_time, 'ns')
-                    logger.info(f"Current date time in nanoseconds: {datetime_ns}")
-                    notified_at = str(datetime_ns.astype('datetime64[ms]')) + 'Z'
-                    logger.info(f"Current data time in nanoseconds in Zulu format: {notified_at}")
+                    new_kafka_message = []
+                    for entity in kafka_message:
+                        if "createdAt" in entity:
+                            start_datetime = entity["createdAt"]
+                            break
+
+                    observedAt = get_observed_at(kafka_message)
+
+                    current_datetime = datetime.datetime.now(datetime.timezone.utc)
+                    ngsi_ld_entity_datetime = current_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
 
                     # Generates the notification id and the current date
                     notification_id = f"notification:{uuid4().int}"
-                    
-                    # Crear los datos de la notificación simulada
+                    notified_at = ngsi_ld_entity_datetime
+                    for entity in kafka_message:
+                        if "createdAt" in entity:
+                            entity["createdAt"] = ngsi_ld_entity_datetime
+                            entity["modifiedAt"] = ngsi_ld_entity_datetime
+                            update_nested_keys(obj=entity, datetime=ngsi_ld_entity_datetime)
+                            new_kafka_message.append(entity)
+
+                    # Create notification data
                     notification_data = {
                         "id": notification_id,
                         "type": "Notification",
@@ -539,27 +567,95 @@ async def listen_to_kafka_subscriptions(notification_endpoint, subscription_id, 
                     }
 
                     logger.info(f"Notification data: {notification_data}")
-
+                    
+                    pre_http_post_datetime = datetime.datetime.now(datetime.timezone.utc)
                 
+                    compressed_notification_data = gzip.compress(json.dumps(notification_data).encode("utf-8"))
+                    start = time.perf_counter()
+
                     # Send the notification to the endpoint specified in the subscription
-                    async with httpx.AsyncClient() as client:
-                        try:
-                            response = await client.post(
-                                notification_endpoint,
-                                json=notification_data,
-                                headers={"Link": '<{0}>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"', "Accept": "application/json", "Content-Type": "application/json"}
-                            )
-                            response.raise_for_status()
-                        except httpx.RequestError as e:
-                            raise HTTPException(status_code=500, detail=f"Failed to send notification: {str(e)}")
-                        except httpx.HTTPStatusError as e:
-                            raise HTTPException(status_code=response.status_code, detail=f"Notification failed: {str(e)}")
+                    try:
+                        response = await client.post(
+                            notification_endpoint,
+                            content=compressed_notification_data,
+                            headers={"Link": '<{0}>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"', "Accept": "application/json", "Content-Type": "application/json", "Content-Encoding": "gzip"}
+                        )
+
+                        response.raise_for_status()
+                        end = time.perf_counter()
+                        print(f"HTTP Request Latency: {end - start} seconds")
+                        
+                        if start_datetime != None:
+                            stop_datetime = datetime.datetime.now(datetime.timezone.utc)
+                            stop_datetime_format = stop_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
+                            exec_time = (stop_datetime - datetime.datetime.strptime(start_datetime, "%Y-%m-%dT%H:%M:%S.%fZ").replace(tzinfo=datetime.timezone.utc)).total_seconds()
+                            exec_times.append(exec_time)
+                            logger.info("--- PERFORMANCE MEASUREMENTS ---")
+                            logger.info("NOTIFICATIONS PROCESSED SO FAR: " + str(len(exec_times)) + "\n")
+                            if observedAt != None:
+                                logger.info("NOTIFICATION EVENT TIME/OBSERVED AT: " + observedAt + "\n")
+                                logger.info(f"TOTAL PROCESSING TIME SO FAR SINCE NOTIFICATION EVENT TIME/OBSERVED AT: {(stop_datetime - parser.parse(observedAt)).total_seconds() * 1e3} ms\n")
+                            logger.info("NOTIFIED AT (CreatedAt and ModifiedAt parameters): " +  ngsi_ld_entity_datetime + "\n")
+                            logger.info("ITERATION STARTED AT: " + start_datetime + "\n")
+                            logger.info("PRE HTTP POST WAS AT: " + pre_http_post_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
+                            logger.info("ITERATION FINISHED AT: " + stop_datetime_format + "\n")
+                            logger.info(f"EXECUTION TIME: {exec_time * 1e3} ms\n")
+                            mean_evaluation_time = sum(exec_times)/len(exec_times)
+                            min_evaluation_time = min(exec_times)
+                            max_evaluation_time = max(exec_times)
+                            logger.info(f"MEAN EXECUTION TIME: {mean_evaluation_time * 1e3} ms\n")
+                            logger.info(f"MIN EXECUTION TIME: {min_evaluation_time * 1e3} ms\n")
+                            logger.info(f"MAX EXECUTION TIME VALUE: {max_evaluation_time * 1e3} ms\n")
+                            logger.info("--- PERFORMANCE MEASUREMENTS ---")
+                            csv_data = [observedAt, start_datetime, stop_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ"), 
+                                        str((stop_datetime - parser.parse(observedAt)).total_seconds() * 1e3) + " ms",
+                                        str(exec_time * 1e3) + " ms", str((sum(exec_times)/len(exec_times)) * 1e3) + " ms",
+                                        str(min(exec_times) * 1e3) + " ms", str(max(exec_times) * 1e3) + " ms", str(len(exec_times))]
+                            csv_writer.writerow(csv_data)
+                            performance_measurements_file.flush()
+                    except httpx.RequestError as e:
+                        raise HTTPException(status_code=500, detail=f"Failed to send notification: {str(e)}")
+                    except httpx.HTTPStatusError as e:
+                        raise HTTPException(status_code=response.status_code, detail=f"Notification failed: {str(e)}")
+                    
+                    logger.info("Restarting HTTP client...")
+                    await client.aclose() 
+                    client = httpx.AsyncClient(http2=True, limits=limits, timeout=timeout) 
     finally:
+        await client.aclose()
         consumer.close()
+        performance_measurements_file.close()
         logging.info("Kafka Consumer closed!")
 
+def update_nested_keys(obj, datetime):
+    if isinstance(obj, dict):
+        for key, value in obj.items():
+            if isinstance(value, dict):
+                value["createdAt"] = datetime
+                value["modifiedAt"] = datetime
+                update_nested_keys(value, datetime)
+            elif isinstance(value, list):
+                for item in value:
+                    update_nested_keys(item, datetime)
+
+def get_observed_at(obj):
+    if isinstance(obj, dict):
+        for key, value in obj.items():
+            if key == "observedAt":
+                return value  
+            if isinstance(value, (dict, list)):
+                nested_result = get_observed_at(value)
+                if nested_result is not None:
+                    return nested_result
+    elif isinstance(obj, list):
+        for item in obj:
+            nested_result = get_observed_at(item)
+            if nested_result is not None:
+                return nested_result
+    return None 
+
 '''
-Function for runing asynchronous threads to open Kafka consumers for processing notifications coming from NETCONF subscription RPC operations.
+Function for running asynchronous threads to open Kafka consumers for processing notifications coming from NETCONF subscription RPC operations.
 '''
 def run_asyncio_in_thread(notification_endpoint, subscription_id, entity_type, entity_id = None):
     loop = asyncio.new_event_loop()
@@ -894,7 +990,10 @@ async def get_entitymap(request: Request):
         
         consumer_thread.join()
 
-        kafka_message_json = json.loads(kafka_message)
+        if isinstance(kafka_message, str):
+            kafka_message_json = json.loads(kafka_message)
+        elif isinstance(kafka_message, list):
+            kafka_message_json = kafka_message
 
         if "type" in params and "id" not in params:
             entity_ids  = [item["id"] for item in kafka_message_json if item["type"] == params["type"]]
@@ -991,7 +1090,10 @@ async def get_entities(request: Request):
 
         consumer_thread.join()
 
-        kafka_message_json = json.loads(kafka_message)
+        if isinstance(kafka_message, str):
+            kafka_message_json = json.loads(kafka_message)
+        elif isinstance(kafka_message, list):
+            kafka_message_json = kafka_message
 
         if "type" in params and "id" not in params:
             kafka_message = [obj for obj in kafka_message_json if obj.get("type") == params["type"]]
@@ -1009,7 +1111,7 @@ async def get_entities(request: Request):
             return JSONResponse(content=kafka_message, status_code=200, headers={"Content-Type": "application/json", "Link": '<{0}>; rel="http://www.w3.org/ns/json-ld#context"; NGSILD-EntityMap: urn:ngsi-ld:entitymap:{1}'.format(CONTEXT_CATALOG_URI, params["type"])})
         elif "id" in params: 
             return JSONResponse(content=kafka_message, status_code=200, headers={"Content-Type": "application/json", "Link": '<{0}>; rel="http://www.w3.org/ns/json-ld#context"; NGSILD-EntityMap: urn:ngsi-ld:entitymap:{1}'.format(CONTEXT_CATALOG_URI, params["id"].split(":")[2])})
-    
+
     except HTTPException as e:
         logging.error(f"HTTPException: {e}")
         raise e 
@@ -1021,7 +1123,7 @@ async def get_entities(request: Request):
     except Exception as e:
         logging.error(f"Unexpected error: {e}")
         raise HTTPException(status_code=500, detail="An unexpected error occurred.")
-    
+
 '''
 Endpoint for getting NGSI-LD entities by its identifier. 
 This endpoint triggers the NETCONF Get/Get-Config RPC operations.
@@ -1054,13 +1156,17 @@ async def get_entities(id: str, request: Request):
         consumer_thread.start()
 
         if entity_type == "InterfaceConfig" or entity_type == "InterfaceConfigIpv4Address" or entity_type == "InterfaceConfigIpv4":
-            get_operation(host=username, port=port, username=username, password=password, family=family, xpath=xpath, option="config", all_context_data=all_context_data, hostKeyVerify=hostKeyVerify, sysAttrs=sysAttrs)
+            get_operation(host=host, port=port, username=username, password=password, family=family, xpath=xpath, option="config", all_context_data=all_context_data, hostKeyVerify=hostKeyVerify, sysAttrs=sysAttrs)
         elif entity_type == "Interface" or entity_type == "InterfaceStatistics":
             get_operation(host=host, port=port, username=username, password=password, family=family, xpath=xpath.format(str(urn_split[-1])), option="state", all_context_data=None, hostKeyVerify=hostKeyVerify, sysAttrs=sysAttrs)
              
         consumer_thread.join()
 
-        kafka_message_json = json.loads(kafka_message)
+        if isinstance(kafka_message, str):
+            kafka_message_json = json.loads(kafka_message)
+        elif isinstance(kafka_message, list):
+            kafka_message_json = kafka_message
+
         for obj in kafka_message_json:
             if obj.get("id") == id:
                 kafka_message = obj
@@ -1077,7 +1183,7 @@ async def get_entities(id: str, request: Request):
     except ValueError as e:
         logging.error(f"ValueError: {e}")
         raise HTTPException(status_code=400, detail=str(e))
-    
+
     except Exception as e:
         logging.error(f"Unexpected error: {e}")
         raise HTTPException(status_code=500, detail="An unexpected error occurred.")

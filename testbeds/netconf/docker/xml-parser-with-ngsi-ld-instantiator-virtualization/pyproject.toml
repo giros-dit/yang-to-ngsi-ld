@@ -12,6 +12,7 @@ ngsi_ld_client = { git = "https://github.com/giros-dit/python-ngsi-ld-client.git
 pyyaml = "^6.0"
 kafka-python = ">=2.0.2"
 python-dateutil = ">=2.8.2"
+python-snappy = "^0.7.3"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

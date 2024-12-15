@@ -89,74 +89,72 @@ async def startup_event():
 
     # Check Scorpio build info
     ngsi_ld_health_info_api.check_scorpio_info()
+                    
+    endpoint = Endpoint(
+        uri = NOTIFIER_URI,
+        accept="application/json"
+    )
+
+    # Periodic Subscriptions
+    '''
+    notification_params = NotificationParams (
+        endpoint=endpoint,
+        format="normalized",
+        #attributes=["inOctets"],
+        sysAttrs=True
+    )
+
+    subs_request = CreateSubscriptionRequest (
+        id="urn:ngsi-ld:Subscription:Periodic:{0}".format(entity),
+        type="Subscription",
+        entities=[
+            {
+                "type": entity,
+                "id": "urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1_GigabitEthernet2"
+            },
+            {
+                "type": entity,
+                "id": "urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1_GigabitEthernet3"
+            },
+            {
+                "type": entity,
+                "id": "urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r2_GigabitEthernet2"
+            },
+            {
+                "type": entity,
+                "id": "urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r2_GigabitEthernet3"
+            }
+        ],
+        description="Periodic subscription to InterfaceStatistics entities.",
+        timeInterval= 10,
+        notification=notification_params
+    )
+    '''
+
+    # On-Change Subscriptions
     
-    for entity in LIST_ENTITIES:
-                
-        endpoint = Endpoint(
-            uri = NOTIFIER_URI,
-            accept="application/json"
-        )
+    notification_params = NotificationParams (
+        endpoint=endpoint,
+        format="normalized",
+        #attributes=["inOctets"],
+        sysAttrs=True
+    )
 
-        # Periodic Subscriptions
-        '''
-        notification_params = NotificationParams (
-            endpoint=endpoint,
-            format="normalized",
-            #attributes=["inOctets"],
-            sysAttrs=True
-        )
-
-        subs_request = CreateSubscriptionRequest (
-            id="urn:ngsi-ld:Subscription:Periodic:{0}".format(entity),
-            type="Subscription",
-            entities=[
-                {
-                    "type": entity,
-                    "id": "urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1_GigabitEthernet2"
-                },
-                {
-                    "type": entity,
-                    "id": "urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1_GigabitEthernet3"
-                },
-                {
-                    "type": entity,
-                    "id": "urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r2_GigabitEthernet2"
-                },
-                {
-                    "type": entity,
-                    "id": "urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r2_GigabitEthernet3"
-                }
-            ],
-            description="Periodic subscription to InterfaceStatistics entities.",
-            timeInterval= 10,
-            notification=notification_params
-        )
-        '''
-
-        # On-Change Subscriptions
-        
-        notification_params = NotificationParams (
-            endpoint=endpoint,
-            format="normalized",
-            #attributes=["inOctets"],
-            sysAttrs=True
-        )
-
-        subs_request = CreateSubscriptionRequest (
-            id="urn:ngsi-ld:Subscription:{0}".format(entity),
-            type="Subscription",
-            entities=[
-                {
-                    "type": entity
-                }
-            ],
-            description="On-change subscription to InterfaceStatistics entities.",
-            #watchedAttributes=["inOctets"],
-            notification=notification_params
-        )
-        
-        api_instance = ngsi_ld_client.ContextInformationSubscriptionApi(ngsi_ld)
-        api_instance.create_subscription(create_subscription_request=subs_request)
+    subs_request = CreateSubscriptionRequest (
+        id="urn:ngsi-ld:Subscription:InterfaceStatistics",
+        type="Subscription",
+        entities=[
+            {
+                "type": "InterfaceStatistics"
+            }
+        ],
+        description="On-change subscription to InterfaceStatistics entities.",
+        #watchedAttributes=["inOctets"],
+        notification=notification_params
+    )
+    
+    api_instance = ngsi_ld_client.ContextInformationSubscriptionApi(ngsi_ld)
+    api_instance.create_subscription(create_subscription_request=subs_request)
 
 
 @app.post("/notify",
@@ -170,7 +168,7 @@ async def receiveNotification(request: Request):
             notification_datetime = current_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
             logger.info("Entity notification datetime : %s\n" % notification_datetime)
 
-            if entity["type"] == "InterfaceStatistics" and "observedAt" in entity["inOctets"] and "modifiedAt" in entity["inOctets"]:
+            if (entity["type"] == "InterfaceStatistics" and "observedAt" in entity["inOctets"] and "modifiedAt" in entity["inOctets"]) or (entity["type"] == "Interface" and "observedAt" in entity["name"] and "modifiedAt" in entity["name"]):
                 #current_time = datetime.utcnow().replace(tzinfo=timezone.utc).isoformat()
                 #logger.info(f"Current time: {parser.parse(current_time)}") 
                 #current_datetime = datetime.fromisoformat(current_time)   

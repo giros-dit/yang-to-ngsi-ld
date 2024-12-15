@@ -2,7 +2,7 @@ import logging
 import os
 from time import sleep
 import time
-from fastapi import FastAPI, Request, status
+from fastapi import FastAPI, HTTPException, Request, status
 import json
 import csv
 import ngsi_ld_client
@@ -17,6 +17,7 @@ from notifier_tester_virtualization_periodic.check_client import NGSILDHealthInf
 #from datetime import datetime,timezone
 import datetime
 from dateutil import parser
+import gzip
 
 from ngsi_ld_client.models.entity import Entity
 from ngsi_ld_client.models.model_property import ModelProperty
@@ -113,7 +114,7 @@ async def startup_event():
         password={"type":"Property", "value": "admin"},
         hostFamily={"type":"Property", "value": "csr"},
         hostKeyVerify={"type":"Property", "value": False},
-        xpath={"type":"Property", "value": "/interfaces-state/interface"},
+        xpath={"type":"Property", "value": "/interfaces-state/interface[name='GigabitEthernet2']"},
         subscriptionMode=subs_mode_instance
     )
 
@@ -125,126 +126,137 @@ async def startup_event():
     except Exception as e:
         logger.exception("Exception when calling ContextInformationProvisionApi->create_entity: %s\n" % e)
 
-    for entity in LIST_ENTITIES:
+    #for entity in LIST_ENTITIES:
         
-        endpoint = Endpoint(
-            uri = NOTIFIER_URI,
-            accept="application/json"
-        )
+    endpoint = Endpoint(
+        uri = NOTIFIER_URI,
+        accept="application/json"
+    )
 
-        # Periodic Subscriptions
-        notification_params = NotificationParams (
-            endpoint=endpoint,
-            format="normalized",
-            #attributes=["inOctets"],
-            sysAttrs=True
-        )
+    # Periodic Subscriptions
+    notification_params = NotificationParams (
+        endpoint=endpoint,
+        format="normalized",
+        #attributes=["inOctets"],
+        sysAttrs=True
+    )
 
-        subs_request = CreateSubscriptionRequest (
-            id="urn:ngsi-ld:Subscription:{0}".format(entity),
-            type="Subscription",
-            entities=[
-                {
-                    "type": entity
-                }
-            ],
-            description="Periodic subscription to InterfaceStatistics entities.",
-            timeInterval= 10,
-            notification=notification_params
-        )
-        
+    subs_request = CreateSubscriptionRequest (
+        id="urn:ngsi-ld:Subscription:InterfaceStatistics",
+        type="Subscription",
+        entities=[
+            {
+                "type": "InterfaceStatistics"
+            }
+        ],
+        description="Periodic subscription to InterfaceStatistics entities.",
+        timeInterval=5,
+        notification=notification_params
+    )
+    
 
-        # On-Change Subscriptions
-        '''
-        notification_params = NotificationParams (
-            endpoint=endpoint,
-            format="normalized",
-            #attributes=["inOctets"],
-            #sysAttrs=True
-        )
+    # On-Change Subscriptions
+    '''
+    notification_params = NotificationParams (
+        endpoint=endpoint,
+        format="normalized",
+        #attributes=["inOctets"],
+        #sysAttrs=True
+    )
 
-        subs_request = CreateSubscriptionRequest (
-            id="urn:ngsi-ld:Subscription:{0}".format(entity),
-            type="Subscription",
-            entities=[
-                {
-                    "type": entity,
-                }
-            ],
-            description="On-change subscription to InterfaceStatistics entities.",
-            #watchedAttributes=["inOctets"],
-            notification=notification_params
-        )
-        '''
+    subs_request = CreateSubscriptionRequest (
+        id="urn:ngsi-ld:Subscription:{0}".format(entity),
+        type="Subscription",
+        entities=[
+            {
+                "type": entity,
+            }
+        ],
+        description="On-change subscription to InterfaceStatistics entities.",
+        #watchedAttributes=["inOctets"],
+        notification=notification_params
+    )
+    '''
 
-        api_instance = ngsi_ld_client.ContextInformationSubscriptionApi(ngsi_ld)
-        api_instance.create_subscription(create_subscription_request=subs_request)
-        
+    api_instance = ngsi_ld_client.ContextInformationSubscriptionApi(ngsi_ld)
+    api_instance.create_subscription(create_subscription_request=subs_request)
+    
 
 @app.post("/notify",
           status_code=status.HTTP_200_OK)
 async def receiveNotification(request: Request):
-    notification = await request.json()
-    for entity in notification["data"]:
-        if entity["type"] == "InterfaceStatistics" or entity["type"] == "InterfaceConfig":
-            logger.info("Entity notification: %s\n" % entity)
-            current_datetime = datetime.datetime.now(datetime.timezone.utc)
-            notification_datetime = current_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
-            logger.info("Entity notification datetime : %s\n" % notification_datetime)
+    logger.info(f"Headers: {request.headers}")
+    content_encoding = request.headers.get("content-encoding", "").lower()
+    try:
+        body = await request.body()
+        if content_encoding == "gzip":
+            decompressed_body = gzip.decompress(body)
+            notification = json.loads(decompressed_body.decode("utf-8"))
+        else:
+            notification = await request.json()
+        logger.info("New notification: %s\n" % str(notification))
+        for entity in notification["data"]:
+            if entity["type"] == "InterfaceStatistics" or entity["type"] == "InterfaceConfig":
+                logger.info("Entity notification: %s\n" % entity)
+                current_datetime = datetime.datetime.now(datetime.timezone.utc)
+                notification_datetime = current_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
+                logger.info("Entity notification datetime : %s\n" % notification_datetime)
 
-            if (entity["type"] == "InterfaceStatistics" and "observedAt" in entity["inOctets"] and "modifiedAt" in entity["inOctets"]) or (entity["type"] == "InterfaceConfig" and "observedAt" in entity["enabled"] and "modifiedAt" in entity["enabled"]):
-                #current_time = datetime.utcnow().replace(tzinfo=timezone.utc).isoformat()
-                #logger.info(f"Current time: {parser.parse(current_time)}") 
-                #current_datetime = datetime.fromisoformat(current_time)   
-                #logger.info(f"Current time: {current_datetime}") 
-                if (entity["type"] == "InterfaceStatistics" and "observedAt" in entity["inOctets"] and "modifiedAt" in entity["inOctets"]):
-                    observed_at = parser.parse(entity["inOctets"]["observedAt"])
-                    modified_at = parser.parse(entity["inOctets"]["modifiedAt"])
-                elif (entity["type"] == "InterfaceConfig" and "observedAt" in entity["enabled"] and "modifiedAt" in entity["enabled"]):
-                    observed_at = parser.parse(entity["enabled"]["observedAt"])
-                    modified_at = parser.parse(entity["enabled"]["modifiedAt"])
+                if (entity["type"] == "InterfaceStatistics" and "observedAt" in entity["inOctets"] and "modifiedAt" in entity["inOctets"]) or (entity["type"] == "InterfaceConfig" and "observedAt" in entity["enabled"] and "modifiedAt" in entity["enabled"]):
+                    #current_time = datetime.utcnow().replace(tzinfo=timezone.utc).isoformat()
+                    #logger.info(f"Current time: {parser.parse(current_time)}") 
+                    #current_datetime = datetime.fromisoformat(current_time)   
+                    #logger.info(f"Current time: {current_datetime}") 
+                    if (entity["type"] == "InterfaceStatistics" and "observedAt" in entity["inOctets"] and "modifiedAt" in entity["inOctets"]):
+                        observed_at = parser.parse(entity["inOctets"]["observedAt"])
+                        modified_at = parser.parse(entity["inOctets"]["modifiedAt"])
+                    elif (entity["type"] == "InterfaceConfig" and "observedAt" in entity["enabled"] and "modifiedAt" in entity["enabled"]):
+                        observed_at = parser.parse(entity["enabled"]["observedAt"])
+                        modified_at = parser.parse(entity["enabled"]["modifiedAt"])
 
-                delta_time = (modified_at - observed_at).total_seconds()
-                delta_times.append(delta_time)
+                    delta_time = (modified_at - observed_at).total_seconds()
+                    delta_times.append(delta_time)
 
-                logger.info("--- PERFORMANCE MEASUREMENTS ---\n")
-                logger.info("OBSERVED AT: " + observed_at.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
-                logger.info("MODIFIED AT: " + modified_at.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n") 
-                logger.info("NOTIFICATIONS RECEIVED SO FAR: " + str(len(delta_times)) + "\n")
-                logger.info(f"EVALUATION TIME: {delta_time * 1e3} ms\n")
-                mean_evaluation_time = sum(delta_times)/len(delta_times)
-                min_evaluation_time = min(delta_times)
-                max_evaluation_time = max(delta_times)
-                logger.info(f"MEAN EVALUATION TIME: {mean_evaluation_time * 1e3} ms\n")
-                logger.info(f"MIN EVALUATION TIME: {min_evaluation_time * 1e3} ms\n")
-                logger.info(f"MAX EVALUATION TIME VALUE: {max_evaluation_time * 1e3} ms\n")
-                logger.info("--- PERFORMANCE MEASUREMENTS ---")
-                
-                csv_data = [observed_at.strftime("%Y-%m-%dT%H:%M:%S.%fZ"), modified_at.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
-                            str(delta_time * 1e3) + " ms", str(mean_evaluation_time * 1e3) + " ms",
-                            str(min_evaluation_time * 1e3) + " ms", str(max_evaluation_time * 1e3) + " ms",
-                            str(len(delta_times))]
-                csv_writer.writerow(csv_data)
-                performance_measurements_file.flush()
+                    logger.info("--- PERFORMANCE MEASUREMENTS ---\n")
+                    logger.info("OBSERVED AT: " + observed_at.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
+                    logger.info("MODIFIED AT: " + modified_at.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n") 
+                    logger.info("NOTIFICATIONS RECEIVED SO FAR: " + str(len(delta_times)) + "\n")
+                    logger.info(f"EVALUATION TIME: {delta_time * 1e3} ms\n")
+                    mean_evaluation_time = sum(delta_times)/len(delta_times)
+                    min_evaluation_time = min(delta_times)
+                    max_evaluation_time = max(delta_times)
+                    logger.info(f"MEAN EVALUATION TIME: {mean_evaluation_time * 1e3} ms\n")
+                    logger.info(f"MIN EVALUATION TIME: {min_evaluation_time * 1e3} ms\n")
+                    logger.info(f"MAX EVALUATION TIME VALUE: {max_evaluation_time * 1e3} ms\n")
+                    logger.info("--- PERFORMANCE MEASUREMENTS ---")
+                    
+                    csv_data = [observed_at.strftime("%Y-%m-%dT%H:%M:%S.%fZ"), modified_at.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+                                str(delta_time * 1e3) + " ms", str(mean_evaluation_time * 1e3) + " ms",
+                                str(min_evaluation_time * 1e3) + " ms", str(max_evaluation_time * 1e3) + " ms",
+                                str(len(delta_times))]
+                    csv_writer.writerow(csv_data)
+                    performance_measurements_file.flush()
 
-                notification_delta_time = (current_datetime - observed_at).total_seconds()
-                notification_delta_times.append(notification_delta_time)
-                logger.info("--- PERFORMANCE MEASUREMENTS ---\n")
-                logger.info("OBSERVED AT: " + observed_at.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
-                logger.info("NOTIFIED AT: " + notification_datetime + "\n") 
-                logger.info("NOTIFICATIONS RECEIVED SO FAR: " + str(len(notification_delta_times)) + "\n")
-                logger.info(f"EVALUATION TIME: {notification_delta_time * 1e3} ms\n")
-                mean_evaluation_time = sum(notification_delta_times)/len(delta_times)
-                min_evaluation_time = min(notification_delta_times)
-                max_evaluation_time = max(notification_delta_times)
-                logger.info(f"MEAN EVALUATION TIME: {mean_evaluation_time * 1e3} ms\n")
-                logger.info(f"MIN EVALUATION TIME: {min_evaluation_time * 1e3} ms\n")
-                logger.info(f"MAX EVALUATION TIME VALUE: {max_evaluation_time * 1e3} ms\n")
-                logger.info("--- PERFORMANCE MEASUREMENTS ---")
+                    notification_delta_time = (current_datetime - observed_at).total_seconds()
+                    notification_delta_times.append(notification_delta_time)
+                    logger.info("--- PERFORMANCE MEASUREMENTS ---\n")
+                    logger.info("OBSERVED AT: " + observed_at.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
+                    logger.info("NOTIFIED AT: " + notification_datetime + "\n") 
+                    logger.info("NOTIFICATIONS RECEIVED SO FAR: " + str(len(notification_delta_times)) + "\n")
+                    logger.info(f"EVALUATION TIME: {notification_delta_time * 1e3} ms\n")
+                    mean_evaluation_time = sum(notification_delta_times)/len(delta_times)
+                    min_evaluation_time = min(notification_delta_times)
+                    max_evaluation_time = max(notification_delta_times)
+                    logger.info(f"MEAN EVALUATION TIME: {mean_evaluation_time * 1e3} ms\n")
+                    logger.info(f"MIN EVALUATION TIME: {min_evaluation_time * 1e3} ms\n")
+                    logger.info(f"MAX EVALUATION TIME VALUE: {max_evaluation_time * 1e3} ms\n")
+                    logger.info("--- PERFORMANCE MEASUREMENTS ---")
 
-                notification_csv_data = [observed_at.strftime("%Y-%m-%dT%H:%M:%S.%fZ"), notification_datetime,
-                            str(notification_delta_time * 1e3) + " ms", str(mean_evaluation_time * 1e3) + " ms",
-                            str(min_evaluation_time * 1e3) + " ms", str(max_evaluation_time * 1e3) + " ms",
-                            str(len(notification_delta_times))]
-                notification_csv_writer.writerow(notification_csv_data)
-                notification_performance_measurements_file.flush()
+                    notification_csv_data = [observed_at.strftime("%Y-%m-%dT%H:%M:%S.%fZ"), notification_datetime,
+                                str(notification_delta_time * 1e3) + " ms", str(mean_evaluation_time * 1e3) + " ms",
+                                str(min_evaluation_time * 1e3) + " ms", str(max_evaluation_time * 1e3) + " ms",
+                                str(len(notification_delta_times))]
+                    notification_csv_writer.writerow(notification_csv_data)
+                    notification_performance_measurements_file.flush()
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Invalid request: {str(e)}")

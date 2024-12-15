@@ -9,7 +9,7 @@ import datetime
 import csv
 
 from kafka import KafkaConsumer, KafkaProducer
-
+import snappy
 import xml.etree.ElementTree as et
 
 from dateutil import parser
@@ -52,6 +52,10 @@ logger = logging.getLogger(__name__)
 BROKER_URI = os.getenv("BROKER_URI", "http://scorpio:9090/ngsi-ld/v1")
 #BROKER_URI = os.getenv("BROKER_URI", "http://orion:1026/ngsi-ld/v1")
 #BROKER_URI = os.getenv("BROKER_URI", "http://stellio-api-gateway:8080/ngsi-ld/v1")
+
+#producer = KafkaProducer(bootstrap_servers=['kafka:9092'], value_serializer=lambda v: json.dumps(v, default=custom_serializer).encode('utf-8'), compression_type='gzip', acks=0, linger_ms=5)
+#producer = KafkaProducer(bootstrap_servers=['kafka:9092'], value_serializer=lambda v: json.dumps(v, default=custom_serializer).encode('utf-8'), compression_type='snappy', acks=0, linger_ms=5)
+producer = KafkaProducer(bootstrap_servers=['kafka:9092'])
 
 # Context Catalog:
 CONTEXT_CATALOG_URI = os.getenv("CONTEXT_CATALOG_URI", "http://context-catalog:8080/context.jsonld")
@@ -775,46 +779,12 @@ def parse_xml(message):
                 dict_buffers.append(interface_ipv6_dict_buffer)
             dict_buffers.append(interface_dict_buffer)
 
-    filtered_dict_buffers = []
-    for dict_buffer in dict_buffers[::-1]:
-        if sysAttrs == "True":
-            current_datetime = datetime.datetime.now(datetime.timezone.utc)
-            ngsi_ld_entity_datetime = current_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
+    return sysAttrs, event_time, dict_buffers[::-1]
 
-            dict_buffer["createdAt"] = ngsi_ld_entity_datetime
-            dict_buffer["modifiedAt"] = ngsi_ld_entity_datetime
-
-            update_nested_keys(obj=dict_buffer, datetime=ngsi_ld_entity_datetime)
-
-        try:
-            #entity = get_entity_class_object_by_type(dict_buffer)
-            #entity_input = entity.to_dict()
-            get_entity_class_object_by_type(dict_buffer)
-            filtered_dict_buffers.append(dict_buffer)
-        except Exception as e:
-            logger.exception(f"Failed to validate entity: {e}")
-
-    producer = KafkaProducer(bootstrap_servers=['kafka:9092'])
-    #producer.send('interfaces-state-subscriptions-dictionary-buffers', value=json.dumps(dict_buffers[::-1], indent=4).encode('utf-8'))
-    producer.send('interfaces-state-subscriptions-dictionary-buffers', value=json.dumps(filtered_dict_buffers, indent=4).encode('utf-8'))
-    producer.flush()
-    dict_buffers.clear()
-    test_stop_time = time.perf_counter_ns()
-    test_stop_datetime = datetime.datetime.now(datetime.timezone.utc)
-    test_exec_time = test_stop_time - test_start_time
-    print("TEST ITERATION STARTED AT: " + test_start_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
-    print("TEST ITERATION FINISHED AT: " + test_stop_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
-    print(f"TEST ITERATION EXECUTION TIME: {test_exec_time/1e6} ms\n")
-    return event_time
-    '''
-    test_stop_time = time.perf_counter_ns()
-    test_stop_datetime = datetime.datetime.now(datetime.timezone.utc)
-    test_exec_time = test_stop_time - test_start_time
-    print("TEST ITERATION STARTED AT: " + test_start_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
-    print("TEST ITERATION FINISHED AT: " + test_stop_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
-    print(f"TEST ITERATION EXECUTION TIME: {test_exec_time/1e6} ms\n")
-    return event_time, dict_buffers[::-1]
-    '''
+def custom_serializer(obj):
+    if isinstance(obj, bytes):
+        return obj.decode('utf-8')
+    raise TypeError(f"Object of type {type(obj).__name__} is not JSON serializable")
 
 def update_nested_keys(obj, datetime):
     if isinstance(obj, dict):
@@ -1042,12 +1012,6 @@ for dict_buffer in dict_buffers:
 print("Processing of YANG Identities done!")
 print("Proceeding with notifications...")
 
-performance_measurements_file = open("performance_measurements.csv", "w", newline='')
-csv_writer = csv.writer(performance_measurements_file)
-csv_header = ["observed_at", "iteration_started_at", "iteration_finished_at", "processing_time_since_observed_at", 
-              "iteration_execution_time", "mean_execution_time", "min_execution_time", "max_execution_time", "processed_notifications"]
-csv_writer.writerow(csv_header)
-
 parsing_performance_measurements_file = open("performance_measurements_parsing.csv", "w", newline='')
 parsing_csv_writer = csv.writer(parsing_performance_measurements_file)
 parsing_csv_header = ["observed_at", "iteration_started_at", "iteration_finished_at", "processing_time_since_observed_at", 
@@ -1056,105 +1020,58 @@ parsing_csv_writer.writerow(parsing_csv_header)
 
 while True:
     for message in consumer:
-        start_time = time.perf_counter_ns()
         start_datetime = datetime.datetime.now(datetime.timezone.utc)
         
         print("I have consumed a new notification!")
 
-        event_time = parse_xml(message)
+        sysAttrs, event_time, dict_buffers = parse_xml(message)
 
-        '''
-        event_time, dict_buffers = parse_xml(message)
+        filtered_dict_buffers = []
+        for dict_buffer in dict_buffers:
+            if sysAttrs == "True":
 
-        print(dict_buffers)
-        '''
+                dict_buffer["createdAt"] = start_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") 
+                dict_buffer["modifiedAt"] = start_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") 
 
-        parsing_stop_time = time.perf_counter_ns()
+                update_nested_keys(obj=dict_buffer, datetime=start_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ"))
+                
+            try:
+                entity = get_entity_class_object_by_type(dict_buffer)
+                if entity != None:
+                    filtered_dict_buffers.append(dict_buffer)
+            except Exception as e:
+                logger.exception(f"Failed to validate entity: {e}")
+
         parsing_stop_datetime = datetime.datetime.now(datetime.timezone.utc)
-        parsing_exec_time = parsing_stop_time - start_time
+        parsing_exec_time = (parsing_stop_datetime - start_datetime).total_seconds()
         parsing_exec_times.append(parsing_exec_time)
 
 
         print("I have parsed the XML and created the associated NGSI-LD-compliant data structures/dictionary buffers")
 
         print("I will now create the NGSI-LD entities from the data structures/dictionary buffers")
-        
-        '''
-        for dict_buffer in dict_buffers:
-            entity_id = dict_buffer['id']
-            
-            entity = get_entity_class_object_by_type(dict_buffer)
 
-            print("Dictionary buffer contains information for entity " + entity_id)
-
-            upserted = upsert_ngsi_ld_entity(ngsi_ld, entity)
-            if upserted == False:
-                print("Entity " + entity_id + " COULD NOT BE UPSERTED")
-            else:
-                print("Entity " + entity_id + " WAS SUCCESSFULLY UPSERTED")
-        '''
-        '''
-            exists = retrieve_ngsi_ld_entity(ngsi_ld, entity_id)
-            if exists == False:
-                print("Entity " + entity_id + " DOES NOT EXIST. Trying to create it...")
-                created = create_ngsi_ld_entity(ngsi_ld, entity)
-                if created == False:
-                    print("Entity " + entity_id + " COULD NOT BE CREATED")
-                else:
-                    print("Entity " + entity_id + " WAS SUCCESSFULLY CREATED")
-            else:
-                print("Entity " + entity_id + " DOES EXIST. Trying to update it...")
-                updated = update_ngsi_ld_entity(ngsi_ld, entity_id, entity)
-                if updated == False:
-                    print("Entity " + entity_id + " COULD NOT BE UPDATED")
-                else:
-                    print("Entity " + entity_id + " WAS SUCCESSFULLY UPDATED")
-        '''
-        
-        '''
-        upserted = batch_upsert_ngsi_ld_entities(ngsi_ld, dict_buffers)
-        if upserted == False:
-            print("ENTITIES COULD NOT BE UPSERTED")
-        else:
-            print("ENTITIES WAS SUCCESSFULLY UPSERTED")
-        '''
+        producer.send('interfaces-state-subscriptions-dictionary-buffers', value=json.dumps(filtered_dict_buffers).encode('utf-8'))
+        producer.flush()
         
         if event_time is not None:
-            stop_time = time.perf_counter_ns()
-            stop_datetime = datetime.datetime.now(datetime.timezone.utc)
-            
-            exec_time = stop_time - start_time
-            exec_times.append(exec_time)
-
             print("Iteration done! Waiting for the next notification...\n")
 
             print("--- PERFORMANCE MEASUREMENTS ---\n")
-            print("NOTIFICATIONS PROCESSED SO FAR: " + str(len(exec_times)) + "\n")
+            print("NOTIFICATIONS PROCESSED SO FAR: " + str(len(parsing_exec_times)) + "\n")
             print("NOTIFICATION EVENT TIME/OBSERVED AT: " + event_time + "\n")
             print("ITERATION STARTED AT: " + start_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
             print("PARSER ITERATION FINISHED AT: " + parsing_stop_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
-            print("PARSER AND INSTANTIATION ITERATION FINISHED AT: " + stop_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
-            print(f"PARSER ITERATION EXECUTION TIME: {parsing_exec_time/1e6} ms\n")
-            print(f"PARSER AND INSTANTIATION ITERATION EXECUTION TIME: {exec_time/1e6} ms\n")
-            print(f"TOTAL PROCESSING TIME SO FAR SINCE NOTIFICATION EVENT TIME/OBSERVED AT: {(stop_datetime - parser.parse(event_time)).total_seconds() * 1e3} ms\n")
-            print(f"PARSER MEAN EXECUTION TIME SO FAR: {(sum(parsing_exec_times)/len(parsing_exec_times))/1e6} ms\n")
-            print(f"PARSER MIN EXECUTION TIME SO FAR: {min(parsing_exec_times)/1e6} ms\n")
-            print(f"PARSER MAX EXECUTION TIME SO FAR: {max(parsing_exec_times)/1e6} ms\n")
-            print(f"PARSER AND INSTANTIATION MEAN EXECUTION TIME SO FAR: {(sum(exec_times)/len(exec_times))/1e6} ms\n")
-            print(f"PARSER AND INSTANTIATION MIN EXECUTION TIME SO FAR: {min(exec_times)/1e6} ms\n")
-            print(f"PARSER AND INSTANTIATION MAX EXECUTION TIME SO FAR: {max(exec_times)/1e6} ms\n")
+            print(f"PARSER ITERATION EXECUTION TIME: {parsing_exec_time * 1e3} ms\n")
+            print(f"TOTAL PROCESSING TIME SO FAR SINCE NOTIFICATION EVENT TIME/OBSERVED AT: {(parsing_stop_datetime - parser.parse(event_time)).total_seconds() * 1e3} ms\n")
+            print(f"PARSER MEAN EXECUTION TIME SO FAR: {(sum(parsing_exec_times)/len(parsing_exec_times)) * 1e3} ms\n")
+            print(f"PARSER MIN EXECUTION TIME SO FAR: {min(parsing_exec_times) * 1e3} ms\n")
+            print(f"PARSER MAX EXECUTION TIME SO FAR: {max(parsing_exec_times) * 1e3} ms\n")
             print("--- PERFORMANCE MEASUREMENTS ---")
 
-            csv_data = [event_time, start_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ"), stop_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
-                        str((stop_datetime - parser.parse(event_time)).total_seconds() * 1e3) + " ms",
-                        str(exec_time/1e6) + " ms", str((sum(exec_times)/len(exec_times))/1e6) + " ms",
-                        str(min(exec_times)/1e6) + " ms", str(max(exec_times)/1e6) + " ms", str(len(exec_times))]
-            csv_writer.writerow(csv_data)
-            performance_measurements_file.flush()
-            
             parsing_csv_data = [event_time, start_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ"), parsing_stop_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
-                        str((stop_datetime - parser.parse(event_time)).total_seconds() * 1e3) + " ms",
-                        str(parsing_exec_time/1e6) + " ms", str((sum(parsing_exec_times)/len(parsing_exec_times))/1e6) + " ms",
-                        str(min(parsing_exec_times)/1e6) + " ms", str(max(parsing_exec_times)/1e6) + " ms", str(len(parsing_exec_times))]
+                        str((parsing_stop_datetime - parser.parse(event_time)).total_seconds() * 1e3) + " ms",
+                        str(parsing_exec_time * 1e3) + " ms", str((sum(parsing_exec_times)/len(parsing_exec_times)) * 1e3) + " ms",
+                        str(min(parsing_exec_times) * 1e3) + " ms", str(max(parsing_exec_times) * 1e3) + " ms", str(len(parsing_exec_times))]
             parsing_csv_writer.writerow(parsing_csv_data)
             parsing_performance_measurements_file.flush()

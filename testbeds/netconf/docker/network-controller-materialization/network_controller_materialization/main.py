@@ -180,11 +180,17 @@ async def subscribe_to_entity(entity: str, entity_id: str):
     notification_params = NotificationParams (
         endpoint=endpoint,
         format="normalized",
-        #attributes=["inOctets"],
+        #attributes=[""],
         sysAttrs=False
     )
 
     entity_dict = {"type": entity}
+
+    '''
+    BLOCKED!
+    Currently, subscription operations to NGSI-LD entities by indicating their ID are not supported by Scorpio Context Broker.
+    There is an issue recently opened on GitHub: https://github.com/ScorpioBroker/ScorpioBroker/issues/621
+    '''
     '''
     if entity_id is not None:
         entity_dict["id"] = entity_id
@@ -195,6 +201,7 @@ async def subscribe_to_entity(entity: str, entity_id: str):
         id = "urn:ngsi-ld:Subscription:{0}:{1}".format(entity, ":".join(entity_id_split[entity_id_start_index:]))
         description="On-change subscription to " + entity + " entity with ID " + entity_id + "."
     '''
+
     #else:
     id = "urn:ngsi-ld:Subscription:{0}".format(entity)
     description="On-change subscription to " + entity + " entity."
@@ -204,7 +211,7 @@ async def subscribe_to_entity(entity: str, entity_id: str):
         type="Subscription",
         entities=[entity_dict],
         description=description,
-        #watchedAttributes=["inOctets"],
+        #watchedAttributes=[""],
         #notificationTrigger=['entityCreated', 'entityUpdated', 'attributeCreated', 'attributeUpdated'],
         #notificationTrigger=['entityCreated', 'entityUpdated', 'entityDeleted', 'attributeCreated', 'attributeUpdated', 'attributeDeleted'],
         notification=notification_params
