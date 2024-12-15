@@ -43,6 +43,10 @@ cursor = connection.cursor()
 try:
     # Run query each minute
     while True:
+        logger.info("Deleting every " + sys.argv[1] + " minutes old NGSI-LD data records prior to the last " + sys.argv[2] + " minutes...")
+        
+        time.sleep(int(sys.argv[1])*60)
+
         now = datetime.now()
         now_datetime =now.strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
         logger.info("Date and time right now: " + now_datetime)
@@ -54,42 +58,41 @@ try:
         cursor.execute("SELECT * FROM entity;")
         connection.commit()
 
-        logger.info("Old registries...")
+        #logger.info("Old registries...")
 
         # Obtaining registry results
         registros = cursor.fetchall()
 
+        # Print results
         '''
-         # Print results
         for registro in registros:
             logger.info(registro)
         '''
 
-        # Cascade delete OF NGSI-LD entities:
-        cursor.execute("DELETE FROM temporalentityattrinstance WHERE modifiedat < '" + str(filtered_datetime_str) +"';")
+        logger.info("Deleting registries before " + filtered_datetime_str + "...")
+        # Cascade delete of NGSI-LD entities:
+        cursor.execute("DELETE FROM temporalentityattrinstance WHERE temporalentity_id NOT LIKE '%YANGIdentity%' AND temporalentity_id NOT LIKE '%NETCONF%' AND modifiedat < '" + str(filtered_datetime_str) +"';")
         connection.commit()
 
-        cursor.execute("DELETE FROM temporalentity WHERE modifiedat < '" + str(filtered_datetime_str) +"';")
+        cursor.execute("DELETE FROM temporalentity WHERE id NOT LIKE '%YANGIdentity%' AND id NOT LIKE '%NETCONF%' AND modifiedat < '" + str(filtered_datetime_str) +"';")
         connection.commit()
 
-        cursor.execute("DELETE FROM entity WHERE modifiedat < '" + str(filtered_datetime_str) +"';")
+        cursor.execute("DELETE FROM entity WHERE id NOT LIKE '%YANGIdentity%' AND id NOT LIKE '%NETCONF%' AND modifiedat < '" + str(filtered_datetime_str) +"';")
         connection.commit()
 
         cursor.execute("SELECT * FROM entity;")
         connection.commit()
 
-        logger.info("Current registries...")
+        #logger.info("Current registries...")
         
         # Obtaining registry results
         registros = cursor.fetchall()
 
-        '''
         # Print results
+        '''
         for registro in registros:
             logger.info(registro)
         '''
-
-        time.sleep(int(sys.argv[1]))
 
 except Exception as e:
     logger.exception("Error executing query:", e)

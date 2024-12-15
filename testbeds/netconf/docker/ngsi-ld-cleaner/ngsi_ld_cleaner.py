@@ -30,7 +30,7 @@ logger = logging.getLogger(__name__)
 ## -- BEGIN CONSTANTS DECLARATION -- ##
 
 # NGSI-LD Context Broker:
-BROKER_URI = os.getenv("BROKER_URI", "http://localhost:9090/ngsi-ld/v1")
+BROKER_URI = os.getenv("BROKER_URI", "http://scorpio:9090/ngsi-ld/v1")
 #BROKER_URI = os.getenv("BROKER_URI", "http://orion:1026/ngsi-ld/v1")
 #BROKER_URI = os.getenv("BROKER_URI", "http://stellio-api-gateway:8080/ngsi-ld/v1")
 
@@ -63,7 +63,10 @@ api_instance_ngsi_ld_provision_temporal = ngsi_ld_client.TemporalContextInformat
 while True:
     entity_types = []
     entity_ids = []
-    time.sleep(1)
+    
+    logger.info("Deleting every " + sys.argv[1] + " minutes old NGSI-LD data records...")
+
+    time.sleep(int(sys.argv[1])*60)
 
     try:
         # Retrieve Available Entity Types.
@@ -102,5 +105,3 @@ while True:
                 api_instance_ngsi_ld_provision_temporal.delete_temporal(entity_id=str(entity_id))
     except Exception as e:
         logger.exception("Exception when calling TemporalContextInformationProvisionApi->delete_temporal: %s\n" % e)
-
-    time.sleep(int(sys.argv[1]))
