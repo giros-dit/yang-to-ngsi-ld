@@ -132,44 +132,50 @@ services:
         condition: service_healthy
     restart: always
     
-  #ngsi-ld-cleaner:
-  #  build:
-  #    context: .
-  #    dockerfile: ./docker/ngsi-ld-cleaner/Dockerfile
-  #  hostname: ngsi-ld-cleaner
-  #  container_name: ngsi-ld-cleaner
-  #  command: ["poetry", "run", "python", "-u", "ngsi-ld-cleaner.py", "60"]
-  #  volumes:
-  #    - ./docker/ngsi-ld-cleaner:/opt/ngsi-ld-cleaner
-  #  depends_on:
-  #    scorpio:
-  #      condition: service_started
-  #    context-catalog:
-  #      condition: service_started
-  #    postgres:
-  #      condition: service_healthy
-  #    kafka:
-  #      condition: service_healthy
-  #    xml-parser-with-ngsi-ld-instantiator:
-  #      condition: service_started
-  #  restart: always
-  
-  #postgres-cleaner:
-  #  build:
-  #    context: ./docker/postgres-cleaner/
-  #    dockerfile: Dockerfile
-  #  hostname: postgres-cleaner
-  #  container_name: postgres-cleaner
-  #  command: ["python3", "-u", "/opt/postgres_cleaner/postgres_cleaner.py", "60"]
-  #  volumes:
-  #    - ./docker/postgres_cleaner:/opt/postgres_cleaner
-  #  depends_on:
-  #    scorpio:
-  #      condition: service_started
-  #    context-catalog:
-  #      condition: service_started
-  #    postgres:
-  #      condition: service_healthy
+  query-tester-materialization-context-broker:
+    build:
+      context: .
+      dockerfile: ./docker/query-tester-materialization-context-broker/Dockerfile
+    hostname: query-tester-materialization-context-broker
+    container_name: query-tester-materialization-context-broker
+    expose:
+      - "8083"
+    ports:
+      - "8083:8083"
+    volumes:
+      - ./docker/query-tester-materialization-context-broker/query_tester_materialization_context_broker:/opt/query-tester-materialization-context-broker/query_tester_materialization_context_broker
+    depends_on:
+      scorpio:
+        condition: service_started
+      context-catalog:
+        condition: service_started
+      kafka:
+        condition: service_started
+      network-controller-materialization:
+        condition: service_started
+    restart: always
+
+  ngsi-ld-cleaner:
+    build:
+      context: .
+      dockerfile: ./docker/ngsi-ld-cleaner/Dockerfile
+    hostname: ngsi-ld-cleaner
+    container_name: ngsi-ld-cleaner
+    command: ["poetry", "run", "python", "-u", "ngsi_ld_cleaner.py", "60"]
+    volumes:
+      - ./docker/ngsi-ld-cleaner:/opt/ngsi-ld-cleaner
+    depends_on:
+      scorpio:
+        condition: service_started
+      context-catalog:
+        condition: service_started
+      postgres:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+      xml-parser-with-ngsi-ld-instantiator-materialization:
+        condition: service_started
+    restart: always
 
 networks:
   default:

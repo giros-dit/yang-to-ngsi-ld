@@ -84,7 +84,7 @@ services:
     ports:
       - "8089:8089"
     volumes:
-      - ./docker/network-controller/network_controller-virtualization:/opt/network-controller/network_controller-virtualization
+      - ./docker/network-controller-virtualization/network_controller_virtualization:/opt/network-controller-virtualization/network_controller_virtualization
     depends_on:
       scorpio:
         condition: service_started
@@ -111,44 +111,28 @@ services:
         condition: service_healthy
     restart: always
     
-  #ngsi-ld-cleaner:
-  #  build:
-  #    context: .
-  #    dockerfile: ./docker/ngsi-ld-cleaner/Dockerfile
-  #  hostname: ngsi-ld-cleaner
-  #  container_name: ngsi-ld-cleaner
-  #  command: ["poetry", "run", "python", "-u", "ngsi-ld-cleaner.py", "60"]
-  #  volumes:
-  #    - ./docker/ngsi-ld-cleaner:/opt/ngsi-ld-cleaner
-  #  depends_on:
-  #    scorpio:
-  #      condition: service_started
-  #    context-catalog:
-  #      condition: service_started
-  #    postgres:
-  #      condition: service_healthy
-  #    kafka:
-  #      condition: service_healthy
-  #    xml-parser-with-ngsi-ld-instantiator:
-  #      condition: service_started
-  #  restart: always
-  
-  #postgres-cleaner:
-  #  build:
-  #    context: ./docker/postgres-cleaner/
-  #    dockerfile: Dockerfile
-  #  hostname: postgres-cleaner
-  #  container_name: postgres-cleaner
-  #  command: ["python3", "-u", "/opt/postgres_cleaner/postgres_cleaner.py", "60"]
-  #  volumes:
-  #    - ./docker/postgres_cleaner:/opt/postgres_cleaner
-  #  depends_on:
-  #    scorpio:
-  #      condition: service_started
-  #    context-catalog:
-  #      condition: service_started
-  #    postgres:
-  #      condition: service_healthy
+  query-tester-virtualization-context-broker:
+    build:
+      context: .
+      dockerfile: ./docker/query-tester-virtualization-context-broker/Dockerfile
+    hostname: query-tester-virtualization-context-broker
+    container_name: query-tester-virtualization-context-broker
+    expose:
+      - "8083"
+    ports:
+      - "8083:8083"
+    volumes:
+      - ./docker/query-tester-virtualization-context-broker/query_tester_virtualization_context_broker:/opt/query-tester-virtualization-context-broker/query_tester_virtualization_context_broker
+    depends_on:
+      scorpio:
+        condition: service_started
+      context-catalog:
+        condition: service_started
+      kafka:
+        condition: service_started
+      network-controller-virtualization:
+        condition: service_started
+    restart: always
 
 networks:
   default:
