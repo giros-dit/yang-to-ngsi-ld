@@ -48,7 +48,7 @@ def generate_netconf_xml_config(xpath: str, all_context_data: Optional[dict]) ->
     if "[" in xpath and "]" in xpath:
         xpath_filter = xpath.split('[')[0]+xpath.split(']')[1]
     else:
-        xpath_filter = xpath
+        xpath_filter = xpath   
     for key, value in processed_all_context_data.items():
         if isinstance(value, str):
             if value == xpath_filter:
@@ -339,7 +339,7 @@ def subscribe_operation(host: str, port: str, username: str, password: str, fami
 Function to convert string from camelcase format (e.g., interfaceType) to kebabcase format (e.g., interface-type)
 '''
 def camel_to_kebab(camel_str):
-    # Insert a space before any uppercase letter that is not at the start of the word
+    # Insert a hyphen separator before any uppercase letter that is not at the start of the word
     kebab_str = re.sub(r'([a-z0-9])([A-Z])', r'\1-\2', camel_str)
     # Convert the whole string to lowercase
     return kebab_str.lower()
@@ -388,7 +388,7 @@ def pydantic_to_xml(element, obj):
 '''
 Main function to convert a Pydantic instance to XML schema from NETCONF with <config> structure for ncclient edit-config operations:
 '''
-def generate_netconf_xml(xpath: str, instance: BaseModel, all_context_data: Optional[dict]) -> str:
+def generate_netconf_xml_set(xpath: str, instance: BaseModel, all_context_data: Optional[dict]) -> str:
     
     # Initial structure <config>
     config = Element("config", xmlns="urn:ietf:params:xml:ns:netconf:base:1.0")
@@ -452,7 +452,7 @@ def set_operation(host: str, port: str, username: str, password: str, family: st
         "device_params": {"name": family}
     }
 
-    config_xml_schema = generate_netconf_xml(xpath=xpath, instance=instance, all_context_data=all_context_data)
+    config_xml_schema = generate_netconf_xml_set(xpath=xpath, instance=instance, all_context_data=all_context_data)
 
     logger.info("Hello, this is the ncclient-collector for " + host + " for SET operations...")
 

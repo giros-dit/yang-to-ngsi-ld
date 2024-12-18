@@ -85,6 +85,7 @@ ngsi_ld_subscriptions = []
 # NGSI-LD Context Broker
 #BROKER_URI = os.getenv("BROKER_URI", "http://orion:1026/ngsi-ld/v1")
 BROKER_URI = os.getenv("BROKER_URI", "http://scorpio:9090/ngsi-ld/v1")
+CONTEXT_SOURCE_URI = os.getenv("CONTEXT_SOURCE_URI", "http://network-controller-virtualization:8089/ngsi-ld/v1")
 
 # Context Catalog
 CONTEXT_CATALOG_URI = os.getenv("CONTEXT_CATALOG_URI",
@@ -93,10 +94,11 @@ CONTEXT_CATALOG_URI = os.getenv("CONTEXT_CATALOG_URI",
 # Notifier
 NOTIFIER_URI = os.getenv("NOTIFIER_URI", "http://network-controller-virtualization:8089/notify")
 
-# Init NGSI-LD Client
+# Init NGSI-LD Clients
 configuration = NGSILDConfiguration(host=BROKER_URI)
 configuration.debug = True
 ngsi_ld = NGSILDClient(configuration=configuration)
+
 all_context_data = None
 
 ngsi_ld_health_info_api = NGSILDHealthInfoClient(
@@ -305,12 +307,12 @@ async def receiveNotification(request: Request):
 '''
 Function for triggering NETCONF RPC YANG-Push subscriptions with needed parameters.
 '''
-async def subscribe_operation(host: str, port: str, username: str, password: str, family: str, xpath: str, subscriptionMode: str, period: str, entity_id: str, hostKeyVerify: Optional[bool] = False, sysAttrs: Optional[bool] = False):
+async def subscribe_operation(host: str, port: str, username: str, password: str, family: str, xpath: str, subscriptionMode: str, period: str, subscription_id: str, hostKeyVerify: Optional[bool] = False, sysAttrs: Optional[bool] = False):
     # Each subscription will have its own stop event
     stop_event = asyncio.Event()
 
     # Save the event and thread in the global dictionary to control this subscription
-    subscription_threads[entity_id] = {"stop_event": stop_event, "thread": None}
+    subscription_threads[subscription_id] = {"stop_event": stop_event, "thread": None}
 
     r = {
         "host": host,
@@ -345,20 +347,23 @@ async def subscribe_operation(host: str, port: str, username: str, password: str
         data_element = et.fromstring(str(reply)).find('.//{urn:ietf:params:xml:ns:netconf:base:1.0}data')
         if data_element is None or len(data_element) == 0:
             logger.info("\nThe Xpath is incorrect or not supported by the network device " + host + ".")
-            try:
-                ngsi_ld_api_instance_provision.delete_entity(entity_id=entity_id)
-            except Exception as e:
-                logger.exception("Exception when calling ContextInformationProvisionApi->delete_entity: %s\n" % e)  
+            if "_" in subscription_id:
+                subscription_id = subscription_id.split("_")[0]
+
+            # Delete NGSI-LD Subscription by id: DELETE  /subscriptions/{subscriptionId}
+            await delete_subscriptions(subscriptionId=subscription_id)
+            
             session.close_session()
             return
 
     except Exception as e:
         logger.exception(f"Error for establishing the Get operation: {e}")
-        # Delete NGSI-LD Entity by id: DELETE /entities/{entityId}
-        try:
-            ngsi_ld_api_instance_provision.delete_entity(entity_id=entity_id)
-        except Exception as e:
-            logger.exception("Exception when calling ContextInformationProvisionApi->delete_entity: %s\n" % e)  
+        if "_" in subscription_id:
+            subscription_id = subscription_id.split("_")[0]
+
+        # Delete NGSI-LD Subscription by id: DELETE  /subscriptions/{subscriptionId}
+        await delete_subscriptions(subscriptionId=subscription_id)
+
         session.close_session()
         return
 
@@ -390,19 +395,20 @@ async def subscribe_operation(host: str, port: str, username: str, password: str
         logger.info(request)
     except Exception as e:
         logger.error(f"Error for establishing the YANG-Push subscription: {str(e)}")
-        # Delete NGSI-LD Entity by id: DELETE /entities/{entityId}
-        try:
-            ngsi_ld_api_instance_provision.delete_entity(entity_id=entity_id)
-        except Exception as e:
-            logger.exception("Exception when calling ContextInformationProvisionApi->delete_entity: %s\n" % e)  
+        if "_" in subscription_id:
+            subscription_id = subscription_id.split("_")[0]
+
+        # Delete NGSI-LD Subscription by id: DELETE  /subscriptions/{subscriptionId}
+        await delete_subscriptions(subscriptionId=subscription_id)
+
         session.close_session()
         return
 
     producer = KafkaProducer(bootstrap_servers=['kafka:9092'])
 
     # Run the receive notification function in a separate thread
-    notification_thread = threading.Thread(target=get_notifications, args=(session, producer, host, entity_id, sysAttrs))
-    subscription_threads[entity_id]["thread"] = notification_thread
+    notification_thread = threading.Thread(target=get_notifications, args=(session, producer, host, subscription_id, sysAttrs))
+    subscription_threads[subscription_id]["thread"] = notification_thread
     notification_thread.start()
 
     # Wait until the stop event is triggered
@@ -412,23 +418,23 @@ async def subscribe_operation(host: str, port: str, username: str, password: str
     notification_thread.join()
     session.close_session()
 
-    logger.info(f"Stopped subscription for {host} and id {entity_id}!")
+    logger.info(f"Stopped subscription for {host} and id {subscription_id}!")
 
     '''
-    logger.info(f"Stopping Kafka consumer for {entity_id} ...") 
-    kafka_consumer_threads[entity_id]["stop_event"].set()  
-    if kafka_consumer_threads[entity_id]["thread"] is not None:
-        kafka_consumer_threads[entity_id]["thread"].join() # Esperar a que termine el hilo anterior
+    logger.info(f"Stopping Kafka consumer for {subscription_id} ...") 
+    kafka_consumer_threads[subscription_id]["stop_event"].set()  
+    if kafka_consumer_threads[subscription_id]["thread"] is not None:
+        kafka_consumer_threads[subscription_id]["thread"].join() # Esperar a que termine el hilo anterior
     # Remove from the kafka consumer thread dictionary
-    del kafka_consumer_threads[entity_id]
-    logger.info(f"Kafka Consumer {entity_id} stopped!")
+    del kafka_consumer_threads[subscription_id]
+    logger.info(f"Kafka Consumer {subscription_id} stopped!")
     '''
 
 '''
 Function for receiving notifications of previously triggered NETCONF RPC YANG-Push subscription operations.
 '''
-def get_notifications(session, producer, host, entity_id, sysAttrs):
-    stop_event = subscription_threads[entity_id]["stop_event"]
+def get_notifications(session, producer, host, subscription_id, sysAttrs):
+    stop_event = subscription_threads[subscription_id]["stop_event"]
     while not stop_event.is_set():
         try:
             # Here you can modify the timeout if it is supported
@@ -613,6 +619,14 @@ async def listen_to_kafka_subscriptions(notification_endpoint, subscription_id, 
                                         str(min(exec_times) * 1e3) + " ms", str(max(exec_times) * 1e3) + " ms", str(len(exec_times))]
                             csv_writer.writerow(csv_data)
                             performance_measurements_file.flush()
+                   
+                    except httpx.ConnectError:
+                        logger.info(f"Cannot connect to notification endpoint: {notification_endpoint}")
+                        if "_" in subscription_id:
+                            await delete_subscriptions(subscriptionId=str(subscription_id.split("_")[0]))
+                        else:
+                            await delete_subscriptions(subscriptionId=subscription_id)
+                        raise HTTPException(status_code=503, detail=f"Cannot connect to notification endpoint: {notification_endpoint}")
                     except httpx.RequestError as e:
                         raise HTTPException(status_code=500, detail=f"Failed to send notification: {str(e)}")
                     except httpx.HTTPStatusError as e:
@@ -786,7 +800,7 @@ async def post_subscriptions(subscription: dict):
 
         if not notification_endpoint:
             raise HTTPException(status_code=400, detail="Notification endpoint URI is missing")
-       
+
         if "sysAttrs" in notification:
             if notification.get("sysAttrs") == True:
                 sysAttrs = True
@@ -801,32 +815,31 @@ async def post_subscriptions(subscription: dict):
                 if entity["type"] == "InterfaceStatistics" or entity["type"] == "Interface": 
                     entity_type = entity["type"]
                     # Check if there is already subscription and Kafka Consumer associated with this entity and stop it
-                    if subscription_id in subscription_threads and id in kafka_consumer_threads:
-                        logger.info(f"Restarting subscription for {subscription_id} ...")
-                        subscription_threads[subscription_id]["stop_event"].set()  
-                        subscription_threads[subscription_id]["thread"].join() # Wait for the previous thread to finish
-                        subscription_threads[subscription_id]["stop_event"].clear()
+                    if id in subscription_threads and id in kafka_consumer_threads:
+                        logger.info(f"Restarting subscription for {id} ...")
+                        subscription_threads[id]["stop_event"].set()  
+                        subscription_threads[id]["thread"].join() # Wait for the previous thread to finish
+                        subscription_threads[id]["stop_event"].clear()
                         # Remove from the subscription thread dictionary
-                        del subscription_threads[subscription_id]
-                        logger.info(f"Subscription {subscription_id} stopped!")
+                        del subscription_threads[id]
+                        logger.info(f"Subscription {id} stopped!")
 
                         '''
-                        logger.info(f"Restarting Kafka consumer for {subscription_id} ...") 
-                        kafka_consumer_threads[subscription_id]["stop_event"].set()  
-                        if kafka_consumer_threads[subscription_id]["thread"] is not None:
-                            kafka_consumer_threads[subscription_id]["thread"].join() # Esperar a que termine el hilo anterior
+                        logger.info(f"Restarting Kafka consumer for {id} ...") 
+                        kafka_consumer_threads[id]["stop_event"].set()  
+                        if kafka_consumer_threads[id]["thread"] is not None:
+                            kafka_consumer_threads[id]["thread"].join() # Esperar a que termine el hilo anterior
                         # Remove from the kafka consumer thread dictionary
-                        del kafka_consumer_threads[subscription_id]
-                        logger.info(f"Kafka Consumer {subscription_id} stopped!")
+                        del kafka_consumer_threads[id]
+                        logger.info(f"Kafka Consumer {id} stopped!")
                         '''
 
                     # Create a new NETCONF Subscription RPC
                     logger.info(f"Starting new subscription for {id}")      
-                    asyncio.create_task(subscribe_operation(host=host, port=port, username=username, password=password, family=family, xpath=xpath, subscriptionMode="periodic", period=timeInterval, entity_id=subscription_id , hostKeyVerify=hostKeyVerify, sysAttrs=sysAttrs))
+                    asyncio.create_task(subscribe_operation(host=host, port=port, username=username, password=password, family=family, xpath=xpath, subscriptionMode="periodic", period=timeInterval, subscription_id=id, hostKeyVerify=hostKeyVerify, sysAttrs=sysAttrs))
 
             elif "id" in entity:
                 urn_entity_split = entity["id"].split(":")
-
                 id = subscription_id + "_" + str(entity["id"])
                 if entity["type"] == "InterfaceStatistics" or entity["type"] == "Interface": 
                     entity_type = entity["type"]
@@ -853,7 +866,7 @@ async def post_subscriptions(subscription: dict):
 
                     # Create a new NETCONF Subscription RPC
                     logger.info(f"Starting new subscription for {id}")  
-                    asyncio.create_task(subscribe_operation(host=host, port=port, username=username, password=password, family=family, xpath=xpath, subscriptionMode="periodic", period=timeInterval, entity_id=id, hostKeyVerify=hostKeyVerify, sysAttrs=sysAttrs))
+                    asyncio.create_task(subscribe_operation(host=host, port=port, username=username, password=password, family=family, xpath=xpath, subscriptionMode="periodic", period=timeInterval, subscription_id=id, hostKeyVerify=hostKeyVerify, sysAttrs=sysAttrs))
 
             stop_event_kafka = threading.Event()
             kafka_thread = threading.Thread(
@@ -885,7 +898,7 @@ async def post_subscriptions(subscription: dict):
 Endpoint for getting NGSI-LD subscriptions.
 '''
 @app.get("/ngsi-ld/v1/subscriptions")
-async def get_subcriptions():
+async def get_subscriptions():
     global ngsi_ld_subscriptions
     try:
         if len(ngsi_ld_subscriptions) != 0:
@@ -905,10 +918,10 @@ async def get_subcriptions():
         raise HTTPException(status_code=500, detail="An unexpected error occurred.")
 
 '''   
-Endpoint for getting NGSI-LD subscriptions by id.
+Endpoint for getting NGSI-LD subscription by id.
 '''
 @app.get("/ngsi-ld/v1/subscriptions/{subscriptionId}")
-async def get_subcriptions(subscriptionId: str):
+async def get_subscription(subscriptionId: str):
     global ngsi_ld_subscriptions
     subscription_match = False
     try:
@@ -1158,7 +1171,7 @@ async def get_entities(id: str, request: Request):
         if entity_type == "InterfaceConfig" or entity_type == "InterfaceConfigIpv4Address" or entity_type == "InterfaceConfigIpv4":
             get_operation(host=host, port=port, username=username, password=password, family=family, xpath=xpath, option="config", all_context_data=all_context_data, hostKeyVerify=hostKeyVerify, sysAttrs=sysAttrs)
         elif entity_type == "Interface" or entity_type == "InterfaceStatistics":
-            get_operation(host=host, port=port, username=username, password=password, family=family, xpath=xpath.format(str(urn_split[-1])), option="state", all_context_data=None, hostKeyVerify=hostKeyVerify, sysAttrs=sysAttrs)
+            get_operation(host=host, port=port, username=username, password=password, family=family, xpath=xpath, option="state", all_context_data=None, hostKeyVerify=hostKeyVerify, sysAttrs=sysAttrs)
              
         consumer_thread.join()
 

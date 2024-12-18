@@ -35,7 +35,7 @@ logger = logging.getLogger(__name__)
 # NGSI-LD Context Broker
 #BROKER_URI = os.getenv("BROKER_URI", "http://orion:1026/ngsi-ld/v1")
 BROKER_URI = os.getenv("BROKER_URI", "http://scorpio:9090/ngsi-ld/v1")
-CONTEXT_SOURCE_URI = os.getenv("BROKER_URI", "http://network-controller-virtualization:8089/ngsi-ld/v1")
+CONTEXT_SOURCE_URI = os.getenv("CONTEXT_SOURCE_URI", "http://network-controller-virtualization:8089/ngsi-ld/v1")
 
 # Context Catalog
 CONTEXT_CATALOG_URI = os.getenv("CONTEXT_CATALOG_URI",
