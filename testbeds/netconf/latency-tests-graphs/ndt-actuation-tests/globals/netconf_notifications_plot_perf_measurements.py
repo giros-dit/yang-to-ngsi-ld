@@ -43,7 +43,7 @@ plot_virtualization_notification = df_virtualization_notification.boxplot(column
 plt.xticks([1, 2], ['materialization', 'virtualization_CS'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean evaluation time per NETCONF RPC \n subscription operation notification')
+plt.title('Mean evaluation time per notification in \n NETCONF RPC subscription operation')
 plt.savefig("notification_performance_measurements_data_integration.png", format="png", dpi=1500)
 
 fig, ax = plt.subplots()
@@ -54,5 +54,5 @@ plot_virtualization_instantiation = df_virtualization_instantiation.boxplot(colu
 plt.xticks([1, 2], ['materialization', 'virtualization_CS'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean instantiation time per NETCONF RPC \n subscription operation notification')
+plt.title('Mean instantiation time per notification in \n NETCONF RPC subscription operation')
 plt.savefig("notification_instantiation_performance_measurements_data_integration.png", format="png", dpi=1500)
