@@ -5,6 +5,7 @@
         "InterfaceConfigIpv4Address": "ietf-interfaces:interfaces/interface/ietf-ip:ipv4/address",
         "ip": "ietf-interfaces:interfaces/interface/ietf-ip:ipv4/address/ip",
         "prefixLength": "ietf-interfaces:interfaces/interface/ietf-ip:ipv4/address/subnet/prefix-length",
-        "netmask": "ietf-interfaces:interfaces/interface/ietf-ip:ipv4/address/subnet/netmask"
+        "netmask": "ietf-interfaces:interfaces/interface/ietf-ip:ipv4/address/subnet/netmask",
+        "key": "ip"
     }
 }

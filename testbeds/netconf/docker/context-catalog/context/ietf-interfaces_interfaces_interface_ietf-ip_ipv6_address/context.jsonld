@@ -4,6 +4,7 @@
         "ietf-ip": "urn:ietf:params:xml:ns:yang:ietf-ip/",
         "InterfaceConfigIpv6Address": "ietf-interfaces:interfaces/interface/ietf-ip:ipv6/address",
         "ip": "ietf-interfaces:interfaces/interface/ietf-ip:ipv6/address/ip",
-        "prefixLength": "ietf-interfaces:interfaces/interface/ietf-ip:ipv6/address/prefix-length"
+        "prefixLength": "ietf-interfaces:interfaces/interface/ietf-ip:ipv6/address/prefix-length",
+        "key": "ip"
     }
 }

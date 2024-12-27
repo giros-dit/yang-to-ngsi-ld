@@ -7,6 +7,7 @@
         "linkLayerAddress": "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv6/neighbor/link-layer-address",
         "origin": "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv6/neighbor/origin",
         "isRouter": "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv6/neighbor/is-router",
-        "state": "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv6/neighbor/state"
+        "state": "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv6/neighbor/state",
+        "key": "ip"
     }
 }
