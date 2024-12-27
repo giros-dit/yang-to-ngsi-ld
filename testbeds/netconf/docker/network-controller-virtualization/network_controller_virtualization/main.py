@@ -1,5 +1,6 @@
 import logging
 import os
+import re
 import socket
 from time import sleep
 import time
@@ -977,15 +978,7 @@ async def get_entitymap(request: Request):
                 get_operation(host=host, port=port, username=username, password=password, family=family, xpath=xpath, option="config", all_context_data=all_context_data, hostKeyVerify=hostKeyVerify, sysAttrs=sysAttrs)
             elif params["type"] == "Interface" or params["type"] == "InterfaceStatistics" or params["type"] == "InterfaceIpv4Address" or params["type"] == "InterfaceIpv4":
                 if "[" in xpath and "]" in xpath:
-                    tag, condition = xpath.split('[')
-                    tag = tag.strip()
-                    condition = condition.strip(']').split('=')
-                    attr_name = condition[0].strip()
-                    attr_value = condition[1].strip().strip("'")
-                    if attr_value == "*":
-                        xpath_filter = xpath.split("[")[0] + xpath.split("]")[1]
-                    else:
-                        xpath_filter = xpath
+                    xpath_filter = re.sub(r"\[.*?\]", "", xpath)
                 else:
                     xpath_filter = xpath
 
@@ -1077,16 +1070,8 @@ async def get_entities(request: Request):
             if params["type"] == "InterfaceConfig" or params["type"] == "InterfaceConfigIpv4Address" or params["type"] == "InterfaceConfigIpv4": 
                 get_operation(host=host, port=port, username=username, password=password, family=family, xpath=xpath, option="config", all_context_data=all_context_data, hostKeyVerify=hostKeyVerify, sysAttrs=sysAttrs)
             elif params["type"] == "Interface" or params["type"] == "InterfaceStatistics" or params["type"] == "InterfaceIpv4Address" or params["type"] == "InterfaceIpv4":
-                if "[" in xpath and "]" in xpath:             
-                    tag, condition = xpath.split('[')
-                    tag = tag.strip()
-                    condition = condition.strip(']').split('=')
-                    attr_name = condition[0].strip()
-                    attr_value = condition[1].strip().strip("'")
-                    if attr_value == "*":
-                        xpath_filter = xpath.split("[")[0] + xpath.split("]")[1]
-                    else:
-                        xpath_filter = xpath
+                if "[" in xpath and "]" in xpath:  
+                    xpath_filter = re.sub(r"\[.*?\]", "", xpath)
                 else:
                     xpath_filter = xpath
                 get_operation(host=host, port=port, username=username, password=password, family=family, xpath=xpath_filter, option="state", all_context_data=None, hostKeyVerify=hostKeyVerify, sysAttrs=sysAttrs)

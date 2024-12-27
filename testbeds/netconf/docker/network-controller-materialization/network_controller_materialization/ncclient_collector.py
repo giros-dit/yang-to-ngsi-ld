@@ -46,7 +46,7 @@ def generate_netconf_xml_config(xpath: str, all_context_data: Optional[dict]) ->
     is_match = False
     match_key = None
     if "[" in xpath and "]" in xpath:
-        xpath_filter = xpath.split('[')[0]+xpath.split(']')[1]
+        xpath_filter = re.sub(r"\[.*?\]", "", xpath)
     else:
         xpath_filter = xpath
     for key, value in processed_all_context_data.items():
@@ -75,7 +75,7 @@ def generate_netconf_xml_config(xpath: str, all_context_data: Optional[dict]) ->
             if ":" in processed_component:
                 processed_component = processed_component.split(":")[1]
 
-            # Check if it contains a filter (eg: [name='Ethernet1'])
+            # Check if it contains a filter (e.g., [name='Ethernet1'])
             if '[' in processed_component:
                 tag, condition = processed_component.split('[')
                 tag = tag.strip()
@@ -166,6 +166,7 @@ def get_operation(host: str, port: str, username: str, password: str, family: st
         '''
 
         interface_filter = generate_netconf_xml_config(xpath=xpath, all_context_data=all_context_data)
+        logger.info("XML data schema: " + str(interface_filter))
         try:
             # Execute the get-config RPC
             reply = session.get_config(source="running", filter=("subtree", interface_filter))
@@ -332,7 +333,7 @@ def subscribe_operation(host: str, port: str, username: str, password: str, fami
             producer.flush()
 
 '''
-Function to convert string from camelcase format (e.g., interfaceType) to kebabcase format (e.g., interface-type)
+Function to convert string from camelcase format (e.g., linkUpDownTrapEnable) to kebabcase format (e.g., link-up-down-trap-enable)
 '''
 def camel_to_kebab(camel_str):
     # Insert a space before any uppercase letter that is not at the start of the word
@@ -392,7 +393,7 @@ def generate_netconf_xml_set(xpath: str, instance: BaseModel, all_context_data: 
         processed_context_data =  "/" + search_context_data.split(":", 1)[1]
 
         if "[" in xpath and "]" in xpath:
-            xpath_filter = xpath.split('[')[0]+xpath.split(']')[1]
+            xpath_filter = re.sub(r"\[.*?\]", "", xpath)
         else:
             xpath_filter = xpath
         schema_tags = config
@@ -403,7 +404,7 @@ def generate_netconf_xml_set(xpath: str, instance: BaseModel, all_context_data: 
             schema_tags = config
             for original_component, processed_component in zip(original_components, processed_components):
 
-                # Check if it contains a filter (eg: [name='Ethernet1'])
+                # Check if it contains a filter (e.g., [name='Ethernet1'])
                 if '[' in processed_component:
                     tag, condition = processed_component.split('[')
                     tag = tag.strip()
@@ -448,6 +449,8 @@ def set_operation(host: str, port: str, username: str, password: str, family: st
     }
 
     config_xml_schema = generate_netconf_xml_set(xpath=xpath, instance=instance, all_context_data=all_context_data)
+
+    logger.info("XML data schema: " + str(config_xml_schema))
 
     logger.info("Hello, this is the ncclient-collector for " + host + " for SET operations...")
 

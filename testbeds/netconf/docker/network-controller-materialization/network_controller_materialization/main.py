@@ -1,5 +1,6 @@
 import logging
 import os
+import re
 from time import sleep
 import time
 from typing import Optional
@@ -127,9 +128,9 @@ async def startup_event():
         context_client.search_context_urls(context_urls)
         all_context_data = context_client.search_context_data(context_urls)
     
-    print("Key and value for each context URL:")
+    logger.info("Key and value for each context URL:")
     for key, value in all_context_data.items():
-        print(f"{key}: {value}")
+        logger.info(f"{key}: {value}")
 
     # Check if Scorpio API is up
     ngsi_ld_health_info_api.check_scorpio_status()
@@ -212,7 +213,7 @@ async def subscribe_to_entity(entity: str, entity_id: str):
         entities=[entity_dict],
         description=description,
         #watchedAttributes=[""],
-        #notificationTrigger=['entityCreated', 'entityUpdated', 'attributeCreated', 'attributeUpdated'],
+        notificationTrigger=['entityCreated', 'entityUpdated', 'attributeCreated', 'attributeUpdated'],
         #notificationTrigger=['entityCreated', 'entityUpdated', 'entityDeleted', 'attributeCreated', 'attributeUpdated', 'attributeDeleted'],
         notification=notification_params
     )
@@ -263,6 +264,10 @@ async def receiveNotification(request: Request):
                             xpath = entity["operation"]["xpath"]["value"]
                         else:
                             xpath = None
+                        
+                        if option == "state":
+                            if "[" in xpath and "]" in xpath:
+                                xpath = re.sub(r"\[.*?\]", "", xpath)
                 
                         get_operation(host, port, username, password, family, xpath, option, all_context_data, hostKeyVerify)
                         
@@ -287,7 +292,7 @@ async def receiveNotification(request: Request):
                             is_match = False
                             match_key = None
                             if "[" in xpath and "]" in xpath:
-                                xpath_filter = xpath.split('[')[0]+xpath.split(']')[1]
+                                xpath_filter = re.sub(r"\[.*?\]", "", xpath)
                             else:
                                 xpath_filter = xpath
                             for key, value in processed_all_context_data.items():
@@ -311,40 +316,97 @@ async def receiveNotification(request: Request):
                                     try:
                                         attemps = attemps + 1
                                         entities = ngsi_ld_api_instance_consumption.query_entity(type=subs_entity)
-
                                         if entities != []:
-                                        
                                             xpath_components = xpath.strip("/").split("/")
-                                            xpath_item = ""
+                                            xpath_items = []
+                                            attr_values = []
                                             for xpath_component in xpath_components:
                                                 if "[" in xpath_component and "]" in xpath_component:
-                                                    xpath_item = xpath_component
-                                                    break
-                                            if "[" in xpath_item and "]" in xpath_item:
-                                                tag, condition = xpath_item.split('[')
-                                                tag = tag.strip()
-                                                condition = condition.strip(']').split('=')
-                                                #attr_name = condition[0].strip()
-                                                attr_value = condition[1].strip().strip("'")     
+                                                    xpath_items.append(xpath_component)
+                                            if xpath_items != []:
+                                                for xpath_item in xpath_items:
+                                                    tag, condition = xpath_item.split('[')
+                                                    tag = tag.strip()
+                                                    condition = condition.strip(']').split('=')
+                                                    attr_values.append(condition[1].strip().strip("'"))
                                                 for entity in entities:
-                                                    if entity.to_dict()["id"].split(":")[-1] == attr_value:
-                                                        new_entity_id = entity.to_dict()["id"]
+                                                    segmented_entity_id = entity.to_dict()["id"].split(":")[4:]
+                                                    aux_new_entity_id = ""
+                                                    matched = False
+                                                    if len(segmented_entity_id) == len(attr_values):
+                                                        for attr_value, segmented_entity_id_item in zip(attr_values, segmented_entity_id):
+                                                            if segmented_entity_id_item == attr_value:
+                                                                matched = True
+                                                                aux_new_entity_id = aux_new_entity_id + ":" + segmented_entity_id_item
+                                                            else:
+                                                                matched = False
+                                                                break
+                                                    if matched:
+                                                        new_entity_id = str(":".join(entity.to_dict()["id"].split(":")[:4])) + aux_new_entity_id
                                                         break
                                                 if new_entity_id is not None:
+                                                    logger.info("Create NGSI-LD subscription to Entity with id " + new_entity_id + " for NETCONF SET RPC operation...")
                                                     asyncio.create_task(subscribe_to_entity(subs_entity, new_entity_id))
                                                     break
                                                 else:
-                                                    break
+                                                    xpath_components = xpath.strip("/").split("/")
+                                                    xpath_items = []
+                                                    attr_values = []
+                                                    for xpath_component in xpath_components:
+                                                        if "[" in xpath_component and "]" in xpath_component:
+                                                            xpath_items.append(xpath_component)
+                                                    if xpath_items != []:
+                                                        for xpath_item in xpath_items:
+                                                            tag, condition = xpath_item.split('[')
+                                                            tag = tag.strip()
+                                                            condition = condition.strip(']').split('=')
+                                                            attr_values.append(condition[1].strip().strip("'"))
+                                                        aux_new_entity_id = ""
+                                                        for attr_value in attr_values:
+                                                            aux_new_entity_id = aux_new_entity_id + ":" + attr_value
+                                                        if aux_new_entity_id != "":
+                                                            new_entity_id = "urn:ngsi-ld:" + subs_entity + ":" + host + aux_new_entity_id
+                                                        if new_entity_id is not None:
+                                                            logger.info("Create NGSI-LD subscription to Entity with id " + new_entity_id + " for NETCONF SET RPC operation...")
+                                                            asyncio.create_task(subscribe_to_entity(subs_entity, new_entity_id))
+                                                        break
+                                                    else: 
+                                                        logger.info("Create NGSI-LD subscription to Entity of type " + subs_entity + " for NETCONF SET RPC operation...")
+                                                        asyncio.create_task(subscribe_to_entity(subs_entity, new_entity_id))
+                                                        break
                                             else:
+                                                logger.info("Create NGSI-LD subscription to Entity of type " + subs_entity + " for NETCONF SET RPC operation...")
                                                 asyncio.create_task(subscribe_to_entity(subs_entity, new_entity_id))
                                                 break
-                                            
-                                        elif attemps < 2:
+                                        elif attemps < 3:
                                             sleep(0.5)
                                             continue
                                         else:
-                                            break
-                                        
+                                            xpath_components = xpath.strip("/").split("/")
+                                            xpath_items = []
+                                            attr_values = []
+                                            for xpath_component in xpath_components:
+                                                if "[" in xpath_component and "]" in xpath_component:
+                                                    xpath_items.append(xpath_component)
+                                            if xpath_items != []:
+                                                for xpath_item in xpath_items:
+                                                    tag, condition = xpath_item.split('[')
+                                                    tag = tag.strip()
+                                                    condition = condition.strip(']').split('=')
+                                                    attr_values.append(condition[1].strip().strip("'"))
+                                                aux_new_entity_id = ""
+                                                for attr_value in attr_values:
+                                                    aux_new_entity_id = aux_new_entity_id + ":" + attr_value
+                                                if aux_new_entity_id != "":
+                                                    new_entity_id = "urn:ngsi-ld:" + subs_entity + ":" + host + aux_new_entity_id
+                                                if new_entity_id is not None:
+                                                    logger.info("Create NGSI-LD subscription to Entity with id " + new_entity_id + " for NETCONF SET RPC operation...")
+                                                    asyncio.create_task(subscribe_to_entity(subs_entity, new_entity_id))
+                                                break
+                                            else: 
+                                                logger.info("Create NGSI-LD subscription to Entity of type " + subs_entity + " for NETCONF SET RPC operation...")
+                                                asyncio.create_task(subscribe_to_entity(subs_entity, new_entity_id))
+                                                break                              
                                     except Exception as e:
                                         logger.exception("Exception when calling ContextInformationConsumptionApi->query_entity: %s\n" % e)
                         
@@ -353,7 +415,7 @@ async def receiveNotification(request: Request):
                         ngsi_ld_api_instance_provision.delete_entity(entity_id=entity_id)
                     except Exception as e:
                         logger.exception("Exception when calling ContextInformationProvisionApi->delete_entity: %s\n" % e)    
-                elif "SUBSCRIBE" in entity["operation"]["value"] and "ON" in entity["operation"]["state"]["value"] and "deletedAt" not in entity:
+                elif "SUBSCRIBE" in entity["operation"]["value"] and "ON" in entity["operation"]["subscriptionState"]["value"] and "deletedAt" not in entity:
                     xpath = entity["operation"]["xpath"]["value"]
                     subscriptionMode = entity["operation"]["subscriptionMode"]["value"]
                     if subscriptionMode == "periodic":
@@ -370,7 +432,7 @@ async def receiveNotification(request: Request):
                     logger.info(f"Starting new subscription for {entity_id}")
                     asyncio.create_task(subscribe_operation(host, port, username, password, family, xpath, subscriptionMode, period, entity_id, hostKeyVerify))
 
-                elif "SUBSCRIBE" in entity["operation"]["value"] and "IDLE" in entity["operation"]["state"]["value"] and "deletedAt" not in entity:
+                elif "SUBSCRIBE" in entity["operation"]["value"] and "IDLE" in entity["operation"]["subscriptionState"]["value"] and "deletedAt" not in entity:
                     # If an "idle" message arrives, we stop the loop
                     # Check if there is already a subscription associated with this entity and stop it
                     if entity_id in subscription_threads:
@@ -380,7 +442,7 @@ async def receiveNotification(request: Request):
                         # Remove from the subscription thread dictionary
                         del subscription_threads[entity_id]
                 
-                elif "SUBSCRIBE" in entity["operation"]["value"] and "OFF" in entity["operation"]["state"]["value"] and "deletedAt" not in entity:
+                elif "SUBSCRIBE" in entity["operation"]["value"] and "OFF" in entity["operation"]["subscriptionState"]["value"] and "deletedAt" not in entity:
                     # If an "off" message arrives, we stop the loop and delete the entity
                     # Check if there is already a subscription associated with this entity and stop it
                     if entity_id in subscription_threads:
