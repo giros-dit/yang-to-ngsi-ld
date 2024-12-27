@@ -169,6 +169,7 @@ def parse_xml(message):
                     if ip is not None:
                         element_text = ip.text
                         if element_text is not None:
+                            interface_ipv4_address_dict_buffer["id"] = interface_ipv4_address_dict_buffer["id"] + ":" + element_text
                             interface_ipv4_address_dict_buffer["ip"] = {}
                             interface_ipv4_address_dict_buffer["ip"]["type"] = "Property"
                             interface_ipv4_address_dict_buffer["ip"]["value"] = element_text
@@ -202,6 +203,7 @@ def parse_xml(message):
                     if ip is not None:
                         element_text = ip.text
                         if element_text is not None:
+                            interface_ipv4_neighbor_dict_buffer["id"] = interface_ipv4_neighbor_dict_buffer["id"] + ":" + element_text
                             interface_ipv4_neighbor_dict_buffer["ip"] = {}
                             interface_ipv4_neighbor_dict_buffer["ip"]["type"] = "Property"
                             interface_ipv4_neighbor_dict_buffer["ip"]["value"] = element_text
@@ -260,6 +262,7 @@ def parse_xml(message):
                     if ip is not None:
                         element_text = ip.text
                         if element_text is not None:
+                            interface_ipv6_address_dict_buffer["id"] = interface_ipv6_address_dict_buffer["id"] + ":" + element_text
                             interface_ipv6_address_dict_buffer["ip"] = {}
                             interface_ipv6_address_dict_buffer["ip"]["type"] = "Property"
                             interface_ipv6_address_dict_buffer["ip"]["value"] = element_text
@@ -285,6 +288,7 @@ def parse_xml(message):
                     if ip is not None:
                         element_text = ip.text
                         if element_text is not None:
+                            interface_ipv6_neighbor_dict_buffer["id"] = interface_ipv6_neighbor_dict_buffer["id"] + ":" + element_text
                             interface_ipv6_neighbor_dict_buffer["ip"] = {}
                             interface_ipv6_neighbor_dict_buffer["ip"]["type"] = "Property"
                             interface_ipv6_neighbor_dict_buffer["ip"]["value"] = element_text
@@ -334,7 +338,6 @@ def parse_xml(message):
                     if temporaryValidLifetime is not None:
                         element_text = temporaryValidLifetime.text
                         if element_text is not None:
-                            interface_ipv6_autoconf_dict_buffer["id"] = interface_ipv6_autoconf_dict_buffer["id"] + ":" + int(element_text)
                             interface_ipv6_autoconf_dict_buffer["temporaryValidLifetime"] = {}
                             interface_ipv6_autoconf_dict_buffer["temporaryValidLifetime"]["type"] = "Property"
                             interface_ipv6_autoconf_dict_buffer["temporaryValidLifetime"]["value"] = int(element_text)
@@ -350,7 +353,6 @@ def parse_xml(message):
                     dict_buffers.append(interface_ipv6_autoconf_dict_buffer)
                 dict_buffers.append(interface_ipv6_dict_buffer)
             dict_buffers.append(interface_dict_buffer)
-
     else:
         for interface in root.findall(".//{urn:ietf:params:xml:ns:yang:ietf-interfaces}interface"):
             interface_dict_buffer = {}
@@ -594,6 +596,7 @@ def parse_xml(message):
                     if ip is not None:
                         element_text = ip.text
                         if element_text is not None:
+                            interface_ipv4_address_dict_buffer["id"] = interface_ipv4_address_dict_buffer["id"] + ":" + element_text
                             interface_ipv4_address_dict_buffer["ip"] = {}
                             interface_ipv4_address_dict_buffer["ip"]["type"] = "Property"
                             interface_ipv4_address_dict_buffer["ip"]["value"] = element_text
@@ -635,6 +638,7 @@ def parse_xml(message):
                     if ip is not None:
                         element_text = ip.text
                         if element_text is not None:
+                            interface_ipv4_neighbor_dict_buffer["id"] = interface_ipv4_neighbor_dict_buffer["id"] + ":" + element_text
                             interface_ipv4_neighbor_dict_buffer["ip"] = {}
                             interface_ipv4_neighbor_dict_buffer["ip"]["type"] = "Property"
                             interface_ipv4_neighbor_dict_buffer["ip"]["value"] = element_text
@@ -693,6 +697,7 @@ def parse_xml(message):
                     if ip is not None:
                         element_text = ip.text
                         if element_text is not None:
+                            interface_ipv6_address_dict_buffer["id"] = interface_ipv6_address_dict_buffer["id"] + ":" + element_text
                             interface_ipv6_address_dict_buffer["ip"] = {}
                             interface_ipv6_address_dict_buffer["ip"]["type"] = "Property"
                             interface_ipv6_address_dict_buffer["ip"]["value"] = element_text
@@ -734,6 +739,7 @@ def parse_xml(message):
                     if ip is not None:
                         element_text = ip.text
                         if element_text is not None:
+                            interface_ipv6_neighbor_dict_buffer["id"] = interface_ipv6_neighbor_dict_buffer["id"] + ":" + element_text
                             interface_ipv6_neighbor_dict_buffer["ip"] = {}
                             interface_ipv6_neighbor_dict_buffer["ip"]["type"] = "Property"
                             interface_ipv6_neighbor_dict_buffer["ip"]["value"] = element_text
