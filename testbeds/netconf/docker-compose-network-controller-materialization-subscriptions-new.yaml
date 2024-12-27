@@ -73,18 +73,18 @@ services:
       context-catalog:
         condition: service_started
 
-  network-controller-virtualization:
+  notifier-tester-materialization-on-change:
     build:
       context: .
-      dockerfile: ./docker/network-controller-virtualization/Dockerfile
-    hostname: network-controller-virtualization
-    container_name: network-controller-virtualization
+      dockerfile: ./docker/notifier-tester-materialization-on-change/Dockerfile
+    hostname: notifier-tester-materialization-on-change
+    container_name: notifier-tester-materialization-on-change
     expose:
-      - "8089"
+      - "8082"
     ports:
-      - "8089:8089"
+      - "8082:8082"
     volumes:
-      - ./docker/network-controller-virtualization/network_controller_virtualization:/opt/network-controller-virtualization/network_controller_virtualization
+      - ./docker/notifier-tester-materialization-on-change/notifier_tester_materialization_on_change:/opt/notifier-tester-materialization-on-change/notifier_tester_materialization_on_change
     depends_on:
       scorpio:
         condition: service_started
@@ -94,14 +94,35 @@ services:
         condition: service_started
     restart: always
 
-  xml-parser-with-ngsi-ld-instantiator-virtualization:
+  network-controller-materialization-new:
     build:
       context: .
-      dockerfile: ./docker/xml-parser-with-ngsi-ld-instantiator-virtualization/Dockerfile
-    hostname: xml-parser-with-ngsi-ld-instantiator-virtualization
-    container_name: xml-parser-with-ngsi-ld-instantiator-virtualization
+      dockerfile: ./docker/network-controller-materialization-new/Dockerfile
+    hostname: network-controller-materialization
+    container_name: network-controller-materialization
+    expose:
+      - "8089"
+    ports:
+      - "8089:8089"
     volumes:
-      - ./docker/xml-parser-with-ngsi-ld-instantiator-virtualization:/opt/xml-parser-with-ngsi-ld-instantiator-virtualization
+      - ./docker/network-controller-materialization-new/network_controller_materialization_new:/opt/network-controller-materialization-new/network_controller_materialization_new
+    depends_on:
+      scorpio:
+        condition: service_started
+      context-catalog:
+        condition: service_started
+      kafka:
+        condition: service_started
+    restart: always
+
+  xml-parser-with-ngsi-ld-instantiator-materialization:
+    build:
+      context: .
+      dockerfile: ./docker/xml-parser-with-ngsi-ld-instantiator-materialization/Dockerfile
+    hostname: xml-parser-with-ngsi-ld-instantiator-materialization
+    container_name: xml-parser-with-ngsi-ld-instantiator-materialization
+    volumes:
+      - ./docker/xml-parser-with-ngsi-ld-instantiator-materialization:/opt/xml-parser-with-ngsi-ld-instantiator-materialization
     depends_on:
       scorpio:
         condition: service_started
@@ -109,29 +130,6 @@ services:
         condition: service_started
       kafka:
         condition: service_healthy
-    restart: always
-    
-  query-tester-virtualization-context-broker:
-    build:
-      context: .
-      dockerfile: ./docker/query-tester-virtualization-context-broker/Dockerfile
-    hostname: query-tester-virtualization-context-broker
-    container_name: query-tester-virtualization-context-broker
-    expose:
-      - "8083"
-    ports:
-      - "8083:8083"
-    volumes:
-      - ./docker/query-tester-virtualization-context-broker/query_tester_virtualization_context_broker:/opt/query-tester-virtualization-context-broker/query_tester_virtualization_context_broker
-    depends_on:
-      scorpio:
-        condition: service_started
-      context-catalog:
-        condition: service_started
-      kafka:
-        condition: service_started
-      network-controller-virtualization:
-        condition: service_started
     restart: always
 
 networks:

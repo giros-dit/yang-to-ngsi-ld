@@ -73,10 +73,10 @@ services:
       context-catalog:
         condition: service_started
 
-  network-controller-virtualization:
+  network-controller-virtualization-new-alternative:
     build:
       context: .
-      dockerfile: ./docker/network-controller-virtualization/Dockerfile
+      dockerfile: ./docker/network-controller-virtualization-new-alternative/Dockerfile
     hostname: network-controller-virtualization
     container_name: network-controller-virtualization
     expose:
@@ -84,7 +84,7 @@ services:
     ports:
       - "8089:8089"
     volumes:
-      - ./docker/network-controller-virtualization/network_controller_virtualization:/opt/network-controller-virtualization/network_controller_virtualization
+      - ./docker/network-controller-virtualization-new-alternative/network_controller_virtualization_new_alternative:/opt/network-controller-virtualization-new-alternative/network_controller_virtualization_new_alternative
     depends_on:
       scorpio:
         condition: service_started
@@ -109,29 +109,6 @@ services:
         condition: service_started
       kafka:
         condition: service_healthy
-    restart: always
-    
-  query-tester-virtualization-context-broker:
-    build:
-      context: .
-      dockerfile: ./docker/query-tester-virtualization-context-broker/Dockerfile
-    hostname: query-tester-virtualization-context-broker
-    container_name: query-tester-virtualization-context-broker
-    expose:
-      - "8083"
-    ports:
-      - "8083:8083"
-    volumes:
-      - ./docker/query-tester-virtualization-context-broker/query_tester_virtualization_context_broker:/opt/query-tester-virtualization-context-broker/query_tester_virtualization_context_broker
-    depends_on:
-      scorpio:
-        condition: service_started
-      context-catalog:
-        condition: service_started
-      kafka:
-        condition: service_started
-      network-controller-virtualization:
-        condition: service_started
     restart: always
 
 networks:

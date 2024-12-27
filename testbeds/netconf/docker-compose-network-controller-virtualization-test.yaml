@@ -110,29 +110,6 @@ services:
       kafka:
         condition: service_healthy
     restart: always
-    
-  query-tester-virtualization-context-broker:
-    build:
-      context: .
-      dockerfile: ./docker/query-tester-virtualization-context-broker/Dockerfile
-    hostname: query-tester-virtualization-context-broker
-    container_name: query-tester-virtualization-context-broker
-    expose:
-      - "8083"
-    ports:
-      - "8083:8083"
-    volumes:
-      - ./docker/query-tester-virtualization-context-broker/query_tester_virtualization_context_broker:/opt/query-tester-virtualization-context-broker/query_tester_virtualization_context_broker
-    depends_on:
-      scorpio:
-        condition: service_started
-      context-catalog:
-        condition: service_started
-      kafka:
-        condition: service_started
-      network-controller-virtualization:
-        condition: service_started
-    restart: always
 
 networks:
   default:
