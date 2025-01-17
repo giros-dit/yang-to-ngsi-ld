@@ -379,7 +379,13 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             if (subelements is not None):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                        generate_parser_code(subelement, None, None, None, list(), depth_level, typedefs_dict)
+                        if (parent_element_arg is None):
+                            generate_parser_code(subelement, None, None, None, list(), depth_level, typedefs_dict)
+                        elif subelement.keyword == 'list': 
+                            fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' ' + '=' + ' ' + str(parent_element_arg).replace('-', '_') + '.find(\".//{' + element_namespace + '}' + str(element.arg) + '\")')
+                            fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(element.arg).replace('-', '_') + ' is not None:')
+                            depth_level += 1
+                            generate_parser_code(subelement, element.arg, entity_path, None, list(), depth_level, typedefs_dict)
         ### --- ###
 
         ### NGSI-LD ENTITY IDENTIFICATION ###

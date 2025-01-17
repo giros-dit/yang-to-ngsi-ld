@@ -1,9 +1,9 @@
 '''
 pyang plugin -- CANDIL OpenAPI Schemas Generator.
 
-Given one or several YANG modules, it dynamically generates the relative OpenAPI Schemas according to the OpenAPI specification for NGSI-LD API V1.6.1.
+Given one or several YANG modules, it dynamically generates the relative OpenAPI Schemas according to the OpenAPI specification for NGSI-LD API.
 
-Version: 1.0.8.
+Version: 1.0.9.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -20,14 +20,14 @@ from pyang import statements
 
 ### PLUGIN CONSTANTS ###
 OPENAPI_URL = "https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml" # -> Consolidated OpenAPI spec. for NGSI-LD API v1.6.1
-#OPENAPI_URL = "https://forge.etsi.org/rep/cim/NGSI-LD/-/raw/1.6.1/ngsi-ld-api.yaml" # -> Official OpenAPI spec. for NGSI-LD API v1.6.1
+#OPENAPI_URL = "https://forge.etsi.org/rep/cim/ngsi-ld-openapi/-/raw/v1.6.1/openapi-3.0.3/ngsi-ld-api.yaml?ref_type=tags" # -> Official OpenAPI spec. for NGSI-LD API v1.6.1
 ENTITY_TYPE_LIST = [] # -> It includes all the different types of entities generated throughout all the YANG modules that are processed
 ### --- ###
 
 def pyang_plugin_init():
-    plugin.register_plugin(CandilXmlParserGeneratorPlugin())
+    plugin.register_plugin(CandilOpenAPISchemasGeneratorPlugin())
 
-class CandilXmlParserGeneratorPlugin(plugin.PyangPlugin):
+class CandilOpenAPISchemasGeneratorPlugin(plugin.PyangPlugin):
     def __init__(self):
         plugin.PyangPlugin.__init__(self, 'candil-openapi-schemas-generator')
 
@@ -38,6 +38,7 @@ class CandilXmlParserGeneratorPlugin(plugin.PyangPlugin):
     def add_opts(self, optparser):
         optlist = [
             optparse.make_option('--candil-openapi-schemas-generator-help', dest='candil_openapi_schemas_generator_help', action='store_true', help='Prints help and usage.'),
+            optparse.make_option('--candil-openapi-schemas-generator-url', dest='candil_openapi_schemas_generator_url', action='store', help='Native OpenAPI Specification URL.')
         ]
         g = optparser.add_option_group('CANDIL OpenAPI Schemas Generator specific options')
         g.add_options(optlist)
@@ -63,6 +64,9 @@ Given one or several YANG modules, this plugin generates the OpenAPI schemas.
 
 Usage:
 pyang -f candil-openapi-schemas-generator [OPTIONS] <base_module.yang> [augmenting_module_1.yang] [augmenting_module_2.yang] ... [augmenting_module_N.yang] [> <output_file.yaml>]
+
+OPTIONS: 
+    --candil-openapi-schemas-generator-url=URL --> Defines the URL of the native OpenAPI Specification.
     ''')
           
 def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
@@ -113,6 +117,9 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
 
     INDENTATION_BLOCK = '  '
 
+    if (ctx.opts.candil_openapi_schemas_generator_url is not None):
+        OPENAPI_URL = str(ctx.opts.candil_openapi_schemas_generator_url)
+    
     ### --- ###
 
     ### AUXILIARY FUNCTIONS ###
@@ -466,7 +473,31 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     subelement_list = []
                     if (subelements is not None):
                         for subelement in subelements:
-                            if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords) and (subelement.keyword not in ['container', 'list']):
+                            if (is_choice(subelement) == True) and (is_deprecated(subelement) == False):
+                                cases = subelement.i_children
+                                if (cases is not None):
+                                    for case in cases:
+                                        if (case is not None) and (case.keyword in statements.data_definition_keywords) and (str(case.keyword) == "case"):
+                                            if (yang_data_nodes_list.count(str(element.arg)) > 1) or (str(element.arg) == 'type'):
+                                                case_camelcase_path = current_camelcase_path + str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), subelement.arg.capitalize()))
+                                            else:
+                                                case_camelcase_path = str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), subelement.arg.capitalize()))
+                                            case_subelements = case.i_children
+                                            if (case_subelements is not None):
+                                                for case_subelement in case_subelements:
+                                                    if (case_subelement is not None) and (case_subelement.keyword in statements.data_definition_keywords) and (case_subelement.keyword not in ['container', 'list']):
+                                                        choice_camelcase_path = ''
+                                                        if (yang_data_nodes_list.count(str(case_subelement.arg)) > 1) or (str(case_subelement.arg) == 'type') or (is_entity(case_subelement) == True):
+                                                            choice_camelcase_path = case_camelcase_path + str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), case_subelement.arg.capitalize()))
+                                                        else:
+                                                            choice_camelcase_path = str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), case_subelement.arg.capitalize()))
+                                                        camelcase_subelement_arg = to_camelcase(str(case_subelement.keyword), str(case_subelement.arg))
+                                                        fd.write('\n' + INDENTATION_BLOCK * depth_level + camelcase_subelement_arg + ":")
+                                                        depth_level += 1
+                                                        fd.write('\n' + INDENTATION_BLOCK * depth_level +  "$ref: \'#/components/schemas/" + choice_camelcase_path + "\'")
+                                                        
+                                                depth_level -= 1
+                            elif (subelement is not None) and (subelement.keyword in statements.data_definition_keywords) and (subelement.keyword not in ['container', 'list']):
                                 if str(subelement.arg) == "type":
                                      name_subelement = str(element.arg + str(subelement.arg.capitalize())).replace('-','')
                                      fd.write('\n' + INDENTATION_BLOCK * depth_level + name_subelement + ":")
@@ -491,7 +522,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + "- name")
                     if (subelements is not None):
                         for subelement in subelements:
-                            if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords) and (subelement.keyword not in ['container', 'list']):
+                            if (subelement is not None) and (is_choice(subelement) == False) and (subelement.keyword in statements.data_definition_keywords) and (subelement.keyword not in ['container', 'list']):
                                 mandatory = subelement.search_one('mandatory')
                                 if mandatory != None:
                                     if str(mandatory.arg) == "true":
@@ -500,6 +531,38 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                                             fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + name_subelement)
                                         else:
                                             fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + to_camelcase(str(subelement.keyword), str(subelement.arg)))
+                        for subelement in subelements:
+                            if (is_choice(subelement) == True) and (is_deprecated(subelement) == False):
+                                cases = subelement.i_children
+                                mandatory_choice = subelement.search_one('mandatory')
+                                if mandatory_choice != None and str(mandatory_choice.arg) == "true":
+                                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + name_subelement)
+                                    depth_level -= 1
+                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- type: object")
+                                    depth_level += 1
+                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "oneOf:")
+                                    depth_level += 1
+                                if (cases is not None):
+                                    for case in cases:
+                                        if (case is not None) and (case.keyword in statements.data_definition_keywords) and (str(case.keyword) == "case"):
+                                            case_subelements = case.i_children
+                                            if (case_subelements is not None):
+                                                for case_subelement in case_subelements:
+                                                    if (case_subelement is not None) and (case_subelement.keyword in statements.data_definition_keywords) and (case_subelement.keyword not in ['container', 'list']):
+                                                        #mandatory = case_subelement.search_one('mandatory')
+                                                        if mandatory_choice != None:
+                                                            if str(mandatory_choice.arg) == "true":
+                                                                if str(case_subelement.arg) == "type":
+                                                                    name_subelement = str(element.arg + str(case_subelement.arg.capitalize())).replace('-','')
+                                                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- required:")
+                                                                    depth_level += 1
+                                                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + name_subelement)
+                                                                    depth_level -= 1
+                                                                else:
+                                                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- required:")
+                                                                    depth_level += 1
+                                                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + to_camelcase(str(case_subelement.keyword), str(case_subelement.arg)))     
+                                                                    depth_level -= 1                                              
                     if (subelements is not None):
                         for subelement in subelements:
                             if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
@@ -539,7 +602,31 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     subelement_list = []
                     if (subelements is not None):
                         for subelement in subelements:
-                            if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords) and (subelement.keyword not in ['container', 'list']):
+                            if (is_choice(subelement) == True) and (is_deprecated(subelement) == False):
+                                cases = subelement.i_children
+                                if (cases is not None):
+                                    for case in cases:
+                                        if (case is not None) and (case.keyword in statements.data_definition_keywords) and (str(case.keyword) == "case"):
+                                            if (yang_data_nodes_list.count(str(element.arg)) > 1) or (str(element.arg) == 'type'):
+                                                case_camelcase_path = current_camelcase_path + str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), subelement.arg.capitalize()))
+                                            else:
+                                                case_camelcase_path = str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), subelement.arg.capitalize()))
+                                            case_subelements = case.i_children
+                                            if (case_subelements is not None):
+                                                for case_subelement in case_subelements:
+                                                    if (case_subelement is not None) and (case_subelement.keyword in statements.data_definition_keywords) and (case_subelement.keyword not in ['container', 'list']):
+                                                        choice_camelcase_path = ''
+                                                        if (yang_data_nodes_list.count(str(case_subelement.arg)) > 1) or (str(case_subelement.arg) == 'type') or (is_entity(case_subelement) == True):
+                                                            choice_camelcase_path = case_camelcase_path + str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), case_subelement.arg.capitalize()))
+                                                        else:
+                                                            choice_camelcase_path = str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), case_subelement.arg.capitalize()))
+                                                        camelcase_subelement_arg = to_camelcase(str(case_subelement.keyword), str(case_subelement.arg))
+                                                        fd.write('\n' + INDENTATION_BLOCK * depth_level + camelcase_subelement_arg + ":")
+                                                        depth_level += 1
+                                                        fd.write('\n' + INDENTATION_BLOCK * depth_level +  "$ref: \'#/components/schemas/" + choice_camelcase_path + "\'")
+                                                        
+                                                depth_level -= 1
+                            elif (subelement is not None) and (subelement.keyword in statements.data_definition_keywords) and (subelement.keyword not in ['container', 'list']):
                                 if str(subelement.arg) == "type":
                                      name_subelement = str(element.arg + str(subelement.arg.capitalize())).replace('-','')
                                      fd.write('\n' + INDENTATION_BLOCK * depth_level + name_subelement + ":")
@@ -565,7 +652,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + "- name")
                     if (subelements is not None):
                         for subelement in subelements:
-                            if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords) and (subelement.keyword not in ['container', 'list']):
+                            if (subelement is not None) and (is_choice(subelement) == False) and (subelement.keyword in statements.data_definition_keywords) and (subelement.keyword not in ['container', 'list']):
                                 mandatory = subelement.search_one('mandatory')
                                 if mandatory != None:
                                     if str(mandatory.arg) == "true":
@@ -574,6 +661,38 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                                             fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + name_subelement)
                                         else:
                                             fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + to_camelcase(str(subelement.keyword), str(subelement.arg)))
+                        for subelement in subelements:
+                            if (is_choice(subelement) == True) and (is_deprecated(subelement) == False):
+                                cases = subelement.i_children
+                                mandatory_choice = subelement.search_one('mandatory')
+                                if mandatory_choice != None and str(mandatory_choice.arg) == "true":
+                                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + name_subelement)
+                                    depth_level -= 1
+                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- type: object")
+                                    depth_level += 1
+                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "oneOf:")
+                                    depth_level += 1
+                                if (cases is not None):
+                                    for case in cases:
+                                        if (case is not None) and (case.keyword in statements.data_definition_keywords) and (str(case.keyword) == "case"):
+                                            case_subelements = case.i_children
+                                            if (case_subelements is not None):
+                                                for case_subelement in case_subelements:
+                                                    if (case_subelement is not None) and (case_subelement.keyword in statements.data_definition_keywords) and (case_subelement.keyword not in ['container', 'list']):
+                                                        #mandatory = case_subelement.search_one('mandatory')
+                                                        if mandatory_choice != None:
+                                                            if str(mandatory_choice.arg) == "true":
+                                                                if str(case_subelement.arg) == "type":
+                                                                    name_subelement = str(element.arg + str(case_subelement.arg.capitalize())).replace('-','')
+                                                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- required:")
+                                                                    depth_level += 1
+                                                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + name_subelement)
+                                                                    depth_level -= 1
+                                                                else:
+                                                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- required:")
+                                                                    depth_level += 1
+                                                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + to_camelcase(str(case_subelement.keyword), str(case_subelement.arg)))     
+                                                                    depth_level -= 1                                  
                     if (subelements is not None):
                         for subelement in subelements:
                             if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
@@ -614,7 +733,31 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     subelement_list = []
                     if (subelements is not None):
                         for subelement in subelements:
-                            if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords) and (subelement.keyword not in ['container', 'list']):
+                            if (is_choice(subelement) == True) and (is_deprecated(subelement) == False):
+                                cases = subelement.i_children
+                                if (cases is not None):
+                                    for case in cases:
+                                        if (case is not None) and (case.keyword in statements.data_definition_keywords) and (str(case.keyword) == "case"):
+                                            if (yang_data_nodes_list.count(str(element.arg)) > 1) or (str(element.arg) == 'type'):
+                                                case_camelcase_path = current_camelcase_path + str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), subelement.arg.capitalize()))
+                                            else:
+                                                case_camelcase_path = str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), subelement.arg.capitalize()))
+                                            case_subelements = case.i_children
+                                            if (case_subelements is not None):
+                                                for case_subelement in case_subelements:
+                                                    if (case_subelement is not None) and (case_subelement.keyword in statements.data_definition_keywords) and (case_subelement.keyword not in ['container', 'list']):
+                                                        choice_camelcase_path = ''
+                                                        if (yang_data_nodes_list.count(str(case_subelement.arg)) > 1) or (str(case_subelement.arg) == 'type') or (is_entity(case_subelement) == True):
+                                                            choice_camelcase_path = case_camelcase_path + str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), case_subelement.arg.capitalize()))
+                                                        else:
+                                                            choice_camelcase_path = str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), case_subelement.arg.capitalize()))
+                                                        camelcase_subelement_arg = to_camelcase(str(case_subelement.keyword), str(case_subelement.arg))
+                                                        fd.write('\n' + INDENTATION_BLOCK * depth_level + camelcase_subelement_arg + ":")
+                                                        depth_level += 1
+                                                        fd.write('\n' + INDENTATION_BLOCK * depth_level +  "$ref: \'#/components/schemas/" + choice_camelcase_path + "\'")
+                                                        
+                                                depth_level -= 1
+                            elif (subelement is not None) and (subelement.keyword in statements.data_definition_keywords) and (subelement.keyword not in ['container', 'list']):
                                 if str(subelement.arg) == "type":
                                      name_subelement = str(element.arg + str(subelement.arg.capitalize())).replace('-','')
                                      fd.write('\n' + INDENTATION_BLOCK * depth_level + name_subelement + ":")
@@ -660,7 +803,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + "- name")
                     if (subelements is not None):
                         for subelement in subelements:
-                            if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords) and (subelement.keyword not in ['container', 'list']):
+                            if (subelement is not None) and (is_choice(subelement) == False) and (subelement.keyword in statements.data_definition_keywords) and (subelement.keyword not in ['container', 'list']):
                                 mandatory = subelement.search_one('mandatory')
                                 if mandatory != None:
                                     if str(mandatory.arg) == "true":
@@ -669,6 +812,39 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                                             fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + name_subelement)
                                         else:
                                             fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + to_camelcase(str(subelement.keyword), str(subelement.arg)))
+
+                        for subelement in subelements:
+                            if (is_choice(subelement) == True) and (is_deprecated(subelement) == False):
+                                cases = subelement.i_children
+                                mandatory_choice = subelement.search_one('mandatory')
+                                if mandatory_choice != None and str(mandatory_choice.arg) == "true":
+                                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + name_subelement)
+                                    depth_level -= 1
+                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- type: object")
+                                    depth_level += 1
+                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "oneOf:")
+                                    depth_level += 1
+                                if (cases is not None):
+                                    for case in cases:
+                                        if (case is not None) and (case.keyword in statements.data_definition_keywords) and (str(case.keyword) == "case"):
+                                            case_subelements = case.i_children
+                                            if (case_subelements is not None):
+                                                for case_subelement in case_subelements:
+                                                    if (case_subelement is not None) and (case_subelement.keyword in statements.data_definition_keywords) and (case_subelement.keyword not in ['container', 'list']):
+                                                        #mandatory = case_subelement.search_one('mandatory')
+                                                        if mandatory_choice != None:
+                                                            if str(mandatory_choice.arg) == "true":
+                                                                if str(case_subelement.arg) == "type":
+                                                                    name_subelement = str(element.arg + str(case_subelement.arg.capitalize())).replace('-','')
+                                                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- required:")
+                                                                    depth_level += 1
+                                                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + name_subelement)
+                                                                    depth_level -= 1
+                                                                else:
+                                                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- required:")
+                                                                    depth_level += 1
+                                                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + to_camelcase(str(case_subelement.keyword), str(case_subelement.arg)))     
+                                                                    depth_level -= 1  
                                         
                     subelements = element.i_children
                     if (subelements is not None):
@@ -711,7 +887,31 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     subelement_list = []
                     if (subelements is not None):
                         for subelement in subelements:
-                            if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords) and (subelement.keyword not in ['container', 'list']):
+                            if (is_choice(subelement) == True) and (is_deprecated(subelement) == False):
+                                cases = subelement.i_children
+                                if (cases is not None):
+                                    for case in cases:
+                                        if (case is not None) and (case.keyword in statements.data_definition_keywords) and (str(case.keyword) == "case"):
+                                            if (yang_data_nodes_list.count(str(element.arg)) > 1) or (str(element.arg) == 'type'):
+                                                case_camelcase_path = current_camelcase_path + str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), subelement.arg.capitalize()))
+                                            else:
+                                                case_camelcase_path = str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), subelement.arg.capitalize()))
+                                            case_subelements = case.i_children
+                                            if (case_subelements is not None):
+                                                for case_subelement in case_subelements:
+                                                    if (case_subelement is not None) and (case_subelement.keyword in statements.data_definition_keywords) and (case_subelement.keyword not in ['container', 'list']):
+                                                        choice_camelcase_path = ''
+                                                        if (yang_data_nodes_list.count(str(case_subelement.arg)) > 1) or (str(case_subelement.arg) == 'type') or (is_entity(case_subelement) == True):
+                                                            choice_camelcase_path = case_camelcase_path + str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), case_subelement.arg.capitalize()))
+                                                        else:
+                                                            choice_camelcase_path = str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), case_subelement.arg.capitalize()))
+                                                        camelcase_subelement_arg = to_camelcase(str(case_subelement.keyword), str(case_subelement.arg))
+                                                        fd.write('\n' + INDENTATION_BLOCK * depth_level + camelcase_subelement_arg + ":")
+                                                        depth_level += 1
+                                                        fd.write('\n' + INDENTATION_BLOCK * depth_level +  "$ref: \'#/components/schemas/" + choice_camelcase_path + "\'")
+                                                        
+                                                depth_level -= 1
+                            elif (subelement is not None) and (subelement.keyword in statements.data_definition_keywords) and (subelement.keyword not in ['container', 'list']):
                                 if str(subelement.arg) == "type":
                                      name_subelement = str(element.arg + str(subelement.arg.capitalize())).replace('-','')
                                      fd.write('\n' + INDENTATION_BLOCK * depth_level + name_subelement + ":")
@@ -757,7 +957,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + "- name")
                     if (subelements is not None):
                         for subelement in subelements:
-                            if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords) and (subelement.keyword not in ['container', 'list']):
+                            if (subelement is not None) and (is_choice(subelement) == False) and (subelement.keyword in statements.data_definition_keywords) and (subelement.keyword not in ['container', 'list']):
                                 mandatory = subelement.search_one('mandatory')
                                 if mandatory != None:
                                     if str(mandatory.arg) == "true":
@@ -766,6 +966,39 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                                             fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + name_subelement)
                                         else:
                                             fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + to_camelcase(str(subelement.keyword), str(subelement.arg)))
+
+                        for subelement in subelements:
+                            if (is_choice(subelement) == True) and (is_deprecated(subelement) == False):
+                                cases = subelement.i_children
+                                mandatory_choice = subelement.search_one('mandatory')
+                                if mandatory_choice != None and str(mandatory_choice.arg) == "true":
+                                    #fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + name_subelement)
+                                    depth_level -= 1
+                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- type: object")
+                                    depth_level += 1
+                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "oneOf:")
+                                    depth_level += 1
+                                if (cases is not None):
+                                    for case in cases:
+                                        if (case is not None) and (case.keyword in statements.data_definition_keywords) and (str(case.keyword) == "case"):
+                                            case_subelements = case.i_children
+                                            if (case_subelements is not None):
+                                                for case_subelement in case_subelements:
+                                                    if (case_subelement is not None) and (case_subelement.keyword in statements.data_definition_keywords) and (case_subelement.keyword not in ['container', 'list']):
+                                                        #mandatory = case_subelement.search_one('mandatory')
+                                                        if mandatory_choice != None:
+                                                            if str(mandatory_choice.arg) == "true":
+                                                                if str(case_subelement.arg) == "type":
+                                                                    name_subelement = str(element.arg + str(case_subelement.arg.capitalize())).replace('-','')
+                                                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- required:")
+                                                                    depth_level += 1
+                                                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + name_subelement)
+                                                                    depth_level -= 1
+                                                                else:
+                                                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- required:")
+                                                                    depth_level += 1
+                                                                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + to_camelcase(str(case_subelement.keyword), str(case_subelement.arg)))     
+                                                                    depth_level -= 1                   
                     subelements = element.i_children
                     if (subelements is not None):
                         for subelement in subelements:
@@ -775,13 +1008,14 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
         
         ### YANG CHOICE IDENTIFICATION: IT CONTAINS NGSI-LD PROPERTIES ###
         elif (is_choice(element) == True) and (is_deprecated(element) == False):
-            depth_level = 2
+            #depth_level = 2
             current_camelcase_path = ''
 
             if (yang_data_nodes_list.count(str(element.arg)) > 1) or (str(element.arg) == 'type'):
                 current_camelcase_path = camelcase_entity_path + str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize()))
             else:
                 current_camelcase_path = str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), element.arg.capitalize()))
+            '''
 
             fd.write('\n' + INDENTATION_BLOCK * depth_level + current_camelcase_path + ":")
             depth_level += 1
@@ -797,7 +1031,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
             depth_level -= 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + "oneOf:")
             depth_level += 1
-
+            
             cases = element.i_children
             if (cases is not None):
                 for case in cases:
@@ -813,8 +1047,9 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                                         choice_camelcase_path = str(re.sub(r'(-)(\w)', lambda m: m.group(2).upper(), subelement.arg.capitalize()))
                         
                                     fd.write('\n' + INDENTATION_BLOCK * depth_level +  "- $ref: \'#/components/schemas/" + choice_camelcase_path + "\'")
-
             depth_level -= 1
+            '''
+            cases = element.i_children
             if (cases is not None):
                 for case in cases:
                     if (case is not None) and (case.keyword in statements.data_definition_keywords):
@@ -911,7 +1146,8 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     maximum = element_type_range.split("..")[1]
                     if '|' in maximum:
                         maximum = maximum.split("|")[1]
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "maximum: " + maximum)
+                    if maximum != "max":
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + "maximum: " + maximum)
 
             if str(openapi_schema_type) == "array":
                 depth_level -=1
@@ -1080,7 +1316,8 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     maximum = element_type_range.split("..")[1]
                     if '|' in maximum:
                         maximum = maximum.split("|")[1]
-                    fd.write('\n' + INDENTATION_BLOCK * depth_level + "maximum: " + maximum)
+                    if maximum != "max":
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + "maximum: " + maximum)
             
             if str(openapi_schema_type) == "array":
                 depth_level -=1
