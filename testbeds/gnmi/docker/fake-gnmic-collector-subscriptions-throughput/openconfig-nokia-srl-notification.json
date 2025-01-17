@@ -1,0 +1,29 @@
+[
+    {
+        "name": "srl_traffic_stats",
+        "tags": {
+            "interface_name": "ethernet-1/1",
+            "source": "clab-telemetry-testbed-srl-ceos-4hosts-r1",
+            "subscription-name": "srl_traffic_stats"
+        },
+        "timestamp": 1709208539332762572,
+        "values": {
+            "/openconfig-interfaces:interfaces/interface/state/counters/carrier-transitions": "1",
+            "/openconfig-interfaces:interfaces/interface/state/counters/in-broadcast-pkts": "0",
+            "/openconfig-interfaces:interfaces/interface/state/counters/in-discards": "10",
+            "/openconfig-interfaces:interfaces/interface/state/counters/in-errors": "0",
+            "/openconfig-interfaces:interfaces/interface/state/counters/in-fcs-errors": "0",
+            "/openconfig-interfaces:interfaces/interface/state/counters/in-multicast-pkts": "4",
+            "/openconfig-interfaces:interfaces/interface/state/counters/in-octets": "1686",
+            "/openconfig-interfaces:interfaces/interface/state/counters/in-pkts": "14",
+            "/openconfig-interfaces:interfaces/interface/state/counters/in-unicast-pkts": "0",
+            "/openconfig-interfaces:interfaces/interface/state/counters/out-broadcast-pkts": "5",
+            "/openconfig-interfaces:interfaces/interface/state/counters/out-discards": "0",
+            "/openconfig-interfaces:interfaces/interface/state/counters/out-errors": "0",
+            "/openconfig-interfaces:interfaces/interface/state/counters/out-multicast-pkts": "3",
+            "/openconfig-interfaces:interfaces/interface/state/counters/out-octets": "762",
+            "/openconfig-interfaces:interfaces/interface/state/counters/out-pkts": "8",
+            "/openconfig-interfaces:interfaces/interface/state/counters/out-unicast-pkts": "0"
+        }
+    }
+]
