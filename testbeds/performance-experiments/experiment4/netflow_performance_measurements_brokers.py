@@ -162,13 +162,13 @@ orion_plot3 = orion_netflow_df3.boxplot(column = ['iteration_execution_time'], v
 
 ax_netflow_1.set_xlabel('Number of network flows per export packet')
 ax_netflow_1.set_ylabel('Latency (milliseconds)')
-ax_netflow_1.set_title('YANG to NGSI-LD translation \n performance for NetFlow')
+ax_netflow_1.set_title('YANG to NGSI-LD translation \n latency performance for NetFlow')
 ax_netflow_1.set_xticks([1, 2, 3], ['10', '20', '50'])
 
 ax_netflow_2.legend(handles=legend_handles)
 ax_netflow_2.set_xlabel('Number of network flows per export packet')
 ax_netflow_2.set_ylabel('Latency (milliseconds)')
-ax_netflow_2.set_title('YANG to NGSI-LD translation and materialization \n performance for NetFlow')
+ax_netflow_2.set_title('YANG to NGSI-LD translation and instantiation \n latency performance for NetFlow')
 ax_netflow_2.set_xticks([1, 2, 3], ['10', '20', '50'])
 
 plt.tight_layout()
