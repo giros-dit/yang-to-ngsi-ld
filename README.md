@@ -42,7 +42,7 @@ The repository includes [experimental results](testbeds/performance-experiments)
 ## Publications
 If you want more information about the original idea of the *Descriptive NDT* solution and its initial design, you can check our latest publication in the *IEEE Open Journal of the Communications Society*:
 
-*D. González-Sánchez, L. Bellido, I. D. Martinez-Casanueva, D. Martínez-García, D. Fernández and D. R. Lopez, "Toward Building a Digital Twin for Network Operations and Management," in IEEE Open Journal of the Communications Society, vol. 6, pp. 2583-2598, 2025, doi: 10.1109/OJCOMS.2025.3549873.*
+*D. González-Sánchez, L. Bellido, I. D. Martinez-Casanueva, D. Martínez-García, D. Fernández and D. R. Lopez, "Toward Building a Digital Twin for Network Operations and Management," in IEEE Open Journal of the Communications Society, vol. 6, pp. 2583-2598, 2025, doi: [10.1109/OJCOMS.2025.3549873](https://doi.org/10.1109/OJCOMS.2025.3549873).*
 
 ## Documentation and links
 1. M. Björklund, “The YANG 1.1 Data Modeling Language,” *RFC 7950*, Internet Engineering Task Force, Aug. 2016.
