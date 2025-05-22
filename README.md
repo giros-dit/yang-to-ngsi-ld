@@ -45,6 +45,10 @@ The implementation of this *Descriptive NDT* prototype is mainly based on the us
 - [TopologyDriver.java](yang/yang-tools-artifacts/topology-discoverer/topology-driver/src/main/java/upm/dit/giros/TopologyDriver.java): Java application based on the *YANG Tools* [[12](https://github.com/opendaylight/yangtools)], library for parsing data from network topology descriptor based on the Containerlab [[13](https://containerlab.dev/)] simulation testbed and mapping it to YANG-compliant data according to the ietf-network and ietf-network-topology YANG data models ([RFC 8345](https://datatracker.ietf.org/doc/html/rfc8345)).
   
 ## Performance experiments
+<<<<<<< HEAD
+=======
+The repository includes [experimental results](testbeds/performance-experiments) about the performance of the Descriptive NDT prototype solution. The experimental results allows determining the performance of the YANG to NGSI-LD translation and data intantiation processes in terms of latency (i.e., experiments [1](testbeds/performance-experiments/experiment1) and [2](testbeds/performance-experiments/experiment2)) and throughput (i.e., experiment [3](testbeds/performance-experiments/experiment3)). The experiments have been performed for telemetry statistics from network interfaces encoded in both XML and JSON formats according to notifications received by the NETCONF and gNMI management protocols.
+>>>>>>> origin/develop
 
 The repository includes [experimental results](testbeds/performance-experiments) about the performance of the Descriptive NDT prototype solution:
 

@@ -47,11 +47,11 @@ print("\n")
 
 fig, (ax_netflow_1, ax_netflow_2) = plt.subplots(1, 2, figsize=(10, 5))
 
-netflow_1_plot1 = netflow_df1.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "black", linewidth = 1.5), boxprops = dict(facecolor = "white"), ax=ax_netflow_1, positions=[1])
+netflow_1_plot1 = netflow_df1.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "green", linewidth = 1.5), boxprops = dict(facecolor = "white"), ax=ax_netflow_1, positions=[1])
 
-netflow_1_plot2 = netflow_df2.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "black", linewidth = 1.5), boxprops = dict(facecolor = "white"), ax=ax_netflow_1, positions=[2])
+netflow_1_plot2 = netflow_df2.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "green", linewidth = 1.5), boxprops = dict(facecolor = "white"), ax=ax_netflow_1, positions=[2])
 
-netflow_1_plot3 = netflow_df3.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "black", linewidth = 1.5), boxprops = dict(facecolor = "white"), ax=ax_netflow_1, positions=[3])
+netflow_1_plot3 = netflow_df3.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "green", linewidth = 1.5), boxprops = dict(facecolor = "white"), ax=ax_netflow_1, positions=[3])
 
 raw_netflow_df4 = pd.read_csv('netflow_performance_measurements_translation_and_materialization_10flows-orion.csv')
 sum_by_10_rows = raw_netflow_df4.groupby(raw_netflow_df4.index // 10)['iteration_execution_time'].sum()
@@ -97,20 +97,20 @@ print("50 flows - Mean (per 50 events):", netflow_mean_6)
 print("50 flows - Standard deviation (per 50 events):", netflow_standard_deviation_6)
 print("\n")
 
-netflow_2_plot1 = netflow_df4.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "black", linewidth = 1.5), boxprops = dict(facecolor = "white"), ax=ax_netflow_2, positions=[1])
+netflow_2_plot1 = netflow_df4.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "green", linewidth = 1.5), boxprops = dict(facecolor = "white"), ax=ax_netflow_2, positions=[1])
 
-netflow_2_plot2 = netflow_df5.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "black", linewidth = 1.5), boxprops = dict(facecolor = "white"), ax=ax_netflow_2, positions=[2])
+netflow_2_plot2 = netflow_df5.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "green", linewidth = 1.5), boxprops = dict(facecolor = "white"), ax=ax_netflow_2, positions=[2])
 
-netflow_2_plot3 = netflow_df6.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "black", linewidth = 1.5), boxprops = dict(facecolor = "white"), ax=ax_netflow_2, positions=[3])
+netflow_2_plot3 = netflow_df6.boxplot(column = ['iteration_execution_time'], vert=True, patch_artist=True, showfliers = False, medianprops = dict(color = "green", linewidth = 1.5), boxprops = dict(facecolor = "white"), ax=ax_netflow_2, positions=[3])
 
 ax_netflow_1.set_xlabel('Number of network flows per export packet')
 ax_netflow_1.set_ylabel('Latency (milliseconds)')
-ax_netflow_1.set_title('YANG to NGSI-LD translation \n performance for NetFlow')
+ax_netflow_1.set_title('YANG to NGSI-LD translation \n latency performance for NetFlow')
 ax_netflow_1.set_xticks([1, 2, 3], ['10', '20', '50'])
 
 ax_netflow_2.set_xlabel('Number of network flows per export packet')
 ax_netflow_2.set_ylabel('Latency (milliseconds)')
-ax_netflow_2.set_title('YANG to NGSI-LD translation and materialization \n performance for NetFlow')
+ax_netflow_2.set_title('YANG to NGSI-LD translation and instantiation \n latency performance for NetFlow')
 ax_netflow_2.set_xticks([1, 2, 3], ['10', '20', '50'])
 
 plt.tight_layout()

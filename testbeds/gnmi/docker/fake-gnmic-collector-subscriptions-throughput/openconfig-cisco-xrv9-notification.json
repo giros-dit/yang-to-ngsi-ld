@@ -1,0 +1,30 @@
+[
+    {
+        "name": "xrv9k_traffic_stats",
+        "tags": {
+            "interface_name": "GigabitEthernet0/0/0/0",
+            "source": "clab-telemetry-testbed-xrv9k-ceos-4hosts-r1",
+            "subscription-name": "xrv9k_traffic_stats"
+        },
+        "timestamp": 1713867713946000000,
+        "values": {
+            "openconfig:/interfaces/interface/state/counters/carrier-transitions": 0,
+            "openconfig:/interfaces/interface/state/counters/in-broadcast-pkts": "82",
+            "openconfig:/interfaces/interface/state/counters/in-discards": "9",
+            "openconfig:/interfaces/interface/state/counters/in-errors": 0,
+            "openconfig:/interfaces/interface/state/counters/in-fcs-errors": 0,
+            "openconfig:/interfaces/interface/state/counters/in-multicast-pkts": "0",
+            "openconfig:/interfaces/interface/state/counters/in-octets": "74779",
+            "openconfig:/interfaces/interface/state/counters/in-pkts": "434",
+            "openconfig:/interfaces/interface/state/counters/in-unicast-pkts": "352",
+            "openconfig:/interfaces/interface/state/counters/in-unknown-protos": 0,
+            "openconfig:/interfaces/interface/state/counters/out-broadcast-pkts": "1",
+            "openconfig:/interfaces/interface/state/counters/out-discards": "0",
+            "openconfig:/interfaces/interface/state/counters/out-errors": 0,
+            "openconfig:/interfaces/interface/state/counters/out-multicast-pkts": "0",
+            "openconfig:/interfaces/interface/state/counters/out-octets": "3402",
+            "openconfig:/interfaces/interface/state/counters/out-pkts": "81",
+            "openconfig:/interfaces/interface/state/counters/out-unicast-pkts": "80"
+        }
+    }
+]

@@ -223,13 +223,13 @@ orion_plot4 = orion_df4.boxplot(column = ['iteration_execution_time'], vert=True
 ax_gnmi.legend(handles=legend_handles)
 ax_gnmi.set_xlabel('Number of network interfaces')
 ax_gnmi.set_ylabel('Latency (milliseconds)')
-ax_gnmi.set_title('YANG to NGSI-LD translation and materialization \n performance for gNMI')
+ax_gnmi.set_title('YANG to NGSI-LD translation and instantiation \n latency performance for gNMI')
 ax_gnmi.set_xticks([1, 2, 3, 4], ['12', '24', '36', '48'])
 
 ax_netconf.legend(handles=legend_handles)
 ax_netconf.set_xlabel('Number of network interfaces')
 ax_netconf.set_ylabel('Latency (milliseconds)')
-ax_netconf.set_title('YANG to NGSI-LD translation and materialization \n performance for NETCONF')
+ax_netconf.set_title('YANG to NGSI-LD translation and instantiation \n latency performance for NETCONF')
 ax_netconf.set_xticks([1, 2, 3, 4], ['12', '24', '36', '48'])
 
 plt.tight_layout()

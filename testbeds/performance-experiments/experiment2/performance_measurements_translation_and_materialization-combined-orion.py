@@ -24,7 +24,7 @@ raw_gnmi_df4 = pd.read_csv('gnmi_performance_measurements_translation_and_materi
 sum_by_48_rows = raw_gnmi_df4.groupby(raw_gnmi_df4.index // 48)['iteration_execution_time'].sum()
 gnmi_df4 = pd.DataFrame({'iteration_execution_time': sum_by_48_rows})
 
-print("gNMI performance measurements for YANG to NGSI-LD translation and materialization: \n")
+print("gNMI latency performance measurements for YANG to NGSI-LD translation and materialization: \n")
 
 gnmi_raw_mean_1 = raw_gnmi_df1['iteration_execution_time'].mean()
 gnmi_raw_standard_deviation_1 = gnmi_df1['iteration_execution_time'].std()
@@ -82,7 +82,7 @@ netconf_df2 = pd.read_csv('netconf_performance_measurements_translation_and_mate
 netconf_df3 = pd.read_csv('netconf_performance_measurements_translation_and_materialization_36ifaces-orion.csv')
 netconf_df4 = pd.read_csv('netconf_performance_measurements_translation_and_materialization_48ifaces-orion.csv')
 
-print("NETCONF performance measurements for YANG to NGSI-LD translation and materialization: \n")
+print("NETCONF latency performance measurements for YANG to NGSI-LD translation and materialization: \n")
 
 netconf_mean_1 = netconf_df1['iteration_execution_time'].mean()
 netconf_standard_deviation_1 = netconf_df1['iteration_execution_time'].std()
@@ -119,7 +119,7 @@ netconf_plot4 = netconf_df4.boxplot(column = ['iteration_execution_time'], vert=
 plt.legend(handles=legend_handles)
 plt.xlabel('Number of network interfaces')
 plt.ylabel('Latency (milliseconds)')
-plt.title('YANG to NGSI-LD translation and materialization \n performance for NETCONF and gNMI')
+plt.title('YANG to NGSI-LD translation and instantiation \n latency performance for NETCONF and gNMI')
 plt.xticks([1, 2, 3, 4], ['12', '24', '36', '48'])
 plt.suptitle('')
 plt.savefig("performance_measurements_translation_and_materialization-combined-orion.png", format="png", dpi=1500)
