@@ -1,6 +1,7 @@
 # Custom Dockerfile for netflow-json-parser-with-ngsi-ld-instantiator-simple
 
-FROM ubuntu:latest
+#FROM ubuntu:latest
+FROM ubuntu:22.04
 
 RUN apt update && apt -y dist-upgrade && apt -y autoremove && apt autoclean
 
@@ -18,10 +19,10 @@ COPY ./docker/netflow-json-parser-with-ngsi-ld-instantiator-simple .
 
 WORKDIR /opt/netflow-json-parser-with-ngsi-ld-instantiator-simple/ngsi-ld-models
 
-RUN poetry install
+RUN poetry install --no-root
 
 WORKDIR /opt/netflow-json-parser-with-ngsi-ld-instantiator-simple
 
-RUN poetry install
+RUN poetry install --no-root
 
 ENTRYPOINT ["poetry", "run", "python", "-u", "candil_netflow_ngsi_ld_instantiator.py"]
