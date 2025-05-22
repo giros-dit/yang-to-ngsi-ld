@@ -4,7 +4,7 @@ pyang plugin -- CANDIL NGSI-LD Context Generator.
 Generates the NGSI-LD context files associated with a YANG module file following the defined guidelines and conventions.
 The results are written to individual .jsonld files: one for every NGSI-LD Entity.
 
-Version: 0.3.9.
+Version: 0.4.0.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -158,6 +158,16 @@ def generate_ngsi_ld_context(ctx, modules, fd):
             key = element.i_key[0].arg
         return key
     
+    def is_config_element(element) -> bool:
+        '''
+        Auxiliary function.
+        Checks if an element is a YANG config element.
+        '''
+        result = False
+        if (element.i_config == True):
+            result = True
+        return result
+    
     def is_choice(element) -> bool:
         '''
         Auxiliary function.
@@ -205,7 +215,7 @@ def generate_ngsi_ld_context(ctx, modules, fd):
             result = True
         return result
                 
-    def generate_context(element, module_name: str, module_urn: str, xpath: str, camelcase_entity_path: str, ngsi_ld_context: dict, key: str, main_json_ld_context_list: list):
+    def generate_context(element, module_name: str, module_urn: str, xpath: str, camelcase_entity_path: str, ngsi_ld_context: dict, key: str, main_json_ld_context_list: list, ngsi_ld_config_elements: list = None):
         '''
         Auxiliary function.
         Recursively generates the NGSI-LD context(s) given a YANG data node (element) and the X-Path.
@@ -225,7 +235,7 @@ def generate_ngsi_ld_context(ctx, modules, fd):
             if (subelements is not None):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                        generate_context(subelement, module_name, module_urn, xpath + name + '/', None, None, key, main_json_ld_context_list)
+                        generate_context(subelement, module_name, module_urn, xpath + name + '/', None, None, key, main_json_ld_context_list, ngsi_ld_config_elements)
         ### --- ###
 
         ### NGSI-LD ENTITY IDENTIFICATION ###
@@ -237,19 +247,32 @@ def generate_ngsi_ld_context(ctx, modules, fd):
                 current_camelcase_path = camelcase_entity_path + to_camelcase(str(element.keyword), str(element.arg))
             json_ld = {}
             ngsi_ld_context = {}
+            ngsi_ld_metadata = {}
             ngsi_ld_context[module_name] = module_urn + '/'
+            ngsi_ld_config_elements = []
             if element.i_module.i_modulename != module.i_modulename:
                 ngsi_ld_context[str(element.i_module.i_modulename)] = element.i_module.search_one('namespace').arg + '/'
             ngsi_ld_context[current_camelcase_path] = xpath + name
             subelements = element.i_children
             key = is_list_get_key(element)
+            config = is_config_element(element)
+            if config == True:
+                ngsi_ld_config_elements.append(current_camelcase_path)
+
             if (subelements is not None):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                        generate_context(subelement, module_name, module_urn, xpath + name + '/', current_camelcase_path, ngsi_ld_context, key, main_json_ld_context_list)
+                        generate_context(subelement, module_name, module_urn, xpath + name + '/', current_camelcase_path, ngsi_ld_context, key, main_json_ld_context_list, ngsi_ld_config_elements)
+            
+            ngsi_ld_metadata["@context"] = ngsi_ld_context
             if key != None:
-                ngsi_ld_context["key"] = str(key)
+                #ngsi_ld_context["key"] = str(key)
+                ngsi_ld_metadata["key"] = str(key)
+            if ngsi_ld_config_elements != []:
+                #ngsi_ld_context["config"] = ngsi_ld_config_elements
+                ngsi_ld_metadata["config"] = ngsi_ld_config_elements
             json_ld["@context"] = ngsi_ld_context
+
             if ctx.opts.candil_ngsi_ld_context_generator_context_catalog is not None:
                 filename = 'ngsi-ld-context/context/' + xpath.replace('/', '_').replace(':', '_') + name.replace(':', '_') + '/' + 'context.jsonld'
             else:
@@ -258,6 +281,16 @@ def generate_ngsi_ld_context(ctx, modules, fd):
             file = open(filename, 'w')
             file.write(json.dumps(json_ld, indent=4) + '\n')
             fd.write('NGSI-LD Context written to ' + file.name + '\n')
+
+            if ctx.opts.candil_ngsi_ld_context_generator_context_catalog is not None:
+                filename = 'ngsi-ld-context/context/' + xpath.replace('/', '_').replace(':', '_') + name.replace(':', '_') + '/' + 'metadata.json'
+            else:
+                filename = 'ngsi-ld-context/' + xpath.replace('/', '_').replace(':', '_') + name.replace(':', '_') + '-metadata.json'
+            os.makedirs(os.path.dirname(filename), exist_ok=True)
+            file = open(filename, 'w')
+            file.write(json.dumps(ngsi_ld_metadata, indent=4) + '\n')
+            fd.write('NGSI-LD metadata written to ' + file.name + '\n')
+
             if ctx.opts.candil_ngsi_ld_context_generator_context_catalog is not None:
                 main_json_ld_context_list.append('http://' + str(ctx.opts.candil_ngsi_ld_context_generator_context_catalog) + '/context/' + xpath.replace('/', '_').replace(':', '_') + name.replace(':', '_') + '/' + 'context.jsonld')
         ### --- ###
@@ -272,17 +305,23 @@ def generate_ngsi_ld_context(ctx, modules, fd):
                     if (subelements is not None):
                         for subelement in subelements:
                             if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                                generate_context(subelement, module_name, module_urn, xpath + name + '/', current_camelcase_path, ngsi_ld_context, key, main_json_ld_context_list)
+                                generate_context(subelement, module_name, module_urn, xpath + name + '/', current_camelcase_path, ngsi_ld_context, key, main_json_ld_context_list, ngsi_ld_config_elements)
         ### --- ###
 
         ### NGSI-LD PROPERTY IDENTIFICATION ###
         elif (is_property(element) == True) and (is_deprecated(element) == False):
             ngsi_ld_context[to_camelcase(str(element.keyword), str(element.arg))] = xpath + name
+            config = is_config_element(element)
+            if config == True:
+                ngsi_ld_config_elements.append(to_camelcase(str(element.keyword), str(element.arg)))
         ### --- ###
 
         ### NGSI-LD RELATIONSHIP IDENTIFICATION ###
         elif (is_relationship(element) == True) and (is_deprecated(element) == False):
             ngsi_ld_context[to_camelcase(str(element.keyword), str(element.arg))] = xpath + name
+            config = is_config_element(element)
+            if config == True:
+                ngsi_ld_config_elements.append(to_camelcase(str(element.keyword), str(element.arg)))
         ### --- ###
 
         ### NGSI-LD YANG IDENTITY IDENTIFICATION ###
@@ -310,8 +349,8 @@ def generate_ngsi_ld_context(ctx, modules, fd):
     
     ### --- ###
     
-
     main_json_ld_context_list = []
+    ngsi_ld_config_elements = []
     main_json_ld_context_file = {}
 
     # Generate NGSI-LD Context:
@@ -323,7 +362,7 @@ def generate_ngsi_ld_context(ctx, modules, fd):
         if (elements is not None):
             for element in elements:
                 if (element is not None) and (element.keyword in statements.data_definition_keywords):
-                    generate_context(element, module_name, module_urn, xpath, None, None, None, main_json_ld_context_list)
+                    generate_context(element, module_name, module_urn, xpath, None, None, None, main_json_ld_context_list, ngsi_ld_config_elements)
 
     if ctx.opts.candil_ngsi_ld_context_generator_context_catalog is not None:
         main_json_ld_context_list.append(NGSI_LD_CORE_CONTEXT_URI)
