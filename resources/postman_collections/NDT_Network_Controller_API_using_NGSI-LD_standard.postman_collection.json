@@ -11,7 +11,7 @@
 			"name": "NDT Data Materialization API",
 			"item": [
 				{
-					"name": "Create NETCONF entity GET",
+					"name": "Create Protocol entity (IETF)",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -39,7 +39,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"urn:ngsi-ld:NETCONF:r1\",\n    \"type\": \"NETCONF\",\n    \"host\": {\n        \"type\": \"Property\",\n        \"value\": \"clab-telemetry-ixiac-lab-r1\"\n    },\n    \"port\": {\n        \"type\": \"Property\",\n        \"value\": 830\n    },\n    \"username\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"password\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"hostKeyVerify\": {\n        \"type\": \"Property\",\n        \"value\": false\n    },\n    \"hostFamily\": {\n        \"type\": \"Property\",\n        \"value\": \"csr\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"GET\",\n        \"xpath\": {\n            \"type\": \"Property\",\n            \"value\": \"/interfaces-state/interface[name='GigabitEthernet2']\"\n        },\n        \"getOption\": {\n            \"type\": \"Property\",\n            \"value\": \"state\"\n        }\n    }\n}"
+							"raw": "{\n    \"id\": \"urn:ngsi-ld:Protocol:r1\",\n    \"type\": \"Protocol\",\n    \"name\": {\n        \"type\": \"Property\",\n        \"value\": \"netconf\"\n    },\n    \"address\": {\n        \"type\": \"Property\",\n        \"value\": \"clab-telemetry-ixiac-lab-r1\"\n    },\n    \"port\": {\n        \"type\": \"Property\",\n        \"value\": 830\n    },\n    \"hasCredentials\":{\n        \"type\": \"Relationship\",\n        \"object\": \"urn:ngsi-ld:Credentials:r1\"\n    }\n}"
 						},
 						"url": {
 							"raw": "http://{{broker}}/ngsi-ld/v1/entities",
@@ -58,7 +58,7 @@
 					"response": []
 				},
 				{
-					"name": "Create NETCONF entity GET - NEW",
+					"name": "Create Credentials entity (IETF)",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -86,7 +86,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"urn:ngsi-ld:NETCONF:r1\",\n    \"type\": \"NETCONF\",\n    \"host\": {\n        \"type\": \"Property\",\n        \"value\": \"clab-telemetry-ixiac-lab-r1\"\n    },\n    \"port\": {\n        \"type\": \"Property\",\n        \"value\": 830\n    },\n    \"username\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"password\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"hostKeyVerify\": {\n        \"type\": \"Property\",\n        \"value\": false\n    },\n    \"hostFamily\": {\n        \"type\": \"Property\",\n        \"value\": \"csr\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"GET\",\n        \"entityType\": {\n            \"type\": \"Property\",\n            \"value\": \"Interface\"\n        },\n        \"entityId\": {\n            \"type\": \"Property\",\n            \"value\": \"urn:ngsi-ld:Interface:clab-telemetry-ixiac-lab-r1:GigabitEthernet2\"\n        },\n        \"getOption\": {\n            \"type\": \"Property\",\n            \"value\": \"state\"\n        }\n    }\n}"
+							"raw": "{\n    \"id\": \"urn:ngsi-ld:Credentials:r1\",\n    \"type\": \"Credentials\",\n    \"username\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"password\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    }\n}"
 						},
 						"url": {
 							"raw": "http://{{broker}}/ngsi-ld/v1/entities",
@@ -105,7 +105,7 @@
 					"response": []
 				},
 				{
-					"name": "Create NETCONF entity GET - NEW Alternative",
+					"name": "Create RpcOperation (GET) entity (IETF) - Get Interface with ID",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -133,7 +133,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"urn:ngsi-ld:NETCONF:r1\",\n    \"type\": \"NETCONF\",\n    \"host\": {\n        \"type\": \"Property\",\n        \"value\": \"clab-telemetry-ixiac-lab-r1\"\n    },\n    \"port\": {\n        \"type\": \"Property\",\n        \"value\": 830\n    },\n    \"username\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"password\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"hostKeyVerify\": {\n        \"type\": \"Property\",\n        \"value\": false\n    },\n    \"hostFamily\": {\n        \"type\": \"Property\",\n        \"value\": \"csr\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"GET\",\n        \"entityType\": {\n            \"type\": \"Property\",\n            \"value\": \"ietf-interfaces:interfaces-state/interface\"\n        },\n        \"entityId\": {\n            \"type\": \"Property\",\n            \"value\": \"urn:ngsi-ld:Interface:clab-telemetry-ixiac-lab-r1:GigabitEthernet2\"\n        },\n        \"getOption\": {\n            \"type\": \"Property\",\n            \"value\": \"state\"\n        }\n    }\n}"
+							"raw": "{\n    \"id\": \"urn:ngsi-ld:RpcOperation:r1\",\n    \"type\": \"RpcOperation\",\n    \"usesProtocol\":{\n        \"type\": \"Relationship\",\n        \"object\": \"urn:ngsi-ld:Protocol:r1\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"GET\",\n        \"entityType\": {\n            \"type\": \"Property\",\n            \"value\": \"ietf-interfaces:interfaces-state/interface\"\n        },\n        \"entityId\": {\n            \"type\": \"Property\",\n            \"value\": \"urn:ngsi-ld:Interface:clab-telemetry-ixiac-lab:r1:GigabitEthernet2\"\n        },\n        \"getOption\": {\n            \"type\": \"Property\",\n            \"value\": \"state\"\n        }\n    }\n}"
 						},
 						"url": {
 							"raw": "http://{{broker}}/ngsi-ld/v1/entities",
@@ -152,7 +152,7 @@
 					"response": []
 				},
 				{
-					"name": "Create NETCONF entity GET (All interfaces)",
+					"name": "Create RpcOperation (GET) entity (IETF) - Get InterfaceStatistics",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -180,7 +180,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"urn:ngsi-ld:NETCONF:r2\",\n    \"type\": \"NETCONF\",\n    \"host\": {\n        \"type\": \"Property\",\n        \"value\": \"clab-telemetry-ixiac-lab-r2\"\n    },\n    \"port\": {\n        \"type\": \"Property\",\n        \"value\": 830\n    },\n    \"username\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"password\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"hostKeyVerify\": {\n        \"type\": \"Property\",\n        \"value\": false\n    },\n    \"hostFamily\": {\n        \"type\": \"Property\",\n        \"value\": \"csr\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"GET\",\n        \"xpath\": {\n            \"type\": \"Property\",\n            \"value\": \"/interfaces-state/interface\"\n        },\n        \"getOption\": {\n            \"type\": \"Property\",\n            \"value\": \"state\"\n        }\n    }\n}"
+							"raw": "{\n    \"id\": \"urn:ngsi-ld:RpcOperation:r1\",\n    \"type\": \"RpcOperation\",\n    \"usesProtocol\":{\n        \"type\": \"Relationship\",\n        \"object\": \"urn:ngsi-ld:Protocol:r1\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"GET\",\n        \"entityType\": {\n            \"type\": \"Property\",\n            \"value\": \"ietf-interfaces:interfaces-state/interface/statistics\"\n        },\n        \"getOption\": {\n            \"type\": \"Property\",\n            \"value\": \"state\"\n        }\n    }\n}"
 						},
 						"url": {
 							"raw": "http://{{broker}}/ngsi-ld/v1/entities",
@@ -199,7 +199,7 @@
 					"response": []
 				},
 				{
-					"name": "Create NETCONF entity GET (All interfaces) - NEW",
+					"name": "Create RpcOperation (GET-CONFIG) entity (IETF) - Get InterfaceConfig with ID",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -227,7 +227,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"urn:ngsi-ld:NETCONF:r2\",\n    \"type\": \"NETCONF\",\n    \"host\": {\n        \"type\": \"Property\",\n        \"value\": \"clab-telemetry-ixiac-lab-r2\"\n    },\n    \"port\": {\n        \"type\": \"Property\",\n        \"value\": 830\n    },\n    \"username\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"password\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"hostKeyVerify\": {\n        \"type\": \"Property\",\n        \"value\": false\n    },\n    \"hostFamily\": {\n        \"type\": \"Property\",\n        \"value\": \"csr\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"GET\",\n        \"entityType\": {\n            \"type\": \"Property\",\n            \"value\": \"Interface\"\n        },\n        \"getOption\": {\n            \"type\": \"Property\",\n            \"value\": \"state\"\n        }\n    }\n}"
+							"raw": "{\n    \"id\": \"urn:ngsi-ld:RpcOperation:r1\",\n    \"type\": \"RpcOperation\",\n    \"usesProtocol\":{\n        \"type\": \"Relationship\",\n        \"object\": \"urn:ngsi-ld:Protocol:r1\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"GET\",\n        \"entityType\": {\n            \"type\": \"Property\",\n            \"value\": \"ietf-interfaces:interfaces/interface\"\n        },\n        \"entityId\": {\n            \"type\": \"Property\",\n            \"value\": \"urn:ngsi-ld:InterfaceConfig:clab-telemetry-ixiac-lab:r1:GigabitEthernet2\"\n        },\n        \"getOption\": {\n            \"type\": \"Property\",\n            \"value\": \"config\"\n        }\n    }\n}"
 						},
 						"url": {
 							"raw": "http://{{broker}}/ngsi-ld/v1/entities",
@@ -246,7 +246,7 @@
 					"response": []
 				},
 				{
-					"name": "Create NETCONF entity GET (All interfaces) - NEW Alternative",
+					"name": "Create RpcOperation (GET-CONFIG) entity (IETF) - Get InterfaceConfigIpv4Address with ID",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -274,7 +274,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"urn:ngsi-ld:NETCONF:r2\",\n    \"type\": \"NETCONF\",\n    \"host\": {\n        \"type\": \"Property\",\n        \"value\": \"clab-telemetry-ixiac-lab-r2\"\n    },\n    \"port\": {\n        \"type\": \"Property\",\n        \"value\": 830\n    },\n    \"username\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"password\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"hostKeyVerify\": {\n        \"type\": \"Property\",\n        \"value\": false\n    },\n    \"hostFamily\": {\n        \"type\": \"Property\",\n        \"value\": \"csr\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"GET\",\n        \"entityType\": {\n            \"type\": \"Property\",\n            \"value\": \"ietf-interfaces:interfaces-state/interface\"\n        },\n        \"getOption\": {\n            \"type\": \"Property\",\n            \"value\": \"state\"\n        }\n    }\n}"
+							"raw": "{\n    \"id\": \"urn:ngsi-ld:RpcOperation:r1\",\n    \"type\": \"RpcOperation\",\n    \"usesProtocol\":{\n        \"type\": \"Relationship\",\n        \"object\": \"urn:ngsi-ld:Protocol:r1\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"GET\",\n        \"entityType\": {\n            \"type\": \"Property\",\n            \"value\": \"ietf-interfaces:interfaces/interface/ietf-ip:ipv4/address\"\n        },\n        \"entityId\": {\n            \"type\": \"Property\",\n            \"value\": \"urn:ngsi-ld:InterfaceConfigIpv4Address:clab-telemetry-ixiac-lab:r1:GigabitEthernet1:10.0.0.15\"\n        },\n        \"getOption\": {\n            \"type\": \"Property\",\n            \"value\": \"config\"\n        }\n    }\n}"
 						},
 						"url": {
 							"raw": "http://{{broker}}/ngsi-ld/v1/entities",
@@ -293,7 +293,7 @@
 					"response": []
 				},
 				{
-					"name": "Create NETCONF entity GET-Config",
+					"name": "Create RpcOperation (GET-CONFIG) entity (IETF) - Get InterfaceConfigIpv4Address",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -321,7 +321,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"urn:ngsi-ld:NETCONF:r1\",\n    \"type\": \"NETCONF\",\n    \"host\": {\n        \"type\": \"Property\",\n        \"value\": \"clab-telemetry-ixiac-lab-r1\"\n    },\n    \"port\": {\n        \"type\": \"Property\",\n        \"value\": 830\n    },\n    \"username\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"password\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"hostKeyVerify\": {\n        \"type\": \"Property\",\n        \"value\": false\n    },\n    \"hostFamily\": {\n        \"type\": \"Property\",\n        \"value\": \"csr\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"GET\",\n        \"xpath\": {\n            \"type\": \"Property\",\n            \"value\": \"/interfaces/interface[name='*']/ietf-ip:ipv4/address[ip='*']\"\n        },\n        \"getOption\": {\n            \"type\": \"Property\",\n            \"value\": \"config\"\n        }\n    }\n}"
+							"raw": "{\n    \"id\": \"urn:ngsi-ld:RpcOperation:r1\",\n    \"type\": \"RpcOperation\",\n    \"usesProtocol\":{\n        \"type\": \"Relationship\",\n        \"object\": \"urn:ngsi-ld:Protocol:r1\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"GET\",\n        \"entityType\": {\n            \"type\": \"Property\",\n            \"value\": \"ietf-interfaces:interfaces/interface/ietf-ip:ipv4/address\"\n        },\n        \"getOption\": {\n            \"type\": \"Property\",\n            \"value\": \"config\"\n        }\n    }\n}"
 						},
 						"url": {
 							"raw": "http://{{broker}}/ngsi-ld/v1/entities",
@@ -340,7 +340,7 @@
 					"response": []
 				},
 				{
-					"name": "Create NETCONF entity GET-Config - NEW",
+					"name": "Create RpcOperation (SET) entity (IETF) - Edit interface enabled and description (IETF)",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -368,7 +368,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"urn:ngsi-ld:NETCONF:r1\",\n    \"type\": \"NETCONF\",\n    \"host\": {\n        \"type\": \"Property\",\n        \"value\": \"clab-telemetry-ixiac-lab-r1\"\n    },\n    \"port\": {\n        \"type\": \"Property\",\n        \"value\": 830\n    },\n    \"username\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"password\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"hostKeyVerify\": {\n        \"type\": \"Property\",\n        \"value\": false\n    },\n    \"hostFamily\": {\n        \"type\": \"Property\",\n        \"value\": \"csr\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"GET\",\n        \"entityType\": {\n            \"type\": \"Property\",\n            \"value\": \"InterfaceConfigIpv4Address\"\n        },\n        \"entityId\": {\n            \"type\": \"Property\",\n            \"value\": \"urn:ngsi-ld:InterfaceConfigIpv4Address:clab-telemetry-ixiac-lab-r1:GigabitEthernet1:10.0.0.15\"\n        },\n        \"getOption\": {\n            \"type\": \"Property\",\n            \"value\": \"config\"\n        }\n    }\n}"
+							"raw": "{\n    \"id\": \"urn:ngsi-ld:RpcOperation:r1\",\n    \"type\": \"RpcOperation\",\n    \"usesProtocol\":{\n        \"type\": \"Relationship\",\n        \"object\": \"urn:ngsi-ld:Protocol:r1\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"GET\",\n        \"entityType\": {\n            \"type\": \"Property\",\n            \"value\": \"ietf-interfaces:interfaces/interface\"\n        },\n        \"entityId\": {\n            \"type\": \"Property\",\n            \"value\": \"urn:ngsi-ld:InterfaceConfig:clab-telemetry-ixiac-lab:r1:GigabitEthernet2\"\n        },\n        \"getOption\": {\n            \"type\": \"Property\",\n            \"value\": \"edit-config\"\n        }\n    }\n}"
 						},
 						"url": {
 							"raw": "http://{{broker}}/ngsi-ld/v1/entities",
@@ -387,7 +387,7 @@
 					"response": []
 				},
 				{
-					"name": "Create NETCONF entity GET-Config - NEW Alternative",
+					"name": "Create RpcOperation (SET) entity (IETF) - Edit interface IPv4 address and netmask (IETF)",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -415,7 +415,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"urn:ngsi-ld:NETCONF:r1\",\n    \"type\": \"NETCONF\",\n    \"host\": {\n        \"type\": \"Property\",\n        \"value\": \"clab-telemetry-ixiac-lab-r1\"\n    },\n    \"port\": {\n        \"type\": \"Property\",\n        \"value\": 830\n    },\n    \"username\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"password\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"hostKeyVerify\": {\n        \"type\": \"Property\",\n        \"value\": false\n    },\n    \"hostFamily\": {\n        \"type\": \"Property\",\n        \"value\": \"csr\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"GET\",\n        \"entityType\": {\n            \"type\": \"Property\",\n            \"value\": \"ietf-interfaces:interfaces/interface/ietf-ip:ipv4/address\"\n        },\n        \"entityId\": {\n            \"type\": \"Property\",\n            \"value\": \"urn:ngsi-ld:InterfaceConfigIpv4Address:clab-telemetry-ixiac-lab-r1:GigabitEthernet1:10.0.0.15\"\n        },\n        \"getOption\": {\n            \"type\": \"Property\",\n            \"value\": \"config\"\n        }\n    }\n}"
+							"raw": "{\n    \"id\": \"urn:ngsi-ld:RpcOperation:r1\",\n    \"type\": \"RpcOperation\",\n    \"usesProtocol\":{\n        \"type\": \"Relationship\",\n        \"object\": \"urn:ngsi-ld:Protocol:r1\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"GET\",\n        \"entityType\": {\n            \"type\": \"Property\",\n            \"value\": \"ietf-interfaces:interfaces/interface/ietf-ip:ipv4/address\"\n        },\n        \"entityId\": {\n            \"type\": \"Property\",\n            \"value\": \"urn:ngsi-ld:InterfaceConfigIpv4Address:clab-telemetry-ixiac-lab:r1:GigabitEthernet1:10.0.0.15\"\n        },\n        \"getOption\": {\n            \"type\": \"Property\",\n            \"value\": \"edit-config\"\n        }\n    }\n}"
 						},
 						"url": {
 							"raw": "http://{{broker}}/ngsi-ld/v1/entities",
@@ -434,7 +434,7 @@
 					"response": []
 				},
 				{
-					"name": "Create NETCONF entity GET-Config for Set operation",
+					"name": "Create RpcOperation (SUBSCRIBE) entity (IETF) - InterfaceStatistics with ID",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -462,7 +462,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"urn:ngsi-ld:NETCONF:r1\",\n    \"type\": \"NETCONF\",\n    \"host\": {\n        \"type\": \"Property\",\n        \"value\": \"clab-telemetry-ixiac-lab-r1\"\n    },\n    \"port\": {\n        \"type\": \"Property\",\n        \"value\": 830\n    },\n    \"username\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"password\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"hostKeyVerify\": {\n        \"type\": \"Property\",\n        \"value\": false\n    },\n    \"hostFamily\": {\n        \"type\": \"Property\",\n        \"value\": \"csr\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"GET\",\n        \"xpath\": {\n            \"type\": \"Property\",\n            \"value\": \"/interfaces/interface[name='GigabitEthernet1']/ietf-ip:ipv4/address[ip='10.0.0.16']\"\n        },\n        \"getOption\": {\n            \"type\": \"Property\",\n            \"value\": \"edit-config\"\n        }\n    }\n}"
+							"raw": "{\n    \"id\": \"urn:ngsi-ld:RpcOperation:r1\",\n    \"type\": \"RpcOperation\",\n    \"usesProtocol\":{\n        \"type\": \"Relationship\",\n        \"object\": \"urn:ngsi-ld:Protocol:r1\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"SUBSCRIBE\",\n        \"entityType\": {\n            \"type\": \"Property\",\n            \"value\": \"ietf-interfaces:interfaces-state/interface/statistics\"\n        },\n        \"entityId\": {\n            \"type\": \"Property\",\n            \"value\": \"urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab:r1:GigabitEthernet2\"\n        },\n        \"subscriptionMode\": {\n            \"type\": \"Property\",\n            \"value\": \"periodic\",\n            \"period\": {\n                \"type\": \"Property\",\n                \"value\": 1000\n            }\n        },\n        \"subscriptionState\": {\n            \"type\": \"Property\",\n            \"value\": \"ON\"\n        }\n    }\n}"
 						},
 						"url": {
 							"raw": "http://{{broker}}/ngsi-ld/v1/entities",
@@ -481,7 +481,7 @@
 					"response": []
 				},
 				{
-					"name": "Create NETCONF entity GET-Config for Set operation - NEW",
+					"name": "Create Protocol entity (OpenConfig)",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -509,7 +509,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"urn:ngsi-ld:NETCONF:r1\",\n    \"type\": \"NETCONF\",\n    \"host\": {\n        \"type\": \"Property\",\n        \"value\": \"clab-telemetry-ixiac-lab-r1\"\n    },\n    \"port\": {\n        \"type\": \"Property\",\n        \"value\": 830\n    },\n    \"username\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"password\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"hostKeyVerify\": {\n        \"type\": \"Property\",\n        \"value\": false\n    },\n    \"hostFamily\": {\n        \"type\": \"Property\",\n        \"value\": \"csr\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"GET\",\n        \"entityType\": {\n            \"type\": \"Property\",\n            \"value\": \"InterfaceConfigIpv4Address\"\n        },\n        \"entityId\": {\n            \"type\": \"Property\",\n            \"value\": \"urn:ngsi-ld:InterfaceConfigIpv4Address:clab-telemetry-ixiac-lab-r1:GigabitEthernet1:10.0.0.16\"\n        },\n        \"getOption\": {\n            \"type\": \"Property\",\n            \"value\": \"edit-config\"\n        }\n    }\n}"
+							"raw": "{\n    \"id\": \"urn:ngsi-ld:Protocol:r1\",\n    \"type\": \"Protocol\",\n    \"name\": {\n        \"type\": \"Property\",\n        \"value\": \"gnmi\"\n    },\n    \"address\": {\n        \"type\": \"Property\",\n        \"value\": \"clab-telemetry-testbed-xrv9k-ceos-4hosts-r1\"\n    },\n    \"port\": {\n        \"type\": \"Property\",\n        \"value\": 57400\n    },\n    \"hasCredentials\": {\n        \"type\": \"Relationship\",\n        \"object\": \"urn:ngsi-ld:Credentials:r1\"\n    }\n}"
 						},
 						"url": {
 							"raw": "http://{{broker}}/ngsi-ld/v1/entities",
@@ -528,7 +528,7 @@
 					"response": []
 				},
 				{
-					"name": "Create NETCONF entity GET-Config for Set operation - NEW Alternative",
+					"name": "Create Credentials entity  (OpenConfig)",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -556,7 +556,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"urn:ngsi-ld:NETCONF:r1\",\n    \"type\": \"NETCONF\",\n    \"host\": {\n        \"type\": \"Property\",\n        \"value\": \"clab-telemetry-ixiac-lab-r1\"\n    },\n    \"port\": {\n        \"type\": \"Property\",\n        \"value\": 830\n    },\n    \"username\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"password\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"hostKeyVerify\": {\n        \"type\": \"Property\",\n        \"value\": false\n    },\n    \"hostFamily\": {\n        \"type\": \"Property\",\n        \"value\": \"csr\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"GET\",\n        \"entityType\": {\n            \"type\": \"Property\",\n            \"value\": \"ietf-interfaces:interfaces/interface/ietf-ip:ipv4/address\"\n        },\n        \"entityId\": {\n            \"type\": \"Property\",\n            \"value\": \"urn:ngsi-ld:InterfaceConfigIpv4Address:clab-telemetry-ixiac-lab-r1:GigabitEthernet1:10.0.0.16\"\n        },\n        \"getOption\": {\n            \"type\": \"Property\",\n            \"value\": \"edit-config\"\n        }\n    }\n}"
+							"raw": "{\n    \"id\": \"urn:ngsi-ld:Credentials:r1\",\n    \"type\": \"Credentials\",\n    \"username\": {\n        \"type\": \"Property\",\n        \"value\": \"clab\"\n    },\n    \"password\": {\n        \"type\": \"Property\",\n        \"value\": \"clab@123\"\n    }\n}"
 						},
 						"url": {
 							"raw": "http://{{broker}}/ngsi-ld/v1/entities",
@@ -575,7 +575,7 @@
 					"response": []
 				},
 				{
-					"name": "Create NETCONF entity GET-Config (All interfaces)",
+					"name": "Create RpcOperation (GET) entity  (OpenConfig) - Get Interface",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -603,7 +603,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"urn:ngsi-ld:NETCONF:r1\",\n    \"type\": \"NETCONF\",\n    \"host\": {\n        \"type\": \"Property\",\n        \"value\": \"clab-telemetry-ixiac-lab-r1\"\n    },\n    \"port\": {\n        \"type\": \"Property\",\n        \"value\": 830\n    },\n    \"username\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"password\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"hostKeyVerify\": {\n        \"type\": \"Property\",\n        \"value\": false\n    },\n    \"hostFamily\": {\n        \"type\": \"Property\",\n        \"value\": \"csr\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"GET\",\n        \"xpath\": {\n            \"type\": \"Property\",\n            \"value\": \"/interfaces/interface\"\n        },\n        \"getOption\": {\n            \"type\": \"Property\",\n            \"value\": \"config\"\n        }\n    }\n}"
+							"raw": "{\n    \"id\": \"urn:ngsi-ld:RpcOperation:r1\",\n    \"type\": \"RpcOperation\",\n    \"usesProtocol\":{\n        \"type\": \"Relationship\",\n        \"object\": \"urn:ngsi-ld:Protocol:r1\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"GET\",\n        \"entityType\": {\n            \"type\": \"Property\",\n            \"value\": \"openconfig-interfaces:interfaces\"\n        },\n        \"getOption\": {\n            \"type\": \"Property\",\n            \"value\": \"state\"\n        }\n    }\n}"
 						},
 						"url": {
 							"raw": "http://{{broker}}/ngsi-ld/v1/entities",
@@ -622,7 +622,7 @@
 					"response": []
 				},
 				{
-					"name": "Create NETCONF entity GET-Config (All interfaces) - NEW",
+					"name": "Create RpcOperation (SUBSCRIBE) entity  (OpenConfig)  - InterfaceStateCounters with ID",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -650,7 +650,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"urn:ngsi-ld:NETCONF:r1\",\n    \"type\": \"NETCONF\",\n    \"host\": {\n        \"type\": \"Property\",\n        \"value\": \"clab-telemetry-ixiac-lab-r1\"\n    },\n    \"port\": {\n        \"type\": \"Property\",\n        \"value\": 830\n    },\n    \"username\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"password\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"hostKeyVerify\": {\n        \"type\": \"Property\",\n        \"value\": false\n    },\n    \"hostFamily\": {\n        \"type\": \"Property\",\n        \"value\": \"csr\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"GET\",\n        \"entityType\": {\n            \"type\": \"Property\",\n            \"value\": \"InterfaceConfig\"\n        },\n        \"getOption\": {\n            \"type\": \"Property\",\n            \"value\": \"config\"\n        }\n    }\n}"
+							"raw": "{\n    \"id\": \"urn:ngsi-ld:RpcOperation:r1\",\n    \"type\": \"RpcOperation\",\n    \"usesProtocol\":{\n        \"type\": \"Relationship\",\n        \"object\": \"urn:ngsi-ld:Protocol:r1\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"SUBSCRIBE\",\n        \"entityType\": {\n            \"type\": \"Property\",\n            \"value\": \"openconfig-interfaces:interfaces/interface/state/counters\"\n        },\n        \"entityId\": {\n            \"type\": \"Property\",\n            \"value\": \"urn:ngsi-ld:InterfaceStateCounters:clab-telemetry-testbed-xrv9k-ceos-4hosts-r1:GigabitEthernet0/0/0/0\"\n        },\n        \"subscriptionMode\": {\n            \"type\": \"Property\",\n            \"value\": \"periodic\",\n            \"period\": {\n                \"type\": \"Property\",\n                \"value\": 5\n            }\n        },\n        \"subscriptionState\": {\n            \"type\": \"Property\",\n            \"value\": \"ON\"\n        }\n    }\n}"
 						},
 						"url": {
 							"raw": "http://{{broker}}/ngsi-ld/v1/entities",
@@ -669,25 +669,14 @@
 					"response": []
 				},
 				{
-					"name": "Create NETCONF entity GET-Config (All interfaces) - NEW Alternative",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
+					"name": "Update RpcOperation (SUBSCRIBE) entity (update subscription)",
 					"request": {
-						"method": "POST",
+						"method": "PATCH",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
 							},
 							{
 								"key": "Link",
@@ -697,10 +686,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"urn:ngsi-ld:NETCONF:r1\",\n    \"type\": \"NETCONF\",\n    \"host\": {\n        \"type\": \"Property\",\n        \"value\": \"clab-telemetry-ixiac-lab-r1\"\n    },\n    \"port\": {\n        \"type\": \"Property\",\n        \"value\": 830\n    },\n    \"username\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"password\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"hostKeyVerify\": {\n        \"type\": \"Property\",\n        \"value\": false\n    },\n    \"hostFamily\": {\n        \"type\": \"Property\",\n        \"value\": \"csr\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"GET\",\n        \"entityType\": {\n            \"type\": \"Property\",\n            \"value\": \"ietf-interfaces:interfaces/interface\"\n        },\n        \"getOption\": {\n            \"type\": \"Property\",\n            \"value\": \"config\"\n        }\n    }\n}"
+							"raw": "{\r\n    \"operation\": {\r\n        \"type\": \"Property\",\r\n        \"value\": \"SUBSCRIBE\",\r\n        \"entityType\": {\r\n            \"type\": \"Property\",\r\n            \"value\": \"ietf-interfaces:interfaces-state/interface\"\r\n        },\r\n        \"entityId\": {\r\n            \"type\": \"Property\",\r\n            \"value\": \"urn:ngsi-ld:Interface:clab-telemetry-ixiac-lab:r1:GigabitEthernet2\"\r\n        },\r\n        \"subscriptionMode\": {\r\n            \"type\": \"Property\",\r\n            \"value\": \"periodic\",\r\n            \"period\": {\r\n                \"type\": \"Property\",\r\n                \"value\": 1000\r\n            }\r\n        },\r\n        \"subscriptionState\": {\r\n            \"type\": \"Property\",\r\n            \"value\": \"ON\"\r\n        }\r\n    }\r\n}"
 						},
 						"url": {
-							"raw": "http://{{broker}}/ngsi-ld/v1/entities",
+							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:RpcOperation:r1/attrs/operation",
 							"protocol": "http",
 							"host": [
 								"{{broker}}"
@@ -708,33 +697,25 @@
 							"path": [
 								"ngsi-ld",
 								"v1",
-								"entities"
+								"entities",
+								"urn:ngsi-ld:RpcOperation:r1",
+								"attrs",
+								"operation"
 							]
 						},
-						"description": "New context data entities can be created by making a POST request to the `/ngsi-ld/v1/entities` endpoint and supply an `@context` along with structured **NGSI-LD** data.\n\nThe first request will take some time, as the context broker must navigate and load all of the files mentioned in the\n`@context`.\n\nSince the `Content-Type: application/ld+json` the `@context` is supplied in the body of the request. As with all **NGSI-LD** interactions, the core **NGSI-LD** `@context` ([`https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld`](https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld) is implicitly included as well.)\n\nThis means that the actual `@context` is:\n\n```jsonld\n{\n    \"@context\": [\n        \"http://context-provider:3000/data-models/ngsi-context.jsonld\",\n        \"https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld\"\n    ]\n}\n```\n\nwith the core `@context` being processed **last** and therefore overriding any terms previously defined with the same `@id`."
+						"description": "partially update the attribute of entity"
 					},
 					"response": []
 				},
 				{
-					"name": "Create NETCONF entity SUBSCRIBE",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
+					"name": "Update RpcOperation (SUBSCRIBE) (stop subscription)",
 					"request": {
-						"method": "POST",
+						"method": "PATCH",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
 							},
 							{
 								"key": "Link",
@@ -744,10 +725,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"urn:ngsi-ld:NETCONF:r1\",\n    \"type\": \"NETCONF\",\n    \"host\": {\n        \"type\": \"Property\",\n        \"value\": \"clab-telemetry-ixiac-lab-r1\"\n    },\n    \"port\": {\n        \"type\": \"Property\",\n        \"value\": 830\n    },\n    \"username\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"password\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"hostKeyVerify\": {\n        \"type\": \"Property\",\n        \"value\": false\n    },\n    \"hostFamily\": {\n        \"type\": \"Property\",\n        \"value\": \"csr\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"SUBSCRIBE\",\n        \"xpath\": {\n            \"type\": \"Property\",\n            \"value\": \"/interfaces-state/interface[name='GigabitEthernet2']\"\n        },\n        \"subscriptionMode\": {\n            \"type\": \"Property\",\n            \"value\": \"periodic\",\n            \"period\": {\n                \"type\": \"Property\",\n                \"value\": 1000\n            }\n        },\n        \"subscriptionState\": {\n            \"type\": \"Property\",\n            \"value\": \"ON\"\n        }\n    }\n}"
+							"raw": "{\r\n    \"operation\": {\r\n        \"type\": \"Property\",\r\n        \"value\": \"SUBSCRIBE\",\r\n        \"subscriptionState\": {\r\n            \"type\": \"Property\",\r\n            \"value\": \"IDLE\"\r\n        }\r\n    }\r\n}"
 						},
 						"url": {
-							"raw": "http://{{broker}}/ngsi-ld/v1/entities",
+							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:RpcOperation:r1/attrs/operation",
 							"protocol": "http",
 							"host": [
 								"{{broker}}"
@@ -755,33 +736,25 @@
 							"path": [
 								"ngsi-ld",
 								"v1",
-								"entities"
+								"entities",
+								"urn:ngsi-ld:RpcOperation:r1",
+								"attrs",
+								"operation"
 							]
 						},
-						"description": "New context data entities can be created by making a POST request to the `/ngsi-ld/v1/entities` endpoint and supply an `@context` along with structured **NGSI-LD** data.\n\nThe first request will take some time, as the context broker must navigate and load all of the files mentioned in the\n`@context`.\n\nSince the `Content-Type: application/ld+json` the `@context` is supplied in the body of the request. As with all **NGSI-LD** interactions, the core **NGSI-LD** `@context` ([`https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld`](https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld) is implicitly included as well.)\n\nThis means that the actual `@context` is:\n\n```jsonld\n{\n    \"@context\": [\n        \"http://context-provider:3000/data-models/ngsi-context.jsonld\",\n        \"https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld\"\n    ]\n}\n```\n\nwith the core `@context` being processed **last** and therefore overriding any terms previously defined with the same `@id`."
+						"description": "partially update the attribute of entity"
 					},
 					"response": []
 				},
 				{
-					"name": "Create NETCONF entity SUBSCRIBE - NEW",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
+					"name": "Update RpcOperation (SUBSCRIBE) (delete subscription)",
 					"request": {
-						"method": "POST",
+						"method": "PATCH",
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/json"
+								"value": "application/json",
+								"type": "text"
 							},
 							{
 								"key": "Link",
@@ -791,10 +764,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"urn:ngsi-ld:NETCONF:r1\",\n    \"type\": \"NETCONF\",\n    \"host\": {\n        \"type\": \"Property\",\n        \"value\": \"clab-telemetry-ixiac-lab-r1\"\n    },\n    \"port\": {\n        \"type\": \"Property\",\n        \"value\": 830\n    },\n    \"username\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"password\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"hostKeyVerify\": {\n        \"type\": \"Property\",\n        \"value\": false\n    },\n    \"hostFamily\": {\n        \"type\": \"Property\",\n        \"value\": \"csr\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"SUBSCRIBE\",\n        \"entityType\": {\n            \"type\": \"Property\",\n            \"value\": \"InterfaceStatistics\"\n        },\n        \"entityId\": {\n            \"type\": \"Property\",\n            \"value\": \"urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet2\"\n        },\n        \"subscriptionMode\": {\n            \"type\": \"Property\",\n            \"value\": \"periodic\",\n            \"period\": {\n                \"type\": \"Property\",\n                \"value\": 1000\n            }\n        },\n        \"subscriptionState\": {\n            \"type\": \"Property\",\n            \"value\": \"ON\"\n        }\n    }\n}"
+							"raw": "{\r\n    \"operation\": {\r\n        \"type\": \"Property\",\r\n        \"value\": \"SUBSCRIBE\",\r\n        \"subscriptionState\": {\r\n            \"type\": \"Property\",\r\n            \"value\": \"OFF\"\r\n        }\r\n    }\r\n}"
 						},
 						"url": {
-							"raw": "http://{{broker}}/ngsi-ld/v1/entities",
+							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:RpcOperation:r1/attrs/operation",
 							"protocol": "http",
 							"host": [
 								"{{broker}}"
@@ -802,46 +775,23 @@
 							"path": [
 								"ngsi-ld",
 								"v1",
-								"entities"
+								"entities",
+								"urn:ngsi-ld:RpcOperation:r1",
+								"attrs",
+								"operation"
 							]
 						},
-						"description": "New context data entities can be created by making a POST request to the `/ngsi-ld/v1/entities` endpoint and supply an `@context` along with structured **NGSI-LD** data.\n\nThe first request will take some time, as the context broker must navigate and load all of the files mentioned in the\n`@context`.\n\nSince the `Content-Type: application/ld+json` the `@context` is supplied in the body of the request. As with all **NGSI-LD** interactions, the core **NGSI-LD** `@context` ([`https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld`](https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld) is implicitly included as well.)\n\nThis means that the actual `@context` is:\n\n```jsonld\n{\n    \"@context\": [\n        \"http://context-provider:3000/data-models/ngsi-context.jsonld\",\n        \"https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld\"\n    ]\n}\n```\n\nwith the core `@context` being processed **last** and therefore overriding any terms previously defined with the same `@id`."
+						"description": "partially update the attribute of entity"
 					},
 					"response": []
 				},
 				{
-					"name": "Create NETCONF entity SUBSCRIBE - NEW Alternative",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
+					"name": "Delete RpcOperation (SUBSCRIBE) (delete subscription)",
 					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Link",
-								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"id\": \"urn:ngsi-ld:NETCONF:r1\",\n    \"type\": \"NETCONF\",\n    \"host\": {\n        \"type\": \"Property\",\n        \"value\": \"clab-telemetry-ixiac-lab-r1\"\n    },\n    \"port\": {\n        \"type\": \"Property\",\n        \"value\": 830\n    },\n    \"username\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"password\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"hostKeyVerify\": {\n        \"type\": \"Property\",\n        \"value\": false\n    },\n    \"hostFamily\": {\n        \"type\": \"Property\",\n        \"value\": \"csr\"\n    },\n    \"operation\": {\n        \"type\": \"Property\",\n        \"value\": \"SUBSCRIBE\",\n        \"entityType\": {\n            \"type\": \"Property\",\n            \"value\": \"ietf-interfaces:interfaces-state/interface/statistics\"\n        },\n        \"entityId\": {\n            \"type\": \"Property\",\n            \"value\": \"urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet2\"\n        },\n        \"subscriptionMode\": {\n            \"type\": \"Property\",\n            \"value\": \"periodic\",\n            \"period\": {\n                \"type\": \"Property\",\n                \"value\": 1000\n            }\n        },\n        \"subscriptionState\": {\n            \"type\": \"Property\",\n            \"value\": \"ON\"\n        }\n    }\n}"
-						},
+						"method": "DELETE",
+						"header": [],
 						"url": {
-							"raw": "http://{{broker}}/ngsi-ld/v1/entities",
+							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:RpcOperation:r1",
 							"protocol": "http",
 							"host": [
 								"{{broker}}"
@@ -849,10 +799,10 @@
 							"path": [
 								"ngsi-ld",
 								"v1",
-								"entities"
+								"entities",
+								"urn:ngsi-ld:RpcOperation:r1"
 							]
-						},
-						"description": "New context data entities can be created by making a POST request to the `/ngsi-ld/v1/entities` endpoint and supply an `@context` along with structured **NGSI-LD** data.\n\nThe first request will take some time, as the context broker must navigate and load all of the files mentioned in the\n`@context`.\n\nSince the `Content-Type: application/ld+json` the `@context` is supplied in the body of the request. As with all **NGSI-LD** interactions, the core **NGSI-LD** `@context` ([`https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld`](https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld) is implicitly included as well.)\n\nThis means that the actual `@context` is:\n\n```jsonld\n{\n    \"@context\": [\n        \"http://context-provider:3000/data-models/ngsi-context.jsonld\",\n        \"https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld\"\n    ]\n}\n```\n\nwith the core `@context` being processed **last** and therefore overriding any terms previously defined with the same `@id`."
+						}
 					},
 					"response": []
 				},
@@ -873,7 +823,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{broker}}/ngsi-ld/v1/entities/?type=InterfaceConfig",
+							"raw": "http://{{broker}}/ngsi-ld/v1/entities/?type=ietf-interfaces:interfaces-state/interface/statistics",
 							"protocol": "http",
 							"host": [
 								"{{broker}}"
@@ -887,7 +837,7 @@
 							"query": [
 								{
 									"key": "type",
-									"value": "InterfaceConfig"
+									"value": "ietf-interfaces:interfaces-state/interface/statistics"
 								}
 							]
 						},
@@ -952,7 +902,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:InterfaceConfig:clab-telemetry-ixiac-lab-r1:GigabitEthernet2/attrs/enabled",
+							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:InterfaceConfig:clab-telemetry-ixiac-lab:r1:GigabitEthernet2/attrs/enabled",
 							"protocol": "http",
 							"host": [
 								"{{broker}}"
@@ -961,7 +911,7 @@
 								"ngsi-ld",
 								"v1",
 								"entities",
-								"urn:ngsi-ld:InterfaceConfig:clab-telemetry-ixiac-lab-r1:GigabitEthernet2",
+								"urn:ngsi-ld:InterfaceConfig:clab-telemetry-ixiac-lab:r1:GigabitEthernet2",
 								"attrs",
 								"enabled"
 							]
@@ -985,7 +935,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:InterfaceConfig:clab-telemetry-ixiac-lab-r1:GigabitEthernet2/attrs",
+							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:InterfaceConfig:clab-telemetry-ixiac-lab:r1:GigabitEthernet2/attrs",
 							"protocol": "http",
 							"host": [
 								"{{broker}}"
@@ -994,7 +944,7 @@
 								"ngsi-ld",
 								"v1",
 								"entities",
-								"urn:ngsi-ld:InterfaceConfig:clab-telemetry-ixiac-lab-r1:GigabitEthernet2",
+								"urn:ngsi-ld:InterfaceConfig:clab-telemetry-ixiac-lab:r1:GigabitEthernet2",
 								"attrs"
 							]
 						},
@@ -1023,7 +973,7 @@
 							"raw": "{\r\n    \"linkUpDownTrapEnable\": {\r\n        \"type\": \"Property\", \r\n        \"value\": \"enabled\"\r\n    }\r\n}\r\n"
 						},
 						"url": {
-							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:InterfaceConfig:clab-telemetry-ixiac-lab-r1:GigabitEthernet2/attrs",
+							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:InterfaceConfig:clab-telemetry-ixiac-lab:r1:GigabitEthernet2/attrs",
 							"protocol": "http",
 							"host": [
 								"{{broker}}"
@@ -1032,7 +982,7 @@
 								"ngsi-ld",
 								"v1",
 								"entities",
-								"urn:ngsi-ld:InterfaceConfig:clab-telemetry-ixiac-lab-r1:GigabitEthernet2",
+								"urn:ngsi-ld:InterfaceConfig:clab-telemetry-ixiac-lab:r1:GigabitEthernet2",
 								"attrs"
 							]
 						},
@@ -1066,7 +1016,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:InterfaceConfigIpv4Address:clab-telemetry-ixiac-lab-r1:GigabitEthernet1:10.0.0.15/attrs",
+							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:InterfaceConfigIpv4Address:clab-telemetry-ixiac-lab:r1:GigabitEthernet1:10.0.0.15/attrs",
 							"protocol": "http",
 							"host": [
 								"{{broker}}"
@@ -1075,7 +1025,7 @@
 								"ngsi-ld",
 								"v1",
 								"entities",
-								"urn:ngsi-ld:InterfaceConfigIpv4Address:clab-telemetry-ixiac-lab-r1:GigabitEthernet1:10.0.0.15",
+								"urn:ngsi-ld:InterfaceConfigIpv4Address:clab-telemetry-ixiac-lab:r1:GigabitEthernet1:10.0.0.15",
 								"attrs"
 							]
 						},
@@ -1112,7 +1062,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"urn:ngsi-ld:InterfaceConfigIpv4Address:clab-telemetry-ixiac-lab-r1:GigabitEthernet1:10.0.0.16\",\n    \"type\": \"InterfaceConfigIpv4Address\",\n    \"isPartOf\": {\n        \"type\": \"Relationship\",\n        \"object\": \"urn:ngsi-ld:InterfaceConfigIpv4:clab-telemetry-ixiac-lab-r1:GigabitEthernet1\"\n    },\n    \"netmask\": {\n        \"type\": \"Property\",\n        \"value\": \"255.255.255.128\"\n    },\n    \"ip\": {\n        \"type\": \"Property\",\n        \"value\": \"10.0.0.16\"\n    }\n}"
+							"raw": "{\n    \"id\": \"urn:ngsi-ld:InterfaceConfigIpv4Address:clab-telemetry-ixiac-lab:r1:GigabitEthernet1:10.0.0.16\",\n    \"type\": \"InterfaceConfigIpv4Address\",\n    \"isPartOf\": {\n        \"type\": \"Relationship\",\n        \"object\": \"urn:ngsi-ld:InterfaceConfigIpv4:clab-telemetry-ixiac-lab:r1:GigabitEthernet1\"\n    },\n    \"netmask\": {\n        \"type\": \"Property\",\n        \"value\": \"255.255.255.128\"\n    },\n    \"ip\": {\n        \"type\": \"Property\",\n        \"value\": \"10.0.0.16\"\n    }\n}"
 						},
 						"url": {
 							"raw": "http://{{broker}}/ngsi-ld/v1/entities",
@@ -1127,222 +1077,6 @@
 							]
 						},
 						"description": "New context data entities can be created by making a POST request to the `/ngsi-ld/v1/entities` endpoint and supply an `@context` along with structured **NGSI-LD** data.\n\nThe first request will take some time, as the context broker must navigate and load all of the files mentioned in the\n`@context`.\n\nSince the `Content-Type: application/ld+json` the `@context` is supplied in the body of the request. As with all **NGSI-LD** interactions, the core **NGSI-LD** `@context` ([`https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld`](https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld) is implicitly included as well.)\n\nThis means that the actual `@context` is:\n\n```jsonld\n{\n    \"@context\": [\n        \"http://context-provider:3000/data-models/ngsi-context.jsonld\",\n        \"https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld\"\n    ]\n}\n```\n\nwith the core `@context` being processed **last** and therefore overriding any terms previously defined with the same `@id`."
-					},
-					"response": []
-				},
-				{
-					"name": "Update Entity (update subscription)",
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Link",
-								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"operation\": {\r\n        \"type\": \"Property\",\r\n        \"value\": \"SUBSCRIBE\",\r\n        \"xpath\": {\r\n            \"type\": \"Property\",\r\n            \"value\": \"/interfaces-state/interface[name='GigabitEthernet3']\"\r\n        },\r\n        \"subscriptionMode\": {\r\n            \"type\": \"Property\",\r\n            \"value\": \"periodic\",\r\n            \"period\": {\r\n                \"type\": \"Property\",\r\n                \"value\": 1000\r\n            }\r\n        },\r\n        \"subscriptionState\": {\r\n            \"type\": \"Property\",\r\n            \"value\": \"ON\"\r\n        }\r\n    }\r\n}"
-						},
-						"url": {
-							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:NETCONF:r1/attrs/operation",
-							"protocol": "http",
-							"host": [
-								"{{broker}}"
-							],
-							"path": [
-								"ngsi-ld",
-								"v1",
-								"entities",
-								"urn:ngsi-ld:NETCONF:r1",
-								"attrs",
-								"operation"
-							]
-						},
-						"description": "partially update the attribute of entity"
-					},
-					"response": []
-				},
-				{
-					"name": "Update Entity (update subscription) - NEW",
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Link",
-								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"operation\": {\r\n        \"type\": \"Property\",\r\n        \"value\": \"SUBSCRIBE\",\r\n        \"entityType\": {\r\n            \"type\": \"Property\",\r\n            \"value\": \"InterfaceStatistics\"\r\n        },\r\n        \"entityId\": {\r\n            \"type\": \"Property\",\r\n            \"value\": \"urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet3\"\r\n        },\r\n        \"subscriptionMode\": {\r\n            \"type\": \"Property\",\r\n            \"value\": \"periodic\",\r\n            \"period\": {\r\n                \"type\": \"Property\",\r\n                \"value\": 1000\r\n            }\r\n        },\r\n        \"subscriptionState\": {\r\n            \"type\": \"Property\",\r\n            \"value\": \"ON\"\r\n        }\r\n    }\r\n}"
-						},
-						"url": {
-							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:NETCONF:r1/attrs/operation",
-							"protocol": "http",
-							"host": [
-								"{{broker}}"
-							],
-							"path": [
-								"ngsi-ld",
-								"v1",
-								"entities",
-								"urn:ngsi-ld:NETCONF:r1",
-								"attrs",
-								"operation"
-							]
-						},
-						"description": "partially update the attribute of entity"
-					},
-					"response": []
-				},
-				{
-					"name": "Update Entity (update subscription) - NEW Alternative",
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Link",
-								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"operation\": {\r\n        \"type\": \"Property\",\r\n        \"value\": \"SUBSCRIBE\",\r\n        \"entityType\": {\r\n            \"type\": \"Property\",\r\n            \"value\": \"ietf-interfaces:interfaces-state/interface/statistics\"\r\n        },\r\n        \"entityId\": {\r\n            \"type\": \"Property\",\r\n            \"value\": \"urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet3\"\r\n        },\r\n        \"subscriptionMode\": {\r\n            \"type\": \"Property\",\r\n            \"value\": \"periodic\",\r\n            \"period\": {\r\n                \"type\": \"Property\",\r\n                \"value\": 1000\r\n            }\r\n        },\r\n        \"subscriptionState\": {\r\n            \"type\": \"Property\",\r\n            \"value\": \"ON\"\r\n        }\r\n    }\r\n}"
-						},
-						"url": {
-							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:NETCONF:r1/attrs/operation",
-							"protocol": "http",
-							"host": [
-								"{{broker}}"
-							],
-							"path": [
-								"ngsi-ld",
-								"v1",
-								"entities",
-								"urn:ngsi-ld:NETCONF:r1",
-								"attrs",
-								"operation"
-							]
-						},
-						"description": "partially update the attribute of entity"
-					},
-					"response": []
-				},
-				{
-					"name": "Update Entity (stop subscription)",
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Link",
-								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"operation\": {\r\n        \"type\": \"Property\",\r\n        \"value\": \"SUBSCRIBE\",\r\n        \"subscriptionState\": {\r\n            \"type\": \"Property\",\r\n            \"value\": \"IDLE\"\r\n        }\r\n    }\r\n}"
-						},
-						"url": {
-							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:NETCONF:r1/attrs/operation",
-							"protocol": "http",
-							"host": [
-								"{{broker}}"
-							],
-							"path": [
-								"ngsi-ld",
-								"v1",
-								"entities",
-								"urn:ngsi-ld:NETCONF:r1",
-								"attrs",
-								"operation"
-							]
-						},
-						"description": "partially update the attribute of entity"
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Entity (NETCONF stop subscription)",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:NETCONF:r1",
-							"protocol": "http",
-							"host": [
-								"{{broker}}"
-							],
-							"path": [
-								"ngsi-ld",
-								"v1",
-								"entities",
-								"urn:ngsi-ld:NETCONF:r1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update Entity (delete subscription)",
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Link",
-								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"operation\": {\r\n        \"type\": \"Property\",\r\n        \"value\": \"SUBSCRIBE\",\r\n        \"subscriptionState\": {\r\n            \"type\": \"Property\",\r\n            \"value\": \"OFF\"\r\n        }\r\n    }\r\n}"
-						},
-						"url": {
-							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:NETCONF:r1/attrs/operation",
-							"protocol": "http",
-							"host": [
-								"{{broker}}"
-							],
-							"path": [
-								"ngsi-ld",
-								"v1",
-								"entities",
-								"urn:ngsi-ld:NETCONF:r1",
-								"attrs",
-								"operation"
-							]
-						},
-						"description": "partially update the attribute of entity"
 					},
 					"response": []
 				},
@@ -1450,7 +1184,7 @@
 			"name": "NDT Data Virtualization API",
 			"item": [
 				{
-					"name": "Create NETCONF entity",
+					"name": "Create Protocol entity (OpenConfig)",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -1478,7 +1212,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"urn:ngsi-ld:NETCONF:r1\",\n    \"type\": \"NETCONF\",\n    \"host\": {\n        \"type\": \"Property\",\n        \"value\": \"clab-telemetry-ixiac-lab-r1\"\n    },\n    \"port\": {\n        \"type\": \"Property\",\n        \"value\": 830\n    },\n    \"username\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"password\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"hostKeyVerify\": {\n        \"type\": \"Property\",\n        \"value\": false\n    },\n    \"hostFamily\": {\n        \"type\": \"Property\",\n        \"value\": \"csr\"\n    },\n    \"xpath\": {\n        \"type\": \"Property\",\n        \"value\": \"/interfaces-state/interface[name='GigabitEthernet2']\"\n    },\n    \"subscriptionMode\": {\n        \"type\": \"Property\",\n        \"value\": \"periodic\",\n        \"period\": {\n            \"type\": \"Property\",\n            \"value\": 10\n        }\n    }\n}"
+							"raw": "{\n    \"id\": \"urn:ngsi-ld:Protocol:r1\",\n    \"type\": \"Protocol\",\n    \"name\": {\n        \"type\": \"Property\",\n        \"value\": \"gnmi\"\n    },\n    \"address\": {\n        \"type\": \"Property\",\n        \"value\": \"clab-telemetry-testbed-xrv9k-ceos-4hosts-r1\"\n    },\n    \"port\": {\n        \"type\": \"Property\",\n        \"value\": 57400\n    },\n    \"hasCredentials\":{\n        \"type\": \"Relationship\",\n        \"object\": \"urn:ngsi-ld:Credentials:r1\"\n    }\n}"
 						},
 						"url": {
 							"raw": "http://{{broker}}/ngsi-ld/v1/entities",
@@ -1497,45 +1231,7 @@
 					"response": []
 				},
 				{
-					"name": "Update NETCONF Entity",
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Link",
-								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"xpath\": {\r\n        \"type\": \"Property\",\r\n        \"value\": \"/interfaces/interface[name='*']/ietf-ip:ipv4/address[ip='*']\"\r\n    }\r\n}"
-						},
-						"url": {
-							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:NETCONF:r1/attrs",
-							"protocol": "http",
-							"host": [
-								"{{broker}}"
-							],
-							"path": [
-								"ngsi-ld",
-								"v1",
-								"entities",
-								"urn:ngsi-ld:NETCONF:r1",
-								"attrs"
-							]
-						},
-						"description": "partially update the attribute of entity"
-					},
-					"response": []
-				},
-				{
-					"name": "Create NETCONF entity - NEW / NEW Alternative",
+					"name": "Create Protocol entity (IETF)",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -1563,7 +1259,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"urn:ngsi-ld:NETCONF:r1\",\n    \"type\": \"NETCONF\",\n    \"host\": {\n        \"type\": \"Property\",\n        \"value\": \"clab-telemetry-ixiac-lab-r1\"\n    },\n    \"port\": {\n        \"type\": \"Property\",\n        \"value\": 830\n    },\n    \"username\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"password\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"hostKeyVerify\": {\n        \"type\": \"Property\",\n        \"value\": false\n    },\n    \"hostFamily\": {\n        \"type\": \"Property\",\n        \"value\": \"csr\"\n    },\n    \"subscriptionMode\": {\n        \"type\": \"Property\",\n        \"value\": \"periodic\",\n        \"period\": {\n            \"type\": \"Property\",\n            \"value\": 10\n        }\n    }\n}"
+							"raw": "{\n    \"id\": \"urn:ngsi-ld:Protocol:r1\",\n    \"type\": \"Protocol\",\n    \"name\": {\n        \"type\": \"Property\",\n        \"value\": \"netconf\"\n    },\n    \"address\": {\n        \"type\": \"Property\",\n        \"value\": \"clab-telemetry-ixiac-lab-r1\"\n    },\n    \"port\": {\n        \"type\": \"Property\",\n        \"value\": 830\n    },\n    \"hasCredentials\":{\n        \"type\": \"Relationship\",\n        \"object\": \"urn:ngsi-ld:Credentials:r1\"\n    }\n}"
 						},
 						"url": {
 							"raw": "http://{{broker}}/ngsi-ld/v1/entities",
@@ -1582,14 +1278,25 @@
 					"response": []
 				},
 				{
-					"name": "Obtain Entity Data by type field (GET Config)",
+					"name": "Create Credentials entity  (OpenConfig)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [
 							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
+								"key": "Content-Type",
+								"value": "application/json"
 							},
 							{
 								"key": "Link",
@@ -1597,8 +1304,12 @@
 								"type": "text"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"urn:ngsi-ld:Credentials:r1\",\n    \"type\": \"Credentials\",\n    \"username\": {\n        \"type\": \"Property\",\n        \"value\": \"clab\"\n    },\n    \"password\": {\n        \"type\": \"Property\",\n        \"value\": \"clab@123\"\n    }\n}"
+						},
 						"url": {
-							"raw": "http://{{broker}}/ngsi-ld/v1/entities/?type=InterfaceConfig",
+							"raw": "http://{{broker}}/ngsi-ld/v1/entities",
 							"protocol": "http",
 							"host": [
 								"{{broker}}"
@@ -1606,22 +1317,156 @@
 							"path": [
 								"ngsi-ld",
 								"v1",
-								"entities",
-								""
-							],
-							"query": [
-								{
-									"key": "type",
-									"value": "InterfaceConfig"
-								}
+								"entities"
 							]
 						},
-						"description": "This example returns the data of `urn:ngsi-ld:Building:farm001`. The NGSI-LD `@context` is supplied as a [`Link` header](https://www.w3.org/wiki/LinkHeader) to define the entities returned. The `ngsi-context.jsonld` `@context` file is just supplying short names for every attribute.\n\nThe full link header syntax can be seen below:\n\n```text\nLink: <https://fiware.github.io/data-models/context.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\n```\n\nThe standard HTTP `Link` header allows metadata (in this case the `@context`) to be passed in without actually touching\nthe resource in question. In the case of NGSI-LD, the metadata is a file in `application/ld+json` format."
+						"description": "New context data entities can be created by making a POST request to the `/ngsi-ld/v1/entities` endpoint and supply an `@context` along with structured **NGSI-LD** data.\n\nThe first request will take some time, as the context broker must navigate and load all of the files mentioned in the\n`@context`.\n\nSince the `Content-Type: application/ld+json` the `@context` is supplied in the body of the request. As with all **NGSI-LD** interactions, the core **NGSI-LD** `@context` ([`https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld`](https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld) is implicitly included as well.)\n\nThis means that the actual `@context` is:\n\n```jsonld\n{\n    \"@context\": [\n        \"http://context-provider:3000/data-models/ngsi-context.jsonld\",\n        \"https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld\"\n    ]\n}\n```\n\nwith the core `@context` being processed **last** and therefore overriding any terms previously defined with the same `@id`."
 					},
 					"response": []
 				},
 				{
-					"name": "Obtain Entity Data by type field (GET Config) - NEW Alternative",
+					"name": "Create Credentials entity (IETF)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Link",
+								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"urn:ngsi-ld:Credentials:r1\",\n    \"type\": \"Credentials\",\n    \"username\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    },\n    \"password\": {\n        \"type\": \"Property\",\n        \"value\": \"admin\"\n    }\n}"
+						},
+						"url": {
+							"raw": "http://{{broker}}/ngsi-ld/v1/entities",
+							"protocol": "http",
+							"host": [
+								"{{broker}}"
+							],
+							"path": [
+								"ngsi-ld",
+								"v1",
+								"entities"
+							]
+						},
+						"description": "New context data entities can be created by making a POST request to the `/ngsi-ld/v1/entities` endpoint and supply an `@context` along with structured **NGSI-LD** data.\n\nThe first request will take some time, as the context broker must navigate and load all of the files mentioned in the\n`@context`.\n\nSince the `Content-Type: application/ld+json` the `@context` is supplied in the body of the request. As with all **NGSI-LD** interactions, the core **NGSI-LD** `@context` ([`https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld`](https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld) is implicitly included as well.)\n\nThis means that the actual `@context` is:\n\n```jsonld\n{\n    \"@context\": [\n        \"http://context-provider:3000/data-models/ngsi-context.jsonld\",\n        \"https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld\"\n    ]\n}\n```\n\nwith the core `@context` being processed **last** and therefore overriding any terms previously defined with the same `@id`."
+					},
+					"response": []
+				},
+				{
+					"name": "Create SubscribeRpcTemplate entity  (OpenConfig)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Link",
+								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"urn:ngsi-ld:SubscribeRpcTemplate:r1\",\n    \"type\": \"SubscribeRpcTemplate\",\n    \"usesProtocol\":{\n        \"type\": \"Relationship\",\n        \"object\": \"urn:ngsi-ld:Protocol:r1\"\n    },\n    \"subscriptionMode\": {\n        \"type\": \"Property\",\n        \"value\": \"periodic\",\n        \"period\": {\n            \"type\": \"Property\",\n            \"value\": 5\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "http://{{broker}}/ngsi-ld/v1/entities",
+							"protocol": "http",
+							"host": [
+								"{{broker}}"
+							],
+							"path": [
+								"ngsi-ld",
+								"v1",
+								"entities"
+							]
+						},
+						"description": "New context data entities can be created by making a POST request to the `/ngsi-ld/v1/entities` endpoint and supply an `@context` along with structured **NGSI-LD** data.\n\nThe first request will take some time, as the context broker must navigate and load all of the files mentioned in the\n`@context`.\n\nSince the `Content-Type: application/ld+json` the `@context` is supplied in the body of the request. As with all **NGSI-LD** interactions, the core **NGSI-LD** `@context` ([`https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld`](https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld) is implicitly included as well.)\n\nThis means that the actual `@context` is:\n\n```jsonld\n{\n    \"@context\": [\n        \"http://context-provider:3000/data-models/ngsi-context.jsonld\",\n        \"https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld\"\n    ]\n}\n```\n\nwith the core `@context` being processed **last** and therefore overriding any terms previously defined with the same `@id`."
+					},
+					"response": []
+				},
+				{
+					"name": "Create SubscribeRpcTemplate entity (IETF)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Link",
+								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"urn:ngsi-ld:SubscribeRpcTemplate:r1\",\n    \"type\": \"SubscribeRpcTemplate\",\n    \"usesProtocol\":{\n        \"type\": \"Relationship\",\n        \"object\": \"urn:ngsi-ld:Protocol:r1\"\n    },\n    \"subscriptionMode\": {\n        \"type\": \"Property\",\n        \"value\": \"periodic\",\n        \"period\": {\n            \"type\": \"Property\",\n            \"value\": 5\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "http://{{broker}}/ngsi-ld/v1/entities",
+							"protocol": "http",
+							"host": [
+								"{{broker}}"
+							],
+							"path": [
+								"ngsi-ld",
+								"v1",
+								"entities"
+							]
+						},
+						"description": "New context data entities can be created by making a POST request to the `/ngsi-ld/v1/entities` endpoint and supply an `@context` along with structured **NGSI-LD** data.\n\nThe first request will take some time, as the context broker must navigate and load all of the files mentioned in the\n`@context`.\n\nSince the `Content-Type: application/ld+json` the `@context` is supplied in the body of the request. As with all **NGSI-LD** interactions, the core **NGSI-LD** `@context` ([`https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld`](https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld) is implicitly included as well.)\n\nThis means that the actual `@context` is:\n\n```jsonld\n{\n    \"@context\": [\n        \"http://context-provider:3000/data-models/ngsi-context.jsonld\",\n        \"https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld\"\n    ]\n}\n```\n\nwith the core `@context` being processed **last** and therefore overriding any terms previously defined with the same `@id`."
+					},
+					"response": []
+				},
+				{
+					"name": "Obtain Entity Data by type field (GET Config) (IETF)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1660,46 +1505,7 @@
 					"response": []
 				},
 				{
-					"name": "Obtain Entity Data by type field (GET Config) by ContextSource",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Link",
-								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://{{context-source}}/ngsi-ld/v1/entities/?type=InterfaceConfig",
-							"protocol": "http",
-							"host": [
-								"{{context-source}}"
-							],
-							"path": [
-								"ngsi-ld",
-								"v1",
-								"entities",
-								""
-							],
-							"query": [
-								{
-									"key": "type",
-									"value": "InterfaceConfig"
-								}
-							]
-						},
-						"description": "This example returns the data of `urn:ngsi-ld:Building:farm001`. The NGSI-LD `@context` is supplied as a [`Link` header](https://www.w3.org/wiki/LinkHeader) to define the entities returned. The `ngsi-context.jsonld` `@context` file is just supplying short names for every attribute.\n\nThe full link header syntax can be seen below:\n\n```text\nLink: <https://fiware.github.io/data-models/context.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\n```\n\nThe standard HTTP `Link` header allows metadata (in this case the `@context`) to be passed in without actually touching\nthe resource in question. In the case of NGSI-LD, the metadata is a file in `application/ld+json` format."
-					},
-					"response": []
-				},
-				{
-					"name": "Obtain Entity Data by type field (GET Config) by ContextSource - NEW Alternative",
+					"name": "Obtain Entity Data by type field (GET Config) by ContextSource (IETF)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1738,7 +1544,7 @@
 					"response": []
 				},
 				{
-					"name": "Obtain Entity Data by id field (GET)",
+					"name": "Obtain Entity Data by id field (GET) (IETF)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1752,7 +1558,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:Interface:clab-telemetry-ixiac-lab-r1:GigabitEthernet2",
+							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:Interface:clab-telemetry-ixiac-lab:r1:GigabitEthernet2",
 							"protocol": "http",
 							"host": [
 								"{{broker}}"
@@ -1761,7 +1567,7 @@
 								"ngsi-ld",
 								"v1",
 								"entities",
-								"urn:ngsi-ld:Interface:clab-telemetry-ixiac-lab-r1:GigabitEthernet2"
+								"urn:ngsi-ld:Interface:clab-telemetry-ixiac-lab:r1:GigabitEthernet2"
 							]
 						},
 						"description": "This example returns the data of `urn:ngsi-ld:Building:farm001`. The NGSI-LD `@context` is supplied as a [`Link` header](https://www.w3.org/wiki/LinkHeader) to define the entities returned. The `ngsi-context.jsonld` `@context` file is just supplying short names for every attribute.\n\nThe full link header syntax can be seen below:\n\n```text\nLink: <https://fiware.github.io/data-models/context.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\n```\n\nThe standard HTTP `Link` header allows metadata (in this case the `@context`) to be passed in without actually touching\nthe resource in question. In the case of NGSI-LD, the metadata is a file in `application/ld+json` format."
@@ -1769,7 +1575,7 @@
 					"response": []
 				},
 				{
-					"name": "Obtain Entity Data by id field (GET) - NEW Alternative",
+					"name": "Obtain Entity Data by id field (GET) by ContextSource (IETF)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1783,38 +1589,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:Interface:clab-telemetry-ixiac-lab-r1:GigabitEthernet2",
-							"protocol": "http",
-							"host": [
-								"{{broker}}"
-							],
-							"path": [
-								"ngsi-ld",
-								"v1",
-								"entities",
-								"urn:ngsi-ld:Interface:clab-telemetry-ixiac-lab-r1:GigabitEthernet2"
-							]
-						},
-						"description": "This example returns the data of `urn:ngsi-ld:Building:farm001`. The NGSI-LD `@context` is supplied as a [`Link` header](https://www.w3.org/wiki/LinkHeader) to define the entities returned. The `ngsi-context.jsonld` `@context` file is just supplying short names for every attribute.\n\nThe full link header syntax can be seen below:\n\n```text\nLink: <https://fiware.github.io/data-models/context.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\n```\n\nThe standard HTTP `Link` header allows metadata (in this case the `@context`) to be passed in without actually touching\nthe resource in question. In the case of NGSI-LD, the metadata is a file in `application/ld+json` format."
-					},
-					"response": []
-				},
-				{
-					"name": "Obtain Entity Data by id field (GET) by ContextSource",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json"
-							},
-							{
-								"key": "Link",
-								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\""
-							}
-						],
-						"url": {
-							"raw": "http://{{context-source}}/ngsi-ld/v1/entities/urn:ngsi-ld:Interface:clab-telemetry-ixiac-lab-r1:GigabitEthernet2",
+							"raw": "http://{{context-source}}/ngsi-ld/v1/entities/urn:ngsi-ld:Interface:clab-telemetry-ixiac-lab:r1:GigabitEthernet2",
 							"protocol": "http",
 							"host": [
 								"{{context-source}}"
@@ -1823,7 +1598,7 @@
 								"ngsi-ld",
 								"v1",
 								"entities",
-								"urn:ngsi-ld:Interface:clab-telemetry-ixiac-lab-r1:GigabitEthernet2"
+								"urn:ngsi-ld:Interface:clab-telemetry-ixiac-lab:r1:GigabitEthernet2"
 							]
 						},
 						"description": "This example returns the data of `urn:ngsi-ld:Building:farm001`. The NGSI-LD `@context` is supplied as a [`Link` header](https://www.w3.org/wiki/LinkHeader) to define the entities returned. The `ngsi-context.jsonld` `@context` file is just supplying short names for every attribute.\n\nThe full link header syntax can be seen below:\n\n```text\nLink: <https://fiware.github.io/data-models/context.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\n```\n\nThe standard HTTP `Link` header allows metadata (in this case the `@context`) to be passed in without actually touching\nthe resource in question. In the case of NGSI-LD, the metadata is a file in `application/ld+json` format."
@@ -1831,7 +1606,7 @@
 					"response": []
 				},
 				{
-					"name": "Obtain Entity Data by id field (GET) by ContextSource - NEW Alternative",
+					"name": "Obtain Entity Data by id field (GET) with sysAttrs (IETF)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1845,38 +1620,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{context-source}}/ngsi-ld/v1/entities/urn:ngsi-ld:Interface:clab-telemetry-ixiac-lab-r1:GigabitEthernet2",
-							"protocol": "http",
-							"host": [
-								"{{context-source}}"
-							],
-							"path": [
-								"ngsi-ld",
-								"v1",
-								"entities",
-								"urn:ngsi-ld:Interface:clab-telemetry-ixiac-lab-r1:GigabitEthernet2"
-							]
-						},
-						"description": "This example returns the data of `urn:ngsi-ld:Building:farm001`. The NGSI-LD `@context` is supplied as a [`Link` header](https://www.w3.org/wiki/LinkHeader) to define the entities returned. The `ngsi-context.jsonld` `@context` file is just supplying short names for every attribute.\n\nThe full link header syntax can be seen below:\n\n```text\nLink: <https://fiware.github.io/data-models/context.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\n```\n\nThe standard HTTP `Link` header allows metadata (in this case the `@context`) to be passed in without actually touching\nthe resource in question. In the case of NGSI-LD, the metadata is a file in `application/ld+json` format."
-					},
-					"response": []
-				},
-				{
-					"name": "Obtain Entity Data by id field (GET) with sysAttrs",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json"
-							},
-							{
-								"key": "Link",
-								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\""
-							}
-						],
-						"url": {
-							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:Interface:clab-telemetry-ixiac-lab-r1:GigabitEthernet2?options=sysAttrs",
+							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:Interface:clab-telemetry-ixiac-lab:r1:GigabitEthernet2?options=sysAttrs",
 							"protocol": "http",
 							"host": [
 								"{{broker}}"
@@ -1885,7 +1629,7 @@
 								"ngsi-ld",
 								"v1",
 								"entities",
-								"urn:ngsi-ld:Interface:clab-telemetry-ixiac-lab-r1:GigabitEthernet2"
+								"urn:ngsi-ld:Interface:clab-telemetry-ixiac-lab:r1:GigabitEthernet2"
 							],
 							"query": [
 								{
@@ -1899,7 +1643,7 @@
 					"response": []
 				},
 				{
-					"name": "Obtain Entity Data by id field (GET) by ContextSource with sysAttrs",
+					"name": "Obtain Entity Data by id field (GET) by ContextSource with sysAttrs (IETF)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1913,7 +1657,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{context-source}}/ngsi-ld/v1/entities/urn:ngsi-ld:Interface:clab-telemetry-ixiac-lab-r1:GigabitEthernet2?options=sysAttrs",
+							"raw": "http://{{context-source}}/ngsi-ld/v1/entities/urn:ngsi-ld:Interface:clab-telemetry-ixiac-lab:r1:GigabitEthernet2?options=sysAttrs",
 							"protocol": "http",
 							"host": [
 								"{{context-source}}"
@@ -1922,7 +1666,7 @@
 								"ngsi-ld",
 								"v1",
 								"entities",
-								"urn:ngsi-ld:Interface:clab-telemetry-ixiac-lab-r1:GigabitEthernet2"
+								"urn:ngsi-ld:Interface:clab-telemetry-ixiac-lab:r1:GigabitEthernet2"
 							],
 							"query": [
 								{
@@ -1936,7 +1680,7 @@
 					"response": []
 				},
 				{
-					"name": "Obtain Entity Data by type and id fields (GET)",
+					"name": "Obtain Entity Data by type and id fields (GET) (IETF)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1952,50 +1696,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{broker}}/ngsi-ld/v1/entities/?type=InterfaceStatistics&id=urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet2",
-							"protocol": "http",
-							"host": [
-								"{{broker}}"
-							],
-							"path": [
-								"ngsi-ld",
-								"v1",
-								"entities",
-								""
-							],
-							"query": [
-								{
-									"key": "type",
-									"value": "InterfaceStatistics"
-								},
-								{
-									"key": "id",
-									"value": "urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet2"
-								}
-							]
-						},
-						"description": "This example returns the data of `urn:ngsi-ld:Building:farm001`. The NGSI-LD `@context` is supplied as a [`Link` header](https://www.w3.org/wiki/LinkHeader) to define the entities returned. The `ngsi-context.jsonld` `@context` file is just supplying short names for every attribute.\n\nThe full link header syntax can be seen below:\n\n```text\nLink: <https://fiware.github.io/data-models/context.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\n```\n\nThe standard HTTP `Link` header allows metadata (in this case the `@context`) to be passed in without actually touching\nthe resource in question. In the case of NGSI-LD, the metadata is a file in `application/ld+json` format."
-					},
-					"response": []
-				},
-				{
-					"name": "Obtain Entity Data by type and id fields (GET) - NEW Alternative",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Link",
-								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://{{broker}}/ngsi-ld/v1/entities/?type=ietf-interfaces:interfaces-state/interface/statistics&id=urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet2",
+							"raw": "http://{{broker}}/ngsi-ld/v1/entities/?type=ietf-interfaces:interfaces-state/interface/statistics&id=urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab:r1:GigabitEthernet2",
 							"protocol": "http",
 							"host": [
 								"{{broker}}"
@@ -2013,7 +1714,7 @@
 								},
 								{
 									"key": "id",
-									"value": "urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet2"
+									"value": "urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab:r1:GigabitEthernet2"
 								}
 							]
 						},
@@ -2022,7 +1723,7 @@
 					"response": []
 				},
 				{
-					"name": "Obtain Entity Data by type and id fields (GET) by ContextSource",
+					"name": "Obtain Entity Data by type and id fields (GET) by ContextSource (IETF)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -2038,50 +1739,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{context-source}}/ngsi-ld/v1/entities/?type=InterfaceStatistics&id=urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet2",
-							"protocol": "http",
-							"host": [
-								"{{context-source}}"
-							],
-							"path": [
-								"ngsi-ld",
-								"v1",
-								"entities",
-								""
-							],
-							"query": [
-								{
-									"key": "type",
-									"value": "InterfaceStatistics"
-								},
-								{
-									"key": "id",
-									"value": "urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet2"
-								}
-							]
-						},
-						"description": "This example returns the data of `urn:ngsi-ld:Building:farm001`. The NGSI-LD `@context` is supplied as a [`Link` header](https://www.w3.org/wiki/LinkHeader) to define the entities returned. The `ngsi-context.jsonld` `@context` file is just supplying short names for every attribute.\n\nThe full link header syntax can be seen below:\n\n```text\nLink: <https://fiware.github.io/data-models/context.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\n```\n\nThe standard HTTP `Link` header allows metadata (in this case the `@context`) to be passed in without actually touching\nthe resource in question. In the case of NGSI-LD, the metadata is a file in `application/ld+json` format."
-					},
-					"response": []
-				},
-				{
-					"name": "Obtain Entity Data by type and id fields (GET) by ContextSource - NEW Alternative",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Link",
-								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://{{context-source}}/ngsi-ld/v1/entities/?type=ietf-interfaces:interfaces-state/interface/statistics&id=urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet2",
+							"raw": "http://{{context-source}}/ngsi-ld/v1/entities/?type=ietf-interfaces:interfaces-state/interface/statistics&id=urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab:r1:GigabitEthernet2",
 							"protocol": "http",
 							"host": [
 								"{{context-source}}"
@@ -2099,7 +1757,7 @@
 								},
 								{
 									"key": "id",
-									"value": "urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet2"
+									"value": "urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab:r1:GigabitEthernet2"
 								}
 							]
 						},
@@ -2108,7 +1766,7 @@
 					"response": []
 				},
 				{
-					"name": "Obtain Entity Data by id and type fields (GET)",
+					"name": "Obtain Entity Data by id and type fields (GET) (IETF)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -2122,7 +1780,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet2?type=InterfaceStatistics",
+							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab:r1:GigabitEthernet2?type=ietf-interfaces:interfaces-state/interface/statistics",
 							"protocol": "http",
 							"host": [
 								"{{broker}}"
@@ -2131,44 +1789,7 @@
 								"ngsi-ld",
 								"v1",
 								"entities",
-								"urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet2"
-							],
-							"query": [
-								{
-									"key": "type",
-									"value": "InterfaceStatistics"
-								}
-							]
-						},
-						"description": "This example returns the data of `urn:ngsi-ld:Building:farm001`. The NGSI-LD `@context` is supplied as a [`Link` header](https://www.w3.org/wiki/LinkHeader) to define the entities returned. The `ngsi-context.jsonld` `@context` file is just supplying short names for every attribute.\n\nThe full link header syntax can be seen below:\n\n```text\nLink: <https://fiware.github.io/data-models/context.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\n```\n\nThe standard HTTP `Link` header allows metadata (in this case the `@context`) to be passed in without actually touching\nthe resource in question. In the case of NGSI-LD, the metadata is a file in `application/ld+json` format."
-					},
-					"response": []
-				},
-				{
-					"name": "Obtain Entity Data by id and type fields (GET) - NEW Alternative",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json"
-							},
-							{
-								"key": "Link",
-								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\""
-							}
-						],
-						"url": {
-							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet2?type=ietf-interfaces:interfaces-state/interface/statistics",
-							"protocol": "http",
-							"host": [
-								"{{broker}}"
-							],
-							"path": [
-								"ngsi-ld",
-								"v1",
-								"entities",
-								"urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet2"
+								"urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab:r1:GigabitEthernet2"
 							],
 							"query": [
 								{
@@ -2182,7 +1803,7 @@
 					"response": []
 				},
 				{
-					"name": "Obtain Entity Data by id and type fields (GET) by ContextSource",
+					"name": "Obtain Entity Data by id and type fields (GET) by ContextSource (IETF)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -2196,7 +1817,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{context-source}}/ngsi-ld/v1/entities/urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet2?type=InterfaceStatistics",
+							"raw": "http://{{context-source}}/ngsi-ld/v1/entities/urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab:r1:GigabitEthernet2?type=ietf-interfaces:interfaces-state/interface/statistics",
 							"protocol": "http",
 							"host": [
 								"{{context-source}}"
@@ -2205,44 +1826,7 @@
 								"ngsi-ld",
 								"v1",
 								"entities",
-								"urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet2"
-							],
-							"query": [
-								{
-									"key": "type",
-									"value": "InterfaceStatistics"
-								}
-							]
-						},
-						"description": "This example returns the data of `urn:ngsi-ld:Building:farm001`. The NGSI-LD `@context` is supplied as a [`Link` header](https://www.w3.org/wiki/LinkHeader) to define the entities returned. The `ngsi-context.jsonld` `@context` file is just supplying short names for every attribute.\n\nThe full link header syntax can be seen below:\n\n```text\nLink: <https://fiware.github.io/data-models/context.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\n```\n\nThe standard HTTP `Link` header allows metadata (in this case the `@context`) to be passed in without actually touching\nthe resource in question. In the case of NGSI-LD, the metadata is a file in `application/ld+json` format."
-					},
-					"response": []
-				},
-				{
-					"name": "Obtain Entity Data by id and type fields (GET) by ContextSource - NEW Alternative",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json"
-							},
-							{
-								"key": "Link",
-								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\""
-							}
-						],
-						"url": {
-							"raw": "http://{{context-source}}/ngsi-ld/v1/entities/urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet2?type=ietf-interfaces:interfaces-state/interface/statistics",
-							"protocol": "http",
-							"host": [
-								"{{context-source}}"
-							],
-							"path": [
-								"ngsi-ld",
-								"v1",
-								"entities",
-								"urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet2"
+								"urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab:r1:GigabitEthernet2"
 							],
 							"query": [
 								{
@@ -2256,7 +1840,7 @@
 					"response": []
 				},
 				{
-					"name": "Create Interface entity (SET) by ContextSource v2 Edit interface enabled and description",
+					"name": "Create Interface entity (SET) by ContextSource - Edit interface enabled and description (IETF)",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -2284,7 +1868,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"urn:ngsi-ld:InterfaceConfig:clab-telemetry-ixiac-lab-r1:GigabitEthernet2\",\n    \"type\": \"InterfaceConfig\",\n    \"description\": {\n        \"type\": \"Property\",\n        \"value\": \"r1-GigabitEthernet2 test\",\n        \"observedAt\": \"2024-10-29T11:28:32.153Z\"\n    },\n    \"interfaceType\": {\n        \"type\": \"Relationship\",\n        \"object\": \"urn:ngsi-ld:YANGIdentity:ianaift:ethernetCsmacd\"\n    },\n    \"enabled\": {\n        \"type\": \"Property\",\n        \"value\": false\n    },\n    \"name\": {\n        \"type\": \"Property\",\n        \"value\": \"GigabitEthernet2\"\n    },\n    \"linkUpDownTrapEnable\": {\n        \"type\": \"Property\", \n        \"value\": \"enabled\"\n    }\n}"
+							"raw": "{\n    \"id\": \"urn:ngsi-ld:InterfaceConfig:clab-telemetry-ixiac-lab:r1:GigabitEthernet2\",\n    \"type\": \"ietf-interfaces:interfaces/interface\",\n    \"description\": {\n        \"type\": \"Property\",\n        \"value\": \"r1-GigabitEthernet2 test\"\n    },\n    \"interfaceType\": {\n        \"type\": \"Relationship\",\n        \"object\": \"urn:ngsi-ld:YANGIdentity:ianaift:ethernetCsmacd\"\n    },\n    \"enabled\": {\n        \"type\": \"Property\",\n        \"value\": true\n    },\n    \"name\": {\n        \"type\": \"Property\",\n        \"value\": \"GigabitEthernet2\"\n    },\n    \"linkUpDownTrapEnable\": {\n        \"type\": \"Property\", \n        \"value\": \"enabled\"\n    }\n}"
 						},
 						"url": {
 							"raw": "http://{{context-source}}/ngsi-ld/v1/entities",
@@ -2303,7 +1887,7 @@
 					"response": []
 				},
 				{
-					"name": "Create Interface entity (SET) by ContextSource v2 Edit interface enabled and description - NEW Alternative",
+					"name": "Create Interface entity (SET) by ContextSource - Edit interface IPv4 address and netmask (IETF)",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -2331,101 +1915,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"urn:ngsi-ld:InterfaceConfig:clab-telemetry-ixiac-lab-r1:GigabitEthernet2\",\n    \"type\": \"ietf-interfaces:interfaces/interface\",\n    \"description\": {\n        \"type\": \"Property\",\n        \"value\": \"r1-GigabitEthernet2 test\",\n        \"observedAt\": \"2024-10-29T11:28:32.153Z\"\n    },\n    \"interfaceType\": {\n        \"type\": \"Relationship\",\n        \"object\": \"urn:ngsi-ld:YANGIdentity:ianaift:ethernetCsmacd\"\n    },\n    \"enabled\": {\n        \"type\": \"Property\",\n        \"value\": false\n    },\n    \"name\": {\n        \"type\": \"Property\",\n        \"value\": \"GigabitEthernet2\"\n    },\n    \"linkUpDownTrapEnable\": {\n        \"type\": \"Property\", \n        \"value\": \"enabled\"\n    }\n}"
-						},
-						"url": {
-							"raw": "http://{{context-source}}/ngsi-ld/v1/entities",
-							"protocol": "http",
-							"host": [
-								"{{context-source}}"
-							],
-							"path": [
-								"ngsi-ld",
-								"v1",
-								"entities"
-							]
-						},
-						"description": "New context data entities can be created by making a POST request to the `/ngsi-ld/v1/entities` endpoint and supply an `@context` along with structured **NGSI-LD** data.\n\nThe first request will take some time, as the context broker must navigate and load all of the files mentioned in the\n`@context`.\n\nSince the `Content-Type: application/ld+json` the `@context` is supplied in the body of the request. As with all **NGSI-LD** interactions, the core **NGSI-LD** `@context` ([`https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld`](https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld) is implicitly included as well.)\n\nThis means that the actual `@context` is:\n\n```jsonld\n{\n    \"@context\": [\n        \"http://context-provider:3000/data-models/ngsi-context.jsonld\",\n        \"https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld\"\n    ]\n}\n```\n\nwith the core `@context` being processed **last** and therefore overriding any terms previously defined with the same `@id`."
-					},
-					"response": []
-				},
-				{
-					"name": "Create Interface entity (SET) by ContextSource v2 Edit interface IPv4 address and netmask",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Link",
-								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"id\": \"urn:ngsi-ld:InterfaceConfigIpv4Address:clab-telemetry-ixiac-lab-r1:GigabitEthernet1\",\n    \"type\": \"InterfaceConfigIpv4Address\",\n    \"isPartOf\": {\n        \"type\": \"Relationship\",\n        \"object\": \"urn:ngsi-ld:InterfaceConfigIpv4:clab-telemetry-ixiac-lab-r1:GigabitEthernet1\"\n    },\n    \"netmask\": {\n        \"type\": \"Property\",\n        \"value\": \"255.255.255.128\"\n    },\n    \"ip\": {\n        \"type\": \"Property\",\n        \"value\": \"10.0.0.16\"\n    }\n}"
-						},
-						"url": {
-							"raw": "http://{{context-source}}/ngsi-ld/v1/entities",
-							"protocol": "http",
-							"host": [
-								"{{context-source}}"
-							],
-							"path": [
-								"ngsi-ld",
-								"v1",
-								"entities"
-							]
-						},
-						"description": "New context data entities can be created by making a POST request to the `/ngsi-ld/v1/entities` endpoint and supply an `@context` along with structured **NGSI-LD** data.\n\nThe first request will take some time, as the context broker must navigate and load all of the files mentioned in the\n`@context`.\n\nSince the `Content-Type: application/ld+json` the `@context` is supplied in the body of the request. As with all **NGSI-LD** interactions, the core **NGSI-LD** `@context` ([`https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld`](https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld) is implicitly included as well.)\n\nThis means that the actual `@context` is:\n\n```jsonld\n{\n    \"@context\": [\n        \"http://context-provider:3000/data-models/ngsi-context.jsonld\",\n        \"https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld\"\n    ]\n}\n```\n\nwith the core `@context` being processed **last** and therefore overriding any terms previously defined with the same `@id`."
-					},
-					"response": []
-				},
-				{
-					"name": "Create Interface entity (SET) by ContextSource v2 Edit interface IPv4 address and netmask - NEW Alternative",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Link",
-								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"id\": \"urn:ngsi-ld:InterfaceConfigIpv4Address:clab-telemetry-ixiac-lab-r1:GigabitEthernet1:10.0.0.16\",\n    \"type\": \"ietf-interfaces:interfaces/interface/ietf-ip:ipv4/address\",\n    \"isPartOf\": {\n        \"type\": \"Relationship\",\n        \"object\": \"urn:ngsi-ld:InterfaceConfigIpv4:clab-telemetry-ixiac-lab-r1:GigabitEthernet1\"\n    },\n    \"netmask\": {\n        \"type\": \"Property\",\n        \"value\": \"255.255.255.128\"\n    },\n    \"ip\": {\n        \"type\": \"Property\",\n        \"value\": \"10.0.0.16\"\n    }\n}"
+							"raw": "{\n    \"id\": \"urn:ngsi-ld:InterfaceConfigIpv4Address:clab-telemetry-ixiac-lab:r1:GigabitEthernet1:10.0.0.16\",\n    \"type\": \"ietf-interfaces:interfaces/interface/ietf-ip:ipv4/address\",\n    \"isPartOf\": {\n        \"type\": \"Relationship\",\n        \"object\": \"urn:ngsi-ld:InterfaceConfigIpv4:clab-telemetry-ixiac-lab:r1:GigabitEthernet1\"\n    },\n    \"netmask\": {\n        \"type\": \"Property\",\n        \"value\": \"255.255.255.128\"\n    },\n    \"ip\": {\n        \"type\": \"Property\",\n        \"value\": \"10.0.0.16\"\n    }\n}"
 						},
 						"url": {
 							"raw": "http://{{context-source}}/ngsi-ld/v1/entities",
@@ -2469,7 +1959,7 @@
 					"response": []
 				},
 				{
-					"name": "Create periodic subscription for InterfaceConfig entity from Context Broker to Context Source",
+					"name": "Create periodic subscription for InterfaceConfig entity from Context Broker to Context Source (IETF)",
 					"event": [
 						{
 							"listen": "test",
@@ -2514,72 +2004,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"urn:ngsi-ld:Subscription:InterfaceConfig\",\r\n\t\"type\": \"Subscription\",\r\n\t\"entities\": [{\r\n\t\t\"type\": \"InterfaceConfig\"\r\n\t}],\r\n    \"description\": \"Periodic subscription to InterfaceConfig entities.\",\r\n    \"timeInterval\": 5,\r\n\t\"notification\": {\r\n\t\t\"endpoint\": {\r\n\t\t\t\"uri\": \"http://notifier-tester-virtualization-periodic:8082/notify\",\r\n\t\t\t\"accept\": \"application/json\"\r\n\t\t},\r\n        \"format\": \"normalized\",\r\n        \"sysAttrs\": true\r\n\t}\r\n}"
-						},
-						"url": {
-							"raw": "http://{{broker}}/ngsi-ld/v1/subscriptions/",
-							"protocol": "http",
-							"host": [
-								"{{broker}}"
-							],
-							"path": [
-								"ngsi-ld",
-								"v1",
-								"subscriptions",
-								""
-							]
-						},
-						"description": "create subscription with context in payload"
-					},
-					"response": []
-				},
-				{
-					"name": "Create periodic subscription for InterfaceConfig entity from Context Broker to Context Source - NEW Alternative",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Link",
-								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
-								"type": "text"
-							},
-							{
-								"key": "options",
-								"value": "sysAttrs",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"urn:ngsi-ld:Subscription:InterfaceConfig\",\r\n\t\"type\": \"Subscription\",\r\n\t\"entities\": [{\r\n\t\t\"type\": \"ietf-interfaces:interfaces/interface\"\r\n\t}],\r\n    \"description\": \"Periodic subscription to InterfaceConfig entities.\",\r\n    \"timeInterval\": 5,\r\n\t\"notification\": {\r\n\t\t\"endpoint\": {\r\n\t\t\t\"uri\": \"http://notifier-tester-virtualization-periodic:8082/notify\",\r\n\t\t\t\"accept\": \"application/json\"\r\n\t\t},\r\n        \"format\": \"normalized\",\r\n        \"sysAttrs\": true\r\n\t}\r\n}"
+							"raw": "{\r\n    \"id\": \"urn:ngsi-ld:Subscription:InterfaceConfig\",\r\n\t\"type\": \"Subscription\",\r\n\t\"entities\": [{\r\n\t\t\"type\": \"ietf-interfaces:interfaces/interface\"\r\n\t}],\r\n    \"description\": \"Periodic subscription to InterfaceConfig entities.\",\r\n    \"timeInterval\": 5,\r\n\t\"notification\": {\r\n\t\t\"endpoint\": {\r\n\t\t\t\"uri\": \"http://netconf-notifier-tester-virtualization-periodic:8082/notify\",\r\n\t\t\t\"accept\": \"application/json\"\r\n\t\t},\r\n        \"format\": \"normalized\",\r\n        \"sysAttrs\": true\r\n\t}\r\n}"
 						},
 						"url": {
 							"raw": "http://{{broker}}/ngsi-ld/v1/subscriptions/",
@@ -2624,72 +2049,7 @@
 					"response": []
 				},
 				{
-					"name": "Create on-change subscription for InterfaceStatistics entity to Context Source",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Link",
-								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
-								"type": "text"
-							},
-							{
-								"key": "options",
-								"value": "sysAttrs",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"urn:ngsi-ld:Subscription:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet2\",\r\n\t\"type\": \"Subscription\",\r\n\t\"entities\": [{\r\n\t\t\"type\": \"InterfaceStatistics\",\r\n        \"id\": \"urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet2\"\r\n\t}],\r\n    \"description\": \"On-change subscription to urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet2 entity.\",\r\n\t\"notification\": {\r\n\t\t\"endpoint\": {\r\n\t\t\t\"uri\": \"http://notifier-tester-virtualization-on-change-context-source:8082/notify\",\r\n\t\t\t\"accept\": \"application/json\"\r\n\t\t},\r\n        \"format\": \"normalized\",\r\n        \"sysAttrs\": true\r\n\t}\r\n}"
-						},
-						"url": {
-							"raw": "http://{{context-source}}/ngsi-ld/v1/subscriptions/",
-							"protocol": "http",
-							"host": [
-								"{{context-source}}"
-							],
-							"path": [
-								"ngsi-ld",
-								"v1",
-								"subscriptions",
-								""
-							]
-						},
-						"description": "create subscription with context in payload"
-					},
-					"response": []
-				},
-				{
-					"name": "Create on-change subscription for InterfaceStatistics entity to Context Source - NEW Alternative",
+					"name": "Create on-change subscription for InterfaceStatistics entity to Context Source (IETF)",
 					"event": [
 						{
 							"listen": "test",
@@ -2754,55 +2114,16 @@
 					"response": []
 				},
 				{
-					"name": "Create on-change subscription for InterfaceStatistics entities to Context Source",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
+					"name": "Delete on-change subscription for InterfaceStatistics entitY to Context Source",
 					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Link",
-								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
-								"type": "text"
-							},
-							{
-								"key": "options",
-								"value": "sysAttrs",
-								"type": "text",
-								"disabled": true
-							}
-						],
+						"method": "DELETE",
+						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"urn:ngsi-ld:Subscription:InterfaceStatistics:clab-telemetry-ixiac-lab-r1\",\r\n\t\"type\": \"Subscription\",\r\n\t\"entities\": [{\r\n\t\t\"type\": \"InterfaceStatistics\"\r\n\t}],\r\n    \"description\": \"On-change subscription to InterfaceStatistics entities.\",\r\n\t\"notification\": {\r\n\t\t\"endpoint\": {\r\n\t\t\t\"uri\": \"http://notifier-tester-virtualization-on-change-context-source:8082/notify\",\r\n\t\t\t\"accept\": \"application/json\"\r\n\t\t},\r\n        \"format\": \"normalized\",\r\n        \"sysAttrs\": true\r\n\t}\r\n}"
+							"raw": ""
 						},
 						"url": {
-							"raw": "http://{{context-source}}/ngsi-ld/v1/subscriptions/",
+							"raw": "http://{{context-source}}/ngsi-ld/v1/subscriptions/urn:ngsi-ld:Subscription:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet2",
 							"protocol": "http",
 							"host": [
 								"{{context-source}}"
@@ -2811,15 +2132,14 @@
 								"ngsi-ld",
 								"v1",
 								"subscriptions",
-								""
+								"urn:ngsi-ld:Subscription:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet2"
 							]
-						},
-						"description": "create subscription with context in payload"
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "Create on-change subscription for InterfaceStatistics entities to Context Source - NEW Alternative",
+					"name": "Create on-change subscription for InterfaceStatistics entities to Context Source (IETF)",
 					"event": [
 						{
 							"listen": "test",
@@ -2864,7 +2184,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"urn:ngsi-ld:Subscription:InterfaceStatistics:clab-telemetry-ixiac-lab-r1\",\r\n\t\"type\": \"Subscription\",\r\n\t\"entities\": [{\r\n\t\t\"type\": \"ietf-interfaces:interfaces-state/interface/statistics\"\r\n\t}],\r\n    \"description\": \"On-change subscription to InterfaceStatistics entities.\",\r\n\t\"notification\": {\r\n\t\t\"endpoint\": {\r\n\t\t\t\"uri\": \"http://notifier-tester-virtualization-on-change-context-source:8082/notify\",\r\n\t\t\t\"accept\": \"application/json\"\r\n\t\t},\r\n        \"format\": \"normalized\",\r\n        \"sysAttrs\": true\r\n\t}\r\n}"
+							"raw": "{\r\n    \"id\": \"urn:ngsi-ld:Subscription:InterfaceStatistics\",\r\n\t\"type\": \"Subscription\",\r\n\t\"entities\": [{\r\n\t\t\"type\": \"ietf-interfaces:interfaces-state/interface/statistics\"\r\n\t}],\r\n    \"description\": \"On-change subscription to InterfaceStatistics entities.\",\r\n\t\"notification\": {\r\n\t\t\"endpoint\": {\r\n\t\t\t\"uri\": \"http://netconf-notifier-tester-virtualization-on-change-context-source:8082/notify\",\r\n\t\t\t\"accept\": \"application/json\"\r\n\t\t},\r\n        \"format\": \"normalized\",\r\n        \"sysAttrs\": true\r\n\t}\r\n}"
 						},
 						"url": {
 							"raw": "http://{{context-source}}/ngsi-ld/v1/subscriptions/",
@@ -2909,72 +2229,7 @@
 					"response": []
 				},
 				{
-					"name": "Create periodic subscription for InterfaceStatistics entity to Context Source",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Link",
-								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
-								"type": "text"
-							},
-							{
-								"key": "options",
-								"value": "sysAttrs",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"urn:ngsi-ld:Subscription:Periodic:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet1\",\r\n\t\"type\": \"Subscription\",\r\n\t\"entities\": [{\r\n\t\t\"type\": \"InterfaceStatistics\",\r\n        \"id\": \"urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet1\"\r\n\t}],\r\n    \"description\": \"Periodic subscription to urn:ngsi-ld:InterfaceStatistics:clab-telemetry-ixiac-lab-r1:GigabitEthernet1 entity.\",\r\n\t\"timeInterval\": 5,\r\n    \"notification\": {\r\n\t\t\"endpoint\": {\r\n\t\t\t\"uri\": \"http://notifier-tester-virtualization-periodic-context-source:8082/notify\",\r\n\t\t\t\"accept\": \"application/json\"\r\n\t\t},\r\n        \"format\": \"normalized\"\r\n\t}\r\n}"
-						},
-						"url": {
-							"raw": "http://{{context-source}}/ngsi-ld/v1/subscriptions/",
-							"protocol": "http",
-							"host": [
-								"{{context-source}}"
-							],
-							"path": [
-								"ngsi-ld",
-								"v1",
-								"subscriptions",
-								""
-							]
-						},
-						"description": "create subscription with context in payload"
-					},
-					"response": []
-				},
-				{
-					"name": "Create periodic subscription for InterfaceStatistics entity to Context Source - NEW Alternative",
+					"name": "Create periodic subscription for InterfaceStatistics entity to Context Source (IETF)",
 					"event": [
 						{
 							"listen": "test",
@@ -3064,72 +2319,7 @@
 					"response": []
 				},
 				{
-					"name": "Create periodic subscription for Interface entity to Context Source",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Link",
-								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
-								"type": "text"
-							},
-							{
-								"key": "options",
-								"value": "sysAttrs",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"urn:ngsi-ld:Subscription:Periodic:Interface:clab-telemetry-ixiac-lab-r2:GigabitEthernet2\",\r\n\t\"type\": \"Subscription\",\r\n\t\"entities\": [{\r\n\t\t\"type\": \"Interface\",\r\n        \"id\": \"urn:ngsi-ld:Interface:clab-telemetry-ixiac-lab-r2:GigabitEthernet2\"\r\n\t}],\r\n    \"description\": \"Periodic subscription to urn:ngsi-ld:Interface:clab-telemetry-ixiac-lab-r2:GigabitEthernet2 entity.\",\r\n\t\"timeInterval\": 5,\r\n    \"notification\": {\r\n\t\t\"endpoint\": {\r\n\t\t\t\"uri\": \"http://notifier-tester-virtualization-periodic-context-source:8082/notify\",\r\n\t\t\t\"accept\": \"application/json\"\r\n\t\t},\r\n        \"format\": \"normalized\",\r\n        \"sysAttrs\": true\r\n\t}\r\n}"
-						},
-						"url": {
-							"raw": "http://{{context-source}}/ngsi-ld/v1/subscriptions/",
-							"protocol": "http",
-							"host": [
-								"{{context-source}}"
-							],
-							"path": [
-								"ngsi-ld",
-								"v1",
-								"subscriptions",
-								""
-							]
-						},
-						"description": "create subscription with context in payload"
-					},
-					"response": []
-				},
-				{
-					"name": "Create periodic subscription for Interface entity to Context Source - NEW Alternative",
+					"name": "Create periodic subscription for Interface entity to Context Source (IETF)",
 					"event": [
 						{
 							"listen": "test",
@@ -3219,6 +2409,713 @@
 					"response": []
 				},
 				{
+					"name": "Obtain Entity Data by type field (GET OpenConfig)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Link",
+								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{broker}}/ngsi-ld/v1/entities/?type=openconfig-interfaces:interfaces/interface/state/counters",
+							"protocol": "http",
+							"host": [
+								"{{broker}}"
+							],
+							"path": [
+								"ngsi-ld",
+								"v1",
+								"entities",
+								""
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "openconfig-interfaces:interfaces/interface/state/counters"
+								}
+							]
+						},
+						"description": "This example returns the data of `urn:ngsi-ld:Building:farm001`. The NGSI-LD `@context` is supplied as a [`Link` header](https://www.w3.org/wiki/LinkHeader) to define the entities returned. The `ngsi-context.jsonld` `@context` file is just supplying short names for every attribute.\n\nThe full link header syntax can be seen below:\n\n```text\nLink: <https://fiware.github.io/data-models/context.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\n```\n\nThe standard HTTP `Link` header allows metadata (in this case the `@context`) to be passed in without actually touching\nthe resource in question. In the case of NGSI-LD, the metadata is a file in `application/ld+json` format."
+					},
+					"response": []
+				},
+				{
+					"name": "Obtain Entity Data by type field (GET OpenConfig) with sysAttrs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Link",
+								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{broker}}/ngsi-ld/v1/entities/?type=openconfig-interfaces:interfaces/interface/state/counters&options=sysAttrs",
+							"protocol": "http",
+							"host": [
+								"{{broker}}"
+							],
+							"path": [
+								"ngsi-ld",
+								"v1",
+								"entities",
+								""
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "openconfig-interfaces:interfaces/interface/state/counters"
+								},
+								{
+									"key": "options",
+									"value": "sysAttrs"
+								}
+							]
+						},
+						"description": "This example returns the data of `urn:ngsi-ld:Building:farm001`. The NGSI-LD `@context` is supplied as a [`Link` header](https://www.w3.org/wiki/LinkHeader) to define the entities returned. The `ngsi-context.jsonld` `@context` file is just supplying short names for every attribute.\n\nThe full link header syntax can be seen below:\n\n```text\nLink: <https://fiware.github.io/data-models/context.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\n```\n\nThe standard HTTP `Link` header allows metadata (in this case the `@context`) to be passed in without actually touching\nthe resource in question. In the case of NGSI-LD, the metadata is a file in `application/ld+json` format."
+					},
+					"response": []
+				},
+				{
+					"name": "Obtain Entity Data by type and id fields (GET OpenConfig)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Link",
+								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{broker}}/ngsi-ld/v1/entities/?type=openconfig-interfaces:interfaces/interface/state/counters&id=urn:ngsi-ld:InterfaceStateCounters:clab-telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1",
+							"protocol": "http",
+							"host": [
+								"{{broker}}"
+							],
+							"path": [
+								"ngsi-ld",
+								"v1",
+								"entities",
+								""
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "openconfig-interfaces:interfaces/interface/state/counters"
+								},
+								{
+									"key": "id",
+									"value": "urn:ngsi-ld:InterfaceStateCounters:clab-telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1"
+								}
+							]
+						},
+						"description": "This example returns the data of `urn:ngsi-ld:Building:farm001`. The NGSI-LD `@context` is supplied as a [`Link` header](https://www.w3.org/wiki/LinkHeader) to define the entities returned. The `ngsi-context.jsonld` `@context` file is just supplying short names for every attribute.\n\nThe full link header syntax can be seen below:\n\n```text\nLink: <https://fiware.github.io/data-models/context.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\n```\n\nThe standard HTTP `Link` header allows metadata (in this case the `@context`) to be passed in without actually touching\nthe resource in question. In the case of NGSI-LD, the metadata is a file in `application/ld+json` format."
+					},
+					"response": []
+				},
+				{
+					"name": "Obtain Entity Data by type and id fields (GET OpenConfig) with sysAttrs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Link",
+								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{broker}}/ngsi-ld/v1/entities/?type=openconfig-interfaces:interfaces/interface/state/counters&id=urn:ngsi-ld:InterfaceStateCounters:clab-telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1&options=sysAttrs",
+							"protocol": "http",
+							"host": [
+								"{{broker}}"
+							],
+							"path": [
+								"ngsi-ld",
+								"v1",
+								"entities",
+								""
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "openconfig-interfaces:interfaces/interface/state/counters"
+								},
+								{
+									"key": "id",
+									"value": "urn:ngsi-ld:InterfaceStateCounters:clab-telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1"
+								},
+								{
+									"key": "options",
+									"value": "sysAttrs"
+								}
+							]
+						},
+						"description": "This example returns the data of `urn:ngsi-ld:Building:farm001`. The NGSI-LD `@context` is supplied as a [`Link` header](https://www.w3.org/wiki/LinkHeader) to define the entities returned. The `ngsi-context.jsonld` `@context` file is just supplying short names for every attribute.\n\nThe full link header syntax can be seen below:\n\n```text\nLink: <https://fiware.github.io/data-models/context.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\n```\n\nThe standard HTTP `Link` header allows metadata (in this case the `@context`) to be passed in without actually touching\nthe resource in question. In the case of NGSI-LD, the metadata is a file in `application/ld+json` format."
+					},
+					"response": []
+				},
+				{
+					"name": "Obtain Entity Data by id field (GET OpenConfig)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Link",
+								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:InterfaceStateCounters:clab-telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0%2F0%2F0%2F1",
+							"protocol": "http",
+							"host": [
+								"{{broker}}"
+							],
+							"path": [
+								"ngsi-ld",
+								"v1",
+								"entities",
+								"urn:ngsi-ld:InterfaceStateCounters:clab-telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0%2F0%2F0%2F1"
+							]
+						},
+						"description": "This example returns the data of `urn:ngsi-ld:Building:farm001`. The NGSI-LD `@context` is supplied as a [`Link` header](https://www.w3.org/wiki/LinkHeader) to define the entities returned. The `ngsi-context.jsonld` `@context` file is just supplying short names for every attribute.\n\nThe full link header syntax can be seen below:\n\n```text\nLink: <https://fiware.github.io/data-models/context.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\n```\n\nThe standard HTTP `Link` header allows metadata (in this case the `@context`) to be passed in without actually touching\nthe resource in question. In the case of NGSI-LD, the metadata is a file in `application/ld+json` format."
+					},
+					"response": []
+				},
+				{
+					"name": "Obtain Entity Data by id field (GET OpenConfig) with sysAttrs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Link",
+								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{broker}}/ngsi-ld/v1/entities/urn:ngsi-ld:InterfaceStateCounters:clab-telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0%2F0%2F0%2F1?options=sysAttrs",
+							"protocol": "http",
+							"host": [
+								"{{broker}}"
+							],
+							"path": [
+								"ngsi-ld",
+								"v1",
+								"entities",
+								"urn:ngsi-ld:InterfaceStateCounters:clab-telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0%2F0%2F0%2F1"
+							],
+							"query": [
+								{
+									"key": "options",
+									"value": "sysAttrs"
+								}
+							]
+						},
+						"description": "This example returns the data of `urn:ngsi-ld:Building:farm001`. The NGSI-LD `@context` is supplied as a [`Link` header](https://www.w3.org/wiki/LinkHeader) to define the entities returned. The `ngsi-context.jsonld` `@context` file is just supplying short names for every attribute.\n\nThe full link header syntax can be seen below:\n\n```text\nLink: <https://fiware.github.io/data-models/context.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\n```\n\nThe standard HTTP `Link` header allows metadata (in this case the `@context`) to be passed in without actually touching\nthe resource in question. In the case of NGSI-LD, the metadata is a file in `application/ld+json` format."
+					},
+					"response": []
+				},
+				{
+					"name": "Obtain Entity Data by type field (GET OpenConfig) by ContextSource",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Link",
+								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{context-source}}/ngsi-ld/v1/entities/?type=openconfig-interfaces:interfaces/interface",
+							"protocol": "http",
+							"host": [
+								"{{context-source}}"
+							],
+							"path": [
+								"ngsi-ld",
+								"v1",
+								"entities",
+								""
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "openconfig-interfaces:interfaces/interface"
+								}
+							]
+						},
+						"description": "This example returns the data of `urn:ngsi-ld:Building:farm001`. The NGSI-LD `@context` is supplied as a [`Link` header](https://www.w3.org/wiki/LinkHeader) to define the entities returned. The `ngsi-context.jsonld` `@context` file is just supplying short names for every attribute.\n\nThe full link header syntax can be seen below:\n\n```text\nLink: <https://fiware.github.io/data-models/context.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\n```\n\nThe standard HTTP `Link` header allows metadata (in this case the `@context`) to be passed in without actually touching\nthe resource in question. In the case of NGSI-LD, the metadata is a file in `application/ld+json` format."
+					},
+					"response": []
+				},
+				{
+					"name": "Obtain Entity Data by type field (GET OpenConfig) by ContextSource with sysAttrs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Link",
+								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{context-source}}/ngsi-ld/v1/entities/?type=openconfig-interfaces:interfaces/interface&options=sysAttrs",
+							"protocol": "http",
+							"host": [
+								"{{context-source}}"
+							],
+							"path": [
+								"ngsi-ld",
+								"v1",
+								"entities",
+								""
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "openconfig-interfaces:interfaces/interface"
+								},
+								{
+									"key": "options",
+									"value": "sysAttrs"
+								}
+							]
+						},
+						"description": "This example returns the data of `urn:ngsi-ld:Building:farm001`. The NGSI-LD `@context` is supplied as a [`Link` header](https://www.w3.org/wiki/LinkHeader) to define the entities returned. The `ngsi-context.jsonld` `@context` file is just supplying short names for every attribute.\n\nThe full link header syntax can be seen below:\n\n```text\nLink: <https://fiware.github.io/data-models/context.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\n```\n\nThe standard HTTP `Link` header allows metadata (in this case the `@context`) to be passed in without actually touching\nthe resource in question. In the case of NGSI-LD, the metadata is a file in `application/ld+json` format."
+					},
+					"response": []
+				},
+				{
+					"name": "Obtain Entity Data by type and id fields (GET OpenConfig) by ContextSource",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Link",
+								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{context-source}}/ngsi-ld/v1/entities/?type=openconfig-interfaces:interfaces/interface/state&id=urn:ngsi-ld:InterfaceState:clab-telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1",
+							"protocol": "http",
+							"host": [
+								"{{context-source}}"
+							],
+							"path": [
+								"ngsi-ld",
+								"v1",
+								"entities",
+								""
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "openconfig-interfaces:interfaces/interface/state"
+								},
+								{
+									"key": "id",
+									"value": "urn:ngsi-ld:InterfaceState:clab-telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1"
+								}
+							]
+						},
+						"description": "This example returns the data of `urn:ngsi-ld:Building:farm001`. The NGSI-LD `@context` is supplied as a [`Link` header](https://www.w3.org/wiki/LinkHeader) to define the entities returned. The `ngsi-context.jsonld` `@context` file is just supplying short names for every attribute.\n\nThe full link header syntax can be seen below:\n\n```text\nLink: <https://fiware.github.io/data-models/context.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\n```\n\nThe standard HTTP `Link` header allows metadata (in this case the `@context`) to be passed in without actually touching\nthe resource in question. In the case of NGSI-LD, the metadata is a file in `application/ld+json` format."
+					},
+					"response": []
+				},
+				{
+					"name": "Obtain Entity Data by type and id fields (GET OpenConfig) by ContextSource with sysAttrs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Link",
+								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{context-source}}/ngsi-ld/v1/entities/?type=openconfig-interfaces:interfaces/interface/state&id=urn:ngsi-ld:InterfaceState:clab-telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1&options=sysAttrs",
+							"protocol": "http",
+							"host": [
+								"{{context-source}}"
+							],
+							"path": [
+								"ngsi-ld",
+								"v1",
+								"entities",
+								""
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "openconfig-interfaces:interfaces/interface/state"
+								},
+								{
+									"key": "id",
+									"value": "urn:ngsi-ld:InterfaceState:clab-telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1"
+								},
+								{
+									"key": "options",
+									"value": "sysAttrs"
+								}
+							]
+						},
+						"description": "This example returns the data of `urn:ngsi-ld:Building:farm001`. The NGSI-LD `@context` is supplied as a [`Link` header](https://www.w3.org/wiki/LinkHeader) to define the entities returned. The `ngsi-context.jsonld` `@context` file is just supplying short names for every attribute.\n\nThe full link header syntax can be seen below:\n\n```text\nLink: <https://fiware.github.io/data-models/context.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\n```\n\nThe standard HTTP `Link` header allows metadata (in this case the `@context`) to be passed in without actually touching\nthe resource in question. In the case of NGSI-LD, the metadata is a file in `application/ld+json` format."
+					},
+					"response": []
+				},
+				{
+					"name": "Obtain Entity Data by id field (GET OpenConfig) by ContextSource",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Link",
+								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{context-source}}/ngsi-ld/v1/entities/urn:ngsi-ld:InterfaceState:clab-telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1",
+							"protocol": "http",
+							"host": [
+								"{{context-source}}"
+							],
+							"path": [
+								"ngsi-ld",
+								"v1",
+								"entities",
+								"urn:ngsi-ld:InterfaceState:clab-telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0",
+								"0",
+								"0",
+								"1"
+							]
+						},
+						"description": "This example returns the data of `urn:ngsi-ld:Building:farm001`. The NGSI-LD `@context` is supplied as a [`Link` header](https://www.w3.org/wiki/LinkHeader) to define the entities returned. The `ngsi-context.jsonld` `@context` file is just supplying short names for every attribute.\n\nThe full link header syntax can be seen below:\n\n```text\nLink: <https://fiware.github.io/data-models/context.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\n```\n\nThe standard HTTP `Link` header allows metadata (in this case the `@context`) to be passed in without actually touching\nthe resource in question. In the case of NGSI-LD, the metadata is a file in `application/ld+json` format."
+					},
+					"response": []
+				},
+				{
+					"name": "Obtain Entity Data by id field (GET OpenConfig) by ContextSource with sysAttrs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Link",
+								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{context-source}}/ngsi-ld/v1/entities/urn:ngsi-ld:InterfaceState:clab-telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1?options=sysAttrs",
+							"protocol": "http",
+							"host": [
+								"{{context-source}}"
+							],
+							"path": [
+								"ngsi-ld",
+								"v1",
+								"entities",
+								"urn:ngsi-ld:InterfaceState:clab-telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0",
+								"0",
+								"0",
+								"1"
+							],
+							"query": [
+								{
+									"key": "options",
+									"value": "sysAttrs"
+								}
+							]
+						},
+						"description": "This example returns the data of `urn:ngsi-ld:Building:farm001`. The NGSI-LD `@context` is supplied as a [`Link` header](https://www.w3.org/wiki/LinkHeader) to define the entities returned. The `ngsi-context.jsonld` `@context` file is just supplying short names for every attribute.\n\nThe full link header syntax can be seen below:\n\n```text\nLink: <https://fiware.github.io/data-models/context.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\n```\n\nThe standard HTTP `Link` header allows metadata (in this case the `@context`) to be passed in without actually touching\nthe resource in question. In the case of NGSI-LD, the metadata is a file in `application/ld+json` format."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete on-change subscription for InterfaceStateCounters entity to Context Source (OpenConfig)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{context-source}}/ngsi-ld/v1/subscriptions/urn:ngsi-ld:Subscription:InterfaceStateCounters",
+							"protocol": "http",
+							"host": [
+								"{{context-source}}"
+							],
+							"path": [
+								"ngsi-ld",
+								"v1",
+								"subscriptions",
+								"urn:ngsi-ld:Subscription:InterfaceStateCounters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create on-change subscription for InterfaceStateCounters entity to Context Source (OpenConfig)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Link",
+								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
+								"type": "text"
+							},
+							{
+								"key": "options",
+								"value": "sysAttrs",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"urn:ngsi-ld:Subscription:InterfaceStateCounters\",\r\n\t\"type\": \"Subscription\",\r\n\t\"entities\": [{\r\n\t\t\"type\": \"openconfig-interfaces:interfaces/interface/state/counters\",\r\n        \"id\": \"urn:ngsi-ld:InterfaceStateCounters:clab-telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1\"\r\n\t}],\r\n    \"description\": \"On-change subscription to urn:ngsi-ld:InterfaceStateCounters:clab-telemetry-testbed-xrv9k-ceos-4hosts:r1:GigabitEthernet0/0/0/1 entity.\",\r\n    \"notification\": {\r\n\t\t\"endpoint\": {\r\n\t\t\t\"uri\": \"http://notifier-tester-virtualization-on-change:8082/notify\",\r\n\t\t\t\"accept\": \"application/json\"\r\n\t\t},\r\n        \"format\": \"normalized\",\r\n        \"sysAttrs\": true\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://{{context-source}}/ngsi-ld/v1/subscriptions/",
+							"protocol": "http",
+							"host": [
+								"{{context-source}}"
+							],
+							"path": [
+								"ngsi-ld",
+								"v1",
+								"subscriptions",
+								""
+							]
+						},
+						"description": "create subscription with context in payload"
+					},
+					"response": []
+				},
+				{
+					"name": "Query subscription by id (Context Broker) (OpenConfig)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Link",
+								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{broker}}/ngsi-ld/v1/subscriptions/urn:ngsi-ld:Subscription:InterfaceStateCounters",
+							"protocol": "http",
+							"host": [
+								"{{broker}}"
+							],
+							"path": [
+								"ngsi-ld",
+								"v1",
+								"subscriptions",
+								"urn:ngsi-ld:Subscription:InterfaceStateCounters"
+							]
+						},
+						"description": "for retreiving specific subscription"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete periodic subscription for InterfaceStateCounters entity to Context Broker (OpenConfig)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{broker}}/ngsi-ld/v1/subscriptions/urn:ngsi-ld:Subscription:InterfaceStateCounters",
+							"protocol": "http",
+							"host": [
+								"{{broker}}"
+							],
+							"path": [
+								"ngsi-ld",
+								"v1",
+								"subscriptions",
+								"urn:ngsi-ld:Subscription:InterfaceStateCounters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create periodic subscription for InterfaceState entity to Context Broker (OpenConfig)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Link",
+								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
+								"type": "text"
+							},
+							{
+								"key": "options",
+								"value": "sysAttrs",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"urn:ngsi-ld:Subscription:InterfaceState\",\r\n\t\"type\": \"Subscription\",\r\n\t\"entities\": [{\r\n\t\t\"type\": \"openconfig-interfaces:interfaces/interface/state\"\r\n\t}],\r\n    \"description\": \"Periodic subscription to InterfaceStateentities.\",\r\n    \"timeInterval\": 5,\r\n    \"notification\": {\r\n\t\t\"endpoint\": {\r\n\t\t\t\"uri\": \"http://notifier-tester-virtualization-periodic:8082/notify\",\r\n\t\t\t\"accept\": \"application/json\"\r\n\t\t},\r\n        \"format\": \"normalized\",\r\n        \"sysAttrs\": true\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "http://{{broker}}/ngsi-ld/v1/subscriptions/",
+							"protocol": "http",
+							"host": [
+								"{{broker}}"
+							],
+							"path": [
+								"ngsi-ld",
+								"v1",
+								"subscriptions",
+								""
+							]
+						},
+						"description": "create subscription with context in payload"
+					},
+					"response": []
+				},
+				{
 					"name": "Query all subscriptions (Context Broker)",
 					"request": {
 						"method": "GET",
@@ -3268,7 +3165,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{broker}}/ngsi-ld/v1/subscriptions/urn:ngsi-ld:Subscription:NETCONF",
+							"raw": "http://{{broker}}/ngsi-ld/v1/subscriptions/urn:ngsi-ld:Subscription:Protocol",
 							"protocol": "http",
 							"host": [
 								"{{broker}}"
@@ -3277,7 +3174,7 @@
 								"ngsi-ld",
 								"v1",
 								"subscriptions",
-								"urn:ngsi-ld:Subscription:NETCONF"
+								"urn:ngsi-ld:Subscription:Protocol"
 							]
 						},
 						"description": "for retreiving specific subscription"
@@ -3318,7 +3215,7 @@
 					"response": []
 				},
 				{
-					"name": "Query subscription by id (Context Source)",
+					"name": "Query subscription by id (Context Source) (IETF)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -3351,7 +3248,40 @@
 					"response": []
 				},
 				{
-					"name": "Query csource by type",
+					"name": "Query subscription by id (Context Source) (OpenConfig)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Link",
+								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{context-source}}/ngsi-ld/v1/subscriptions/urn:ngsi-ld:Subscription:InterfaceStateCounters",
+							"protocol": "http",
+							"host": [
+								"{{context-source}}"
+							],
+							"path": [
+								"ngsi-ld",
+								"v1",
+								"subscriptions",
+								"urn:ngsi-ld:Subscription:InterfaceStateCounters"
+							]
+						},
+						"description": "for retreiving specific subscription"
+					},
+					"response": []
+				},
+				{
+					"name": "Query csource by type (IETF)",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -3381,6 +3311,43 @@
 								{
 									"key": "type",
 									"value": "InterfaceStatistics"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query csource by type (OpenConfig)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Link",
+								"value": "<{{context.jsonld}}>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\"",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{broker}}/ngsi-ld/v1/csourceRegistrations?type=InterfaceStateCounters",
+							"protocol": "http",
+							"host": [
+								"{{broker}}"
+							],
+							"path": [
+								"ngsi-ld",
+								"v1",
+								"csourceRegistrations"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "InterfaceStateCounters"
 								}
 							]
 						}
@@ -3479,12 +3446,12 @@
 		},
 		{
 			"key": "broker",
-			"value": "localhost:9090",
+			"value": "138.4.7.159:9090",
 			"type": "string"
 		},
 		{
 			"key": "context-source",
-			"value": "locahost:8089",
+			"value": "138.4.7.159:8089",
 			"type": "string"
 		}
 	]
