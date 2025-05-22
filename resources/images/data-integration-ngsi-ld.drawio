@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2025-03-17T12:32:08.814Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.5.3 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="1jB3JS91WnPxYF7t_IfN" version="24.5.3" type="device" pages="23">
+<mxfile host="Electron" modified="2025-05-22T13:30:31.408Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.5.3 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="OZJ6Flpbqu7siRjmp0JY" version="24.5.3" type="device" pages="23">
   <diagram name="data-materialization-workflow" id="F7MqV6mRHY583K2qxNko">
     <mxGraphModel dx="1026" dy="772" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -2468,7 +2468,7 @@
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram name="NDT-solution" id="9MxynH1kGLMqE5ACZXu3">
+  <diagram name="NDT-solution-draft" id="9MxynH1kGLMqE5ACZXu3">
     <mxGraphModel dx="1853" dy="772" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="x6WdBlYGRFKpT4hf7Lp4-0" />
