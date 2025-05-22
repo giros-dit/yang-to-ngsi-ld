@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
+        "openconfig-if-ip": "http://openconfig.net/yang/interfaces/ip/",
+        "Neighbor": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/neighbors/neighbor",
+        "ip": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/neighbors/neighbor/ip"
+    }
+}

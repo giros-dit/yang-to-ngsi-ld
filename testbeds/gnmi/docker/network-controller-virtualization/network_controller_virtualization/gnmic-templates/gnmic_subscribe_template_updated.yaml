@@ -1,0 +1,16 @@
+subscriptions:
+  xpaths-periodic:
+    encoding: JSON_IETF
+    paths:
+    - /openconfig-interfaces:interfaces/interface[name='GigabitEthernet0/0/0/0']/state/counters
+    sample-interval: 5s
+    stream-mode: sample
+targets:
+  clab-telemetry-testbed-xrv9k-ceos-4hosts-r1:
+    address: clab-telemetry-testbed-xrv9k-ceos-4hosts-r1:57400
+    insecure: true
+    log-file: /tmp/gnmic-1.log
+    password: clab@123
+    subscriptions:
+    - xpaths-periodic
+    username: clab

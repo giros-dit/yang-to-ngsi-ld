@@ -1,0 +1,16 @@
+{
+    "@context": {
+        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
+        "openconfig-if-ip": "http://openconfig.net/yang/interfaces/ip/",
+        "VrrpGroupState": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/addresses/address/vrrp/vrrp-group/state",
+        "virtualRouterId": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/addresses/address/vrrp/vrrp-group/state/virtual-router-id",
+        "virtualAddress": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/addresses/address/vrrp/vrrp-group/state/virtual-address",
+        "priority": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/addresses/address/vrrp/vrrp-group/state/priority",
+        "preempt": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/addresses/address/vrrp/vrrp-group/state/preempt",
+        "preemptDelay": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/addresses/address/vrrp/vrrp-group/state/preempt-delay",
+        "acceptMode": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/addresses/address/vrrp/vrrp-group/state/accept-mode",
+        "advertisementInterval": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/addresses/address/vrrp/vrrp-group/state/advertisement-interval",
+        "currentPriority": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/addresses/address/vrrp/vrrp-group/state/current-priority",
+        "virtualLinkLocal": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/addresses/address/vrrp/vrrp-group/state/virtual-link-local"
+    }
+}

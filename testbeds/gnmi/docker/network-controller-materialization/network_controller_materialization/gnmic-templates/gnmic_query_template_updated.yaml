@@ -1,0 +1,7 @@
+address: clab-telemetry-testbed-xrv9k-ceos-4hosts-r1:57400
+encoding: JSON_IETF
+get-path:
+- /openconfig-interfaces:interfaces
+insecure: true
+password: clab@123
+username: clab

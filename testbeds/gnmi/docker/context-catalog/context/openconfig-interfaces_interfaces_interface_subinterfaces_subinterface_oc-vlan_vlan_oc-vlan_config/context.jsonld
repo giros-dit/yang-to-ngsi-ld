@@ -1,7 +1,0 @@
-{
-    "@context": {
-        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
-        "Config": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/oc-vlan:vlan/oc-vlan:config",
-        "vlanId": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/oc-vlan:vlan/oc-vlan:config/oc-vlan:vlan-id"
-    }
-}

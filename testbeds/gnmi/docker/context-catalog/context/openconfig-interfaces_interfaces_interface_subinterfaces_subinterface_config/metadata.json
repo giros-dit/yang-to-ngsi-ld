@@ -1,0 +1,15 @@
+{
+    "@context": {
+        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
+        "SubinterfaceConfig": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/config",
+        "index": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/config/index",
+        "description": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/config/description",
+        "enabled": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/config/enabled"
+    },
+    "config": [
+        "SubinterfaceConfig",
+        "index",
+        "description",
+        "enabled"
+    ]
+}

@@ -4,4 +4,4 @@ password: clab@123
 insecure: true
 encoding: JSON_IETF
 get-path: 
-    - /openconfig-interfaces:interfaces  # `get` command local flag
+    - /openconfig-interfaces:interfaces # `get` command local flag

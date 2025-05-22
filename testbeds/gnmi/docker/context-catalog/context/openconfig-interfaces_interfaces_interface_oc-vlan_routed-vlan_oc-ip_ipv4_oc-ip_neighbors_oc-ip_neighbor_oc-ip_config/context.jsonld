@@ -1,8 +1,0 @@
-{
-    "@context": {
-        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
-        "NeighborConfig": "openconfig-interfaces:interfaces/interface/oc-vlan:routed-vlan/oc-ip:ipv4/oc-ip:neighbors/oc-ip:neighbor/oc-ip:config",
-        "ip": "openconfig-interfaces:interfaces/interface/oc-vlan:routed-vlan/oc-ip:ipv4/oc-ip:neighbors/oc-ip:neighbor/oc-ip:config/oc-ip:ip",
-        "linkLayerAddress": "openconfig-interfaces:interfaces/interface/oc-vlan:routed-vlan/oc-ip:ipv4/oc-ip:neighbors/oc-ip:neighbor/oc-ip:config/oc-ip:link-layer-address"
-    }
-}

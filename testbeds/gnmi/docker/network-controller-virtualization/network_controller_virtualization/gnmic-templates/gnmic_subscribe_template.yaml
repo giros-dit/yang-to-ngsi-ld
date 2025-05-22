@@ -1,0 +1,22 @@
+targets:
+  clab-telemetry-testbed-xrv9k-ceos-4hosts-r1:
+    # gNMI target address; CLI flag `--address`
+    address: "clab-telemetry-testbed-xrv9k-ceos-4hosts-r1:57400"
+    # gNMI target user name; CLI flag `--username`
+    username: clab
+    # gNMI target user password; CLI flag `--password`
+    password: clab@123
+    # connection mode; CLI flag `--insecure`
+    insecure: true
+    # log file location; CLI flag `--log-file`
+    log-file: /tmp/gnmic-1.log
+    subscriptions:
+      - xpaths-periodic
+      
+subscriptions:
+  xpaths-periodic:
+    paths:
+      - "/interfaces/interface[name=GigabitEthernet0/0/0/0]/state/counters"
+    stream-mode: sample
+    sample-interval: 5s
+    encoding: JSON_IETF

@@ -1,0 +1,19 @@
+{
+    "@context": {
+        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
+        "InterfaceConfig": "openconfig-interfaces:interfaces/interface/config",
+        "name": "openconfig-interfaces:interfaces/interface/config/name",
+        "mtu": "openconfig-interfaces:interfaces/interface/config/mtu",
+        "loopbackMode": "openconfig-interfaces:interfaces/interface/config/loopback-mode",
+        "description": "openconfig-interfaces:interfaces/interface/config/description",
+        "enabled": "openconfig-interfaces:interfaces/interface/config/enabled"
+    },
+    "config": [
+        "InterfaceConfig",
+        "name",
+        "mtu",
+        "loopbackMode",
+        "description",
+        "enabled"
+    ]
+}

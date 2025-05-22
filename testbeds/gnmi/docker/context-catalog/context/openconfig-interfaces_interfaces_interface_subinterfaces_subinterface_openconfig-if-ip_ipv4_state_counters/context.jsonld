@@ -1,0 +1,19 @@
+{
+    "@context": {
+        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
+        "openconfig-if-ip": "http://openconfig.net/yang/interfaces/ip/",
+        "StateCounters": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/state/counters",
+        "inPkts": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/state/counters/in-pkts",
+        "inOctets": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/state/counters/in-octets",
+        "inErrorPkts": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/state/counters/in-error-pkts",
+        "inForwardedPkts": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/state/counters/in-forwarded-pkts",
+        "inForwardedOctets": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/state/counters/in-forwarded-octets",
+        "inDiscardedPkts": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/state/counters/in-discarded-pkts",
+        "outPkts": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/state/counters/out-pkts",
+        "outOctets": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/state/counters/out-octets",
+        "outErrorPkts": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/state/counters/out-error-pkts",
+        "outForwardedPkts": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/state/counters/out-forwarded-pkts",
+        "outForwardedOctets": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/state/counters/out-forwarded-octets",
+        "outDiscardedPkts": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/state/counters/out-discarded-pkts"
+    }
+}

@@ -1,7 +1,0 @@
-{
-    "@context": {
-        "ietf-network": "urn:ietf:params:xml:ns:yang:ietf-network/",
-        "Network": "ietf-network:networks/network",
-        "networkId": "ietf-network:networks/network/network-id"
-    }
-}
