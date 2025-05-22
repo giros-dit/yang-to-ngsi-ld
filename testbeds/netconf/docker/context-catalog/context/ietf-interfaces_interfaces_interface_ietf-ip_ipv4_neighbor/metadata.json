@@ -1,0 +1,15 @@
+{
+    "@context": {
+        "ietf-interfaces": "urn:ietf:params:xml:ns:yang:ietf-interfaces/",
+        "ietf-ip": "urn:ietf:params:xml:ns:yang:ietf-ip/",
+        "InterfaceConfigIpv4Neighbor": "ietf-interfaces:interfaces/interface/ietf-ip:ipv4/neighbor",
+        "ip": "ietf-interfaces:interfaces/interface/ietf-ip:ipv4/neighbor/ip",
+        "linkLayerAddress": "ietf-interfaces:interfaces/interface/ietf-ip:ipv4/neighbor/link-layer-address"
+    },
+    "key": "ip",
+    "config": [
+        "InterfaceConfigIpv4Neighbor",
+        "ip",
+        "linkLayerAddress"
+    ]
+}

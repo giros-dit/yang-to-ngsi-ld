@@ -1,6 +1,7 @@
 # Custom Dockerfile for ncclient-collector-queries
 
-FROM ubuntu:latest
+#FROM ubuntu:latest
+FROM ubuntu:22.04
 
 RUN apt update && apt -y dist-upgrade && apt -y autoremove && apt autoclean
 

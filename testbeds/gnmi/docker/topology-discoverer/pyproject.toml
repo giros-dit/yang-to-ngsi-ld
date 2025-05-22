@@ -14,7 +14,7 @@ kafka-python = ">=2.0.2"
 python-dateutil = ">=2.8.2"
 numpy = "^1.26.4"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 pytest = "^5.2"
 flake8 = ">=4.0.1"
 ngsi-ld-models = { path = "ngsi-ld-models", develop = true }

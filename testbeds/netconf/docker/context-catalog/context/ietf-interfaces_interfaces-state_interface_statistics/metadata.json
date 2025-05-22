@@ -1,0 +1,20 @@
+{
+    "@context": {
+        "ietf-interfaces": "urn:ietf:params:xml:ns:yang:ietf-interfaces/",
+        "InterfaceStatistics": "ietf-interfaces:interfaces-state/interface/statistics",
+        "discontinuityTime": "ietf-interfaces:interfaces-state/interface/statistics/discontinuity-time",
+        "inOctets": "ietf-interfaces:interfaces-state/interface/statistics/in-octets",
+        "inUnicastPkts": "ietf-interfaces:interfaces-state/interface/statistics/in-unicast-pkts",
+        "inBroadcastPkts": "ietf-interfaces:interfaces-state/interface/statistics/in-broadcast-pkts",
+        "inMulticastPkts": "ietf-interfaces:interfaces-state/interface/statistics/in-multicast-pkts",
+        "inDiscards": "ietf-interfaces:interfaces-state/interface/statistics/in-discards",
+        "inErrors": "ietf-interfaces:interfaces-state/interface/statistics/in-errors",
+        "inUnknownProtos": "ietf-interfaces:interfaces-state/interface/statistics/in-unknown-protos",
+        "outOctets": "ietf-interfaces:interfaces-state/interface/statistics/out-octets",
+        "outUnicastPkts": "ietf-interfaces:interfaces-state/interface/statistics/out-unicast-pkts",
+        "outBroadcastPkts": "ietf-interfaces:interfaces-state/interface/statistics/out-broadcast-pkts",
+        "outMulticastPkts": "ietf-interfaces:interfaces-state/interface/statistics/out-multicast-pkts",
+        "outDiscards": "ietf-interfaces:interfaces-state/interface/statistics/out-discards",
+        "outErrors": "ietf-interfaces:interfaces-state/interface/statistics/out-errors"
+    }
+}

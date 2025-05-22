@@ -1,6 +1,7 @@
 # Custom Dockerfile for netflow-json-parser-with-ngsi-ld-instantiator-complex
 
-FROM ubuntu:latest
+#FROM ubuntu:latest
+FROM ubuntu:22.04
 
 RUN apt update && apt -y dist-upgrade && apt -y autoremove && apt autoclean
 

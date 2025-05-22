@@ -1,0 +1,169 @@
+version: '3.8'
+services:
+  zookeeper:
+    image: zookeeper
+    hostname: zookeeper
+    container_name: zookeeper
+    ports:
+      - "2181"
+    logging:
+      driver: none
+
+  kafka:
+    image: wurstmeister/kafka:latest
+    hostname: kafka
+    container_name: kafka
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: kafka
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_PORT: 9092
+      KAFKA_LOG_DIRS: "/tmp/kafka-logs"
+      KAFKA_CREATE_TOPICS: "interfaces-state-queries:1:1,interfaces-state-notifications:1:1"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - zookeeper
+    logging:
+      driver: none
+    healthcheck:
+      test: ["CMD", "kafka-topics.sh", "--list", "--zookeeper", "zookeeper:2181"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  context-catalog:
+    image: halverneus/static-file-server
+    hostname: context-catalog
+    container_name: context-catalog
+    expose:
+      - "8080"
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./docker/context-catalog:/web 
+
+  postgres:
+    image: postgis/postgis
+    hostname: postgres
+    container_name: postgres
+    ports:
+      - "5432"
+    environment:
+      POSTGRES_USER: ngb
+      POSTGRES_PASSWORD: ngb
+      POSTGRES_DB: ngb
+    healthcheck:
+      test: ["CMD", "pg_isready", "-d", "ngb", "-U", "ngb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  scorpio:
+    image: scorpiobroker/all-in-one-runner:java-latest
+    hostname: scorpio
+    container_name: scorpio
+    expose:
+      - "9090"
+    ports:
+      - "9090:9090"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      context-catalog:
+        condition: service_started
+
+  gnmi-json-parser-query-with-ngsi-ld-instantiator-virtualization:
+    build:
+      context: .
+      dockerfile: ./docker/gnmi-json-parser-queries-with-ngsi-ld-instantiator-virtualization/Dockerfile
+    hostname: gnmi-json-parser-query-with-ngsi-ld-instantiator-virtualization
+    container_name: gnmi-json-parser-query-with-ngsi-ld-instantiator-virtualization
+    volumes:
+      - ./docker/gnmi-json-parser-queries-with-ngsi-ld-instantiator-virtualization:/opt/gnmi-json-parser-queries-with-ngsi-ld-instantiator-virtualization
+    healthcheck:
+      test: ["CMD", "python3", "--version"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    depends_on:
+      scorpio:
+        condition: service_started
+      context-catalog:
+        condition: service_started
+      kafka:
+        condition: service_healthy
+    restart: always
+    
+  query-tester-virtualization-context-source:
+    build:
+      context: .
+      dockerfile: ./docker/query-tester-virtualization-context-source/Dockerfile
+    hostname: query-tester-virtualization-context-source
+    container_name: query-tester-virtualization-context-source
+    expose:
+      - "8083"
+    ports:
+      - "8083:8083"
+    volumes:
+      - ./docker/query-tester-virtualization-context-source/query_tester_virtualization_context_source:/opt/query-tester-virtualization-context-source/query_tester_virtualization_context_source
+    depends_on:
+      scorpio:
+        condition: service_started
+      context-catalog:
+        condition: service_started
+      kafka:
+        condition: service_healthy
+      gnmi-json-parser-query-with-ngsi-ld-instantiator-virtualization:
+        condition: service_healthy
+      network-controller-virtualization:
+        condition: service_healthy
+    restart: always
+
+  #topology-discoverer:
+  #  build:
+  #    context: .
+  #    dockerfile: ./docker/topology-discoverer/Dockerfile
+  #  hostname: topology-discoverer
+  #  container_name: topology-discoverer
+  #  command: ["/opt/topology-discoverer/discover-topology.sh", "xrv9k-scenario", "3600"]
+  #  volumes:
+  #    - ./containerlab/xrv9k-scenario:/opt/topology-data/xrv9k-scenario
+  #  depends_on:
+  #    scorpio:
+  #      condition: service_started
+  #    context-catalog:
+  #      condition: service_started
+  #  restart: always
+
+  network-controller-virtualization:
+    build:
+      context: .
+      dockerfile: ./docker/network-controller-virtualization/Dockerfile
+    hostname: network-controller-virtualization
+    container_name: network-controller-virtualization
+    expose:
+      - "8089"
+    ports:
+      - "8089:8089"
+    volumes:
+      - ./docker/network-controller-virtualization/network_controller_virtualization:/opt/network-controller-virtualization/network_controller_virtualization
+    healthcheck:
+      test: ["CMD", "python3", "--version"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    depends_on:
+      scorpio:
+        condition: service_started
+      context-catalog:
+        condition: service_started
+      kafka:
+        condition: service_started
+    restart: always
+
+networks:
+  default:
+    name: clab
+    external: true

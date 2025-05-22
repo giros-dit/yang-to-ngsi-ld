@@ -1,0 +1,18 @@
+{
+    "@context": {
+        "ietf-interfaces": "urn:ietf:params:xml:ns:yang:ietf-interfaces/",
+        "ietf-ip": "urn:ietf:params:xml:ns:yang:ietf-ip/",
+        "InterfaceConfigIpv6": "ietf-interfaces:interfaces/interface/ietf-ip:ipv6",
+        "enabled": "ietf-interfaces:interfaces/interface/ietf-ip:ipv6/enabled",
+        "forwarding": "ietf-interfaces:interfaces/interface/ietf-ip:ipv6/forwarding",
+        "mtu": "ietf-interfaces:interfaces/interface/ietf-ip:ipv6/mtu",
+        "dupAddrDetectTransmits": "ietf-interfaces:interfaces/interface/ietf-ip:ipv6/dup-addr-detect-transmits"
+    },
+    "config": [
+        "InterfaceConfigIpv6",
+        "enabled",
+        "forwarding",
+        "mtu",
+        "dupAddrDetectTransmits"
+    ]
+}

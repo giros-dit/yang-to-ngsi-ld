@@ -1,0 +1,18 @@
+{
+    "@context": {
+        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
+        "openconfig-if-ip": "http://openconfig.net/yang/interfaces/ip/",
+        "Config": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/config",
+        "enabled": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/config/enabled",
+        "mtu": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/config/mtu",
+        "dupAddrDetectTransmits": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/config/dup-addr-detect-transmits",
+        "dhcpClient": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/config/dhcp-client"
+    },
+    "config": [
+        "Config",
+        "enabled",
+        "mtu",
+        "dupAddrDetectTransmits",
+        "dhcpClient"
+    ]
+}

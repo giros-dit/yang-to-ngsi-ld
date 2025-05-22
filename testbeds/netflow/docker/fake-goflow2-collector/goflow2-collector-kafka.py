@@ -24,7 +24,7 @@ while True:
 
         data_flows['netflow-v9:netflow']['export-packet']['unix-seconds'] = int(current_time_s)
         data_flows['netflow-v9:netflow']['export-packet']['system-uptime'] = system_uptime
-        data_flows['netflow-v9:netflow']['collector-goflow2']['time-received'] = int(current_time_ns/1e6)
+        data_flows['netflow-v9:netflow']['collector-goflow2']['time-received'] = int(current_time_ns/1e3)
         data_flows['netflow-v9:netflow']['export-packet']['flow-data-record'][0]['flow-id'] = i
 
         producer.send('netflow-driver-output', value=json.dumps(data_flows).encode('utf-8'))

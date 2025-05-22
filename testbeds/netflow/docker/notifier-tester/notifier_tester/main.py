@@ -14,10 +14,12 @@ from ngsi_ld_client.models.endpoint import Endpoint
 from ngsi_ld_client.api_client import ApiClient as NGSILDClient
 from ngsi_ld_client.configuration import Configuration as NGSILDConfiguration
 from notifier_tester.check_client import NGSILDHealthInfoClient
-from datetime import datetime,timezone
+#from datetime import datetime,timezone
+import datetime
 from dateutil import parser
 
 delta_times = []
+notification_delta_times = []
 
 logger = logging.getLogger(__name__)
 
@@ -55,7 +57,7 @@ ngsi_ld.set_default_header(
 )
 
 LIST_ENTITIES = [
-    "ExportPacket"
+    "ExportPacketFlowDataRecord"
 ]
 
 performance_measurements_file = open("/opt/notifier-tester/notifier_tester/performance_measurements.csv", "w", newline='')
@@ -64,6 +66,12 @@ csv_header = ["observed_at", "modified_at", "evaluation_time", "mean_evaluation_
               "min_evaluation_time", "max_evaluation_time", "notifications_received"]
 csv_writer.writerow(csv_header)  
     
+notification_performance_measurements_file = open("/opt/notifier-tester/notifier_tester/notification_performance_measurements.csv", "w", newline='')
+notification_csv_writer = csv.writer(notification_performance_measurements_file)
+notification_csv_header = ["observed_at", "notified_at", "evaluation_time", "mean_evaluation_time",
+              "min_evaluation_time", "max_evaluation_time", "notifications_received"]
+notification_csv_writer.writerow(notification_csv_header)  
+
 # Init FastAPI server
 app = FastAPI(
     title="Notifier Tester API",
@@ -125,7 +133,7 @@ async def startup_event():
                     "type": entity
                 }
             ],
-            description="On-change subscription to ExportPacket entities.",
+            description="On-change subscription to ExportPacketFlowDataRecord entities.",
             #watchedAttributes=[""],
             notification=notification_params
         )
@@ -138,12 +146,19 @@ async def startup_event():
 async def receiveNotification(request: Request):
     notification = await request.json()
     for entity in notification["data"]:
-        if entity["type"] == "ExportPacket":
+        if entity["type"] == "ExportPacketFlowDataRecord": #if entity["type"] == "ExportPacket":
             logger.info("Entity notification: %s\n" % entity)
-            if "observedAt" in entity["count"] and "modifiedAt" in entity["count"]:
+            print("CHACHO0")
+            current_datetime = datetime.datetime.now(datetime.timezone.utc)
+            notification_datetime = current_datetime.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
+            logger.info("Entity notification datetime : %s\n" % notification_datetime)
+            if "observedAt" in entity["dstMacIn"] and "modifiedAt" in entity["dstMacIn"]: #if "observedAt" in entity["count"] and "modifiedAt" in entity["count"]:
 
-                observed_at = parser.parse(entity["count"]["observedAt"])
-                modified_at = parser.parse(entity["count"]["modifiedAt"])
+                #observed_at = parser.parse(entity["count"]["observedAt"])
+                observed_at = parser.parse(entity["dstMacIn"]["observedAt"])
+                
+                #modified_at = parser.parse(entity["count"]["modifiedAt"])
+                modified_at = parser.parse(entity["dstMacIn"]["modifiedAt"])
 
                 delta_time = (modified_at - observed_at).total_seconds()
                 delta_times.append(delta_time)
@@ -167,3 +182,25 @@ async def receiveNotification(request: Request):
                             str(len(delta_times))]
                 csv_writer.writerow(csv_data)
                 performance_measurements_file.flush()
+
+                notification_delta_time = (current_datetime - observed_at).total_seconds()
+                notification_delta_times.append(notification_delta_time)
+                logger.info("--- PERFORMANCE MEASUREMENTS ---\n")
+                logger.info("OBSERVED AT: " + observed_at.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
+                logger.info("NOTIFIED AT: " + notification_datetime + "\n") 
+                logger.info("NOTIFICATIONS RECEIVED SO FAR: " + str(len(notification_delta_times)) + "\n")
+                logger.info(f"EVALUATION TIME: {notification_delta_time * 1e3} ms\n")
+                mean_evaluation_time = sum(notification_delta_times)/len(notification_delta_times)
+                min_evaluation_time = min(notification_delta_times)
+                max_evaluation_time = max(notification_delta_times)
+                logger.info(f"MEAN EVALUATION TIME: {mean_evaluation_time * 1e3} ms\n")
+                logger.info(f"MIN EVALUATION TIME: {min_evaluation_time * 1e3} ms\n")
+                logger.info(f"MAX EVALUATION TIME VALUE: {max_evaluation_time * 1e3} ms\n")
+                logger.info("--- PERFORMANCE MEASUREMENTS ---")
+
+                notification_csv_data = [observed_at.strftime("%Y-%m-%dT%H:%M:%S.%fZ"), notification_datetime,
+                            str(notification_delta_time * 1e3) + " ms", str(mean_evaluation_time * 1e3) + " ms",
+                            str(min_evaluation_time * 1e3) + " ms", str(max_evaluation_time * 1e3) + " ms",
+                            str(len(notification_delta_times))]
+                notification_csv_writer.writerow(notification_csv_data)
+                notification_performance_measurements_file.flush()

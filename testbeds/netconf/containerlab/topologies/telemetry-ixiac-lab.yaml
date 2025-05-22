@@ -11,7 +11,7 @@ topology:
         - "./ifcfg add eth1 10.0.1.2 24"
         - "./ifcfg add eth2 10.0.2.2 24"
     r1:
-      kind: vr-cisco_csr1000v
+      kind: cisco_csr1000v
       image: vrnetlab/vr-csr:17.03.04
       type: cisco-xe-csr1000v
       group: router
@@ -19,7 +19,7 @@ topology:
       exec:
         - bash -c "ip l show eth1 | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}' | head -1"
     r2:
-      kind: vr-cisco_csr1000v
+      kind: cisco_csr1000v
       image: vrnetlab/vr-csr:17.03.04
       type: cisco-xe-csr1000v
       group: router
