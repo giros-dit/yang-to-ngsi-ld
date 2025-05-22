@@ -9,16 +9,15 @@ Repository with source code, artifacts and documentation about YANG [[1](https:/
     - [Developed _pyang_ plugins](#developed-pyang-plugins)
     - [Developed _yangtools_ artifacts](#developed-yangtools-artifacts)
   - [Performance experiments](#performance-experiments)
-  - [Publications](#publications)
   - [Documentation and links](#documentation-and-links)
   - [License](#license)
   
 ## Descriptive NDT architecture
-The proposed *Descriptive NDT* architecture covers the core elements of NDT described by an IETF draft [[3](https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-network-digital-twin-arch-10)] and the *descriptive twin* vision provided by ETSI ISG CIM and its NGSI-LD standard specification [[4](https://www.etsi.org/deliver/etsi_gr/CIM/001_099/017/01.01.01_60/gr_CIM017v010101p.pdf)]. The solution is targeted to real networks supporting Model-Driven Telemetry (MDT) and management mechanisms based on YANG data modeling language [[5](https://www.oreilly.com/library/view/network-programmability-with/9780135180471/)]. The architecture proposes an automated methodology for mapping YANG data from network management domain to an NDT representation, following a data integration approach supported by the NGSI-LD standard. The solution proposes the use of generic rules, based on [[6](https://www.etsi.org/deliver/etsi_gr/CIM/001_099/038/01.01.01_60/gr_CIM038v010101p.pdf)], for translating between YANG and the NGSI-LD meta-model. 
+The proposed *Descriptive NDT* architecture covers the core elements of NDT described by an IETF draft [[3](https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-network-digital-twin-arch-08)] and the *descriptive twin* vision provided by ETSI ISG CIM and its NGSI-LD standard specification [[4](https://www.etsi.org/deliver/etsi_gr/CIM/001_099/017/01.01.01_60/gr_CIM017v010101p.pdf)]. The solution is targeted to real networks supporting Model-Driven Telemetry (MDT) and management mechanisms based on YANG data modeling language [[5](https://www.oreilly.com/library/view/network-programmability-with/9780135180471/)]. The architecture proposes an automated methodology for mapping YANG data from network management domain to an NDT representation, following a data integration approach supported by the NGSI-LD standard. The solution proposes the use of generic rules, based on [[6](https://www.etsi.org/deliver/etsi_gr/CIM/001_099/038/01.01.01_60/gr_CIM038v010101p.pdf)], for translating between YANG and the NGSI-LD meta-model. 
 ![DescriptiveNDT-Arch-DataIntegration](resources/images/DescriptiveNDT-Arch-DataIntegration.png)
 
 ## Descriptive NDT prototype implementation
-There is a prototype implementation for completing the *Descriptive NDT* architecture for data collection purposes which is built on a Docker microservices-based solution. The prototype covers the process of collecting telemetry and configuration data from the network for its integration in a *Descriptive NDT* adopting the data materialization approach. The implementation of this *Descriptive NDT* prototype is mainly based on the use of the OpenAPI Specification (OAS) compatible with the NGSI-LD API [[7](https://www.etsi.org/deliver/etsi_gs/CIM/001_099/047/01.01.01_60/gs_CIM047v010102p.pdf)]. The OAS allows modeling the NDT data schemas (i.e., *NDT Data Models* in the Descriptive NDT architecture), as well as generating a client library with programmable code that makes use of the NGSI-LD API and the generated schemas for instantiating the resulting NDT data. The client is implemented in Python, a programming language that also provides additional libraries (e.g., *pyang* [[8](https://github.com/mbj4668/pyang)] or *pydantic* [[9](https://docs.pydantic.dev/latest/)]) for parsing the YANG modeled data and completing the mapping process to NGSI-LD modeled data, as well as for instantiating the NDT data. 
+There is a prototype implementation for completing the *Descriptive NDT* architecture for data collection purposes which is built on a Docker microservices-based solution. The prototype covers the process of collecting telemetry and configuration data from the network for its integration in a *Descriptive NDT* adopting the data materialization approach. The implementation of this *Descriptive NDT* prototype is mainly based on the use of the OpenAPI Specification (OAS) compatible with the NGSI-LD API [[7](https://www.etsi.org/deliver/etsi_gs/CIM/001_099/047/01.01.01_60/gs_CIM047v010101p.pdf)]. The OAS allows modeling the NDT data schemas (i.e., *NDT Data Models* in the Descriptive NDT architecture), as well as generating a client library with programmable code that makes use of the NGSI-LD API and the generated schemas for instantiating the resulting NDT data. The client is implemented in Python, a programming language that also provides additional libraries (e.g., *pyang* [[8](https://github.com/mbj4668/pyang)] or *pydantic* [[9](https://docs.pydantic.dev/latest/)]) for parsing the YANG modeled data and completing the mapping process to NGSI-LD modeled data, as well as for instantiating the NDT data. 
 
 ![YANG-to-NGSI-LD-translation](resources/images/YANG-to-NGSI-LD-translation.png)
 
@@ -39,19 +38,14 @@ The prototype separates its functionality into two main planes: *Descriptive NDT
 ## Performance experiments
 The repository includes [experimental results](testbeds/performance-experiments) about the performance of the Descriptive NDT prototype solution. The experimental results allows determining the performance of the YANG to NGSI-LD translation and data intantiation processes in terms of latency (i.e., experiments [1](testbeds/performance-experiments/experiment1) and [2](testbeds/performance-experiments/experiment2)) and throughput (i.e., experiment [3](testbeds/performance-experiments/experiment3)). The experiments have been performed for telemetry statistics from network interfaces encoded in both XML and JSON formats according to notifications received by the NETCONF and gNMI management protocols.
 
-## Publications
-If you want more information about the original idea of the *Descriptive NDT* solution and its initial design, you can check our latest publication in the *IEEE Open Journal of the Communications Society*:
-
-*D. González-Sánchez, L. Bellido, I. D. Martinez-Casanueva, D. Martínez-García, D. Fernández and D. R. Lopez, "Toward Building a Digital Twin for Network Operations and Management," in IEEE Open Journal of the Communications Society, vol. 6, pp. 2583-2598, 2025, doi: [10.1109/OJCOMS.2025.3549873](https://doi.org/10.1109/OJCOMS.2025.3549873).*
-
 ## Documentation and links
 1. M. Björklund, “The YANG 1.1 Data Modeling Language,” *RFC 7950*, Internet Engineering Task Force, Aug. 2016.
 2. ETSI, “Context Information Management (CIM); NGSI-LD API,” *GS CIM 009 V1.8.1*, ETSI, Mar. 2024.
 3. ETSI, “Context Information Management (CIM); Feasibility of NGSI-LD for Digital Twins,” *GR CIM 017 v1.1.1*, ETSI, Dec. 2022.
-4. C. Zhou et al., “Network Digital Twin: Concepts and Reference Architecture,” *Internet-Draft draft-irtf-nmrg-network-digital-twin-arch-08*, Internet Engineering Task Force, Feb. 2025. Work in Progress.
+4. C. Zhou et al., “Network Digital Twin: Concepts and Reference Architecture,” *Internet-Draft draft-irtf-nmrg-network-digital-twin-arch-08*, Internet Engineering Task Force, Oct. 2024. Work in Progress.
 5. B. Claise, J. Clarke, and J. Lindblad, *Network Programmability with YANG: The Structure of Network Automation with YANG, NETCONF, RESTCONF, and gNMI*. Addison-Wesley Professional, 2019, isbn:9780135180617
 6. ETSI, “Context Information Management (CIM); YANG and NGSI-LD interoperability,” *GR CIM 038 v1.1.1*, ETSI, Nov. 2024.
-7. ETSI, “OpenAPI Specification for NGSI-LD API,” *GS CIM 047 v1.1.2*, ETSI, Dec. 2024.
+7. ETSI, “OpenAPI Specification for NGSI-LD API,” *GS CIM 047 v1.1.1*, ETSI, Nov. 2024.
 8. pyang: https://github.com/mbj4668/pyang
 9. pydantic: https://docs.pydantic.dev/latest/
 10. ncclient: https://github.com/ncclient/ncclient
