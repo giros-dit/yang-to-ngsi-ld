@@ -2,9 +2,8 @@
     "@context": {
         "ietf-interfaces": "urn:ietf:params:xml:ns:yang:ietf-interfaces/",
         "ietf-ip": "urn:ietf:params:xml:ns:yang:ietf-ip/",
-        "InterfaceIpv4Neighbor": "ietf-interfaces:interfaces/interface/ietf-ip:ipv4/neighbor",
+        "InterfaceConfigIpv4Neighbor": "ietf-interfaces:interfaces/interface/ietf-ip:ipv4/neighbor",
         "ip": "ietf-interfaces:interfaces/interface/ietf-ip:ipv4/neighbor/ip",
-        "linkLayerAddress": "ietf-interfaces:interfaces/interface/ietf-ip:ipv4/neighbor/link-layer-address",
-        "key": "ip"
+        "linkLayerAddress": "ietf-interfaces:interfaces/interface/ietf-ip:ipv4/neighbor/link-layer-address"
     }
 }

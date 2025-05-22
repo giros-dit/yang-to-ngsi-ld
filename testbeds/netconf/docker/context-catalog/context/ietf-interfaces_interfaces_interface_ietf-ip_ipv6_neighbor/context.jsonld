@@ -4,7 +4,6 @@
         "ietf-ip": "urn:ietf:params:xml:ns:yang:ietf-ip/",
         "InterfaceConfigIpv6Neighbor": "ietf-interfaces:interfaces/interface/ietf-ip:ipv6/neighbor",
         "ip": "ietf-interfaces:interfaces/interface/ietf-ip:ipv6/neighbor/ip",
-        "linkLayerAddress": "ietf-interfaces:interfaces/interface/ietf-ip:ipv6/neighbor/link-layer-address",
-        "key": "ip"
+        "linkLayerAddress": "ietf-interfaces:interfaces/interface/ietf-ip:ipv6/neighbor/link-layer-address"
     }
 }

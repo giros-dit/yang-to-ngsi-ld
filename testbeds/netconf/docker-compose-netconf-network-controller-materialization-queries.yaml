@@ -1,0 +1,152 @@
+services:
+  zookeeper:
+    image: zookeeper
+    hostname: zookeeper
+    container_name: zookeeper
+    ports:
+      - "2181"
+    logging:
+      driver: none
+
+  kafka:
+    image: wurstmeister/kafka:latest
+    hostname: kafka
+    container_name: kafka
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: kafka
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_PORT: 9092
+      KAFKA_LOG_DIRS: "/tmp/kafka-logs"
+      KAFKA_CREATE_TOPICS: "interfaces-state-subscriptions:1:1"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - zookeeper
+    logging:
+      driver: none
+    healthcheck:
+      test: ["CMD", "kafka-topics.sh", "--list", "--zookeeper", "zookeeper:2181"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  context-catalog:
+    image: halverneus/static-file-server
+    hostname: context-catalog
+    container_name: context-catalog
+    expose:
+      - "8080"
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./docker/context-catalog:/web
+
+  postgres:
+    image: postgis/postgis
+    hostname: postgres
+    container_name: postgres
+    ports:
+      - "5432"
+    environment:
+      POSTGRES_USER: ngb
+      POSTGRES_PASSWORD: ngb
+      POSTGRES_DB: ngb
+    healthcheck:
+      test: ["CMD", "pg_isready", "-d", "ngb", "-U", "ngb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  scorpio:
+    image: scorpiobroker/all-in-one-runner:java-latest
+    hostname: scorpio
+    container_name: scorpio
+    expose:
+      - "9090"
+    ports:
+      - "9090:9090"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      context-catalog:
+        condition: service_started
+
+  netconf-network-controller-materialization:
+    build:
+      context: .
+      dockerfile: ./docker/netconf-network-controller-materialization/Dockerfile
+    hostname: netconf-network-controller-materialization
+    container_name: netconf-network-controller-materialization
+    expose:
+      - "8089"
+    ports:
+      - "8089:8089"
+    volumes:
+      - ./docker/netconf-network-controller-materialization/netconf_network_controller_materialization:/opt/netconf-network-controller-materialization/netconf_network_controller_materialization
+    healthcheck:
+      test: ["CMD", "python3", "--version"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    depends_on:
+      scorpio:
+        condition: service_started
+      context-catalog:
+        condition: service_started
+      kafka:
+        condition: service_healthy
+    restart: always
+
+  netconf-xml-parser-with-ngsi-ld-instantiator-materialization:
+    build:
+      context: .
+      dockerfile: ./docker/netconf-xml-parser-with-ngsi-ld-instantiator-materialization/Dockerfile
+    hostname: netconf-xml-parser-with-ngsi-ld-instantiator-materialization
+    container_name: netconf-xml-parser-with-ngsi-ld-instantiator-materialization
+    volumes:
+      - ./docker/netconf-xml-parser-with-ngsi-ld-instantiator-materialization:/opt/netconf-xml-parser-with-ngsi-ld-instantiator-materialization
+    healthcheck:
+      test: ["CMD", "python3", "--version"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    depends_on:
+      scorpio:
+        condition: service_started
+      context-catalog:
+        condition: service_started
+      kafka:
+        condition: service_healthy
+    restart: always
+    
+  netconf-query-tester-materialization:
+    build:
+      context: .
+      dockerfile: ./docker/netconf-query-tester-materialization/Dockerfile
+    hostname: netconf-query-tester-materialization
+    container_name: netconf-query-tester-materialization
+    expose:
+      - "8083"
+    ports:
+      - "8083:8083"
+    volumes:
+      - ./docker/netconf-query-tester-materialization/netconf_query_tester_materialization:/opt/netconf-query-tester-materialization/netconf_query_tester_materialization
+    depends_on:
+      scorpio:
+        condition: service_started
+      context-catalog:
+        condition: service_started
+      kafka:
+        condition: service_started
+      netconf-xml-parser-with-ngsi-ld-instantiator-materialization:
+        condition: service_healthy
+      netconf-network-controller-materialization:
+        condition: service_healthy
+    restart: always
+
+networks:
+  default:
+    name: clab
+    external: true

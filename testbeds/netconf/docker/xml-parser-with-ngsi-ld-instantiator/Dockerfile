@@ -1,6 +1,7 @@
 # Custom Dockerfile for xml-parser-with-ngsi-ld-instantiator
 
-FROM ubuntu:latest
+#FROM ubuntu:latest
+FROM ubuntu:22.04
 
 RUN apt update && apt -y dist-upgrade && apt -y autoremove && apt autoclean
 
@@ -18,10 +19,10 @@ COPY ./docker/xml-parser-with-ngsi-ld-instantiator .
 
 WORKDIR /opt/xml-parser-with-ngsi-ld-instantiator/ngsi-ld-models
 
-RUN poetry install
+RUN poetry install --no-root
 
 WORKDIR /opt/xml-parser-with-ngsi-ld-instantiator
 
-RUN poetry install
+RUN poetry install --no-root
 
 ENTRYPOINT ["poetry", "run", "python", "-u", "xml-parser-with-ngsi-ld-instantiator.py"]

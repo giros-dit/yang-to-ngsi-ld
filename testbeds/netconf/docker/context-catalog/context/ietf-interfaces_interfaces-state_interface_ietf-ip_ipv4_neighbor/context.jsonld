@@ -5,7 +5,6 @@
         "InterfaceIpv4Neighbor": "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv4/neighbor",
         "ip": "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv4/neighbor/ip",
         "linkLayerAddress": "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv4/neighbor/link-layer-address",
-        "origin": "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv4/neighbor/origin",
-        "key": "ip"
+        "origin": "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv4/neighbor/origin"
     }
 }

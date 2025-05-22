@@ -10,7 +10,6 @@
         "physAddress": "ietf-interfaces:interfaces-state/interface/phys-address",
         "higherLayerIf": "ietf-interfaces:interfaces-state/interface/higher-layer-if",
         "lowerLayerIf": "ietf-interfaces:interfaces-state/interface/lower-layer-if",
-        "speed": "ietf-interfaces:interfaces-state/interface/speed",
-        "key": "name"
+        "speed": "ietf-interfaces:interfaces-state/interface/speed"
     }
 }
