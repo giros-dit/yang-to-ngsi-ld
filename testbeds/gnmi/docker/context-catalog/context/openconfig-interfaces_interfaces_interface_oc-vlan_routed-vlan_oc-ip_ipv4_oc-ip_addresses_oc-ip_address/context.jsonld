@@ -1,7 +1,0 @@
-{
-    "@context": {
-        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
-        "Address": "openconfig-interfaces:interfaces/interface/oc-vlan:routed-vlan/oc-ip:ipv4/oc-ip:addresses/oc-ip:address",
-        "ip": "openconfig-interfaces:interfaces/interface/oc-vlan:routed-vlan/oc-ip:ipv4/oc-ip:addresses/oc-ip:address/oc-ip:ip"
-    }
-}

@@ -1,7 +1,0 @@
-{
-    "@context": {
-        "ietf-network": "urn:ietf:params:xml:ns:yang:ietf-network/",
-        "NetworkNodeTerminationPoint": "ietf-network:networks/network/node/nt:termination-point",
-        "tpId": "ietf-network:networks/network/node/nt:termination-point/nt:tp-id"
-    }
-}

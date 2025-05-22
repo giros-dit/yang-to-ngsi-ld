@@ -1,0 +1,14 @@
+{
+    "@context": {
+        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
+        "openconfig-if-aggregate": "http://openconfig.net/yang/interfaces/aggregate/",
+        "Config": "openconfig-interfaces:interfaces/interface/openconfig-if-aggregate:aggregation/config",
+        "lagType": "openconfig-interfaces:interfaces/interface/openconfig-if-aggregate:aggregation/config/lag-type",
+        "minLinks": "openconfig-interfaces:interfaces/interface/openconfig-if-aggregate:aggregation/config/min-links"
+    },
+    "config": [
+        "Config",
+        "lagType",
+        "minLinks"
+    ]
+}

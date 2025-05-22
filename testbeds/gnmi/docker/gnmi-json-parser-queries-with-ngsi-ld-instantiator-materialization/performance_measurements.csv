@@ -1,0 +1,2 @@
+observed_at,iteration_started_at,iteration_finished_at,processing_time_since_observed_at,iteration_execution_time,mean_execution_time,min_execution_time,max_execution_time,processed_notifications
+2025-05-21T20:08:12.504337Z,2025-05-21T20:08:12.512671Z,2025-05-21T20:08:12.695997Z,191.66 ms,183.325835 ms,183.325835 ms,183.325835 ms,183.325835 ms,1

@@ -1,0 +1,9 @@
+{
+    "@context": {
+        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
+        "openconfig-if-ip": "http://openconfig.net/yang/interfaces/ip/",
+        "State": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/addresses/address/vrrp/vrrp-group/interface-tracking/state",
+        "trackInterface": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/addresses/address/vrrp/vrrp-group/interface-tracking/state/track-interface",
+        "priorityDecrement": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv4/addresses/address/vrrp/vrrp-group/interface-tracking/state/priority-decrement"
+    }
+}

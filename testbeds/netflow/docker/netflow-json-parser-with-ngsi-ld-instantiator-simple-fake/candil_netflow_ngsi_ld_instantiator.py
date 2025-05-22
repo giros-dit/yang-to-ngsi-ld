@@ -87,6 +87,9 @@ def upsert_ngsi_ld_entity(ngsi_ld, entity) -> bool:
 
     entities_input.append(query_entity_input)
 
+    total_size = sum(len(query_entity_input.model_dump_json().encode('utf-8')) for query_entity_input in entities_input)
+    print(f"Tamaño exacto del JSON: {total_size} bytes")
+
     try:
         # Create NGSI-LD entities of type Interface: POST /entityOperations/upsert
         api_response = api_instance.upsert_batch(query_entity200_response_inner=entities_input)

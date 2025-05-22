@@ -1,7 +1,0 @@
-{
-    "@context": {
-        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
-        "State": "openconfig-interfaces:interfaces/interface/oc-vlan:routed-vlan/oc-ip:ipv4/oc-ip:proxy-arp/oc-ip:state",
-        "mode": "openconfig-interfaces:interfaces/interface/oc-vlan:routed-vlan/oc-ip:ipv4/oc-ip:proxy-arp/oc-ip:state/oc-ip:mode"
-    }
-}

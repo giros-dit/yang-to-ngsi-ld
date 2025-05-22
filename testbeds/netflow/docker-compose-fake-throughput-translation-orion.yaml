@@ -1,0 +1,110 @@
+version: '3.8'
+services:
+  context-catalog:
+    image: halverneus/static-file-server
+    hostname: context-catalog
+    container_name: context-catalog
+    expose:
+      - "8080"
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./docker/context-catalog:/web 
+
+  orion:
+    image: fiware/orion-ld
+    hostname: orion
+    container_name: fiware-orion
+    expose:
+      - "1026"
+    ports:
+      - "1026:1026"
+    depends_on:
+      - mongo-db
+      - context-catalog
+    command: -dbhost mongo-db -logLevel DEBUG
+
+  mongo-db:
+    image: mongo:3.6
+    hostname: mongo-db
+    container_name: mongo-db
+    ports:
+      - "27017:27017" 
+    networks:
+      - default
+    command: --nojournal
+    volumes:
+      - mongo-db:/data
+
+  fake-goflow2-collector-throughput:
+    build:
+       context: ./docker/fake-goflow2-collector-throughput
+       dockerfile: Dockerfile
+    hostname: fake-goflow2-collector-throughput
+    container_name: fake-goflow2-collector-throughput
+    command: ["python3", "-u", "/opt/fake-goflow2-collector-throughput/goflow2-collector-kafka-throughput.py"]
+    volumes:
+      - ./docker/fake-goflow2-collector-throughput:/opt/fake-goflow2-collector-throughput
+    depends_on:
+      netflow-json-parser-throughput-translation:
+        condition: service_started
+      kafka:
+        condition: service_healthy
+
+  kafka:
+    image: wurstmeister/kafka:latest
+    hostname: kafka
+    container_name: kafka
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: kafka
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_PORT: 9092
+      KAFKA_LOG_DIRS: "/tmp/kafka-logs"
+      KAFKA_CREATE_TOPICS: "network-flows:1:1,netflow-driver-output:1:1"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - zookeeper
+    logging:
+      driver: none
+    healthcheck:
+      test: ["CMD", "kafka-topics.sh", "--list", "--zookeeper", "zookeeper:2181"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  zookeeper:
+    image: zookeeper
+    hostname: zookeeper
+    container_name: zookeeper
+    ports:
+      - "2181"
+    logging:
+      driver: none
+
+  netflow-json-parser-throughput-translation:
+    build:
+      context: .
+      dockerfile: ./docker/netflow-json-parser-with-ngsi-ld-instantiator-simple-fake-throughput-translation/Dockerfile
+    hostname: netflow-json-parser-throughput-translation
+    container_name: netflow-json-parser-throughput-translation
+    volumes:
+      - ./docker/netflow-json-parser-with-ngsi-ld-instantiator-simple-fake-throughput-translation:/opt/netflow-json-parser-with-ngsi-ld-instantiator-simple-fake
+    healthcheck:
+      test: ["CMD", "python3", "--version"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    depends_on:
+      orion:
+        condition: service_started
+      context-catalog:
+        condition: service_started
+      kafka:
+        condition: service_healthy
+    restart: always
+
+volumes:
+  mongo-db: ~

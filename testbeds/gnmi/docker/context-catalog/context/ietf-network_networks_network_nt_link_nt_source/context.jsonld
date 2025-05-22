@@ -1,8 +1,0 @@
-{
-    "@context": {
-        "ietf-network": "urn:ietf:params:xml:ns:yang:ietf-network/",
-        "NetworkLinkSource": "ietf-network:networks/network/nt:link/nt:source",
-        "sourceNode": "ietf-network:networks/network/nt:link/nt:source/nt:source-node",
-        "sourceTp": "ietf-network:networks/network/nt:link/nt:source/nt:source-tp"
-    }
-}

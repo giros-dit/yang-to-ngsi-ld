@@ -1,0 +1,13 @@
+{
+    "@context": {
+        "ietf-interfaces": "urn:ietf:params:xml:ns:yang:ietf-interfaces/",
+        "ietf-ip": "urn:ietf:params:xml:ns:yang:ietf-ip/",
+        "InterfaceIpv6Neighbor": "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv6/neighbor",
+        "ip": "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv6/neighbor/ip",
+        "linkLayerAddress": "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv6/neighbor/link-layer-address",
+        "origin": "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv6/neighbor/origin",
+        "isRouter": "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv6/neighbor/is-router",
+        "state": "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv6/neighbor/state"
+    },
+    "key": "ip"
+}

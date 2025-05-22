@@ -1,0 +1,14 @@
+{
+    "@context": {
+        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
+        "openconfig-if-ethernet": "http://openconfig.net/yang/interfaces/ethernet/",
+        "State": "openconfig-interfaces:interfaces/interface/openconfig-if-ethernet:ethernet/state",
+        "macAddress": "openconfig-interfaces:interfaces/interface/openconfig-if-ethernet:ethernet/state/mac-address",
+        "autoNegotiate": "openconfig-interfaces:interfaces/interface/openconfig-if-ethernet:ethernet/state/auto-negotiate",
+        "duplexMode": "openconfig-interfaces:interfaces/interface/openconfig-if-ethernet:ethernet/state/duplex-mode",
+        "enableFlowControl": "openconfig-interfaces:interfaces/interface/openconfig-if-ethernet:ethernet/state/enable-flow-control",
+        "hwMacAddress": "openconfig-interfaces:interfaces/interface/openconfig-if-ethernet:ethernet/state/hw-mac-address",
+        "negotiatedDuplexMode": "openconfig-interfaces:interfaces/interface/openconfig-if-ethernet:ethernet/state/negotiated-duplex-mode",
+        "aggregateId": "openconfig-interfaces:interfaces/interface/openconfig-if-ethernet:ethernet/state/openconfig-if-aggregate:aggregate-id"
+    }
+}

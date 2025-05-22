@@ -1,0 +1,4 @@
+observed_at,modified_at,evaluation_time,mean_evaluation_time,min_evaluation_time,max_evaluation_time,notifications_received
+2025-05-21T11:29:34.724053Z,2025-05-21T11:29:34.845334Z,121.281 ms,121.281 ms,121.281 ms,121.281 ms,1
+2025-05-21T11:29:39.721248Z,2025-05-21T11:29:39.731311Z,10.063 ms,65.672 ms,10.063 ms,121.281 ms,2
+2025-05-21T11:29:44.718507Z,2025-05-21T11:29:44.727702Z,9.195 ms,46.84633333333333 ms,9.195 ms,121.281 ms,3

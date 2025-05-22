@@ -1,0 +1,10 @@
+{
+    "@context": {
+        "ietf-interfaces": "urn:ietf:params:xml:ns:yang:ietf-interfaces/",
+        "InterfaceConfig": "ietf-interfaces:interfaces/interface",
+        "name": "ietf-interfaces:interfaces/interface/name",
+        "description": "ietf-interfaces:interfaces/interface/description",
+        "enabled": "ietf-interfaces:interfaces/interface/enabled",
+        "linkUpDownTrapEnable": "ietf-interfaces:interfaces/interface/link-up-down-trap-enable"
+    }
+}

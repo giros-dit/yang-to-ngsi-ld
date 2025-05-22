@@ -1,0 +1,14 @@
+{
+    "@context": {
+        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
+        "openconfig-if-ip": "http://openconfig.net/yang/interfaces/ip/",
+        "Config": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/addresses/address/vrrp/vrrp-group/interface-tracking/config",
+        "trackInterface": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/addresses/address/vrrp/vrrp-group/interface-tracking/config/track-interface",
+        "priorityDecrement": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/openconfig-if-ip:ipv6/addresses/address/vrrp/vrrp-group/interface-tracking/config/priority-decrement"
+    },
+    "config": [
+        "Config",
+        "trackInterface",
+        "priorityDecrement"
+    ]
+}

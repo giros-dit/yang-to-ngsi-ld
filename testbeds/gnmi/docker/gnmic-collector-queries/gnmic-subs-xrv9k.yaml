@@ -35,8 +35,8 @@ subscriptions:
       - "/interfaces/interface[name=GigabitEthernet0/0/0/1]/state/oper-status"
     stream-mode: on-change
     encoding: JSON_IETF
-    outputs: 
-      - output2-xrv9k
+    #outputs: 
+    #  - output2-xrv9k
 
 outputs:
   output1-xrv9k:

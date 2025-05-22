@@ -1,0 +1,6 @@
+{
+    "@context": {
+        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
+        "Interfaces": "openconfig-interfaces:interfaces"
+    }
+}

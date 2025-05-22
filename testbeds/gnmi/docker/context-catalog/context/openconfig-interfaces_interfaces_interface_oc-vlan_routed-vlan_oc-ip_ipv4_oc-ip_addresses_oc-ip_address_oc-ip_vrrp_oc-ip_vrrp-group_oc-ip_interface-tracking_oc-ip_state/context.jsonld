@@ -1,8 +1,0 @@
-{
-    "@context": {
-        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
-        "State": "openconfig-interfaces:interfaces/interface/oc-vlan:routed-vlan/oc-ip:ipv4/oc-ip:addresses/oc-ip:address/oc-ip:vrrp/oc-ip:vrrp-group/oc-ip:interface-tracking/oc-ip:state",
-        "trackInterface": "openconfig-interfaces:interfaces/interface/oc-vlan:routed-vlan/oc-ip:ipv4/oc-ip:addresses/oc-ip:address/oc-ip:vrrp/oc-ip:vrrp-group/oc-ip:interface-tracking/oc-ip:state/oc-ip:track-interface",
-        "priorityDecrement": "openconfig-interfaces:interfaces/interface/oc-vlan:routed-vlan/oc-ip:ipv4/oc-ip:addresses/oc-ip:address/oc-ip:vrrp/oc-ip:vrrp-group/oc-ip:interface-tracking/oc-ip:state/oc-ip:priority-decrement"
-    }
-}

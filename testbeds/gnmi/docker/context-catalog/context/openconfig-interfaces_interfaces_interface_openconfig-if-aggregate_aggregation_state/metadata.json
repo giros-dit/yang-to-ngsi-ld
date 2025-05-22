@@ -1,0 +1,11 @@
+{
+    "@context": {
+        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
+        "openconfig-if-aggregate": "http://openconfig.net/yang/interfaces/aggregate/",
+        "State": "openconfig-interfaces:interfaces/interface/openconfig-if-aggregate:aggregation/state",
+        "lagType": "openconfig-interfaces:interfaces/interface/openconfig-if-aggregate:aggregation/state/lag-type",
+        "minLinks": "openconfig-interfaces:interfaces/interface/openconfig-if-aggregate:aggregation/state/min-links",
+        "lagSpeed": "openconfig-interfaces:interfaces/interface/openconfig-if-aggregate:aggregation/state/lag-speed",
+        "member": "openconfig-interfaces:interfaces/interface/openconfig-if-aggregate:aggregation/state/member"
+    }
+}

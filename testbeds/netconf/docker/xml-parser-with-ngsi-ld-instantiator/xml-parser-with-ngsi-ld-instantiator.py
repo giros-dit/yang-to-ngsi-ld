@@ -623,6 +623,19 @@ def batch_upsert_ngsi_ld_entities(ngsi_ld, dict_buffers) -> bool:
         #logger.info("QueryEntity200ResponseInner object representation: %s\n" % QueryEntity200ResponseInner.from_dict(entity_input))
         query_entity_inputs.append(QueryEntity200ResponseInner.from_dict(entity_input))
 
+    #json_query_entity_inputs = json.dumps([query_entity_input.dict() for query_entity_input in query_entity_inputs])
+    '''
+    json_query_entity_inputs = json.dumps([
+    query_entity_inputs.model_dump(mode="json") if hasattr(query_entity_inputs, "model_dump") 
+    else [query_entity_input.dict() for query_entity_input in query_entity_inputs]
+    ])
+    size_batch = len(json_query_entity_inputs.encode('utf-8'))
+    print(f"Tamaño exacto del JSON: {size_batch} bytes")
+    '''
+    total_size = sum(len(query_entity_input.model_dump_json().encode('utf-8')) for query_entity_input in query_entity_inputs)
+    print(f"Tamaño exacto del JSON: {total_size} bytes")
+    
+    #[query_entity_input.to_dict() for query_entity_input in query_entity_inputs]
     test_stop_time = time.perf_counter_ns()
     test_stop_datetime = datetime.datetime.now(datetime.timezone.utc)
     test_exec_time = test_stop_time - test_start_time

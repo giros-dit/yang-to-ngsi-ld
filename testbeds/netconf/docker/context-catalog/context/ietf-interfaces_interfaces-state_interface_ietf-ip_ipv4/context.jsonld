@@ -1,0 +1,9 @@
+{
+    "@context": {
+        "ietf-interfaces": "urn:ietf:params:xml:ns:yang:ietf-interfaces/",
+        "ietf-ip": "urn:ietf:params:xml:ns:yang:ietf-ip/",
+        "InterfaceIpv4": "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv4",
+        "forwarding": "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv4/forwarding",
+        "mtu": "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv4/mtu"
+    }
+}

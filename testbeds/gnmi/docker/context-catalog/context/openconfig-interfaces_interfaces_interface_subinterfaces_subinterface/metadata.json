@@ -1,0 +1,12 @@
+{
+    "@context": {
+        "openconfig-interfaces": "http://openconfig.net/yang/interfaces/",
+        "Subinterface": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface",
+        "index": "openconfig-interfaces:interfaces/interface/subinterfaces/subinterface/index"
+    },
+    "key": "index",
+    "config": [
+        "Subinterface",
+        "index"
+    ]
+}

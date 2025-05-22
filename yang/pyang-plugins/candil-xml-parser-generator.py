@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an XML p
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 0.5.5.
+Version: 0.5.7.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -309,6 +309,26 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             result = True
         return result
     
+    def is_list_get_key(element) -> str:
+        '''
+        Auxiliary function.
+        Checks if an element matches a YANG data node of type list and obtains its key if so.
+        '''
+        key = None
+        if (element.keyword == 'list'):
+            key = element.i_key[0].arg
+        return key
+    
+    def is_config_element(element) -> bool:
+        '''
+        Auxiliary function.
+        Checks if an element is a YANG config element.
+        '''
+        result = False
+        if (element.i_config == True):
+            result = True
+        return result
+    
     def is_choice(element) -> bool:
         '''
         Auxiliary function.
@@ -360,7 +380,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
                 result = True
         return result
 
-    def generate_parser_code(element, parent_element_arg, entity_path: str, camelcase_entity_path: str, camelcase_entity_list: list, depth_level: int, typedefs_dict: dict):
+    def generate_parser_code(element, parent_element_arg, entity_path: str, camelcase_entity_path: str, camelcase_entity_list: list, depth_level: int, typedefs_dict: dict, key: str):
         '''
         Auxiliary function.
         Recursively generates the XML parser code.
@@ -380,12 +400,12 @@ def generate_python_xml_parser_code(ctx, modules, fd):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
                         if (parent_element_arg is None):
-                            generate_parser_code(subelement, None, None, None, list(), depth_level, typedefs_dict)
+                            generate_parser_code(subelement, None, None, None, list(), depth_level, typedefs_dict, key)
                         elif subelement.keyword == 'list': 
                             fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' ' + '=' + ' ' + str(parent_element_arg).replace('-', '_') + '.find(\".//{' + element_namespace + '}' + str(element.arg) + '\")')
                             fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(element.arg).replace('-', '_') + ' is not None:')
                             depth_level += 1
-                            generate_parser_code(subelement, element.arg, entity_path, None, list(), depth_level, typedefs_dict)
+                            generate_parser_code(subelement, element.arg, entity_path, None, list(), depth_level, typedefs_dict, key)
         ### --- ###
 
         ### NGSI-LD ENTITY IDENTIFICATION ###
@@ -413,10 +433,11 @@ def generate_python_xml_parser_code(ctx, modules, fd):
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"object\"] = ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"]')
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"observedAt\"] = observed_at')
             subelements = element.i_children
+            key = is_list_get_key(element)
             if (subelements is not None):
                 for subelement in subelements:
                     if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                        generate_parser_code(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict)
+                        generate_parser_code(subelement, element.arg, current_path, current_camelcase_path, camelcase_entity_list, depth_level, typedefs_dict, key)
             fd.write('\n' + INDENTATION_BLOCK * depth_level + 'dict_buffers.append(' + current_path.replace('-', '_') + 'dict_buffer)')
         ### --- ###
         
@@ -437,7 +458,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
                         if (subelements is not None):
                             for subelement in subelements:
                                 if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                                    generate_parser_code(subelement, parent_element_arg, current_path, camelcase_entity_path, camelcase_entity_list, depth_level, typedefs_dict)
+                                    generate_parser_code(subelement, parent_element_arg, current_path, camelcase_entity_path, camelcase_entity_list, depth_level, typedefs_dict, key)
         ### --- ###
 
         ### NGSI-LD PROPERTY IDENTIFICATION ###
@@ -448,12 +469,19 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             text_format = element_text_type_formatting(ngsi_ld_type, 'element_text')
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'element_text = ' + camelcase_element_arg + '.text')
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if element_text is not None:')
-            if ('name'.casefold() in str(element.arg)) or ('id'.casefold() in str(element.arg).casefold()):
+            if key != None and key == str(element.arg):
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] = ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] + \":\" + ' + text_format)
+            #elif ('name'.casefold() in str(element.arg)) or ('id'.casefold() in str(element.arg).casefold()):
+            #    fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] = ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"] + \":\" + ' + text_format)
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Property\"')
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"value\"] = ' + text_format)
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"observedAt\"] = observed_at')
+            config = is_config_element(element)
+            if config == True:
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"datasetId\"] = \"urn:ngsi-ld:configuration\"')
+            else:
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"datasetId\"] = \"urn:ngsi-ld:operational\"')
         ### --- ###
         
         ### NGSI-LD RELATIONSHIP IDENTIFICATION ###
@@ -473,6 +501,11 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Relationship\"')
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + matches[0] + "\"" + ' + \":\" + element_text')
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"observedAt\"] = observed_at')
+            config = is_config_element(element)
+            if config == True:
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"datasetId\"] = \"urn:ngsi-ld:configuration\"')
+            else:
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"datasetId\"] = \"urn:ngsi-ld:operational\"')
         ### --- ###
 
         ### NGSI-LD YANG IDENTITY IDENTIFICATION ###
@@ -491,6 +524,11 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"][\"type\"] = \"Relationship\"')
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"][\"object\"] = \"urn:ngsi-ld:YANGIdentity\" + \":\" + element_text')
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"][\"observedAt\"] = observed_at')
+            config = is_config_element(element)
+            if config == True:
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"][\"datasetId\"] = \"urn:ngsi-ld:configuration\"')
+            else:
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"][\"datasetId\"] = \"urn:ngsi-ld:operational\"')
         ### --- ###
     
     ### --- ###
@@ -548,7 +586,7 @@ def generate_python_xml_parser_code(ctx, modules, fd):
                 depth_level = 2
             for element in elements:
                 if (element is not None) and (element.keyword in statements.data_definition_keywords):
-                    generate_parser_code(element, None, None, None, list(), depth_level, typedefs_dict)
+                    generate_parser_code(element, None, None, None, list(), depth_level, typedefs_dict, None)
     
     fd.write('\n\n')
 

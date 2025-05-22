@@ -1,8 +1,0 @@
-{
-    "@context": {
-        "ietf-network": "urn:ietf:params:xml:ns:yang:ietf-network/",
-        "NetworkLinkDestination": "ietf-network:networks/network/nt:link/nt:destination",
-        "destNode": "ietf-network:networks/network/nt:link/nt:destination/nt:dest-node",
-        "destTp": "ietf-network:networks/network/nt:link/nt:destination/nt:dest-tp"
-    }
-}
