@@ -13,9 +13,10 @@ from xml.etree.ElementTree import Element, SubElement, fromstring, tostring
 from pydantic import BaseModel
 
 import time
+import csv
 import datetime
 from dateutil import parser
-from datetime import datetime
+from datetime import datetime as dtime
 from collections import defaultdict
 import lxml.etree as etree
 
@@ -25,6 +26,17 @@ producer = KafkaProducer(
     bootstrap_servers=['kafka:9092'],
     value_serializer=lambda v: v.encode('utf-8')
 )
+
+performance_measurements_file = open("/opt/netconf-network-controller-virtualization/netconf_network_controller_virtualization/performance_measurements_operation.csv", "w", newline='')
+csv_writer = csv.writer(performance_measurements_file)
+csv_header = ["notified_at", "translation_started_at", "translation_finished_at", "translation_time", "mean_translation_time", "min_translation_time", "max_translation_time", 
+              "operation_started_at", "operation_finished_at", "operation_time", "mean_operation_time", "min_operation_time", "max_operation_time",  "processing_time_since_notified_at", 
+              "mean_processing_time_since_notified_at", "min_processing_time_since_notified_at", "max_processing_time_since_notified_at", "notifications_received"]
+csv_writer.writerow(csv_header)   
+
+translation_delta_times = []
+operation_delta_times = []
+processing_delta_times = []
 
 '''
 Get XPath from Context Catalog by searching the context registry value (i.e., the entity type URI field):
@@ -399,7 +411,7 @@ def generate_netconf_xml_config(xpath: str, all_context_data: Optional[dict], en
 '''
 Function for triggering NETCONF RPC Get and Get-Config operations with needed parameters.
 '''
-def get_operation(host: str, port: str, username: str, password: str, family: str, entity_type: str, entity_id: str, option: str, all_context_data: Optional[dict] = None, hostKeyVerify: Optional[bool] = False, sysAttrs: Optional[bool] = False, all_context_registries: Optional[list] = None):
+def get_operation(host: str, port: str, username: str, password: str, family: str, entity_type: str, entity_id: str, option: str, notified_at: str, all_context_data: Optional[dict] = None, hostKeyVerify: Optional[bool] = False, sysAttrs: Optional[bool] = False, all_context_registries: Optional[list] = None):
     r = {
         "host": host,
         "port": port,
@@ -411,10 +423,10 @@ def get_operation(host: str, port: str, username: str, password: str, family: st
 
     logger.info("Hello, this is the ncclient-collector for " + host + " for GET operations...")
     
-    session = manager.connect(**r)
+    #session = manager.connect(**r)
+    #logger.info("I have successfully established a session with ID# " + session.session_id)
 
-    logger.info("I have successfully established a session with ID# " + session.session_id)
-
+    translation_datetime_start = datetime.datetime.now(datetime.timezone.utc)
     xpath = get_xpath_in_context_catalog(entity_type=entity_type, all_context_data=all_context_data)
     
     if entity_id != None:
@@ -446,6 +458,16 @@ def get_operation(host: str, port: str, username: str, password: str, family: st
             xpath = get_xpath_with_keys_full(xpath=xpath, all_context_registries=all_context_registries)
         interface_filter = generate_netconf_xml_config(xpath=xpath, all_context_data=all_context_data, entity_type=entity_type)
         logger.info("XML data schema: " + str(interface_filter))
+
+        #notified_at = parser.parse(notified_at)
+                
+        translation_datetime_stop = datetime.datetime.now(datetime.timezone.utc)
+        translation_delta_time = (translation_datetime_stop - translation_datetime_start).total_seconds()
+        translation_delta_times.append(translation_delta_time)
+        
+        operation_datetime_start = datetime.datetime.now(datetime.timezone.utc)
+        session = manager.connect(**r)
+        logger.info("I have successfully established a session with ID# " + session.session_id)
         try:
             # Execute the get-config RPC
             reply = session.get_config(source="running", filter=("subtree", interface_filter))
@@ -457,12 +479,30 @@ def get_operation(host: str, port: str, username: str, password: str, family: st
                 logger.info("\nThe requested config schema tree is incorrect or not supported by the network device " + host + ".")
                 session.close_session()
                 return
+            '''
+            operation_datetime_stop = datetime.datetime.now(datetime.timezone.utc)
+            operation_delta_time = (operation_datetime_stop - operation_datetime_start).total_seconds()
+            operation_delta_times.append(operation_delta_time)
+
+            processing_delta_time = (operation_datetime_stop - notified_at).total_seconds()
+            processing_delta_times.append(processing_delta_time)
+            '''
         except Exception as e:
             logger.exception(f"Error for establishing the Get Config operation: {e}")
             session.close_session()
             return
     
     elif option == "state":
+
+        #notified_at = parser.parse(notified_at)
+        
+        translation_datetime_stop = datetime.datetime.now(datetime.timezone.utc)
+        translation_delta_time = (translation_datetime_stop - translation_datetime_start).total_seconds()
+        translation_delta_times.append(translation_delta_time)
+    
+        operation_datetime_start = datetime.datetime.now(datetime.timezone.utc)
+        session = manager.connect(**r)
+        logger.info("I have successfully established a session with ID# " + session.session_id)
         try:
             # Execute the get RPC
             # Create a filter
@@ -488,21 +528,35 @@ def get_operation(host: str, port: str, username: str, password: str, family: st
                 logger.info("\nThe Xpath is incorrect or not supported by the network device " + host + ".")
                 session.close_session()
                 return
+            '''
+            operation_datetime_stop = datetime.datetime.now(datetime.timezone.utc)
+            operation_delta_time = (operation_datetime_stop - operation_datetime_start).total_seconds()
+            operation_delta_times.append(operation_delta_time)
+
+            processing_delta_time = (operation_datetime_stop - notified_at).total_seconds()
+            processing_delta_times.append(processing_delta_time)
+            '''
         except Exception as e:
             logger.exception(f"Error for establishing the Get operation: {e}")
             session.close_session()
             return
 
     session.close_session()
+    operation_datetime_stop = datetime.datetime.now(datetime.timezone.utc)
+    operation_delta_time = (operation_datetime_stop - operation_datetime_start).total_seconds()
+    operation_delta_times.append(operation_delta_time)
+
+    processing_delta_time = (operation_datetime_stop - notified_at).total_seconds()
+    processing_delta_times.append(processing_delta_time)
 
     #producer = KafkaProducer(bootstrap_servers=['kafka:9092'])
     reply = str(reply.data_xml)
     root = et.fromstring(reply)
 
-    # A new subelement is added to the NETCONF notification: evenTime.
+    # A new subelement is added to the NETCONF notification: eventTime.
     # It is the current date and time when the operation was realized.
     # WARNING: This is not defined in the specification.
-    currentime = datetime.now().strftime('%Y-%m-%dT%H:%M:%S.%f') + 'Z'
+    currentime = dtime.now().strftime('%Y-%m-%dT%H:%M:%S.%f') + 'Z'
     eventTime = et.SubElement(root, 'eventTime')
     eventTime.text = str(currentime)
     
@@ -534,6 +588,14 @@ def get_operation(host: str, port: str, username: str, password: str, family: st
     logger.info("I have sent it to a Kafka topic named interfaces-state-subscriptions")
     logger.info("The eventTime element of the query reply is: " + eventTime.text)
     producer.flush()
+
+    csv_data = [notified_at.strftime("%Y-%m-%dT%H:%M:%S.%fZ"), translation_datetime_start.strftime("%Y-%m-%dT%H:%M:%S.%fZ"), translation_datetime_stop.strftime("%Y-%m-%dT%H:%M:%S.%fZ"), str(translation_delta_time * 1e3) + " ms",
+                str((sum(translation_delta_times)/len(translation_delta_times)) * 1e3) + " ms", str(min(translation_delta_times) * 1e3) + " ms", str(max(translation_delta_times) * 1e3) + " ms", operation_datetime_start.strftime("%Y-%m-%dT%H:%M:%S.%fZ"), 
+                operation_datetime_stop.strftime("%Y-%m-%dT%H:%M:%S.%fZ"), str(operation_delta_time * 1e3) + " ms", str((sum(operation_delta_times)/len(operation_delta_times)) * 1e3) + " ms", str(min(operation_delta_times) * 1e3) + " ms", 
+                str(max(operation_delta_times) * 1e3) + " ms", str(processing_delta_time * 1e3) + " ms", str((sum(processing_delta_times)/len(processing_delta_times)) * 1e3) + " ms", str(min(processing_delta_times) * 1e3) + " ms", 
+                str(max(processing_delta_times) * 1e3) + " ms", str(len(processing_delta_times))]
+    csv_writer.writerow(csv_data)
+    performance_measurements_file.flush()
     
 '''
 Function to convert string from camelcase format (e.g., linkUpDownTrapEnable) to kebabcase format (e.g., link-up-down-trap-enable)
