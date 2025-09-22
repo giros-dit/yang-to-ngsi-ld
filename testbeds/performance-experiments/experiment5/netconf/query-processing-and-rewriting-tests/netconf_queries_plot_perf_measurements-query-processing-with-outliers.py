@@ -1,9 +1,9 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df_materialization = pd.read_csv('performance_measurements_operation-gnmi-materialization-1.csv')
+df_materialization = pd.read_csv('performance_measurements_operation-netconf-materialization-1.csv')
 
-print("gNMI RPC Query performance measurements for YANG to NGSI-LD translation using data materialization - Iteration 1: \n")
+print("NETCONF RPC Query performance measurements for YANG to NGSI-LD translation using data materialization - Iteration 1: \n")
 
 query_operation_mean_materialization = df_materialization ['operation_time'].mean()
 query_operation_standard_deviation_materialization  = df_materialization ['operation_time'].std()
@@ -23,9 +23,9 @@ print("Data materialization - Mean query request time:", query_request_mean_mate
 print("Data materialization - Query request standard deviation:", query_request_standard_deviation_materialization)
 print("\n")
 
-df_virtualization_context_broker = pd.read_csv('performance_measurements_operation-gnmi-virtualization-1-cb.csv')
+df_virtualization_context_broker = pd.read_csv('performance_measurements_operation-netconf-virtualization-1-cb.csv')
 
-print("gNMI RPC Query performance measurements for YANG to NGSI-LD translation using data virtualization (interacting with Context Broker) - Iteration 1: \n")
+print("NETCONF RPC Query performance measurements for YANG to NGSI-LD translation using data virtualization (interacting with Context Broker) - Iteration 1: \n")
 
 query_operation_mean_virtualization_context_broker = df_virtualization_context_broker ['operation_time'].mean()
 query_operation_standard_deviation_virtualization_context_broker  = df_virtualization_context_broker ['operation_time'].std()
@@ -45,9 +45,9 @@ print("Data virtualization (context broker) - Mean query request time:", query_r
 print("Data virtualization (context broker) - Query request standard deviation:", query_request_standard_deviation_virtualization_context_broker)
 print("\n")
 
-df_virtualization_context_source = pd.read_csv('performance_measurements_operation-gnmi-virtualization-1-cs.csv')
+df_virtualization_context_source = pd.read_csv('performance_measurements_operation-netconf-virtualization-1-cs.csv')
 
-print("gNMI RPC Query performance measurements for YANG to NGSI-LD translation using data virtualization (interacting with Context Source) - Iteration 1: \n")
+print("NETCONF RPC Query performance measurements for YANG to NGSI-LD translation using data virtualization (interacting with Context Source) - Iteration 1: \n")
 
 query_operation_mean_virtualization_context_source = df_virtualization_context_source ['operation_time'].mean()
 query_operation_standard_deviation_virtualization_context_source  = df_virtualization_context_source ['operation_time'].std()
@@ -76,7 +76,7 @@ query_operation_plot_virtualization_context_broker = df_virtualization_context_b
 plt.xticks([1, 2, 3], ['materialization', 'virtualization_CS', 'virtualization_CB'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean operation time per \n gNMI RPC query operation')
+plt.title('Mean operation time per \n NETCONF RPC query operation')
 plt.savefig("query_operation_performance_measurements_data_integration-iteration-1.png", format="png", dpi=1500)
 
 fig, ax = plt.subplots()
@@ -88,7 +88,7 @@ query_translation_plot_virtualization_context_broker = df_virtualization_context
 plt.xticks([1, 2, 3], ['materialization', 'virtualization_CS', 'virtualization_CB'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean translation time per \n gNMI RPC query operation')
+plt.title('Mean translation time per \n NETCONF RPC query operation')
 plt.savefig("query_translation_performance_measurements_data_integration-iteration-1.png", format="png", dpi=1500)
 
 fig, ax = plt.subplots()
@@ -100,12 +100,12 @@ query_request_plot_virtualization_context_broker = df_virtualization_context_bro
 plt.xticks([1, 2, 3], ['materialization', 'virtualization_CS', 'virtualization_CB'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean request time per \n gNMI RPC query operation')
+plt.title('Mean request time per \n NETCONF RPC query operation')
 plt.savefig("query_request_performance_measurements_data_integration-iteration-1.png", format="png", dpi=1500)
 
-df_materialization = pd.read_csv('performance_measurements_operation-gnmi-materialization-2.csv')
+df_materialization = pd.read_csv('performance_measurements_operation-netconf-materialization-2.csv')
 
-print("gNMI RPC Query performance measurements for YANG to NGSI-LD translation using data materialization - Iteration 2: \n")
+print("NETCONF RPC Query performance measurements for YANG to NGSI-LD translation using data materialization - Iteration 2: \n")
 
 query_operation_mean_materialization = df_materialization ['operation_time'].mean()
 query_operation_standard_deviation_materialization  = df_materialization ['operation_time'].std()
@@ -125,9 +125,9 @@ print("Data materialization - Mean query request time:", query_request_mean_mate
 print("Data materialization - Query request standard deviation:", query_request_standard_deviation_materialization)
 print("\n")
 
-df_virtualization_context_broker = pd.read_csv('performance_measurements_operation-gnmi-virtualization-2-cb.csv')
+df_virtualization_context_broker = pd.read_csv('performance_measurements_operation-netconf-virtualization-2-cb.csv')
 
-print("gNMI RPC Query performance measurements for YANG to NGSI-LD translation using data virtualization (interacting with Context Broker) - Iteration 2: \n")
+print("NETCONF RPC Query performance measurements for YANG to NGSI-LD translation using data virtualization (interacting with Context Broker) - Iteration 2: \n")
 
 query_operation_mean_virtualization_context_broker = df_virtualization_context_broker ['operation_time'].mean()
 query_operation_standard_deviation_virtualization_context_broker  = df_virtualization_context_broker ['operation_time'].std()
@@ -147,9 +147,9 @@ print("Data virtualization (context broker) - Mean query request time:", query_r
 print("Data virtualization (context broker) - Query request standard deviation:", query_request_standard_deviation_virtualization_context_broker)
 print("\n")
 
-df_virtualization_context_source = pd.read_csv('performance_measurements_operation-gnmi-virtualization-2-cs.csv')
+df_virtualization_context_source = pd.read_csv('performance_measurements_operation-netconf-virtualization-2-cs.csv')
 
-print("gNMI RPC Query performance measurements for YANG to NGSI-LD translation using data virtualization (interacting with Context Source) - Iteration 2: \n")
+print("NETCONF RPC Query performance measurements for YANG to NGSI-LD translation using data virtualization (interacting with Context Source) - Iteration 2: \n")
 
 query_operation_mean_virtualization_context_source = df_virtualization_context_source ['operation_time'].mean()
 query_operation_standard_deviation_virtualization_context_source  = df_virtualization_context_source ['operation_time'].std()
@@ -178,7 +178,7 @@ query_operation_plot_virtualization_context_broker = df_virtualization_context_b
 plt.xticks([1, 2, 3], ['materialization', 'virtualization_CS', 'virtualization_CB'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean operation time per \n gNMI RPC query operation')
+plt.title('Mean operation time per \n NETCONF RPC query operation')
 plt.savefig("query_operation_performance_measurements_data_integration-iteration-2.png", format="png", dpi=1500)
 
 fig, ax = plt.subplots()
@@ -190,7 +190,7 @@ query_translation_plot_virtualization_context_broker = df_virtualization_context
 plt.xticks([1, 2, 3], ['materialization', 'virtualization_CS', 'virtualization_CB'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean translation time per \n gNMI RPC query operation')
+plt.title('Mean translation time per \n NETCONF RPC query operation')
 plt.savefig("query_translation_performance_measurements_data_integration-iteration-2.png", format="png", dpi=1500)
 
 fig, ax = plt.subplots()
@@ -202,12 +202,12 @@ query_request_plot_virtualization_context_broker = df_virtualization_context_bro
 plt.xticks([1, 2, 3], ['materialization', 'virtualization_CS', 'virtualization_CB'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean request time per \n gNMI RPC query operation')
+plt.title('Mean request time per \n NETCONF RPC query operation')
 plt.savefig("query_request_performance_measurements_data_integration-iteration-2.png", format="png", dpi=1500)
 
-df_materialization = pd.read_csv('performance_measurements_operation-gnmi-materialization-3.csv')
+df_materialization = pd.read_csv('performance_measurements_operation-netconf-materialization-3.csv')
 
-print("gNMI RPC Query performance measurements for YANG to NGSI-LD translation using data materialization - Iteration 3: \n")
+print("NETCONF RPC Query performance measurements for YANG to NGSI-LD translation using data materialization - Iteration 3: \n")
 
 query_operation_mean_materialization = df_materialization ['operation_time'].mean()
 query_operation_standard_deviation_materialization  = df_materialization ['operation_time'].std()
@@ -227,9 +227,9 @@ print("Data materialization - Mean query request time:", query_request_mean_mate
 print("Data materialization - Query request standard deviation:", query_request_standard_deviation_materialization)
 print("\n")
 
-df_virtualization_context_broker = pd.read_csv('performance_measurements_operation-gnmi-virtualization-3-cb.csv')
+df_virtualization_context_broker = pd.read_csv('performance_measurements_operation-netconf-virtualization-3-cb.csv')
 
-print("gNMI RPC Query performance measurements for YANG to NGSI-LD translation using data virtualization (interacting with Context Broker) - Iteration 3: \n")
+print("NETCONF RPC Query performance measurements for YANG to NGSI-LD translation using data virtualization (interacting with Context Broker) - Iteration 3: \n")
 
 query_operation_mean_virtualization_context_broker = df_virtualization_context_broker ['operation_time'].mean()
 query_operation_standard_deviation_virtualization_context_broker  = df_virtualization_context_broker ['operation_time'].std()
@@ -249,9 +249,9 @@ print("Data virtualization (context broker) - Mean query request time:", query_r
 print("Data virtualization (context broker) - Query request standard deviation:", query_request_standard_deviation_virtualization_context_broker)
 print("\n")
 
-df_virtualization_context_source = pd.read_csv('performance_measurements_operation-gnmi-virtualization-3-cs.csv')
+df_virtualization_context_source = pd.read_csv('performance_measurements_operation-netconf-virtualization-3-cs.csv')
 
-print("gNMI RPC Query performance measurements for YANG to NGSI-LD translation using data virtualization (interacting with Context Source) - Iteration 3: \n")
+print("NETCONF RPC Query performance measurements for YANG to NGSI-LD translation using data virtualization (interacting with Context Source) - Iteration 3: \n")
 
 query_operation_mean_virtualization_context_source = df_virtualization_context_source ['operation_time'].mean()
 query_operation_standard_deviation_virtualization_context_source  = df_virtualization_context_source ['operation_time'].std()
@@ -280,7 +280,7 @@ query_operation_plot_virtualization_context_broker = df_virtualization_context_b
 plt.xticks([1, 2, 3], ['materialization', 'virtualization_CS', 'virtualization_CB'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean operation time per \n gNMI RPC query operation')
+plt.title('Mean operation time per \n NETCONF RPC query operation')
 plt.savefig("query_operation_performance_measurements_data_integration-iteration-3.png", format="png", dpi=1500)
 
 fig, ax = plt.subplots()
@@ -292,7 +292,7 @@ query_translation_plot_virtualization_context_broker = df_virtualization_context
 plt.xticks([1, 2, 3], ['materialization', 'virtualization_CS', 'virtualization_CB'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean translation time per \n gNMI RPC query operation')
+plt.title('Mean translation time per \n NETCONF RPC query operation')
 plt.savefig("query_translation_performance_measurements_data_integration-iteration-3.png", format="png", dpi=1500)
 
 fig, ax = plt.subplots()
@@ -304,13 +304,13 @@ query_request_plot_virtualization_context_broker = df_virtualization_context_bro
 plt.xticks([1, 2, 3], ['materialization', 'virtualization_CS', 'virtualization_CB'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean request time per \n gNMI RPC query operation')
+plt.title('Mean request time per \n NETCONF RPC query operation')
 plt.savefig("query_request_performance_measurements_data_integration-iteration-3.png", format="png", dpi=1500)
 
 materialization_files = [
-    'performance_measurements_operation-gnmi-materialization-1.csv',
-    'performance_measurements_operation-gnmi-materialization-2.csv',
-    'performance_measurements_operation-gnmi-materialization-3.csv'
+    'performance_measurements_operation-netconf-materialization-1.csv',
+    'performance_measurements_operation-netconf-materialization-2.csv',
+    'performance_measurements_operation-netconf-materialization-3.csv'
 ]
 
 df_materialization_queries_all = pd.concat(
@@ -318,12 +318,40 @@ df_materialization_queries_all = pd.concat(
     ignore_index=True
 )
 
-print("gNMI RPC Query performance measurements for YANG to NGSI-LD translation using data materialization: \n")
+print("NETCONF RPC Query performance measurements for YANG to NGSI-LD translation using data materialization: \n")
 
 query_operation_mean_materialization_all = df_materialization_queries_all ['operation_time'].mean()
 query_operation_standard_deviation_materialization_all  = df_materialization_queries_all ['operation_time'].std()
 print("Data materialization - Mean query operation time:", query_operation_mean_materialization_all)
 print("Data materialization - Query operation standard deviation:", query_operation_standard_deviation_materialization_all)
+print("\n")
+
+# Calculate Q1, Q3, and IQR
+column_data = df_materialization_queries_all ['operation_time']
+q1 = column_data.quantile(0.25)
+q3 = column_data.quantile(0.75)
+iqr = q3 - q1
+
+# Calculate bounds
+lower_bound = q1 - 1.5 * iqr
+upper_bound = q3 + 1.5 * iqr
+
+# Determine outliers
+outliers = column_data[
+    (column_data < lower_bound) |
+    (column_data >= upper_bound)
+]
+
+# Count outliers ocurrences
+print("Outliers: ")
+print(outliers)
+print("Outliers ocurrences:" + str(len(outliers)))
+coverage = len(outliers) / len(df_materialization_queries_all)
+print(f"Percentage of outliers: {coverage * 100:.2f}%")
+materialization_operation_outlier_percentage = coverage * 100
+outlier_counts = outliers.value_counts()
+print(outlier_counts)
+
 print("\n")
 
 query_translation_mean_materialization_all = df_materialization_queries_all ['translation_time'].mean()
@@ -332,16 +360,72 @@ print("Data materialization - Mean query translation time:", query_translation_m
 print("Data materialization - Query translation standard deviation:", query_translation_standard_deviation_materialization_all)
 print("\n")
 
+# Calculate Q1, Q3, and IQR
+column_data = df_materialization_queries_all ['translation_time']
+q1 = column_data.quantile(0.25)
+q3 = column_data.quantile(0.75)
+iqr = q3 - q1
+
+# Calculate bounds
+lower_bound = q1 - 1.5 * iqr
+upper_bound = q3 + 1.5 * iqr
+
+# Determine outliers
+outliers = column_data[
+    (column_data < lower_bound) |
+    (column_data >= upper_bound)
+]
+
+# Count outliers ocurrences
+print("Outliers: ")
+print(outliers)
+print("Outliers ocurrences:" + str(len(outliers)))
+coverage = len(outliers) / len(df_materialization_queries_all)
+print(f"Percentage of outliers: {coverage * 100:.2f}%")
+materialization_translation_outlier_percentage = coverage * 100
+outlier_counts = outliers.value_counts()
+print(outlier_counts)
+
+print("\n")
+
 query_request_mean_materialization_all = df_materialization_queries_all ['processing_time_since_notified_at'].mean()
 query_request_standard_deviation_materialization_all  = df_materialization_queries_all ['processing_time_since_notified_at'].std()
 print("Data materialization - Mean query request time:", query_request_mean_materialization_all)
 print("Data materialization - Query request standard deviation:", query_request_standard_deviation_materialization_all)
 print("\n")
 
+# Calculate Q1, Q3, and IQR
+column_data = df_materialization_queries_all ['processing_time_since_notified_at']
+q1 = column_data.quantile(0.25)
+q3 = column_data.quantile(0.75)
+iqr = q3 - q1
+
+# Calculate bounds
+lower_bound = q1 - 1.5 * iqr
+upper_bound = q3 + 1.5 * iqr
+
+# Determine outliers
+outliers = column_data[
+    (column_data < lower_bound) |
+    (column_data >= upper_bound)
+]
+
+# Count outliers ocurrences
+print("Outliers: ")
+print(outliers)
+print("Outliers ocurrences:" + str(len(outliers)))
+coverage = len(outliers) / len(df_materialization_queries_all)
+print(f"Percentage of outliers: {coverage * 100:.2f}%")
+materialization_request_outlier_percentage = coverage * 100
+outlier_counts = outliers.value_counts()
+print(outlier_counts)
+
+print("\n")
+
 virtualization_cb_files = [
-    'performance_measurements_operation-gnmi-virtualization-1-cb.csv',
-    'performance_measurements_operation-gnmi-virtualization-2-cb.csv',
-    'performance_measurements_operation-gnmi-virtualization-3-cb.csv'
+    'performance_measurements_operation-netconf-virtualization-1-cb.csv',
+    'performance_measurements_operation-netconf-virtualization-2-cb.csv',
+    'performance_measurements_operation-netconf-virtualization-3-cb.csv'
 ]
 
 df_virtualization_cb_queries_all = pd.concat(
@@ -349,12 +433,40 @@ df_virtualization_cb_queries_all = pd.concat(
     ignore_index=True
 )
 
-print("gNMI RPC Query performance measurements for YANG to NGSI-LD translation using data virtualization (interacting with Context Broker): \n")
+print("NETCONF RPC Query performance measurements for YANG to NGSI-LD translation using data virtualization (interacting with Context Broker): \n")
 
 query_operation_mean_virtualization_context_broker_all = df_virtualization_cb_queries_all ['operation_time'].mean()
 query_operation_standard_deviation_virtualization_context_broker_all  = df_virtualization_cb_queries_all ['operation_time'].std()
 print("Data virtualization (context broker) - Mean query operation time:", query_operation_mean_virtualization_context_broker_all)
 print("Data virtualization (context broker) - Query operation standard deviation:", query_operation_standard_deviation_virtualization_context_broker_all)
+print("\n")
+
+# Calculate Q1, Q3, and IQR
+column_data = df_virtualization_cb_queries_all ['operation_time']
+q1 = column_data.quantile(0.25)
+q3 = column_data.quantile(0.75)
+iqr = q3 - q1
+
+# Calculate bounds
+lower_bound = q1 - 1.5 * iqr
+upper_bound = q3 + 1.5 * iqr
+
+# Determine outliers
+outliers = column_data[
+    (column_data < lower_bound) |
+    (column_data >= upper_bound)
+]
+
+# Count outliers ocurrences
+print("Outliers: ")
+print(outliers)
+print("Outliers ocurrences:" + str(len(outliers)))
+coverage = len(outliers) / len(df_virtualization_cb_queries_all)
+print(f"Percentage of outliers: {coverage * 100:.2f}%")
+virtualization_cb_operation_outlier_percentage = coverage * 100
+outlier_counts = outliers.value_counts()
+print(outlier_counts)
+
 print("\n")
 
 query_translation_mean_virtualization_context_broker_all = df_virtualization_cb_queries_all ['translation_time'].mean()
@@ -363,16 +475,72 @@ print("Data virtualization (context broker) - Mean query translation time:", que
 print("Data virtualization (context broker) - Query translation standard deviation:", query_translation_standard_deviation_virtualization_context_broker_all)
 print("\n")
 
+# Calculate Q1, Q3, and IQR
+column_data = df_virtualization_cb_queries_all ['translation_time']
+q1 = column_data.quantile(0.25)
+q3 = column_data.quantile(0.75)
+iqr = q3 - q1
+
+# Calculate bounds
+lower_bound = q1 - 1.5 * iqr
+upper_bound = q3 + 1.5 * iqr
+
+# Determine outliers
+outliers = column_data[
+    (column_data < lower_bound) |
+    (column_data >= upper_bound)
+]
+
+# Count outliers ocurrences
+print("Outliers: ")
+print(outliers)
+print("Outliers ocurrences:" + str(len(outliers)))
+coverage = len(outliers) / len(df_virtualization_cb_queries_all)
+print(f"Percentage of outliers: {coverage * 100:.2f}%")
+virtualization_cb_translation_outlier_percentage = coverage * 100
+outlier_counts = outliers.value_counts()
+print(outlier_counts)
+
+print("\n")
+
 query_request_mean_virtualization_context_broker_all = df_virtualization_cb_queries_all ['processing_time_since_notified_at'].mean()
 query_request_standard_deviation_virtualization_context_broker_all  = df_virtualization_cb_queries_all ['processing_time_since_notified_at'].std()
 print("Data virtualization (context broker) - Mean query request time:", query_request_mean_virtualization_context_broker_all)
 print("Data virtualization (context broker) - Query request standard deviation:", query_request_standard_deviation_virtualization_context_broker_all)
 print("\n")
 
+# Calculate Q1, Q3, and IQR
+column_data = df_virtualization_cb_queries_all ['processing_time_since_notified_at']
+q1 = column_data.quantile(0.25)
+q3 = column_data.quantile(0.75)
+iqr = q3 - q1
+
+# Calculate bounds
+lower_bound = q1 - 1.5 * iqr
+upper_bound = q3 + 1.5 * iqr
+
+# Determine outliers
+outliers = column_data[
+    (column_data < lower_bound) |
+    (column_data >= upper_bound)
+]
+
+# Count outliers ocurrences
+print("Outliers: ")
+print(outliers)
+print("Outliers ocurrences:" + str(len(outliers)))
+coverage = len(outliers) / len(df_virtualization_cb_queries_all)
+print(f"Percentage of outliers: {coverage * 100:.2f}%")
+virtualization_cb_request_outlier_percentage = coverage * 100
+outlier_counts = outliers.value_counts()
+print(outlier_counts)
+
+print("\n")
+
 virtualization_cs_files = [
-    'performance_measurements_operation-gnmi-virtualization-1-cs.csv',
-    'performance_measurements_operation-gnmi-virtualization-2-cs.csv',
-    'performance_measurements_operation-gnmi-virtualization-3-cs.csv'
+    'performance_measurements_operation-netconf-virtualization-1-cs.csv',
+    'performance_measurements_operation-netconf-virtualization-2-cs.csv',
+    'performance_measurements_operation-netconf-virtualization-3-cs.csv'
 ]
 
 df_virtualization_cs_queries_all = pd.concat(
@@ -380,12 +548,40 @@ df_virtualization_cs_queries_all = pd.concat(
     ignore_index=True
 )
 
-print("gNMI RPC Query performance measurements for YANG to NGSI-LD translation using data virtualization (interacting with Context Source): \n")
+print("NETCONF RPC Query performance measurements for YANG to NGSI-LD translation using data virtualization (interacting with Context Source): \n")
 
 query_operation_mean_virtualization_context_source_all = df_virtualization_cs_queries_all ['operation_time'].mean()
 query_operation_standard_deviation_virtualization_context_source_all  = df_virtualization_cs_queries_all ['operation_time'].std()
 print("Data virtualization (context source) - Mean query operation time", query_operation_mean_virtualization_context_source)
 print("Data virtualization (context source) - Query operation standard deviation:", query_operation_standard_deviation_virtualization_context_source)
+print("\n")
+
+# Calculate Q1, Q3, and IQR
+column_data = df_virtualization_cs_queries_all ['operation_time']
+q1 = column_data.quantile(0.25)
+q3 = column_data.quantile(0.75)
+iqr = q3 - q1
+
+# Calculate bounds
+lower_bound = q1 - 1.5 * iqr
+upper_bound = q3 + 1.5 * iqr
+
+# Determine outliers
+outliers = column_data[
+    (column_data < lower_bound) |
+    (column_data >= upper_bound)
+]
+
+# Count outliers ocurrences
+print("Outliers: ")
+print(outliers)
+print("Outliers ocurrences:" + str(len(outliers)))
+coverage = len(outliers) / len(df_virtualization_cs_queries_all)
+print(f"Percentage of outliers: {coverage * 100:.2f}%")
+virtualization_cs_operation_outlier_percentage = coverage * 100
+outlier_counts = outliers.value_counts()
+print(outlier_counts)
+
 print("\n")
 
 query_translation_mean_virtualization_context_source_all = df_virtualization_cs_queries_all ['translation_time'].mean()
@@ -394,10 +590,66 @@ print("Data virtualization (context source) - Mean query translation time", quer
 print("Data virtualization (context source) - Query translation standard deviation:", query_translation_standard_deviation_virtualization_context_source_all)
 print("\n")
 
+# Calculate Q1, Q3, and IQR
+column_data = df_virtualization_cs_queries_all ['translation_time']
+q1 = column_data.quantile(0.25)
+q3 = column_data.quantile(0.75)
+iqr = q3 - q1
+
+# Calculate bounds
+lower_bound = q1 - 1.5 * iqr
+upper_bound = q3 + 1.5 * iqr
+
+# Determine outliers
+outliers = column_data[
+    (column_data < lower_bound) |
+    (column_data >= upper_bound)
+]
+
+# Count outliers ocurrences
+print("Outliers: ")
+print(outliers)
+print("Outliers ocurrences:" + str(len(outliers)))
+coverage = len(outliers) / len(df_virtualization_cs_queries_all)
+print(f"Percentage of outliers: {coverage * 100:.2f}%")
+virtualization_cs_translation_outlier_percentage = coverage * 100
+outlier_counts = outliers.value_counts()
+print(outlier_counts)
+
+print("\n")
+
 query_request_mean_virtualization_context_source_all = df_virtualization_cs_queries_all ['processing_time_since_notified_at'].mean()
 query_request_standard_deviation_virtualization_context_source_all  = df_virtualization_cs_queries_all ['processing_time_since_notified_at'].std()
 print("Data virtualization (context source) - Mean query request time", query_request_mean_virtualization_context_source_all)
 print("Data virtualization (context source) - Query request standard deviation:", query_request_standard_deviation_virtualization_context_source_all)
+print("\n")
+
+# Calculate Q1, Q3, and IQR
+column_data = df_virtualization_cs_queries_all ['processing_time_since_notified_at']
+q1 = column_data.quantile(0.25)
+q3 = column_data.quantile(0.75)
+iqr = q3 - q1
+
+# Calculate bounds
+lower_bound = q1 - 1.5 * iqr
+upper_bound = q3 + 1.5 * iqr
+
+# Determine outliers
+outliers = column_data[
+    (column_data < lower_bound) |
+    (column_data >= upper_bound)
+]
+
+# Count outliers ocurrences
+print("Outliers: ")
+print(outliers)
+print("Outliers ocurrences:" + str(len(outliers)))
+coverage = len(outliers) / len(df_virtualization_cs_queries_all)
+print(f"Percentage of outliers: {coverage * 100:.2f}%")
+virtualization_cs_request_outlier_percentage = coverage * 100
+outlier_counts = outliers.value_counts()
+print(outlier_counts)
+
 print("\n")
 
 fig, ax = plt.subplots()
@@ -409,42 +661,39 @@ query_operation_plot_virtualization_cb_queries_all = df_virtualization_cb_querie
 plt.xticks([1, 2, 3], ['Materialization', 'Virtualization_CS', 'Virtualization_CB'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean operation time per \n gNMI RPC query operation')
+plt.title('Mean operation time per \n NETCONF RPC query operation')
 
 # Texto estadístico
-text_materialization = '\n'.join((
-   # r'Materialization',
-    r'$\mu=%.2f$ ms' % query_operation_mean_materialization_all,
-    r'$\sigma=%.2f$ ms' % query_operation_standard_deviation_materialization_all
+text_outliers_operation_materialization = '\n'.join((
+    r'$Outliers=$',
+    r'$%.2f$ %%' % materialization_operation_outlier_percentage
 ))
 
-text_virtualization_cs = '\n'.join((
-   # r'Virtualization_CS',
-    r'$\mu=%.2f$ ms' % query_operation_mean_virtualization_context_source_all,
-    r'$\sigma=%.2f$ ms' % query_operation_standard_deviation_virtualization_context_source_all
+text_outliers_cs_operation_virtualization = '\n'.join((
+    r'$Outliers=$',
+    r'$%.2f$ %%' % virtualization_cs_operation_outlier_percentage
 ))
 
-text_virtualization_cb = '\n'.join((
-   # r'Virtualization_CB',
-    r'$\mu=%.2f$ ms' % query_operation_mean_virtualization_context_broker_all,
-    r'$\sigma=%.2f$ ms' % query_operation_standard_deviation_virtualization_context_broker_all
+text_outliers_cb_operation_virtualization = '\n'.join((
+    r'$Outliers=$',
+    r'$%.2f$ %%' % virtualization_cb_operation_outlier_percentage
 ))
 
 # Estilo del recuadro
 props = dict(boxstyle='round', facecolor='white', alpha=0.8)
 
 # Añadir ambos recuadros en esquinas opuestas
-ax.text(0.05, 0.05, text_materialization, transform=ax.transAxes,
+ax.text(0.05, 0.05, text_outliers_operation_materialization , transform=ax.transAxes,
         fontsize=10, verticalalignment='bottom', bbox=props, color='blue')
 
-ax.text(0.5, 0.95, text_virtualization_cs, transform=ax.transAxes,
+ax.text(0.5, 0.95, text_outliers_cs_operation_virtualization, transform=ax.transAxes,
         fontsize=10, verticalalignment='top', horizontalalignment='center', bbox=props, color='grey')
 
-ax.text(0.95, 0.05, text_virtualization_cb, transform=ax.transAxes,
+ax.text(0.95, 0.05, text_outliers_cb_operation_virtualization, transform=ax.transAxes,
         fontsize=10, verticalalignment='bottom', horizontalalignment='right', bbox=props)
 
 
-plt.savefig("query_operation_performance_measurements_data_integration.png", format="png", dpi=1500)
+plt.savefig("query_operation_performance_measurements_data_integration-with-outliers.png", format="png", dpi=1500)
 
 fig, ax = plt.subplots()
 
@@ -455,42 +704,39 @@ query_translation_plot_virtualization_cb_queries_all = df_virtualization_cb_quer
 plt.xticks([1, 2, 3], ['Materialization', 'Virtualization_CS', 'Virtualization_CB'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean translation time per \n gNMI RPC query operation')
+plt.title('Mean translation time per \n NETCONF RPC query operation')
 
 # Texto estadístico
-text_materialization = '\n'.join((
-   # r'Materialization',
-    r'$\mu=%.2f$ ms' % query_translation_mean_materialization_all,
-    r'$\sigma=%.2f$ ms' % query_translation_standard_deviation_materialization_all
+text_outliers_translation_materialization = '\n'.join((
+    r'$Outliers=$',
+    r'$%.2f$ %%' % materialization_translation_outlier_percentage
 ))
 
-text_virtualization_cs = '\n'.join((
-   # r'Virtualization_CS',
-    r'$\mu=%.2f$ ms' % query_translation_mean_virtualization_context_source_all,
-    r'$\sigma=%.2f$ ms' % query_translation_standard_deviation_virtualization_context_source_all
+text_outliers_cs_translation_virtualization = '\n'.join((
+    r'$Outliers=$',
+    r'$%.2f$ %%' % virtualization_cs_translation_outlier_percentage
 ))
 
-text_virtualization_cb = '\n'.join((
-   # r'Virtualization_CB',
-    r'$\mu=%.2f$ ms' % query_translation_mean_virtualization_context_broker_all,
-    r'$\sigma=%.2f$ ms' % query_translation_standard_deviation_virtualization_context_broker_all
+text_outliers_cb_translation_virtualization = '\n'.join((
+    r'$Outliers=$',
+    r'$%.2f$ %%' % virtualization_cb_translation_outlier_percentage
 ))
 
 # Estilo del recuadro
 props = dict(boxstyle='round', facecolor='white', alpha=0.8)
 
 # Añadir ambos recuadros en esquinas opuestas
-ax.text(0.05, 0.05, text_materialization, transform=ax.transAxes,
+ax.text(0.05, 0.05, text_outliers_translation_materialization, transform=ax.transAxes,
         fontsize=10, verticalalignment='bottom', bbox=props, color='blue')
 
-ax.text(0.5, 0.95, text_virtualization_cs, transform=ax.transAxes,
+ax.text(0.5, 0.95, text_outliers_cs_translation_virtualization, transform=ax.transAxes,
         fontsize=10, verticalalignment='top', horizontalalignment='center', bbox=props, color='grey')
 
-ax.text(0.95, 0.05, text_virtualization_cb, transform=ax.transAxes,
+ax.text(0.95, 0.05, text_outliers_cb_translation_virtualization, transform=ax.transAxes,
         fontsize=10, verticalalignment='bottom', horizontalalignment='right', bbox=props)
 
 
-plt.savefig("query_translation_performance_measurements_data_integration.png", format="png", dpi=1500)
+plt.savefig("query_translation_performance_measurements_data_integration-with-outliers.png", format="png", dpi=1500)
 
 fig, ax = plt.subplots()
 
@@ -501,38 +747,35 @@ query_request_plot_virtualization_context_broker_all = df_virtualization_cb_quer
 plt.xticks([1, 2, 3], ['Materialization', 'Virtualization_CS', 'Virtualization_CB'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean request time per \n gNMI RPC query operation')
+plt.title('Mean request time per \n NETCONF RPC query operation')
 
 # Texto estadístico
-text_materialization = '\n'.join((
-   # r'Materialization',
-    r'$\mu=%.2f$ ms' % query_request_mean_materialization_all,
-    r'$\sigma=%.2f$ ms' % query_request_standard_deviation_materialization_all
+text_outliers_request_materialization = '\n'.join((
+    r'$Outliers=$',
+    r'$%.2f$ %%' % materialization_request_outlier_percentage
 ))
 
-text_virtualization_cs = '\n'.join((
-   # r'Virtualization_CS',
-    r'$\mu=%.2f$ ms' % query_request_mean_virtualization_context_source_all,
-    r'$\sigma=%.2f$ ms' % query_request_standard_deviation_virtualization_context_source_all
+text_outliers_cs_request_virtualization = '\n'.join((
+    r'$Outliers=$',
+    r'$%.2f$ %%' % virtualization_cs_request_outlier_percentage
 ))
 
-text_virtualization_cb = '\n'.join((
-   # r'Virtualization_CB',
-    r'$\mu=%.2f$ ms' % query_request_mean_virtualization_context_broker_all,
-    r'$\sigma=%.2f$ ms' % query_request_standard_deviation_virtualization_context_broker_all
+text_outliers_cb_request_virtualization = '\n'.join((
+    r'$Outliers=$',
+    r'$%.2f$ %%' % virtualization_cb_request_outlier_percentage
 ))
 
 # Estilo del recuadro
 props = dict(boxstyle='round', facecolor='white', alpha=0.8)
 
 # Añadir ambos recuadros en esquinas opuestas
-ax.text(0.05, 0.04, text_materialization, transform=ax.transAxes,
+ax.text(0.05, 0.04, text_outliers_request_materialization, transform=ax.transAxes,
         fontsize=10, verticalalignment='bottom', bbox=props, color='blue')
 
-ax.text(0.5, 0.96, text_virtualization_cs, transform=ax.transAxes,
+ax.text(0.5, 0.96, text_outliers_cs_request_virtualization, transform=ax.transAxes,
         fontsize=10, verticalalignment='top', horizontalalignment='center', bbox=props, color='grey')
 
-ax.text(0.95, 0.04, text_virtualization_cb, transform=ax.transAxes,
+ax.text(0.95, 0.04, text_outliers_cb_request_virtualization, transform=ax.transAxes,
         fontsize=10, verticalalignment='bottom', horizontalalignment='right', bbox=props)
 
-plt.savefig("query_request_performance_measurements_data_integration.png", format="png", dpi=1500)
+plt.savefig("query_request_performance_measurements_data_integration-with-outliers.png", format="png", dpi=1500)

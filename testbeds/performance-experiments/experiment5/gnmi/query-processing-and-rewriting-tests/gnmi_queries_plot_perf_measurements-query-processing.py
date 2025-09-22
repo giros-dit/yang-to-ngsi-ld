@@ -326,8 +326,8 @@ print("Data materialization - Mean query operation time:", query_operation_mean_
 print("Data materialization - Query operation standard deviation:", query_operation_standard_deviation_materialization_all)
 print("\n")
 
-query_translation_mean_materialization_all = df_materialization ['translation_time'].mean()
-query_translation_standard_deviation_materialization_all  = df_materialization ['translation_time'].std()
+query_translation_mean_materialization_all = df_materialization_queries_all ['translation_time'].mean()
+query_translation_standard_deviation_materialization_all  = df_materialization_queries_all ['translation_time'].std()
 print("Data materialization - Mean query translation time:", query_translation_mean_materialization_all)
 print("Data materialization - Query translation standard deviation:", query_translation_standard_deviation_materialization_all)
 print("\n")
@@ -357,8 +357,8 @@ print("Data virtualization (context broker) - Mean query operation time:", query
 print("Data virtualization (context broker) - Query operation standard deviation:", query_operation_standard_deviation_virtualization_context_broker_all)
 print("\n")
 
-query_translation_mean_virtualization_context_broker_all = df_virtualization_context_broker ['translation_time'].mean()
-query_translation_standard_deviation_virtualization_context_broker_all  = df_virtualization_context_broker ['translation_time'].std()
+query_translation_mean_virtualization_context_broker_all = df_virtualization_cb_queries_all ['translation_time'].mean()
+query_translation_standard_deviation_virtualization_context_broker_all  = df_virtualization_cb_queries_all ['translation_time'].std()
 print("Data virtualization (context broker) - Mean query translation time:", query_translation_mean_virtualization_context_broker_all)
 print("Data virtualization (context broker) - Query translation standard deviation:", query_translation_standard_deviation_virtualization_context_broker_all)
 print("\n")
@@ -388,8 +388,8 @@ print("Data virtualization (context source) - Mean query operation time", query_
 print("Data virtualization (context source) - Query operation standard deviation:", query_operation_standard_deviation_virtualization_context_source)
 print("\n")
 
-query_translation_mean_virtualization_context_source_all = df_virtualization_context_source ['translation_time'].mean()
-query_translation_standard_deviation_virtualization_context_source_all  = df_virtualization_context_source ['translation_time'].std()
+query_translation_mean_virtualization_context_source_all = df_virtualization_cs_queries_all ['translation_time'].mean()
+query_translation_standard_deviation_virtualization_context_source_all  = df_virtualization_cs_queries_all ['translation_time'].std()
 print("Data virtualization (context source) - Mean query translation time", query_translation_mean_virtualization_context_source_all)
 print("Data virtualization (context source) - Query translation standard deviation:", query_translation_standard_deviation_virtualization_context_source_all)
 print("\n")
