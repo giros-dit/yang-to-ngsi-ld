@@ -1,6 +1,6 @@
 # Custom Dockerfile for gnmi-json-parser-notifications-with-ngsi-ld-instantiator
 
-FROM ubuntu:latest
+FROM ubuntu:22.04
 
 RUN apt update && apt -y dist-upgrade && apt -y autoremove && apt autoclean
 
@@ -18,10 +18,10 @@ COPY ./docker/gnmi-json-parser-notifications-with-ngsi-ld-instantiator .
 
 WORKDIR /opt/gnmi-json-parser-notifications-with-ngsi-ld-instantiator/ngsi-ld-models
 
-RUN poetry install
+RUN poetry install --no-root
 
 WORKDIR /opt/gnmi-json-parser-notifications-with-ngsi-ld-instantiator
 
-RUN poetry install
+RUN poetry install --no-root
 
 ENTRYPOINT ["poetry", "run", "python", "-u", "candil_srlinux_interfaces_ngsi_ld_instantiator.py"]
