@@ -1,6 +1,6 @@
 # Custom Dockerfile for gnmi-json-parser-queries-with-ngsi-ld-instantiator
 
-FROM ubuntu:latest
+FROM ubuntu:22.04
 
 RUN apt update && apt -y dist-upgrade && apt -y autoremove && apt autoclean
 
@@ -18,11 +18,11 @@ COPY ./docker/gnmi-json-parser-queries-with-ngsi-ld-instantiator .
 
 WORKDIR /opt/gnmi-json-parser-queries-with-ngsi-ld-instantiator/ngsi-ld-models
 
-RUN poetry install
+RUN poetry install --no-root
 
 WORKDIR /opt/gnmi-json-parser-queries-with-ngsi-ld-instantiator
 
-RUN poetry install
+RUN poetry install --no-root
 
 RUN cp candil-yang-identities-generator.py /root/.cache/pypoetry/virtualenvs/gnmi-json-parser-queries-with-ngsi-ld-*/lib/python3.10/site-packages/pyang/plugins/
 

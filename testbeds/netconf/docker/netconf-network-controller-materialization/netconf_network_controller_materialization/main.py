@@ -297,6 +297,7 @@ async def receiveNotification(request: Request):
                     logger.exception("Exception when calling ContextInformationProvisionApi->delete_entity: %s\n" % e) 
         elif entity["type"] == "RpcOperation":
             try:
+                notified_at = notification["notifiedAt"]
                 entity_match = RpcOperation.from_dict(entity)
                 entity_input = entity_match.to_dict()
                 logger.info("Entity object representation: %s\n" % Entity.from_dict(entity_input))
@@ -335,13 +336,12 @@ async def receiveNotification(request: Request):
                             entityId = None
                 
                         if search_entity_type_short_in_context_catalog_given_long_version(entityType, all_context_data):
-                            
                             entity_type_short_ocurrences = get_ocurrences_entity_type_short_in_context_catalog(entityType, all_context_data, all_context_registries)
                             config = discover_config_entity_by_uri(entityType, all_context_registries)
-
+            
                             if (entity_type_short_ocurrences == 1 and config == True and (option == "config" or option == "edit-config")) or (entity_type_short_ocurrences == 1 and config == False and option == "state") or (entity_type_short_ocurrences == 2 and (option == "config" or option == "edit-config" or option == "state")):
 
-                                get_operation(host, port, username, password, family, entityType, entityId, option, all_context_data, hostKeyVerify, all_context_registries)
+                                get_operation(host, port, username, password, family, entityType, entityId, option, notified_at, all_context_data, hostKeyVerify, all_context_registries)
                             
                                 if option == "edit-config":
                                     subs_entity = entityType

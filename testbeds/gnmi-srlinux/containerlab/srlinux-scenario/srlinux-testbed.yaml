@@ -1,0 +1,31 @@
+name: srlinux-testbed
+
+topology:
+  nodes:
+    pc1:
+      kind: linux
+      type: linux-network-multitool
+      group: server
+      image: wbitt/network-multitool:latest
+    r1:
+      kind: nokia_srlinux
+      type: ixr-d2l
+      image: ghcr.io/nokia/srlinux:latest
+      group: router
+      startup-config: r1.cfg
+    r2:
+      kind: nokia_srlinux
+      type: ixr-d2l
+      image: ghcr.io/nokia/srlinux:latest
+      group: router
+      startup-config: r2.cfg
+    pc2:
+      kind: linux
+      type: linux-network-multitool
+      group: server
+      image: wbitt/network-multitool:latest
+
+  links:
+    - endpoints: ["pc1:eth1", "r1:e1-1"]
+    - endpoints: ["r1:e1-2", "r2:e1-2"]
+    - endpoints: ["r2:e1-1", "pc2:eth1"]

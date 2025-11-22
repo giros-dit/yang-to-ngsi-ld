@@ -80,7 +80,7 @@ services:
       dockerfile: Dockerfile
     hostname: fake-gnmic-collector-queries
     container_name: fake-gnmic-collector-queries
-    command: ["python3", "-u", "/opt/fake-gnmic-collector-queries/gnmic-collector-queries-kafka.py", "1000"]
+    command: ["python3", "-u", "/opt/fake-gnmic-collector-queries/gnmic-collector-queries-kafka.py", "60"]
     volumes:
       - ./docker/fake-gnmic-collector-queries:/opt/fake-gnmic-collector-queries
     depends_on:
@@ -170,6 +170,29 @@ services:
       kafka:
         condition: service_healthy
       gnmi-json-parser-notifications-with-ngsi-ld-instantiator:
+        condition: service_healthy
+    restart: always
+
+  query-tester:
+    build:
+      context: .
+      dockerfile: ./docker/query-tester/Dockerfile
+    hostname: query-tester
+    container_name: query-tester
+    expose:
+      - "8083"
+    ports:
+      - "8083:8083"
+    volumes:
+      - ./docker/query-tester/query_tester:/opt/query-tester/query_tester
+    depends_on:
+      scorpio:
+        condition: service_started
+      context-catalog:
+        condition: service_started
+      kafka:
+        condition: service_healthy
+      gnmi-json-parser-queries-with-ngsi-ld-instantiator:
         condition: service_healthy
     restart: always
 

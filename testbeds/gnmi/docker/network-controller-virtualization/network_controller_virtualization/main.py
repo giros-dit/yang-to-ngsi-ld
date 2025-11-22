@@ -1022,6 +1022,7 @@ async def get_entitymap(request: Request):
     global kafka_message
     sysAttrs = False
     try:
+        notified_at = datetime.datetime.now(datetime.timezone.utc)
         params = dict(request.query_params)  
         logging.info(f"Received query parameters: {params}") 
         client_host = request.client.host
@@ -1070,9 +1071,9 @@ async def get_entitymap(request: Request):
                 entity_type_short = params["type"]
                 entity_type = get_entity_type_long_in_context_catalog(entity_type_short, all_context_data, config, all_context_registries)
                 if config == True: 
-                    get_operation(host=host, port=port, username=username, password=password, entity_type=entity_type, entity_id=None, option="config", all_context_data=all_context_data, sysAttrs=sysAttrs, all_context_registries=all_context_registries)
+                    get_operation(host=host, port=port, username=username, password=password, entity_type=entity_type, entity_id=None, option="config", notified_at=notified_at, all_context_data=all_context_data, sysAttrs=sysAttrs, all_context_registries=all_context_registries)
                 else:
-                    get_operation(host=host, port=port, username=username, password=password, entity_type=entity_type, entity_id=None, option="state", all_context_data=all_context_data, sysAttrs=sysAttrs, all_context_registries=all_context_registries)
+                    get_operation(host=host, port=port, username=username, password=password, entity_type=entity_type, entity_id=None, option="state", notified_at=notified_at, all_context_data=all_context_data, sysAttrs=sysAttrs, all_context_registries=all_context_registries)
             elif "id" in params:
                 urn_split = params["id"].split(":")
                 if "type" in params:
@@ -1081,9 +1082,9 @@ async def get_entitymap(request: Request):
                     entity_type_short = urn_split[2]
                 entity_type = get_entity_type_long_in_context_catalog(entity_type_short, all_context_data, config, all_context_registries)
                 if config == True: 
-                    get_operation(host=host, port=port, username=username, password=password, entity_type=entity_type, entity_id=params["id"], option="config", all_context_data=all_context_data, sysAttrs=sysAttrs, all_context_registries=all_context_registries)
+                    get_operation(host=host, port=port, username=username, password=password, entity_type=entity_type, entity_id=params["id"], option="config", notified_at=notified_at, all_context_data=all_context_data, sysAttrs=sysAttrs, all_context_registries=all_context_registries)
                 else:
-                    get_operation(host=host, port=port, username=username, password=password, entity_type=entity_type, entity_id=params["id"], option="state", all_context_data=all_context_data, sysAttrs=sysAttrs, all_context_registries=all_context_registries)
+                    get_operation(host=host, port=port, username=username, password=password, entity_type=entity_type, entity_id=params["id"], option="state", notified_at=notified_at, all_context_data=all_context_data, sysAttrs=sysAttrs, all_context_registries=all_context_registries)
             
             consumer_thread.join()
 
@@ -1148,6 +1149,7 @@ async def get_entities(request: Request):
     global kafka_message
     sysAttrs = False
     try:
+        notified_at = datetime.datetime.now(datetime.timezone.utc)
         params = dict(request.query_params) 
         logging.info(f"Received query parameters: {params}")
         client_host = request.client.host
@@ -1193,17 +1195,15 @@ async def get_entities(request: Request):
             consumer_thread.start()
 
             if "type" in params and ("id" not in params or len(params["id"].split(",")) > 1):
-                logger.info("CHACHO NO ID")
                 if client_host == scorpio_ip_address:
                     entity_type_requested = get_entity_type_long_in_context_catalog(params["type"], all_context_data, config, all_context_registries)
                 else:
                     entity_type_requested = params["type"]
                 if config == True: 
-                    get_operation(host=host, port=port, username=username, password=password, entity_type=entity_type_requested, entity_id=None, option="config", all_context_data=all_context_data, sysAttrs=sysAttrs, all_context_registries=all_context_registries)
+                    get_operation(host=host, port=port, username=username, password=password, entity_type=entity_type_requested, entity_id=None, option="config", notified_at=notified_at, all_context_data=all_context_data, sysAttrs=sysAttrs, all_context_registries=all_context_registries)
                 else: 
-                    get_operation(host=host, port=port, username=username, password=password, entity_type=entity_type_requested, entity_id=None, option="state", all_context_data=all_context_data, sysAttrs=sysAttrs, all_context_registries=all_context_registries)
+                    get_operation(host=host, port=port, username=username, password=password, entity_type=entity_type_requested, entity_id=None, option="state", notified_at=notified_at, all_context_data=all_context_data, sysAttrs=sysAttrs, all_context_registries=all_context_registries)
             elif "id" in params and len(params["id"].split(",")) == 1:
-                logger.info("CHACHO SI ID")
                 urn_split = params["id"].split(":")
                 if "type" in params and client_host != scorpio_ip_address:
                     entity_type = params["type"]
@@ -1213,9 +1213,9 @@ async def get_entities(request: Request):
                     entity_type_requested = get_entity_type_long_in_context_catalog(entity_type, all_context_data, config, all_context_registries)
 
                 if config == True:
-                    get_operation(host=host, port=port, username=username, password=password, entity_type=entity_type_requested, entity_id=params["id"], option="config", all_context_data=all_context_data, sysAttrs=sysAttrs, all_context_registries=all_context_registries)
+                    get_operation(host=host, port=port, username=username, password=password, entity_type=entity_type_requested, entity_id=params["id"], option="config", notified_at=notified_at, all_context_data=all_context_data, sysAttrs=sysAttrs, all_context_registries=all_context_registries)
                 else:
-                    get_operation(host=host, port=port, username=username, password=password, entity_type=entity_type_requested, entity_id=params["id"], option="state", all_context_data=all_context_data, sysAttrs=sysAttrs, all_context_registries=all_context_registries)
+                    get_operation(host=host, port=port, username=username, password=password, entity_type=entity_type_requested, entity_id=params["id"], option="state", notified_at=notified_at, all_context_data=all_context_data, sysAttrs=sysAttrs, all_context_registries=all_context_registries)
 
             consumer_thread.join()
 
@@ -1275,6 +1275,7 @@ async def get_entities(id: str, request: Request):
     global kafka_message
     sysAttrs = False
     try:
+        notified_at = datetime.datetime.now(datetime.timezone.utc)
         entity_type = ""
         params = ""
         if request.query_params:
