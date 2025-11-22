@@ -76,7 +76,7 @@ query_operation_plot_virtualization_context_broker = df_virtualization_context_b
 plt.xticks([1, 2, 3], ['materialization', 'virtualization_CS', 'virtualization_CB'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean operation time per \n gNMI RPC query operation')
+plt.title('Mean execution time per \n gNMI RPC query operation')
 plt.savefig("query_operation_performance_measurements_data_integration-iteration-1.png", format="png", dpi=1500)
 
 fig, ax = plt.subplots()
@@ -178,7 +178,7 @@ query_operation_plot_virtualization_context_broker = df_virtualization_context_b
 plt.xticks([1, 2, 3], ['materialization', 'virtualization_CS', 'virtualization_CB'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean operation time per \n gNMI RPC query operation')
+plt.title('Mean execution time per \n gNMI RPC query operation')
 plt.savefig("query_operation_performance_measurements_data_integration-iteration-2.png", format="png", dpi=1500)
 
 fig, ax = plt.subplots()
@@ -280,7 +280,7 @@ query_operation_plot_virtualization_context_broker = df_virtualization_context_b
 plt.xticks([1, 2, 3], ['materialization', 'virtualization_CS', 'virtualization_CB'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean operation time per \n gNMI RPC query operation')
+plt.title('Mean execution time per \n gNMI RPC query operation')
 plt.savefig("query_operation_performance_measurements_data_integration-iteration-3.png", format="png", dpi=1500)
 
 fig, ax = plt.subplots()
@@ -661,7 +661,7 @@ query_operation_plot_virtualization_cb_queries_all = df_virtualization_cb_querie
 plt.xticks([1, 2, 3], ['Materialization', 'Virtualization_CS', 'Virtualization_CB'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean operation time per \n gNMI RPC query operation')
+plt.title('Mean execution time per \n gNMI RPC query operation')
 
 # Texto estadístico
 text_outliers_operation_materialization = '\n'.join((
@@ -726,8 +726,8 @@ text_outliers_cb_translation_virtualization = '\n'.join((
 props = dict(boxstyle='round', facecolor='white', alpha=0.8)
 
 # Añadir ambos recuadros en esquinas opuestas
-ax.text(0.05, 0.05, text_outliers_translation_materialization, transform=ax.transAxes,
-        fontsize=10, verticalalignment='bottom', bbox=props, color='blue')
+ax.text(0.05, 0.95, text_outliers_translation_materialization, transform=ax.transAxes,
+        fontsize=10, verticalalignment='top', bbox=props, color='blue')
 
 ax.text(0.5, 0.95, text_outliers_cs_translation_virtualization, transform=ax.transAxes,
         fontsize=10, verticalalignment='top', horizontalalignment='center', bbox=props, color='grey')

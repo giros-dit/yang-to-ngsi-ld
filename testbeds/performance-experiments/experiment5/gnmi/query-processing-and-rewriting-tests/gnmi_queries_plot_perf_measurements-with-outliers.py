@@ -58,7 +58,7 @@ query_plot_virtualization_context_broker = df_virtualization_context_broker.boxp
 plt.xticks([1, 2, 3], ['materialization', 'virtualization_CS', 'virtualization_CB'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean execution time per \n gNMI RPC query operation')
+plt.title('Mean NGSI-LD API request execution time per \n NETCONF RPC query operation')
 plt.savefig("query_performance_measurements_data_integration-iteration-1.png", format="png", dpi=1500)
 
 fig, ax = plt.subplots()
@@ -70,7 +70,7 @@ query_reply_plot_virtualization_context_broker = df_virtualization_context_broke
 plt.xticks([1, 2, 3], ['materialization', 'virtualization_CS', 'virtualization_CB'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean reply time per \n  gNMI RPC query operation')
+plt.title('Mean NGSI-LD API request reply time per \n NETCONF RPC query operation')
 plt.savefig("query_reply_performance_measurements_data_integration-iteration-1.png", format="png", dpi=1500)
 
 df_materialization = pd.read_csv('performance_measurements-gnmi-materialization-2.csv')
@@ -130,7 +130,7 @@ query_plot_virtualization_context_broker = df_virtualization_context_broker.boxp
 plt.xticks([1, 2, 3], ['materialization', 'virtualization_CS', 'virtualization_CB'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean execution time per \n gNMI RPC query operation')
+plt.title('Mean NGSI-LD API request execution time per \n NETCONF RPC query operation')
 plt.savefig("query_performance_measurements_data_integration-iteration-2.png", format="png", dpi=1500)
 
 fig, ax = plt.subplots()
@@ -142,7 +142,7 @@ query_reply_plot_virtualization_context_broker = df_virtualization_context_broke
 plt.xticks([1, 2, 3], ['materialization', 'virtualization_CS', 'virtualization_CB'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean reply time per \n  gNMI RPC query operation')
+plt.title('Mean NGSI-LD API request reply time per \n NETCONF RPC query operation')
 plt.savefig("query_reply_performance_measurements_data_integration-iteration-2.png", format="png", dpi=1500)
 
 df_materialization = pd.read_csv('performance_measurements-gnmi-materialization-3.csv')
@@ -202,7 +202,7 @@ query_plot_virtualization_context_broker = df_virtualization_context_broker.boxp
 plt.xticks([1, 2, 3], ['materialization', 'virtualization_CS', 'virtualization_CB'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean execution time per \n gNMI RPC query operation')
+plt.title('Mean NGSI-LD API request execution time per \n NETCONF RPC query operation')
 plt.savefig("query_performance_measurements_data_integration-iteration-3.png", format="png", dpi=1500)
 
 fig, ax = plt.subplots()
@@ -214,7 +214,7 @@ query_reply_plot_virtualization_context_broker = df_virtualization_context_broke
 plt.xticks([1, 2, 3], ['materialization', 'virtualization_CS', 'virtualization_CB'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean reply time per \n  gNMI RPC query operation')
+plt.title('Mean NGSI-LD API request reply time per \n NETCONF RPC query operation')
 plt.savefig("query_reply_performance_measurements_data_integration-iteration-3.png", format="png", dpi=1500)
 
 materialization_files = [
@@ -469,7 +469,7 @@ query_plot_virtualization_cb_queries_all = df_virtualization_cb_queries_all.boxp
 plt.xticks([1, 2, 3], ['Materialization', 'Virtualization_CS', 'Virtualization_CB'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean execution time per \n gNMI RPC query operation')
+plt.title('Mean NGSI-LD API request execution time per \n NETCONF RPC query operation')
 
 # Texto estadístico
 text_outliers_materialization = '\n'.join((
@@ -514,7 +514,7 @@ query_reply_plot_virtualization_context_broker_all = df_virtualization_cb_querie
 plt.xticks([1, 2, 3], ['Materialization', 'Virtualization_CS', 'Virtualization_CB'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean reply time per \n  gNMI RPC query operation')
+plt.title('Mean NGSI-LD API request reply time per \n NETCONF RPC query operation')
 
 # Texto estadístico
 text_outliers_reply_materialization = '\n'.join((

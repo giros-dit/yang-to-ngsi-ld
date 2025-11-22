@@ -34,7 +34,7 @@ plot_virtualization_notification = df_virtualization_notification.boxplot(column
 plt.xticks([1, 2], ['materialization', 'virtualization_CS'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean evaluation time per notification in \n NETCONF RPC subscription operation')
+plt.title('Mean notification time in \n NETCONF RPC subscription operation')
 plt.savefig("notification_performance_measurements_data_integration-iteration-1.png", format="png", dpi=1500)
 
 df_materialization_notification = pd.read_csv('notification_performance_measurements_materialization-subs-on-change-iteration-2.csv')
@@ -67,7 +67,7 @@ plot_virtualization_notification = df_virtualization_notification.boxplot(column
 plt.xticks([1, 2], ['materialization', 'virtualization_CS'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean evaluation time per notification in \n NETCONF RPC subscription operation')
+plt.title('Mean notification time in \n NETCONF RPC subscription operation')
 plt.savefig("notification_performance_measurements_data_integration-iteration-2.png", format="png", dpi=1500)
 
 df_materialization_notification = pd.read_csv('notification_performance_measurements_materialization-subs-on-change-iteration-3.csv')
@@ -100,7 +100,7 @@ plot_virtualization_notification = df_virtualization_notification.boxplot(column
 plt.xticks([1, 2], ['materialization', 'virtualization_CS'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean evaluation time per notification in \n NETCONF RPC subscription operation')
+plt.title('Mean notification time in \n NETCONF RPC subscription operation')
 plt.savefig("notification_performance_measurements_data_integration-iteration-3.png", format="png", dpi=1500)
 
 
@@ -150,7 +150,7 @@ plot_virtualization_notification_all = df_virtualization_notification_all.boxplo
 plt.xticks([1, 2], ['Materialization', 'Virtualization_CS'])
 plt.xlabel('Data integration approach')
 plt.ylabel('Latency (milliseconds)')
-plt.title('Mean evaluation time per notification in \n NETCONF RPC subscription operation')
+plt.title('Mean notification time in \n NETCONF RPC subscription operation')
 
 # Texto estadístico
 text_materialization = '\n'.join((
