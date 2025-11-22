@@ -1,4 +1,4 @@
-address: "clab-telemetry-testbed-srl-srl-4hosts-r1"
+address: "clab-srlinux-testbed-r1"
 username: admin
 password: NokiaSrl1!
 skip-verify: true

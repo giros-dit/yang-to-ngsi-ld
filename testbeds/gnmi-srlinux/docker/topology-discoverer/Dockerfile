@@ -1,6 +1,6 @@
 # Custom Dockerfile for topology-discoverer
 
-FROM ubuntu:latest
+FROM ubuntu:22.04
 
 RUN apt update --fix-missing && apt -y dist-upgrade && apt -y autoremove && apt autoclean
 
@@ -18,10 +18,10 @@ COPY ./docker/topology-discoverer .
 
 WORKDIR /opt/topology-discoverer/ngsi-ld-models
 
-RUN poetry install
+RUN poetry install --no-root
 
 WORKDIR /opt/topology-discoverer
 
-RUN poetry install
+RUN poetry install --no-root
 
 RUN chmod +x discover-topology.sh
