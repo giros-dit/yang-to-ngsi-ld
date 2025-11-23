@@ -3,7 +3,7 @@
         "name": "srl1_traffic_stats",
         "tags": {
             "interface_name": "mgmt0-standby",
-            "source": "clab-telemetry-testbed-srl-srl-r1",
+            "source": "clab-srlinux-testbed-r1",
             "subscription-name": "srl1_traffic_stats"
         },
         "timestamp": 1713039055904760600,
