@@ -1,0 +1,147 @@
+[
+    {
+        "id": "urn:ngsi-ld:Interface:GigabitEthernet1",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "GigabitEthernet1",
+            "observedAt": "2023-07-25T09:21:47.36Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "interfaceType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:ethernetCsmacd\n\t\t\t\t\t",
+            "observedAt": "2023-07-25T09:21:47.36Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "up",
+            "observedAt": "2023-07-25T09:21:47.36Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "up",
+            "observedAt": "2023-07-25T09:21:47.36Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2023-07-25T07:44:25.954+00:00",
+            "observedAt": "2023-07-25T09:21:47.36Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "ifIndex": {
+            "type": "Property",
+            "value": 1,
+            "observedAt": "2023-07-25T09:21:47.36Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "physAddress": {
+            "type": "Property",
+            "value": "52:54:00:43:06:00",
+            "observedAt": "2023-07-25T09:21:47.36Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "speed": {
+            "type": "Property",
+            "value": 1000000000,
+            "observedAt": "2023-07-25T09:21:47.36Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStatistics:GigabitEthernet1",
+        "type": "InterfaceStatistics",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet1",
+            "observedAt": "2023-07-25T09:21:47.36Z"
+        },
+        "discontinuityTime": {
+            "type": "Property",
+            "value": "2023-07-25T07:42:57+00:00",
+            "observedAt": "2023-07-25T09:21:47.36Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 2144,
+            "observedAt": "2023-07-25T09:21:47.36Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inUnicastPkts": {
+            "type": "Property",
+            "value": 16,
+            "observedAt": "2023-07-25T09:21:47.36Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inBroadcastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2023-07-25T09:21:47.36Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inMulticastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2023-07-25T09:21:47.36Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inDiscards": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2023-07-25T09:21:47.36Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2023-07-25T09:21:47.36Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inUnknownProtos": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2023-07-25T09:21:47.36Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 11100,
+            "observedAt": "2023-07-25T09:21:47.36Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outUnicastPkts": {
+            "type": "Property",
+            "value": 121,
+            "observedAt": "2023-07-25T09:21:47.36Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outBroadcastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2023-07-25T09:21:47.36Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outMulticastPkts": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2023-07-25T09:21:47.36Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outDiscards": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2023-07-25T09:21:47.36Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2023-07-25T09:21:47.36Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    }
+]
