@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an XML p
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 0.5.7.
+Version: 0.5.8.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -147,7 +147,8 @@ def generate_python_xml_parser_code(ctx, modules, fd):
         'xml = sys.argv[1]\n',
         'tree = et.parse(xml)\n',
         'root = tree.getroot()\n',
-        'observed_at = root[0].text\n',
+        'text = root[0].text\n',
+        'observed_at = text.strip() if text and text.strip() else None\n',
         'dict_buffers = []'
     ]
 
@@ -160,7 +161,8 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             INDENTATION_BLOCK + 'for message in consumer:\n',
             2 * INDENTATION_BLOCK + 'xml = str(message.value.decode(\'utf-8\'))\n',
             2 * INDENTATION_BLOCK + 'root = et.fromstring(xml)\n',
-            2 * INDENTATION_BLOCK + 'observed_at = root[0].text'
+            2 * INDENTATION_BLOCK + 'text = root[0].text\n',
+            2 * INDENTATION_BLOCK + 'observed_at = text.strip() if text and text.strip() else None'
         ]
         
 
@@ -431,7 +433,10 @@ def generate_python_xml_parser_code(ctx, modules, fd):
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"] = {}')
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"type\"] = \"Relationship\"')
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"object\"] = ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"]')
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if observed_at is not None:')
+                depth_level += 1
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"observedAt\"] = observed_at')
+                depth_level -= 1
             subelements = element.i_children
             key = is_list_get_key(element)
             if (subelements is not None):
@@ -476,7 +481,10 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Property\"')
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"value\"] = ' + text_format)
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + 'if observed_at is not None:')
+            depth_level += 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"observedAt\"] = observed_at')
+            depth_level -= 1
             config = is_config_element(element)
             if config == True:
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"datasetId\"] = \"urn:ngsi-ld:configuration\"')
@@ -500,7 +508,10 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"] = {}')
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Relationship\"')
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + matches[0] + "\"" + ' + \":\" + element_text')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + 'if observed_at is not None:')
+            depth_level += 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"observedAt\"] = observed_at')
+            depth_level -= 1
             config = is_config_element(element)
             if config == True:
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"datasetId\"] = \"urn:ngsi-ld:configuration\"')
@@ -523,7 +534,10 @@ def generate_python_xml_parser_code(ctx, modules, fd):
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"] = {}')
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"][\"type\"] = \"Relationship\"')
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"][\"object\"] = \"urn:ngsi-ld:YANGIdentity\" + \":\" + element_text')
+            fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + 'if observed_at is not None:')
+            depth_level += 1
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"][\"observedAt\"] = observed_at')
+            depth_level -= 1
             config = is_config_element(element)
             if config == True:
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"][\"datasetId\"] = \"urn:ngsi-ld:configuration\"')

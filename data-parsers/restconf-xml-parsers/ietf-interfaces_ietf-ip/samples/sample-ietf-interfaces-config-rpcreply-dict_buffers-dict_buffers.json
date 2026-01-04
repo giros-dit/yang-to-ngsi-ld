@@ -1,0 +1,170 @@
+[
+    {
+        "id": "urn:ngsi-ld:Interface:GigabitEthernet3",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "GigabitEthernet3",
+            "observedAt": "\n    "
+        },
+        "interfaceType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:ethernetCsmacd",
+            "observedAt": "\n    "
+        },
+        "enabled": {
+            "type": "Property",
+            "value": true,
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceIpv6:GigabitEthernet3",
+        "type": "InterfaceIpv6",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet3",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceIpv4:GigabitEthernet3",
+        "type": "InterfaceIpv4",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet3",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceIpv4Address:GigabitEthernet3",
+        "type": "InterfaceIpv4Address",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceIpv4:GigabitEthernet3",
+            "observedAt": "\n    "
+        },
+        "ip": {
+            "type": "Property",
+            "value": "192.168.254.1",
+            "observedAt": "\n    "
+        },
+        "netmask": {
+            "type": "Property",
+            "value": "255.255.255.0",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:GigabitEthernet2",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "GigabitEthernet2",
+            "observedAt": "\n    "
+        },
+        "interfaceType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:ethernetCsmacd",
+            "observedAt": "\n    "
+        },
+        "enabled": {
+            "type": "Property",
+            "value": true,
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceIpv6:GigabitEthernet2",
+        "type": "InterfaceIpv6",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet2",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceIpv4:GigabitEthernet2",
+        "type": "InterfaceIpv4",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet2",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceIpv4Address:GigabitEthernet2",
+        "type": "InterfaceIpv4Address",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceIpv4:GigabitEthernet2",
+            "observedAt": "\n    "
+        },
+        "ip": {
+            "type": "Property",
+            "value": "10.0.1.1",
+            "observedAt": "\n    "
+        },
+        "netmask": {
+            "type": "Property",
+            "value": "255.255.255.0",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:GigabitEthernet1",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "GigabitEthernet1",
+            "observedAt": "\n    "
+        },
+        "interfaceType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:ianaift:ethernetCsmacd",
+            "observedAt": "\n    "
+        },
+        "enabled": {
+            "type": "Property",
+            "value": true,
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceIpv6:GigabitEthernet1",
+        "type": "InterfaceIpv6",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet1",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceIpv4:GigabitEthernet1",
+        "type": "InterfaceIpv4",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet1",
+            "observedAt": "\n    "
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceIpv4Address:GigabitEthernet1",
+        "type": "InterfaceIpv4Address",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:InterfaceIpv4:GigabitEthernet1",
+            "observedAt": "\n    "
+        },
+        "ip": {
+            "type": "Property",
+            "value": "10.0.0.15",
+            "observedAt": "\n    "
+        },
+        "netmask": {
+            "type": "Property",
+            "value": "255.255.255.0",
+            "observedAt": "\n    "
+        }
+    }
+]

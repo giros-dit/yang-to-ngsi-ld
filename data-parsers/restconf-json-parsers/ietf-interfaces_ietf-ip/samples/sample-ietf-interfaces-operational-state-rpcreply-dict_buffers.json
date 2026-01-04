@@ -1,0 +1,302 @@
+[
+    {
+        "id": "urn:ngsi-ld:Interface:GigabitEthernet3",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "GigabitEthernet3"
+        },
+        "interfaceType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd"
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "up"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "up"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2026-01-03T11:26:57.914+00:00"
+        },
+        "ifIndex": {
+            "type": "Property",
+            "value": 3
+        },
+        "physAddress": {
+            "type": "Property",
+            "value": "0c:00:0c:c2:ef:02"
+        },
+        "speed": {
+            "type": "Property",
+            "value": 1000000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStatistics:GigabitEthernet3",
+        "type": "InterfaceStatistics",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet3"
+        },
+        "discontinuityTime": {
+            "type": "Property",
+            "value": "2026-01-03T11:25:11+00:00"
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 270818
+        },
+        "inUnicastPkts": {
+            "type": "Property",
+            "value": 2125
+        },
+        "inBroadcastPkts": {
+            "type": "Property",
+            "value": 0
+        },
+        "inMulticastPkts": {
+            "type": "Property",
+            "value": 0
+        },
+        "inDiscards": {
+            "type": "Property",
+            "value": 0
+        },
+        "inErrors": {
+            "type": "Property",
+            "value": 0
+        },
+        "inUnknownProtos": {
+            "type": "Property",
+            "value": 0
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 12300
+        },
+        "outUnicastPkts": {
+            "type": "Property",
+            "value": 141
+        },
+        "outBroadcastPkts": {
+            "type": "Property",
+            "value": 0
+        },
+        "outMulticastPkts": {
+            "type": "Property",
+            "value": 0
+        },
+        "outDiscards": {
+            "type": "Property",
+            "value": 0
+        },
+        "outErrors": {
+            "type": "Property",
+            "value": 0
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:GigabitEthernet2",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "GigabitEthernet2"
+        },
+        "interfaceType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd"
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "up"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "up"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2026-01-03T11:26:57.9+00:00"
+        },
+        "ifIndex": {
+            "type": "Property",
+            "value": 2
+        },
+        "physAddress": {
+            "type": "Property",
+            "value": "0c:00:34:53:77:01"
+        },
+        "speed": {
+            "type": "Property",
+            "value": 1000000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStatistics:GigabitEthernet2",
+        "type": "InterfaceStatistics",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet2"
+        },
+        "discontinuityTime": {
+            "type": "Property",
+            "value": "2026-01-03T11:25:11+00:00"
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 56318
+        },
+        "inUnicastPkts": {
+            "type": "Property",
+            "value": 559
+        },
+        "inBroadcastPkts": {
+            "type": "Property",
+            "value": 0
+        },
+        "inMulticastPkts": {
+            "type": "Property",
+            "value": 0
+        },
+        "inDiscards": {
+            "type": "Property",
+            "value": 0
+        },
+        "inErrors": {
+            "type": "Property",
+            "value": 0
+        },
+        "inUnknownProtos": {
+            "type": "Property",
+            "value": 0
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 11100
+        },
+        "outUnicastPkts": {
+            "type": "Property",
+            "value": 121
+        },
+        "outBroadcastPkts": {
+            "type": "Property",
+            "value": 0
+        },
+        "outMulticastPkts": {
+            "type": "Property",
+            "value": 0
+        },
+        "outDiscards": {
+            "type": "Property",
+            "value": 0
+        },
+        "outErrors": {
+            "type": "Property",
+            "value": 0
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:Interface:GigabitEthernet1",
+        "type": "Interface",
+        "name": {
+            "type": "Property",
+            "value": "GigabitEthernet1"
+        },
+        "interfaceType": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:YANGIdentity:iana-if-type:ethernetCsmacd"
+        },
+        "adminStatus": {
+            "type": "Property",
+            "value": "up"
+        },
+        "operStatus": {
+            "type": "Property",
+            "value": "up"
+        },
+        "lastChange": {
+            "type": "Property",
+            "value": "2026-01-03T11:26:57.895+00:00"
+        },
+        "ifIndex": {
+            "type": "Property",
+            "value": 1
+        },
+        "physAddress": {
+            "type": "Property",
+            "value": "0c:00:72:bf:ce:00"
+        },
+        "speed": {
+            "type": "Property",
+            "value": 1000000000
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:InterfaceStatistics:GigabitEthernet1",
+        "type": "InterfaceStatistics",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet1"
+        },
+        "discontinuityTime": {
+            "type": "Property",
+            "value": "2026-01-03T11:25:11+00:00"
+        },
+        "inOctets": {
+            "type": "Property",
+            "value": 63265
+        },
+        "inUnicastPkts": {
+            "type": "Property",
+            "value": 506
+        },
+        "inBroadcastPkts": {
+            "type": "Property",
+            "value": 0
+        },
+        "inMulticastPkts": {
+            "type": "Property",
+            "value": 0
+        },
+        "inDiscards": {
+            "type": "Property",
+            "value": 0
+        },
+        "inErrors": {
+            "type": "Property",
+            "value": 0
+        },
+        "inUnknownProtos": {
+            "type": "Property",
+            "value": 0
+        },
+        "outOctets": {
+            "type": "Property",
+            "value": 186506
+        },
+        "outUnicastPkts": {
+            "type": "Property",
+            "value": 523
+        },
+        "outBroadcastPkts": {
+            "type": "Property",
+            "value": 0
+        },
+        "outMulticastPkts": {
+            "type": "Property",
+            "value": 0
+        },
+        "outDiscards": {
+            "type": "Property",
+            "value": 0
+        },
+        "outErrors": {
+            "type": "Property",
+            "value": 0
+        }
+    }
+]

@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an JSON 
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 1.0.2.
+Version: 1.0.3.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -54,7 +54,7 @@ class CandilJsonParserGeneratorPlugin(plugin.PyangPlugin):
             optparse.make_option('--candil-json-parser-generator-kafka-server', dest='candil_json_parser_generator_kafka_server', action='store', help='Only when using Kafka, specifies the endpoint of the server that the JSON parser will use.'),
             optparse.make_option('--candil-json-parser-generator-kafka-input-topic', dest='candil_json_parser_generator_kafka_input_topic', action='store', help='Only when using Kafka, specifies the input topic that the JSON parser will use.'),
             optparse.make_option('--candil-json-parser-generator-kafka-output-topic', dest='candil_json_parser_generator_kafka_output_topic', action='store', help='Only when using Kafka, specifies the output topic that the JSON parser will use.'),
-            optparse.make_option('--candil-json-parser-generator-source', dest='candil_json_parser_generator_source', action='store', help='Defines the data source from which to implement the YANG to NGSI-LD translations for OpenConfig models. Supported data sources: NetFlow v9 and Network Topologies.'),
+            optparse.make_option('--candil-json-parser-generator-source', dest='candil_json_parser_generator_source', action='store', help='Defines the data source from which to implement the YANG to NGSI-LD translations for OpenConfig models. Supported data sources: NetFlow v9, Network Topologies, and Standard (i.e., generic YANG to NGSI-LD translation without data source-specific rules)'),
             optparse.make_option('--candil-json-parser-generator-timestamp', dest='candil_json_parser_generator_timestamp', action='store', help='Specifies whether data modeled with YANG can be interpreted as events whose timestamp can be collected as an observed property in the NGSI-LD API. Supported data sources: NetFlow v9.')
         ]
         g = optparser.add_option_group('CANDIL JSON Parser Generator specific options')
@@ -90,7 +90,7 @@ OPTIONS:
     --candil-json-parser-generator-kafka-server=SOCKET --> Only when using Kafka, specifies the socket (<ip_or_hostname>:<port>) where the Kafka server is reachable to the JSON parser.
     --candil-json-parser-generator-kafka-input-topic=TOPIC --> Only when using Kafka for the input mode, specifies the name of the topic where the JSON parser will read input JSON data from.
     --candil-json-parser-generator-kafka-output-topic=TOPIC --> Only when using Kafka for the output mode, specifies the name of the topic where the JSON parser will output dictionary buffers to.
-    --candil-json-parser-generator-source=<netflow/topology...> --> Defines the data source from which to implement the YANG to NGSI-LD translations for OpenConfig models. Supported data sources: NetFlow v9 and Network Topologies.
+    --candil-json-parser-generator-source=<netflow/topology/standard...> --> Defines the data source from which to implement the YANG to NGSI-LD translations for OpenConfig models. Supported data sources: NetFlow v9, Network Topologies, and Standard (i.e., generic YANG to NGSI-LD translation without data source-specific rules).
     --candil-json-parser-generator-timestamp=ON --> Specifies whether data modeled with YANG can be interpreted as events whose timestamp can be collected as an observed property in the NGSI-LD API. Supported data sources: NetFlow v9.
     ''')
           
@@ -486,13 +486,17 @@ def generate_python_json_parser_code(ctx, modules, fd):
             if (parent_element_arg is None): # 1st level Entity.
                 if element.keyword in ['container']:
                     if(transition_element is not None):
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if data' + '.get("' + str(transition_element.arg) + '")' + 'is not None:')
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if data' + '.get("' + str(transition_element.arg) + '")' + ' is not None:')
                         depth_level += 1
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + 'data' + '.get("' + str(transition_element.arg) + '")')
                         depth_level -= 1
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'elif data' + '.get("' + str(PARENT_YANG_MODULE) + ":" + str(transition_element.arg) + '")' + 'is not None:')
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'elif data' + '.get("' + str(PARENT_YANG_MODULE) + ":" + str(transition_element.arg) + '")' + ' is not None:')
                         depth_level += 1
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + 'data' + '.get("' + str(PARENT_YANG_MODULE) + ":" + str(transition_element.arg) + '")')
+                        depth_level -= 1
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'else:')
+                        depth_level += 1
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + 'None')
                         depth_level -= 1
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(transition_element.arg).replace('-', '_') + ' is not None and len(' + str(transition_element.arg).replace('-', '_') + ') != 0:')
                         depth_level += 1
@@ -500,13 +504,17 @@ def generate_python_json_parser_code(ctx, modules, fd):
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(element.arg).replace('-', '_') + ' is not None and len(' + str(element.arg).replace('-', '_') + ') != 0:')
                         depth_level += 1
                     else:
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if data' + '.get("' + str(element.arg) + '")' + 'is not None:')
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if data' + '.get("' + str(element.arg) + '")' + ' is not None:')
                         depth_level += 1
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + 'data' + '.get("' + str(element.arg) + '")')
                         depth_level -= 1
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'elif data' + '.get("' + str(PARENT_YANG_MODULE) + ":" + str(element.arg) + '")' + 'is not None:')
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'elif data' + '.get("' + str(PARENT_YANG_MODULE) + ":" + str(element.arg) + '")' + ' is not None:')
                         depth_level += 1
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + 'data' + '.get("' + str(PARENT_YANG_MODULE) + ":" + str(element.arg) + '")')
+                        depth_level -= 1
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'else:')
+                        depth_level += 1
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + 'None')
                         depth_level -= 1
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(element.arg).replace('-', '_') + ' is not None and len(' + str(element.arg).replace('-', '_') + ') != 0:')
                         depth_level += 1
@@ -521,13 +529,17 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + 'dict_buffers.append(' + current_path.replace('-', '_') + 'dict_buffer)')
                 elif element.keyword in ['list']:
                     if(transition_element is not None):
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if data' + '.get("' + str(transition_element.arg) + '")' + 'is not None:')
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if data' + '.get("' + str(transition_element.arg) + '")' + ' is not None:')
                         depth_level += 1
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + 'data' + '.get("' + str(transition_element.arg) + '")')
                         depth_level -= 1
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'elif data' + '.get("' + str(PARENT_YANG_MODULE) + ":" + str(transition_element.arg) + '")' + 'is not None:')
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'elif data' + '.get("' + str(PARENT_YANG_MODULE) + ":" + str(transition_element.arg) + '")' + ' is not None:')
                         depth_level += 1
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + 'data' + '.get("' + str(PARENT_YANG_MODULE) + ":" + str(transition_element.arg) + '")')
+                        depth_level -= 1
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'else:')
+                        depth_level += 1
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(transition_element.arg).replace('-', '_') + ' = ' + 'None')
                         depth_level -= 1
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if ' + str(transition_element.arg).replace('-', '_') + ' is not None and len(' + str(transition_element.arg).replace('-', '_') + ') != 0:')
                         depth_level += 1
@@ -545,13 +557,17 @@ def generate_python_json_parser_code(ctx, modules, fd):
                         depth_level += 1
                     else:
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg) + ' = None')
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if data' + '.get("' + str(element.arg) + '")' + 'is not None:')
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if data' + '.get("' + str(element.arg) + '")' + ' is not None:')
                         depth_level += 1
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + 'data' + '.get("' + str(element.arg) + '")')
                         depth_level -= 1
-                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'elif data' + '.get("' + str(PARENT_YANG_MODULE) + ":" + str(element.arg) + '")' + 'is not None:')
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'elif data' + '.get("' + str(PARENT_YANG_MODULE) + ":" + str(element.arg) + '")' + ' is not None:')
                         depth_level += 1
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + 'data' + '.get("' + str(PARENT_YANG_MODULE) + ":" + str(element.arg) + '")')
+                        depth_level -= 1
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'else:')
+                        depth_level += 1
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + str(element.arg).replace('-', '_') + ' = ' + 'None')
                         depth_level -= 1
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + 'for ' + str(element.arg).replace('-', '_') + ' in ' + str(element.arg).replace('-', '_') + ':')
                         depth_level += 1
@@ -589,7 +605,10 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"type\"] = \"Relationship\"')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"object\"] = ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"]')
                     if (ctx.opts.candil_json_parser_generator_timestamp == "ON"):
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if observed_at is not None:')
+                        depth_level += 1
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"observedAt\"] = observed_at')
+                        depth_level -= 1
                     subelements = element.i_children
                     if (subelements is not None):
                         for subelement in subelements:
@@ -626,7 +645,10 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"type\"] = \"Relationship\"')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"object\"] = ' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"]')
                     if (ctx.opts.candil_json_parser_generator_timestamp == "ON"):
+                        fd.write('\n' + INDENTATION_BLOCK * depth_level + 'if observed_at is not None:')
+                        depth_level += 1
                         fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"observedAt\"] = observed_at')
+                        depth_level -= 1
                     subelements = element.i_children
                     if (subelements is not None):
                         for subelement in subelements:
@@ -652,7 +674,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
                         if (subelements is not None):
                             for subelement in subelements:
                                 if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                                    generate_parser_code(subelement, parent_element_arg, current_path, camelcase_entity_path, depth_level, typedefs_dict, yang_data_nodes_list)
+                                    generate_parser_code(subelement, parent_element_arg, current_path, camelcase_entity_path, depth_level, typedefs_dict, None, modules_name, yang_data_nodes_list)
         ### --- ###
                                     
         ### NGSI-LD PROPERTY IDENTIFICATION ###
@@ -698,7 +720,10 @@ def generate_python_json_parser_code(ctx, modules, fd):
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace("_" + str(element.arg) + '_', '_', 1).replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Property\"')
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace("_" + str(element.arg) + '_', '_', 1).replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"value\"] = ' + text_format)
             if (ctx.opts.candil_json_parser_generator_timestamp == "ON"):
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if observed_at is not None:')
+                depth_level += 1
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace("_" + str(element.arg) + '_', '_', 1).replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"observedAt\"] = observed_at')
+                depth_level -= 1
 
         ### --- ###
         
@@ -823,7 +848,11 @@ def generate_python_json_parser_code(ctx, modules, fd):
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace("_" + str(element.arg) + '_', '_', 1).replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"type\"] = \"Relationship\"')
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace("_" + str(element.arg) + '_', '_', 1).replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"object\"] = \"urn:ngsi-ld:' + relationship_camelcase_path + ':\" + ":".join(' + current_path.replace(str(element.arg) + '_', '').replace('-', '_') + 'dict_buffer[\"id\"].split(\":\")[3:])')
                 if (ctx.opts.candil_json_parser_generator_timestamp == "ON"):
+                    fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + 'if observed_at is not None:')
+                    depth_level += 1
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK + current_path.replace("_" + str(element.arg) + '_', '_', 1).replace('-', '_') + 'dict_buffer[\"' + camelcase_element_arg + '\"][\"observedAt\"] = observed_at')
+                    depth_level -= 1
+
         ### --- ###
 
         ### NGSI-LD YANG IDENTITY IDENTIFICATION ###
@@ -841,7 +870,11 @@ def generate_python_json_parser_code(ctx, modules, fd):
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace("_" + str(element.arg) + '_', '_', 1).replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"][\"type\"] = \"Relationship\"')
             fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace("_" + str(element.arg) + '_', '_', 1).replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"][\"object\"] = \"urn:ngsi-ld:YANGIdentity:\" + element_text')
             if (ctx.opts.candil_json_parser_generator_timestamp == "ON"):
+                fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + 'if observed_at is not None:')
+                depth_level += 1
                 fd.write('\n' + INDENTATION_BLOCK * depth_level + INDENTATION_BLOCK * 2 + current_path.replace("_" + str(element.arg) + '_', '_', 1).replace('-', '_') + 'dict_buffer[\"' + yang_identity_name + '\"][\"observedAt\"] = observed_at')
+                depth_level -= 1
+
         ### --- ###
     
     ### --- ###
@@ -887,7 +920,9 @@ def generate_python_json_parser_code(ctx, modules, fd):
         fd.write('\n' + depth_level * INDENTATION_BLOCK + 'timestamp_sec = int(timestamp) / 1000.0')
         fd.write('\n' + depth_level * INDENTATION_BLOCK + 'datetime_ms = datetime.fromtimestamp(timestamp_sec)')
         fd.write('\n' + depth_level * INDENTATION_BLOCK + 'observed_at = str(datetime_ms)[:-3] + \'Z\'\n')
-
+    elif (ctx.opts.candil_json_parser_generator_timestamp == "ON") and (ctx.opts.candil_json_parser_generator_source == "standard"):
+        fd.write('\n' + depth_level * INDENTATION_BLOCK + 'observed_at = data.get("eventTime")\n')
+        
     # Find typedefs, including those from modules in import sentences:
     typedef_modules = []
     for module in modules:

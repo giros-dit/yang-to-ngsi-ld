@@ -269,5 +269,7 @@ for network in root.findall(".//{urn:ietf:params:xml:ns:yang:ietf-network}networ
         dict_buffers.append(network_link_dict_buffer)
     dict_buffers.append(network_dict_buffer)
 
-print(json.dumps(dict_buffers[::-1], indent=4))
+output_file = open("dict_buffers.json", 'w')
+output_file.write(json.dumps(dict_buffers[::-1], indent=4))
+output_file.close()
 dict_buffers.clear()
