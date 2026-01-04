@@ -5,72 +5,86 @@
         "name": {
             "type": "Property",
             "value": "GigabitEthernet2",
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "interfaceType": {
             "type": "Property",
             "value": "iana-iftype-ethernet-csmacd",
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "adminStatus": {
             "type": "Property",
             "value": "if-state-up",
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "operStatus": {
             "type": "Property",
             "value": "if-oper-state-ready",
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "lastChange": {
             "type": "Property",
             "value": "2024-04-13T09:19:06.587000+00:00",
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "ifIndex": {
             "type": "Property",
             "value": 2,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "physAddress": {
             "type": "Property",
             "value": "0C:00:0B:F8:B1:01",
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "speed": {
             "type": "Property",
             "value": 1000000000,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "ipv4": {
             "type": "Property",
             "value": "10.0.1.1",
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "ipv4SubnetMask": {
             "type": "Property",
             "value": "255.255.255.0",
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "mtu": {
             "type": "Property",
             "value": 1500,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "biaAddress": {
             "type": "Property",
             "value": "0C:00:0B:F8:B1:01",
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "ipv4TcpAdjustMss": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "ipv6TcpAdjustMss": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -84,47 +98,56 @@
         "inMacControlFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inMacPauseFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inOversizeFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inJabberFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inFragmentFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "in8021qFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outMacControlFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outMacPauseFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "out8021qFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -138,7 +161,8 @@
         "dot3StatsVersion": {
             "type": "Property",
             "value": "not-supported",
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -152,112 +176,134 @@
         "dot3AlignmentErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "dot3FcsErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "dot3SingleCollisionFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "dot3MultipleCollisionFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "dot3SqeTestErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "dot3DeferredTransmissions": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "dot3LateCollisions": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "dot3ExcessiveCollisions": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "dot3InternalMacTransmitErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "dot3CarrierSenseErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "dot3FrameTooLongs": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "dot3InternalMacReceiveErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "dot3SymbolErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "dot3DuplexStatus": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "dot3HcAlignmentErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "dot3HcInpauseFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "dot3HcOutpauseFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "dot3HcFcsErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "dot3HcFrameTooLongs": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "dot3HcInternalMacTransmitErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "dot3HcInternalMacReceiveErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "dot3HcSymbolErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -271,27 +317,32 @@
         "negotiatedDuplexMode": {
             "type": "Property",
             "value": "full-duplex",
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "negotiatedPortSpeed": {
             "type": "Property",
             "value": "speed-1gb",
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "autoNegotiate": {
             "type": "Property",
             "value": true,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "enableFlowControl": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "mediaType": {
             "type": "Property",
             "value": "ether-media-type-virtual",
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -314,7 +365,8 @@
         "filterState": {
             "type": "Property",
             "value": "inactive",
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -328,7 +380,8 @@
         "bandwidth": {
             "type": "Property",
             "value": 0.0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -342,7 +395,8 @@
         "filterState": {
             "type": "Property",
             "value": "inactive",
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -356,7 +410,8 @@
         "bandwidth": {
             "type": "Property",
             "value": 0.0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -370,7 +425,8 @@
         "filterState": {
             "type": "Property",
             "value": "inactive",
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -384,7 +440,8 @@
         "bandwidth": {
             "type": "Property",
             "value": 0.0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -398,7 +455,8 @@
         "filterState": {
             "type": "Property",
             "value": "inactive",
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -412,7 +470,8 @@
         "bandwidth": {
             "type": "Property",
             "value": 0.0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -426,7 +485,8 @@
         "filterState": {
             "type": "Property",
             "value": "inactive",
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -440,7 +500,8 @@
         "bandwidth": {
             "type": "Property",
             "value": 0.0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -454,32 +515,38 @@
         "errorType": {
             "type": "Property",
             "value": "port-error-none",
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "portErrorReason": {
             "type": "Property",
             "value": "port-err-none",
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "autoMdixEnabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "mdixOperStatusEnabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "fecEnabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "mgigDownshiftEnabled": {
             "type": "Property",
             "value": false,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -493,62 +560,74 @@
         "inPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inErrorPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outErrorPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -562,62 +641,74 @@
         "inPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inErrorPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outPkts": {
             "type": "Property",
             "value": 267,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outOctets": {
             "type": "Property",
             "value": 34234,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outErrorPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outForwardedPkts": {
             "type": "Property",
             "value": 267,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -631,122 +722,146 @@
         "discontinuityTime": {
             "type": "Property",
             "value": "2024-04-13T09:17:30+00:00",
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inOctets": {
             "type": "Property",
             "value": 2364,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inUnicastPkts": {
             "type": "Property",
             "value": 32,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inBroadcastPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inMulticastPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inDiscards": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inUnknownProtos": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outOctets": {
             "type": "Property",
             "value": 34158,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outUnicastPkts": {
             "type": "Property",
             "value": 267,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outBroadcastPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outMulticastPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outDiscards": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "rxPps": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "rxKbps": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "txPps": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "txKbps": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "numFlaps": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inCrcErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inDiscards64": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inErrors64": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inUnknownProtos64": {
             "type": "Property",
             "value": 0,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outOctets64": {
             "type": "Property",
             "value": 34158,
-            "observedAt": "2024-04-13T09:32:53.91Z"
+            "observedAt": "2024-04-13T09:32:53.91Z",
+            "datasetId": "urn:ngsi-ld:operational"
         }
     }
 ]

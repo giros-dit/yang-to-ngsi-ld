@@ -1,0 +1,84 @@
+{
+  "ietf-interfaces:interfaces-state": {
+    "interface": [
+      {
+        "name": "GigabitEthernet1",
+        "type": "iana-if-type:ethernetCsmacd",
+        "admin-status": "up",
+        "oper-status": "up",
+        "last-change": "2026-01-03T11:26:57.895+00:00",
+        "if-index": 1,
+        "phys-address": "0c:00:72:bf:ce:00",
+        "speed": "1000000000",
+        "statistics": {
+          "discontinuity-time": "2026-01-03T11:25:11+00:00",
+          "in-octets": "63265",
+          "in-unicast-pkts": "506",
+          "in-broadcast-pkts": "0",
+          "in-multicast-pkts": "0",
+          "in-discards": 0,
+          "in-errors": 0,
+          "in-unknown-protos": 0,
+          "out-octets": "186506",
+          "out-unicast-pkts": "523",
+          "out-broadcast-pkts": "0",
+          "out-multicast-pkts": "0",
+          "out-discards": 0,
+          "out-errors": 0
+        }
+      },
+      {
+        "name": "GigabitEthernet2",
+        "type": "iana-if-type:ethernetCsmacd",
+        "admin-status": "up",
+        "oper-status": "up",
+        "last-change": "2026-01-03T11:26:57.9+00:00",
+        "if-index": 2,
+        "phys-address": "0c:00:34:53:77:01",
+        "speed": "1000000000",
+        "statistics": {
+          "discontinuity-time": "2026-01-03T11:25:11+00:00",
+          "in-octets": "56318",
+          "in-unicast-pkts": "559",
+          "in-broadcast-pkts": "0",
+          "in-multicast-pkts": "0",
+          "in-discards": 0,
+          "in-errors": 0,
+          "in-unknown-protos": 0,
+          "out-octets": "11100",
+          "out-unicast-pkts": "121",
+          "out-broadcast-pkts": "0",
+          "out-multicast-pkts": "0",
+          "out-discards": 0,
+          "out-errors": 0
+        }
+      },
+      {
+        "name": "GigabitEthernet3",
+        "type": "iana-if-type:ethernetCsmacd",
+        "admin-status": "up",
+        "oper-status": "up",
+        "last-change": "2026-01-03T11:26:57.914+00:00",
+        "if-index": 3,
+        "phys-address": "0c:00:0c:c2:ef:02",
+        "speed": "1000000000",
+        "statistics": {
+          "discontinuity-time": "2026-01-03T11:25:11+00:00",
+          "in-octets": "270818",
+          "in-unicast-pkts": "2125",
+          "in-broadcast-pkts": "0",
+          "in-multicast-pkts": "0",
+          "in-discards": 0,
+          "in-errors": 0,
+          "in-unknown-protos": 0,
+          "out-octets": "12300",
+          "out-unicast-pkts": "141",
+          "out-broadcast-pkts": "0",
+          "out-multicast-pkts": "0",
+          "out-discards": 0,
+          "out-errors": 0
+        }
+      }
+    ]
+  }
+}

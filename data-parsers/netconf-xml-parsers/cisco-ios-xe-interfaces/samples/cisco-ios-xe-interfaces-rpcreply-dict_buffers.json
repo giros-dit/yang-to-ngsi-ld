@@ -5,77 +5,77 @@
         "name": {
             "type": "Property",
             "value": "Loopback0",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "interfaceType": {
             "type": "Property",
             "value": "iana-iftype-sw-loopback",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "adminStatus": {
             "type": "Property",
             "value": "if-state-up",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "operStatus": {
             "type": "Property",
             "value": "if-oper-state-ready",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "lastChange": {
             "type": "Property",
             "value": "2024-04-13T09:18:57.694+00:00",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "ifIndex": {
             "type": "Property",
             "value": 6,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "physAddress": {
             "type": "Property",
             "value": "00:1e:bd:73:e8:00",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "speed": {
             "type": "Property",
             "value": 8000000000,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "ipv4": {
             "type": "Property",
             "value": "0.0.0.0",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "ipv4SubnetMask": {
             "type": "Property",
             "value": "0.0.0.0",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "mtu": {
             "type": "Property",
             "value": 1514,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "biaAddress": {
             "type": "Property",
             "value": "00:00:00:00:00:00",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "ipv4TcpAdjustMss": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "ipv6TcpAdjustMss": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "intfClassUnspecified": {
             "type": "Property",
             "value": true,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -83,8 +83,7 @@
         "type": "InterfaceStormControl",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:Loopback0",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:Interface:Loopback0"
         }
     },
     {
@@ -92,13 +91,12 @@
         "type": "InterfaceStormControlUnknownUnicast",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceStormControl:Loopback0",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:InterfaceStormControl:Loopback0"
         },
         "filterState": {
             "type": "Property",
             "value": "inactive",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -106,13 +104,12 @@
         "type": "InterfaceStormControlUnicast",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceStormControl:Loopback0",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:InterfaceStormControl:Loopback0"
         },
         "filterState": {
             "type": "Property",
             "value": "inactive",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -120,13 +117,12 @@
         "type": "InterfaceStormControlMulticast",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceStormControl:Loopback0",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:InterfaceStormControl:Loopback0"
         },
         "filterState": {
             "type": "Property",
             "value": "inactive",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -134,13 +130,12 @@
         "type": "InterfaceStormControlBroadcast",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceStormControl:Loopback0",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:InterfaceStormControl:Loopback0"
         },
         "filterState": {
             "type": "Property",
             "value": "inactive",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -148,68 +143,67 @@
         "type": "InterfaceV6ProtocolStats",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:Loopback0",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:Interface:Loopback0"
         },
         "inPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inErrorPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outErrorPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -217,68 +211,67 @@
         "type": "InterfaceV4ProtocolStats",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:Loopback0",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:Interface:Loopback0"
         },
         "inPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inErrorPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outErrorPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -286,128 +279,127 @@
         "type": "InterfaceStatistics",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:Loopback0",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:Interface:Loopback0"
         },
         "discontinuityTime": {
             "type": "Property",
             "value": "2024-04-13T09:17:31+00:00",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inUnicastPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inBroadcastPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inMulticastPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inDiscards": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inUnknownProtos": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outUnicastPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outBroadcastPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outMulticastPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outDiscards": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "rxPps": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "rxKbps": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "txPps": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "txKbps": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "numFlaps": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inCrcErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inDiscards64": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inErrors64": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inUnknownProtos64": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outOctets64": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -416,72 +408,72 @@
         "name": {
             "type": "Property",
             "value": "GigabitEthernet3",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "interfaceType": {
             "type": "Property",
             "value": "iana-iftype-ethernet-csmacd",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "adminStatus": {
             "type": "Property",
             "value": "if-state-up",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "operStatus": {
             "type": "Property",
             "value": "if-oper-state-ready",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "lastChange": {
             "type": "Property",
             "value": "2024-04-13T09:19:07.607+00:00",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "ifIndex": {
             "type": "Property",
             "value": 3,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "physAddress": {
             "type": "Property",
             "value": "0c:00:c5:fa:59:02",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "speed": {
             "type": "Property",
             "value": 1000000000,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "ipv4": {
             "type": "Property",
             "value": "192.168.254.1",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "ipv4SubnetMask": {
             "type": "Property",
             "value": "255.255.255.0",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "mtu": {
             "type": "Property",
             "value": 1500,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "biaAddress": {
             "type": "Property",
             "value": "0c:00:c5:fa:59:02",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "ipv4TcpAdjustMss": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "ipv6TcpAdjustMss": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -489,53 +481,52 @@
         "type": "InterfaceEtherStats",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:GigabitEthernet3",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet3"
         },
         "inMacControlFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inMacPauseFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inOversizeFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inJabberFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inFragmentFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "in8021qFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outMacControlFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outMacPauseFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "out8021qFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -543,33 +534,32 @@
         "type": "InterfaceEtherState",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:GigabitEthernet3",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet3"
         },
         "negotiatedDuplexMode": {
             "type": "Property",
             "value": "full-duplex",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "negotiatedPortSpeed": {
             "type": "Property",
             "value": "speed-1gb",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "autoNegotiate": {
             "type": "Property",
             "value": true,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "enableFlowControl": {
             "type": "Property",
             "value": false,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "mediaType": {
             "type": "Property",
             "value": "ether-media-type-virtual",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -577,8 +567,7 @@
         "type": "InterfaceStormControl",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:GigabitEthernet3",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet3"
         }
     },
     {
@@ -586,13 +575,12 @@
         "type": "InterfaceStormControlUnknownUnicast",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet3",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet3"
         },
         "filterState": {
             "type": "Property",
             "value": "inactive",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -600,13 +588,12 @@
         "type": "InterfaceStormControlUnicast",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet3",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet3"
         },
         "filterState": {
             "type": "Property",
             "value": "inactive",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -614,13 +601,12 @@
         "type": "InterfaceStormControlMulticast",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet3",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet3"
         },
         "filterState": {
             "type": "Property",
             "value": "inactive",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -628,13 +614,12 @@
         "type": "InterfaceStormControlBroadcast",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet3",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet3"
         },
         "filterState": {
             "type": "Property",
             "value": "inactive",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -642,68 +627,67 @@
         "type": "InterfaceV6ProtocolStats",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:GigabitEthernet3",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet3"
         },
         "inPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inErrorPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outErrorPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -711,68 +695,67 @@
         "type": "InterfaceV4ProtocolStats",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:GigabitEthernet3",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet3"
         },
         "inPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inErrorPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outPkts": {
             "type": "Property",
             "value": 20,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outOctets": {
             "type": "Property",
             "value": 1840,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outErrorPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outForwardedPkts": {
             "type": "Property",
             "value": 20,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -780,128 +763,127 @@
         "type": "InterfaceStatistics",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:GigabitEthernet3",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet3"
         },
         "discontinuityTime": {
             "type": "Property",
             "value": "2024-04-13T09:17:31+00:00",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inOctets": {
             "type": "Property",
             "value": 5916,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inUnicastPkts": {
             "type": "Property",
             "value": 72,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inBroadcastPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inMulticastPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inDiscards": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inUnknownProtos": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outOctets": {
             "type": "Property",
             "value": 1764,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outUnicastPkts": {
             "type": "Property",
             "value": 20,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outBroadcastPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outMulticastPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outDiscards": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "rxPps": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "rxKbps": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "txPps": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "txKbps": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "numFlaps": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inCrcErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inDiscards64": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inErrors64": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inUnknownProtos64": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outOctets64": {
             "type": "Property",
             "value": 1764,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -910,72 +892,72 @@
         "name": {
             "type": "Property",
             "value": "GigabitEthernet2",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "interfaceType": {
             "type": "Property",
             "value": "iana-iftype-ethernet-csmacd",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "adminStatus": {
             "type": "Property",
             "value": "if-state-up",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "operStatus": {
             "type": "Property",
             "value": "if-oper-state-ready",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "lastChange": {
             "type": "Property",
             "value": "2024-04-13T09:19:07.587+00:00",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "ifIndex": {
             "type": "Property",
             "value": 2,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "physAddress": {
             "type": "Property",
             "value": "0c:00:0b:f8:b1:01",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "speed": {
             "type": "Property",
             "value": 1000000000,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "ipv4": {
             "type": "Property",
             "value": "10.0.1.1",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "ipv4SubnetMask": {
             "type": "Property",
             "value": "255.255.255.0",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "mtu": {
             "type": "Property",
             "value": 1500,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "biaAddress": {
             "type": "Property",
             "value": "0c:00:0b:f8:b1:01",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "ipv4TcpAdjustMss": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "ipv6TcpAdjustMss": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -983,53 +965,52 @@
         "type": "InterfaceEtherStats",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:GigabitEthernet2",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet2"
         },
         "inMacControlFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inMacPauseFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inOversizeFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inJabberFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inFragmentFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "in8021qFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outMacControlFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outMacPauseFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "out8021qFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -1037,33 +1018,32 @@
         "type": "InterfaceEtherState",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:GigabitEthernet2",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet2"
         },
         "negotiatedDuplexMode": {
             "type": "Property",
             "value": "full-duplex",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "negotiatedPortSpeed": {
             "type": "Property",
             "value": "speed-1gb",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "autoNegotiate": {
             "type": "Property",
             "value": true,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "enableFlowControl": {
             "type": "Property",
             "value": false,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "mediaType": {
             "type": "Property",
             "value": "ether-media-type-virtual",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -1071,8 +1051,7 @@
         "type": "InterfaceStormControl",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:GigabitEthernet2",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet2"
         }
     },
     {
@@ -1080,13 +1059,12 @@
         "type": "InterfaceStormControlUnknownUnicast",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet2",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet2"
         },
         "filterState": {
             "type": "Property",
             "value": "inactive",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -1094,13 +1072,12 @@
         "type": "InterfaceStormControlUnicast",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet2",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet2"
         },
         "filterState": {
             "type": "Property",
             "value": "inactive",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -1108,13 +1085,12 @@
         "type": "InterfaceStormControlMulticast",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet2",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet2"
         },
         "filterState": {
             "type": "Property",
             "value": "inactive",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -1122,13 +1098,12 @@
         "type": "InterfaceStormControlBroadcast",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet2",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet2"
         },
         "filterState": {
             "type": "Property",
             "value": "inactive",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -1136,68 +1111,67 @@
         "type": "InterfaceV6ProtocolStats",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:GigabitEthernet2",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet2"
         },
         "inPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inErrorPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outErrorPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -1205,68 +1179,67 @@
         "type": "InterfaceV4ProtocolStats",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:GigabitEthernet2",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet2"
         },
         "inPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inErrorPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outPkts": {
             "type": "Property",
             "value": 45,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outOctets": {
             "type": "Property",
             "value": 5586,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outErrorPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outForwardedPkts": {
             "type": "Property",
             "value": 45,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -1274,128 +1247,127 @@
         "type": "InterfaceStatistics",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:GigabitEthernet2",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet2"
         },
         "discontinuityTime": {
             "type": "Property",
             "value": "2024-04-13T09:17:31+00:00",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inOctets": {
             "type": "Property",
             "value": 2154,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inUnicastPkts": {
             "type": "Property",
             "value": 29,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inBroadcastPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inMulticastPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inDiscards": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inUnknownProtos": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outOctets": {
             "type": "Property",
             "value": 5510,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outUnicastPkts": {
             "type": "Property",
             "value": 45,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outBroadcastPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outMulticastPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outDiscards": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "rxPps": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "rxKbps": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "txPps": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "txKbps": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "numFlaps": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inCrcErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inDiscards64": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inErrors64": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inUnknownProtos64": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outOctets64": {
             "type": "Property",
             "value": 5510,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -1404,72 +1376,72 @@
         "name": {
             "type": "Property",
             "value": "GigabitEthernet1",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "interfaceType": {
             "type": "Property",
             "value": "iana-iftype-ethernet-csmacd",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "adminStatus": {
             "type": "Property",
             "value": "if-state-up",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "operStatus": {
             "type": "Property",
             "value": "if-oper-state-ready",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "lastChange": {
             "type": "Property",
             "value": "2024-04-13T09:19:07.586+00:00",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "ifIndex": {
             "type": "Property",
             "value": 1,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "physAddress": {
             "type": "Property",
             "value": "0c:00:3e:a1:6f:00",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "speed": {
             "type": "Property",
             "value": 1000000000,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "ipv4": {
             "type": "Property",
             "value": "10.0.0.15",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "ipv4SubnetMask": {
             "type": "Property",
             "value": "255.255.255.0",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "mtu": {
             "type": "Property",
             "value": 1500,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "biaAddress": {
             "type": "Property",
             "value": "0c:00:3e:a1:6f:00",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "ipv4TcpAdjustMss": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "ipv6TcpAdjustMss": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -1477,53 +1449,52 @@
         "type": "InterfaceEtherStats",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:GigabitEthernet1",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet1"
         },
         "inMacControlFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inMacPauseFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inOversizeFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inJabberFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inFragmentFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "in8021qFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outMacControlFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outMacPauseFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "out8021qFrames": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -1531,33 +1502,32 @@
         "type": "InterfaceEtherState",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:GigabitEthernet1",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet1"
         },
         "negotiatedDuplexMode": {
             "type": "Property",
             "value": "full-duplex",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "negotiatedPortSpeed": {
             "type": "Property",
             "value": "speed-1gb",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "autoNegotiate": {
             "type": "Property",
             "value": true,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "enableFlowControl": {
             "type": "Property",
             "value": false,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "mediaType": {
             "type": "Property",
             "value": "ether-media-type-virtual",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -1565,8 +1535,7 @@
         "type": "InterfaceStormControl",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:GigabitEthernet1",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet1"
         }
     },
     {
@@ -1574,13 +1543,12 @@
         "type": "InterfaceStormControlUnknownUnicast",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet1",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet1"
         },
         "filterState": {
             "type": "Property",
             "value": "inactive",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -1588,13 +1556,12 @@
         "type": "InterfaceStormControlUnicast",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet1",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet1"
         },
         "filterState": {
             "type": "Property",
             "value": "inactive",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -1602,13 +1569,12 @@
         "type": "InterfaceStormControlMulticast",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet1",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet1"
         },
         "filterState": {
             "type": "Property",
             "value": "inactive",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -1616,13 +1582,12 @@
         "type": "InterfaceStormControlBroadcast",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet1",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:InterfaceStormControl:GigabitEthernet1"
         },
         "filterState": {
             "type": "Property",
             "value": "inactive",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -1630,68 +1595,67 @@
         "type": "InterfaceV6ProtocolStats",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:GigabitEthernet1",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet1"
         },
         "inPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inErrorPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outErrorPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -1699,68 +1663,67 @@
         "type": "InterfaceV4ProtocolStats",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:GigabitEthernet1",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet1"
         },
         "inPkts": {
             "type": "Property",
             "value": 254,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inOctets": {
             "type": "Property",
             "value": 26120,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inErrorPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inForwardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outPkts": {
             "type": "Property",
             "value": 257,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outOctets": {
             "type": "Property",
             "value": 238271,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outErrorPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outForwardedPkts": {
             "type": "Property",
             "value": 257,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outForwardedOctets": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outDiscardedPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     },
     {
@@ -1768,128 +1731,127 @@
         "type": "InterfaceStatistics",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:Interface:GigabitEthernet1",
-            "observedAt": "\n    "
+            "object": "urn:ngsi-ld:Interface:GigabitEthernet1"
         },
         "discontinuityTime": {
             "type": "Property",
             "value": "2024-04-13T09:17:31+00:00",
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inOctets": {
             "type": "Property",
             "value": 26184,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inUnicastPkts": {
             "type": "Property",
             "value": 255,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inBroadcastPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inMulticastPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inDiscards": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inUnknownProtos": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outOctets": {
             "type": "Property",
             "value": 238195,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outUnicastPkts": {
             "type": "Property",
             "value": 257,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outBroadcastPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outMulticastPkts": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outDiscards": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "rxPps": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "rxKbps": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "txPps": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "txKbps": {
             "type": "Property",
             "value": 1,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "numFlaps": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inCrcErrors": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inDiscards64": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inErrors64": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "inUnknownProtos64": {
             "type": "Property",
             "value": 0,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         },
         "outOctets64": {
             "type": "Property",
             "value": 238195,
-            "observedAt": "\n    "
+            "datasetId": "urn:ngsi-ld:operational"
         }
     }
 ]

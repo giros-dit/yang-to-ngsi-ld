@@ -1,0 +1,51 @@
+{
+  "ietf-interfaces:interfaces": {
+    "interface": [
+      {
+        "name": "GigabitEthernet1",
+        "type": "iana-if-type:ethernetCsmacd",
+        "enabled": true,
+        "ietf-ip:ipv4": {
+          "address": [
+            {
+              "ip": "10.0.0.15",
+              "netmask": "255.255.255.0"
+            }
+          ]
+        },
+        "ietf-ip:ipv6": {
+        }
+      },
+      {
+        "name": "GigabitEthernet2",
+        "type": "iana-if-type:ethernetCsmacd",
+        "enabled": true,
+        "ietf-ip:ipv4": {
+          "address": [
+            {
+              "ip": "10.0.1.1",
+              "netmask": "255.255.255.0"
+            }
+          ]
+        },
+        "ietf-ip:ipv6": {
+        }
+      },
+      {
+        "name": "GigabitEthernet3",
+        "type": "iana-if-type:ethernetCsmacd",
+        "enabled": true,
+        "ietf-ip:ipv4": {
+          "address": [
+            {
+              "ip": "192.168.254.1",
+              "netmask": "255.255.255.0"
+            }
+          ]
+        },
+        "ietf-ip:ipv6": {
+        }
+      }
+    ]
+  }
+}

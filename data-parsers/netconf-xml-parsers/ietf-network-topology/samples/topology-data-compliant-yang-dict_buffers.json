@@ -1,0 +1,1067 @@
+[
+    {
+        "id": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology",
+        "type": "Network",
+        "networkId": {
+            "type": "Property",
+            "value": "telemetry-testbed-l3-topology",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r2-GigabitEthernet4-r3-GigabitEthernet4",
+        "type": "NetworkLink",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "r2-GigabitEthernet4-r3-GigabitEthernet4",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkDestination:telemetry-testbed-l3-topology:r2-GigabitEthernet4-r3-GigabitEthernet4",
+        "type": "NetworkLinkDestination",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r2-GigabitEthernet4-r3-GigabitEthernet4"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:r3",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:GigabitEthernet4",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkSource:telemetry-testbed-l3-topology:r2-GigabitEthernet4-r3-GigabitEthernet4",
+        "type": "NetworkLinkSource",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r2-GigabitEthernet4-r3-GigabitEthernet4"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:r2",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:GigabitEthernet4",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s3-Ethernet2-pc32-eth1",
+        "type": "NetworkLink",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "s3-Ethernet2-pc32-eth1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkDestination:telemetry-testbed-l3-topology:s3-Ethernet2-pc32-eth1",
+        "type": "NetworkLinkDestination",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s3-Ethernet2-pc32-eth1"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:pc32",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkSource:telemetry-testbed-l3-topology:s3-Ethernet2-pc32-eth1",
+        "type": "NetworkLinkSource",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s3-Ethernet2-pc32-eth1"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:s3",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:Ethernet2",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s2-Ethernet1-pc21-eth1",
+        "type": "NetworkLink",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "s2-Ethernet1-pc21-eth1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkDestination:telemetry-testbed-l3-topology:s2-Ethernet1-pc21-eth1",
+        "type": "NetworkLinkDestination",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s2-Ethernet1-pc21-eth1"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:pc21",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkSource:telemetry-testbed-l3-topology:s2-Ethernet1-pc21-eth1",
+        "type": "NetworkLinkSource",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s2-Ethernet1-pc21-eth1"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:s2",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:Ethernet1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r2-GigabitEthernet2-s2-Ethernet3",
+        "type": "NetworkLink",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "r2-GigabitEthernet2-s2-Ethernet3",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkDestination:telemetry-testbed-l3-topology:r2-GigabitEthernet2-s2-Ethernet3",
+        "type": "NetworkLinkDestination",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r2-GigabitEthernet2-s2-Ethernet3"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:s2",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:Ethernet3",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkSource:telemetry-testbed-l3-topology:r2-GigabitEthernet2-s2-Ethernet3",
+        "type": "NetworkLinkSource",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r2-GigabitEthernet2-s2-Ethernet3"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:r2",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:GigabitEthernet2",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s3-Ethernet1-pc31-eth1",
+        "type": "NetworkLink",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "s3-Ethernet1-pc31-eth1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkDestination:telemetry-testbed-l3-topology:s3-Ethernet1-pc31-eth1",
+        "type": "NetworkLinkDestination",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s3-Ethernet1-pc31-eth1"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:pc31",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkSource:telemetry-testbed-l3-topology:s3-Ethernet1-pc31-eth1",
+        "type": "NetworkLinkSource",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s3-Ethernet1-pc31-eth1"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:s3",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:Ethernet1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:pc11-eth1-s1-Ethernet1",
+        "type": "NetworkLink",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "pc11-eth1-s1-Ethernet1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkDestination:telemetry-testbed-l3-topology:pc11-eth1-s1-Ethernet1",
+        "type": "NetworkLinkDestination",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:pc11-eth1-s1-Ethernet1"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:s1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:Ethernet1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkSource:telemetry-testbed-l3-topology:pc11-eth1-s1-Ethernet1",
+        "type": "NetworkLinkSource",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:pc11-eth1-s1-Ethernet1"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:pc11",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r1-GigabitEthernet3-r2-GigabitEthernet3",
+        "type": "NetworkLink",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "r1-GigabitEthernet3-r2-GigabitEthernet3",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkDestination:telemetry-testbed-l3-topology:r1-GigabitEthernet3-r2-GigabitEthernet3",
+        "type": "NetworkLinkDestination",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r1-GigabitEthernet3-r2-GigabitEthernet3"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:r2",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:GigabitEthernet3",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkSource:telemetry-testbed-l3-topology:r1-GigabitEthernet3-r2-GigabitEthernet3",
+        "type": "NetworkLinkSource",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r1-GigabitEthernet3-r2-GigabitEthernet3"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:r1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:GigabitEthernet3",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s2-Ethernet2-pc22-eth1",
+        "type": "NetworkLink",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "s2-Ethernet2-pc22-eth1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkDestination:telemetry-testbed-l3-topology:s2-Ethernet2-pc22-eth1",
+        "type": "NetworkLinkDestination",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s2-Ethernet2-pc22-eth1"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:pc22",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkSource:telemetry-testbed-l3-topology:s2-Ethernet2-pc22-eth1",
+        "type": "NetworkLinkSource",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s2-Ethernet2-pc22-eth1"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:s2",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:Ethernet2",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r1-GigabitEthernet4-r3-GigabitEthernet3",
+        "type": "NetworkLink",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "r1-GigabitEthernet4-r3-GigabitEthernet3",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkDestination:telemetry-testbed-l3-topology:r1-GigabitEthernet4-r3-GigabitEthernet3",
+        "type": "NetworkLinkDestination",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r1-GigabitEthernet4-r3-GigabitEthernet3"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:r3",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:GigabitEthernet3",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkSource:telemetry-testbed-l3-topology:r1-GigabitEthernet4-r3-GigabitEthernet3",
+        "type": "NetworkLinkSource",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r1-GigabitEthernet4-r3-GigabitEthernet3"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:r1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:GigabitEthernet4",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r3-GigabitEthernet2-s3-Ethernet3",
+        "type": "NetworkLink",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "r3-GigabitEthernet2-s3-Ethernet3",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkDestination:telemetry-testbed-l3-topology:r3-GigabitEthernet2-s3-Ethernet3",
+        "type": "NetworkLinkDestination",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r3-GigabitEthernet2-s3-Ethernet3"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:s3",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:Ethernet3",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkSource:telemetry-testbed-l3-topology:r3-GigabitEthernet2-s3-Ethernet3",
+        "type": "NetworkLinkSource",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:r3-GigabitEthernet2-s3-Ethernet3"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:r3",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:GigabitEthernet2",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s1-Ethernet3-r1-GigabitEthernet2",
+        "type": "NetworkLink",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "s1-Ethernet3-r1-GigabitEthernet2",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkDestination:telemetry-testbed-l3-topology:s1-Ethernet3-r1-GigabitEthernet2",
+        "type": "NetworkLinkDestination",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s1-Ethernet3-r1-GigabitEthernet2"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:r1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:GigabitEthernet2",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkSource:telemetry-testbed-l3-topology:s1-Ethernet3-r1-GigabitEthernet2",
+        "type": "NetworkLinkSource",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:s1-Ethernet3-r1-GigabitEthernet2"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:s1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:Ethernet3",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:pc12-eth1-s1-Ethernet2",
+        "type": "NetworkLink",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "pc12-eth1-s1-Ethernet2",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkDestination:telemetry-testbed-l3-topology:pc12-eth1-s1-Ethernet2",
+        "type": "NetworkLinkDestination",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:pc12-eth1-s1-Ethernet2"
+        },
+        "destNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:s1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "destTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:Ethernet2",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkLinkSource:telemetry-testbed-l3-topology:pc12-eth1-s1-Ethernet2",
+        "type": "NetworkLinkSource",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkLink:telemetry-testbed-l3-topology:pc12-eth1-s1-Ethernet2"
+        },
+        "sourceNode": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:pc12",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "sourceTp": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNodeTerminationPoint:eth1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc12",
+        "type": "NetworkNode",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "nodeId": {
+            "type": "Property",
+            "value": "pc12",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:pc12:eth1",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc12"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s3",
+        "type": "NetworkNode",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "nodeId": {
+            "type": "Property",
+            "value": "s3",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:s3:Ethernet3",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s3"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "Ethernet3",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:s3:Ethernet2",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s3"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "Ethernet2",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:s3:Ethernet1",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s3"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "Ethernet1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:r2",
+        "type": "NetworkNode",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "nodeId": {
+            "type": "Property",
+            "value": "r2",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:r2:GigabitEthernet2",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:r2"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "GigabitEthernet2",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:r2:GigabitEthernet3",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:r2"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "GigabitEthernet3",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:r2:GigabitEthernet4",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:r2"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "GigabitEthernet4",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:r3",
+        "type": "NetworkNode",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "nodeId": {
+            "type": "Property",
+            "value": "r3",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:r3:GigabitEthernet2",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:r3"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "GigabitEthernet2",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:r3:GigabitEthernet3",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:r3"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "GigabitEthernet3",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:r3:GigabitEthernet4",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:r3"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "GigabitEthernet4",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s1",
+        "type": "NetworkNode",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "nodeId": {
+            "type": "Property",
+            "value": "s1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:s1:Ethernet3",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s1"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "Ethernet3",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:s1:Ethernet2",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s1"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "Ethernet2",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:s1:Ethernet1",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s1"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "Ethernet1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc31",
+        "type": "NetworkNode",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "nodeId": {
+            "type": "Property",
+            "value": "pc31",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:pc31:eth1",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc31"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s2",
+        "type": "NetworkNode",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "nodeId": {
+            "type": "Property",
+            "value": "s2",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:s2:Ethernet3",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s2"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "Ethernet3",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:s2:Ethernet2",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s2"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "Ethernet2",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:s2:Ethernet1",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:s2"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "Ethernet1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:r1",
+        "type": "NetworkNode",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "nodeId": {
+            "type": "Property",
+            "value": "r1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:r1:GigabitEthernet2",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:r1"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "GigabitEthernet2",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:r1:GigabitEthernet3",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:r1"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "GigabitEthernet3",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:r1:GigabitEthernet4",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:r1"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "GigabitEthernet4",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc22",
+        "type": "NetworkNode",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "nodeId": {
+            "type": "Property",
+            "value": "pc22",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:pc22:eth1",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc22"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc11",
+        "type": "NetworkNode",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "nodeId": {
+            "type": "Property",
+            "value": "pc11",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:pc11:eth1",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc11"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc32",
+        "type": "NetworkNode",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "nodeId": {
+            "type": "Property",
+            "value": "pc32",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:pc32:eth1",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc32"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc21",
+        "type": "NetworkNode",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Network:telemetry-testbed-l3-topology"
+        },
+        "nodeId": {
+            "type": "Property",
+            "value": "pc21",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkNodeTerminationPoint:telemetry-testbed-l3-topology:pc21:eth1",
+        "type": "NetworkNodeTerminationPoint",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkNode:telemetry-testbed-l3-topology:pc21"
+        },
+        "tpId": {
+            "type": "Property",
+            "value": "eth1",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    }
+]

@@ -5,7 +5,7 @@ Given one or several YANG modules, it dynamically generates the code of an JSON 
 that is able to read data modeled by these modules and is also capable of creating
 instances of Pydantic classes from the NGSI-LD-backed OpenAPI generation.
 
-Version: 1.0.3.
+Version: 1.0.4.
 
 Author: Networking and Virtualization Research Group (GIROS DIT-UPM) -- https://dit.upm.es/~giros
 '''
@@ -686,7 +686,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
                         if (subelements is not None):
                             for subelement in subelements:
                                 if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
-                                    generate_parser_code(subelement, parent_element_arg, current_path, camelcase_entity_path, depth_level, typedefs_dict)
+                                    generate_parser_code(subelement, parent_element_arg, current_path, camelcase_entity_path, depth_level, None, modules_name, typedefs_dict)
         ### --- ###
                                     
         ### NGSI-LD PROPERTY IDENTIFICATION ###
