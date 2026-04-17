@@ -1,0 +1,24 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceSubinterfaceIpv4Statistics": "srl_nokia-interfaces:interface/subinterface/ipv4/statistics",
+        "inPackets": "srl_nokia-interfaces:interface/subinterface/ipv4/statistics/in-packets",
+        "inOctets": "srl_nokia-interfaces:interface/subinterface/ipv4/statistics/in-octets",
+        "inErrorPackets": "srl_nokia-interfaces:interface/subinterface/ipv4/statistics/in-error-packets",
+        "inDiscardedPackets": "srl_nokia-interfaces:interface/subinterface/ipv4/statistics/in-discarded-packets",
+        "inTerminatedPackets": "srl_nokia-interfaces:interface/subinterface/ipv4/statistics/in-terminated-packets",
+        "inTerminatedOctets": "srl_nokia-interfaces:interface/subinterface/ipv4/statistics/in-terminated-octets",
+        "inForwardedPackets": "srl_nokia-interfaces:interface/subinterface/ipv4/statistics/in-forwarded-packets",
+        "inForwardedOctets": "srl_nokia-interfaces:interface/subinterface/ipv4/statistics/in-forwarded-octets",
+        "inMatchedRaPackets": "srl_nokia-interfaces:interface/subinterface/ipv4/statistics/in-matched-ra-packets",
+        "outForwardedPackets": "srl_nokia-interfaces:interface/subinterface/ipv4/statistics/out-forwarded-packets",
+        "outForwardedOctets": "srl_nokia-interfaces:interface/subinterface/ipv4/statistics/out-forwarded-octets",
+        "outOriginatedPackets": "srl_nokia-interfaces:interface/subinterface/ipv4/statistics/out-originated-packets",
+        "outOriginatedOctets": "srl_nokia-interfaces:interface/subinterface/ipv4/statistics/out-originated-octets",
+        "outErrorPackets": "srl_nokia-interfaces:interface/subinterface/ipv4/statistics/out-error-packets",
+        "outDiscardedPackets": "srl_nokia-interfaces:interface/subinterface/ipv4/statistics/out-discarded-packets",
+        "outPackets": "srl_nokia-interfaces:interface/subinterface/ipv4/statistics/out-packets",
+        "outOctets": "srl_nokia-interfaces:interface/subinterface/ipv4/statistics/out-octets",
+        "lastClear": "srl_nokia-interfaces:interface/subinterface/ipv4/statistics/last-clear"
+    }
+}

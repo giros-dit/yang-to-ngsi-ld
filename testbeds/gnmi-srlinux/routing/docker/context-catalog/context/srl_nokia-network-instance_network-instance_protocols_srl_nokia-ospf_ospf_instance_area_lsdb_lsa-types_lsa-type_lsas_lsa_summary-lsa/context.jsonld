@@ -1,0 +1,9 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "LsaSummaryLsa": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa/summary-lsa",
+        "networkMask": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa/summary-lsa/network-mask",
+        "metric": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa/summary-lsa/metric"
+    }
+}

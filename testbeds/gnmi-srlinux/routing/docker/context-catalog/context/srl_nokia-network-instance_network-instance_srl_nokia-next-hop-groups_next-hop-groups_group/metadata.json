@@ -1,0 +1,19 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-next-hop-groups": "urn:nokia.com:srlinux:static-route:next-hop-groups/",
+        "Group": "srl_nokia-network-instance:network-instance/srl_nokia-next-hop-groups:next-hop-groups/group",
+        "name": "srl_nokia-network-instance:network-instance/srl_nokia-next-hop-groups:next-hop-groups/group/name",
+        "adminState": "srl_nokia-network-instance:network-instance/srl_nokia-next-hop-groups:next-hop-groups/group/admin-state",
+        "backupNextHopGroup": "srl_nokia-network-instance:network-instance/srl_nokia-next-hop-groups:next-hop-groups/group/backup-next-hop-group",
+        "algorithm": "srl_nokia-network-instance:network-instance/srl_nokia-next-hop-groups:next-hop-groups/group/algorithm"
+    },
+    "key": "None",
+    "config": [
+        "Group",
+        "name",
+        "adminState",
+        "backupNextHopGroup",
+        "algorithm"
+    ]
+}

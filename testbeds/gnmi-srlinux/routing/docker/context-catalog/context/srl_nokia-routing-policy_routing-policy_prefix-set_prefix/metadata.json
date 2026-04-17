@@ -1,0 +1,14 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "PrefixSetPrefix": "srl_nokia-routing-policy:routing-policy/prefix-set/prefix",
+        "ipPrefix": "srl_nokia-routing-policy:routing-policy/prefix-set/prefix/ip-prefix",
+        "maskLengthRange": "srl_nokia-routing-policy:routing-policy/prefix-set/prefix/mask-length-range"
+    },
+    "key": "None",
+    "config": [
+        "PrefixSetPrefix",
+        "ipPrefix",
+        "maskLengthRange"
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "@context": {
+        "srl_nokia-system": "urn:nokia.com:srlinux:general:system/",
+        "srl_nokia-lldp": "urn:nokia.com:srlinux:lldp:lldp/",
+        "SystemLldpInterfaceNeighborCustomTlv": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/custom-tlv",
+        "type": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/custom-tlv/type",
+        "oui": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/custom-tlv/oui",
+        "ouiSubtype": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/custom-tlv/oui-subtype",
+        "value": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/custom-tlv/value"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "StatisticsTotal": "srl_nokia-network-instance:network-instance/icmp/statistics/total",
+        "inPackets": "srl_nokia-network-instance:network-instance/icmp/statistics/total/in-packets",
+        "inErrorPackets": "srl_nokia-network-instance:network-instance/icmp/statistics/total/in-error-packets",
+        "outPackets": "srl_nokia-network-instance:network-instance/icmp/statistics/total/out-packets",
+        "outErrorPackets": "srl_nokia-network-instance:network-instance/icmp/statistics/total/out-error-packets"
+    }
+}

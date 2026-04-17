@@ -1,0 +1,7 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "SourceAddress": "srl_nokia-routing-policy:routing-policy/policy/statement/match/multicast/source-address",
+        "prefixSet": "srl_nokia-routing-policy:routing-policy/policy/statement/match/multicast/source-address/prefix-set"
+    }
+}

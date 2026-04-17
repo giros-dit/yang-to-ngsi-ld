@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "NetworkInstanceIpForwarding": "srl_nokia-network-instance:network-instance/ip-forwarding",
+        "receiveIpv4Check": "srl_nokia-network-instance:network-instance/ip-forwarding/receive-ipv4-check",
+        "receiveIpv6Check": "srl_nokia-network-instance:network-instance/ip-forwarding/receive-ipv6-check"
+    }
+}

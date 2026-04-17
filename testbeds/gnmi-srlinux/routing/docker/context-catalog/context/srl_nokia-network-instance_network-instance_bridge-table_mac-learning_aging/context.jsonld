@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "NetworkInstanceBridgeTableMacLearningAging": "srl_nokia-network-instance:network-instance/bridge-table/mac-learning/aging",
+        "adminState": "srl_nokia-network-instance:network-instance/bridge-table/mac-learning/aging/admin-state",
+        "ageTime": "srl_nokia-network-instance:network-instance/bridge-table/mac-learning/aging/age-time"
+    }
+}

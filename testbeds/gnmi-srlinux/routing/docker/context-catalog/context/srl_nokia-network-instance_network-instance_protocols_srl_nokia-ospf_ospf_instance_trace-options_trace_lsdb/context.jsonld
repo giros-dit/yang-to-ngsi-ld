@@ -1,0 +1,10 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "TraceLsdb": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/trace-options/trace/lsdb",
+        "type": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/trace-options/trace/lsdb/type",
+        "routerId": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/trace-options/trace/lsdb/router-id",
+        "linkStateId": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/trace-options/trace/lsdb/link-state-id"
+    }
+}

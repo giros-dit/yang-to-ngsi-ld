@@ -1,0 +1,11 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "PolicyDefaultActionBgp": "srl_nokia-routing-policy:routing-policy/policy/default-action/bgp",
+        "disableIpRouteInstall": "srl_nokia-routing-policy:routing-policy/policy/default-action/bgp/disable-ip-route-install"
+    },
+    "config": [
+        "PolicyDefaultActionBgp",
+        "disableIpRouteInstall"
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "@context": {
+        "srl_nokia-system": "urn:nokia.com:srlinux:general:system/",
+        "srl_nokia-srv6": "urn:nokia.com:srlinux:srv6:srv6/",
+        "SystemSrv6MicroSegment": "srl_nokia-system:system/srl_nokia-srv6:srv6/micro-segment",
+        "blockLength": "srl_nokia-system:system/srl_nokia-srv6:srv6/micro-segment/block-length",
+        "gibSize": "srl_nokia-system:system/srl_nokia-srv6:srv6/micro-segment/gib-size",
+        "sidLength": "srl_nokia-system:system/srl_nokia-srv6:srv6/micro-segment/sid-length"
+    },
+    "config": [
+        "SystemSrv6MicroSegment",
+        "blockLength",
+        "gibSize",
+        "sidLength"
+    ]
+}

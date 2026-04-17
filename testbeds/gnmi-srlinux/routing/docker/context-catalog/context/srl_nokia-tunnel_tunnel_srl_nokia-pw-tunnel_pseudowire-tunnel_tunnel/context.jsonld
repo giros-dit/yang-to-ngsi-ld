@@ -1,0 +1,12 @@
+{
+    "@context": {
+        "srl_nokia-tunnel": "urn:nokia.com:srlinux:vxlan:tunnel/",
+        "srl_nokia-pw-tunnel": "urn:nokia.com:srlinux:pw:pw-tunnel/",
+        "Tunnel": "srl_nokia-tunnel:tunnel/srl_nokia-pw-tunnel:pseudowire-tunnel/tunnel",
+        "name": "srl_nokia-tunnel:tunnel/srl_nokia-pw-tunnel:pseudowire-tunnel/tunnel/name",
+        "remoteSystem": "srl_nokia-tunnel:tunnel/srl_nokia-pw-tunnel:pseudowire-tunnel/tunnel/remote-system",
+        "index": "srl_nokia-tunnel:tunnel/srl_nokia-pw-tunnel:pseudowire-tunnel/tunnel/index",
+        "lastChange": "srl_nokia-tunnel:tunnel/srl_nokia-pw-tunnel:pseudowire-tunnel/tunnel/last-change",
+        "operationalTunnelId": "srl_nokia-tunnel:tunnel/srl_nokia-pw-tunnel:pseudowire-tunnel/tunnel/operational-tunnel-id"
+    }
+}

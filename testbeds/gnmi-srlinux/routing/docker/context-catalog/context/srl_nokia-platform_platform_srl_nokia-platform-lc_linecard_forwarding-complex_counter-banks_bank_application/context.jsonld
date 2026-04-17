@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "srl_nokia-platform": "urn:nokia.com:srlinux:chassis:platform/",
+        "srl_nokia-platform-lc": "urn:nokia.com:srlinux:chassis:platform-lc/",
+        "BankApplication": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/counter-banks/bank/application",
+        "entries": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/counter-banks/bank/application/entries"
+    }
+}

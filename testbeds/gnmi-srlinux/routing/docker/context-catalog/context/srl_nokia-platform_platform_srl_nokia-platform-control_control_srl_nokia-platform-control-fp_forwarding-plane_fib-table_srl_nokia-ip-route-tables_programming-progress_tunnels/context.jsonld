@@ -1,0 +1,10 @@
+{
+    "@context": {
+        "srl_nokia-platform": "urn:nokia.com:srlinux:chassis:platform/",
+        "srl_nokia-ip-route-tables": "urn:nokia.com:srlinux:fib:ip-route-tables/",
+        "Tunnels": "srl_nokia-platform:platform/srl_nokia-platform-control:control/srl_nokia-platform-control-fp:forwarding-plane/fib-table/srl_nokia-ip-route-tables:programming-progress/tunnels",
+        "entriesRemainingToAdd": "srl_nokia-platform:platform/srl_nokia-platform-control:control/srl_nokia-platform-control-fp:forwarding-plane/fib-table/srl_nokia-ip-route-tables:programming-progress/tunnels/entries-remaining-to-add",
+        "entriesRemainingToModify": "srl_nokia-platform:platform/srl_nokia-platform-control:control/srl_nokia-platform-control-fp:forwarding-plane/fib-table/srl_nokia-ip-route-tables:programming-progress/tunnels/entries-remaining-to-modify",
+        "lastSyncTime": "srl_nokia-platform:platform/srl_nokia-platform-control:control/srl_nokia-platform-control-fp:forwarding-plane/fib-table/srl_nokia-ip-route-tables:programming-progress/tunnels/last-sync-time"
+    }
+}

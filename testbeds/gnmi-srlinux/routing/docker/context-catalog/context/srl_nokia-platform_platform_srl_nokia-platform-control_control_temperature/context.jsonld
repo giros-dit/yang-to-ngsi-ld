@@ -1,0 +1,12 @@
+{
+    "@context": {
+        "srl_nokia-platform": "urn:nokia.com:srlinux:chassis:platform/",
+        "srl_nokia-platform-control": "urn:nokia.com:srlinux:chassis:platform-control/",
+        "ControlTemperature": "srl_nokia-platform:platform/srl_nokia-platform-control:control/temperature",
+        "instant": "srl_nokia-platform:platform/srl_nokia-platform-control:control/temperature/instant",
+        "maximum": "srl_nokia-platform:platform/srl_nokia-platform-control:control/temperature/maximum",
+        "maximumTime": "srl_nokia-platform:platform/srl_nokia-platform-control:control/temperature/maximum-time",
+        "alarmStatus": "srl_nokia-platform:platform/srl_nokia-platform-control:control/temperature/alarm-status",
+        "margin": "srl_nokia-platform:platform/srl_nokia-platform-control:control/temperature/margin"
+    }
+}

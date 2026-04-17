@@ -1,0 +1,11 @@
+{
+    "@context": {
+        "srl_nokia-system": "urn:nokia.com:srlinux:general:system/",
+        "srl_nokia-lldp": "urn:nokia.com:srlinux:lldp:lldp/",
+        "SystemLldpLldpMedNetworkPolicy": "srl_nokia-system:system/srl_nokia-lldp:lldp/lldp-med/network-policy",
+        "name": "srl_nokia-system:system/srl_nokia-lldp:lldp/lldp-med/network-policy/name",
+        "vlanId": "srl_nokia-system:system/srl_nokia-lldp:lldp/lldp-med/network-policy/vlan-id",
+        "dot1p": "srl_nokia-system:system/srl_nokia-lldp:lldp/lldp-med/network-policy/dot1p",
+        "dscp": "srl_nokia-system:system/srl_nokia-lldp:lldp/lldp-med/network-policy/dscp"
+    }
+}

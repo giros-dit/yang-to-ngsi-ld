@@ -1,0 +1,13 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "PolicyDefaultActionBgpAsPathPrepend": "srl_nokia-routing-policy:routing-policy/policy/default-action/bgp/as-path/prepend",
+        "asNumber": "srl_nokia-routing-policy:routing-policy/policy/default-action/bgp/as-path/prepend/as-number",
+        "repeatN": "srl_nokia-routing-policy:routing-policy/policy/default-action/bgp/as-path/prepend/repeat-n"
+    },
+    "config": [
+        "PolicyDefaultActionBgpAsPathPrepend",
+        "asNumber",
+        "repeatN"
+    ]
+}

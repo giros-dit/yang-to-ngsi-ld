@@ -1,0 +1,28 @@
+{
+    "@context": {
+        "srl_nokia-platform": "urn:nokia.com:srlinux:chassis:platform/",
+        "srl_nokia-platform-lc": "urn:nokia.com:srlinux:chassis:platform-lc/",
+        "LinecardMda": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/mda",
+        "slot": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/mda/slot",
+        "adminState": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/mda/admin-state",
+        "operState": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/mda/oper-state",
+        "lastBooted": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/mda/last-booted",
+        "lastChange": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/mda/last-change",
+        "partNumber": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/mda/part-number",
+        "removable": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/mda/removable",
+        "failureReason": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/mda/failure-reason",
+        "cleiCode": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/mda/clei-code",
+        "serialNumber": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/mda/serial-number",
+        "manufacturedDate": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/mda/manufactured-date",
+        "rebootingAt": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/mda/rebooting-at",
+        "type": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/mda/type",
+        "interfaces": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/mda/interfaces",
+        "locatorState": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/mda/locator-state"
+    },
+    "key": "None",
+    "config": [
+        "LinecardMda",
+        "slot",
+        "adminState"
+    ]
+}

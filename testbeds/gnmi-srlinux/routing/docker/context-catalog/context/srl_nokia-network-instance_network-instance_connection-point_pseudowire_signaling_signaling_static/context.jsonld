@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "signalingStatic": "srl_nokia-network-instance:network-instance/connection-point/pseudowire/signaling/signaling/static",
+        "ingressVcLabel": "srl_nokia-network-instance:network-instance/connection-point/pseudowire/signaling/signaling/static/ingress-vc-label",
+        "egressVcLabel": "srl_nokia-network-instance:network-instance/connection-point/pseudowire/signaling/signaling/static/egress-vc-label"
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "signalingTldp": "srl_nokia-network-instance:network-instance/connection-point/pseudowire/signaling/signaling/tldp",
+        "virtualCircuitType": "srl_nokia-network-instance:network-instance/connection-point/pseudowire/signaling/signaling/tldp/virtual-circuit-type",
+        "advertiseL2Mtu": "srl_nokia-network-instance:network-instance/connection-point/pseudowire/signaling/signaling/tldp/advertise-l2-mtu",
+        "ignoreMtuMismatch": "srl_nokia-network-instance:network-instance/connection-point/pseudowire/signaling/signaling/tldp/ignore-mtu-mismatch"
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "@context": {
+        "srl_nokia-platform": "urn:nokia.com:srlinux:chassis:platform/",
+        "srl_nokia-platform-lc": "urn:nokia.com:srlinux:chassis:platform-lc/",
+        "LinecardForwardingComplexPipeline": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/pipeline",
+        "index": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/pipeline/index"
+    },
+    "key": "None",
+    "config": [
+        "LinecardForwardingComplexPipeline",
+        "index"
+    ]
+}

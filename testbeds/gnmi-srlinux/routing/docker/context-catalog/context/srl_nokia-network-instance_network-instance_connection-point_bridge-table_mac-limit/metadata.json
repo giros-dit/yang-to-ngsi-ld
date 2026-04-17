@@ -1,0 +1,13 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "NetworkInstanceConnectionPointBridgeTableMacLimit": "srl_nokia-network-instance:network-instance/connection-point/bridge-table/mac-limit",
+        "maximumEntries": "srl_nokia-network-instance:network-instance/connection-point/bridge-table/mac-limit/maximum-entries",
+        "warningThresholdPct": "srl_nokia-network-instance:network-instance/connection-point/bridge-table/mac-limit/warning-threshold-pct"
+    },
+    "config": [
+        "NetworkInstanceConnectionPointBridgeTableMacLimit",
+        "maximumEntries",
+        "warningThresholdPct"
+    ]
+}

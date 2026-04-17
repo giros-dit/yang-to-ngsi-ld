@@ -1,0 +1,17 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "InstanceAreaInterfaceNeighborStatistics": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/statistics",
+        "events": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/statistics/events",
+        "badNbrStates": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/statistics/bad-nbr-states",
+        "lsaInstallFailed": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/statistics/lsa-install-failed",
+        "badSeqNums": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/statistics/bad-seq-nums",
+        "badMtu": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/statistics/bad-mtu",
+        "badPackets": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/statistics/bad-packets",
+        "lsaNotInLsdbs": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/statistics/lsa-not-in-lsdbs",
+        "optionMismatches": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/statistics/option-mismatches",
+        "duplicates": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/statistics/duplicates",
+        "numRestarts": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/statistics/num-restarts"
+    }
+}

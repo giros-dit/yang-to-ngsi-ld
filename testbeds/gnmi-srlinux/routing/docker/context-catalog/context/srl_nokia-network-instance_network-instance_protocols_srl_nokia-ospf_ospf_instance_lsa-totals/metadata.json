@@ -1,0 +1,11 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "InstanceLsaTotals": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsa-totals",
+        "asExternalLsa": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsa-totals/as-external-lsa",
+        "eAsExternalLsa": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsa-totals/e-as-external-lsa",
+        "asOpaqueLsa": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsa-totals/as-opaque-lsa",
+        "routerInfoLsa": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsa-totals/router-info-lsa"
+    }
+}

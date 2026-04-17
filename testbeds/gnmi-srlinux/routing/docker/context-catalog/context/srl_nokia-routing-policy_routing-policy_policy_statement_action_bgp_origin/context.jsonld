@@ -1,0 +1,7 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "PolicyStatementActionBgpOrigin": "srl_nokia-routing-policy:routing-policy/policy/statement/action/bgp/origin",
+        "set": "srl_nokia-routing-policy:routing-policy/policy/statement/action/bgp/origin/set"
+    }
+}

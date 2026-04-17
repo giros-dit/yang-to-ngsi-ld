@@ -1,0 +1,14 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "Lsa": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa",
+        "advertisingRouter": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa/advertising-router",
+        "linkStateId": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa/link-state-id",
+        "advertisement": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa/advertisement",
+        "sequenceNumber": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa/sequence-number",
+        "checksum": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa/checksum",
+        "age": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa/age",
+        "options": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa/options"
+    }
+}

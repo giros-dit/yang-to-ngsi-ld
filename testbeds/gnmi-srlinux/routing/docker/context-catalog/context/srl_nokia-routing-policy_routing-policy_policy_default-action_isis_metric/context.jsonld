@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "PolicyDefaultActionIsisMetric": "srl_nokia-routing-policy:routing-policy/policy/default-action/isis/metric",
+        "setStyle": "srl_nokia-routing-policy:routing-policy/policy/default-action/isis/metric/set-style",
+        "setValue": "srl_nokia-routing-policy:routing-policy/policy/default-action/isis/metric/set-value"
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "LsaAsExternalLsa": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsdb/lsa-types/lsa-type/lsas/lsa/as-external-lsa",
+        "mask": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsdb/lsa-types/lsa-type/lsas/lsa/as-external-lsa/mask",
+        "metricType": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsdb/lsa-types/lsa-type/lsas/lsa/as-external-lsa/metric-type",
+        "metric": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsdb/lsa-types/lsa-type/lsas/lsa/as-external-lsa/metric",
+        "forwardingAddress": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsdb/lsa-types/lsa-type/lsas/lsa/as-external-lsa/forwarding-address",
+        "externalRouteTag": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsdb/lsa-types/lsa-type/lsas/lsa/as-external-lsa/external-route-tag"
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "@context": {
+        "srl_nokia-system": "urn:nokia.com:srlinux:general:system/",
+        "srl_nokia-lldp": "urn:nokia.com:srlinux:lldp:lldp/",
+        "Capabilities": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/lldp-med/capabilities"
+    }
+}

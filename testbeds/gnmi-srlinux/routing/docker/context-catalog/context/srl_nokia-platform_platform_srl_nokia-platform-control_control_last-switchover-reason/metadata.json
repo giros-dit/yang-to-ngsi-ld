@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "srl_nokia-platform": "urn:nokia.com:srlinux:chassis:platform/",
+        "srl_nokia-platform-control": "urn:nokia.com:srlinux:chassis:platform-control/",
+        "ControlLastSwitchoverReason": "srl_nokia-platform:platform/srl_nokia-platform-control:control/last-switchover-reason",
+        "details": "srl_nokia-platform:platform/srl_nokia-platform-control:control/last-switchover-reason/details"
+    }
+}

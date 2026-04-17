@@ -1,0 +1,11 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "SrtePolicy": "srl_nokia-routing-policy:routing-policy/policy/statement/action/bgp/protection/srte-policy",
+        "protectionPolicy": "srl_nokia-routing-policy:routing-policy/policy/statement/action/bgp/protection/srte-policy/protection-policy"
+    },
+    "config": [
+        "SrtePolicy",
+        "protectionPolicy"
+    ]
+}

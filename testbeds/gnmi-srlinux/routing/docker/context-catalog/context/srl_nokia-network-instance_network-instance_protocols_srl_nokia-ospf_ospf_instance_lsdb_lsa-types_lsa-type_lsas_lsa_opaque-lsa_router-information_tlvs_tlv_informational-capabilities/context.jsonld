@@ -1,0 +1,12 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "TlvInformationalCapabilities": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsdb/lsa-types/lsa-type/lsas/lsa/opaque-lsa/router-information/tlvs/tlv/informational-capabilities",
+        "gracefulRestartCapable": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsdb/lsa-types/lsa-type/lsas/lsa/opaque-lsa/router-information/tlvs/tlv/informational-capabilities/graceful-restart-capable",
+        "gracefulRestartHelper": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsdb/lsa-types/lsa-type/lsas/lsa/opaque-lsa/router-information/tlvs/tlv/informational-capabilities/graceful-restart-helper",
+        "stubRouter": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsdb/lsa-types/lsa-type/lsas/lsa/opaque-lsa/router-information/tlvs/tlv/informational-capabilities/stub-router",
+        "pointToPointOverLan": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsdb/lsa-types/lsa-type/lsas/lsa/opaque-lsa/router-information/tlvs/tlv/informational-capabilities/point-to-point-over-lan",
+        "experimentalTe": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsdb/lsa-types/lsa-type/lsas/lsa/opaque-lsa/router-information/tlvs/tlv/informational-capabilities/experimental-te"
+    }
+}

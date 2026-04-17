@@ -1,0 +1,9 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "InstanceAreaLsaFilterTotals": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-filter-totals",
+        "exportFiltered": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-filter-totals/export-filtered",
+        "importFiltered": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-filter-totals/import-filtered"
+    }
+}

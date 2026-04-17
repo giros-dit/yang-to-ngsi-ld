@@ -1,0 +1,11 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "NetworkInstanceConnectionPointBridgeTableMacDuplication": "srl_nokia-network-instance:network-instance/connection-point/bridge-table/mac-duplication",
+        "action": "srl_nokia-network-instance:network-instance/connection-point/bridge-table/mac-duplication/action"
+    },
+    "config": [
+        "NetworkInstanceConnectionPointBridgeTableMacDuplication",
+        "action"
+    ]
+}

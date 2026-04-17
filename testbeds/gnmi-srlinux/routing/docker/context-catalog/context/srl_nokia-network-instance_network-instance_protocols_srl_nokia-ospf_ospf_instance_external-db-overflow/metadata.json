@@ -1,0 +1,14 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "InstanceExternalDbOverflow": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/external-db-overflow",
+        "interval": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/external-db-overflow/interval",
+        "limit": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/external-db-overflow/limit"
+    },
+    "config": [
+        "InstanceExternalDbOverflow",
+        "interval",
+        "limit"
+    ]
+}

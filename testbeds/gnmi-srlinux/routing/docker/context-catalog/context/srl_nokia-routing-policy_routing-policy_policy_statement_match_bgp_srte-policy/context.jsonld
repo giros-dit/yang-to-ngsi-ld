@@ -1,0 +1,9 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "PolicyStatementMatchBgpSrtePolicy": "srl_nokia-routing-policy:routing-policy/policy/statement/match/bgp/srte-policy",
+        "distinguisher": "srl_nokia-routing-policy:routing-policy/policy/statement/match/bgp/srte-policy/distinguisher",
+        "color": "srl_nokia-routing-policy:routing-policy/policy/statement/match/bgp/srte-policy/color",
+        "endpoint": "srl_nokia-routing-policy:routing-policy/policy/statement/match/bgp/srte-policy/endpoint"
+    }
+}

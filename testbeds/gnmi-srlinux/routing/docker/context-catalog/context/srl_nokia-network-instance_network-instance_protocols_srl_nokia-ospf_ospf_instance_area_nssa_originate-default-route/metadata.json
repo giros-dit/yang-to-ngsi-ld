@@ -1,0 +1,14 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "InstanceAreaNssaOriginateDefaultRoute": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/nssa/originate-default-route",
+        "typeNssa": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/nssa/originate-default-route/type-nssa",
+        "adjacencyCheck": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/nssa/originate-default-route/adjacency-check"
+    },
+    "config": [
+        "InstanceAreaNssaOriginateDefaultRoute",
+        "typeNssa",
+        "adjacencyCheck"
+    ]
+}

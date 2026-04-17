@@ -1,0 +1,12 @@
+{
+    "@context": {
+        "srl_nokia-system": "urn:nokia.com:srlinux:general:system/",
+        "srl_nokia-lldp": "urn:nokia.com:srlinux:lldp:lldp/",
+        "NetworkPolicyApplicationType": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/lldp-med/network-policy-application-type",
+        "policyFlag": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/lldp-med/network-policy-application-type/policy-flag",
+        "vlanTagging": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/lldp-med/network-policy-application-type/vlan-tagging",
+        "vlanId": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/lldp-med/network-policy-application-type/vlan-id",
+        "dot1p": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/lldp-med/network-policy-application-type/dot1p",
+        "dscp": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/lldp-med/network-policy-application-type/dscp"
+    }
+}

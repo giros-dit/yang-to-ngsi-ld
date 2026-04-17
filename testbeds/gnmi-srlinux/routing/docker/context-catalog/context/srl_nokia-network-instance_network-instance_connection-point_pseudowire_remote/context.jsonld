@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "NetworkInstanceConnectionPointPseudowireRemote": "srl_nokia-network-instance:network-instance/connection-point/pseudowire/remote",
+        "pseudowireStatus": "srl_nokia-network-instance:network-instance/connection-point/pseudowire/remote/pseudowire-status",
+        "operationalEgressVcLabel": "srl_nokia-network-instance:network-instance/connection-point/pseudowire/remote/operational-egress-vc-label"
+    }
+}

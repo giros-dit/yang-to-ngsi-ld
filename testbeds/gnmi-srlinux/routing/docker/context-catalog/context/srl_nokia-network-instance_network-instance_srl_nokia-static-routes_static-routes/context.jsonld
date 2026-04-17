@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-static-routes": "urn:nokia.com:srlinux:static-route:static-routes/",
+        "NetworkInstanceStaticRoutes": "srl_nokia-network-instance:network-instance/srl_nokia-static-routes:static-routes",
+        "adminState": "srl_nokia-network-instance:network-instance/srl_nokia-static-routes:static-routes/admin-state"
+    }
+}

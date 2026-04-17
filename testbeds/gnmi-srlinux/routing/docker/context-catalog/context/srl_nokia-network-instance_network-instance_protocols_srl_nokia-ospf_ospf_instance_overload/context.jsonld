@@ -1,0 +1,11 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "InstanceOverload": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/overload",
+        "active": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/overload/active",
+        "overloadIncludeExt1": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/overload/overload-include-ext-1",
+        "overloadIncludeExt2": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/overload/overload-include-ext-2",
+        "overloadIncludeStub": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/overload/overload-include-stub"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "NetworkInstanceBridgeTableMacLearning": "srl_nokia-network-instance:network-instance/bridge-table/mac-learning",
+        "adminState": "srl_nokia-network-instance:network-instance/bridge-table/mac-learning/admin-state",
+        "operMacLearning": "srl_nokia-network-instance:network-instance/bridge-table/mac-learning/oper-mac-learning",
+        "operMacLearningDisabledReason": "srl_nokia-network-instance:network-instance/bridge-table/mac-learning/oper-mac-learning-disabled-reason",
+        "macRelearnOnly": "srl_nokia-network-instance:network-instance/bridge-table/mac-learning/mac-relearn-only"
+    }
+}

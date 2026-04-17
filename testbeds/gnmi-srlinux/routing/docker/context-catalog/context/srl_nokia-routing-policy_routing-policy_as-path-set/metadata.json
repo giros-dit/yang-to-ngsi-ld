@@ -1,0 +1,16 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "AsPathSet": "srl_nokia-routing-policy:routing-policy/as-path-set",
+        "name": "srl_nokia-routing-policy:routing-policy/as-path-set/name",
+        "regexMode": "srl_nokia-routing-policy:routing-policy/as-path-set/regex-mode",
+        "asPathSetMember": "srl_nokia-routing-policy:routing-policy/as-path-set/as-path-set-member"
+    },
+    "key": "None",
+    "config": [
+        "AsPathSet",
+        "name",
+        "regexMode",
+        "asPathSetMember"
+    ]
+}

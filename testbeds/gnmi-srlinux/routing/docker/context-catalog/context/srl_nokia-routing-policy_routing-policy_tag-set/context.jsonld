@@ -1,0 +1,9 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "TagSet": "srl_nokia-routing-policy:routing-policy/tag-set",
+        "name": "srl_nokia-routing-policy:routing-policy/tag-set/name",
+        "tagValue": "srl_nokia-routing-policy:routing-policy/tag-set/tag-value",
+        "tagSetIndex": "srl_nokia-routing-policy:routing-policy/tag-set/tag-set-index"
+    }
+}

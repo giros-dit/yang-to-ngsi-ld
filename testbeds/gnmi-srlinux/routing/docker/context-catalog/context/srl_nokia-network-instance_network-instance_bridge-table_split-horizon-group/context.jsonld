@@ -1,0 +1,7 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "NetworkInstanceBridgeTableSplitHorizonGroup": "srl_nokia-network-instance:network-instance/bridge-table/split-horizon-group",
+        "name": "srl_nokia-network-instance:network-instance/bridge-table/split-horizon-group/name"
+    }
+}

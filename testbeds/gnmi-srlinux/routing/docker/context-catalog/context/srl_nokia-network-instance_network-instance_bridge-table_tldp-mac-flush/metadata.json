@@ -1,0 +1,11 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "NetworkInstanceBridgeTableTldpMacFlush": "srl_nokia-network-instance:network-instance/bridge-table/tldp-mac-flush",
+        "sendFlushOnFailure": "srl_nokia-network-instance:network-instance/bridge-table/tldp-mac-flush/send-flush-on-failure"
+    },
+    "config": [
+        "NetworkInstanceBridgeTableTldpMacFlush",
+        "sendFlushOnFailure"
+    ]
+}

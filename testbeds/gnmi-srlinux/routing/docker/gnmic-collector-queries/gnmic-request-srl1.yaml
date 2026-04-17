@@ -1,0 +1,7 @@
+address: "clab-routing-testbed-r1"
+username: admin
+password: NokiaSrl1!
+skip-verify: true
+encoding: JSON_IETF
+get-path: 
+    - ...  # `get` command local flag

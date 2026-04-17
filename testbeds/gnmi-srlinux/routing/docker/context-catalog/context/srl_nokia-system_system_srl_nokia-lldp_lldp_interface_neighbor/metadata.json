@@ -1,0 +1,18 @@
+{
+    "@context": {
+        "srl_nokia-system": "urn:nokia.com:srlinux:general:system/",
+        "srl_nokia-lldp": "urn:nokia.com:srlinux:lldp:lldp/",
+        "SystemLldpInterfaceNeighbor": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor",
+        "id": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/id",
+        "firstMessage": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/first-message",
+        "lastUpdate": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/last-update",
+        "systemName": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/system-name",
+        "systemDescription": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/system-description",
+        "chassisId": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/chassis-id",
+        "chassisIdType": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/chassis-id-type",
+        "portId": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/port-id",
+        "portIdType": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/port-id-type",
+        "portDescription": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/port-description"
+    },
+    "key": "None"
+}

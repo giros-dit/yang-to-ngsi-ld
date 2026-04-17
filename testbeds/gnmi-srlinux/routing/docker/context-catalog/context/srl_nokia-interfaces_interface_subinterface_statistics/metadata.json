@@ -1,0 +1,24 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceSubinterfaceStatistics": "srl_nokia-interfaces:interface/subinterface/statistics",
+        "inPackets": "srl_nokia-interfaces:interface/subinterface/statistics/in-packets",
+        "inOctets": "srl_nokia-interfaces:interface/subinterface/statistics/in-octets",
+        "inErrorPackets": "srl_nokia-interfaces:interface/subinterface/statistics/in-error-packets",
+        "inDiscardedPackets": "srl_nokia-interfaces:interface/subinterface/statistics/in-discarded-packets",
+        "inTerminatedPackets": "srl_nokia-interfaces:interface/subinterface/statistics/in-terminated-packets",
+        "inTerminatedOctets": "srl_nokia-interfaces:interface/subinterface/statistics/in-terminated-octets",
+        "inForwardedPackets": "srl_nokia-interfaces:interface/subinterface/statistics/in-forwarded-packets",
+        "inForwardedOctets": "srl_nokia-interfaces:interface/subinterface/statistics/in-forwarded-octets",
+        "inMatchedRaPackets": "srl_nokia-interfaces:interface/subinterface/statistics/in-matched-ra-packets",
+        "outForwardedPackets": "srl_nokia-interfaces:interface/subinterface/statistics/out-forwarded-packets",
+        "outForwardedOctets": "srl_nokia-interfaces:interface/subinterface/statistics/out-forwarded-octets",
+        "outOriginatedPackets": "srl_nokia-interfaces:interface/subinterface/statistics/out-originated-packets",
+        "outOriginatedOctets": "srl_nokia-interfaces:interface/subinterface/statistics/out-originated-octets",
+        "outErrorPackets": "srl_nokia-interfaces:interface/subinterface/statistics/out-error-packets",
+        "outDiscardedPackets": "srl_nokia-interfaces:interface/subinterface/statistics/out-discarded-packets",
+        "outPackets": "srl_nokia-interfaces:interface/subinterface/statistics/out-packets",
+        "outOctets": "srl_nokia-interfaces:interface/subinterface/statistics/out-octets",
+        "lastClear": "srl_nokia-interfaces:interface/subinterface/statistics/last-clear"
+    }
+}

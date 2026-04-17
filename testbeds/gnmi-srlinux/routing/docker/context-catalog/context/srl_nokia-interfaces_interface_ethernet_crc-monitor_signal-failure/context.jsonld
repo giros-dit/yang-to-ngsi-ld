@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceEthernetCrcMonitorSignalFailure": "srl_nokia-interfaces:interface/ethernet/crc-monitor/signal-failure",
+        "exponent": "srl_nokia-interfaces:interface/ethernet/crc-monitor/signal-failure/exponent",
+        "multiplier": "srl_nokia-interfaces:interface/ethernet/crc-monitor/signal-failure/multiplier"
+    }
+}

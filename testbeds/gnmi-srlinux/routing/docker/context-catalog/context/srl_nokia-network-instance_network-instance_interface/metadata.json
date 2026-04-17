@@ -1,0 +1,17 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "NetworkInstanceInterface": "srl_nokia-network-instance:network-instance/interface",
+        "name": "srl_nokia-network-instance:network-instance/interface/name",
+        "operState": "srl_nokia-network-instance:network-instance/interface/oper-state",
+        "operDownReason": "srl_nokia-network-instance:network-instance/interface/oper-down-reason",
+        "index": "srl_nokia-network-instance:network-instance/interface/index",
+        "connectionPoint": "srl_nokia-network-instance:network-instance/interface/connection-point"
+    },
+    "key": "None",
+    "config": [
+        "NetworkInstanceInterface",
+        "name",
+        "connectionPoint"
+    ]
+}
