@@ -1,0 +1,274 @@
+[
+    {
+        "id": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt",
+        "type": "NetworkInstance",
+        "name": {
+            "type": "Property",
+            "value": "mgmt",
+            "observedAt": "2026-04-07T13:16:29.084Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "networkInstanceType": {
+            "type": "Property",
+            "value": "srl_nokia-network-instance:ip-vrf",
+            "observedAt": "2026-04-07T13:16:29.084Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "enable",
+            "observedAt": "2026-04-07T13:16:29.084Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "description": {
+            "type": "Property",
+            "value": "Management network instance",
+            "observedAt": "2026-04-07T13:16:29.084Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceProtocolsLinux:routing-testbed:r1:mgmt",
+        "type": "NetworkInstanceProtocolsLinux",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt",
+            "observedAt": "2026-04-07T13:16:29.084Z"
+        },
+        "importRoutes": {
+            "type": "Property",
+            "value": true,
+            "observedAt": "2026-04-07T13:16:29.084Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "exportRoutes": {
+            "type": "Property",
+            "value": true,
+            "observedAt": "2026-04-07T13:16:29.084Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "exportNeighbors": {
+            "type": "Property",
+            "value": true,
+            "observedAt": "2026-04-07T13:16:29.084Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceInterface:routing-testbed:r1:mgmt:mgmt0.0",
+        "type": "NetworkInstanceInterface",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt",
+            "observedAt": "2026-04-07T13:16:29.084Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "mgmt0.0",
+            "observedAt": "2026-04-07T13:16:29.084Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default",
+        "type": "NetworkInstance",
+        "name": {
+            "type": "Property",
+            "value": "default",
+            "observedAt": "2026-04-07T13:16:29.084Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceStaticRoutes:routing-testbed:r1:default",
+        "type": "NetworkInstanceStaticRoutes",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default",
+            "observedAt": "2026-04-07T13:16:29.084Z"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceStaticRoutesRoute:routing-testbed:r1:default",
+        "type": "NetworkInstanceStaticRoutesRoute",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceStaticRoutes:routing-testbed:r1:default",
+            "observedAt": "2026-04-07T13:16:29.084Z"
+        },
+        "prefix": {
+            "type": "Property",
+            "value": "192.168.3.0/24",
+            "observedAt": "2026-04-07T13:16:29.084Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "enable",
+            "observedAt": "2026-04-07T13:16:29.084Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "nextHopGroup": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceTrafficEngineeringSharedRiskLinkGroupsGroup:routing-testbed:r1:default:r1-to-r3",
+            "observedAt": "2026-04-07T13:16:29.084Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceStaticRoutesRoute:routing-testbed:r1:default",
+        "type": "NetworkInstanceStaticRoutesRoute",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceStaticRoutes:routing-testbed:r1:default",
+            "observedAt": "2026-04-07T13:16:29.084Z"
+        },
+        "prefix": {
+            "type": "Property",
+            "value": "192.168.2.0/24",
+            "observedAt": "2026-04-07T13:16:29.084Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "enable",
+            "observedAt": "2026-04-07T13:16:29.084Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "nextHopGroup": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceTrafficEngineeringSharedRiskLinkGroupsGroup:routing-testbed:r1:default:r1-to-r2",
+            "observedAt": "2026-04-07T13:16:29.084Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceNextHopGroupsGroup:routing-testbed:r1:default:r1-to-r3",
+        "type": "NetworkInstanceNextHopGroupsGroup",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default",
+            "observedAt": "2026-04-07T13:16:29.084Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "r1-to-r3",
+            "observedAt": "2026-04-07T13:16:29.084Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceNextHopGroupsGroupNexthop:routing-testbed:r1:default:r1-to-r3.1",
+        "type": "NetworkInstanceNextHopGroupsGroupNexthop",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceNextHopGroupsGroup:routing-testbed:r1:default:r1-to-r3",
+            "observedAt": "2026-04-07T13:16:29.084Z"
+        },
+        "index": {
+            "type": "Property",
+            "value": 1,
+            "observedAt": "2026-04-07T13:16:29.084Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "ipAddress": {
+            "type": "Property",
+            "value": "10.10.11.2",
+            "observedAt": "2026-04-07T13:16:29.084Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "enable",
+            "observedAt": "2026-04-07T13:16:29.084Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceNextHopGroupsGroup:routing-testbed:r1:default:r1-to-r2",
+        "type": "NetworkInstanceNextHopGroupsGroup",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default",
+            "observedAt": "2026-04-07T13:16:29.084Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "r1-to-r2",
+            "observedAt": "2026-04-07T13:16:29.084Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceNextHopGroupsGroupNexthop:routing-testbed:r1:default:r1-to-r2.1",
+        "type": "NetworkInstanceNextHopGroupsGroupNexthop",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceNextHopGroupsGroup:routing-testbed:r1:default:r1-to-r2",
+            "observedAt": "2026-04-07T13:16:29.084Z"
+        },
+        "index": {
+            "type": "Property",
+            "value": 1,
+            "observedAt": "2026-04-07T13:16:29.084Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "ipAddress": {
+            "type": "Property",
+            "value": "10.10.10.2",
+            "observedAt": "2026-04-07T13:16:29.084Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        },
+        "adminState": {
+            "type": "Property",
+            "value": "enable",
+            "observedAt": "2026-04-07T13:16:29.084Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceInterface:routing-testbed:r1:default:ethernet-1/3.0",
+        "type": "NetworkInstanceInterface",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default",
+            "observedAt": "2026-04-07T13:16:29.084Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/3.0",
+            "observedAt": "2026-04-07T13:16:29.084Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceInterface:routing-testbed:r1:default:ethernet-1/2.0",
+        "type": "NetworkInstanceInterface",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default",
+            "observedAt": "2026-04-07T13:16:29.084Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/2.0",
+            "observedAt": "2026-04-07T13:16:29.084Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceInterface:routing-testbed:r1:default:ethernet-1/1.0",
+        "type": "NetworkInstanceInterface",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default",
+            "observedAt": "2026-04-07T13:16:29.084Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "ethernet-1/1.0",
+            "observedAt": "2026-04-07T13:16:29.084Z",
+            "datasetId": "urn:ngsi-ld:configuration"
+        }
+    }
+]
