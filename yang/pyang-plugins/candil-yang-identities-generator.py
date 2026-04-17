@@ -102,7 +102,12 @@ def generate_yang_identities(ctx, modules, fd):
 
     # Every single module is processed.
     for module in identity_modules:
-        namespace = str(module.search_one('namespace').arg)
+        if module.keyword == "submodule":
+            belongs = module.search_one('belongs-to')
+            parent_module = module.i_ctx.get_module(belongs.arg)
+            namespace = str(parent_module.search_one('namespace').arg)
+        else:
+            namespace = str(module.search_one('namespace').arg)
 
         '''
         Select the prefix of the YANGIdentity depending of the network management protocol (i.e., NETCONF or gNMI).
