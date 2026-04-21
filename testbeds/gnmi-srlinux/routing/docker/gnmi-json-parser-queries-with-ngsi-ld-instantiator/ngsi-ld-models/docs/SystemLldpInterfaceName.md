@@ -7,7 +7,7 @@ Reference to the LLDP Ethernet interface  YANG module: srl_nokia-lldp.yang
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **str** | Node type.  | [optional] [default to 'Relationship']
-**object** | **str** | Relationship with Entity type SystemLldpInterface. | 
+**object** | **str** | Relationship with Entity type Interface. | 
 **observed_at** | **datetime** | Is defined as the temporal Property at which a certain Property or Relationship became valid or was observed. For example, a temperature Value was measured by the sensor at this point in time.  | [optional] 
 **dataset_id** | **str** | It allows identifying a set or group of target relationship objects.  | [optional] 
 **created_at** | **datetime** | Is defined as the temporal Property at which the Entity, Property or Relationship was entered into an NGSI-LD system.  | [optional] [readonly] 

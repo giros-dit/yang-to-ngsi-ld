@@ -11037,7 +11037,7 @@ if network_instance is not None:
                             element_text = adminGroup
                             network_instance_traffic_engineering_interface_dict_buffer["adminGroup"] = {}
                             network_instance_traffic_engineering_interface_dict_buffer["adminGroup"]["type"] = "Relationship"
-                            network_instance_traffic_engineering_interface_dict_buffer["adminGroup"]["object"] = "urn:ngsi-ld:NetworkInstanceTrafficEngineeringSharedRiskLinkGroupsGroup:" + ":".join(network_instance_traffic_engineering_interface_dict_buffer["id"].split(":")[3:])
+                            network_instance_traffic_engineering_interface_dict_buffer["adminGroup"]["object"] = "urn:ngsi-ld:NetworkInstanceNextHopGroupsGroup:" + ":".join(network_instance_traffic_engineering_interface_dict_buffer["id"].split(":")[3:])
                             if network_instance_traffic_engineering_interface_dict_buffer["id"].split(":")[-1] != element_text:
                                 network_instance_traffic_engineering_interface_dict_buffer["adminGroup"]["object"] = network_instance_traffic_engineering_interface_dict_buffer["adminGroup"]["object"] + ":" + element_text
                             network_instance_traffic_engineering_interface_dict_buffer["adminGroup"]["observedAt"] = observed_at
@@ -11047,7 +11047,7 @@ if network_instance is not None:
                             element_text = srlgMembership
                             network_instance_traffic_engineering_interface_dict_buffer["srlgMembership"] = {}
                             network_instance_traffic_engineering_interface_dict_buffer["srlgMembership"]["type"] = "Relationship"
-                            network_instance_traffic_engineering_interface_dict_buffer["srlgMembership"]["object"] = "urn:ngsi-ld:NetworkInstanceTrafficEngineeringSharedRiskLinkGroupsGroup:" + ":".join(network_instance_traffic_engineering_interface_dict_buffer["id"].split(":")[3:])
+                            network_instance_traffic_engineering_interface_dict_buffer["srlgMembership"]["object"] = "urn:ngsi-ld:NetworkInstanceNextHopGroupsGroup:" + ":".join(network_instance_traffic_engineering_interface_dict_buffer["id"].split(":")[3:])
                             if network_instance_traffic_engineering_interface_dict_buffer["id"].split(":")[-1] != element_text:
                                 network_instance_traffic_engineering_interface_dict_buffer["srlgMembership"]["object"] = network_instance_traffic_engineering_interface_dict_buffer["srlgMembership"]["object"] + ":" + element_text
                             network_instance_traffic_engineering_interface_dict_buffer["srlgMembership"]["observedAt"] = observed_at
@@ -11146,7 +11146,7 @@ if network_instance is not None:
                             element_text = nextHopGroup
                             network_instance_static_routes_route_dict_buffer["nextHopGroup"] = {}
                             network_instance_static_routes_route_dict_buffer["nextHopGroup"]["type"] = "Relationship"
-                            network_instance_static_routes_route_dict_buffer["nextHopGroup"]["object"] = "urn:ngsi-ld:NetworkInstanceTrafficEngineeringSharedRiskLinkGroupsGroup:" + ":".join(network_instance_static_routes_route_dict_buffer["id"].split(":")[3:])
+                            network_instance_static_routes_route_dict_buffer["nextHopGroup"]["object"] = "urn:ngsi-ld:NetworkInstanceNextHopGroupsGroup:" + ":".join(network_instance_static_routes_route_dict_buffer["id"].split(":")[3:])
                             if network_instance_static_routes_route_dict_buffer["id"].split(":")[-1] != element_text:
                                 network_instance_static_routes_route_dict_buffer["nextHopGroup"]["object"] = network_instance_static_routes_route_dict_buffer["nextHopGroup"]["object"] + ":" + element_text
                             network_instance_static_routes_route_dict_buffer["nextHopGroup"]["observedAt"] = observed_at
@@ -14936,7 +14936,7 @@ if system is not None and len(system) != 0:
                         system_lldp_interface_dict_buffer["id"] = system_lldp_interface_dict_buffer["id"] + ":" + element_text
                     system_lldp_interface_dict_buffer["name"] = {}
                     system_lldp_interface_dict_buffer["name"]["type"] = "Relationship"
-                    system_lldp_interface_dict_buffer["name"]["object"] = "urn:ngsi-ld:SystemLldpInterface:" + ":".join(system_lldp_interface_dict_buffer["id"].split(":")[3:])
+                    system_lldp_interface_dict_buffer["name"]["object"] = "urn:ngsi-ld:Interface:" + ":".join(system_lldp_interface_dict_buffer["id"].split(":")[3:])
                     if system_lldp_interface_dict_buffer["id"].split(":")[-1] != element_text:
                         system_lldp_interface_dict_buffer["name"]["object"] = system_lldp_interface_dict_buffer["name"]["object"] + ":" + element_text
                     system_lldp_interface_dict_buffer["name"]["observedAt"] = observed_at

@@ -559,7 +559,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer = {}')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\" + source')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"type\"] = \"' + current_camelcase_path + '\"')
-                    ELEMENT_TO_ENTITY_TYPE[str(element.arg).replace('-', '_')] = current_camelcase_path
+                    ELEMENT_TO_ENTITY_TYPE[str(current_camelcase_path)] = str(element.arg).replace('-', '_')
                     subelements = element.i_children
                     if (subelements is not None):
                         for subelement in subelements:
@@ -612,7 +612,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer = {}')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"id\"] = \"urn:ngsi-ld:' + current_camelcase_path + ':\" + source')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"type\"] = \"' + current_camelcase_path + '\"')
-                    ELEMENT_TO_ENTITY_TYPE[str(element.arg).replace('-', '_')] = current_camelcase_path
+                    ELEMENT_TO_ENTITY_TYPE[str(current_camelcase_path)] = str(element.arg).replace('-', '_')
                     subelements = element.i_children
                     if (subelements is not None):
                         for subelement in subelements:
@@ -643,7 +643,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"object\"] = ' + ''.join(current_path.rsplit(str(element.arg) + '_', 1)).replace('-', '_') + 'dict_buffer[\"id\"]')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"observedAt\"] = observed_at')
 
-                    ELEMENT_TO_ENTITY_TYPE[str(element.arg).replace('-', '_')] = current_camelcase_path
+                    ELEMENT_TO_ENTITY_TYPE[str(current_camelcase_path)] = str(element.arg).replace('-', '_')
                     subelements = element.i_children
                     if (subelements is not None):
                         for subelement in subelements:
@@ -681,7 +681,7 @@ def generate_python_json_parser_code(ctx, modules, fd):
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"type\"] = \"Relationship\"')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"object\"] = ' + ''.join(current_path.rsplit(str(element.arg) + '_', 1)).replace('-', '_') + 'dict_buffer[\"id\"]')
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + current_path.replace('-', '_') + 'dict_buffer[\"isPartOf\"][\"observedAt\"] = observed_at')
-                    ELEMENT_TO_ENTITY_TYPE[str(element.arg).replace('-', '_')] = current_camelcase_path
+                    ELEMENT_TO_ENTITY_TYPE[str(current_camelcase_path)] = str(element.arg).replace('-', '_')
                     subelements = element.i_children
                     if (subelements is not None):
                         for subelement in subelements:
@@ -804,11 +804,18 @@ def generate_python_json_parser_code(ctx, modules, fd):
 
                                 if len(matches) == 0:
                                     relationship_camelcase_path = camelcase_pointer_parent
+                                else: 
+                                    element_to_entity_type_key = next((k for k, v in ELEMENT_TO_ENTITY_TYPE.items() if v == pointer_parent.arg), None)
+                                    if element_to_entity_type_key != None:
+                                        relationship_camelcase_path = element_to_entity_type_key
+                                    else:
+                                        relationship_camelcase_path = matches[0] 
+                                '''
                                 elif ELEMENT_TO_ENTITY_TYPE.get(pointer_parent.arg):
                                     relationship_camelcase_path = ELEMENT_TO_ENTITY_TYPE.get(pointer_parent.arg)
                                 else:
-                                    relationship_camelcase_path = matches[0]  
-
+                                    relationship_camelcase_path = matches[0] 
+                                '''
                             else:
                                 relationship_camelcase_path = camelcase_entity_path + camelcase_pointer_parent
                                 ENTITY_TYPE_LIST.append(relationship_camelcase_path)

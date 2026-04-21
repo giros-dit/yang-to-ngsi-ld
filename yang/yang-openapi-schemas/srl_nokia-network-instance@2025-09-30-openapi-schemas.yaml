@@ -24230,7 +24230,7 @@ components:
         - type: object
           properties:
             object:
-              description: Relationship with Entity type NetworkInstanceTrafficEngineeringSharedRiskLinkGroupsGroup.
+              description: Relationship with Entity type NetworkInstanceNextHopGroupsGroup.
               type: string
           required:
             - object
@@ -24245,7 +24245,7 @@ components:
         - type: object
           properties:
             object:
-              description: Relationship with Entity type NetworkInstanceTrafficEngineeringSharedRiskLinkGroupsGroup.
+              description: Relationship with Entity type NetworkInstanceNextHopGroupsGroup.
               type: string
           required:
             - object
@@ -24450,7 +24450,7 @@ components:
         - type: object
           properties:
             object:
-              description: Relationship with Entity type NetworkInstanceTrafficEngineeringSharedRiskLinkGroupsGroup.
+              description: Relationship with Entity type NetworkInstanceNextHopGroupsGroup.
               type: string
           required:
             - object
@@ -32228,7 +32228,7 @@ components:
         - type: object
           properties:
             object:
-              description: Relationship with Entity type SystemLldpInterface.
+              description: Relationship with Entity type Interface.
               type: string
           required:
             - object

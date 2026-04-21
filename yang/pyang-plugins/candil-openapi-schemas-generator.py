@@ -568,7 +568,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                                                                 fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + to_camelcase(str(case_subelement.keyword), str(case_subelement.arg)))     
                                                                 depth_level -= 1       
 
-                    ELEMENT_TO_ENTITY_TYPE[str(element.arg).replace('-', '_')] = current_camelcase_path                                       
+                    ELEMENT_TO_ENTITY_TYPE[str(current_camelcase_path)] = str(element.arg).replace('-', '_')                                       
                     if (subelements is not None):
                         for subelement in subelements:
                             if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
@@ -700,7 +700,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                                                                 fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + to_camelcase(str(case_subelement.keyword), str(case_subelement.arg)))     
                                                                 depth_level -= 1    
 
-                    ELEMENT_TO_ENTITY_TYPE[str(element.arg).replace('-', '_')] = current_camelcase_path                              
+                    ELEMENT_TO_ENTITY_TYPE[str(current_camelcase_path)] = str(element.arg).replace('-', '_')                              
                     if (subelements is not None):
                         for subelement in subelements:
                             if (subelement is not None) and (subelement.keyword in statements.data_definition_keywords):
@@ -852,7 +852,7 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                                                                 fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + to_camelcase(str(case_subelement.keyword), str(case_subelement.arg)))     
                                                                 depth_level -= 1  
 
-                    ELEMENT_TO_ENTITY_TYPE[str(element.arg).replace('-', '_')] = current_camelcase_path        
+                    ELEMENT_TO_ENTITY_TYPE[str(current_camelcase_path)] = str(element.arg).replace('-', '_')        
                     subelements = element.i_children
                     if (subelements is not None):
                         for subelement in subelements:
@@ -890,7 +890,6 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                     fd.write('\n' + INDENTATION_BLOCK * depth_level + "default: " + current_camelcase_path)
                     depth_level -= 1
                     
-                    ELEMENT_TO_ENTITY_TYPE[str(element.arg).replace('-', '_')] = current_camelcase_path
                     subelements = element.i_children
                     subelement_list = []
                     if (subelements is not None):
@@ -1006,6 +1005,8 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
                                                                 depth_level += 1
                                                                 fd.write('\n' + INDENTATION_BLOCK * depth_level + "- " + to_camelcase(str(case_subelement.keyword), str(case_subelement.arg)))     
                                                                 depth_level -= 1                   
+                    
+                    ELEMENT_TO_ENTITY_TYPE[str(current_camelcase_path)] = str(element.arg).replace('-', '_')
                     subelements = element.i_children
                     if (subelements is not None):
                         for subelement in subelements:
@@ -1217,11 +1218,18 @@ def generate_python_openapi_schemas_generator_code(ctx, modules, fd):
 
                                 if len(matches) == 0:
                                     relationship_camelcase_path = camelcase_pointer_parent
+                                else: 
+                                    element_to_entity_type_key = next((k for k, v in ELEMENT_TO_ENTITY_TYPE.items() if v == pointer_parent.arg), None)
+                                    if element_to_entity_type_key != None:
+                                        relationship_camelcase_path = element_to_entity_type_key
+                                    else:
+                                        relationship_camelcase_path = matches[0]
+                                '''
                                 elif ELEMENT_TO_ENTITY_TYPE.get(pointer_parent.arg):
                                     relationship_camelcase_path = ELEMENT_TO_ENTITY_TYPE.get(pointer_parent.arg)
                                 else:
                                     relationship_camelcase_path = matches[0]  
-
+                                '''
                             else:
                                 relationship_camelcase_path = camelcase_entity_path + camelcase_pointer_parent
                                 ENTITY_TYPE_LIST.append(relationship_camelcase_path)
