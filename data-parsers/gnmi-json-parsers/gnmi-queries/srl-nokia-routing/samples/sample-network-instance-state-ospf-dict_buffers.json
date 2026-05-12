@@ -139,7 +139,7 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv6UnicastRoute:routing-testbed:r1:mgmt:1",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv6UnicastRoute:routing-testbed:r1:mgmt:3fff:172:20:20::4/128:1",
         "type": "NetworkInstanceRouteTableIpv6UnicastRoute",
         "isPartOf": {
             "type": "Relationship",
@@ -172,7 +172,7 @@
         },
         "originNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:1:mgmt",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:3fff:172:20:20::4/128:1:mgmt",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -208,13 +208,13 @@
         },
         "nextHopGroup": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:mgmt:1:158835108",
+            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:mgmt:3fff:172:20:20::4/128:1:158835108",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
         "nextHopGroupNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:1:mgmt",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:3fff:172:20:20::4/128:1:mgmt",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -232,11 +232,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv6UnicastRouteFibProgramming:routing-testbed:r1:mgmt:1",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv6UnicastRouteFibProgramming:routing-testbed:r1:mgmt:3fff:172:20:20::4/128:1",
         "type": "NetworkInstanceRouteTableIpv6UnicastRouteFibProgramming",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv6UnicastRoute:routing-testbed:r1:mgmt:1",
+            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv6UnicastRoute:routing-testbed:r1:mgmt:3fff:172:20:20::4/128:1",
             "observedAt": "2026-04-14T16:30:43.480Z"
         },
         "suppressed": {
@@ -271,7 +271,7 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv6UnicastRoute:routing-testbed:r1:mgmt:1",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv6UnicastRoute:routing-testbed:r1:mgmt:3fff:172:20:20::/64:1",
         "type": "NetworkInstanceRouteTableIpv6UnicastRoute",
         "isPartOf": {
             "type": "Relationship",
@@ -304,7 +304,7 @@
         },
         "originNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:1:mgmt",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:3fff:172:20:20::/64:1:mgmt",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -340,13 +340,13 @@
         },
         "nextHopGroup": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:mgmt:1:158835107",
+            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:mgmt:3fff:172:20:20::/64:1:158835107",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
         "nextHopGroupNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:1:mgmt",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:3fff:172:20:20::/64:1:mgmt",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -364,11 +364,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv6UnicastRouteFibProgramming:routing-testbed:r1:mgmt:1",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv6UnicastRouteFibProgramming:routing-testbed:r1:mgmt:3fff:172:20:20::/64:1",
         "type": "NetworkInstanceRouteTableIpv6UnicastRouteFibProgramming",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv6UnicastRoute:routing-testbed:r1:mgmt:1",
+            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv6UnicastRoute:routing-testbed:r1:mgmt:3fff:172:20:20::/64:1",
             "observedAt": "2026-04-14T16:30:43.480Z"
         },
         "suppressed": {
@@ -403,7 +403,7 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv6UnicastRoute:routing-testbed:r1:mgmt:0",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv6UnicastRoute:routing-testbed:r1:mgmt:3fff:172:20:20::/64:0",
         "type": "NetworkInstanceRouteTableIpv6UnicastRoute",
         "isPartOf": {
             "type": "Relationship",
@@ -436,7 +436,7 @@
         },
         "originNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:0:mgmt",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:3fff:172:20:20::/64:0:mgmt",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -472,13 +472,13 @@
         },
         "nextHopGroup": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:mgmt:0:158835109",
+            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:mgmt:3fff:172:20:20::/64:0:158835109",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
         "nextHopGroupNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:0:mgmt",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:3fff:172:20:20::/64:0:mgmt",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -496,11 +496,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv6UnicastRouteFibProgramming:routing-testbed:r1:mgmt:0",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv6UnicastRouteFibProgramming:routing-testbed:r1:mgmt:3fff:172:20:20::/64:0",
         "type": "NetworkInstanceRouteTableIpv6UnicastRouteFibProgramming",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv6UnicastRoute:routing-testbed:r1:mgmt:0",
+            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv6UnicastRoute:routing-testbed:r1:mgmt:3fff:172:20:20::/64:0",
             "observedAt": "2026-04-14T16:30:43.480Z"
         },
         "suppressed": {
@@ -535,7 +535,7 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv6UnicastRoute:routing-testbed:r1:mgmt:1",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv6UnicastRoute:routing-testbed:r1:mgmt:::/0:1",
         "type": "NetworkInstanceRouteTableIpv6UnicastRoute",
         "isPartOf": {
             "type": "Relationship",
@@ -568,7 +568,7 @@
         },
         "originNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:1:mgmt",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:::/0:1:mgmt",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -604,13 +604,13 @@
         },
         "nextHopGroup": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:mgmt:1:158835106",
+            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:mgmt:::/0:1:158835106",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
         "nextHopGroupNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:1:mgmt",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:::/0:1:mgmt",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -628,11 +628,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv6UnicastRouteFibProgramming:routing-testbed:r1:mgmt:1",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv6UnicastRouteFibProgramming:routing-testbed:r1:mgmt:::/0:1",
         "type": "NetworkInstanceRouteTableIpv6UnicastRouteFibProgramming",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv6UnicastRoute:routing-testbed:r1:mgmt:1",
+            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv6UnicastRoute:routing-testbed:r1:mgmt:::/0:1",
             "observedAt": "2026-04-14T16:30:43.480Z"
         },
         "suppressed": {
@@ -790,7 +790,7 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:mgmt:1",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:mgmt:172.20.20.255/32:1",
         "type": "NetworkInstanceRouteTableIpv4UnicastRoute",
         "isPartOf": {
             "type": "Relationship",
@@ -823,7 +823,7 @@
         },
         "originNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:1:mgmt",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:172.20.20.255/32:1:mgmt",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -859,13 +859,13 @@
         },
         "nextHopGroup": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:mgmt:1:158835111",
+            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:mgmt:172.20.20.255/32:1:158835111",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
         "nextHopGroupNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:1:mgmt",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:172.20.20.255/32:1:mgmt",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -883,11 +883,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:mgmt:1",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:mgmt:172.20.20.255/32:1",
         "type": "NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:mgmt:1",
+            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:mgmt:172.20.20.255/32:1",
             "observedAt": "2026-04-14T16:30:43.480Z"
         },
         "suppressed": {
@@ -922,7 +922,7 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:mgmt:1",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:mgmt:172.20.20.4/32:1",
         "type": "NetworkInstanceRouteTableIpv4UnicastRoute",
         "isPartOf": {
             "type": "Relationship",
@@ -955,7 +955,7 @@
         },
         "originNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:1:mgmt",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:172.20.20.4/32:1:mgmt",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -991,13 +991,13 @@
         },
         "nextHopGroup": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:mgmt:1:158835108",
+            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:mgmt:172.20.20.4/32:1:158835108",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
         "nextHopGroupNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:1:mgmt",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:172.20.20.4/32:1:mgmt",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -1015,11 +1015,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:mgmt:1",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:mgmt:172.20.20.4/32:1",
         "type": "NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:mgmt:1",
+            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:mgmt:172.20.20.4/32:1",
             "observedAt": "2026-04-14T16:30:43.480Z"
         },
         "suppressed": {
@@ -1054,7 +1054,7 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:mgmt:1",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:mgmt:172.20.20.0/24:1",
         "type": "NetworkInstanceRouteTableIpv4UnicastRoute",
         "isPartOf": {
             "type": "Relationship",
@@ -1087,7 +1087,7 @@
         },
         "originNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:1:mgmt",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:172.20.20.0/24:1:mgmt",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -1123,13 +1123,13 @@
         },
         "nextHopGroup": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:mgmt:1:158835110",
+            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:mgmt:172.20.20.0/24:1:158835110",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
         "nextHopGroupNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:1:mgmt",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:172.20.20.0/24:1:mgmt",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -1147,11 +1147,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:mgmt:1",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:mgmt:172.20.20.0/24:1",
         "type": "NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:mgmt:1",
+            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:mgmt:172.20.20.0/24:1",
             "observedAt": "2026-04-14T16:30:43.480Z"
         },
         "suppressed": {
@@ -1186,7 +1186,7 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:mgmt:0",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:mgmt:172.20.20.0/24:0",
         "type": "NetworkInstanceRouteTableIpv4UnicastRoute",
         "isPartOf": {
             "type": "Relationship",
@@ -1219,7 +1219,7 @@
         },
         "originNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:0:mgmt",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:172.20.20.0/24:0:mgmt",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -1255,13 +1255,13 @@
         },
         "nextHopGroup": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:mgmt:0:158835112",
+            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:mgmt:172.20.20.0/24:0:158835112",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
         "nextHopGroupNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:0:mgmt",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:172.20.20.0/24:0:mgmt",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -1279,11 +1279,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:mgmt:0",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:mgmt:172.20.20.0/24:0",
         "type": "NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:mgmt:0",
+            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:mgmt:172.20.20.0/24:0",
             "observedAt": "2026-04-14T16:30:43.480Z"
         },
         "suppressed": {
@@ -1318,7 +1318,7 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:mgmt:1",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:mgmt:0.0.0.0/0:1",
         "type": "NetworkInstanceRouteTableIpv4UnicastRoute",
         "isPartOf": {
             "type": "Relationship",
@@ -1351,7 +1351,7 @@
         },
         "originNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:1:mgmt",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:0.0.0.0/0:1:mgmt",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -1387,13 +1387,13 @@
         },
         "nextHopGroup": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:mgmt:1:158835105",
+            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:mgmt:0.0.0.0/0:1:158835105",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
         "nextHopGroupNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:1:mgmt",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt:0.0.0.0/0:1:mgmt",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -1411,11 +1411,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:mgmt:1",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:mgmt:0.0.0.0/0:1",
         "type": "NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:mgmt:1",
+            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:mgmt:0.0.0.0/0:1",
             "observedAt": "2026-04-14T16:30:43.480Z"
         },
         "suppressed": {
@@ -2459,7 +2459,7 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:0",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:192.168.3.0/24:0",
         "type": "NetworkInstanceRouteTableIpv4UnicastRoute",
         "isPartOf": {
             "type": "Relationship",
@@ -2492,7 +2492,7 @@
         },
         "originNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:0:default",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:192.168.3.0/24:0:default",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -2528,13 +2528,13 @@
         },
         "nextHopGroup": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:default:0:158835120",
+            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:default:192.168.3.0/24:0:158835120",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
         "nextHopGroupNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:0:default",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:192.168.3.0/24:0:default",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -2560,11 +2560,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:default:0",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:default:192.168.3.0/24:0",
         "type": "NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:0",
+            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:192.168.3.0/24:0",
             "observedAt": "2026-04-14T16:30:43.480Z"
         },
         "suppressed": {
@@ -2599,7 +2599,7 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:0",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:192.168.2.0/24:0",
         "type": "NetworkInstanceRouteTableIpv4UnicastRoute",
         "isPartOf": {
             "type": "Relationship",
@@ -2632,7 +2632,7 @@
         },
         "originNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:0:default",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:192.168.2.0/24:0:default",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -2668,13 +2668,13 @@
         },
         "nextHopGroup": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:default:0:158835121",
+            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:default:192.168.2.0/24:0:158835121",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
         "nextHopGroupNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:0:default",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:192.168.2.0/24:0:default",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -2700,11 +2700,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:default:0",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:default:192.168.2.0/24:0",
         "type": "NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:0",
+            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:192.168.2.0/24:0",
             "observedAt": "2026-04-14T16:30:43.480Z"
         },
         "suppressed": {
@@ -2739,7 +2739,7 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:2",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:192.168.1.255/32:2",
         "type": "NetworkInstanceRouteTableIpv4UnicastRoute",
         "isPartOf": {
             "type": "Relationship",
@@ -2772,7 +2772,7 @@
         },
         "originNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:2:default",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:192.168.1.255/32:2:default",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -2808,13 +2808,13 @@
         },
         "nextHopGroup": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:default:2:158835115",
+            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:default:192.168.1.255/32:2:158835115",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
         "nextHopGroupNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:2:default",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:192.168.1.255/32:2:default",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -2832,11 +2832,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:default:2",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:default:192.168.1.255/32:2",
         "type": "NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:2",
+            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:192.168.1.255/32:2",
             "observedAt": "2026-04-14T16:30:43.480Z"
         },
         "suppressed": {
@@ -2871,7 +2871,7 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:2",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:192.168.1.1/32:2",
         "type": "NetworkInstanceRouteTableIpv4UnicastRoute",
         "isPartOf": {
             "type": "Relationship",
@@ -2904,7 +2904,7 @@
         },
         "originNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:2:default",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:192.168.1.1/32:2:default",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -2940,13 +2940,13 @@
         },
         "nextHopGroup": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:default:2:158835119",
+            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:default:192.168.1.1/32:2:158835119",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
         "nextHopGroupNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:2:default",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:192.168.1.1/32:2:default",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -2964,11 +2964,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:default:2",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:default:192.168.1.1/32:2",
         "type": "NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:2",
+            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:192.168.1.1/32:2",
             "observedAt": "2026-04-14T16:30:43.480Z"
         },
         "suppressed": {
@@ -3003,7 +3003,7 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:2",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:192.168.1.0/24:2",
         "type": "NetworkInstanceRouteTableIpv4UnicastRoute",
         "isPartOf": {
             "type": "Relationship",
@@ -3036,7 +3036,7 @@
         },
         "originNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:2:default",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:192.168.1.0/24:2:default",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -3072,13 +3072,13 @@
         },
         "nextHopGroup": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:default:2:158835118",
+            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:default:192.168.1.0/24:2:158835118",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
         "nextHopGroupNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:2:default",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:192.168.1.0/24:2:default",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -3096,11 +3096,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:default:2",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:default:192.168.1.0/24:2",
         "type": "NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:2",
+            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:192.168.1.0/24:2",
             "observedAt": "2026-04-14T16:30:43.480Z"
         },
         "suppressed": {
@@ -3135,7 +3135,7 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:0",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:10.10.10.16/30:0",
         "type": "NetworkInstanceRouteTableIpv4UnicastRoute",
         "isPartOf": {
             "type": "Relationship",
@@ -3168,7 +3168,7 @@
         },
         "originNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:0:default",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:10.10.10.16/30:0:default",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -3204,13 +3204,13 @@
         },
         "nextHopGroup": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:default:0:158835121",
+            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:default:10.10.10.16/30:0:158835121",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
         "nextHopGroupNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:0:default",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:10.10.10.16/30:0:default",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -3236,11 +3236,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:default:0",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:default:10.10.10.16/30:0",
         "type": "NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:0",
+            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:10.10.10.16/30:0",
             "observedAt": "2026-04-14T16:30:43.480Z"
         },
         "suppressed": {
@@ -3275,7 +3275,7 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:4",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:10.10.10.11/32:4",
         "type": "NetworkInstanceRouteTableIpv4UnicastRoute",
         "isPartOf": {
             "type": "Relationship",
@@ -3308,7 +3308,7 @@
         },
         "originNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:4:default",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:10.10.10.11/32:4:default",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -3344,13 +3344,13 @@
         },
         "nextHopGroup": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:default:4:158835115",
+            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:default:10.10.10.11/32:4:158835115",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
         "nextHopGroupNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:4:default",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:10.10.10.11/32:4:default",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -3368,11 +3368,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:default:4",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:default:10.10.10.11/32:4",
         "type": "NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:4",
+            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:10.10.10.11/32:4",
             "observedAt": "2026-04-14T16:30:43.480Z"
         },
         "suppressed": {
@@ -3407,7 +3407,7 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:4",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:10.10.10.9/32:4",
         "type": "NetworkInstanceRouteTableIpv4UnicastRoute",
         "isPartOf": {
             "type": "Relationship",
@@ -3440,7 +3440,7 @@
         },
         "originNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:4:default",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:10.10.10.9/32:4:default",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -3476,13 +3476,13 @@
         },
         "nextHopGroup": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:default:4:158835114",
+            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:default:10.10.10.9/32:4:158835114",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
         "nextHopGroupNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:4:default",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:10.10.10.9/32:4:default",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -3500,11 +3500,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:default:4",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:default:10.10.10.9/32:4",
         "type": "NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:4",
+            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:10.10.10.9/32:4",
             "observedAt": "2026-04-14T16:30:43.480Z"
         },
         "suppressed": {
@@ -3539,7 +3539,7 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:4",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:10.10.10.8/30:4",
         "type": "NetworkInstanceRouteTableIpv4UnicastRoute",
         "isPartOf": {
             "type": "Relationship",
@@ -3572,7 +3572,7 @@
         },
         "originNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:4:default",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:10.10.10.8/30:4:default",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -3608,13 +3608,13 @@
         },
         "nextHopGroup": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:default:4:158835113",
+            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:default:10.10.10.8/30:4:158835113",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
         "nextHopGroupNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:4:default",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:10.10.10.8/30:4:default",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -3632,11 +3632,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:default:4",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:default:10.10.10.8/30:4",
         "type": "NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:4",
+            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:10.10.10.8/30:4",
             "observedAt": "2026-04-14T16:30:43.480Z"
         },
         "suppressed": {
@@ -3671,7 +3671,7 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:3",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:10.10.10.3/32:3",
         "type": "NetworkInstanceRouteTableIpv4UnicastRoute",
         "isPartOf": {
             "type": "Relationship",
@@ -3704,7 +3704,7 @@
         },
         "originNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:3:default",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:10.10.10.3/32:3:default",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -3740,13 +3740,13 @@
         },
         "nextHopGroup": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:default:3:158835115",
+            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:default:10.10.10.3/32:3:158835115",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
         "nextHopGroupNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:3:default",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:10.10.10.3/32:3:default",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -3764,11 +3764,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:default:3",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:default:10.10.10.3/32:3",
         "type": "NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:3",
+            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:10.10.10.3/32:3",
             "observedAt": "2026-04-14T16:30:43.480Z"
         },
         "suppressed": {
@@ -3803,7 +3803,7 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:3",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:10.10.10.1/32:3",
         "type": "NetworkInstanceRouteTableIpv4UnicastRoute",
         "isPartOf": {
             "type": "Relationship",
@@ -3836,7 +3836,7 @@
         },
         "originNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:3:default",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:10.10.10.1/32:3:default",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -3872,13 +3872,13 @@
         },
         "nextHopGroup": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:default:3:158835117",
+            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:default:10.10.10.1/32:3:158835117",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
         "nextHopGroupNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:3:default",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:10.10.10.1/32:3:default",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -3896,11 +3896,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:default:3",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:default:10.10.10.1/32:3",
         "type": "NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:3",
+            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:10.10.10.1/32:3",
             "observedAt": "2026-04-14T16:30:43.480Z"
         },
         "suppressed": {
@@ -3935,7 +3935,7 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:3",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:10.10.10.0/30:3",
         "type": "NetworkInstanceRouteTableIpv4UnicastRoute",
         "isPartOf": {
             "type": "Relationship",
@@ -3968,7 +3968,7 @@
         },
         "originNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:3:default",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:10.10.10.0/30:3:default",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -4004,13 +4004,13 @@
         },
         "nextHopGroup": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:default:3:158835116",
+            "object": "urn:ngsi-ld:NextHopGroup:routing-testbed:r1:default:10.10.10.0/30:3:158835116",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
         "nextHopGroupNetworkInstance": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:3:default",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:default:10.10.10.0/30:3:default",
             "observedAt": "2026-04-14T16:30:43.480Z",
             "datasetId": "urn:ngsi-ld:operational"
         },
@@ -4028,11 +4028,11 @@
         }
     },
     {
-        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:default:3",
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming:routing-testbed:r1:default:10.10.10.0/30:3",
         "type": "NetworkInstanceRouteTableIpv4UnicastRouteFibProgramming",
         "isPartOf": {
             "type": "Relationship",
-            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:3",
+            "object": "urn:ngsi-ld:NetworkInstanceRouteTableIpv4UnicastRoute:routing-testbed:r1:default:10.10.10.0/30:3",
             "observedAt": "2026-04-14T16:30:43.480Z"
         },
         "suppressed": {
