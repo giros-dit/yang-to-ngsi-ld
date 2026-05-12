@@ -1,0 +1,74 @@
+[
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv6UnicastStatistics:routing-testbed:r1:mgmt:0",
+        "type": "NetworkInstanceRouteTableIpv6UnicastStatistics",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt",
+            "observedAt": "2026-04-27T12:58:05.358Z"
+        },
+        "routesWithPerPrefixStatistics": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T12:58:05.358Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceRouteTableIpv6UnicastStatistics:routing-testbed:r1:mgmt",
+        "type": "NetworkInstanceRouteTableIpv6UnicastStatistics",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstance:routing-testbed:r1:mgmt",
+            "observedAt": "2026-04-27T12:58:05.358Z"
+        },
+        "activeRoutes": {
+            "type": "Property",
+            "value": 3,
+            "observedAt": "2026-04-27T12:58:05.358Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "activeRoutesWithEcmp": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T12:58:05.358Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "dynamicLoadBalancingRoutes": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T12:58:05.358Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "fibFailedRoutes": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T12:58:05.358Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "fibSuppressedRoutes": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T12:58:05.358Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "leakedRoutes": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T12:58:05.358Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "resilientHashRoutes": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T12:58:05.358Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "totalRoutes": {
+            "type": "Property",
+            "value": 4,
+            "observedAt": "2026-04-27T12:58:05.358Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    }
+]

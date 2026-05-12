@@ -1,0 +1,32 @@
+[
+  {
+    "name": "r1_routing",
+    "timestamp": 1777283736413373227,
+    "tags": {
+      "network-instance_name": "default",
+      "source": "router1",
+      "subscription-name": "r1_routing"
+    },
+    "values": {
+      "/srl_nokia-network-instance:network-instance/icmp/statistics/total/in-error-packets": "0",
+      "/srl_nokia-network-instance:network-instance/icmp/statistics/total/in-packets": "0",
+      "/srl_nokia-network-instance:network-instance/icmp/statistics/total/out-error-packets": "0",
+      "/srl_nokia-network-instance:network-instance/icmp/statistics/total/out-packets": "0"
+    }
+  },
+  {
+    "name": "r1_routing",
+    "timestamp": 1777283736413373227,
+    "tags": {
+      "network-instance_name": "default",
+      "source": "router1",
+      "subscription-name": "r1_routing"
+    },
+    "values": {
+      "/srl_nokia-network-instance:network-instance/icmp6/statistics/total/in-error-packets": "0",
+      "/srl_nokia-network-instance:network-instance/icmp6/statistics/total/in-packets": "0",
+      "/srl_nokia-network-instance:network-instance/icmp6/statistics/total/out-error-packets": "0",
+      "/srl_nokia-network-instance:network-instance/icmp6/statistics/total/out-packets": "0"
+    }
+  }
+]

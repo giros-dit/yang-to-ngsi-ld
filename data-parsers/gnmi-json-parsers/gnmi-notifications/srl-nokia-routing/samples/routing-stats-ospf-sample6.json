@@ -1,0 +1,23 @@
+[
+  {
+    "name": "r1_routing",
+    "timestamp": 1777966011502035734,
+    "tags": {
+      "area_area-id": "0.0.0.1",
+      "instance_name": "default",
+      "links_link-id": "10.10.10.2",
+      "lsa-type_type": "router-lsa",
+      "lsa_advertising-router": "2.2.2.2",
+      "lsa_link-state-id": "2.2.2.2",
+      "network-instance_name": "default",
+      "source": "clab-routing-testbed-r1",
+      "subscription-name": "r1_routing"
+    },
+    "values": {
+      "/srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa/router-lsa/links/link-data": "10.10.10.2",
+      "/srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa/router-lsa/links/metric": 16,
+      "/srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa/router-lsa/links/number-tos-metrics": 0,
+      "/srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa/router-lsa/links/type": "srl_nokia-ospf-types:router-lsa-transit-network"
+    }
+  }
+]

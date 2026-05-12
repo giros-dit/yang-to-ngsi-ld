@@ -1,0 +1,29 @@
+[
+  {
+    "name": "r1_routing",
+    "timestamp": 1777966011500910241,
+    "tags": {
+      "area_area-id": "0.0.0.1",
+      "instance_name": "default",
+      "network-instance_name": "default",
+      "source": "clab-routing-testbed-r1",
+      "subscription-name": "r1_routing"
+    },
+    "values": {
+      "/srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/active-interfaces": 3,
+      "/srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/advertise-router-capability": true,
+      "/srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/area-bdr-rtr-count": 0,
+      "/srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/as-bdr-rtr-count": 0,
+      "/srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/blackhole-aggregate": true,
+      "/srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/full-spf-runs": 6,
+      "/srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/last-spf-run-time": "2026-05-05T07:18:48.100Z",
+      "/srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-filter-totals/export-filtered": 0,
+      "/srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-filter-totals/import-filtered": 0,
+      "/srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-totals/network-lsa": 3,
+      "/srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-totals/router-lsa": 3,
+      "/srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-totals/total": 6,
+      "/srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-totals/total-lsa-cksum-sum": "0x406e9",
+      "/srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/identifier": "0.0.0.1"
+    }
+  }
+]
