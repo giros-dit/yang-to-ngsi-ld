@@ -1,0 +1,15 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "PolicyStatementMatchOspf": "srl_nokia-routing-policy:routing-policy/policy/statement/match/ospf",
+        "areaId": "srl_nokia-routing-policy:routing-policy/policy/statement/match/ospf/area-id",
+        "routeType": "srl_nokia-routing-policy:routing-policy/policy/statement/match/ospf/route-type",
+        "instanceId": "srl_nokia-routing-policy:routing-policy/policy/statement/match/ospf/instance-id"
+    },
+    "config": [
+        "PolicyStatementMatchOspf",
+        "areaId",
+        "routeType",
+        "instanceId"
+    ]
+}

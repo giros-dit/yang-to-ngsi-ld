@@ -1,0 +1,14 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-next-hop-groups": "urn:nokia.com:srlinux:static-route:next-hop-groups/",
+        "GroupNexthopGre": "srl_nokia-network-instance:network-instance/srl_nokia-next-hop-groups:next-hop-groups/group/nexthop/gre",
+        "sourceIp": "srl_nokia-network-instance:network-instance/srl_nokia-next-hop-groups:next-hop-groups/group/nexthop/gre/source-ip",
+        "destinationIp": "srl_nokia-network-instance:network-instance/srl_nokia-next-hop-groups:next-hop-groups/group/nexthop/gre/destination-ip"
+    },
+    "config": [
+        "GroupNexthopGre",
+        "sourceIp",
+        "destinationIp"
+    ]
+}

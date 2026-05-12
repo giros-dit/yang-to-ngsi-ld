@@ -1,0 +1,78 @@
+[
+  {
+    "source": "clab-routing-testbed-r1:57400",
+    "timestamp": 1776184262775783422,
+    "time": "2026-04-14T18:31:02.775783422+02:00",
+    "updates": [
+      {
+        "Path": "srl_nokia:",
+        "values": {
+          "": {
+            "srl_nokia-network-instance:network-instance": [
+              {
+                "interface": [
+                  {
+                    "name": "ethernet-1/1.0"
+                  },
+                  {
+                    "name": "ethernet-1/2.0"
+                  },
+                  {
+                    "name": "ethernet-1/3.0"
+                  }
+                ],
+                "name": "default",
+                "protocols": {
+                  "srl_nokia-ospf:ospf": {
+                    "instance": [
+                      {
+                        "admin-state": "enable",
+                        "area": [
+                          {
+                            "area-id": "0.0.0.1",
+                            "interface": [
+                              {
+                                "interface-name": "ethernet-1/1.0"
+                              },
+                              {
+                                "interface-name": "ethernet-1/2.0"
+                              },
+                              {
+                                "interface-name": "ethernet-1/3.0"
+                              }
+                            ]
+                          }
+                        ],
+                        "name": "default",
+                        "router-id": "1.1.1.1",
+                        "version": "srl_nokia-ospf-types:ospf-v2"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "admin-state": "enable",
+                "description": "Management network instance",
+                "interface": [
+                  {
+                    "name": "mgmt0.0"
+                  }
+                ],
+                "name": "mgmt",
+                "protocols": {
+                  "srl_nokia-linux:linux": {
+                    "export-neighbors": true,
+                    "export-routes": true,
+                    "import-routes": true
+                  }
+                },
+                "type": "srl_nokia-network-instance:ip-vrf"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+]

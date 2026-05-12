@@ -1,0 +1,71 @@
+[
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceTcpStatistics:router1:default",
+        "type": "NetworkInstanceTcpStatistics",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstance:router1:default",
+            "observedAt": "2026-04-27T10:32:41.924Z"
+        },
+        "activeOpens": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T10:32:41.924Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "attemptFails": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T10:32:41.924Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "establishedResets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T10:32:41.924Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inChecksumErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T10:32:41.924Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inErrorSegments": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T10:32:41.924Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inSegments": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T10:32:41.924Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outRstSegments": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T10:32:41.924Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outSegments": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T10:32:41.924Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "passiveOpens": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T10:32:41.924Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "retransmittedSegments": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T10:32:41.924Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    }
+]

@@ -1,0 +1,15 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-traffic-engineering": "urn:nokia.com:srlinux:te:traffic-engineering/",
+        "Group": "srl_nokia-network-instance:network-instance/srl_nokia-traffic-engineering:traffic-engineering/shared-risk-link-groups/group",
+        "name": "srl_nokia-network-instance:network-instance/srl_nokia-traffic-engineering:traffic-engineering/shared-risk-link-groups/group/name",
+        "value": "srl_nokia-network-instance:network-instance/srl_nokia-traffic-engineering:traffic-engineering/shared-risk-link-groups/group/value"
+    },
+    "key": "None",
+    "config": [
+        "Group",
+        "name",
+        "value"
+    ]
+}

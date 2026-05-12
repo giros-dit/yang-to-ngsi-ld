@@ -1,0 +1,9 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "InstanceAreaStub": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/stub",
+        "defaultMetric": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/stub/default-metric",
+        "summaries": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/stub/summaries"
+    }
+}

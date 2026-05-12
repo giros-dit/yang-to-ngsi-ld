@@ -1,0 +1,6 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "PolicyDefaultActionBgpLabelAllocation": "srl_nokia-routing-policy:routing-policy/policy/default-action/bgp/label-allocation"
+    }
+}

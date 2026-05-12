@@ -1,0 +1,15 @@
+{
+    "@context": {
+        "srl_nokia-system": "urn:nokia.com:srlinux:general:system/",
+        "srl_nokia-lldp": "urn:nokia.com:srlinux:lldp:lldp/",
+        "SystemLldpInterfaceStatistics": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/statistics",
+        "frameIn": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/statistics/frame-in",
+        "frameOut": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/statistics/frame-out",
+        "frameErrorIn": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/statistics/frame-error-in",
+        "frameDiscard": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/statistics/frame-discard",
+        "tlvDiscard": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/statistics/tlv-discard",
+        "tlvUnknown": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/statistics/tlv-unknown",
+        "lastClear": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/statistics/last-clear",
+        "frameErrorOut": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/statistics/frame-error-out"
+    }
+}

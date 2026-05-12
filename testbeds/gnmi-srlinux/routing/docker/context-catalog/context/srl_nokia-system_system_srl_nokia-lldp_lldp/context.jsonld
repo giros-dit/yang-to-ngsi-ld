@@ -1,0 +1,15 @@
+{
+    "@context": {
+        "srl_nokia-system": "urn:nokia.com:srlinux:general:system/",
+        "srl_nokia-lldp": "urn:nokia.com:srlinux:lldp:lldp/",
+        "SystemLldp": "srl_nokia-system:system/srl_nokia-lldp:lldp",
+        "traceOptions": "srl_nokia-system:system/srl_nokia-lldp:lldp/trace-options",
+        "adminState": "srl_nokia-system:system/srl_nokia-lldp:lldp/admin-state",
+        "helloTimer": "srl_nokia-system:system/srl_nokia-lldp:lldp/hello-timer",
+        "holdMultiplier": "srl_nokia-system:system/srl_nokia-lldp:lldp/hold-multiplier",
+        "systemName": "srl_nokia-system:system/srl_nokia-lldp:lldp/system-name",
+        "systemDescription": "srl_nokia-system:system/srl_nokia-lldp:lldp/system-description",
+        "chassisId": "srl_nokia-system:system/srl_nokia-lldp:lldp/chassis-id",
+        "chassisIdType": "srl_nokia-system:system/srl_nokia-lldp:lldp/chassis-id-type"
+    }
+}

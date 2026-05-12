@@ -1,0 +1,16 @@
+updates:  
+  # Crear grupo de next-hop usando para indicar siguiente salto en la ruta estática
+  - path: /network-instance[name=default]/next-hop-groups/group[name={{ .Vars.Name_NextHop }}]
+    encoding: json_ietf
+    value:
+      nexthop:
+        - index: 1
+          ip-address: {{ .Vars.IP_NextHop }}
+          admin-state: enable
+
+  # Crear ruta estática usando el grupo de next-hop
+  - path: /network-instance[name=default]/static-routes/route[prefix={{ .Vars.Target_IP_Prefix }}]
+    encoding: json_ietf
+    value:
+      admin-state: enable
+      next-hop-group: {{ .Vars.Name_NextHop }}

@@ -1,0 +1,9 @@
+{
+    "@context": {
+        "srl_nokia-platform": "urn:nokia.com:srlinux:chassis:platform/",
+        "srl_nokia-platform-lc": "urn:nokia.com:srlinux:chassis:platform-lc/",
+        "HashUser": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/load-balancing/hash-user",
+        "user": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/load-balancing/hash-user/user",
+        "hashPolynomial": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/load-balancing/hash-user/hash-polynomial"
+    }
+}

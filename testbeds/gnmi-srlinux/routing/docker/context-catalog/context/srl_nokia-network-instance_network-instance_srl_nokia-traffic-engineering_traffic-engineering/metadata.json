@@ -1,0 +1,16 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-traffic-engineering": "urn:nokia.com:srlinux:te:traffic-engineering/",
+        "NetworkInstanceTrafficEngineering": "srl_nokia-network-instance:network-instance/srl_nokia-traffic-engineering:traffic-engineering",
+        "autonomousSystem": "srl_nokia-network-instance:network-instance/srl_nokia-traffic-engineering:traffic-engineering/autonomous-system",
+        "ipv4TeRouterId": "srl_nokia-network-instance:network-instance/srl_nokia-traffic-engineering:traffic-engineering/ipv4-te-router-id",
+        "ipv6TeRouterId": "srl_nokia-network-instance:network-instance/srl_nokia-traffic-engineering:traffic-engineering/ipv6-te-router-id"
+    },
+    "config": [
+        "NetworkInstanceTrafficEngineering",
+        "autonomousSystem",
+        "ipv4TeRouterId",
+        "ipv6TeRouterId"
+    ]
+}

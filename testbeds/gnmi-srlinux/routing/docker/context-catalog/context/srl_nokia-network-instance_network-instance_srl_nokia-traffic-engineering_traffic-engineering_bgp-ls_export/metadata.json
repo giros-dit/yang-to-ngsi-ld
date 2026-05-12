@@ -1,0 +1,12 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-traffic-engineering": "urn:nokia.com:srlinux:te:traffic-engineering/",
+        "Export": "srl_nokia-network-instance:network-instance/srl_nokia-traffic-engineering:traffic-engineering/bgp-ls/export",
+        "reachableLsOnly": "srl_nokia-network-instance:network-instance/srl_nokia-traffic-engineering:traffic-engineering/bgp-ls/export/reachable-ls-only"
+    },
+    "config": [
+        "Export",
+        "reachableLsOnly"
+    ]
+}

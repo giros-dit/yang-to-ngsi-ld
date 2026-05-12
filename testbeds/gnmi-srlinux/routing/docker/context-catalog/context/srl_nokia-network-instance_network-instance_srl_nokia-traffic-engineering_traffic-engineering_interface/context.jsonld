@@ -1,0 +1,11 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-traffic-engineering": "urn:nokia.com:srlinux:te:traffic-engineering/",
+        "NetworkInstanceTrafficEngineeringInterface": "srl_nokia-network-instance:network-instance/srl_nokia-traffic-engineering:traffic-engineering/interface",
+        "interfaceName": "srl_nokia-network-instance:network-instance/srl_nokia-traffic-engineering:traffic-engineering/interface/interface-name",
+        "adminGroup": "srl_nokia-network-instance:network-instance/srl_nokia-traffic-engineering:traffic-engineering/interface/admin-group",
+        "srlgMembership": "srl_nokia-network-instance:network-instance/srl_nokia-traffic-engineering:traffic-engineering/interface/srlg-membership",
+        "teMetric": "srl_nokia-network-instance:network-instance/srl_nokia-traffic-engineering:traffic-engineering/interface/te-metric"
+    }
+}

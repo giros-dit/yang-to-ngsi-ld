@@ -1,0 +1,14 @@
+{
+    "@context": {
+        "srl_nokia-platform": "urn:nokia.com:srlinux:chassis:platform/",
+        "srl_nokia-platform-lc": "urn:nokia.com:srlinux:chassis:platform-lc/",
+        "LinecardForwardingComplex": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex",
+        "name": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/name",
+        "interfaces": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/interfaces",
+        "operState": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/oper-state",
+        "lastBooted": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/last-booted",
+        "lastChange": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/last-change",
+        "partNumber": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/part-number",
+        "removable": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/removable"
+    }
+}

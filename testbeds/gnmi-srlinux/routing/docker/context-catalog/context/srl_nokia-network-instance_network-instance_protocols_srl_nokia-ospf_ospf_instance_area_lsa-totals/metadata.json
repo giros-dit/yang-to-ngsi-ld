@@ -1,0 +1,26 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "InstanceAreaLsaTotals": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-totals",
+        "routerLsa": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-totals/router-lsa",
+        "eRouterLsa": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-totals/e-router-lsa",
+        "networkLsa": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-totals/network-lsa",
+        "eNetworkLsa": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-totals/e-network-lsa",
+        "networkSummaryLsa": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-totals/network-summary-lsa",
+        "asbrSummaryLsa": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-totals/asbr-summary-lsa",
+        "nssaLsa": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-totals/nssa-lsa",
+        "eNssaLsa": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-totals/e-nssa-lsa",
+        "areaOpaqueLsa": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-totals/area-opaque-lsa",
+        "interAreaPrefixLsa": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-totals/inter-area-prefix-lsa",
+        "eInterAreaPrefixLsa": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-totals/e-inter-area-prefix-lsa",
+        "interAreaRouterLsa": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-totals/inter-area-router-lsa",
+        "eInterAreaRouterLsa": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-totals/e-inter-area-router-lsa",
+        "intraAreaPrefixLsa": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-totals/intra-area-prefix-lsa",
+        "eIntraAreaPrefixLsa": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-totals/e-intra-area-prefix-lsa",
+        "routerInfoLsa": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-totals/router-info-lsa",
+        "unknownLsa": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-totals/unknown-lsa",
+        "total": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-totals/total",
+        "totalLsaCksumSum": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsa-totals/total-lsa-cksum-sum"
+    }
+}

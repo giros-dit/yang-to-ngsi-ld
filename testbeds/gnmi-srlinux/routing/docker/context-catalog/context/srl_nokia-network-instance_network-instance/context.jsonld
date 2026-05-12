@@ -1,0 +1,14 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "NetworkInstance": "srl_nokia-network-instance:network-instance",
+        "name": "srl_nokia-network-instance:network-instance/name",
+        "adminState": "srl_nokia-network-instance:network-instance/admin-state",
+        "operState": "srl_nokia-network-instance:network-instance/oper-state",
+        "operDownReason": "srl_nokia-network-instance:network-instance/oper-down-reason",
+        "operMacVrfMtu": "srl_nokia-network-instance:network-instance/oper-mac-vrf-mtu",
+        "operVpwsMtu": "srl_nokia-network-instance:network-instance/oper-vpws-mtu",
+        "description": "srl_nokia-network-instance:network-instance/description",
+        "routerId": "srl_nokia-network-instance:network-instance/router-id"
+    }
+}

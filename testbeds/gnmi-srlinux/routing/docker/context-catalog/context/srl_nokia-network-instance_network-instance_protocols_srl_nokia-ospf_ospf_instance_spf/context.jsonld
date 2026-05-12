@@ -1,0 +1,15 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "InstanceSpf": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/spf",
+        "fullSpfRuns": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/spf/full-spf-runs",
+        "extSpfRuns": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/spf/ext-spf-runs",
+        "incrementalInterSpfRuns": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/spf/incremental-inter-spf-runs",
+        "incrementalExtSpfRuns": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/spf/incremental-ext-spf-runs",
+        "spfAttemptsFailed": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/spf/spf-attempts-failed",
+        "maxSpfRunInterval": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/spf/max-spf-run-interval",
+        "minSpfRunInterval": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/spf/min-spf-run-interval",
+        "avgSpfRunInterval": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/spf/avg-spf-run-interval"
+    }
+}

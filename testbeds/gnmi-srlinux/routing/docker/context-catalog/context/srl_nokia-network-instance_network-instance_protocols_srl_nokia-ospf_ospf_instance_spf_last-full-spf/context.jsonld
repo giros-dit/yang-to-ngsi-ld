@@ -1,0 +1,13 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "InstanceSpfLastFullSpf": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/spf/last-full-spf",
+        "runTime": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/spf/last-full-spf/run-time",
+        "totalTime": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/spf/last-full-spf/total-time",
+        "intraSpfTime": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/spf/last-full-spf/intra-spf-time",
+        "interSpfTime": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/spf/last-full-spf/inter-spf-time",
+        "externSpfTime": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/spf/last-full-spf/extern-spf-time",
+        "rtmUpdateTime": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/spf/last-full-spf/rtm-update-time"
+    }
+}

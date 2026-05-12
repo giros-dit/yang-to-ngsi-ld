@@ -1,0 +1,14 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "LsaOspfv3ExternalLsa": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsdb/lsa-types/lsa-type/lsas/lsa/ospfv3-external-lsa",
+        "metric": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsdb/lsa-types/lsa-type/lsas/lsa/ospfv3-external-lsa/metric",
+        "flags": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsdb/lsa-types/lsa-type/lsas/lsa/ospfv3-external-lsa/flags",
+        "unknownReferencedLsType": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsdb/lsa-types/lsa-type/lsas/lsa/ospfv3-external-lsa/unknown-referenced-ls-type",
+        "prefix": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsdb/lsa-types/lsa-type/lsas/lsa/ospfv3-external-lsa/prefix",
+        "forwardingAddress": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsdb/lsa-types/lsa-type/lsas/lsa/ospfv3-external-lsa/forwarding-address",
+        "externalRouteTag": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsdb/lsa-types/lsa-type/lsas/lsa/ospfv3-external-lsa/external-route-tag",
+        "referencedLinkStateId": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsdb/lsa-types/lsa-type/lsas/lsa/ospfv3-external-lsa/referenced-link-state-id"
+    }
+}

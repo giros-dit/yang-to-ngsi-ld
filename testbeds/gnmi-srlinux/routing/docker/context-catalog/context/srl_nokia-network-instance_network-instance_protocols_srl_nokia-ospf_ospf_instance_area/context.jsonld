@@ -1,0 +1,17 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "InstanceArea": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area",
+        "areaId": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/area-id",
+        "advertiseRouterCapability": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/advertise-router-capability",
+        "blackholeAggregate": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/blackhole-aggregate",
+        "exportPolicy": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/export-policy",
+        "bgpLsExclude": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/bgp-ls-exclude",
+        "fullSpfRuns": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/full-spf-runs",
+        "lastSpfRunTime": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/last-spf-run-time",
+        "areaBdrRtrCount": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/area-bdr-rtr-count",
+        "asBdrRtrCount": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/as-bdr-rtr-count",
+        "activeInterfaces": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/active-interfaces"
+    }
+}

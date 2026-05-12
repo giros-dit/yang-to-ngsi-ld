@@ -1,0 +1,68 @@
+[
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceIcmp6StatisticsTotal:router1:default",
+        "type": "NetworkInstanceIcmp6StatisticsTotal",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceIcmp6Statistics:router1:default",
+            "observedAt": "2026-04-27T09:55:36.413Z"
+        },
+        "inErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T09:55:36.413Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T09:55:36.413Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T09:55:36.413Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T09:55:36.413Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceIcmpStatisticsTotal:router1:default",
+        "type": "NetworkInstanceIcmpStatisticsTotal",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceIcmpStatistics:router1:default",
+            "observedAt": "2026-04-27T09:55:36.413Z"
+        },
+        "inErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T09:55:36.413Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T09:55:36.413Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T09:55:36.413Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T09:55:36.413Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    }
+]

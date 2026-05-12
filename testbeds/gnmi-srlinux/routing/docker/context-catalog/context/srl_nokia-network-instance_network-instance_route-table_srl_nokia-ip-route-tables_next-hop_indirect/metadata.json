@@ -1,0 +1,9 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ip-route-tables": "urn:nokia.com:srlinux:fib:ip-route-tables/",
+        "NextHopIndirect": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop/indirect",
+        "resolved": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop/indirect/resolved",
+        "usable": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop/indirect/usable"
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "@context": {
+        "srl_nokia-platform": "urn:nokia.com:srlinux:chassis:platform/",
+        "srl_nokia-platform-lc": "urn:nokia.com:srlinux:chassis:platform-lc/",
+        "LinecardForwardingComplexFabric": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/fabric",
+        "availability": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/fabric/availability",
+        "totalCapacity": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/fabric/total-capacity",
+        "operationalCapacity": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/fabric/operational-capacity",
+        "consumedCapacity": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/fabric/consumed-capacity",
+        "utilizationIngress": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/fabric/utilization-ingress",
+        "utilizationEgress": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/fabric/utilization-egress"
+    }
+}

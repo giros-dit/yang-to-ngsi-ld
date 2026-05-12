@@ -1,0 +1,11 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "PolicyStatementActionBgpLocalPreference": "srl_nokia-routing-policy:routing-policy/policy/statement/action/bgp/local-preference",
+        "set": "srl_nokia-routing-policy:routing-policy/policy/statement/action/bgp/local-preference/set"
+    },
+    "config": [
+        "PolicyStatementActionBgpLocalPreference",
+        "set"
+    ]
+}

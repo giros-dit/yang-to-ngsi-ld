@@ -1,0 +1,13 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ip-route-tables": "urn:nokia.com:srlinux:fib:ip-route-tables/",
+        "NextHopGroupFibProgramming": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop-group/fib-programming",
+        "suppressed": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop-group/fib-programming/suppressed",
+        "lastSuccessfulOperationType": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop-group/fib-programming/last-successful-operation-type",
+        "lastSuccessfulOperationTimestamp": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop-group/fib-programming/last-successful-operation-timestamp",
+        "pendingOperationType": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop-group/fib-programming/pending-operation-type",
+        "lastFailedOperationType": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop-group/fib-programming/last-failed-operation-type",
+        "lastFailedLocations": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop-group/fib-programming/last-failed-locations"
+    }
+}

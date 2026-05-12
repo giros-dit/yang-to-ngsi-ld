@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "PolicyStatementMatchPrefix": "srl_nokia-routing-policy:routing-policy/policy/statement/match/prefix",
+        "prefixSet": "srl_nokia-routing-policy:routing-policy/policy/statement/match/prefix/prefix-set",
+        "matchSetOptions": "srl_nokia-routing-policy:routing-policy/policy/statement/match/prefix/match-set-options"
+    }
+}

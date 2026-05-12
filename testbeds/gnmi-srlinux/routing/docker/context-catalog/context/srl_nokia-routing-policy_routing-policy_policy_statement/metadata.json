@@ -1,0 +1,12 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "PolicyStatement": "srl_nokia-routing-policy:routing-policy/policy/statement",
+        "name": "srl_nokia-routing-policy:routing-policy/policy/statement/name"
+    },
+    "key": "None",
+    "config": [
+        "PolicyStatement",
+        "name"
+    ]
+}

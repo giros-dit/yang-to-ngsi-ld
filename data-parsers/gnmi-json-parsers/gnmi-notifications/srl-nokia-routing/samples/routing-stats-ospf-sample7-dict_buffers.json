@@ -1,0 +1,122 @@
+[
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceProtocolsOspfInstanceAreaLsdbLsaTypesLsaTypeLsasLsaRouterLsaLinks:routing-testbed:r1:default:default:0.0.0.1:router-lsa:srl_nokia-ospf-types:router-lsa-stub-network:3.3.3.3:3.3.3.3:192.168.3.0",
+        "type": "NetworkInstanceProtocolsOspfInstanceAreaLsdbLsaTypesLsaTypeLsasLsaRouterLsaLinks",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceProtocolsOspfInstanceAreaLsdbLsaTypesLsaTypeLsasLsaRouterLsa:routing-testbed:r1:default:default:0.0.0.1:router-lsa:srl_nokia-ospf-types:router-lsa-stub-network:3.3.3.3:3.3.3.3",
+            "observedAt": "2026-05-05T07:26:51.502Z"
+        },
+        "linksType": {
+            "type": "Property",
+            "value": "srl_nokia-ospf-types:router-lsa-stub-network",
+            "observedAt": "2026-05-05T07:26:51.502Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "192.168.3.0",
+            "observedAt": "2026-05-05T07:26:51.502Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceProtocolsOspfInstanceAreaLsdbLsaTypesLsaTypeLsasLsaRouterLsaLinks:routing-testbed:r1:default:default:0.0.0.1:router-lsa:3.3.3.3:3.3.3.3:192.168.3.0",
+        "type": "NetworkInstanceProtocolsOspfInstanceAreaLsdbLsaTypesLsaTypeLsasLsaRouterLsaLinks",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceProtocolsOspfInstanceAreaLsdbLsaTypesLsaTypeLsasLsaRouterLsa:routing-testbed:r1:default:default:0.0.0.1:router-lsa:3.3.3.3:3.3.3.3",
+            "observedAt": "2026-05-05T07:26:51.502Z"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "192.168.3.0",
+            "observedAt": "2026-05-05T07:26:51.502Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "linkData": {
+            "type": "Property",
+            "value": "255.255.255.0",
+            "observedAt": "2026-05-05T07:26:51.502Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "metric": {
+            "type": "Property",
+            "value": 16,
+            "observedAt": "2026-05-05T07:26:51.502Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "numberTosMetrics": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-05-05T07:26:51.502Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceProtocolsOspfInstanceAreaLsdbLsaTypesLsaTypeLsasLsaRouterLsa:routing-testbed:r1:default:default:0.0.0.1:router-lsa:3.3.3.3:3.3.3.3",
+        "type": "NetworkInstanceProtocolsOspfInstanceAreaLsdbLsaTypesLsaTypeLsasLsaRouterLsa",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceProtocolsOspfInstanceAreaLsdbLsaTypesLsaTypeLsasLsa:routing-testbed:r1:default:default:0.0.0.1:router-lsa:3.3.3.3:3.3.3.3",
+            "observedAt": "2026-05-05T07:26:51.502Z"
+        },
+        "flags": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-05-05T07:26:51.502Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "numberLinks": {
+            "type": "Property",
+            "value": 3,
+            "observedAt": "2026-05-05T07:26:51.502Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceProtocolsOspfInstanceAreaLsdbLsaTypesLsaTypeLsasLsa:routing-testbed:r1:default:default:0.0.0.1:router-lsa:3.3.3.3:3.3.3.3",
+        "type": "NetworkInstanceProtocolsOspfInstanceAreaLsdbLsaTypesLsaTypeLsasLsa",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceProtocolsOspfInstanceAreaLsdbLsaTypesLsaType:routing-testbed:r1:default:default:0.0.0.1:router-lsa",
+            "observedAt": "2026-05-05T07:26:51.502Z"
+        },
+        "advertisingRouter": {
+            "type": "Property",
+            "value": "3.3.3.3",
+            "observedAt": "2026-05-05T07:26:51.502Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "advertisement": {
+            "type": "Property",
+            "value": "01e50201030303030303030380000009ffc7003c000000030a0a0a0a0a0a0a0a020000100a0a0a120a0a0a1202000010c0a80300ffffff0003000010",
+            "observedAt": "2026-05-05T07:26:51.502Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "age": {
+            "type": "Property",
+            "value": 485,
+            "observedAt": "2026-05-05T07:26:51.502Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "checksum": {
+            "type": "Property",
+            "value": "0xffc7",
+            "observedAt": "2026-05-05T07:26:51.502Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "options": {
+            "type": "Property",
+            "value": "0x2",
+            "observedAt": "2026-05-05T07:26:51.502Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "sequenceNumber": {
+            "type": "Property",
+            "value": "0x80000009",
+            "observedAt": "2026-05-05T07:26:51.502Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    }
+]

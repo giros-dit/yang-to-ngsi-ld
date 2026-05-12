@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceTrafficRate": "srl_nokia-interfaces:interface/traffic-rate",
+        "inBps": "srl_nokia-interfaces:interface/traffic-rate/in-bps",
+        "outBps": "srl_nokia-interfaces:interface/traffic-rate/out-bps"
+    }
+}

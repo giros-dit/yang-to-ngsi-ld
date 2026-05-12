@@ -1,0 +1,25 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "InstanceAreaInterfaceNeighbor": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor",
+        "routerId": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/router-id",
+        "address": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/address",
+        "priority": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/priority",
+        "deadTime": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/dead-time",
+        "designatedRouter": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/designated-router",
+        "backupDesignatedRouter": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/backup-designated-router",
+        "optionalCapabilities": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/optional-capabilities",
+        "lastEstablishedTime": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/last-established-time",
+        "stateChanges": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/state-changes",
+        "retransmissionQueueLength": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/retransmission-queue-length",
+        "restartHelperStatus": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/restart-helper-status",
+        "restartHelperAge": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/restart-helper-age",
+        "restartHelperExitRc": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/restart-helper-exit-rc",
+        "lastRestartTime": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/last-restart-time",
+        "restartReason": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/restart-reason",
+        "upTime": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/up-time",
+        "lastEventTime": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/neighbor/last-event-time"
+    },
+    "key": "None"
+}

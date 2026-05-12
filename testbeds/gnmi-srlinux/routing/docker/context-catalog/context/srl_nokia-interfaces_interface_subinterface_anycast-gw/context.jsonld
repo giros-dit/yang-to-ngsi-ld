@@ -1,0 +1,9 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceSubinterfaceAnycastGw": "srl_nokia-interfaces:interface/subinterface/anycast-gw",
+        "virtualRouterId": "srl_nokia-interfaces:interface/subinterface/anycast-gw/virtual-router-id",
+        "anycastGwMac": "srl_nokia-interfaces:interface/subinterface/anycast-gw/anycast-gw-mac",
+        "anycastGwMacOrigin": "srl_nokia-interfaces:interface/subinterface/anycast-gw/anycast-gw-mac-origin"
+    }
+}

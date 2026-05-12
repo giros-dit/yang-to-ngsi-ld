@@ -1,0 +1,23 @@
+[
+  {
+    "name": "r1_routing",
+    "timestamp": 1777285961924622105,
+    "tags": {
+      "network-instance_name": "default",
+      "source": "router1",
+      "subscription-name": "r1_routing"
+    },
+    "values": {
+      "/srl_nokia-network-instance:network-instance/srl_nokia-tcp-udp:tcp/statistics/active-opens": "0",
+      "/srl_nokia-network-instance:network-instance/srl_nokia-tcp-udp:tcp/statistics/attempt-fails": "0",
+      "/srl_nokia-network-instance:network-instance/srl_nokia-tcp-udp:tcp/statistics/established-resets": "0",
+      "/srl_nokia-network-instance:network-instance/srl_nokia-tcp-udp:tcp/statistics/in-checksum-errors": "0",
+      "/srl_nokia-network-instance:network-instance/srl_nokia-tcp-udp:tcp/statistics/in-error-segments": "0",
+      "/srl_nokia-network-instance:network-instance/srl_nokia-tcp-udp:tcp/statistics/in-segments": "0",
+      "/srl_nokia-network-instance:network-instance/srl_nokia-tcp-udp:tcp/statistics/out-rst-segments": "0",
+      "/srl_nokia-network-instance:network-instance/srl_nokia-tcp-udp:tcp/statistics/out-segments": "0",
+      "/srl_nokia-network-instance:network-instance/srl_nokia-tcp-udp:tcp/statistics/passive-opens": "0",
+      "/srl_nokia-network-instance:network-instance/srl_nokia-tcp-udp:tcp/statistics/retransmitted-segments": "0"
+    }
+  }
+]

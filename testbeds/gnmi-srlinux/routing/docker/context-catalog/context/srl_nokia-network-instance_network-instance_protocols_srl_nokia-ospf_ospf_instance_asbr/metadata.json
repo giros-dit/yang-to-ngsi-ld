@@ -1,0 +1,12 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "InstanceAsbr": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/asbr",
+        "tracePath": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/asbr/trace-path"
+    },
+    "config": [
+        "InstanceAsbr",
+        "tracePath"
+    ]
+}

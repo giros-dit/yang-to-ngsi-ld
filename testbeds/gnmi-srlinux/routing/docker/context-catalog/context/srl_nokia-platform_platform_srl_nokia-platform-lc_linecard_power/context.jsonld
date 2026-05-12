@@ -1,0 +1,10 @@
+{
+    "@context": {
+        "srl_nokia-platform": "urn:nokia.com:srlinux:chassis:platform/",
+        "srl_nokia-platform-lc": "urn:nokia.com:srlinux:chassis:platform-lc/",
+        "LinecardPower": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/power",
+        "allocated": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/power/allocated",
+        "used": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/power/used",
+        "required": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/power/required"
+    }
+}

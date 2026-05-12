@@ -1,0 +1,9 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ip-route-tables": "urn:nokia.com:srlinux:fib:ip-route-tables/",
+        "NextHopMplsEncapsulation": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop/mpls-encapsulation",
+        "pushedMplsLabelStack": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop/mpls-encapsulation/pushed-mpls-label-stack",
+        "entropyLabelTransmit": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop/mpls-encapsulation/entropy-label-transmit"
+    }
+}

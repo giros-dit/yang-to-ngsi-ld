@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceEthernetForwardErrorCorrection": "srl_nokia-interfaces:interface/ethernet/forward-error-correction",
+        "fecOption": "srl_nokia-interfaces:interface/ethernet/forward-error-correction/fec-option",
+        "operationalHostIfFec": "srl_nokia-interfaces:interface/ethernet/forward-error-correction/operational-host-if-fec"
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "@context": {
+        "srl_nokia-platform": "urn:nokia.com:srlinux:chassis:platform/",
+        "srl_nokia-platform-lc": "urn:nokia.com:srlinux:chassis:platform-lc/",
+        "LinecardMdaTemperature": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/mda/temperature",
+        "instant": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/mda/temperature/instant",
+        "maximum": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/mda/temperature/maximum",
+        "maximumTime": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/mda/temperature/maximum-time",
+        "alarmStatus": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/mda/temperature/alarm-status",
+        "margin": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/mda/temperature/margin"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ip-route-tables": "urn:nokia.com:srlinux:fib:ip-route-tables/",
+        "NextHopVxlanEncapsulation": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop/vxlan-encapsulation",
+        "vni": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop/vxlan-encapsulation/vni",
+        "interface": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop/vxlan-encapsulation/interface",
+        "destinationMac": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop/vxlan-encapsulation/destination-mac"
+    }
+}

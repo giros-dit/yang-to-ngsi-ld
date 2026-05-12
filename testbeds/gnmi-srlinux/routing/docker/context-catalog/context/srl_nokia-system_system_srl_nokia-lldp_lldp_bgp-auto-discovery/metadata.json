@@ -1,0 +1,16 @@
+{
+    "@context": {
+        "srl_nokia-system": "urn:nokia.com:srlinux:general:system/",
+        "srl_nokia-lldp": "urn:nokia.com:srlinux:lldp:lldp/",
+        "SystemLldpBgpAutoDiscovery": "srl_nokia-system:system/srl_nokia-lldp:lldp/bgp-auto-discovery",
+        "adminState": "srl_nokia-system:system/srl_nokia-lldp:lldp/bgp-auto-discovery/admin-state",
+        "networkInstance": "srl_nokia-system:system/srl_nokia-lldp:lldp/bgp-auto-discovery/network-instance",
+        "groupId": "srl_nokia-system:system/srl_nokia-lldp:lldp/bgp-auto-discovery/group-id"
+    },
+    "config": [
+        "SystemLldpBgpAutoDiscovery",
+        "adminState",
+        "networkInstance",
+        "groupId"
+    ]
+}

@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceSubinterfaceBridgeTableMacLimit": "srl_nokia-interfaces:interface/subinterface/bridge-table/mac-limit",
+        "maximumEntries": "srl_nokia-interfaces:interface/subinterface/bridge-table/mac-limit/maximum-entries",
+        "warningThresholdPct": "srl_nokia-interfaces:interface/subinterface/bridge-table/mac-limit/warning-threshold-pct"
+    }
+}

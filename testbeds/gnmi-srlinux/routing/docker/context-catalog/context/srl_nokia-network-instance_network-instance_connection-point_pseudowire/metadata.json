@@ -1,0 +1,28 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "NetworkInstanceConnectionPointPseudowire": "srl_nokia-network-instance:network-instance/connection-point/pseudowire",
+        "name": "srl_nokia-network-instance:network-instance/connection-point/pseudowire/name",
+        "adminState": "srl_nokia-network-instance:network-instance/connection-point/pseudowire/admin-state",
+        "operState": "srl_nokia-network-instance:network-instance/connection-point/pseudowire/oper-state",
+        "operDownReason": "srl_nokia-network-instance:network-instance/connection-point/pseudowire/oper-down-reason",
+        "index": "srl_nokia-network-instance:network-instance/connection-point/pseudowire/index",
+        "destinationIndex": "srl_nokia-network-instance:network-instance/connection-point/pseudowire/destination-index",
+        "lastChange": "srl_nokia-network-instance:network-instance/connection-point/pseudowire/last-change",
+        "pwTunnel": "srl_nokia-network-instance:network-instance/connection-point/pseudowire/pw-tunnel",
+        "controlWord": "srl_nokia-network-instance:network-instance/connection-point/pseudowire/control-word",
+        "flowLabel": "srl_nokia-network-instance:network-instance/connection-point/pseudowire/flow-label",
+        "flowLabelOperState": "srl_nokia-network-instance:network-instance/connection-point/pseudowire/flow-label-oper-state",
+        "precedence": "srl_nokia-network-instance:network-instance/connection-point/pseudowire/precedence"
+    },
+    "key": "None",
+    "config": [
+        "NetworkInstanceConnectionPointPseudowire",
+        "name",
+        "adminState",
+        "pwTunnel",
+        "controlWord",
+        "flowLabel",
+        "precedence"
+    ]
+}

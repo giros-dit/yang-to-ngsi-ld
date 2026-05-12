@@ -1,0 +1,7 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceSubinterfaceBridgeTableMacLearningAging": "srl_nokia-interfaces:interface/subinterface/bridge-table/mac-learning/aging",
+        "adminState": "srl_nokia-interfaces:interface/subinterface/bridge-table/mac-learning/aging/admin-state"
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "Metric": "srl_nokia-routing-policy:routing-policy/policy/default-action/ospf/metric",
+        "setExternalType": "srl_nokia-routing-policy:routing-policy/policy/default-action/ospf/metric/set-external-type",
+        "setValue": "srl_nokia-routing-policy:routing-policy/policy/default-action/ospf/metric/set-value"
+    }
+}

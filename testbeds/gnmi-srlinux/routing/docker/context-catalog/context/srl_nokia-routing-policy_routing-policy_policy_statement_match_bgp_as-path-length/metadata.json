@@ -1,0 +1,15 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "PolicyStatementMatchBgpAsPathLength": "srl_nokia-routing-policy:routing-policy/policy/statement/match/bgp/as-path-length",
+        "value": "srl_nokia-routing-policy:routing-policy/policy/statement/match/bgp/as-path-length/value",
+        "operator": "srl_nokia-routing-policy:routing-policy/policy/statement/match/bgp/as-path-length/operator",
+        "unique": "srl_nokia-routing-policy:routing-policy/policy/statement/match/bgp/as-path-length/unique"
+    },
+    "config": [
+        "PolicyStatementMatchBgpAsPathLength",
+        "value",
+        "operator",
+        "unique"
+    ]
+}

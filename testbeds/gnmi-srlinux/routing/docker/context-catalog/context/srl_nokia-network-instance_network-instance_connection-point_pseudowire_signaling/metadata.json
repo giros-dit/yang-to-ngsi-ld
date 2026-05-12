@@ -1,0 +1,11 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "NetworkInstanceConnectionPointPseudowireSignaling": "srl_nokia-network-instance:network-instance/connection-point/pseudowire/signaling",
+        "virtualCircuitIdentifier": "srl_nokia-network-instance:network-instance/connection-point/pseudowire/signaling/virtual-circuit-identifier"
+    },
+    "config": [
+        "NetworkInstanceConnectionPointPseudowireSignaling",
+        "virtualCircuitIdentifier"
+    ]
+}

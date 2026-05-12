@@ -1,0 +1,14 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "NetworkInstanceVxlanInterface": "srl_nokia-network-instance:network-instance/vxlan-interface",
+        "name": "srl_nokia-network-instance:network-instance/vxlan-interface/name",
+        "operState": "srl_nokia-network-instance:network-instance/vxlan-interface/oper-state",
+        "operDownReason": "srl_nokia-network-instance:network-instance/vxlan-interface/oper-down-reason"
+    },
+    "key": "None",
+    "config": [
+        "NetworkInstanceVxlanInterface",
+        "name"
+    ]
+}

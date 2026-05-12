@@ -1,0 +1,14 @@
+{
+    "@context": {
+        "srl_nokia-system": "urn:nokia.com:srlinux:general:system/",
+        "srl_nokia-keychains": "urn:nokia.com:srlinux:linux:keychains/",
+        "KeychainKeyReceiveLifetime": "srl_nokia-system:system/srl_nokia-keychains:authentication/keychain/key/receive-lifetime",
+        "startTime": "srl_nokia-system:system/srl_nokia-keychains:authentication/keychain/key/receive-lifetime/start-time",
+        "endTime": "srl_nokia-system:system/srl_nokia-keychains:authentication/keychain/key/receive-lifetime/end-time"
+    },
+    "config": [
+        "KeychainKeyReceiveLifetime",
+        "startTime",
+        "endTime"
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "@context": {
+        "srl_nokia-system": "urn:nokia.com:srlinux:general:system/",
+        "srl_nokia-lldp": "urn:nokia.com:srlinux:lldp:lldp/",
+        "Inventory": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/lldp-med/inventory",
+        "hardwareRevision": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/lldp-med/inventory/hardware-revision",
+        "firmwareRevision": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/lldp-med/inventory/firmware-revision",
+        "softwareRevision": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/lldp-med/inventory/software-revision",
+        "serialNumber": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/lldp-med/inventory/serial-number",
+        "manufacturerNumber": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/lldp-med/inventory/manufacturer-number",
+        "modelName": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/lldp-med/inventory/model-name",
+        "assetId": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/lldp-med/inventory/asset-id"
+    }
+}

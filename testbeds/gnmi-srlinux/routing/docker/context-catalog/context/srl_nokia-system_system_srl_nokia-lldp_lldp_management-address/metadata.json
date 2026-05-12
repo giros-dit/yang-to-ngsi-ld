@@ -1,0 +1,15 @@
+{
+    "@context": {
+        "srl_nokia-system": "urn:nokia.com:srlinux:general:system/",
+        "srl_nokia-lldp": "urn:nokia.com:srlinux:lldp:lldp/",
+        "SystemLldpManagementAddress": "srl_nokia-system:system/srl_nokia-lldp:lldp/management-address",
+        "subinterface": "srl_nokia-system:system/srl_nokia-lldp:lldp/management-address/subinterface",
+        "type": "srl_nokia-system:system/srl_nokia-lldp:lldp/management-address/type"
+    },
+    "key": "None",
+    "config": [
+        "SystemLldpManagementAddress",
+        "subinterface",
+        "type"
+    ]
+}

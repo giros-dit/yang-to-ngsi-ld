@@ -1,0 +1,10 @@
+{
+    "@context": {
+        "srl_nokia-system": "urn:nokia.com:srlinux:general:system/",
+        "srl_nokia-lldp": "urn:nokia.com:srlinux:lldp:lldp/",
+        "Interface": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/lldp-med/mac-phy-configuration-status/interface",
+        "autoNegotiationSupport": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/lldp-med/mac-phy-configuration-status/interface/auto-negotiation-support",
+        "autoNegotiationEnabled": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/lldp-med/mac-phy-configuration-status/interface/auto-negotiation-enabled",
+        "autoNegotiationCapabilities": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/lldp-med/mac-phy-configuration-status/interface/auto-negotiation-capabilities"
+    }
+}

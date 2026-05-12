@@ -1,0 +1,22 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceEthernetExponentialPortDampening": "srl_nokia-interfaces:interface/ethernet/exponential-port-dampening",
+        "adminState": "srl_nokia-interfaces:interface/ethernet/exponential-port-dampening/admin-state",
+        "halfLife": "srl_nokia-interfaces:interface/ethernet/exponential-port-dampening/half-life",
+        "maxSuppressTime": "srl_nokia-interfaces:interface/ethernet/exponential-port-dampening/max-suppress-time",
+        "reuseThreshold": "srl_nokia-interfaces:interface/ethernet/exponential-port-dampening/reuse-threshold",
+        "suppressThreshold": "srl_nokia-interfaces:interface/ethernet/exponential-port-dampening/suppress-threshold",
+        "currentPenalties": "srl_nokia-interfaces:interface/ethernet/exponential-port-dampening/current-penalties",
+        "maxPenalties": "srl_nokia-interfaces:interface/ethernet/exponential-port-dampening/max-penalties",
+        "operState": "srl_nokia-interfaces:interface/ethernet/exponential-port-dampening/oper-state"
+    },
+    "config": [
+        "InterfaceEthernetExponentialPortDampening",
+        "adminState",
+        "halfLife",
+        "maxSuppressTime",
+        "reuseThreshold",
+        "suppressThreshold"
+    ]
+}

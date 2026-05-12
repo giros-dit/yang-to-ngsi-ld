@@ -1,0 +1,14 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "InstanceAreaNssa": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/nssa",
+        "redistributeExternal": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/nssa/redistribute-external",
+        "summaries": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/nssa/summaries"
+    },
+    "config": [
+        "InstanceAreaNssa",
+        "redistributeExternal",
+        "summaries"
+    ]
+}

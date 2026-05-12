@@ -1,0 +1,7 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "PolicyStatementMatchBgpEvpn": "srl_nokia-routing-policy:routing-policy/policy/statement/match/bgp/evpn",
+        "routeType": "srl_nokia-routing-policy:routing-policy/policy/statement/match/bgp/evpn/route-type"
+    }
+}

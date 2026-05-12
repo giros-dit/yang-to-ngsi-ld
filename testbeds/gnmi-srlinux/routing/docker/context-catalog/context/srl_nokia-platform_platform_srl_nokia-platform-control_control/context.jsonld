@@ -1,0 +1,23 @@
+{
+    "@context": {
+        "srl_nokia-platform": "urn:nokia.com:srlinux:chassis:platform/",
+        "srl_nokia-platform-control": "urn:nokia.com:srlinux:chassis:platform-control/",
+        "Control": "srl_nokia-platform:platform/srl_nokia-platform-control:control",
+        "slot": "srl_nokia-platform:platform/srl_nokia-platform-control:control/slot",
+        "type": "srl_nokia-platform:platform/srl_nokia-platform-control:control/type",
+        "role": "srl_nokia-platform:platform/srl_nokia-platform-control:control/role",
+        "diskEncrypted": "srl_nokia-platform:platform/srl_nokia-platform-control:control/disk-encrypted",
+        "operState": "srl_nokia-platform:platform/srl_nokia-platform-control:control/oper-state",
+        "lastBooted": "srl_nokia-platform:platform/srl_nokia-platform-control:control/last-booted",
+        "lastChange": "srl_nokia-platform:platform/srl_nokia-platform-control:control/last-change",
+        "partNumber": "srl_nokia-platform:platform/srl_nokia-platform-control:control/part-number",
+        "removable": "srl_nokia-platform:platform/srl_nokia-platform-control:control/removable",
+        "failureReason": "srl_nokia-platform:platform/srl_nokia-platform-control:control/failure-reason",
+        "cleiCode": "srl_nokia-platform:platform/srl_nokia-platform-control:control/clei-code",
+        "serialNumber": "srl_nokia-platform:platform/srl_nokia-platform-control:control/serial-number",
+        "manufacturedDate": "srl_nokia-platform:platform/srl_nokia-platform-control:control/manufactured-date",
+        "rebootingAt": "srl_nokia-platform:platform/srl_nokia-platform-control:control/rebooting-at",
+        "softwareVersion": "srl_nokia-platform:platform/srl_nokia-platform-control:control/software-version",
+        "locatorState": "srl_nokia-platform:platform/srl_nokia-platform-control:control/locator-state"
+    }
+}

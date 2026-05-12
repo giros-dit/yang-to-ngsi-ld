@@ -1,0 +1,12 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "TlvExtendedPrefixRange": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsdb/lsa-types/lsa-type/lsas/lsa/opaque-lsa/extended-prefix/tlvs/tlv/extended-prefix-range",
+        "prefixLength": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsdb/lsa-types/lsa-type/lsas/lsa/opaque-lsa/extended-prefix/tlvs/tlv/extended-prefix-range/prefix-length",
+        "addressFamily": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsdb/lsa-types/lsa-type/lsas/lsa/opaque-lsa/extended-prefix/tlvs/tlv/extended-prefix-range/address-family",
+        "rangeSize": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsdb/lsa-types/lsa-type/lsas/lsa/opaque-lsa/extended-prefix/tlvs/tlv/extended-prefix-range/range-size",
+        "interArea": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsdb/lsa-types/lsa-type/lsas/lsa/opaque-lsa/extended-prefix/tlvs/tlv/extended-prefix-range/inter-area",
+        "prefix": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/lsdb/lsa-types/lsa-type/lsas/lsa/opaque-lsa/extended-prefix/tlvs/tlv/extended-prefix-range/prefix"
+    }
+}

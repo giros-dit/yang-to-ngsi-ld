@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ip-route-tables": "urn:nokia.com:srlinux:fib:ip-route-tables/",
+        "NextHopInterfaceWithMac": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop/interface-with-mac",
+        "macAddress": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop/interface-with-mac/mac-address"
+    }
+}

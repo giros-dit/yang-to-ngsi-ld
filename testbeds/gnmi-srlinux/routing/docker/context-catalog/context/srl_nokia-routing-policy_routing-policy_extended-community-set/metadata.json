@@ -1,0 +1,14 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "ExtendedCommunitySet": "srl_nokia-routing-policy:routing-policy/extended-community-set",
+        "name": "srl_nokia-routing-policy:routing-policy/extended-community-set/name",
+        "member": "srl_nokia-routing-policy:routing-policy/extended-community-set/member"
+    },
+    "key": "None",
+    "config": [
+        "ExtendedCommunitySet",
+        "name",
+        "member"
+    ]
+}

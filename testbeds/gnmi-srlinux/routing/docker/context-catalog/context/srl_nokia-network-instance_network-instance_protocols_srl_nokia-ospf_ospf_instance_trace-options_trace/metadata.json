@@ -1,0 +1,18 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "Trace": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/trace-options/trace",
+        "adjacencies": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/trace-options/trace/adjacencies",
+        "gracefulRestart": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/trace-options/trace/graceful-restart",
+        "interfaces": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/trace-options/trace/interfaces",
+        "misc": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/trace-options/trace/misc"
+    },
+    "config": [
+        "Trace",
+        "adjacencies",
+        "gracefulRestart",
+        "interfaces",
+        "misc"
+    ]
+}

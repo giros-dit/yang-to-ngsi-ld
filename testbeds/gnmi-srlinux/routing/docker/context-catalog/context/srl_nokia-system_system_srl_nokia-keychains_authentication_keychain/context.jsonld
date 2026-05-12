@@ -1,0 +1,15 @@
+{
+    "@context": {
+        "srl_nokia-system": "urn:nokia.com:srlinux:general:system/",
+        "srl_nokia-keychains": "urn:nokia.com:srlinux:linux:keychains/",
+        "Keychain": "srl_nokia-system:system/srl_nokia-keychains:authentication/keychain",
+        "name": "srl_nokia-system:system/srl_nokia-keychains:authentication/keychain/name",
+        "adminState": "srl_nokia-system:system/srl_nokia-keychains:authentication/keychain/admin-state",
+        "description": "srl_nokia-system:system/srl_nokia-keychains:authentication/keychain/description",
+        "tolerance": "srl_nokia-system:system/srl_nokia-keychains:authentication/keychain/tolerance",
+        "type": "srl_nokia-system:system/srl_nokia-keychains:authentication/keychain/type",
+        "usable": "srl_nokia-system:system/srl_nokia-keychains:authentication/keychain/usable",
+        "expired": "srl_nokia-system:system/srl_nokia-keychains:authentication/keychain/expired",
+        "activeKeyForSend": "srl_nokia-system:system/srl_nokia-keychains:authentication/keychain/active-key-for-send"
+    }
+}

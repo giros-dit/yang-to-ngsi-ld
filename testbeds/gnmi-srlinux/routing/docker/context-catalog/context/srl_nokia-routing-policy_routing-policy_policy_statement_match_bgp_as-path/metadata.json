@@ -1,0 +1,13 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "PolicyStatementMatchBgpAsPath": "srl_nokia-routing-policy:routing-policy/policy/statement/match/bgp/as-path",
+        "asPathSet": "srl_nokia-routing-policy:routing-policy/policy/statement/match/bgp/as-path/as-path-set",
+        "matchSetOptions": "srl_nokia-routing-policy:routing-policy/policy/statement/match/bgp/as-path/match-set-options"
+    },
+    "config": [
+        "PolicyStatementMatchBgpAsPath",
+        "asPathSet",
+        "matchSetOptions"
+    ]
+}

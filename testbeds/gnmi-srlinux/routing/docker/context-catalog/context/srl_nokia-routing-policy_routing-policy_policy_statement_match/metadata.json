@@ -1,0 +1,17 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "PolicyStatementMatch": "srl_nokia-routing-policy:routing-policy/policy/statement/match",
+        "family": "srl_nokia-routing-policy:routing-policy/policy/statement/match/family",
+        "callPolicy": "srl_nokia-routing-policy:routing-policy/policy/statement/match/call-policy",
+        "originNetworkInstance": "srl_nokia-routing-policy:routing-policy/policy/statement/match/origin-network-instance",
+        "networkInstanceLeakedRoute": "srl_nokia-routing-policy:routing-policy/policy/statement/match/network-instance-leaked-route"
+    },
+    "config": [
+        "PolicyStatementMatch",
+        "family",
+        "callPolicy",
+        "originNetworkInstance",
+        "networkInstanceLeakedRoute"
+    ]
+}

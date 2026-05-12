@@ -1,0 +1,11 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "labelAllocationMethodPrefixSid": "srl_nokia-routing-policy:routing-policy/policy/default-action/bgp/label-allocation/label-allocation-method/prefix-sid",
+        "reuseIgp": "srl_nokia-routing-policy:routing-policy/policy/default-action/bgp/label-allocation/label-allocation-method/prefix-sid/reuse-igp"
+    },
+    "config": [
+        "labelAllocationMethodPrefixSid",
+        "reuseIgp"
+    ]
+}

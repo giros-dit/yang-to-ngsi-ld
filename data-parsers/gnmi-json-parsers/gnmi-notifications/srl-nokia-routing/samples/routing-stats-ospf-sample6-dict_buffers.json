@@ -1,0 +1,56 @@
+[
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceProtocolsOspfInstanceAreaLsdbLsaTypesLsaTypeLsasLsaRouterLsaLinks:routing-testbed:r1:default:default:0.0.0.1:router-lsa:srl_nokia-ospf-types:router-lsa-transit-network:2.2.2.2:2.2.2.2:10.10.10.2",
+        "type": "NetworkInstanceProtocolsOspfInstanceAreaLsdbLsaTypesLsaTypeLsasLsaRouterLsaLinks",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceProtocolsOspfInstanceAreaLsdbLsaTypesLsaTypeLsasLsaRouterLsa:routing-testbed:r1:default:default:0.0.0.1:router-lsa:srl_nokia-ospf-types:router-lsa-transit-network:2.2.2.2:2.2.2.2",
+            "observedAt": "2026-05-05T07:26:51.502Z"
+        },
+        "linksType": {
+            "type": "Property",
+            "value": "srl_nokia-ospf-types:router-lsa-transit-network",
+            "observedAt": "2026-05-05T07:26:51.502Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "10.10.10.2",
+            "observedAt": "2026-05-05T07:26:51.502Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceProtocolsOspfInstanceAreaLsdbLsaTypesLsaTypeLsasLsaRouterLsaLinks:routing-testbed:r1:default:default:0.0.0.1:router-lsa:2.2.2.2:2.2.2.2:10.10.10.2",
+        "type": "NetworkInstanceProtocolsOspfInstanceAreaLsdbLsaTypesLsaTypeLsasLsaRouterLsaLinks",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceProtocolsOspfInstanceAreaLsdbLsaTypesLsaTypeLsasLsaRouterLsa:routing-testbed:r1:default:default:0.0.0.1:router-lsa:2.2.2.2:2.2.2.2",
+            "observedAt": "2026-05-05T07:26:51.502Z"
+        },
+        "linkId": {
+            "type": "Property",
+            "value": "10.10.10.2",
+            "observedAt": "2026-05-05T07:26:51.502Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "linkData": {
+            "type": "Property",
+            "value": "10.10.10.2",
+            "observedAt": "2026-05-05T07:26:51.502Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "metric": {
+            "type": "Property",
+            "value": 16,
+            "observedAt": "2026-05-05T07:26:51.502Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "numberTosMetrics": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-05-05T07:26:51.502Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    }
+]

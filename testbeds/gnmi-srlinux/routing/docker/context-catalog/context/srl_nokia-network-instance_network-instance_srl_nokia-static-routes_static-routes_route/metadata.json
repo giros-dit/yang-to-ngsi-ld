@@ -1,0 +1,26 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-static-routes": "urn:nokia.com:srlinux:static-route:static-routes/",
+        "NetworkInstanceStaticRoutesRoute": "srl_nokia-network-instance:network-instance/srl_nokia-static-routes:static-routes/route",
+        "prefix": "srl_nokia-network-instance:network-instance/srl_nokia-static-routes:static-routes/route/prefix",
+        "adminState": "srl_nokia-network-instance:network-instance/srl_nokia-static-routes:static-routes/route/admin-state",
+        "metric": "srl_nokia-network-instance:network-instance/srl_nokia-static-routes:static-routes/route/metric",
+        "preference": "srl_nokia-network-instance:network-instance/srl_nokia-static-routes:static-routes/route/preference",
+        "nextHopGroup": "srl_nokia-network-instance:network-instance/srl_nokia-static-routes:static-routes/route/next-hop-group",
+        "tagSet": "srl_nokia-network-instance:network-instance/srl_nokia-static-routes:static-routes/route/tag-set",
+        "tagValue": "srl_nokia-network-instance:network-instance/srl_nokia-static-routes:static-routes/route/tag-value",
+        "installed": "srl_nokia-network-instance:network-instance/srl_nokia-static-routes:static-routes/route/installed"
+    },
+    "key": "None",
+    "config": [
+        "NetworkInstanceStaticRoutesRoute",
+        "prefix",
+        "adminState",
+        "metric",
+        "preference",
+        "nextHopGroup",
+        "tagSet",
+        "tagValue"
+    ]
+}
