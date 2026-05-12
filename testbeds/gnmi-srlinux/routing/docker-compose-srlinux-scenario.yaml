@@ -89,6 +89,19 @@ services:
       gnmi-json-parser-queries-with-ngsi-ld-instantiator:
         condition: service_healthy
 
+  gnmic-collector-subscriptions:
+    image: ghcr.io/openconfig/gnmic:latest
+    hostname: gnmic-collector-subscriptions
+    container_name: gnmic-collector-subscriptions
+    volumes:
+      - ./docker/gnmic-collector-subscriptions/gnmic-subs-srl-srl.yaml:/app/gnmic-subs-srl-srl.yaml
+    command: "subscribe --config /app/gnmic-subs-srl-srl.yaml"
+    depends_on:
+      kafka:
+        condition: service_healthy
+      gnmi-json-parser-notifications-with-ngsi-ld-instantiator:
+        condition: service_healthy
+
   gnmi-json-parser-queries-with-ngsi-ld-instantiator:
     build:
       context: .
@@ -110,27 +123,26 @@ services:
       kafka:
         condition: service_healthy
     restart: always
-
-  query-tester:
+  
+  gnmi-json-parser-notifications-with-ngsi-ld-instantiator:
     build:
       context: .
-      dockerfile: ./docker/query-tester/Dockerfile
-    hostname: query-tester
-    container_name: query-tester
-    expose:
-      - "8083"
-    ports:
-      - "8083:8083"
+      dockerfile: ./docker/gnmi-json-parser-notifications-with-ngsi-ld-instantiator/Dockerfile
+    hostname: gnmi-json-parser-notifications-with-ngsi-ld-instantiator
+    container_name: gnmi-json-parser-notifications-with-ngsi-ld-instantiator
     volumes:
-      - ./docker/query-tester/query_tester:/opt/query-tester/query_tester
+      - ./docker/gnmi-json-parser-notifications-with-ngsi-ld-instantiator:/opt/gnmi-json-parser-notifications-with-ngsi-ld-instantiator
+    healthcheck:
+      test: ["CMD", "python3", "--version"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
     depends_on:
       scorpio:
         condition: service_started
       context-catalog:
         condition: service_started
       kafka:
-        condition: service_healthy
-      gnmi-json-parser-queries-with-ngsi-ld-instantiator:
         condition: service_healthy
     restart: always
 

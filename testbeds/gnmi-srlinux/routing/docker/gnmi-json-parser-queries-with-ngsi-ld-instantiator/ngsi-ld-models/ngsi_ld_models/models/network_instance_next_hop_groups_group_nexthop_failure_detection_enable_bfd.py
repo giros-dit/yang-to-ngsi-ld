@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    OpenAPI schemas for YANG data models ngsi-ld-api.yaml, ietf-yang-types@2013-07-15.yang, srl_nokia-bridge-table-mac-duplication.yang, srl_nokia-bridge-table-mac-learning.yang, srl_nokia-bridge-table-mac-limit.yang, srl_nokia-bridge-table-shg.yang, srl_nokia-bridge-table.yang, srl_nokia-common.yang, srl_nokia-connection-point-pseudowires.yang, srl_nokia-extensions.yang, srl_nokia-features.yang, srl_nokia-flexible-algorithms-types.yang, srl_nokia-icmp.yang, srl_nokia-if-ip.yang, srl_nokia-interfaces-bridge-table.yang, srl_nokia-interfaces.yang, srl_nokia-ip-route-tables.yang, srl_nokia-isis-lsdb-types.yang, srl_nokia-isis-lsdb.yang, srl_nokia-isis-types.yang, srl_nokia-keychains.yang, srl_nokia-linux@2019-11-30.yang, srl_nokia-lldp-types.yang, srl_nokia-lldp.yang, srl_nokia-load-balancing.yang, srl_nokia-network-instance.yang, srl_nokia-next-hop-groups.yang, srl_nokia-ospf@2020-12-31.yang, srl_nokia-ospf-lsdb.yang, srl_nokia-ospf-types.yang, srl_nokia-ospfv3-lsas.yang, srl_nokia-platform-control-fp.yang, srl_nokia-platform-control.yang, srl_nokia-platform-lc.yang, srl_nokia-platform-linecard-fib.yang, srl_nokia-platform-pipeline-counters.yang, srl_nokia-platform.yang, srl_nokia-policy-types.yang, srl_nokia-protection-policies.yang, srl_nokia-pw-tunnel.yang, srl_nokia-routing-policy.yang, srl_nokia-srv6-types.yang, srl_nokia-srv6.yang, srl_nokia-static-routes@2019-11-30.yang, srl_nokia-system.yang, srl_nokia-traffic-engineering.yang, srl_nokia-tunnel.yang.
+    OpenAPI schemas for YANG data models ngsi-ld-api.yaml, ietf-yang-types@2013-07-15.yang, srl_nokia-bridge-table-mac-duplication.yang, srl_nokia-bridge-table-mac-learning.yang, srl_nokia-bridge-table-mac-limit.yang, srl_nokia-bridge-table-shg.yang, srl_nokia-bridge-table.yang, srl_nokia-common.yang, srl_nokia-connection-point-pseudowires.yang, srl_nokia-extensions.yang, srl_nokia-features.yang, srl_nokia-flexible-algorithms-types.yang, srl_nokia-icmp.yang, srl_nokia-if-ip.yang, srl_nokia-interfaces-bridge-table.yang, srl_nokia-interfaces.yang, srl_nokia-ip-route-tables.yang, srl_nokia-isis-lsdb-types.yang, srl_nokia-isis-lsdb.yang, srl_nokia-isis-types.yang, srl_nokia-keychains.yang, srl_nokia-linux@2019-11-30.yang, srl_nokia-lldp-types.yang, srl_nokia-lldp.yang, srl_nokia-load-balancing.yang, srl_nokia-network-instance.yang, srl_nokia-next-hop-groups.yang, srl_nokia-ospf@2020-12-31.yang, srl_nokia-ospf-lsdb.yang, srl_nokia-ospf-types.yang, srl_nokia-ospfv3-lsas.yang, srl_nokia-platform-control-fp.yang, srl_nokia-platform-control.yang, srl_nokia-platform-lc.yang, srl_nokia-platform-linecard-fib.yang, srl_nokia-platform-pipeline-counters.yang, srl_nokia-platform.yang, srl_nokia-policy-types.yang, srl_nokia-protection-policies.yang, srl_nokia-pw-tunnel.yang, srl_nokia-routing-policy.yang, srl_nokia-srv6-types.yang, srl_nokia-srv6.yang, srl_nokia-static-routes@2019-11-30.yang, srl_nokia-system.yang, srl_nokia-tcp-udp.yang, srl_nokia-traffic-engineering.yang, srl_nokia-tunnel.yang.
 
     OpenAPI schemas for YANG data models compliant with the NGSI-LD OAS V1.6.1 metamodel according to ETSI GS CIM 009 V1.6.1.
 
@@ -23,8 +23,8 @@ from typing import Any, ClassVar, Dict, List, Optional
 from ngsi_ld_models.models.entity_scope import EntityScope
 from ngsi_ld_models.models.geo_property import GeoProperty
 from ngsi_ld_models.models.is_part_of import IsPartOf
-from ngsi_ld_models.models.local_address import LocalAddress
 from ngsi_ld_models.models.local_discriminator import LocalDiscriminator
+from ngsi_ld_models.models.network_instance_next_hop_groups_group_nexthop_failure_detection_enable_bfd_local_address import NetworkInstanceNextHopGroupsGroupNexthopFailureDetectionEnableBfdLocalAddress
 from ngsi_ld_models.models.remote_discriminator import RemoteDiscriminator
 from typing import Optional, Set
 from typing_extensions import Self
@@ -42,7 +42,7 @@ class NetworkInstanceNextHopGroupsGroupNexthopFailureDetectionEnableBfd(BaseMode
     created_at: Optional[datetime] = Field(default=None, description="Is defined as the temporal Property at which the Entity, Property or Relationship was entered into an NGSI-LD system. ", alias="createdAt")
     modified_at: Optional[datetime] = Field(default=None, description="Is defined as the temporal Property at which the Entity, Property or Relationship was last modified in an NGSI-LD system, e.g. in order to correct a previously entered incorrect value. ", alias="modifiedAt")
     deleted_at: Optional[datetime] = Field(default=None, description="Is defined as the temporal Property at which the Entity, Property or Relationship was deleted from an NGSI-LD system.  Entity deletion timestamp. See clause 4.8 It is only used in notifications reporting deletions and in the Temporal Representation of Entities (clause 4.5.6), Properties (clause 4.5.7), Relationships (clause 4.5.8) and LanguageProperties (clause 5.2.32). ", alias="deletedAt")
-    local_address: LocalAddress = Field(alias="localAddress")
+    local_address: NetworkInstanceNextHopGroupsGroupNexthopFailureDetectionEnableBfdLocalAddress = Field(alias="localAddress")
     local_discriminator: Optional[LocalDiscriminator] = Field(default=None, alias="localDiscriminator")
     remote_discriminator: Optional[RemoteDiscriminator] = Field(default=None, alias="remoteDiscriminator")
     is_part_of: IsPartOf = Field(alias="isPartOf")
@@ -153,7 +153,7 @@ class NetworkInstanceNextHopGroupsGroupNexthopFailureDetectionEnableBfd(BaseMode
             "createdAt": obj.get("createdAt"),
             "modifiedAt": obj.get("modifiedAt"),
             "deletedAt": obj.get("deletedAt"),
-            "localAddress": LocalAddress.from_dict(obj["localAddress"]) if obj.get("localAddress") is not None else None,
+            "localAddress": NetworkInstanceNextHopGroupsGroupNexthopFailureDetectionEnableBfdLocalAddress.from_dict(obj["localAddress"]) if obj.get("localAddress") is not None else None,
             "localDiscriminator": LocalDiscriminator.from_dict(obj["localDiscriminator"]) if obj.get("localDiscriminator") is not None else None,
             "remoteDiscriminator": RemoteDiscriminator.from_dict(obj["remoteDiscriminator"]) if obj.get("remoteDiscriminator") is not None else None,
             "isPartOf": IsPartOf.from_dict(obj["isPartOf"]) if obj.get("isPartOf") is not None else None

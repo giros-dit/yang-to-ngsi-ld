@@ -1,0 +1,22 @@
+[
+  {
+    "name": "r1_routing",
+    "timestamp": 1777291489978946958,
+    "tags": {
+      "network-instance_name": "default",
+      "source": "router1",
+      "subscription-name": "r1_routing"
+    },
+    "values": {
+      "/srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:ipv4-unicast/statistics/active-routes": 7,
+      "/srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:ipv4-unicast/statistics/active-routes-with-ecmp": 0,
+      "/srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:ipv4-unicast/statistics/dynamic-load-balancing-routes": 0,
+      "/srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:ipv4-unicast/statistics/fib-failed-routes": 0,
+      "/srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:ipv4-unicast/statistics/fib-suppressed-routes": 0,
+      "/srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:ipv4-unicast/statistics/leaked-routes": 0,
+      "/srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:ipv4-unicast/statistics/resilient-hash-routes": 0,
+      "/srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:ipv4-unicast/statistics/routes-with-per-prefix-statistics": 0,
+      "/srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:ipv4-unicast/statistics/total-routes": "7"
+    }
+  }
+]

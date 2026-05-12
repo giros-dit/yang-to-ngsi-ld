@@ -1873,6 +1873,8 @@ def parse_gnmi_query(message):
                                     ipPrefix = address.get("ip-prefix")
                                     if ipPrefix is not None:
                                         element_text = ipPrefix
+                                        if interface_subinterface_ipv4_address_dict_buffer["id"].split(":")[-1] != element_text:
+                                            interface_subinterface_ipv4_address_dict_buffer["id"] = interface_subinterface_ipv4_address_dict_buffer["id"] + ":" + element_text
                                         interface_subinterface_ipv4_address_dict_buffer["ipPrefix"] = {}
                                         interface_subinterface_ipv4_address_dict_buffer["ipPrefix"]["type"] = "Property"
                                         interface_subinterface_ipv4_address_dict_buffer["ipPrefix"]["value"] = element_text
@@ -2146,6 +2148,8 @@ def parse_gnmi_query(message):
                                     ipPrefix = address.get("ip-prefix")
                                     if ipPrefix is not None:
                                         element_text = ipPrefix
+                                        if interface_subinterface_ipv6_address_dict_buffer["id"].split(":")[-1] != element_text:
+                                            interface_subinterface_ipv6_address_dict_buffer["id"] = interface_subinterface_ipv6_address_dict_buffer["id"] + ":" + element_text
                                         interface_subinterface_ipv6_address_dict_buffer["ipPrefix"] = {}
                                         interface_subinterface_ipv6_address_dict_buffer["ipPrefix"]["type"] = "Property"
                                         interface_subinterface_ipv6_address_dict_buffer["ipPrefix"]["value"] = element_text
@@ -4770,6 +4774,8 @@ def parse_gnmi_query(message):
                                                                     prefixLength = extended_prefix.get("prefix-length")
                                                                     if prefixLength is not None:
                                                                         element_text = prefixLength
+                                                                        if network_instance_instance_lsa_type_lsa_opaque_lsa_extended_prefix_dict_buffer["id"].split(":")[-1] != int(element_text):
+                                                                            network_instance_instance_lsa_type_lsa_opaque_lsa_extended_prefix_dict_buffer["id"] = network_instance_instance_lsa_type_lsa_opaque_lsa_extended_prefix_dict_buffer["id"] + ":" + str(int(element_text))
                                                                         network_instance_instance_lsa_type_lsa_opaque_lsa_extended_prefix_dict_buffer["prefixLength"] = {}
                                                                         network_instance_instance_lsa_type_lsa_opaque_lsa_extended_prefix_dict_buffer["prefixLength"]["type"] = "Property"
                                                                         network_instance_instance_lsa_type_lsa_opaque_lsa_extended_prefix_dict_buffer["prefixLength"]["value"] = int(element_text)
@@ -4802,6 +4808,8 @@ def parse_gnmi_query(message):
                                                                     prefix = extended_prefix.get("prefix")
                                                                     if prefix is not None:
                                                                         element_text = prefix
+                                                                        if network_instance_instance_lsa_type_lsa_opaque_lsa_extended_dict_buffer["id"].split(":")[-1] != element_text:
+                                                                            network_instance_instance_lsa_type_lsa_opaque_lsa_extended_dict_buffer["id"] = network_instance_instance_lsa_type_lsa_opaque_lsa_extended_dict_buffer["id"] + ":" + element_text
                                                                         network_instance_instance_lsa_type_lsa_opaque_lsa_extended_prefix_dict_buffer["prefix"] = {}
                                                                         network_instance_instance_lsa_type_lsa_opaque_lsa_extended_prefix_dict_buffer["prefix"]["type"] = "Property"
                                                                         network_instance_instance_lsa_type_lsa_opaque_lsa_extended_prefix_dict_buffer["prefix"]["value"] = element_text
@@ -4839,6 +4847,8 @@ def parse_gnmi_query(message):
                                                                                     prefixLength = extended_prefix_range.get("prefix-length")
                                                                                     if prefixLength is not None:
                                                                                         element_text = prefixLength
+                                                                                        if network_instance_instance_lsa_type_lsa_opaque_lsa_extended_prefix_tlv_extended_prefix_range_dict_buffer["id"].split(":")[-1] != int(element_text):
+                                                                                            network_instance_instance_lsa_type_lsa_opaque_lsa_extended_prefix_tlv_extended_prefix_range_dict_buffer["id"] = network_instance_instance_lsa_type_lsa_opaque_lsa_extended_prefix_tlv_extended_prefix_range_dict_buffer["id"] + ":" + str(int(element_text))
                                                                                         network_instance_instance_lsa_type_lsa_opaque_lsa_extended_prefix_tlv_extended_prefix_range_dict_buffer["prefixLength"] = {}
                                                                                         network_instance_instance_lsa_type_lsa_opaque_lsa_extended_prefix_tlv_extended_prefix_range_dict_buffer["prefixLength"]["type"] = "Property"
                                                                                         network_instance_instance_lsa_type_lsa_opaque_lsa_extended_prefix_tlv_extended_prefix_range_dict_buffer["prefixLength"]["value"] = int(element_text)
@@ -4871,6 +4881,8 @@ def parse_gnmi_query(message):
                                                                                     prefix = extended_prefix_range.get("prefix")
                                                                                     if prefix is not None:
                                                                                         element_text = prefix
+                                                                                        if network_instance_instance_lsa_type_lsa_opaque_lsa_extended_tlv_extended_prefix_range_dict_buffer["id"].split(":")[-1] != element_text:
+                                                                                            network_instance_instance_lsa_type_lsa_opaque_lsa_extended_tlv_extended_prefix_range_dict_buffer["id"] = network_instance_instance_lsa_type_lsa_opaque_lsa_extended_tlv_extended_prefix_range_dict_buffer["id"] + ":" + element_text
                                                                                         network_instance_instance_lsa_type_lsa_opaque_lsa_extended_prefix_tlv_extended_prefix_range_dict_buffer["prefix"] = {}
                                                                                         network_instance_instance_lsa_type_lsa_opaque_lsa_extended_prefix_tlv_extended_prefix_range_dict_buffer["prefix"]["type"] = "Property"
                                                                                         network_instance_instance_lsa_type_lsa_opaque_lsa_extended_prefix_tlv_extended_prefix_range_dict_buffer["prefix"]["value"] = element_text
@@ -5091,6 +5103,8 @@ def parse_gnmi_query(message):
                                                                 prefix = ospfv3_external_lsa.get("prefix")
                                                                 if prefix is not None:
                                                                     element_text = prefix
+                                                                    if network_instance_instance_lsa_type_lsa_ospfv3_external_lsa_dict_buffer["id"].split(":")[-1] != element_text:
+                                                                        network_instance_instance_lsa_type_lsa_ospfv3_external_lsa_dict_buffer["id"] = network_instance_instance_lsa_type_lsa_ospfv3_external_lsa_dict_buffer["id"] + ":" + element_text
                                                                     network_instance_instance_lsa_type_lsa_ospfv3_external_lsa_dict_buffer["prefix"] = {}
                                                                     network_instance_instance_lsa_type_lsa_ospfv3_external_lsa_dict_buffer["prefix"]["type"] = "Property"
                                                                     network_instance_instance_lsa_type_lsa_ospfv3_external_lsa_dict_buffer["prefix"]["value"] = element_text
@@ -5108,6 +5122,8 @@ def parse_gnmi_query(message):
                                                                     prefixOptions = prefix_options.get("prefix-options")
                                                                     if prefixOptions is not None:
                                                                         element_text = prefixOptions
+                                                                        if network_instance_instance_lsa_type_lsa_ospfv3_external_lsa_dict_buffer["id"].split(":")[-1] != element_text:
+                                                                            network_instance_instance_lsa_type_lsa_ospfv3_external_lsa_dict_buffer["id"] = network_instance_instance_lsa_type_lsa_ospfv3_external_lsa_dict_buffer["id"] + ":" + element_text
                                                                         network_instance_instance_lsa_type_lsa_ospfv3_external_lsa_prefix_options_dict_buffer["prefixOptions"] = {}
                                                                         network_instance_instance_lsa_type_lsa_ospfv3_external_lsa_prefix_options_dict_buffer["prefixOptions"]["type"] = "Property"
                                                                         network_instance_instance_lsa_type_lsa_ospfv3_external_lsa_prefix_options_dict_buffer["prefixOptions"]["value"] = element_text
@@ -5253,6 +5269,8 @@ def parse_gnmi_query(message):
                                                     ipPrefixMask = area_range.get("ip-prefix-mask")
                                                     if ipPrefixMask is not None:
                                                         element_text = ipPrefixMask
+                                                        if network_instance_instance_area_nssa_area_range_dict_buffer["id"].split(":")[-1] != element_text:
+                                                            network_instance_instance_area_nssa_area_range_dict_buffer["id"] = network_instance_instance_area_nssa_area_range_dict_buffer["id"] + ":" + element_text
                                                         network_instance_instance_area_nssa_area_range_dict_buffer["ipPrefixMask"] = {}
                                                         network_instance_instance_area_nssa_area_range_dict_buffer["ipPrefixMask"]["type"] = "Property"
                                                         network_instance_instance_area_nssa_area_range_dict_buffer["ipPrefixMask"]["value"] = element_text
@@ -5307,6 +5325,8 @@ def parse_gnmi_query(message):
                                                 ipPrefixMask = area_range.get("ip-prefix-mask")
                                                 if ipPrefixMask is not None:
                                                     element_text = ipPrefixMask
+                                                    if network_instance_instance_area_area_range_dict_buffer["id"].split(":")[-1] != element_text:
+                                                        network_instance_instance_area_area_range_dict_buffer["id"] = network_instance_instance_area_area_range_dict_buffer["id"] + ":" + element_text
                                                     network_instance_instance_area_area_range_dict_buffer["ipPrefixMask"] = {}
                                                     network_instance_instance_area_area_range_dict_buffer["ipPrefixMask"]["type"] = "Property"
                                                     network_instance_instance_area_area_range_dict_buffer["ipPrefixMask"]["value"] = element_text
@@ -5453,6 +5473,8 @@ def parse_gnmi_query(message):
                                             interAreaPrefixLsa = lsa_totals.get("inter-area-prefix-lsa")
                                             if interAreaPrefixLsa is not None:
                                                 element_text = interAreaPrefixLsa
+                                                if network_instance_instance_area_lsa_totals_dict_buffer["id"].split(":")[-1] != int(element_text):
+                                                    network_instance_instance_area_lsa_totals_dict_buffer["id"] = network_instance_instance_area_lsa_totals_dict_buffer["id"] + ":" + str(int(element_text))
                                                 network_instance_instance_area_lsa_totals_dict_buffer["interAreaPrefixLsa"] = {}
                                                 network_instance_instance_area_lsa_totals_dict_buffer["interAreaPrefixLsa"]["type"] = "Property"
                                                 network_instance_instance_area_lsa_totals_dict_buffer["interAreaPrefixLsa"]["value"] = int(element_text)
@@ -5461,6 +5483,8 @@ def parse_gnmi_query(message):
                                             eInterAreaPrefixLsa = lsa_totals.get("e-inter-area-prefix-lsa")
                                             if eInterAreaPrefixLsa is not None:
                                                 element_text = eInterAreaPrefixLsa
+                                                if network_instance_instance_area_lsa_totals_dict_buffer["id"].split(":")[-1] != int(element_text):
+                                                    network_instance_instance_area_lsa_totals_dict_buffer["id"] = network_instance_instance_area_lsa_totals_dict_buffer["id"] + ":" + str(int(element_text))
                                                 network_instance_instance_area_lsa_totals_dict_buffer["eInterAreaPrefixLsa"] = {}
                                                 network_instance_instance_area_lsa_totals_dict_buffer["eInterAreaPrefixLsa"]["type"] = "Property"
                                                 network_instance_instance_area_lsa_totals_dict_buffer["eInterAreaPrefixLsa"]["value"] = int(element_text)
@@ -5485,6 +5509,8 @@ def parse_gnmi_query(message):
                                             intraAreaPrefixLsa = lsa_totals.get("intra-area-prefix-lsa")
                                             if intraAreaPrefixLsa is not None:
                                                 element_text = intraAreaPrefixLsa
+                                                if network_instance_instance_area_lsa_totals_dict_buffer["id"].split(":")[-1] != int(element_text):
+                                                    network_instance_instance_area_lsa_totals_dict_buffer["id"] = network_instance_instance_area_lsa_totals_dict_buffer["id"] + ":" + str(int(element_text))
                                                 network_instance_instance_area_lsa_totals_dict_buffer["intraAreaPrefixLsa"] = {}
                                                 network_instance_instance_area_lsa_totals_dict_buffer["intraAreaPrefixLsa"]["type"] = "Property"
                                                 network_instance_instance_area_lsa_totals_dict_buffer["intraAreaPrefixLsa"]["value"] = int(element_text)
@@ -5493,6 +5519,8 @@ def parse_gnmi_query(message):
                                             eIntraAreaPrefixLsa = lsa_totals.get("e-intra-area-prefix-lsa")
                                             if eIntraAreaPrefixLsa is not None:
                                                 element_text = eIntraAreaPrefixLsa
+                                                if network_instance_instance_area_lsa_totals_dict_buffer["id"].split(":")[-1] != int(element_text):
+                                                    network_instance_instance_area_lsa_totals_dict_buffer["id"] = network_instance_instance_area_lsa_totals_dict_buffer["id"] + ":" + str(int(element_text))
                                                 network_instance_instance_area_lsa_totals_dict_buffer["eIntraAreaPrefixLsa"] = {}
                                                 network_instance_instance_area_lsa_totals_dict_buffer["eIntraAreaPrefixLsa"]["type"] = "Property"
                                                 network_instance_instance_area_lsa_totals_dict_buffer["eIntraAreaPrefixLsa"]["value"] = int(element_text)
@@ -6741,6 +6769,8 @@ def parse_gnmi_query(message):
                                                                                     prefixLength = extended_prefix.get("prefix-length")
                                                                                     if prefixLength is not None:
                                                                                         element_text = prefixLength
+                                                                                        if network_instance_instance_area_interface_lsa_type_lsa_opaque_lsa_extended_prefix_dict_buffer["id"].split(":")[-1] != int(element_text):
+                                                                                            network_instance_instance_area_interface_lsa_type_lsa_opaque_lsa_extended_prefix_dict_buffer["id"] = network_instance_instance_area_interface_lsa_type_lsa_opaque_lsa_extended_prefix_dict_buffer["id"] + ":" + str(int(element_text))
                                                                                         network_instance_instance_area_interface_lsa_type_lsa_opaque_lsa_extended_prefix_dict_buffer["prefixLength"] = {}
                                                                                         network_instance_instance_area_interface_lsa_type_lsa_opaque_lsa_extended_prefix_dict_buffer["prefixLength"]["type"] = "Property"
                                                                                         network_instance_instance_area_interface_lsa_type_lsa_opaque_lsa_extended_prefix_dict_buffer["prefixLength"]["value"] = int(element_text)
@@ -6773,6 +6803,8 @@ def parse_gnmi_query(message):
                                                                                     prefix = extended_prefix.get("prefix")
                                                                                     if prefix is not None:
                                                                                         element_text = prefix
+                                                                                        if network_instance_instance_area_interface_lsa_type_lsa_opaque_lsa_extended_dict_buffer["id"].split(":")[-1] != element_text:
+                                                                                            network_instance_instance_area_interface_lsa_type_lsa_opaque_lsa_extended_dict_buffer["id"] = network_instance_instance_area_interface_lsa_type_lsa_opaque_lsa_extended_dict_buffer["id"] + ":" + element_text
                                                                                         network_instance_instance_area_interface_lsa_type_lsa_opaque_lsa_extended_prefix_dict_buffer["prefix"] = {}
                                                                                         network_instance_instance_area_interface_lsa_type_lsa_opaque_lsa_extended_prefix_dict_buffer["prefix"]["type"] = "Property"
                                                                                         network_instance_instance_area_interface_lsa_type_lsa_opaque_lsa_extended_prefix_dict_buffer["prefix"]["value"] = element_text
@@ -6810,6 +6842,8 @@ def parse_gnmi_query(message):
                                                                                                     prefixLength = extended_prefix_range.get("prefix-length")
                                                                                                     if prefixLength is not None:
                                                                                                         element_text = prefixLength
+                                                                                                        if network_instance_instance_area_interface_lsa_type_lsa_opaque_lsa_extended_prefix_tlv_extended_prefix_range_dict_buffer["id"].split(":")[-1] != int(element_text):
+                                                                                                            network_instance_instance_area_interface_lsa_type_lsa_opaque_lsa_extended_prefix_tlv_extended_prefix_range_dict_buffer["id"] = network_instance_instance_area_interface_lsa_type_lsa_opaque_lsa_extended_prefix_tlv_extended_prefix_range_dict_buffer["id"] + ":" + str(int(element_text))
                                                                                                         network_instance_instance_area_interface_lsa_type_lsa_opaque_lsa_extended_prefix_tlv_extended_prefix_range_dict_buffer["prefixLength"] = {}
                                                                                                         network_instance_instance_area_interface_lsa_type_lsa_opaque_lsa_extended_prefix_tlv_extended_prefix_range_dict_buffer["prefixLength"]["type"] = "Property"
                                                                                                         network_instance_instance_area_interface_lsa_type_lsa_opaque_lsa_extended_prefix_tlv_extended_prefix_range_dict_buffer["prefixLength"]["value"] = int(element_text)
@@ -6842,6 +6876,8 @@ def parse_gnmi_query(message):
                                                                                                     prefix = extended_prefix_range.get("prefix")
                                                                                                     if prefix is not None:
                                                                                                         element_text = prefix
+                                                                                                        if network_instance_instance_area_interface_lsa_type_lsa_opaque_lsa_extended_tlv_extended_prefix_range_dict_buffer["id"].split(":")[-1] != element_text:
+                                                                                                            network_instance_instance_area_interface_lsa_type_lsa_opaque_lsa_extended_tlv_extended_prefix_range_dict_buffer["id"] = network_instance_instance_area_interface_lsa_type_lsa_opaque_lsa_extended_tlv_extended_prefix_range_dict_buffer["id"] + ":" + element_text
                                                                                                         network_instance_instance_area_interface_lsa_type_lsa_opaque_lsa_extended_prefix_tlv_extended_prefix_range_dict_buffer["prefix"] = {}
                                                                                                         network_instance_instance_area_interface_lsa_type_lsa_opaque_lsa_extended_prefix_tlv_extended_prefix_range_dict_buffer["prefix"]["type"] = "Property"
                                                                                                         network_instance_instance_area_interface_lsa_type_lsa_opaque_lsa_extended_prefix_tlv_extended_prefix_range_dict_buffer["prefix"]["value"] = element_text
@@ -7064,6 +7100,8 @@ def parse_gnmi_query(message):
                                                                                 numOfPrefixes = ospfv3_link_lsa.get("num-of-prefixes")
                                                                                 if numOfPrefixes is not None:
                                                                                     element_text = numOfPrefixes
+                                                                                    if network_instance_instance_area_interface_lsa_type_lsa_ospfv3_link_lsa_dict_buffer["id"].split(":")[-1] != int(element_text):
+                                                                                        network_instance_instance_area_interface_lsa_type_lsa_ospfv3_link_lsa_dict_buffer["id"] = network_instance_instance_area_interface_lsa_type_lsa_ospfv3_link_lsa_dict_buffer["id"] + ":" + str(int(element_text))
                                                                                     network_instance_instance_area_interface_lsa_type_lsa_ospfv3_link_lsa_dict_buffer["numOfPrefixes"] = {}
                                                                                     network_instance_instance_area_interface_lsa_type_lsa_ospfv3_link_lsa_dict_buffer["numOfPrefixes"]["type"] = "Property"
                                                                                     network_instance_instance_area_interface_lsa_type_lsa_ospfv3_link_lsa_dict_buffer["numOfPrefixes"]["value"] = int(element_text)
@@ -7082,6 +7120,8 @@ def parse_gnmi_query(message):
                                                                                         prefix = prefixes.get("prefix")
                                                                                         if prefix is not None:
                                                                                             element_text = prefix
+                                                                                            if network_instance_instance_area_interface_lsa_type_lsa_ospfv3_link_lsa_prefixes_dict_buffer["id"].split(":")[-1] != element_text:
+                                                                                                network_instance_instance_area_interface_lsa_type_lsa_ospfv3_link_lsa_prefixes_dict_buffer["id"] = network_instance_instance_area_interface_lsa_type_lsa_ospfv3_link_lsa_prefixes_dict_buffer["id"] + ":" + element_text
                                                                                             network_instance_instance_area_interface_lsa_type_lsa_ospfv3_link_lsa_prefixes_dict_buffer["prefix"] = {}
                                                                                             network_instance_instance_area_interface_lsa_type_lsa_ospfv3_link_lsa_prefixes_dict_buffer["prefix"]["type"] = "Property"
                                                                                             network_instance_instance_area_interface_lsa_type_lsa_ospfv3_link_lsa_prefixes_dict_buffer["prefix"]["value"] = element_text
@@ -7099,6 +7139,8 @@ def parse_gnmi_query(message):
                                                                                             prefixOptions = prefix_options.get("prefix-options")
                                                                                             if prefixOptions is not None:
                                                                                                 element_text = prefixOptions
+                                                                                                if network_instance_instance_area_interface_lsa_type_lsa_ospfv3_link_lsa_prefixes_dict_buffer["id"].split(":")[-1] != element_text:
+                                                                                                    network_instance_instance_area_interface_lsa_type_lsa_ospfv3_link_lsa_prefixes_dict_buffer["id"] = network_instance_instance_area_interface_lsa_type_lsa_ospfv3_link_lsa_prefixes_dict_buffer["id"] + ":" + element_text
                                                                                                 network_instance_instance_area_interface_lsa_type_lsa_ospfv3_link_lsa_prefixes_prefix_options_dict_buffer["prefixOptions"] = {}
                                                                                                 network_instance_instance_area_interface_lsa_type_lsa_ospfv3_link_lsa_prefixes_prefix_options_dict_buffer["prefixOptions"]["type"] = "Property"
                                                                                                 network_instance_instance_area_interface_lsa_type_lsa_ospfv3_link_lsa_prefixes_prefix_options_dict_buffer["prefixOptions"]["value"] = element_text
@@ -7762,6 +7804,8 @@ def parse_gnmi_query(message):
                                                                             prefixLength = extended_prefix.get("prefix-length")
                                                                             if prefixLength is not None:
                                                                                 element_text = prefixLength
+                                                                                if network_instance_instance_area_lsdb_lsa_type_lsa_opaque_lsa_extended_prefix_dict_buffer["id"].split(":")[-1] != int(element_text):
+                                                                                    network_instance_instance_area_lsdb_lsa_type_lsa_opaque_lsa_extended_prefix_dict_buffer["id"] = network_instance_instance_area_lsdb_lsa_type_lsa_opaque_lsa_extended_prefix_dict_buffer["id"] + ":" + str(int(element_text))
                                                                                 network_instance_instance_area_lsdb_lsa_type_lsa_opaque_lsa_extended_prefix_dict_buffer["prefixLength"] = {}
                                                                                 network_instance_instance_area_lsdb_lsa_type_lsa_opaque_lsa_extended_prefix_dict_buffer["prefixLength"]["type"] = "Property"
                                                                                 network_instance_instance_area_lsdb_lsa_type_lsa_opaque_lsa_extended_prefix_dict_buffer["prefixLength"]["value"] = int(element_text)
@@ -7794,6 +7838,8 @@ def parse_gnmi_query(message):
                                                                             prefix = extended_prefix.get("prefix")
                                                                             if prefix is not None:
                                                                                 element_text = prefix
+                                                                                if network_instance_instance_area_lsdb_lsa_type_lsa_opaque_lsa_extended_dict_buffer["id"].split(":")[-1] != element_text:
+                                                                                    network_instance_instance_area_lsdb_lsa_type_lsa_opaque_lsa_extended_dict_buffer["id"] = network_instance_instance_area_lsdb_lsa_type_lsa_opaque_lsa_extended_dict_buffer["id"] + ":" + element_text
                                                                                 network_instance_instance_area_lsdb_lsa_type_lsa_opaque_lsa_extended_prefix_dict_buffer["prefix"] = {}
                                                                                 network_instance_instance_area_lsdb_lsa_type_lsa_opaque_lsa_extended_prefix_dict_buffer["prefix"]["type"] = "Property"
                                                                                 network_instance_instance_area_lsdb_lsa_type_lsa_opaque_lsa_extended_prefix_dict_buffer["prefix"]["value"] = element_text
@@ -7831,6 +7877,8 @@ def parse_gnmi_query(message):
                                                                                             prefixLength = extended_prefix_range.get("prefix-length")
                                                                                             if prefixLength is not None:
                                                                                                 element_text = prefixLength
+                                                                                                if network_instance_instance_area_lsdb_lsa_type_lsa_opaque_lsa_extended_prefix_tlv_extended_prefix_range_dict_buffer["id"].split(":")[-1] != int(element_text):
+                                                                                                    network_instance_instance_area_lsdb_lsa_type_lsa_opaque_lsa_extended_prefix_tlv_extended_prefix_range_dict_buffer["id"] = network_instance_instance_area_lsdb_lsa_type_lsa_opaque_lsa_extended_prefix_tlv_extended_prefix_range_dict_buffer["id"] + ":" + str(int(element_text))
                                                                                                 network_instance_instance_area_lsdb_lsa_type_lsa_opaque_lsa_extended_prefix_tlv_extended_prefix_range_dict_buffer["prefixLength"] = {}
                                                                                                 network_instance_instance_area_lsdb_lsa_type_lsa_opaque_lsa_extended_prefix_tlv_extended_prefix_range_dict_buffer["prefixLength"]["type"] = "Property"
                                                                                                 network_instance_instance_area_lsdb_lsa_type_lsa_opaque_lsa_extended_prefix_tlv_extended_prefix_range_dict_buffer["prefixLength"]["value"] = int(element_text)
@@ -7863,6 +7911,8 @@ def parse_gnmi_query(message):
                                                                                             prefix = extended_prefix_range.get("prefix")
                                                                                             if prefix is not None:
                                                                                                 element_text = prefix
+                                                                                                if network_instance_instance_area_lsdb_lsa_type_lsa_opaque_lsa_extended_tlv_extended_prefix_range_dict_buffer["id"].split(":")[-1] != element_text:
+                                                                                                    network_instance_instance_area_lsdb_lsa_type_lsa_opaque_lsa_extended_tlv_extended_prefix_range_dict_buffer["id"] = network_instance_instance_area_lsdb_lsa_type_lsa_opaque_lsa_extended_tlv_extended_prefix_range_dict_buffer["id"] + ":" + element_text
                                                                                                 network_instance_instance_area_lsdb_lsa_type_lsa_opaque_lsa_extended_prefix_tlv_extended_prefix_range_dict_buffer["prefix"] = {}
                                                                                                 network_instance_instance_area_lsdb_lsa_type_lsa_opaque_lsa_extended_prefix_tlv_extended_prefix_range_dict_buffer["prefix"]["type"] = "Property"
                                                                                                 network_instance_instance_area_lsdb_lsa_type_lsa_opaque_lsa_extended_prefix_tlv_extended_prefix_range_dict_buffer["prefix"]["value"] = element_text
@@ -8190,6 +8240,8 @@ def parse_gnmi_query(message):
                                                                         prefix = ospfv3_inter_area_prefix_lsa.get("prefix")
                                                                         if prefix is not None:
                                                                             element_text = prefix
+                                                                            if network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_inter_area_prefix_lsa_dict_buffer["id"].split(":")[-1] != element_text:
+                                                                                network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_inter_area_prefix_lsa_dict_buffer["id"] = network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_inter_area_prefix_lsa_dict_buffer["id"] + ":" + element_text
                                                                             network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_inter_area_prefix_lsa_dict_buffer["prefix"] = {}
                                                                             network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_inter_area_prefix_lsa_dict_buffer["prefix"]["type"] = "Property"
                                                                             network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_inter_area_prefix_lsa_dict_buffer["prefix"]["value"] = element_text
@@ -8207,6 +8259,8 @@ def parse_gnmi_query(message):
                                                                             prefixOptions = prefix_options.get("prefix-options")
                                                                             if prefixOptions is not None:
                                                                                 element_text = prefixOptions
+                                                                                if network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_inter_area_prefix_lsa_dict_buffer["id"].split(":")[-1] != element_text:
+                                                                                    network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_inter_area_prefix_lsa_dict_buffer["id"] = network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_inter_area_prefix_lsa_dict_buffer["id"] + ":" + element_text
                                                                                 network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_inter_area_prefix_lsa_prefix_options_dict_buffer["prefixOptions"] = {}
                                                                                 network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_inter_area_prefix_lsa_prefix_options_dict_buffer["prefixOptions"]["type"] = "Property"
                                                                                 network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_inter_area_prefix_lsa_prefix_options_dict_buffer["prefixOptions"]["value"] = element_text
@@ -8304,6 +8358,8 @@ def parse_gnmi_query(message):
                                                                         prefix = ospfv3_external_lsa.get("prefix")
                                                                         if prefix is not None:
                                                                             element_text = prefix
+                                                                            if network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_external_lsa_dict_buffer["id"].split(":")[-1] != element_text:
+                                                                                network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_external_lsa_dict_buffer["id"] = network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_external_lsa_dict_buffer["id"] + ":" + element_text
                                                                             network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_external_lsa_dict_buffer["prefix"] = {}
                                                                             network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_external_lsa_dict_buffer["prefix"]["type"] = "Property"
                                                                             network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_external_lsa_dict_buffer["prefix"]["value"] = element_text
@@ -8321,6 +8377,8 @@ def parse_gnmi_query(message):
                                                                             prefixOptions = prefix_options.get("prefix-options")
                                                                             if prefixOptions is not None:
                                                                                 element_text = prefixOptions
+                                                                                if network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_external_lsa_dict_buffer["id"].split(":")[-1] != element_text:
+                                                                                    network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_external_lsa_dict_buffer["id"] = network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_external_lsa_dict_buffer["id"] + ":" + element_text
                                                                                 network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_external_lsa_prefix_options_dict_buffer["prefixOptions"] = {}
                                                                                 network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_external_lsa_prefix_options_dict_buffer["prefixOptions"]["type"] = "Property"
                                                                                 network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_external_lsa_prefix_options_dict_buffer["prefixOptions"]["value"] = element_text
@@ -8400,6 +8458,8 @@ def parse_gnmi_query(message):
                                                                         numOfPrefixes = ospfv3_intra_area_prefix_lsa.get("num-of-prefixes")
                                                                         if numOfPrefixes is not None:
                                                                             element_text = numOfPrefixes
+                                                                            if network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_intra_area_prefix_lsa_dict_buffer["id"].split(":")[-1] != int(element_text):
+                                                                                network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_intra_area_prefix_lsa_dict_buffer["id"] = network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_intra_area_prefix_lsa_dict_buffer["id"] + ":" + str(int(element_text))
                                                                             network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_intra_area_prefix_lsa_dict_buffer["numOfPrefixes"] = {}
                                                                             network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_intra_area_prefix_lsa_dict_buffer["numOfPrefixes"]["type"] = "Property"
                                                                             network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_intra_area_prefix_lsa_dict_buffer["numOfPrefixes"]["value"] = int(element_text)
@@ -8418,6 +8478,8 @@ def parse_gnmi_query(message):
                                                                                 prefix = prefixes.get("prefix")
                                                                                 if prefix is not None:
                                                                                     element_text = prefix
+                                                                                    if network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_intra_area_prefix_lsa_prefixes_dict_buffer["id"].split(":")[-1] != element_text:
+                                                                                        network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_intra_area_prefix_lsa_prefixes_dict_buffer["id"] = network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_intra_area_prefix_lsa_prefixes_dict_buffer["id"] + ":" + element_text
                                                                                     network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_intra_area_prefix_lsa_prefixes_dict_buffer["prefix"] = {}
                                                                                     network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_intra_area_prefix_lsa_prefixes_dict_buffer["prefix"]["type"] = "Property"
                                                                                     network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_intra_area_prefix_lsa_prefixes_dict_buffer["prefix"]["value"] = element_text
@@ -8435,6 +8497,8 @@ def parse_gnmi_query(message):
                                                                                     prefixOptions = prefix_options.get("prefix-options")
                                                                                     if prefixOptions is not None:
                                                                                         element_text = prefixOptions
+                                                                                        if network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_intra_area_prefix_lsa_prefixes_dict_buffer["id"].split(":")[-1] != element_text:
+                                                                                            network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_intra_area_prefix_lsa_prefixes_dict_buffer["id"] = network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_intra_area_prefix_lsa_prefixes_dict_buffer["id"] + ":" + element_text
                                                                                         network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_intra_area_prefix_lsa_prefixes_prefix_options_dict_buffer["prefixOptions"] = {}
                                                                                         network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_intra_area_prefix_lsa_prefixes_prefix_options_dict_buffer["prefixOptions"]["type"] = "Property"
                                                                                         network_instance_instance_area_lsdb_lsa_type_lsa_ospfv3_intra_area_prefix_lsa_prefixes_prefix_options_dict_buffer["prefixOptions"]["value"] = element_text
@@ -8682,6 +8746,8 @@ def parse_gnmi_query(message):
                                 ipv4Prefix = route.get("ipv4-prefix")
                                 if ipv4Prefix is not None:
                                     element_text = ipv4Prefix
+                                    if network_instance_route_dict_buffer["id"].split(":")[-1] != element_text:
+                                        network_instance_route_dict_buffer["id"] = network_instance_route_dict_buffer["id"] + ":" + element_text
                                     network_instance_route_dict_buffer["ipv4Prefix"] = {}
                                     network_instance_route_dict_buffer["ipv4Prefix"]["type"] = "Property"
                                     network_instance_route_dict_buffer["ipv4Prefix"]["value"] = element_text
@@ -8986,6 +9052,8 @@ def parse_gnmi_query(message):
                             routesWithPerPrefixStatistics = statistics.get("routes-with-per-prefix-statistics")
                             if routesWithPerPrefixStatistics is not None:
                                 element_text = routesWithPerPrefixStatistics
+                                if network_instance_statistics_dict_buffer["id"].split(":")[-1] != int(element_text):
+                                    network_instance_statistics_dict_buffer["id"] = network_instance_statistics_dict_buffer["id"] + ":" + str(int(element_text))
                                 network_instance_statistics_dict_buffer["routesWithPerPrefixStatistics"] = {}
                                 network_instance_statistics_dict_buffer["routesWithPerPrefixStatistics"]["type"] = "Property"
                                 network_instance_statistics_dict_buffer["routesWithPerPrefixStatistics"]["value"] = int(element_text)
@@ -9046,6 +9114,8 @@ def parse_gnmi_query(message):
                                     prefixLength = length.get("prefix-length")
                                     if prefixLength is not None:
                                         element_text = prefixLength
+                                        if network_instance_length_dict_buffer["id"].split(":")[-1] != int(element_text):
+                                            network_instance_length_dict_buffer["id"] = network_instance_length_dict_buffer["id"] + ":" + str(int(element_text))
                                         network_instance_length_dict_buffer["prefixLength"] = {}
                                         network_instance_length_dict_buffer["prefixLength"]["type"] = "Property"
                                         network_instance_length_dict_buffer["prefixLength"]["value"] = int(element_text)
@@ -9075,6 +9145,8 @@ def parse_gnmi_query(message):
                                 ipv6Prefix = route.get("ipv6-prefix")
                                 if ipv6Prefix is not None:
                                     element_text = ipv6Prefix
+                                    if network_instance_route_dict_buffer["id"].split(":")[-1] != element_text:
+                                        network_instance_route_dict_buffer["id"] = network_instance_route_dict_buffer["id"] + ":" + element_text
                                     network_instance_route_dict_buffer["ipv6Prefix"] = {}
                                     network_instance_route_dict_buffer["ipv6Prefix"]["type"] = "Property"
                                     network_instance_route_dict_buffer["ipv6Prefix"]["value"] = element_text
@@ -9379,6 +9451,8 @@ def parse_gnmi_query(message):
                             routesWithPerPrefixStatistics = statistics.get("routes-with-per-prefix-statistics")
                             if routesWithPerPrefixStatistics is not None:
                                 element_text = routesWithPerPrefixStatistics
+                                if network_instance_statistics_dict_buffer["id"].split(":")[-1] != int(element_text):
+                                    network_instance_statistics_dict_buffer["id"] = network_instance_statistics_dict_buffer["id"] + ":" + str(int(element_text))
                                 network_instance_statistics_dict_buffer["routesWithPerPrefixStatistics"] = {}
                                 network_instance_statistics_dict_buffer["routesWithPerPrefixStatistics"]["type"] = "Property"
                                 network_instance_statistics_dict_buffer["routesWithPerPrefixStatistics"]["value"] = int(element_text)
@@ -9439,6 +9513,8 @@ def parse_gnmi_query(message):
                                     prefixLength = length.get("prefix-length")
                                     if prefixLength is not None:
                                         element_text = prefixLength
+                                        if network_instance_length_dict_buffer["id"].split(":")[-1] != int(element_text):
+                                            network_instance_length_dict_buffer["id"] = network_instance_length_dict_buffer["id"] + ":" + str(int(element_text))
                                         network_instance_length_dict_buffer["prefixLength"] = {}
                                         network_instance_length_dict_buffer["prefixLength"]["type"] = "Property"
                                         network_instance_length_dict_buffer["prefixLength"]["value"] = int(element_text)
@@ -9831,6 +9907,8 @@ def parse_gnmi_query(message):
                                     ipPrefix = resolving_route.get("ip-prefix")
                                     if ipPrefix is not None:
                                         element_text = ipPrefix
+                                        if network_instance_next_hop_indirect_resolving_route_dict_buffer["id"].split(":")[-1] != element_text:
+                                            network_instance_next_hop_indirect_resolving_route_dict_buffer["id"] = network_instance_next_hop_indirect_resolving_route_dict_buffer["id"] + ":" + element_text
                                         network_instance_next_hop_indirect_resolving_route_dict_buffer["ipPrefix"] = {}
                                         network_instance_next_hop_indirect_resolving_route_dict_buffer["ipPrefix"]["type"] = "Property"
                                         network_instance_next_hop_indirect_resolving_route_dict_buffer["ipPrefix"]["value"] = element_text
@@ -9875,6 +9953,8 @@ def parse_gnmi_query(message):
                                     ipPrefix = resolving_tunnel.get("ip-prefix")
                                     if ipPrefix is not None:
                                         element_text = ipPrefix
+                                        if network_instance_next_hop_indirect_resolving_tunnel_dict_buffer["id"].split(":")[-1] != element_text:
+                                            network_instance_next_hop_indirect_resolving_tunnel_dict_buffer["id"] = network_instance_next_hop_indirect_resolving_tunnel_dict_buffer["id"] + ":" + element_text
                                         network_instance_next_hop_indirect_resolving_tunnel_dict_buffer["ipPrefix"] = {}
                                         network_instance_next_hop_indirect_resolving_tunnel_dict_buffer["ipPrefix"]["type"] = "Property"
                                         network_instance_next_hop_indirect_resolving_tunnel_dict_buffer["ipPrefix"]["value"] = element_text
@@ -9942,6 +10022,8 @@ def parse_gnmi_query(message):
                                     ipPrefix = tunnel.get("ip-prefix")
                                     if ipPrefix is not None:
                                         element_text = ipPrefix
+                                        if network_instance_next_hop_tunnel_dict_buffer["id"].split(":")[-1] != element_text:
+                                            network_instance_next_hop_tunnel_dict_buffer["id"] = network_instance_next_hop_tunnel_dict_buffer["id"] + ":" + element_text
                                         network_instance_next_hop_tunnel_dict_buffer["ipPrefix"] = {}
                                         network_instance_next_hop_tunnel_dict_buffer["ipPrefix"]["type"] = "Property"
                                         network_instance_next_hop_tunnel_dict_buffer["ipPrefix"]["value"] = element_text
@@ -10030,6 +10112,8 @@ def parse_gnmi_query(message):
                                 ipPrefix = tunnel.get("ip-prefix")
                                 if ipPrefix is not None:
                                     element_text = ipPrefix
+                                    if network_instance_next_hop_tunnel_dict_buffer["id"].split(":")[-1] != element_text:
+                                        network_instance_next_hop_tunnel_dict_buffer["id"] = network_instance_next_hop_tunnel_dict_buffer["id"] + ":" + element_text
                                     network_instance_next_hop_tunnel_dict_buffer["ipPrefix"] = {}
                                     network_instance_next_hop_tunnel_dict_buffer["ipPrefix"]["type"] = "Property"
                                     network_instance_next_hop_tunnel_dict_buffer["ipPrefix"]["value"] = element_text
@@ -11110,6 +11194,8 @@ def parse_gnmi_query(message):
                             prefix = route.get("prefix")
                             if prefix is not None:
                                 element_text = prefix
+                                if network_instance_static_routes_route_dict_buffer["id"].split(":")[-1] != element_text:
+                                    network_instance_static_routes_route_dict_buffer["id"] = network_instance_static_routes_route_dict_buffer["id"] + ":" + element_text
                                 network_instance_static_routes_route_dict_buffer["prefix"] = {}
                                 network_instance_static_routes_route_dict_buffer["prefix"]["type"] = "Property"
                                 network_instance_static_routes_route_dict_buffer["prefix"]["value"] = element_text
@@ -12859,6 +12945,8 @@ def parse_gnmi_query(message):
                             ipPrefix = prefix.get("ip-prefix")
                             if ipPrefix is not None:
                                 element_text = ipPrefix
+                                if prefix_set_prefix_dict_buffer["id"].split(":")[-1] != element_text:
+                                    prefix_set_prefix_dict_buffer["id"] = prefix_set_prefix_dict_buffer["id"] + ":" + element_text
                                 prefix_set_prefix_dict_buffer["ipPrefix"] = {}
                                 prefix_set_prefix_dict_buffer["ipPrefix"]["type"] = "Property"
                                 prefix_set_prefix_dict_buffer["ipPrefix"]["value"] = element_text
@@ -13450,6 +13538,8 @@ def parse_gnmi_query(message):
                                     prefixSet = prefix.get("prefix-set")
                                     if prefixSet is not None:
                                         element_text = prefixSet
+                                        if policy_statement_match_prefix_dict_buffer["id"].split(":")[-1] != element_text:
+                                            policy_statement_match_prefix_dict_buffer["id"] = policy_statement_match_prefix_dict_buffer["id"] + ":" + element_text
                                         policy_statement_match_prefix_dict_buffer["prefixSet"] = {}
                                         policy_statement_match_prefix_dict_buffer["prefixSet"]["type"] = "Relationship"
                                         policy_statement_match_prefix_dict_buffer["prefixSet"]["object"] = "urn:ngsi-ld:PrefixSet:" + ":".join(policy_statement_match_prefix_dict_buffer["id"].split(":")[3:])
@@ -13834,6 +13924,8 @@ def parse_gnmi_query(message):
                                         prefixSet = group_address.get("prefix-set")
                                         if prefixSet is not None:
                                             element_text = prefixSet
+                                            if policy_statement_match_group_address_dict_buffer["id"].split(":")[-1] != element_text:
+                                                policy_statement_match_group_address_dict_buffer["id"] = policy_statement_match_group_address_dict_buffer["id"] + ":" + element_text
                                             policy_statement_match_group_address_dict_buffer["prefixSet"] = {}
                                             policy_statement_match_group_address_dict_buffer["prefixSet"]["type"] = "Relationship"
                                             policy_statement_match_group_address_dict_buffer["prefixSet"]["object"] = "urn:ngsi-ld:PrefixSet:" + ":".join(policy_statement_match_group_address_dict_buffer["id"].split(":")[3:])
@@ -13854,6 +13946,8 @@ def parse_gnmi_query(message):
                                         prefixSet = source_address.get("prefix-set")
                                         if prefixSet is not None:
                                             element_text = prefixSet
+                                            if policy_statement_match_source_address_dict_buffer["id"].split(":")[-1] != element_text:
+                                                policy_statement_match_source_address_dict_buffer["id"] = policy_statement_match_source_address_dict_buffer["id"] + ":" + element_text
                                             policy_statement_match_source_address_dict_buffer["prefixSet"] = {}
                                             policy_statement_match_source_address_dict_buffer["prefixSet"]["type"] = "Relationship"
                                             policy_statement_match_source_address_dict_buffer["prefixSet"]["object"] = "urn:ngsi-ld:PrefixSet:" + ":".join(policy_statement_match_source_address_dict_buffer["id"].split(":")[3:])
@@ -15795,6 +15889,8 @@ def parse_gnmi_query(message):
                             ipPrefix = prefix.get("ip-prefix")
                             if ipPrefix is not None:
                                 element_text = ipPrefix
+                                if system_srv6_micro_segment_block_prefix_dict_buffer["id"].split(":")[-1] != element_text:
+                                    system_srv6_micro_segment_block_prefix_dict_buffer["id"] = system_srv6_micro_segment_block_prefix_dict_buffer["id"] + ":" + element_text
                                 system_srv6_micro_segment_block_prefix_dict_buffer["ipPrefix"] = {}
                                 system_srv6_micro_segment_block_prefix_dict_buffer["ipPrefix"]["type"] = "Property"
                                 system_srv6_micro_segment_block_prefix_dict_buffer["ipPrefix"]["value"] = element_text
@@ -15894,6 +15990,8 @@ def parse_gnmi_query(message):
                             ipPrefix = prefix.get("ip-prefix")
                             if ipPrefix is not None:
                                 element_text = ipPrefix
+                                if system_srv6_locator_full_segment_prefix_dict_buffer["id"].split(":")[-1] != element_text:
+                                    system_srv6_locator_full_segment_prefix_dict_buffer["id"] = system_srv6_locator_full_segment_prefix_dict_buffer["id"] + ":" + element_text
                                 system_srv6_locator_full_segment_prefix_dict_buffer["ipPrefix"] = {}
                                 system_srv6_locator_full_segment_prefix_dict_buffer["ipPrefix"]["type"] = "Property"
                                 system_srv6_locator_full_segment_prefix_dict_buffer["ipPrefix"]["value"] = element_text

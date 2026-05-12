@@ -1,0 +1,115 @@
+targets:
+  clab-srlinux-testbed-r1:
+    # gNMI target address; CLI flag `--address`
+    address: "clab-srlinux-testbed-r1"
+    # gNMI target user name; CLI flag `--username`
+    username: admin
+    # gNMI target user password; CLI flag `--password`
+    password: NokiaSrl1!
+    # do not verify the target certificate when using tls; CLI flag `--skip-verify`
+    skip-verify: true
+    # log file location; CLI flag `--log-file`
+    log-file: /tmp/gnmic-1.log
+    subscriptions:
+      - srl1_routing_stats
+  clab-srlinux-testbed-r2:
+    # gNMI target address; CLI flag `--address`
+    address: "clab-srlinux-testbed-r2"
+    # gNMI target user name; CLI flag `--username`
+    username: admin
+    # gNMI target user password; CLI flag `--password`
+    password: NokiaSrl1!
+    # do not verify the target certificate when using tls; CLI flag `--skip-verify`
+    skip-verify: true
+    # log file location; CLI flag `--log-file`
+    log-file: /tmp/gnmic-2.log
+    subscriptions:
+      - srl2_routing_stats
+subscriptions:
+  srl1_routing_stats:
+    paths:
+       - "/srl_nokia-network-instance:network-instance[name=*]/icmp/statistics/total"
+       - "/srl_nokia-network-instance:network-instance[name=*]/icmp/statistics/type"
+       - "/srl_nokia-network-instance:network-instance[name=*]/icmp/statistics/last-clear"
+       - "/srl_nokia-network-instance:network-instance[name=*]/icmp6/statistics/total"
+       - "/srl_nokia-network-instance:network-instance[name=*]/icmp6/statistics/type"
+       - "/srl_nokia-network-instance:network-instance[name=*]/icmp6/statistics/last-clear"
+       - "/srl_nokia-network-instance:network-instance[name=*]/srl_nokia-tcp-udp:tcp/statistics"
+       - "/srl_nokia-network-instance:network-instance[name=*]/srl_nokia-tcp-udp:udp/statistics"
+       - "/srl_nokia-network-instance:network-instance[name=*]/route-table/srl_nokia-ip-route-tables:ipv4-unicast/statistics"
+       - "/srl_nokia-network-instance:network-instance[name=*]/route-table/srl_nokia-ip-route-tables:ipv6-unicast/statistics"
+       - "/srl_nokia-network-instance:network-instance[name=*]/protocols/srl_nokia-ospf:ospf/instance[name=*]"
+    stream-mode: sample
+    sample-interval: 5s
+    encoding: JSON_IETF
+    outputs: 
+      - output-srl1
+  srl2_routing_stats:
+    paths:
+       - "/srl_nokia-network-instance:network-instance[name=*]/icmp/statistics/total"
+       - "/srl_nokia-network-instance:network-instance[name=*]/icmp/statistics/type"
+       - "/srl_nokia-network-instance:network-instance[name=*]/icmp/statistics/last-clear"
+       - "/srl_nokia-network-instance:network-instance[name=*]/icmp6/statistics/total"
+       - "/srl_nokia-network-instance:network-instance[name=*]/icmp6/statistics/type"
+       - "/srl_nokia-network-instance:network-instance[name=*]/icmp6/statistics/last-clear"
+       - "/srl_nokia-network-instance:network-instance[name=*]/srl_nokia-tcp-udp:tcp/statistics"
+       - "/srl_nokia-network-instance:network-instance[name=*]/srl_nokia-tcp-udp:udp/statistics"
+       - "/srl_nokia-network-instance:network-instance[name=*]/route-table/srl_nokia-ip-route-tables:ipv4-unicast/statistics"
+       - "/srl_nokia-network-instance:network-instance[name=*]/route-table/srl_nokia-ip-route-tables:ipv6-unicast/statistics"
+       - "/srl_nokia-network-instance:network-instance[name=*]/protocols/srl_nokia-ospf:ospf/instance[name=*]"
+    stream-mode: sample
+    sample-interval: 5s
+    encoding: JSON_IETF
+    outputs: 
+      - output-srl2
+outputs:
+  output-srl1:
+    # required
+    type: kafka
+    # Comma separated brokers addresses
+    address: kafka:9092
+    # Kafka topic name
+    topic: routing-state-notifications
+    max-retry: 2
+    # Kafka connection timeout
+    timeout: 5s
+    # Wait time to reestablish the kafka producer connection after a failure
+    recovery-wait-time: 10s
+    # Exported msg format, json, protojson, prototext, proto, event
+    format: event
+    event-processors:
+    #  - group-by-processor
+      - merge-processor
+  output-srl2:
+    # required
+    type: kafka
+    # Comma separated brokers addresses
+    address: kafka:9092
+    # Kafka topic name
+    topic: routing-state-notifications
+    max-retry: 2
+    # Kafka connection timeout
+    timeout: 5s
+    # Wait time to reestablish the kafka producer connection after a failure
+    recovery-wait-time: 10s
+    # Exported msg format, json, protojson, prototext, proto, event
+    format: event
+    event-processors:
+    #  - group-by-processor
+      - merge-processor
+      
+processors:
+  # processor name
+  group-by-processor:
+    # processor type
+    event-group-by:
+      tags:
+        - source
+  # processor name
+  merge-processor:
+    # processor type
+    event-merge:
+      # if always is set to true, 
+      # the updates are merged regardless of the timestamp values
+      always: true
+      debug: false

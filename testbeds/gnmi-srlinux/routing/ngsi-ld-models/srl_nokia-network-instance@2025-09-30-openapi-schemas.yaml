@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: OpenAPI schemas for YANG data models ngsi-ld-api.yaml, ietf-yang-types@2013-07-15.yang, srl_nokia-bridge-table-mac-duplication.yang, srl_nokia-bridge-table-mac-learning.yang, srl_nokia-bridge-table-mac-limit.yang, srl_nokia-bridge-table-shg.yang, srl_nokia-bridge-table.yang, srl_nokia-common.yang, srl_nokia-connection-point-pseudowires.yang, srl_nokia-extensions.yang, srl_nokia-features.yang, srl_nokia-flexible-algorithms-types.yang, srl_nokia-icmp.yang, srl_nokia-if-ip.yang, srl_nokia-interfaces-bridge-table.yang, srl_nokia-interfaces.yang, srl_nokia-ip-route-tables.yang, srl_nokia-isis-lsdb-types.yang, srl_nokia-isis-lsdb.yang, srl_nokia-isis-types.yang, srl_nokia-keychains.yang, srl_nokia-linux@2019-11-30.yang, srl_nokia-lldp-types.yang, srl_nokia-lldp.yang, srl_nokia-load-balancing.yang, srl_nokia-network-instance.yang, srl_nokia-next-hop-groups.yang, srl_nokia-ospf@2020-12-31.yang, srl_nokia-ospf-lsdb.yang, srl_nokia-ospf-types.yang, srl_nokia-ospfv3-lsas.yang, srl_nokia-platform-control-fp.yang, srl_nokia-platform-control.yang, srl_nokia-platform-lc.yang, srl_nokia-platform-linecard-fib.yang, srl_nokia-platform-pipeline-counters.yang, srl_nokia-platform.yang, srl_nokia-policy-types.yang, srl_nokia-protection-policies.yang, srl_nokia-pw-tunnel.yang, srl_nokia-routing-policy.yang, srl_nokia-srv6-types.yang, srl_nokia-srv6.yang, srl_nokia-static-routes@2019-11-30.yang, srl_nokia-system.yang, srl_nokia-traffic-engineering.yang, srl_nokia-tunnel.yang.
+  title: OpenAPI schemas for YANG data models ngsi-ld-api.yaml, ietf-yang-types@2013-07-15.yang, srl_nokia-bridge-table-mac-duplication.yang, srl_nokia-bridge-table-mac-learning.yang, srl_nokia-bridge-table-mac-limit.yang, srl_nokia-bridge-table-shg.yang, srl_nokia-bridge-table.yang, srl_nokia-common.yang, srl_nokia-connection-point-pseudowires.yang, srl_nokia-extensions.yang, srl_nokia-features.yang, srl_nokia-flexible-algorithms-types.yang, srl_nokia-icmp.yang, srl_nokia-if-ip.yang, srl_nokia-interfaces-bridge-table.yang, srl_nokia-interfaces.yang, srl_nokia-ip-route-tables.yang, srl_nokia-isis-lsdb-types.yang, srl_nokia-isis-lsdb.yang, srl_nokia-isis-types.yang, srl_nokia-keychains.yang, srl_nokia-linux@2019-11-30.yang, srl_nokia-lldp-types.yang, srl_nokia-lldp.yang, srl_nokia-load-balancing.yang, srl_nokia-network-instance.yang, srl_nokia-next-hop-groups.yang, srl_nokia-ospf@2020-12-31.yang, srl_nokia-ospf-lsdb.yang, srl_nokia-ospf-types.yang, srl_nokia-ospfv3-lsas.yang, srl_nokia-platform-control-fp.yang, srl_nokia-platform-control.yang, srl_nokia-platform-lc.yang, srl_nokia-platform-linecard-fib.yang, srl_nokia-platform-pipeline-counters.yang, srl_nokia-platform.yang, srl_nokia-policy-types.yang, srl_nokia-protection-policies.yang, srl_nokia-pw-tunnel.yang, srl_nokia-routing-policy.yang, srl_nokia-srv6-types.yang, srl_nokia-srv6.yang, srl_nokia-static-routes@2019-11-30.yang, srl_nokia-system.yang, srl_nokia-tcp-udp.yang, srl_nokia-traffic-engineering.yang, srl_nokia-tunnel.yang.
   version: 1.0.0
   description: OpenAPI schemas for YANG data models compliant with the NGSI-LD OAS V1.6.1 metamodel according to ETSI GS CIM 009 V1.6.1.
 paths: {}
@@ -23738,7 +23738,7 @@ components:
                 - NetworkInstanceNextHopGroupsGroupNexthopFailureDetectionEnableBfd
               default: NetworkInstanceNextHopGroupsGroupNexthopFailureDetectionEnableBfd
             localAddress:
-              $ref: '#/components/schemas/LocalAddress'
+              $ref: '#/components/schemas/NetworkInstanceNextHopGroupsGroupNexthopFailureDetectionEnableBfdLocalAddress'
             localDiscriminator:
               $ref: '#/components/schemas/LocalDiscriminator'
             remoteDiscriminator:
@@ -23750,7 +23750,7 @@ components:
           - type
           - isPartOf
           - localAddress
-    LocalAddress:
+    NetworkInstanceNextHopGroupsGroupNexthopFailureDetectionEnableBfdLocalAddress:
       description: |
         The local address to be used for the associated BFD session
         
@@ -24498,6 +24498,601 @@ components:
           properties:
             value:
               type: boolean
+          required:
+            - value
+    NetworkInstanceTcpStatistics:
+      description: |
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be NetworkInstanceTcpStatistics.
+              type: string
+              enum:
+                - NetworkInstanceTcpStatistics
+              default: NetworkInstanceTcpStatistics
+            activeOpens:
+              $ref: '#/components/schemas/ActiveOpens'
+            passiveOpens:
+              $ref: '#/components/schemas/PassiveOpens'
+            attemptFails:
+              $ref: '#/components/schemas/AttemptFails'
+            establishedResets:
+              $ref: '#/components/schemas/EstablishedResets'
+            inSegments:
+              $ref: '#/components/schemas/InSegments'
+            outSegments:
+              $ref: '#/components/schemas/OutSegments'
+            retransmittedSegments:
+              $ref: '#/components/schemas/RetransmittedSegments'
+            inErrorSegments:
+              $ref: '#/components/schemas/InErrorSegments'
+            outRstSegments:
+              $ref: '#/components/schemas/OutRstSegments'
+            inChecksumErrors:
+              $ref: '#/components/schemas/NetworkInstanceTcpStatisticsInChecksumErrors'
+            isPartOf:
+              $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type NetworkInstance.
+        - required:
+          - type
+          - isPartOf
+    ActiveOpens:
+      description: |
+        The total number of times that TCP connections have made a direct transition to the SYN-SENT state from the CLOSED state.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    PassiveOpens:
+      description: |
+        The total number of times TCP connections have made a direct transition to the SYN-RCVD state from the LISTEN state.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    AttemptFails:
+      description: |
+        The total number of times that TCP connections have made a direct transition to the CLOSED state from either the SYN-SENT state or the SYN-RCVD state, plus the number of times that TCP connections have made a direct transition to the LISTEN state from the SYN-RCVD state.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    EstablishedResets:
+      description: |
+        The total number of times that TCP connections have made a direct transition to the CLOSED state from either the ESTABLISHED state or the CLOSE-WAIT state.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    InSegments:
+      description: |
+        The total number of segments received, including those received in error. This count includes segments received on currently established connections.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    OutSegments:
+      description: |
+        The total number of segments sent, including those on current connections but excluding those containing only retransmitted octets.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    RetransmittedSegments:
+      description: |
+        The total number of segments retransmitted; that is, the number of TCP segments transmitted containing one or more previously transmitted octets.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    InErrorSegments:
+      description: |
+        The total number of segments received in error (e.g., bad TCP checksums).
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    OutRstSegments:
+      description: |
+        The total number of TCP segments sent containing the RST flag.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    NetworkInstanceTcpStatisticsInChecksumErrors:
+      description: |
+        The total number of segments that are received as bad TCP checksum errors.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    NetworkInstanceTcpConnection:
+      description: |
+        List of TCP connections that are established or that are in the process of being established – i.e. excluding those in the LISTEN state. An entry in this list is transient in that it ceases to exist when (or soon after) the connection makes the transition to the CLOSED state.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be NetworkInstanceTcpConnection.
+              type: string
+              enum:
+                - NetworkInstanceTcpConnection
+              default: NetworkInstanceTcpConnection
+            localAddress:
+              $ref: '#/components/schemas/NetworkInstanceTcpConnectionLocalAddress'
+            localPort:
+              $ref: '#/components/schemas/NetworkInstanceTcpConnectionLocalPort'
+            remoteAddress:
+              $ref: '#/components/schemas/RemoteAddress'
+            remotePort:
+              $ref: '#/components/schemas/RemotePort'
+            sessionState:
+              $ref: '#/components/schemas/SessionState'
+            processId:
+              $ref: '#/components/schemas/NetworkInstanceTcpConnectionProcessId'
+            isPartOf:
+              $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type NetworkInstance.
+        - required:
+          - type
+          - isPartOf
+    NetworkInstanceTcpConnectionLocalAddress:
+      description: |
+        The local IP address for this TCP connection.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+          required:
+            - value
+    NetworkInstanceTcpConnectionLocalPort:
+      description: |
+        The local port number for this TCP connection.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    RemoteAddress:
+      description: |
+        The remote IP address for this TCP connection.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+          required:
+            - value
+    RemotePort:
+      description: |
+        The remote port number for this TCP connection.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    SessionState:
+      description: |
+        The state of this TCP connection.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+              enum:
+                - closed
+                - syn-sent
+                - syn-received
+                - established
+                - fin-wait1
+                - fin-wait2
+                - close-wait
+                - last-ack
+                - closing
+                - time-wait
+                - delete-tcb
+          required:
+            - value
+    NetworkInstanceTcpConnectionProcessId:
+      description: |
+        The process ID of the application that owns the socket.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    NetworkInstanceTcpListeningApplication:
+      description: |
+        List of applications that are listening on a particular TCP port bound to the network-instance.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be NetworkInstanceTcpListeningApplication.
+              type: string
+              enum:
+                - NetworkInstanceTcpListeningApplication
+              default: NetworkInstanceTcpListeningApplication
+            localAddress:
+              $ref: '#/components/schemas/NetworkInstanceTcpListeningApplicationLocalAddress'
+            localPort:
+              $ref: '#/components/schemas/NetworkInstanceTcpListeningApplicationLocalPort'
+            processId:
+              $ref: '#/components/schemas/NetworkInstanceTcpListeningApplicationProcessId'
+            isPartOf:
+              $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type NetworkInstance.
+        - required:
+          - type
+          - isPartOf
+    NetworkInstanceTcpListeningApplicationLocalAddress:
+      description: |
+        The local IP address accepted by the application. An all-zeroes value for the ipv4-address means that any IPv4 address is accepted. An all-zeroes value for the ipv6-address means that any IPv6 address is accepted.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+          required:
+            - value
+    NetworkInstanceTcpListeningApplicationLocalPort:
+      description: |
+        The local port number accepted by the application.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    NetworkInstanceTcpListeningApplicationProcessId:
+      description: |
+        The process ID of the application that owns the socket.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    NetworkInstanceUdpStatistics:
+      description: |
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be NetworkInstanceUdpStatistics.
+              type: string
+              enum:
+                - NetworkInstanceUdpStatistics
+              default: NetworkInstanceUdpStatistics
+            inPackets:
+              $ref: '#/components/schemas/NetworkInstanceUdpStatisticsInPackets'
+            inNoOpenPortsPackets:
+              $ref: '#/components/schemas/InNoOpenPortsPackets'
+            inErrorPackets:
+              $ref: '#/components/schemas/NetworkInstanceUdpStatisticsInErrorPackets'
+            outPackets:
+              $ref: '#/components/schemas/NetworkInstanceUdpStatisticsOutPackets'
+            receiveBufferErrors:
+              $ref: '#/components/schemas/ReceiveBufferErrors'
+            sendBufferErrors:
+              $ref: '#/components/schemas/SendBufferErrors'
+            inChecksumErrors:
+              $ref: '#/components/schemas/NetworkInstanceUdpStatisticsInChecksumErrors'
+            ignoredMulticastPackets:
+              $ref: '#/components/schemas/IgnoredMulticastPackets'
+            isPartOf:
+              $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type NetworkInstance.
+        - required:
+          - type
+          - isPartOf
+    NetworkInstanceUdpStatisticsInPackets:
+      description: |
+        The total number of UDP datagrams delivered to UDP users.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    InNoOpenPortsPackets:
+      description: |
+        The total number of received UDP datagrams for whichthere was no application at the destination port.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    NetworkInstanceUdpStatisticsInErrorPackets:
+      description: |
+        The total number of received UDP datagrams that could not be delivered for reasons other than the lack of an application at the destination port.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    NetworkInstanceUdpStatisticsOutPackets:
+      description: |
+        The total number of UDP datagrams sent from this network instance.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    ReceiveBufferErrors:
+      description: |
+        Increased when memory cannot be allocated to process an incoming UDP packet.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    SendBufferErrors:
+      description: |
+        Increased when memory cannot be allocated to send a UDP packet.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    NetworkInstanceUdpStatisticsInChecksumErrors:
+      description: |
+        Increased when a received UDP packet has an invalid checksum.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    IgnoredMulticastPackets:
+      description: |
+        The total number of ignored multicast UDP datagrams.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    NetworkInstanceUdpListeningApplication:
+      description: |
+        List of applications that are listening on a particular UDP port bound to the network-instance.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Entity'
+        - type: object
+          properties:
+            type:
+              description: NGSI-LD Entity identifier. It has to be NetworkInstanceUdpListeningApplication.
+              type: string
+              enum:
+                - NetworkInstanceUdpListeningApplication
+              default: NetworkInstanceUdpListeningApplication
+            localAddress:
+              $ref: '#/components/schemas/NetworkInstanceUdpListeningApplicationLocalAddress'
+            localPort:
+              $ref: '#/components/schemas/NetworkInstanceUdpListeningApplicationLocalPort'
+            processId:
+              $ref: '#/components/schemas/NetworkInstanceUdpListeningApplicationProcessId'
+            isPartOf:
+              $ref: '#/components/schemas/IsPartOf'
+              description: isPartOf Relationship with Entity type NetworkInstance.
+        - required:
+          - type
+          - isPartOf
+    NetworkInstanceUdpListeningApplicationLocalAddress:
+      description: |
+        The local IP address accepted by the application. An all-zeroes value for the ipv4-address means that any IPv4 address is accepted. An all-zeroes value for the ipv6-address means that any IPv6 address is accepted.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: string
+          required:
+            - value
+    NetworkInstanceUdpListeningApplicationLocalPort:
+      description: |
+        The local port number accepted by the application.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
+          required:
+            - value
+    NetworkInstanceUdpListeningApplicationProcessId:
+      description: |
+        The process ID of the application that owns the socket.
+        
+        YANG module: srl_nokia-tcp-udp.yang
+      additionalProperties: false
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/giros-dit/python-ngsi-ld-client/1.6.1/schemas/ngsi-ld-api.yaml#/components/schemas/Property'
+        - type: object
+          properties:
+            value:
+              type: integer
           required:
             - value
     Linecard:

@@ -4,4 +4,4 @@ password: NokiaSrl1!
 skip-verify: true
 encoding: JSON_IETF
 get-path: 
-    - ...  # `get` command local flag
+    - srl_nokia:/network-instance[name=*]  # `get` command local flag

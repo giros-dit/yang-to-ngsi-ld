@@ -6,7 +6,7 @@ import json
 
 producer = KafkaProducer(bootstrap_servers=['kafka:9092'])
 
-with open('sample-network-instance-state-static.json', 'r') as file:
+with open('sample-network-instance-config-static.json', 'r') as file:
     data = json.load(file)
 
 while True:
@@ -16,7 +16,7 @@ while True:
     data[0]['timestamp'] = current_time
     data[0]['time'] = str(current_datetime)
 
-    producer.send('routing-state-queries', value=json.dumps(data).encode('utf-8'))
+    producer.send('routing-config-queries', value=json.dumps(data).encode('utf-8'))
     producer.flush()
 
     print("QUERY DATA: " + str(json.dumps(data)) + "\n")

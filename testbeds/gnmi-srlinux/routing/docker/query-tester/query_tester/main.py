@@ -57,12 +57,11 @@ csv_writer.writerow(csv_header)
     
 # Init FastAPI server
 app = FastAPI(
-    title="query Tester API",
+    title="Query Tester API",
     version="1.0.0")
 
 @app.on_event("startup")
 async def startup_event():
-    
     # Check if Scorpio API is up
     ngsi_ld_health_info_api.check_scorpio_status()
 
@@ -71,51 +70,60 @@ async def startup_event():
 
     api_instance_consumption = ngsi_ld_client.ContextInformationConsumptionApi(ngsi_ld)
     
-    last_modified_at = None
+    last_observed_at = None
 
     while True:
         entity = None
         try:
-            # Retrieve NGSI-LD Entity by id: GET /entities/{entityId}
-            api_response = api_instance_consumption.retrieve_entity.__wrapped__(api_instance_consumption,
-                                                                              entity_id='...',
-                                                                              options=['sysAttrs']) # pasar directamente la representación primitiva            
+            # Retrieve NGSI-LD Entity by id: GET /entities/{entityId} (e.g., urn:ngsi-ld:NetworkInstanceStaticRoutesRoute:routing-testbed:r1:default:192.168.2.0/24)
+            #api_response = api_instance_consumption.retrieve_entity.__wrapped__(api_instance_consumption, entity_id='urn:ngsi-ld:NetworkInstanceStaticRoutesRoute:routing-testbed:r1:default:192.168.2.0/24', options=['sysAttrs']) # pasar directamente la representación primitiva            
+            
+            # Query NGSI-LD entities of type NetworkInstanceStaticRoutesRoute: GET /entities
+            #api_response = api_instance_consumption.query_entity(type='NetworkInstanceStaticRoutesRoute')
+            api_response = api_instance_consumption.query_entity.__wrapped__(api_instance_consumption, type='NetworkInstanceStaticRoutesRoute', options=['sysAttrs']) # pasar directamente la representación primitiva            
+            
             if api_response:
+                #entity = api_response.to_dict()
+                #logger.info("Entity query response: %s\n" %entity)
+                entities = api_response
+                logger.info("Entities query response: %s\n" %entities)
+                for i, entity in enumerate(entities):
+                    entity = entity.to_dict()
+                    if "observedAt" in entity["prefix"] and "modifiedAt" in entity["prefix"]:
+                        if last_observed_at is not None and last_observed_at == parser.parse(entity["prefix"]["observedAt"]):
+                            if i == len(entities) - 1:
+                                logger.info("No new entity values. Retrying in 10 seconds...")
+                        else:
+                            logger.info("Entity info: %s\n" %entity)
+                            observed_at = parser.parse(entity["prefix"]["observedAt"])
+                            modified_at = parser.parse(entity["prefix"]["modifiedAt"])
 
-                entity = api_response.to_dict()
-                logger.info("Entity query response: %s\n" %entity)
+                            delta_time = (modified_at - observed_at).total_seconds()
+                            delta_times.append(delta_time)
 
-                if "observedAt" in entity["name"] and "modifiedAt" in entity["name"]:
-                    if last_modified_at is not None and last_modified_at == entity["name"]["modifiedAt"]:
-                        logger.info("No new entity values. Retrying in 10 seconds...")
-                        sleep(5)
-                    else:
-                        observed_at = parser.parse(entity["name"]["observedAt"])
-                        modified_at = parser.parse(entity["name"]["modifiedAt"])
+                            logger.info("--- PERFORMANCE MEASUREMENTS ---\n")
+                            logger.info("OBSERVED AT: " + observed_at.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
+                            logger.info("MODIFIED AT: " + modified_at.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n") 
+                            logger.info("NOTIFICATIONS RECEIVED SO FAR: " + str(len(delta_times)) + "\n")
+                            logger.info(f"EVALUATION TIME: {delta_time * 1e3} ms\n")
+                            mean_evaluation_time = sum(delta_times)/len(delta_times)
+                            min_evaluation_time = min(delta_times)
+                            max_evaluation_time = max(delta_times)
+                            logger.info(f"MEAN EVALUATION TIME: {mean_evaluation_time * 1e3} ms\n")
+                            logger.info(f"MIN EVALUATION TIME: {min_evaluation_time * 1e3} ms\n")
+                            logger.info(f"MAX EVALUATION TIME VALUE: {max_evaluation_time * 1e3} ms\n")
+                            logger.info("--- PERFORMANCE MEASUREMENTS ---")
+                            
+                            csv_data = [observed_at.strftime("%Y-%m-%dT%H:%M:%S.%fZ"), modified_at.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+                                        str(delta_time * 1e3) + " ms", str(mean_evaluation_time * 1e3) + " ms",
+                                        str(min_evaluation_time * 1e3) + " ms", str(max_evaluation_time * 1e3) + " ms",
+                                        str(len(delta_times))]
+                            csv_writer.writerow(csv_data)
+                            performance_measurements_file.flush()
 
-                        delta_time = (modified_at - observed_at).total_seconds()
-                        delta_times.append(delta_time)
+                            if i == len(entities) - 1:
+                                last_observed_at = observed_at
 
-                        logger.info("--- PERFORMANCE MEASUREMENTS ---\n")
-                        logger.info("OBSERVED AT: " + observed_at.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n")
-                        logger.info("MODIFIED AT: " + modified_at.strftime("%Y-%m-%dT%H:%M:%S.%fZ") + "\n") 
-                        logger.info("NOTIFICATIONS RECEIVED SO FAR: " + str(len(delta_times)) + "\n")
-                        logger.info(f"EVALUATION TIME: {delta_time * 1e3} ms\n")
-                        mean_evaluation_time = sum(delta_times)/len(delta_times)
-                        min_evaluation_time = min(delta_times)
-                        max_evaluation_time = max(delta_times)
-                        logger.info(f"MEAN EVALUATION TIME: {mean_evaluation_time * 1e3} ms\n")
-                        logger.info(f"MIN EVALUATION TIME: {min_evaluation_time * 1e3} ms\n")
-                        logger.info(f"MAX EVALUATION TIME VALUE: {max_evaluation_time * 1e3} ms\n")
-                        logger.info("--- PERFORMANCE MEASUREMENTS ---")
-                        
-                        csv_data = [observed_at.strftime("%Y-%m-%dT%H:%M:%S.%fZ"), modified_at.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
-                                    str(delta_time * 1e3) + " ms", str(mean_evaluation_time * 1e3) + " ms",
-                                    str(min_evaluation_time * 1e3) + " ms", str(max_evaluation_time * 1e3) + " ms",
-                                    str(len(delta_times))]
-                        csv_writer.writerow(csv_data)
-                        performance_measurements_file.flush()
-                        last_modified_at = entity["name"]["modifiedAt"]
             else:
                 logger.info("No entity found. Retrying in 10 seconds...")
             

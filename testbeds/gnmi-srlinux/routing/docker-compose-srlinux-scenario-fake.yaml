@@ -20,7 +20,7 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_ADVERTISED_PORT: 9092
       KAFKA_LOG_DIRS: "/tmp/kafka-logs"
-      KAFKA_CREATE_TOPICS: "interfaces-state-queries:1:1,interfaces-state-notifications:1:1,interfaces-oper-notifications:1:1"
+      KAFKA_CREATE_TOPICS: "routing-config-queries:1:1,routing-state-notifications:1:1"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
@@ -89,6 +89,21 @@ services:
       gnmi-json-parser-queries-with-ngsi-ld-instantiator:
         condition: service_healthy
 
+  fake-gnmic-collector-subscriptions:
+    build: 
+      context: ./docker/fake-gnmic-collector-subscriptions/
+      dockerfile: Dockerfile
+    hostname: fake-gnmic-collector-subscriptions
+    container_name: fake-gnmic-collector-subscriptions
+    command: ["python3", "-u", "/opt/fake-gnmic-collector-subscriptions/gnmic-collector-subscriptions-kafka.py", "5"]
+    volumes:
+      - ./docker/fake-gnmic-collector-subscriptions:/opt/fake-gnmic-collector-subscriptions
+    depends_on:
+      kafka:
+        condition: service_healthy
+      gnmi-json-parser-notifications-with-ngsi-ld-instantiator:
+        condition: service_healthy
+
   gnmi-json-parser-queries-with-ngsi-ld-instantiator:
     build:
       context: .
@@ -110,19 +125,20 @@ services:
       kafka:
         condition: service_healthy
     restart: always
-
-  query-tester:
+    
+  gnmi-json-parser-notifications-with-ngsi-ld-instantiator:
     build:
       context: .
-      dockerfile: ./docker/query-tester/Dockerfile
-    hostname: query-tester
-    container_name: query-tester
-    expose:
-      - "8083"
-    ports:
-      - "8083:8083"
+      dockerfile: ./docker/gnmi-json-parser-notifications-with-ngsi-ld-instantiator/Dockerfile
+    hostname: gnmi-json-parser-notifications-with-ngsi-ld-instantiator
+    container_name: gnmi-json-parser-notifications-with-ngsi-ld-instantiator
     volumes:
-      - ./docker/query-tester/query_tester:/opt/query-tester/query_tester
+      - ./docker/gnmi-json-parser-notifications-with-ngsi-ld-instantiator:/opt/gnmi-json-parser-notifications-with-ngsi-ld-instantiator
+    healthcheck:
+      test: ["CMD", "python3", "--version"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
     depends_on:
       scorpio:
         condition: service_started

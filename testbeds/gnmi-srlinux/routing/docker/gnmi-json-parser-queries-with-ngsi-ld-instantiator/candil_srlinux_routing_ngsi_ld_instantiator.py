@@ -13,12 +13,29 @@ from kafka import KafkaConsumer
 from dateutil import parser
 
 from candil_srlinux_routing_json_parser_queries import parse_gnmi_query
+from check_client import NGSILDHealthInfoClient
 
 import ngsi_ld_client
 
-from ngsi_ld_models.models.interface import Interface
 from ngsi_ld_models.models.yang_identity import YANGIdentity
-from ngsi_ld_models.models.interface_statistics import InterfaceStatistics
+
+# --- IMPORTACIONES PARA ENCAMINAMIENTO (ESTÁTICO Y OSPF) ---
+# Entidades Comunes
+from ngsi_ld_models.models.network_instance import NetworkInstance
+from ngsi_ld_models.models.network_instance_interface import NetworkInstanceInterface
+from ngsi_ld_models.models.network_instance_protocols_linux import NetworkInstanceProtocolsLinux
+
+# Entidades de Rutas Estáticas y Next-Hops
+from ngsi_ld_models.models.network_instance_static_routes import NetworkInstanceStaticRoutes
+from ngsi_ld_models.models.network_instance_static_routes_route import NetworkInstanceStaticRoutesRoute
+from ngsi_ld_models.models.network_instance_next_hop_groups_group import NetworkInstanceNextHopGroupsGroup
+from ngsi_ld_models.models.network_instance_next_hop_groups_group_nexthop import NetworkInstanceNextHopGroupsGroupNexthop
+
+# Entidades de OSPF 
+from ngsi_ld_models.models.network_instance_protocols_ospf_instance import NetworkInstanceProtocolsOspfInstance
+from ngsi_ld_models.models.network_instance_protocols_ospf_instance_area import NetworkInstanceProtocolsOspfInstanceArea
+from ngsi_ld_models.models.network_instance_protocols_ospf_instance_area_interface import NetworkInstanceProtocolsOspfInstanceAreaInterface
+# ----------------------------------------------------------
 
 from ngsi_ld_client.models.entity import Entity
 from ngsi_ld_client.models.query_entity200_response_inner import QueryEntity200ResponseInner
@@ -49,6 +66,20 @@ CONTEXT_CATALOG_URI = os.getenv("CONTEXT_CATALOG_URI", "http://context-catalog:8
 ## -- BEGIN AUXILIARY FUNCTIONS -- ##
 
 def init_ngsi_ld_client():
+
+    print("Checking Scorpio status...")
+
+    ngsi_ld_health_info_api = NGSILDHealthInfoClient(
+        url="http://scorpio:9090",
+        headers={"Accept": "application/json"},
+        context="http://context-catalog:8080/context.jsonld")
+
+    # Check if Scorpio API is up
+    ngsi_ld_health_info_api.check_scorpio_status()
+
+    # Check Scorpio build info
+    ngsi_ld_health_info_api.check_scorpio_info()
+
     configuration = NGSILDConfiguration(host=BROKER_URI)
     configuration.debug = True
     ngsi_ld = NGSILDClient(configuration=configuration)
@@ -126,14 +157,66 @@ def update_ngsi_ld_entity(ngsi_ld, entity_id: str, entity) -> bool:
 
     return result
 
+def upsert_ngsi_ld_entity(ngsi_ld, entity) -> bool:
+    result = False
+    
+    api_instance = ngsi_ld_client.ContextInformationProvisionApi(ngsi_ld)
+
+    entity_input = entity.to_dict()
+
+    logger.info("Entity object representation: %s\n" % Entity.from_dict(entity_input))
+    logger.info("QueryEntity200ResponseInner object representation: %s\n" % QueryEntity200ResponseInner.from_dict(entity_input))
+
+    query_entity_input = QueryEntity200ResponseInner.from_dict(entity_input)
+
+    entities_input = []
+
+    entities_input.append(query_entity_input)
+
+    try:
+        # Create NGSI-LD entities of type Interface and Sensor: POST /entityOperations/upsert
+        api_response = api_instance.upsert_batch(query_entity200_response_inner=entities_input)
+        #logger.info(api_response.to_dict())
+        result = True
+    except Exception as e:
+        logger.exception("Exception when calling ContextInformationProvisionApi->create_entity: %s\n" % e)
+        result = False
+
 def get_entity_class_object_by_type(dict_buffer: dict):
     type = dict_buffer['type']
     if type == 'Interface':
         entity = Interface.from_dict(dict_buffer)
     elif type == 'InterfaceStatistics':
         entity = InterfaceStatistics.from_dict(dict_buffer)
+  # --- Comunes ---
+    elif type == 'NetworkInstance':
+        entity = NetworkInstance.from_dict(dict_buffer)
+    elif type == 'NetworkInstanceInterface':
+        entity = NetworkInstanceInterface.from_dict(dict_buffer)
+    elif type == 'NetworkInstanceProtocolsLinux':
+        entity = NetworkInstanceProtocolsLinux.from_dict(dict_buffer)
+        
+    # --- Encaminamiento Estático y Next-Hop Groups ---
+    elif type == 'NetworkInstanceStaticRoutes':
+        entity = NetworkInstanceStaticRoutes.from_dict(dict_buffer)
+    elif type == 'NetworkInstanceStaticRoutesRoute':
+        entity = NetworkInstanceStaticRoutesRoute.from_dict(dict_buffer)
+    elif type == 'NetworkInstanceNextHopGroupsGroup':
+        entity = NetworkInstanceNextHopGroupsGroup.from_dict(dict_buffer)
+    elif type == 'NetworkInstanceNextHopGroupsGroupNexthop':
+        entity = NetworkInstanceNextHopGroupsGroupNexthop.from_dict(dict_buffer)
+        
+    # --- Encaminamiento Dinámico (OSPF) ---
+    elif type == 'NetworkInstanceProtocolsOspfInstance':
+        entity = NetworkInstanceProtocolsOspfInstance.from_dict(dict_buffer)
+    elif type == 'NetworkInstanceProtocolsOspfInstanceArea':
+        entity = NetworkInstanceProtocolsOspfInstanceArea.from_dict(dict_buffer)
+    elif type == 'NetworkInstanceProtocolsOspfInstanceAreaInterface':
+        entity = NetworkInstanceProtocolsOspfInstanceAreaInterface.from_dict(dict_buffer)
+        
     else:
         entity = None
+        
     return entity
 
 ## -- END AUXILIARY FUNCTIONS -- ##
@@ -142,9 +225,9 @@ exec_times = []
 
 print("Hello, I am the JSON parser for gNMI queries and the NGSI-LD instantiator")
 
-print("I will consume messages (gNMI queries) from a Kafka topic named routing-state-queries")
+print("I will consume messages (gNMI queries) from a Kafka topic named routing-config-queries")
 
-consumer = KafkaConsumer('routing-state-queries', bootstrap_servers=['kafka:9092'], auto_offset_reset='earliest', value_deserializer=lambda x: json.loads(x.decode('utf-8')))
+consumer = KafkaConsumer('routing-config-queries', bootstrap_servers=['kafka:9092'], auto_offset_reset='latest', value_deserializer=lambda x: json.loads(x.decode('utf-8')))
 
 print("I will process every single notification, parse them and create/update NGSI-LD entities accordingly")
 print("These entities will be uploaded to the NGSI-LD broker")
@@ -200,6 +283,13 @@ while True:
 
                 print("Dictionary buffer contains information for entity " + entity_id)
 
+                upserted = upsert_ngsi_ld_entity(ngsi_ld, entity)
+                if upserted == False:
+                    print("Entity " + entity_id + " COULD NOT BE UPSERTED")
+                else:
+                    print("Entity " + entity_id + " WAS SUCCESSFULLY UPSERTED")
+
+                '''
                 exists = retrieve_ngsi_ld_entity(ngsi_ld, entity_id)
                 if exists == False:
                     print("Entity " + entity_id + " DOES NOT EXIST. Trying to create it...")
@@ -215,6 +305,7 @@ while True:
                         print("Entity " + entity_id + " COULD NOT BE UPDATED")
                     else:
                         print("Entity " + entity_id + " WAS SUCCESSFULLY UPDATED")
+                '''
         
         stop_time = time.perf_counter_ns()
         stop_datetime = datetime.datetime.now(datetime.timezone.utc)
