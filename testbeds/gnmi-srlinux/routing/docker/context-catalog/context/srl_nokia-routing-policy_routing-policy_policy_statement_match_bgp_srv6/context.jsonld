@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "PolicyStatementMatchBgpSrv6": "srl_nokia-routing-policy:routing-policy/policy/statement/match/bgp/srv6",
+        "sidPrefix": "srl_nokia-routing-policy:routing-policy/policy/statement/match/bgp/srv6/sid-prefix",
+        "tlv": "srl_nokia-routing-policy:routing-policy/policy/statement/match/bgp/srv6/tlv"
+    }
+}

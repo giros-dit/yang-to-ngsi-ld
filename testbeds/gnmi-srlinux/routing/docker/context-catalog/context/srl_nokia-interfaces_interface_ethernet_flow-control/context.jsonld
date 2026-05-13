@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceEthernetFlowControl": "srl_nokia-interfaces:interface/ethernet/flow-control",
+        "receive": "srl_nokia-interfaces:interface/ethernet/flow-control/receive",
+        "transmit": "srl_nokia-interfaces:interface/ethernet/flow-control/transmit"
+    }
+}

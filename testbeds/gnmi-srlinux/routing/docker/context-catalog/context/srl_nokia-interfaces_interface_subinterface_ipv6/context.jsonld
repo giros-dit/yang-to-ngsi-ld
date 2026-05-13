@@ -1,0 +1,7 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceSubinterfaceIpv6": "srl_nokia-interfaces:interface/subinterface/ipv6",
+        "adminState": "srl_nokia-interfaces:interface/subinterface/ipv6/admin-state"
+    }
+}

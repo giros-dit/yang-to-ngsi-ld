@@ -155,7 +155,11 @@ def generate_ngsi_ld_context(ctx, modules, fd):
         '''
         key = None
         if (element.keyword == 'list'):
-            key = element.i_key[0].arg
+            if key == None:
+                key = "None"
+            else:
+                key = element.i_key[0].arg
+
         return key
     
     def is_config_element(element) -> bool:
@@ -356,7 +360,12 @@ def generate_ngsi_ld_context(ctx, modules, fd):
     # Generate NGSI-LD Context:
     for module in modules:
         module_name = str(module.arg)
-        module_urn = str(module.search_one('namespace').arg)
+        if module.keyword == "submodule":
+            belongs = module.search_one('belongs-to')
+            parent_module = module.i_ctx.get_module(belongs.arg)
+            module_urn = str(parent_module.search_one('namespace').arg)
+        else:
+            module_urn = str(module.search_one('namespace').arg)
         xpath = module_name + ':'
         elements = module.i_children
         if (elements is not None):

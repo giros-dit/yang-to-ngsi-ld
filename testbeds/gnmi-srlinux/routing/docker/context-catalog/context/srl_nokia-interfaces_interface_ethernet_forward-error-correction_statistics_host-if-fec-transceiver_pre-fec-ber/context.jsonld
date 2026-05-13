@@ -1,0 +1,10 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "PreFecBer": "srl_nokia-interfaces:interface/ethernet/forward-error-correction/statistics/host-if-fec-transceiver/pre-fec-ber",
+        "instant": "srl_nokia-interfaces:interface/ethernet/forward-error-correction/statistics/host-if-fec-transceiver/pre-fec-ber/instant",
+        "avg": "srl_nokia-interfaces:interface/ethernet/forward-error-correction/statistics/host-if-fec-transceiver/pre-fec-ber/avg",
+        "min": "srl_nokia-interfaces:interface/ethernet/forward-error-correction/statistics/host-if-fec-transceiver/pre-fec-ber/min",
+        "max": "srl_nokia-interfaces:interface/ethernet/forward-error-correction/statistics/host-if-fec-transceiver/pre-fec-ber/max"
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceEthernetPtpTimestamping": "srl_nokia-interfaces:interface/ethernet/ptp-timestamping",
+        "disableIpTimestamping": "srl_nokia-interfaces:interface/ethernet/ptp-timestamping/disable-ip-timestamping"
+    }
+}

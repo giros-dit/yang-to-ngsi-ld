@@ -1,0 +1,11 @@
+{
+    "@context": {
+        "srl_nokia-system": "urn:nokia.com:srlinux:general:system/",
+        "System": "srl_nokia-system:system",
+        "traceOptions": "srl_nokia-system:system/trace-options"
+    },
+    "config": [
+        "System",
+        "traceOptions"
+    ]
+}

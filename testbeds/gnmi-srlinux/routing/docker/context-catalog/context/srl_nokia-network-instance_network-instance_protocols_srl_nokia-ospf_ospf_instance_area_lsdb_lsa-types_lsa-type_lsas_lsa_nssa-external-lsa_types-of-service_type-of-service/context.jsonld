@@ -1,0 +1,11 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "TypeOfService": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa/nssa-external-lsa/types-of-service/type-of-service",
+        "forwardingAddress": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa/nssa-external-lsa/types-of-service/type-of-service/forwarding-address",
+        "externalRouteTag": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa/nssa-external-lsa/types-of-service/type-of-service/external-route-tag",
+        "tos": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa/nssa-external-lsa/types-of-service/type-of-service/tos",
+        "metric": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa/nssa-external-lsa/types-of-service/type-of-service/metric"
+    }
+}

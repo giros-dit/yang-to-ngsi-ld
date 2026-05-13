@@ -1,0 +1,11 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "PolicyStatementActionBgpSrv6": "srl_nokia-routing-policy:routing-policy/policy/statement/action/bgp/srv6",
+        "locator": "srl_nokia-routing-policy:routing-policy/policy/statement/action/bgp/srv6/locator"
+    },
+    "config": [
+        "PolicyStatementActionBgpSrv6",
+        "locator"
+    ]
+}

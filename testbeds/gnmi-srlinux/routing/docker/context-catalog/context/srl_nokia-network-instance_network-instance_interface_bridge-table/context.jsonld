@@ -1,0 +1,11 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "NetworkInstanceInterfaceBridgeTable": "srl_nokia-network-instance:network-instance/interface/bridge-table",
+        "splitHorizonGroup": "srl_nokia-network-instance:network-instance/interface/bridge-table/split-horizon-group",
+        "macRelearnOnly": "srl_nokia-network-instance:network-instance/interface/bridge-table/mac-relearn-only",
+        "multicastForwarding": "srl_nokia-network-instance:network-instance/interface/bridge-table/multicast-forwarding",
+        "operMacLearning": "srl_nokia-network-instance:network-instance/interface/bridge-table/oper-mac-learning",
+        "operMacLearningDisabledReason": "srl_nokia-network-instance:network-instance/interface/bridge-table/oper-mac-learning-disabled-reason"
+    }
+}

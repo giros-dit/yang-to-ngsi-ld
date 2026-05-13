@@ -1,0 +1,14 @@
+{
+    "@context": {
+        "srl_nokia-platform": "urn:nokia.com:srlinux:chassis:platform/",
+        "srl_nokia-platform-control": "urn:nokia.com:srlinux:chassis:platform-control/",
+        "ControlInterface": "srl_nokia-platform:platform/srl_nokia-platform-control:control/interface",
+        "adminState": "srl_nokia-platform:platform/srl_nokia-platform-control:control/interface/admin-state",
+        "operState": "srl_nokia-platform:platform/srl_nokia-platform-control:control/interface/oper-state"
+    },
+    "key": "None",
+    "config": [
+        "ControlInterface",
+        "adminState"
+    ]
+}

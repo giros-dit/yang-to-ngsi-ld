@@ -1,0 +1,9 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "CommunitySet": "srl_nokia-routing-policy:routing-policy/community-set",
+        "name": "srl_nokia-routing-policy:routing-policy/community-set/name",
+        "member": "srl_nokia-routing-policy:routing-policy/community-set/member",
+        "matchSetOptions": "srl_nokia-routing-policy:routing-policy/community-set/match-set-options"
+    }
+}

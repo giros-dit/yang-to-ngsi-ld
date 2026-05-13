@@ -1,0 +1,10 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceEthernetHoldTime": "srl_nokia-interfaces:interface/ethernet/hold-time",
+        "up": "srl_nokia-interfaces:interface/ethernet/hold-time/up",
+        "upExpires": "srl_nokia-interfaces:interface/ethernet/hold-time/up-expires",
+        "down": "srl_nokia-interfaces:interface/ethernet/hold-time/down",
+        "downExpires": "srl_nokia-interfaces:interface/ethernet/hold-time/down-expires"
+    }
+}

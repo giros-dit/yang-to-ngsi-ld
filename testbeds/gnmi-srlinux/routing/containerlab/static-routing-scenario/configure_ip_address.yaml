@@ -1,0 +1,20 @@
+updates:
+  # Configuración de direccionamiento en interfaz
+  - path: /interface[name={{.Vars.IF_NAME}}]
+    encoding: json_ietf
+    value:
+      admin-state: enable
+      subinterface:
+        - index: 0
+          admin-state: enable
+          type: routed
+          ipv4:
+            admin-state: enable
+            address:
+              - ip-prefix: {{.Vars.IF_IP_PREFIX}}
+
+  # Asociación de interfaz a VRF default
+  - path: /network-instance[name=default]/interface[name={{printf "%s.0" .Vars.IF_NAME}}]
+    encoding: json_ietf
+    value:
+      name: {{printf "%s.0" .Vars.IF_NAME}}

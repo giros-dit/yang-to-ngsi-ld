@@ -1,0 +1,26 @@
+[
+  {
+    "name": "r1_routing",
+    "timestamp": 1777966011501611074,
+    "tags": {
+      "area_area-id": "0.0.0.1",
+      "instance_name": "default",
+      "lsa-type_type": "network-lsa",
+      "lsa_advertising-router": "3.3.3.3",
+      "lsa_link-state-id": "10.10.10.10",
+      "network-instance_name": "default",
+      "source": "clab-routing-testbed-r1",
+      "subscription-name": "r1_routing"
+    },
+    "values": {
+      "/srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa/advertisement": "01ef02020a0a0a0a0303030380000001df390020fffffffc0303030301010101",
+      "/srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa/age": 495,
+      "/srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa/checksum": "0xdf39",
+      "/srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa/network-lsa/attached-router.0": "3.3.3.3",
+      "/srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa/network-lsa/attached-router.1": "1.1.1.1",
+      "/srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa/network-lsa/network-mask": 30,
+      "/srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa/options": "0x2",
+      "/srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/lsdb/lsa-types/lsa-type/lsas/lsa/sequence-number": "0x80000001"
+    }
+  }
+]

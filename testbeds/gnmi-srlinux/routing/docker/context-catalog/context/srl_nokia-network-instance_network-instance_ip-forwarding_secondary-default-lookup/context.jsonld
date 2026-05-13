@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "NetworkInstanceIpForwardingSecondaryDefaultLookup": "srl_nokia-network-instance:network-instance/ip-forwarding/secondary-default-lookup",
+        "ipv4": "srl_nokia-network-instance:network-instance/ip-forwarding/secondary-default-lookup/ipv4",
+        "ipv6": "srl_nokia-network-instance:network-instance/ip-forwarding/secondary-default-lookup/ipv6"
+    }
+}

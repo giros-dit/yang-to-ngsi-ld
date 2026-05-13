@@ -1,0 +1,10 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-next-hop-groups": "urn:nokia.com:srlinux:static-route:next-hop-groups/",
+        "EnableBfd": "srl_nokia-network-instance:network-instance/srl_nokia-next-hop-groups:next-hop-groups/group/nexthop/failure-detection/enable-bfd",
+        "localAddress": "srl_nokia-network-instance:network-instance/srl_nokia-next-hop-groups:next-hop-groups/group/nexthop/failure-detection/enable-bfd/local-address",
+        "localDiscriminator": "srl_nokia-network-instance:network-instance/srl_nokia-next-hop-groups:next-hop-groups/group/nexthop/failure-detection/enable-bfd/local-discriminator",
+        "remoteDiscriminator": "srl_nokia-network-instance:network-instance/srl_nokia-next-hop-groups:next-hop-groups/group/nexthop/failure-detection/enable-bfd/remote-discriminator"
+    }
+}

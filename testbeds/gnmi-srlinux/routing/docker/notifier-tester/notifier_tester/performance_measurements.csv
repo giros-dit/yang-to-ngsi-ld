@@ -1,0 +1,3 @@
+observed_at,modified_at,evaluation_time,mean_evaluation_time,min_evaluation_time,max_evaluation_time,notifications_received
+2026-05-12T10:44:22.190000Z,2026-05-12T10:44:22.363000Z,173.0 ms,173.0 ms,173.0 ms,173.0 ms,1
+2026-05-12T10:44:27.194000Z,2026-05-12T10:44:27.292000Z,98.0 ms,135.5 ms,98.0 ms,173.0 ms,2

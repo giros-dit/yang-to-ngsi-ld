@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceTransceiverChannel": "srl_nokia-interfaces:interface/transceiver/channel",
+        "index": "srl_nokia-interfaces:interface/transceiver/channel/index",
+        "wavelength": "srl_nokia-interfaces:interface/transceiver/channel/wavelength"
+    }
+}

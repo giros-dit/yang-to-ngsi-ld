@@ -1,0 +1,16 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ip-route-tables": "urn:nokia.com:srlinux:fib:ip-route-tables/",
+        "Statistics": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:ipv4-unicast/statistics",
+        "activeRoutes": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:ipv4-unicast/statistics/active-routes",
+        "activeRoutesWithEcmp": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:ipv4-unicast/statistics/active-routes-with-ecmp",
+        "leakedRoutes": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:ipv4-unicast/statistics/leaked-routes",
+        "resilientHashRoutes": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:ipv4-unicast/statistics/resilient-hash-routes",
+        "dynamicLoadBalancingRoutes": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:ipv4-unicast/statistics/dynamic-load-balancing-routes",
+        "fibFailedRoutes": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:ipv4-unicast/statistics/fib-failed-routes",
+        "fibSuppressedRoutes": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:ipv4-unicast/statistics/fib-suppressed-routes",
+        "routesWithPerPrefixStatistics": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:ipv4-unicast/statistics/routes-with-per-prefix-statistics",
+        "totalRoutes": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:ipv4-unicast/statistics/total-routes"
+    }
+}

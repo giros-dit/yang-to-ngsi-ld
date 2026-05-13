@@ -1,0 +1,10 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "FrameErrorCount": "srl_nokia-interfaces:interface/ethernet/forward-error-correction/statistics/host-if-fec-transceiver/frame-error-count",
+        "instant": "srl_nokia-interfaces:interface/ethernet/forward-error-correction/statistics/host-if-fec-transceiver/frame-error-count/instant",
+        "avg": "srl_nokia-interfaces:interface/ethernet/forward-error-correction/statistics/host-if-fec-transceiver/frame-error-count/avg",
+        "min": "srl_nokia-interfaces:interface/ethernet/forward-error-correction/statistics/host-if-fec-transceiver/frame-error-count/min",
+        "max": "srl_nokia-interfaces:interface/ethernet/forward-error-correction/statistics/host-if-fec-transceiver/frame-error-count/max"
+    }
+}

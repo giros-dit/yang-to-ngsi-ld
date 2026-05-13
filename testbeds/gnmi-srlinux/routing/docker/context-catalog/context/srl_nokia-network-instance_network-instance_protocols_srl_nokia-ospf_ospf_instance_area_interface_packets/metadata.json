@@ -1,0 +1,21 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "InstanceAreaInterfacePackets": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/packets",
+        "txTotal": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/packets/tx-total",
+        "txHello": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/packets/tx-hello",
+        "txDbDescription": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/packets/tx-db-description",
+        "txLsRequest": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/packets/tx-ls-request",
+        "txLsUpdate": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/packets/tx-ls-update",
+        "txLsAck": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/packets/tx-ls-ack",
+        "rxTotal": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/packets/rx-total",
+        "rxHello": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/packets/rx-hello",
+        "rxDbDescription": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/packets/rx-db-description",
+        "rxLsRequest": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/packets/rx-ls-request",
+        "rxLsUpdate": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/packets/rx-ls-update",
+        "rxLsAck": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/packets/rx-ls-ack",
+        "discarded": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/packets/discarded",
+        "retransmits": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/packets/retransmits"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "@context": {
+        "srl_nokia-platform": "urn:nokia.com:srlinux:chassis:platform/",
+        "srl_nokia-platform-control": "urn:nokia.com:srlinux:chassis:platform-control/",
+        "ControlPower": "srl_nokia-platform:platform/srl_nokia-platform-control:control/power",
+        "allocated": "srl_nokia-platform:platform/srl_nokia-platform-control:control/power/allocated",
+        "used": "srl_nokia-platform:platform/srl_nokia-platform-control:control/power/used",
+        "required": "srl_nokia-platform:platform/srl_nokia-platform-control:control/power/required"
+    }
+}

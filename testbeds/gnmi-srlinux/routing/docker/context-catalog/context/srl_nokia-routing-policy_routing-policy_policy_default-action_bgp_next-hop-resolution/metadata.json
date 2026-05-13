@@ -1,0 +1,13 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "PolicyDefaultActionBgpNextHopResolution": "srl_nokia-routing-policy:routing-policy/policy/default-action/bgp/next-hop-resolution",
+        "setTagSet": "srl_nokia-routing-policy:routing-policy/policy/default-action/bgp/next-hop-resolution/set-tag-set",
+        "setFlexAlgo": "srl_nokia-routing-policy:routing-policy/policy/default-action/bgp/next-hop-resolution/set-flex-algo"
+    },
+    "config": [
+        "PolicyDefaultActionBgpNextHopResolution",
+        "setTagSet",
+        "setFlexAlgo"
+    ]
+}

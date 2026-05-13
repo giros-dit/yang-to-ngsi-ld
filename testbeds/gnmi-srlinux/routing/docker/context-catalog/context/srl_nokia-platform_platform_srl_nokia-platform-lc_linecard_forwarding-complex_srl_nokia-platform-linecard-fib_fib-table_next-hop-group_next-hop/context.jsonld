@@ -1,0 +1,11 @@
+{
+    "@context": {
+        "srl_nokia-platform": "urn:nokia.com:srlinux:chassis:platform/",
+        "srl_nokia-platform-linecard-fib": "urn:nokia.com:srlinux:chassis:platform-linecard-fib/",
+        "NextHopGroupNextHop": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/srl_nokia-platform-linecard-fib:fib-table/next-hop-group/next-hop",
+        "id": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/srl_nokia-platform-linecard-fib:fib-table/next-hop-group/next-hop/id",
+        "nextHop": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/srl_nokia-platform-linecard-fib:fib-table/next-hop-group/next-hop/next-hop",
+        "operState": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/srl_nokia-platform-linecard-fib:fib-table/next-hop-group/next-hop/oper-state",
+        "normalizedWeight": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/srl_nokia-platform-linecard-fib:fib-table/next-hop-group/next-hop/normalized-weight"
+    }
+}

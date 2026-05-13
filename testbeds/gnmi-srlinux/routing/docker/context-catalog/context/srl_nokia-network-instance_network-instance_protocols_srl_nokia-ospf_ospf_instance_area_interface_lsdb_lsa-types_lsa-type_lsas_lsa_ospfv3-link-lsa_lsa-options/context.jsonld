@@ -1,0 +1,7 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "LsaOspfv3LinkLsaLsaOptions": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/lsdb/lsa-types/lsa-type/lsas/lsa/ospfv3-link-lsa/lsa-options"
+    }
+}

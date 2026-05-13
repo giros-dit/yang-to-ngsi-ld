@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceSubinterfaceUnidirectionalLinkDelay": "srl_nokia-interfaces:interface/subinterface/unidirectional-link-delay",
+        "staticDelay": "srl_nokia-interfaces:interface/subinterface/unidirectional-link-delay/static-delay",
+        "lastReportedDynamicDelay": "srl_nokia-interfaces:interface/subinterface/unidirectional-link-delay/last-reported-dynamic-delay"
+    }
+}

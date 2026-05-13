@@ -1,0 +1,12 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ip-route-tables": "urn:nokia.com:srlinux:fib:ip-route-tables/",
+        "NextHopTunnel": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop/tunnel",
+        "encapsulateHeader": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop/tunnel/encapsulate-header",
+        "ipPrefix": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop/tunnel/ip-prefix",
+        "owner": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop/tunnel/owner",
+        "tunnelId": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop/tunnel/tunnel-id",
+        "networkInstance": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop/tunnel/network-instance"
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-next-hop-groups": "urn:nokia.com:srlinux:static-route:next-hop-groups/",
+        "GroupNexthop": "srl_nokia-network-instance:network-instance/srl_nokia-next-hop-groups:next-hop-groups/group/nexthop",
+        "index": "srl_nokia-network-instance:network-instance/srl_nokia-next-hop-groups:next-hop-groups/group/nexthop/index",
+        "ipAddress": "srl_nokia-network-instance:network-instance/srl_nokia-next-hop-groups:next-hop-groups/group/nexthop/ip-address",
+        "adminState": "srl_nokia-network-instance:network-instance/srl_nokia-next-hop-groups:next-hop-groups/group/nexthop/admin-state",
+        "resolve": "srl_nokia-network-instance:network-instance/srl_nokia-next-hop-groups:next-hop-groups/group/nexthop/resolve",
+        "pushedMplsLabelStack": "srl_nokia-network-instance:network-instance/srl_nokia-next-hop-groups:next-hop-groups/group/nexthop/pushed-mpls-label-stack",
+        "encapsulateHeader": "srl_nokia-network-instance:network-instance/srl_nokia-next-hop-groups:next-hop-groups/group/nexthop/encapsulate-header",
+        "algorithm": "srl_nokia-network-instance:network-instance/srl_nokia-next-hop-groups:next-hop-groups/group/nexthop/algorithm"
+    },
+    "key": "None",
+    "config": [
+        "GroupNexthop",
+        "index",
+        "ipAddress",
+        "adminState",
+        "resolve",
+        "pushedMplsLabelStack",
+        "encapsulateHeader",
+        "algorithm"
+    ]
+}

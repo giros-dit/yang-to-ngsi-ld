@@ -1,0 +1,15 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "InstanceAreaNssaAreaRange": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/nssa/area-range",
+        "ipPrefixMask": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/nssa/area-range/ip-prefix-mask",
+        "advertise": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/nssa/area-range/advertise"
+    },
+    "key": "None",
+    "config": [
+        "InstanceAreaNssaAreaRange",
+        "ipPrefixMask",
+        "advertise"
+    ]
+}

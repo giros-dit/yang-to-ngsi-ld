@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "NetworkInstanceSystemIpv6Address": "srl_nokia-network-instance:network-instance/system-ipv6-address",
+        "operState": "srl_nokia-network-instance:network-instance/system-ipv6-address/oper-state",
+        "operDownReason": "srl_nokia-network-instance:network-instance/system-ipv6-address/oper-down-reason"
+    }
+}

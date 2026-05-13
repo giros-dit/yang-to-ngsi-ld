@@ -1,0 +1,9 @@
+{
+    "@context": {
+        "srl_nokia-system": "urn:nokia.com:srlinux:general:system/",
+        "srl_nokia-lldp": "urn:nokia.com:srlinux:lldp:lldp/",
+        "SystemLldpInterfaceNeighborManagementAddress": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/management-address",
+        "address": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/management-address/address",
+        "type": "srl_nokia-system:system/srl_nokia-lldp:lldp/interface/neighbor/management-address/type"
+    }
+}

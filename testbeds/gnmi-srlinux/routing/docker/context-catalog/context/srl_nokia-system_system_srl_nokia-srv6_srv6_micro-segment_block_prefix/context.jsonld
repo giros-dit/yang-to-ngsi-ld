@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "srl_nokia-system": "urn:nokia.com:srlinux:general:system/",
+        "srl_nokia-srv6": "urn:nokia.com:srlinux:srv6:srv6/",
+        "SystemSrv6MicroSegmentBlockPrefix": "srl_nokia-system:system/srl_nokia-srv6:srv6/micro-segment/block/prefix",
+        "ipPrefix": "srl_nokia-system:system/srl_nokia-srv6:srv6/micro-segment/block/prefix/ip-prefix"
+    }
+}

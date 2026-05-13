@@ -1,0 +1,8 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "HostIfFecRouter": "srl_nokia-interfaces:interface/ethernet/forward-error-correction/statistics/host-if-fec-router",
+        "status": "srl_nokia-interfaces:interface/ethernet/forward-error-correction/statistics/host-if-fec-router/status",
+        "frameErrorCount": "srl_nokia-interfaces:interface/ethernet/forward-error-correction/statistics/host-if-fec-router/frame-error-count"
+    }
+}

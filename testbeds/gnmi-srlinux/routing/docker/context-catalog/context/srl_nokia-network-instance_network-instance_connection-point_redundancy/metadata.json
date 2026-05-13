@@ -1,0 +1,13 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "NetworkInstanceConnectionPointRedundancy": "srl_nokia-network-instance:network-instance/connection-point/redundancy",
+        "revertTime": "srl_nokia-network-instance:network-instance/connection-point/redundancy/revert-time",
+        "standbySignaling": "srl_nokia-network-instance:network-instance/connection-point/redundancy/standby-signaling"
+    },
+    "config": [
+        "NetworkInstanceConnectionPointRedundancy",
+        "revertTime",
+        "standbySignaling"
+    ]
+}

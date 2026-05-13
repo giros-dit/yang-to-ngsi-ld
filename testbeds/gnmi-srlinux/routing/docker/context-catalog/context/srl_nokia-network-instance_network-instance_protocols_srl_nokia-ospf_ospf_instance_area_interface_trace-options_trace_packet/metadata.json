@@ -1,0 +1,16 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "TracePacket": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/trace-options/trace/packet",
+        "type": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/trace-options/trace/packet/type",
+        "modifier": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/trace-options/trace/packet/modifier",
+        "detail": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/trace-options/trace/packet/detail"
+    },
+    "config": [
+        "TracePacket",
+        "type",
+        "modifier",
+        "detail"
+    ]
+}

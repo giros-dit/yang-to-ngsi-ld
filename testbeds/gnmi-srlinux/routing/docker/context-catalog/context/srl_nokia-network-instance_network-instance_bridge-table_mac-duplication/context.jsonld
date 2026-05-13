@@ -1,0 +1,11 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "NetworkInstanceBridgeTableMacDuplication": "srl_nokia-network-instance:network-instance/bridge-table/mac-duplication",
+        "adminState": "srl_nokia-network-instance:network-instance/bridge-table/mac-duplication/admin-state",
+        "monitoringWindow": "srl_nokia-network-instance:network-instance/bridge-table/mac-duplication/monitoring-window",
+        "numMoves": "srl_nokia-network-instance:network-instance/bridge-table/mac-duplication/num-moves",
+        "holdDownTime": "srl_nokia-network-instance:network-instance/bridge-table/mac-duplication/hold-down-time",
+        "action": "srl_nokia-network-instance:network-instance/bridge-table/mac-duplication/action"
+    }
+}

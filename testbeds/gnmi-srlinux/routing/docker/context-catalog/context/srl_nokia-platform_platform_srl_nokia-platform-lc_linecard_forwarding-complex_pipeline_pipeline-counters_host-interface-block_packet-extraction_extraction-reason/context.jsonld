@@ -1,0 +1,9 @@
+{
+    "@context": {
+        "srl_nokia-platform": "urn:nokia.com:srlinux:chassis:platform/",
+        "srl_nokia-platform-lc": "urn:nokia.com:srlinux:chassis:platform-lc/",
+        "PacketExtractionExtractionReason": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/pipeline/pipeline-counters/host-interface-block/packet-extraction/extraction-reason",
+        "extractedPackets": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/pipeline/pipeline-counters/host-interface-block/packet-extraction/extraction-reason/extracted-packets",
+        "extractedOctets": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/pipeline/pipeline-counters/host-interface-block/packet-extraction/extraction-reason/extracted-octets"
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "@context": {
+        "srl_nokia-system": "urn:nokia.com:srlinux:general:system/",
+        "srl_nokia-lldp": "urn:nokia.com:srlinux:lldp:lldp/",
+        "SystemLldpLldpMed": "srl_nokia-system:system/srl_nokia-lldp:lldp/lldp-med",
+        "medFastTransmitInterval": "srl_nokia-system:system/srl_nokia-lldp:lldp/lldp-med/med-fast-transmit-interval",
+        "medFastTransmitRepeatCount": "srl_nokia-system:system/srl_nokia-lldp:lldp/lldp-med/med-fast-transmit-repeat-count",
+        "topologyChangeNotification": "srl_nokia-system:system/srl_nokia-lldp:lldp/lldp-med/topology-change-notification"
+    },
+    "config": [
+        "SystemLldpLldpMed",
+        "medFastTransmitInterval",
+        "medFastTransmitRepeatCount",
+        "topologyChangeNotification"
+    ]
+}

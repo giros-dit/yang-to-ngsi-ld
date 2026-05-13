@@ -1,0 +1,12 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-next-hop-groups": "urn:nokia.com:srlinux:static-route:next-hop-groups/",
+        "GroupBlackhole": "srl_nokia-network-instance:network-instance/srl_nokia-next-hop-groups:next-hop-groups/group/blackhole",
+        "generateIcmp": "srl_nokia-network-instance:network-instance/srl_nokia-next-hop-groups:next-hop-groups/group/blackhole/generate-icmp"
+    },
+    "config": [
+        "GroupBlackhole",
+        "generateIcmp"
+    ]
+}

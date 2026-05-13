@@ -1,0 +1,12 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-traffic-engineering": "urn:nokia.com:srlinux:te:traffic-engineering/",
+        "BgpLs": "srl_nokia-network-instance:network-instance/protocols/directly-connected/srl_nokia-traffic-engineering:te-database-install/bgp-ls",
+        "igpIdentifier": "srl_nokia-network-instance:network-instance/protocols/directly-connected/srl_nokia-traffic-engineering:te-database-install/bgp-ls/igp-identifier"
+    },
+    "config": [
+        "BgpLs",
+        "igpIdentifier"
+    ]
+}

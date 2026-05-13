@@ -1,0 +1,7 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "PolicyStatementActionIsis": "srl_nokia-routing-policy:routing-policy/policy/statement/action/isis",
+        "level": "srl_nokia-routing-policy:routing-policy/policy/statement/action/isis/level"
+    }
+}

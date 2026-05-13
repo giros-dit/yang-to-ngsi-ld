@@ -1,0 +1,9 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "PolicyStatementActionBgpExtendedCommunity": "srl_nokia-routing-policy:routing-policy/policy/statement/action/bgp/extended-community",
+        "operation": "srl_nokia-routing-policy:routing-policy/policy/statement/action/bgp/extended-community/operation",
+        "referencedSets": "srl_nokia-routing-policy:routing-policy/policy/statement/action/bgp/extended-community/referenced-sets",
+        "method": "srl_nokia-routing-policy:routing-policy/policy/statement/action/bgp/extended-community/method"
+    }
+}

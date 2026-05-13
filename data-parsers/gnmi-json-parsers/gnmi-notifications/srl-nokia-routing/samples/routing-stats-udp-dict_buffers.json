@@ -1,0 +1,59 @@
+[
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceUdpStatistics:router1:default",
+        "type": "NetworkInstanceUdpStatistics",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstance:router1:default",
+            "observedAt": "2026-04-27T10:32:41.925Z"
+        },
+        "ignoredMulticastPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T10:32:41.925Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inChecksumErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T10:32:41.925Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T10:32:41.925Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inNoOpenPortsPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T10:32:41.925Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T10:32:41.925Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T10:32:41.925Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "receiveBufferErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T10:32:41.925Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "sendBufferErrors": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T10:32:41.925Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    }
+]

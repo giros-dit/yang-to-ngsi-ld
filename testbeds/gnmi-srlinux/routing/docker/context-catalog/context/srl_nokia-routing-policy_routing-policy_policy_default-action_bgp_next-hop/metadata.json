@@ -1,0 +1,11 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "PolicyDefaultActionBgpNextHop": "srl_nokia-routing-policy:routing-policy/policy/default-action/bgp/next-hop",
+        "set": "srl_nokia-routing-policy:routing-policy/policy/default-action/bgp/next-hop/set"
+    },
+    "config": [
+        "PolicyDefaultActionBgpNextHop",
+        "set"
+    ]
+}

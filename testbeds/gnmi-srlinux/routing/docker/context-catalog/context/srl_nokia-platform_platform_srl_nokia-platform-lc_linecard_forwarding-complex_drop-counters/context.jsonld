@@ -1,0 +1,11 @@
+{
+    "@context": {
+        "srl_nokia-platform": "urn:nokia.com:srlinux:chassis:platform/",
+        "srl_nokia-platform-lc": "urn:nokia.com:srlinux:chassis:platform-lc/",
+        "LinecardForwardingComplexDropCounters": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/drop-counters",
+        "adverseAggregate": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/drop-counters/adverse-aggregate",
+        "congestionAggregate": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/drop-counters/congestion-aggregate",
+        "packetProcessingAggregate": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/drop-counters/packet-processing-aggregate",
+        "noRoute": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/drop-counters/no-route"
+    }
+}

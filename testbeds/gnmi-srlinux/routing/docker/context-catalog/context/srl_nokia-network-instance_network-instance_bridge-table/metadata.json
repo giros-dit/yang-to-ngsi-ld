@@ -1,0 +1,13 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "NetworkInstanceBridgeTable": "srl_nokia-network-instance:network-instance/bridge-table",
+        "discardUnknownDestMac": "srl_nokia-network-instance:network-instance/bridge-table/discard-unknown-dest-mac",
+        "protectAnycastGwMac": "srl_nokia-network-instance:network-instance/bridge-table/protect-anycast-gw-mac"
+    },
+    "config": [
+        "NetworkInstanceBridgeTable",
+        "discardUnknownDestMac",
+        "protectAnycastGwMac"
+    ]
+}

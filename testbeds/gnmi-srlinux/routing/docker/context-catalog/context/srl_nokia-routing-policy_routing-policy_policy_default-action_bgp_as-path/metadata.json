@@ -1,0 +1,13 @@
+{
+    "@context": {
+        "srl_nokia-routing-policy": "urn:nokia.com:srlinux:plcy:routing-policy/",
+        "PolicyDefaultActionBgpAsPath": "srl_nokia-routing-policy:routing-policy/policy/default-action/bgp/as-path",
+        "remove": "srl_nokia-routing-policy:routing-policy/policy/default-action/bgp/as-path/remove",
+        "replace": "srl_nokia-routing-policy:routing-policy/policy/default-action/bgp/as-path/replace"
+    },
+    "config": [
+        "PolicyDefaultActionBgpAsPath",
+        "remove",
+        "replace"
+    ]
+}

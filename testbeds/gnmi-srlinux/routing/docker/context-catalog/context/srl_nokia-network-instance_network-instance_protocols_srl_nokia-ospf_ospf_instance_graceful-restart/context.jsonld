@@ -1,0 +1,9 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "InstanceGracefulRestart": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/graceful-restart",
+        "helperMode": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/graceful-restart/helper-mode",
+        "strictLsaChecking": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/graceful-restart/strict-lsa-checking"
+    }
+}

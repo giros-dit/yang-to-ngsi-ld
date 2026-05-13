@@ -1,0 +1,11 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "InstanceOverloadRtrAdvLsaLimit": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/overload/rtr-adv-lsa-limit",
+        "logOnly": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/overload/rtr-adv-lsa-limit/log-only",
+        "maxLsaCount": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/overload/rtr-adv-lsa-limit/max-lsa-count",
+        "overloadTimeout": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/overload/rtr-adv-lsa-limit/overload-timeout",
+        "warningThreshold": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/overload/rtr-adv-lsa-limit/warning-threshold"
+    }
+}

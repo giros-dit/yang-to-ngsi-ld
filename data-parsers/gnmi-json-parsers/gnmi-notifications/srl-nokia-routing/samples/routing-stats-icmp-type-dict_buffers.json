@@ -1,0 +1,530 @@
+[
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceIcmpStatisticsType:router1:mgmt:time-exceeded",
+        "type": "NetworkInstanceIcmpStatisticsType",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceIcmpStatistics:router1:mgmt",
+            "observedAt": "2026-04-27T13:20:24.497Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "time-exceeded",
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceIcmpStatisticsType:router1:mgmt:rtr-selection",
+        "type": "NetworkInstanceIcmpStatisticsType",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceIcmpStatistics:router1:mgmt",
+            "observedAt": "2026-04-27T13:20:24.497Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "rtr-selection",
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceIcmpStatisticsType:router1:mgmt:rtr-advertisement",
+        "type": "NetworkInstanceIcmpStatisticsType",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceIcmpStatistics:router1:mgmt",
+            "observedAt": "2026-04-27T13:20:24.497Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "rtr-advertisement",
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceIcmpStatisticsType:router1:mgmt:echo",
+        "type": "NetworkInstanceIcmpStatisticsType",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceIcmpStatistics:router1:mgmt",
+            "observedAt": "2026-04-27T13:20:24.497Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "echo",
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceIcmpStatisticsType:router1:mgmt:redirect",
+        "type": "NetworkInstanceIcmpStatisticsType",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceIcmpStatistics:router1:mgmt",
+            "observedAt": "2026-04-27T13:20:24.497Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "redirect",
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceIcmpStatisticsType:router1:mgmt:dest-unreachable",
+        "type": "NetworkInstanceIcmpStatisticsType",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceIcmpStatistics:router1:mgmt",
+            "observedAt": "2026-04-27T13:20:24.497Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "dest-unreachable",
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceIcmpStatisticsType:router1:mgmt:echo-reply",
+        "type": "NetworkInstanceIcmpStatisticsType",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceIcmpStatistics:router1:mgmt",
+            "observedAt": "2026-04-27T13:20:24.497Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "echo-reply",
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceIcmpStatisticsType:router1:default:timestamp-reply",
+        "type": "NetworkInstanceIcmpStatisticsType",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceIcmpStatistics:router1:default",
+            "observedAt": "2026-04-27T13:20:24.497Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "timestamp-reply",
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceIcmpStatisticsType:router1:default:timestamp",
+        "type": "NetworkInstanceIcmpStatisticsType",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceIcmpStatistics:router1:default",
+            "observedAt": "2026-04-27T13:20:24.497Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "timestamp",
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceIcmpStatisticsType:router1:default:param-problem",
+        "type": "NetworkInstanceIcmpStatisticsType",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceIcmpStatistics:router1:default",
+            "observedAt": "2026-04-27T13:20:24.497Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "param-problem",
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceIcmpStatisticsType:router1:default:time-exceeded",
+        "type": "NetworkInstanceIcmpStatisticsType",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceIcmpStatistics:router1:default",
+            "observedAt": "2026-04-27T13:20:24.497Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "time-exceeded",
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceIcmpStatisticsType:router1:default:rtr-selection",
+        "type": "NetworkInstanceIcmpStatisticsType",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceIcmpStatistics:router1:default",
+            "observedAt": "2026-04-27T13:20:24.497Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "rtr-selection",
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceIcmpStatisticsType:router1:default:rtr-advertisement",
+        "type": "NetworkInstanceIcmpStatisticsType",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceIcmpStatistics:router1:default",
+            "observedAt": "2026-04-27T13:20:24.497Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "rtr-advertisement",
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceIcmpStatisticsType:router1:default:echo",
+        "type": "NetworkInstanceIcmpStatisticsType",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceIcmpStatistics:router1:default",
+            "observedAt": "2026-04-27T13:20:24.497Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "echo",
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceIcmpStatisticsType:router1:default:redirect",
+        "type": "NetworkInstanceIcmpStatisticsType",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceIcmpStatistics:router1:default",
+            "observedAt": "2026-04-27T13:20:24.497Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "redirect",
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:NetworkInstanceIcmpStatisticsType:router1:default:dest-unreachable",
+        "type": "NetworkInstanceIcmpStatisticsType",
+        "isPartOf": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:NetworkInstanceIcmpStatistics:router1:default",
+            "observedAt": "2026-04-27T13:20:24.497Z"
+        },
+        "name": {
+            "type": "Property",
+            "value": "dest-unreachable",
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "inPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outErrorPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        },
+        "outPackets": {
+            "type": "Property",
+            "value": 0,
+            "observedAt": "2026-04-27T13:20:24.497Z",
+            "datasetId": "urn:ngsi-ld:operational"
+        }
+    }
+]

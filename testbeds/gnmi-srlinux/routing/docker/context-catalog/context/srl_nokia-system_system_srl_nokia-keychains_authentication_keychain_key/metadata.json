@@ -1,0 +1,17 @@
+{
+    "@context": {
+        "srl_nokia-system": "urn:nokia.com:srlinux:general:system/",
+        "srl_nokia-keychains": "urn:nokia.com:srlinux:linux:keychains/",
+        "KeychainKey": "srl_nokia-system:system/srl_nokia-keychains:authentication/keychain/key",
+        "index": "srl_nokia-system:system/srl_nokia-keychains:authentication/keychain/key/index",
+        "algorithm": "srl_nokia-system:system/srl_nokia-keychains:authentication/keychain/key/algorithm",
+        "authenticationKey": "srl_nokia-system:system/srl_nokia-keychains:authentication/keychain/key/authentication-key"
+    },
+    "key": "None",
+    "config": [
+        "KeychainKey",
+        "index",
+        "algorithm",
+        "authenticationKey"
+    ]
+}

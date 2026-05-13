@@ -1,0 +1,17 @@
+{
+    "@context": {
+        "srl_nokia-interfaces": "urn:nokia.com:srlinux:chassis:interfaces/",
+        "InterfaceTransceiverTemperature": "srl_nokia-interfaces:interface/transceiver/temperature",
+        "latestValue": "srl_nokia-interfaces:interface/transceiver/temperature/latest-value",
+        "maximum": "srl_nokia-interfaces:interface/transceiver/temperature/maximum",
+        "maximumTime": "srl_nokia-interfaces:interface/transceiver/temperature/maximum-time",
+        "highAlarmCondition": "srl_nokia-interfaces:interface/transceiver/temperature/high-alarm-condition",
+        "highAlarmThreshold": "srl_nokia-interfaces:interface/transceiver/temperature/high-alarm-threshold",
+        "lowAlarmCondition": "srl_nokia-interfaces:interface/transceiver/temperature/low-alarm-condition",
+        "lowAlarmThreshold": "srl_nokia-interfaces:interface/transceiver/temperature/low-alarm-threshold",
+        "highWarningCondition": "srl_nokia-interfaces:interface/transceiver/temperature/high-warning-condition",
+        "highWarningThreshold": "srl_nokia-interfaces:interface/transceiver/temperature/high-warning-threshold",
+        "lowWarningCondition": "srl_nokia-interfaces:interface/transceiver/temperature/low-warning-condition",
+        "lowWarningThreshold": "srl_nokia-interfaces:interface/transceiver/temperature/low-warning-threshold"
+    }
+}

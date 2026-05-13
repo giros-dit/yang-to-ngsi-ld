@@ -1,0 +1,10 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "InstanceTimersLsaGenerate": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/timers/lsa-generate",
+        "maxLsaWait": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/timers/lsa-generate/max-lsa-wait",
+        "lsaInitialWait": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/timers/lsa-generate/lsa-initial-wait",
+        "lsaSecondWait": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/timers/lsa-generate/lsa-second-wait"
+    }
+}

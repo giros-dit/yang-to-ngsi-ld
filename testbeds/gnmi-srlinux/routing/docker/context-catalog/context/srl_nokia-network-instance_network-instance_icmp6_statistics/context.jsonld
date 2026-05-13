@@ -1,0 +1,7 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "Statistics": "srl_nokia-network-instance:network-instance/icmp6/statistics",
+        "lastClear": "srl_nokia-network-instance:network-instance/icmp6/statistics/last-clear"
+    }
+}

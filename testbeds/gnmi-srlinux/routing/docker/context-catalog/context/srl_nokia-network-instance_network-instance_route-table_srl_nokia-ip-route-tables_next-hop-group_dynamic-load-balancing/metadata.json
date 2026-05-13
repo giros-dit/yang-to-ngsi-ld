@@ -1,0 +1,10 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ip-route-tables": "urn:nokia.com:srlinux:fib:ip-route-tables/",
+        "NextHopGroupDynamicLoadBalancing": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop-group/dynamic-load-balancing",
+        "requested": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop-group/dynamic-load-balancing/requested",
+        "enabled": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop-group/dynamic-load-balancing/enabled",
+        "flowsRebalanced": "srl_nokia-network-instance:network-instance/route-table/srl_nokia-ip-route-tables:next-hop-group/dynamic-load-balancing/flows-rebalanced"
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "@context": {
+        "srl_nokia-platform": "urn:nokia.com:srlinux:chassis:platform/",
+        "srl_nokia-platform-lc": "urn:nokia.com:srlinux:chassis:platform-lc/",
+        "LinecardForwardingComplexControlPlaneTraffic": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/control-plane-traffic",
+        "queuedAggregate": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/control-plane-traffic/queued-aggregate",
+        "queuedBytesAggregate": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/control-plane-traffic/queued-bytes-aggregate",
+        "droppedAggregate": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/control-plane-traffic/dropped-aggregate",
+        "droppedBytesAggregate": "srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/forwarding-complex/control-plane-traffic/dropped-bytes-aggregate"
+    }
+}

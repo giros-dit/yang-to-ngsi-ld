@@ -1,0 +1,21 @@
+{
+    "@context": {
+        "srl_nokia-network-instance": "urn:nokia.com:srlinux:net-inst:network-instance/",
+        "srl_nokia-ospf": "urn:nokia.com:srlinux:ospf:ospf/",
+        "InstanceAreaInterfaceBadPackets": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/bad-packets",
+        "badVersion": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/bad-packets/bad-version",
+        "badNetwork": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/bad-packets/bad-network",
+        "badArea": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/bad-packets/bad-area",
+        "badDestAddress": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/bad-packets/bad-dest-address",
+        "badNeighbors": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/bad-packets/bad-neighbors",
+        "badPacketType": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/bad-packets/bad-packet-type",
+        "badLength": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/bad-packets/bad-length",
+        "badHelloInterval": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/bad-packets/bad-hello-interval",
+        "badDeadInterval": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/bad-packets/bad-dead-interval",
+        "badOptions": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/bad-packets/bad-options",
+        "badChecksum": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/bad-packets/bad-checksum",
+        "badAuthType": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/bad-packets/bad-auth-type",
+        "authFailures": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/bad-packets/auth-failures",
+        "badVirtualLink": "srl_nokia-network-instance:network-instance/protocols/srl_nokia-ospf:ospf/instance/area/interface/bad-packets/bad-virtual-link"
+    }
+}

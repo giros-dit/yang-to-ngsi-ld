@@ -1,0 +1,88 @@
+[
+  {
+    "source": "clab-routing-testbed-r1:57400",
+    "timestamp": 1775567789084706403,
+    "time": "2026-04-07T15:16:29.084706403+02:00",
+    "updates": [
+      {
+        "Path": "srl_nokia:",
+        "values": {
+          "": {
+            "srl_nokia-network-instance:network-instance": [
+              {
+                "interface": [
+                  {
+                    "name": "ethernet-1/1.0"
+                  },
+                  {
+                    "name": "ethernet-1/2.0"
+                  },
+                  {
+                    "name": "ethernet-1/3.0"
+                  }
+                ],
+                "name": "default",
+                "srl_nokia-next-hop-groups:next-hop-groups": {
+                  "group": [
+                    {
+                      "name": "r1-to-r2",
+                      "nexthop": [
+                        {
+                          "admin-state": "enable",
+                          "index": 1,
+                          "ip-address": "10.10.10.2"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "r1-to-r3",
+                      "nexthop": [
+                        {
+                          "admin-state": "enable",
+                          "index": 1,
+                          "ip-address": "10.10.11.2"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "srl_nokia-static-routes:static-routes": {
+                  "route": [
+                    {
+                      "admin-state": "enable",
+                      "next-hop-group": "r1-to-r2",
+                      "prefix": "192.168.2.0/24"
+                    },
+                    {
+                      "admin-state": "enable",
+                      "next-hop-group": "r1-to-r3",
+                      "prefix": "192.168.3.0/24"
+                    }
+                  ]
+                }
+              },
+              {
+                "admin-state": "enable",
+                "description": "Management network instance",
+                "interface": [
+                  {
+                    "name": "mgmt0.0"
+                  }
+                ],
+                "name": "mgmt",
+                "protocols": {
+                  "srl_nokia-linux:linux": {
+                    "export-neighbors": true,
+                    "export-routes": true,
+                    "import-routes": true
+                  }
+                },
+                "type": "srl_nokia-network-instance:ip-vrf"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+]
