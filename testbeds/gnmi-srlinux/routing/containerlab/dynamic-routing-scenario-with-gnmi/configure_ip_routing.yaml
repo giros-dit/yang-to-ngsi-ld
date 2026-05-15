@@ -1,0 +1,14 @@
+updates:
+  # Habilitar instancia OSPF
+  - path: /network-instance[name=default]/protocols/ospf/instance[name=default]
+    encoding: json_ietf
+    value:
+      admin-state: enable
+      version: ospf-v2
+      router-id: {{ .Vars.Router_ID }}
+
+  # Asociar interfaz al área OSPF
+  - path: /network-instance[name=default]/protocols/ospf/instance[name=default]/area[area-id={{ .Vars.Area_ID }}]/interface[interface-name={{ printf "%s.0" .Vars.IF_NAME }}]
+    encoding: json_ietf
+    value:
+      interface-name: {{ printf "%s.0" .Vars.IF_NAME }}
