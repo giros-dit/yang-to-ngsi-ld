@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "YANG to NGSI-LD for NDT-LD"
+type: software
+version: "v3.0"
+license: Apache-2.0
+date-released: 2026-05-23
+authors:
+  - family-names: "González-Sánchez"
+    given-names: "Daniel"
+    orcid: "https://orcid.org/0000-0002-7691-0030"
+    affiliation: "Universidad Politécnica de Madrid"
+  - family-names: "Bellido Triana"
+    given-names: "Luis"
+    orcid: "https://orcid.org/0000-0001-9591-0928"
+    affiliation: "Universidad Politécnica de Madrid"
+  - family-names: "D. Martínez-Casanueva"
+    given-names: "Ignacio"
+    orcid: "https://orcid.org/0000-0002-8573-127X"
+    affiliation: "Universidad Politécnica de Madrid"
+  - family-names: "Martínez-García"
+    given-names: "David"
+    orcid: "https://orcid.org/0009-0004-7370-8015"
+    affiliation: "Universidad Politécnica de Madrid" 
+  - family-names: "Fernández"
+    given-names: "David"
+    orcid: "https://orcid.org/0000-0002-2172-9162"
+    affiliation: "Universidad Politécnica de Madrid" 
+url: "https://github.com/giros-dit/yang-to-ngsi-ld/releases/tag/v3.0"
+repository-code: "https://github.com/giros-dit/yang-to-ngsi-ld"
