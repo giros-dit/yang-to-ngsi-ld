@@ -13,7 +13,8 @@ while True:
     current_time = time.time_ns()
     current_datetime = datetime.datetime.now(datetime.timezone.utc)
 
-    data[0]['timestamp'] = current_time
+    for item in data:
+        item['timestamp'] = current_time
 
     producer.send('routing-state-notifications', value=json.dumps(data).encode('utf-8'))
     producer.flush()
